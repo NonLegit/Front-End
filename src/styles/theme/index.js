@@ -10,6 +10,9 @@ const theme = createTheme({
       main: '#FF4500',
       light: '#FF5414',
     },
+    test: {
+      main: 'red',
+    },
   },
 });
 export default theme;

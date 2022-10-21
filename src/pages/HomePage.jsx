@@ -1,6 +1,8 @@
+import HomePageContainer from '../components/HomePage/HomePageContainer/HomePageContainer';
+
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <HomePageContainer />
   );
 }
 
