@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
-import { Login } from '@mui/icons-material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
 import Messages from './pages/Messages';
