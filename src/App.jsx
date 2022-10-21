@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
 import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
@@ -12,6 +13,7 @@ import theme from './styles/theme';
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router className="App">
         <Navbar />
         <Routes>
