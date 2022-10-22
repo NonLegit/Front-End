@@ -5,6 +5,7 @@ function Timeline() {
   return (
     <TimelineContainer>
       <Post />
+      <Post />
     </TimelineContainer>
   );
 }
