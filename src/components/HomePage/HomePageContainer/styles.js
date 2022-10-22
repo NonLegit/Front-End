@@ -9,5 +9,5 @@ export const MainContainer = styled('div')({
 export const OuterContainer = styled(Box)({
   backgroundColor: '#DAE0E6',
   width: '100%',
-  height: '100vh',
+  height: '150vh',
 });
