@@ -8,6 +8,7 @@ import Moderation from './pages/Moderation';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import theme from './styles/theme';
+import CreatePost from './pages/CreatePost';
 
 function App() {
   return (
@@ -51,6 +52,12 @@ function App() {
             element={
               <Moderation />
           }
+          />
+          <Route
+            path="/submit"
+            element={
+              <CreatePost />
+            }
           />
         </Routes>
       </Router>

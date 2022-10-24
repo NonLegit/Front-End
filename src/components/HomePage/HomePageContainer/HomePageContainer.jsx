@@ -1,7 +1,12 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import Timeline from '../Timeline/Timeline';
+import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
-import SideBar from '../SideBar/SideBar';
+import SideBar from '../../SideBar/SideBar';
+import Post from '../../Post/Post';
+import Communities from '../Communities/Communities';
+import RedditPremium from '../RedditPremium/RedditPremium';
+import PersonalReddit from '../PersonalReddit/PersonalReddit';
+import HomePageFooter from '../HomePageFooter/HomePageFooter';
 
 function HomePageContainer() {
   const theme = useTheme();
@@ -9,8 +14,22 @@ function HomePageContainer() {
   return (
     <OuterContainer>
       <MainContainer>
-        <Timeline />
-        {match && <SideBar />}
+        <MainContent>
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+        </MainContent>
+        {match
+        && (
+        <SideBar>
+          <Communities />
+          <RedditPremium />
+          <PersonalReddit />
+          <HomePageFooter />
+        </SideBar>
+        )}
       </MainContainer>
     </OuterContainer>
   );

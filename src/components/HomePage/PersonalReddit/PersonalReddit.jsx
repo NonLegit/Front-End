@@ -1,6 +1,6 @@
 import { Divider, Typography } from '@mui/material';
 import {
-  RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage,
+  RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
 } from './styles';
 import RedditButton from '../../RedditButton/RedditButton';
 
@@ -27,12 +27,16 @@ function PersonalReddit() {
         Your personal Reddit frontpage. Come here to check in with your favorite communities.
       </Paragraph>
       <Divider sx={{ mt: 1.5 }} />
-      <RedditButton variant="contained" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-        create post
-      </RedditButton>
-      <RedditButton variant="outlined" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-        create community
-      </RedditButton>
+      <CustomLink to="/submit">
+        <RedditButton variant="contained" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
+          create post
+        </RedditButton>
+      </CustomLink>
+      <CustomLink>
+        <RedditButton variant="outlined" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
+          create community
+        </RedditButton>
+      </CustomLink>
     </RedditPersonal>
   );
 }

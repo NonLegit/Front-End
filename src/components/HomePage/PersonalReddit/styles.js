@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 export const RedditPersonal = styled('div')(() => ({
   padding: 12,
@@ -28,4 +29,9 @@ export const RedditImage = styled('img')(() => ({
 }));
 export const UpperImage = styled('img')(() => ({
   margin: '-12px -12px 0 -12px',
+}));
+export const CustomLink = styled(Link)(() => ({
+  textDecoration: 'none',
+  display: 'flex',
+  flexDirection: 'column',
 }));
