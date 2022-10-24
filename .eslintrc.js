@@ -33,5 +33,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     // disables line length check
     'max-len': ['error', { code: 2000 }],
+    // disabling disallow nested ternary expressions
+    'no-nested-ternary': 'off',
   },
 };
