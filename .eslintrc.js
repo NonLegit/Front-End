@@ -29,5 +29,8 @@ module.exports = {
     // disabling importing React
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+
+    // disable prefer export default
+    'import/prefer-default-export': 'off',
   },
 };
