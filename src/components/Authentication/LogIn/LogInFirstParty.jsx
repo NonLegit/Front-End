@@ -1,11 +1,15 @@
-import { Typography, Link } from '@mui/material';
-import { FirstPartyContainer, AuthenticationInput, AuthenticationButton } from '../AuthenticationConatiners/styles';
+import { Typography } from '@mui/material';
+import {
+  FirstPartyContainer, AuthenticationInput, AuthenticationButton, StyledLink,
+} from '../AuthenticationConatiners/styles';
 
 function LogInFirstParty() {
   const LogIn = () => {
     // Check nonempty inputfileds
     console.log('login');
     /* BackAPI */
+    // 1. Valid input username must be from 3-20 characters
+    // 2.Note on login a message appears at the bottom till loading
   };
   return (
     <FirstPartyContainer width="280px" onSubmit={LogIn}>
@@ -16,16 +20,16 @@ function LogInFirstParty() {
       <Typography paragraph fontSize="12px" fontFamily="ibm-plex-sans,sans-serif">
         Forgot your
         {' '}
-        <Link href="/username" fontWeight={400} underline="none">username</Link>
+        <StyledLink href="/username" fontWeight="400" capital="none">username</StyledLink>
         {' or '}
-        <Link href="/password" fontWeight={400} underline="none">password</Link>
+        <StyledLink href="/password" fontWeight="400" capital="none">password</StyledLink>
         {' ?'}
       </Typography>
 
       <Typography paragraph fontSize={12}>
         New to Reddit?
         {' '}
-        <Link href="/register" fontWeight={600} underline="none">SIGN UP</Link>
+        <StyledLink href="/register" fontWeight="600" capital="uppercase">sign up</StyledLink>
       </Typography>
     </FirstPartyContainer>
   );

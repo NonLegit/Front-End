@@ -1,5 +1,5 @@
 import {
-  Box, Typography, Button, TextField,
+  Box, Typography, Button, TextField, Link,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../styles/theme';
@@ -130,4 +130,16 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
     fontSize: '14px',
     letterSpacing: '0.5px',
   },
+}));
+
+export const StyledLink = styled(Link)(({ capital, fontWeight }) => ({
+
+  textTransform: `${capital}`,
+  fontWeight: (fontWeight !== undefined) ? `${fontWeight}` : '800',
+  textDecoration: 'none',
+
+  '&.MuiLink-root:hover': {
+    color: theme.palette.primary.fade,
+  },
+
 }));

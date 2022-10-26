@@ -1,5 +1,5 @@
-import { Typography, Link } from '@mui/material';
-import { AuthenticationTitle, AuthenticationHeader } from '../AuthenticationConatiners/styles';
+import { Typography } from '@mui/material';
+import { AuthenticationTitle, AuthenticationHeader, StyledLink } from '../AuthenticationConatiners/styles';
 
 function LogInTitle() {
   return (
@@ -8,11 +8,11 @@ function LogInTitle() {
       <Typography fontSize="12px" fontFamily="Noto Sans,sans-serif">
         By continuing, you agree to our
         {' '}
-        <Link href="https://www.redditinc.com/policies/user-agreement" underline="none">User Agreement</Link>
+        <StyledLink fontWeight="400" href="https://www.redditinc.com/policies/user-agreement" capital="none">User Agreement</StyledLink>
         {' '}
         and
         {' '}
-        <Link href="https://www.reddit.com/policies/privacy-policy" underline="none">Privacy Policy</Link>
+        <StyledLink fontWeight="400" href="https://www.reddit.com/policies/privacy-policy" capital="none">Privacy Policy</StyledLink>
         .
       </Typography>
     </AuthenticationTitle>
