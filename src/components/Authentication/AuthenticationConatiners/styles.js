@@ -35,10 +35,13 @@ export const AuthenticationBody = styled(Box)(() => ({
   padding: '20px',
 }));
 
-export const AuthenticationTitle = styled(Box)(({ height, width, mnwidth }) => ({
+export const AuthenticationTitle = styled(Box)(({
+  height, width, mnwidth, mxwidth,
+}) => ({
   height: `${height}`,
   width: `${width}`,
   minWidth: `${mnwidth}`,
+  maxWidth: `${mxwidth}`,
   padding: '5px',
   display: 'flex',
   flexDirection: 'column',
@@ -91,8 +94,11 @@ export const ButtonIcon = styled('img')(() => ({
   marginRight: '20px',
 }));
 
-export const FirstPartyContainer = styled('form')(({ width }) => ({
+export const FirstPartyContainer = styled('form')(({ width, mnwidth, mxwidth }) => ({
   width: `${width}`,
+  minWidth: `${mnwidth}`,
+  maxWidth: `${mxwidth}`,
+  marginTop: '20px',
   display: 'flex',
   flexDirection: 'column',
 }));
@@ -102,8 +108,8 @@ export const AuthenticationInput = styled(TextField)(() => ({
   marginBottom: '10px',
 }));
 
-export const AuthenticationButton = styled(Button)(() => ({
-  width: '100%',
+export const AuthenticationButton = styled(Button)(({ width }) => ({
+  width: `${width}`,
   height: 35,
   margin: '15px 0px',
 

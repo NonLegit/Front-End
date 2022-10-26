@@ -11,6 +11,7 @@ import Moderation from './pages/Moderation';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import theme from './styles/theme';
+import ForgetUsername from './pages/ForgetUsername';
 
 function App() {
   return (
@@ -41,6 +42,12 @@ function App() {
             path="/login"
             element={
               <Login />
+          }
+          />
+          <Route
+            path="/username"
+            element={
+              <ForgetUsername />
           }
           />
           <Route
