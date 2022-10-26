@@ -1,13 +1,12 @@
 import { Typography, Link } from '@mui/material';
-import { AuthenticationTitle, AuthenticationHeader } from '../../AuthenticationConatiners/styles';
+import { AuthenticationTitle, AuthenticationHeader } from '../AuthenticationConatiners/styles';
 
-function SignUpTitle() {
+function LogInTitle() {
   return (
-    <AuthenticationTitle height="100px" width="280px">
-      <AuthenticationHeader variant="h1">Sign up</AuthenticationHeader>
+    <AuthenticationTitle height="100px" width="100%" mnwidth="280px">
+      <AuthenticationHeader variant="h1">Log in</AuthenticationHeader>
       <Typography fontSize="12px" fontFamily="Noto Sans,sans-serif">
-        By continuing, you are setting up a Reddit account
-        and agree to our
+        By continuing, you agree to our
         {' '}
         <Link href="https://www.redditinc.com/policies/user-agreement" underline="none">User Agreement</Link>
         {' '}
@@ -20,4 +19,4 @@ function SignUpTitle() {
   );
 }
 
-export default SignUpTitle;
+export default LogInTitle;

@@ -11,14 +11,17 @@ export const DividerContainer = styled(Box)(() => ({
 
 export const Hr = styled('hr')(() => ({
   width: '40%',
-  height: '1px',
+  height: '0.5px',
   border: 'none',
   color: '#edeff1',
   backgroundColor: '#edeff1',
 }));
 
 export const DividerTxt = styled(Typography)(() => ({
-  fontSize: '14px',
-  fontWeight: '400',
   color: '#878a8c',
+  textTransform: 'uppercase',
+  fontFamily: 'ibm-plex-sans,sans-serif',
+  fontSize: '14px',
+  fontWeight: '500',
+  lineHeight: '18px',
 }));

@@ -30,14 +30,15 @@ export const AuthenticationBody = styled(Box)(() => ({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   alignItems: 'flex-start',
   padding: '20px',
 }));
 
-export const AuthenticationTitle = styled(Box)(({ height, width }) => ({
+export const AuthenticationTitle = styled(Box)(({ height, width, mnwidth }) => ({
   height: `${height}`,
   width: `${width}`,
+  minWidth: `${mnwidth}`,
   padding: '5px',
   display: 'flex',
   flexDirection: 'column',
@@ -46,8 +47,12 @@ export const AuthenticationTitle = styled(Box)(({ height, width }) => ({
 
 export const AuthenticationHeader = styled(Typography)(() => ({
   fontSize: '18px',
-  fontWeight: '500',
+  fontWeight: '505',
   lineHeight: '22px',
+  // fontFamily: 'ibm-plex-sans',
+  fontFamily: 'ibm-plex-sans,sans-serif',
+  // fontWeight: '400',
+  fontStyle: 'normal',
 }));
 
 export const ThirdPartyContainer = styled(Box)(({ width }) => ({
@@ -59,12 +64,17 @@ export const ThirdPartyButton = styled(Button)(() => ({
   width: '100%',
   height: 50,
   margin: '10px 0px',
+  padding: '0px',
+
+  fontFamily: 'ibm-plex-sans,sans-serif',
+  fontWeight: '600',
+  fontSize: '14px',
+  letterSpacing: '0.5px',
 
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'space-around',
+  justifyContent: 'flex-start',
   alignItems: 'center',
-  fontWeight: 'bold',
 
   '&:hover': {
     backgroundColor: theme.palette.primary.light,
@@ -74,7 +84,11 @@ export const ThirdPartyButton = styled(Button)(() => ({
 
 export const ButtonIcon = styled('img')(() => ({
   width: 30,
+  // height: '80%',
+  // padding: '2px',
   borderRadius: 4,
+  marginLeft: '5px',
+  marginRight: '20px',
 }));
 
 export const FirstPartyContainer = styled('form')(({ width }) => ({
@@ -92,7 +106,12 @@ export const AuthenticationButton = styled(Button)(() => ({
   width: '100%',
   height: 35,
   margin: '15px 0px',
-  fontWeight: '700',
+
+  fontFamily: 'ibm-plex-sans,sans-serif',
+  fontWeight: '600',
+  fontSize: '14px',
+  letterSpacing: '0.5px',
+
   backgroundColor: theme.palette.primary.main,
   color: 'white',
 
