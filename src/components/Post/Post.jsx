@@ -1,8 +1,6 @@
 // import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 // import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 // icons
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
@@ -23,10 +21,11 @@ import video from '../../assets/videos/mov_bbb.mp4';
 
 // styles
 import {
-  PostContainer, Voting, Votes, Popularity, PostInfo, PostInfoLink, PostTitle, PostMedia, PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
+  PostContainer, Popularity, PostInfo, PostInfoLink, PostTitle, PostMedia, PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
 } from './styles';
 import RedditButton from '../RedditButton/RedditButton';
 import JoinButton from '../JoinButton/JoinButton';
+import Reactions from '../Reactions/Reactions';
 
 function Post() {
   const [showMore, setShowMore] = useState(false);
@@ -38,13 +37,7 @@ function Post() {
   return (
     <PostContainer my={2}>
       {match && (
-      <Voting>
-        <ThumbUpOutlinedIcon />
-        <Votes my={1}>
-          15.2k
-        </Votes>
-        <ThumbDownOutlinedIcon />
-      </Voting>
+      <Reactions flexDirection="column" />
       )}
       <Box width="100%" p={1}>
         <Popularity pb={1}>
@@ -126,6 +119,9 @@ function Post() {
           {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
         </PostMedia>
         <PostActions mt={0.5}>
+          {!match && (
+          <Reactions flexDirection="row" />
+          )}
           <ActionButton color="third" startIcon={<ChatBubbleOutlineRoundedIcon />}>120 comments</ActionButton>
           <ActionButton color="third" startIcon={<CardGiftcardOutlinedIcon />}>award</ActionButton>
           <ActionButton color="third" startIcon={<ShareOutlinedIcon />}>Share</ActionButton>

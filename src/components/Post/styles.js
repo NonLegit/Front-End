@@ -16,21 +16,6 @@ export const PostContainer = styled(Box)(() => ({
   },
 }));
 
-export const Voting = styled(Box)(() => ({
-  width: 40,
-  padding: '8px 4px',
-  backgroundColor: '#F8F9FA',
-  display: 'flex',
-  flexDirection: 'column',
-  borderRadius: '3px 0 0 3px',
-  alignItems: 'center',
-}));
-
-export const Votes = styled(Box)(() => ({
-  fontSize: '12px',
-  fontWeight: 'bold',
-}));
-
 export const Popularity = styled(Box)(() => ({
   fontSize: '15px',
   color: '#1c1c1c',
