@@ -24,6 +24,12 @@ function App() {
           }
           />
           <Route
+            path="/:postClass"
+            element={
+              <HomePage />
+          }
+          />
+          <Route
             path="/user"
             element={
               <Profile />

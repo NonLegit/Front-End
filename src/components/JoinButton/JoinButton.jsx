@@ -7,7 +7,7 @@ function JoinButton() {
   const handleClick = () => {
     setJoined(!joined);
   };
-  console.log(joined);
+  // console.log(joined);
   const handleMouseIn = () => {
     setHover(true);
   };

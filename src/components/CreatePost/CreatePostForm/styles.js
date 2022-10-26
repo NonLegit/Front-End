@@ -78,5 +78,10 @@ export const PostText = styled('textarea')(({ theme }) => ({
 }));
 
 export const OptionButton = styled(RedditButton)(() => ({
+}));
 
+export const OCHelperText = styled(Typography)(() => ({
+  fontSize: 12,
+  fontWeight: 400,
+  marginBottom: 16,
 }));

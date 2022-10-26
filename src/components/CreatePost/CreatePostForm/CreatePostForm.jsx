@@ -1,16 +1,18 @@
 import { Box, Divider } from '@mui/material';
 import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
+import CheckIcon from '@mui/icons-material/Check';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import RedditButton from '../../RedditButton/RedditButton';
 import {
-  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, OptionButton,
+  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, OptionButton, OCHelperText,
 } from './styles';
 
 function CreatePostForm() {
   const [title, setTitle] = useState('');
   const [postText, setPostTitle] = useState('');
+  const [OC, setOC] = useState(false);
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -22,6 +24,10 @@ function CreatePostForm() {
   };
   const handleSaveDraft = (e) => {
     e.preventDefault();
+  };
+  const handleOC = () => {
+    setOC(!OC);
+    // console.log(OC);
   };
   return (
     <FormContainer>
@@ -56,18 +62,27 @@ function CreatePostForm() {
           />
           <Box display="flex" mb={2} gap={1}>
             <OptionButton
-              color="third"
-              variant="outlined"
+              color={(OC ? 'secondary' : 'third')}
+              variant={(OC ? 'contained' : 'outlined')}
               padding="3px 16px"
               fontSize={14}
               fontWeight="bold"
+              onClick={handleOC}
             >
-              <AddIcon
-                sx={{
+              {OC ? (
+                <CheckIcon sx={{
                   fontSize: 27,
                   marginRight: 0.6,
                 }}
-              />
+                />
+              ) : (
+                <AddIcon
+                  sx={{
+                    fontSize: 27,
+                    marginRight: 0.6,
+                  }}
+                />
+              )}
               OC
             </OptionButton>
             <OptionButton
@@ -118,6 +133,11 @@ function CreatePostForm() {
               <KeyboardArrowDownOutlinedIcon />
             </OptionButton>
           </Box>
+          {OC ? (
+            <OCHelperText>
+              Use the OC tag if you want to take credit for your post as Original Content.
+            </OCHelperText>
+          ) : null}
           <Divider />
           <Box my={2} gap={1} display="flex" justifyContent="flex-end">
             <RedditButton
