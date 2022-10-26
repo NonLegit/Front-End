@@ -9,6 +9,7 @@ export const RedditPersonal = styled('div')(() => ({
   backgroundColor: '#fff',
   marginTop: 16,
   borderRadius: 7,
+  border: '1px solid #ccc',
 }));
 
 export const Paragraph = styled(Box)(() => ({

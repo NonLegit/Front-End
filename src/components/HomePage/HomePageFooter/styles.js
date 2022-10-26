@@ -11,6 +11,7 @@ export const Footer = styled('div')(() => ({
   fontSize: 12,
   position: 'sticky',
   top: 16,
+  border: '1px solid #ccc',
 }));
 
 export const Column = styled(Link)(() => ({

@@ -10,6 +10,7 @@ export const PostsClassContainer = styled('div')(() => ({
   borderRadius: 4,
   display: 'flex',
   gap: 10,
+  border: '1px solid #ccc',
 }));
 
 export const CustomClassLink = styled(Link)(() => ({

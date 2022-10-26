@@ -20,6 +20,7 @@ export const CommunitiesContainer = styled('div')(() => ({
   backgroundColor: '#fff',
   borderRadius: '8px',
   marginTop: 16,
+  border: '1px solid #ccc',
 }));
 
 export const Layer = styled('div')(() => ({

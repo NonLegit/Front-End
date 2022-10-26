@@ -8,8 +8,8 @@ export const PostContainer = styled(Box)(() => ({
   width: '100%',
   backgroundColor: '#fff',
   display: 'flex',
-  border: '1px solid #eeeeee',
   borderRadius: 3,
+  border: '1px solid #ccc',
   '&:hover':
   {
     borderColor: '#999',

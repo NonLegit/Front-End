@@ -8,6 +8,7 @@ import RedditPremium from '../RedditPremium/RedditPremium';
 import PersonalReddit from '../PersonalReddit/PersonalReddit';
 import HomePageFooter from '../HomePageFooter/HomePageFooter';
 import PostsClassification from '../PostsClassification/PostsClassification';
+import CreatePostInHome from '../CreatePostInHome/CreatePostInHome';
 
 function HomePageContainer() {
   const theme = useTheme();
@@ -16,6 +17,7 @@ function HomePageContainer() {
     <OuterContainer>
       <MainContainer>
         <MainContent>
+          <CreatePostInHome />
           <PostsClassification />
           <Post />
           <Post />
