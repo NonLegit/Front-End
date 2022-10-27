@@ -121,7 +121,7 @@ export const AuthenticationInput = styled(TextField)(() => ({
 }));
 
 export const AuthenticationButton = styled(Button)(({ width }) => ({
-  width: `${width}`,
+  width: (width !== undefined) ? `${width}` : '100%',
   height: 35,
   margin: '15px 0px',
 
@@ -146,11 +146,12 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
 
 /// /////////////////////////////////////////////
 
-export const StyledLink = styled(Link)(({ capital, fontWeight }) => ({
+export const StyledLink = styled(Link)(({ capital, fontWeight, fontSize }) => ({
 
   textTransform: `${capital}`,
   fontWeight: (fontWeight !== undefined) ? `${fontWeight}` : '800',
   textDecoration: 'none',
+  fontSize: (fontSize !== undefined) ? `${fontSize}` : '12px',
 
   '&.MuiLink-root:hover': {
     color: theme.palette.primary.fade,

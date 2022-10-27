@@ -8,14 +8,15 @@ import { ThirdPartyContainer } from '../ThirdPartyButton/styles';
 import ThirdPartyButton from '../ThirdPartyButton/ThirdPartyButton';
 import Divider from '../Divider/Divider';
 
+import LoadingPage from '../LoadingPage/LoadingPage';
+
 import Google from '../../../assets/images/google.png';
 import Facebook from '../../../assets/images/facebook.png';
-import LoadingPage from '../LoadingPage/LoadingPage';
 
 function LogIn() {
   const [remeberMe, setremeberMe] = useState(false);
   useEffect(() => {
-    if (true) {
+    if (false) {
       setremeberMe(true);
     }
   }, []);
@@ -32,6 +33,10 @@ function LogIn() {
       .
     </>
   );
+
+  const logIn = () => {
+    console.log('login');
+  };
   return (
     <AuthenticationBody mnwidth="280px" mxwidth={remeberMe ? '440px' : '280px'}>
       {remeberMe ? <LoadingPage /> : (
@@ -42,7 +47,7 @@ function LogIn() {
             <ThirdPartyButton img={Facebook} alt="Facebook" txt="continue with facebook" />
           </ThirdPartyContainer>
           <Divider />
-          <FirstPartyContainer width="280px" onSubmit={LogIn}>
+          <FirstPartyContainer width="280px" onSubmit={logIn}>
             <AuthenticationInput label="USERNAME" variant="outlined" />
             <AuthenticationInput label="PASSWORD" variant="outlined" />
             <AuthenticationButton type="submit">Log In</AuthenticationButton>

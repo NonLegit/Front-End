@@ -4,7 +4,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import Signup from './pages/Signup';
 import LogInPage from './pages/LogInPage';
 import ForgetUsername from './pages/ForgetUsername';
-import ForgetPassword from './pages/ForgetPassword';
+import ForgetPasswordPage from './pages/ForgetPasswordPage';
 import ResetPassword from './pages/ResetPassword';
 
 // import Navbar from './components/Navbar/Navbar';
@@ -49,7 +49,7 @@ function App() {
           <Route
             path="/password"
             element={
-              <ForgetPassword />
+              <ForgetPasswordPage />
           }
           />
           <Route

@@ -23,7 +23,7 @@ export const AuthTitle = styled(Typography)(() => ({
   marginBottom: '5px',
 }));
 
-export const AuthTitleCaption = styled(Typography)((fontSize) => ({
+export const AuthTitleCaption = styled(Typography)(({ fontSize }) => ({
   fontSize: (fontSize !== undefined) ? `${fontSize}` : '12px',
   fontFamily: 'Noto Sans,sans-serif',
   fontWeight: '400',
