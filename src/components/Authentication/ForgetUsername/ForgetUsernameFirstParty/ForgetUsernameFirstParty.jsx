@@ -4,16 +4,16 @@ import {
 } from '../../AuthenticationConatiners/styles';
 
 function ForgetUsernameFirstParty() {
-  const RecoverPassword = () => {
+  const RecoverUsername = () => {
     // Check nonempty inputfileds
-    console.log('RecoverPassword');
+    console.log('RecoverUsername');
     /* BackAPI */
     // 1.Validate Email format and username
     // 2.Button becomes trick
     // 3.message appears
   };
   return (
-    <FirstPartyContainer mnwidth="260px" mxwidth="440px" onSubmit={RecoverPassword}>
+    <FirstPartyContainer mnwidth="260px" mxwidth="440px" onSubmit={RecoverUsername}>
       <AuthenticationInput label="Email Address" variant="outlined" />
 
       <AuthenticationButton type="submit" width="155px">Email Me</AuthenticationButton>

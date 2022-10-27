@@ -2,12 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import Signup from './pages/Signup';
-import Login from './pages/Login';
+import LogInPage from './pages/LogInPage';
 import ForgetUsername from './pages/ForgetUsername';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
 
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
 import Messages from './pages/Messages';
 import Moderation from './pages/Moderation';
@@ -20,7 +20,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router className="App">
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route
             path="/"
@@ -43,7 +43,7 @@ function App() {
           <Route
             path="/login"
             element={
-              <Login />
+              <LogInPage />
           }
           />
           <Route

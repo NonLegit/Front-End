@@ -8,6 +8,10 @@ function ForgetPasswordFirstParty() {
     // Check nonempty inputfileds
     console.log('RecoverPassword');
     /* BackAPI */
+    // 1.Validate Email
+    // 2.I am not a robot appears after entering username
+    // 3.Message Appears
+    // 4.This page is kept no direction here just this message appears
   };
   return (
     <FirstPartyContainer mnwidth="260px" mxwidth="440px" onSubmit={RecoverPassword}>

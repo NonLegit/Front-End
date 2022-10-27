@@ -4,36 +4,44 @@ import {
 import { styled } from '@mui/material/styles';
 import theme from '../../../styles/theme';
 
-export const AuthenticationConatiner = styled(Box)(() => ({
-  height: '100vh',
-  width: '100vw',
+export const AuthenticationConatiner = styled('div')(() => ({
+  height: 'max-content',
+  minHeight: '100vh',
+  // width: '100%',
 
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'center',
+  alignItems: 'space-around',
+  justifyContent: 'flex-start',
+
 }));
 
-export const AuthenticationBG = styled(Box)(() => ({
-  height: '100%',
+export const AuthenticationBG = styled('Box')(() => ({
+  height: '100vh',
   width: '156px',
   backgroundImage: 'url("https://www.redditstatic.com/accountmanager/bbb584033aa89e39bad69436c504c9bd.png")',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
+}));
 
-  [theme.breakpoints.down(400)]: {
-    display: 'none',
+export const AuthenticationBody = styled(Box)(({ mnwidth, mxwidth }) => ({
+  width: 'max-content',
+  minHeight: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  padding: '20px',
+  // backgroundColor: 'pink',
+
+  '&>*': {
+    minWidth: `${mnwidth}`,
+    maxWidth: `${mxwidth}`,
+    // backgroundColor: 'blue',
   },
 }));
 
-export const AuthenticationBody = styled(Box)(() => ({
-  height: '100%',
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-start',
-  alignItems: 'flex-start',
-  padding: '20px',
-}));
+/// //////////////////////////////////////////////////
 
 export const AuthenticationTitle = styled(Box)(({
   height, width, mnwidth, mxwidth,
@@ -57,6 +65,8 @@ export const AuthenticationHeader = styled(Typography)(() => ({
   // fontWeight: '400',
   fontStyle: 'normal',
 }));
+
+/// /////////////////////////////////////////////
 
 export const ThirdPartyContainer = styled(Box)(({ width }) => ({
   width: `${width}`,
@@ -94,11 +104,13 @@ export const ButtonIcon = styled('img')(() => ({
   marginRight: '20px',
 }));
 
+/// ////////////////////////////////////////
 export const FirstPartyContainer = styled('form')(({ width, mnwidth, mxwidth }) => ({
   width: `${width}`,
   minWidth: `${mnwidth}`,
   maxWidth: `${mxwidth}`,
   marginTop: '20px',
+  marginBottom: '10px',
   display: 'flex',
   flexDirection: 'column',
 }));
@@ -131,6 +143,8 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
     letterSpacing: '0.5px',
   },
 }));
+
+/// /////////////////////////////////////////////
 
 export const StyledLink = styled(Link)(({ capital, fontWeight }) => ({
 
