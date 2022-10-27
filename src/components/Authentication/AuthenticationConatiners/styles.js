@@ -32,12 +32,12 @@ export const AuthenticationBody = styled(Box)(({ mnwidth, mxwidth }) => ({
   justifyContent: 'center',
   alignItems: 'flex-start',
   padding: '20px',
-  // backgroundColor: 'pink',
+  backgroundColor: 'pink',
 
   '&>*': {
     minWidth: `${mnwidth}`,
     maxWidth: `${mxwidth}`,
-    // backgroundColor: 'blue',
+    backgroundColor: 'blue',
   },
 }));
 

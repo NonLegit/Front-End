@@ -1,5 +1,6 @@
 import { AuthenticationConatiner, AuthenticationBG, AuthenticationBody } from '../components/Authentication/AuthenticationConatiners/styles';
-import ResetPasswordFirstParty from '../components/Authentication/ResetPassword/ReserPasswordFirstParty/ResetPasswordFirstParty';
+// import ResetPasswordFirstParty from '.
+// ./components/Authentication/ResetPassword/ReserPasswordFirstParty/ResetPasswordFirstParty';
 import ResetPasswordTitle from '../components/Authentication/ResetPassword/ResetPasswordTitle/ResetPasswordTitle';
 
 function ResetPassword() {
@@ -9,7 +10,7 @@ function ResetPassword() {
       <AuthenticationBody>
         <div style={{ margin: 'auto 0px' }}>
           <ResetPasswordTitle />
-          <ResetPasswordFirstParty />
+          {/* <ResetPasswordFirstParty /> */}
         </div>
       </AuthenticationBody>
     </AuthenticationConatiner>

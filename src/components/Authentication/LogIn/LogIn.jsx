@@ -10,13 +10,13 @@ import Divider from '../Divider/Divider';
 
 import Google from '../../../assets/images/google.png';
 import Facebook from '../../../assets/images/facebook.png';
-import LoadingPage from '../AuthenticationConatiners/LoadingPage';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 function LogIn() {
   const [remeberMe, setremeberMe] = useState(false);
   useEffect(() => {
     if (true) {
-      setremeberMe(false);
+      setremeberMe(true);
     }
   }, []);
 
@@ -33,7 +33,7 @@ function LogIn() {
     </>
   );
   return (
-    <AuthenticationBody mnwidth="280px" mxwidth="280px">
+    <AuthenticationBody mnwidth="280px" mxwidth={remeberMe ? '440px' : '280px'}>
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit={false} title="Log in" caption={caption} />
