@@ -2,7 +2,7 @@ import {
   Box, Button, TextField, Link,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../../../styles/theme';
+import theme from '../../styles/theme';
 
 export const AuthenticationConatiner = styled(Box)(() => ({
   height: 'max-content',

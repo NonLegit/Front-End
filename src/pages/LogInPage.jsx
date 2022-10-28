@@ -1,4 +1,4 @@
-import { AuthenticationBG, AuthenticationConatiner } from '../components/Authentication/AuthenticationConatiners/styles';
+import { AuthenticationBG, AuthenticationConatiner } from '../components/Authentication/styles';
 import LogIn from '../components/Authentication/LogIn/LogIn';
 
 function LogInPage() {

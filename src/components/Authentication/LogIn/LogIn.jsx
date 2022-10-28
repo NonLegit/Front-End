@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import {
   AuthenticationBody, AuthenticationInput, AuthenticationButton, FirstPartyContainer, StyledLink,
-} from '../AuthenticationConatiners/styles';
+} from '../styles';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import { ThirdPartyContainer } from '../ThirdPartyButton/styles';
 import ThirdPartyButton from '../ThirdPartyButton/ThirdPartyButton';
@@ -14,10 +14,10 @@ import Google from '../../../assets/images/google.png';
 import Facebook from '../../../assets/images/facebook.png';
 
 function LogIn() {
-  const [remeberMe, setremeberMe] = useState(false);
+  const [remeberMe, setRemeberMe] = useState(false);
   useEffect(() => {
     if (false) {
-      setremeberMe(true);
+      setRemeberMe(true);
     }
   }, []);
 

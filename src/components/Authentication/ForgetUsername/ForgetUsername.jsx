@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import {
   AuthenticationBody, FirstPartyContainer, AuthenticationInput, AuthenticationButton, StyledLink,
-} from '../AuthenticationConatiners/styles';
+} from '../styles';
 
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';

@@ -1,4 +1,4 @@
-import { StyledLink } from '../AuthenticationConatiners/styles';
+import { StyledLink } from '../styles';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 
 function LoadingPage() {

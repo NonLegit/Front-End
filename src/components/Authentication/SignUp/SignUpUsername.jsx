@@ -1,7 +1,7 @@
 import { IconButton, Typography, Button } from '@mui/material';
 import UpdateIcon from '@mui/icons-material/Update';
 import { useState } from 'react';
-import { AuthenticationButton, FirstPartyContainer, AuthenticationInput } from '../AuthenticationConatiners/styles';
+import { AuthenticationButton, FirstPartyContainer, AuthenticationInput } from '../styles';
 import {
   Body, ChooseUsernameContainer, Footer, Header, SuggestionBox, TopBox,
 } from './styles';

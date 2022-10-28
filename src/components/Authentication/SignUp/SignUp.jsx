@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import {
   AuthenticationBG, AuthenticationConatiner, AuthenticationBody,
   AuthenticationInput, AuthenticationButton, FirstPartyContainer, StyledLink,
-} from '../AuthenticationConatiners/styles';
+} from '../styles';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import { ThirdPartyContainer } from '../ThirdPartyButton/styles';
 import ThirdPartyButton from '../ThirdPartyButton/ThirdPartyButton';

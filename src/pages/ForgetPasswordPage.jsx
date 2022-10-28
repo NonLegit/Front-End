@@ -1,4 +1,4 @@
-import { AuthenticationBG, AuthenticationConatiner } from '../components/Authentication/AuthenticationConatiners/styles';
+import { AuthenticationBG, AuthenticationConatiner } from '../components/Authentication/styles';
 import ForgetPassword from '../components/Authentication/ForgetPassword/ForgetPassword';
 
 function ForgetPasswordPage() {

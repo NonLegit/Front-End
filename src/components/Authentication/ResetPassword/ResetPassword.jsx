@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Typography, Checkbox } from '@mui/material';
 import {
   AuthenticationBody, FirstPartyContainer, AuthenticationInput, AuthenticationButton, StyledLink,
-} from '../AuthenticationConatiners/styles';
+} from '../styles';
 
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import { CheckBoxConatiner } from './styles';
