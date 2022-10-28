@@ -6,9 +6,6 @@ import ModerationDrawer from '../components/Moderation/ModerationDrawer/Moderati
 import ModerationHeader from '../components/Moderation/ModerationHeader/ModerationHeader';
 import ModerationMainPage from '../components/Moderation/ModerationMainPage/ModerationMainPage';
 import Queue from '../components/Moderation/ModQueues/Queue';
-// import { ModMainPage } from '../components/Moderation/ModerationMainPage/styles';
-// import Queue from '../components/Moderation/ModQueues/Queue/Queue';
-// import Profile from './Profile';
 
 const renderSwitch = (param) => {
   switch (param) {
@@ -26,7 +23,7 @@ function Moderation() {
   return (
     <>
       <ModerationHeader />
-      <Box sx={{ marginTop: 5 }}>
+      <Box sx={{ marginTop: 7 }}>
         <ModerationDrawer />
         {renderSwitch(subTitle)}
 

@@ -17,10 +17,10 @@ export const FooterText = styled(Typography)(() => ({
 export const ElementBox = styled(Box)(({ condition, condition2, theme }) => ({
   height: '100%',
   display: 'flex',
-  marginRight: 2,
+  marginRight: 1,
   alignItems: 'center',
   borderRadius: 4,
-  padding: 10,
+  padding: 5,
   color: theme.palette.grey[500],
   '&:hover': {
     backgroundColor: '#1a1a1b1a',

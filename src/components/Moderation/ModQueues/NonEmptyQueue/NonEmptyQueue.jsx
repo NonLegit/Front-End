@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Filter from '../Filter/Filter';
 import FooterQueue from './FooterQueue/FooterQueue';
 import HeaderQueue from './HeaderQueue/HeaderQueue';
@@ -31,12 +31,12 @@ function NonEmptyQueue(props) {
       <PostsQueueBox>
         <SideBarQueue subTitle={subTitle} />
         <PostContentBox>
-          <Container>
+          <Box sx={{ marginLeft: 1 }}>
             <HeaderQueue subTitle={subTitle} />
             <TitlePost variant="h6">{content.Title}</TitlePost>
             <ParagraphPost variant="body2">{content.Paragraph}</ParagraphPost>
             <FooterQueue subTitle={subTitle} />
-          </Container>
+          </Box>
         </PostContentBox>
       </PostsQueueBox>
       <SwitchPage />

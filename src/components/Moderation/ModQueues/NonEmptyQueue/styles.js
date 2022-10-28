@@ -16,11 +16,6 @@ export const PostsQueueBox = styled(Box)(() => ({
   },
 }));
 
-// export const Image = styled('img')(() => ({
-//   height: 50,
-//   width: 50,
-// }));
-
 export const PostContentBox = styled(Box)(() => ({
   height: '100%',
   width: '100%',

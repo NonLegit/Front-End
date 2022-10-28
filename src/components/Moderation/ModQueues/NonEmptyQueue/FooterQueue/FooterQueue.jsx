@@ -6,6 +6,7 @@ import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
 import { ElementBox, FooterBox, FooterText } from './styles';
 
 function FooterQueue(props) {
@@ -17,10 +18,13 @@ function FooterQueue(props) {
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption">{numComments}</FooterText>
       </ElementBox>
+      {(subTitle !== 'Unmoderated') && (
       <ElementBox>
         <CardGiftcardOutlinedIcon />
         <FooterText variant="caption">Award</FooterText>
       </ElementBox>
+      )}
+
       <ElementBox>
         <ShortcutOutlinedIcon />
         <FooterText variant="caption">Share</FooterText>
@@ -32,6 +36,10 @@ function FooterQueue(props) {
       <ElementBox condition={(subTitle === 'Spam').toString()}>
         <BlockOutlinedIcon />
         <FooterText variant="caption">Removed</FooterText>
+      </ElementBox>
+      <ElementBox>
+        <CancelPresentationOutlinedIcon />
+        <FooterText variant="caption">Spam</FooterText>
       </ElementBox>
       <ElementBox>
         <AdminPanelSettingsOutlinedIcon />
