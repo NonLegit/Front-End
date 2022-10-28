@@ -7,7 +7,7 @@ import {
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';
 
-function ForgetPassword() {
+function ForgetUsername() {
   const [remeberMe, setremeberMe] = useState(false);
   useEffect(() => {
     if (false) {
@@ -17,13 +17,14 @@ function ForgetPassword() {
 
   const caption = (
     <>
-      Tell us the username and email address associated with
-      your Reddit account, and we’ll send you an email with a link to reset your password.
+      Tell us the email address associated with your Reddit account, and we’ll
+      send you an email with your username.
     </>
   );
 
-  const recoverPassword = () => {
-    console.log('login');
+  const recoverUsername = () => {
+    // Check nonempty inputfileds
+    console.log('RecoverUsername');
     /* BackAPI */
     // 1.Validate Email format and username
     // 2.Button becomes trick
@@ -33,15 +34,13 @@ function ForgetPassword() {
     <AuthenticationBody mnwidth="280px" mxwidth="440px">
       {remeberMe ? <LoadingPage /> : (
         <>
-          <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-          <FirstPartyContainer width="280px" onSubmit={recoverPassword}>
-            <AuthenticationInput label="Username" variant="outlined" />
-            <AuthenticationInput label="Email" variant="outlined" />
-
-            <AuthenticationButton type="submit" width="155px">Reset Password</AuthenticationButton>
-            <StyledLink href="/username" fontWeight="600" capital="uppercase">FORGOT USERNAME?</StyledLink>
+          <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
+          <FirstPartyContainer onSubmit={recoverUsername}>
+            <AuthenticationInput label="Email Address" variant="outlined" />
+            <AuthenticationButton type="submit" width="155px">Email Me</AuthenticationButton>
           </FirstPartyContainer>
-          <Typography paragraph fontSize="12px" margin="10px 0px">
+
+          <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
             Don
             {'\''}
             t have an email or need assistance logging in? GET HELP
@@ -58,4 +57,4 @@ function ForgetPassword() {
   );
 }
 
-export default ForgetPassword;
+export default ForgetUsername;

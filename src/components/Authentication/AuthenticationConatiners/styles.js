@@ -4,7 +4,7 @@ import {
 import { styled } from '@mui/material/styles';
 import theme from '../../../styles/theme';
 
-export const AuthenticationConatiner = styled('div')(() => ({
+export const AuthenticationConatiner = styled(Box)(() => ({
   height: 'max-content',
   minHeight: '100vh',
   // width: '100%',
@@ -16,7 +16,7 @@ export const AuthenticationConatiner = styled('div')(() => ({
 
 }));
 
-export const AuthenticationBG = styled('Box')(() => ({
+export const AuthenticationBG = styled(Box)(() => ({
   height: '100vh',
   width: '156px',
   backgroundImage: 'url("https://www.redditstatic.com/accountmanager/bbb584033aa89e39bad69436c504c9bd.png")',
@@ -68,8 +68,8 @@ export const AuthenticationHeader = styled(Typography)(() => ({
 
 /// /////////////////////////////////////////////
 
-export const ThirdPartyContainer = styled(Box)(({ width }) => ({
-  width: `${width}`,
+export const ThirdPartyContainer = styled(Box)(() => ({
+  width: '100%',
   marginTop: 20,
 }));
 
@@ -105,10 +105,8 @@ export const ButtonIcon = styled('img')(() => ({
 }));
 
 /// ////////////////////////////////////////
-export const FirstPartyContainer = styled('form')(({ width, mnwidth, mxwidth }) => ({
-  width: `${width}`,
-  minWidth: `${mnwidth}`,
-  maxWidth: `${mxwidth}`,
+export const FirstPartyContainer = styled('form')(({ width }) => ({
+  width: (width !== undefined) ? `${width}` : '100%',
   marginTop: '20px',
   marginBottom: '10px',
   display: 'flex',
