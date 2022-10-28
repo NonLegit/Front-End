@@ -9,6 +9,7 @@ import PersonalReddit from '../PersonalReddit/PersonalReddit';
 import HomePageFooter from '../HomePageFooter/HomePageFooter';
 import PostsClassification from '../PostsClassification/PostsClassification';
 import CreatePostInHome from '../CreatePostInHome/CreatePostInHome';
+import BackToTop from '../../BackToTop/BackToTop';
 
 function HomePageContainer() {
   const theme = useTheme();
@@ -32,6 +33,7 @@ function HomePageContainer() {
           <RedditPremium />
           <PersonalReddit />
           <HomePageFooter />
+          <BackToTop />
         </SideBar>
         )}
       </MainContainer>
