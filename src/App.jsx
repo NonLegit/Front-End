@@ -1,6 +1,5 @@
-import { ThemeProvider } from '@emotion/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
@@ -48,11 +47,24 @@ function App() {
           }
           />
           <Route
-            path="/moderation"
+            path="/r/:subReddit/about/"
             element={
               <Moderation />
           }
-          />
+          >
+            <Route
+              path=":subTitle"
+              element={
+                <Moderation />
+          }
+            />
+            <Route
+              path=""
+              element={
+                <Moderation />
+          }
+            />
+          </Route>
         </Routes>
       </Router>
     </ThemeProvider>
