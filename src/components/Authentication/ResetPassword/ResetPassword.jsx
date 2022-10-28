@@ -1,19 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Typography, Checkbox } from '@mui/material';
 import {
   AuthenticationBody, FirstPartyContainer, AuthenticationInput, AuthenticationButton, StyledLink,
 } from '../AuthenticationConatiners/styles';
 
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
-import LoadingPage from '../LoadingPage/LoadingPage';
 import { CheckBoxConatiner } from './styles';
 
 function ResetPassword() {
-  const [remeberMe, setremeberMe] = useState(false);
   useEffect(() => {
-    if (false) {
-      setremeberMe(true);
-    }
   }, []);
 
   const caption = (
@@ -33,29 +28,25 @@ function ResetPassword() {
   };
   return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px">
-      {remeberMe ? <LoadingPage /> : (
-        <>
-          <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-          <FirstPartyContainer onSubmit={resetPassword}>
-            <AuthenticationInput label="New Password" variant="outlined" />
-            <AuthenticationInput label="Verify Password" variant="outlined" />
-            <CheckBoxConatiner>
-              <Checkbox sx={{ padding: '0px 5px 0px 0px' }} />
-              <Typography fontSize="12px" fontWeight="400">
-                Changing your password logs you out of all browsers on your device(s).
-                {' '}
-                Checking this box also logs you out of all apps you have authorized.
-              </Typography>
-            </CheckBoxConatiner>
-            <AuthenticationButton type="submit" width="155px">set Password</AuthenticationButton>
-          </FirstPartyContainer>
-          <Typography paragraph fontSize="12px" marginTop="10px" color="#3394DC">
-            <StyledLink href="/login" fontWeight="600" capital="uppercase">log in</StyledLink>
-            {' • '}
-            <StyledLink href="/register" fontWeight="600" capital="uppercase">sign up</StyledLink>
+      <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
+      <FirstPartyContainer onSubmit={resetPassword}>
+        <AuthenticationInput label="New Password" variant="outlined" />
+        <AuthenticationInput label="Verify Password" variant="outlined" />
+        <CheckBoxConatiner>
+          <Checkbox sx={{ padding: '0px 5px 0px 0px' }} />
+          <Typography fontSize="12px" fontWeight="400">
+            Changing your password logs you out of all browsers on your device(s).
+            {' '}
+            Checking this box also logs you out of all apps you have authorized.
           </Typography>
-        </>
-      )}
+        </CheckBoxConatiner>
+        <AuthenticationButton type="submit" width="155px">set Password</AuthenticationButton>
+      </FirstPartyContainer>
+      <Typography paragraph fontSize="12px" marginTop="10px" color="#3394DC">
+        <StyledLink href="/login" fontWeight="600" capital="uppercase">log in</StyledLink>
+        {' • '}
+        <StyledLink href="/register" fontWeight="600" capital="uppercase">sign up</StyledLink>
+      </Typography>
     </AuthenticationBody>
   );
 }

@@ -1,5 +1,5 @@
 import {
-  Box, Typography, Button, TextField, Link,
+  Box, Button, TextField, Link,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../styles/theme';
@@ -32,81 +32,16 @@ export const AuthenticationBody = styled(Box)(({ mnwidth, mxwidth }) => ({
   justifyContent: 'center',
   alignItems: 'flex-start',
   padding: '20px',
-  backgroundColor: 'pink',
 
   '&>*': {
     minWidth: `${mnwidth}`,
     maxWidth: `${mxwidth}`,
-    backgroundColor: 'blue',
   },
 }));
 
-/// //////////////////////////////////////////////////
-
-export const AuthenticationTitle = styled(Box)(({
-  height, width, mnwidth, mxwidth,
-}) => ({
-  height: `${height}`,
-  width: `${width}`,
-  minWidth: `${mnwidth}`,
-  maxWidth: `${mxwidth}`,
-  padding: '5px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-around',
-}));
-
-export const AuthenticationHeader = styled(Typography)(() => ({
-  fontSize: '18px',
-  fontWeight: '505',
-  lineHeight: '22px',
-  // fontFamily: 'ibm-plex-sans',
-  fontFamily: 'ibm-plex-sans,sans-serif',
-  // fontWeight: '400',
-  fontStyle: 'normal',
-}));
-
-/// /////////////////////////////////////////////
-
-export const ThirdPartyContainer = styled(Box)(() => ({
-  width: '100%',
-  marginTop: 20,
-}));
-
-export const ThirdPartyButton = styled(Button)(() => ({
-  width: '100%',
-  height: 50,
-  margin: '10px 0px',
-  padding: '0px',
-
-  fontFamily: 'ibm-plex-sans,sans-serif',
-  fontWeight: '600',
-  fontSize: '14px',
-  letterSpacing: '0.5px',
-
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-
-  '&:hover': {
-    backgroundColor: theme.palette.primary.light,
-    color: 'white',
-  },
-}));
-
-export const ButtonIcon = styled('img')(() => ({
-  width: 30,
-  // height: '80%',
-  // padding: '2px',
-  borderRadius: 4,
-  marginLeft: '5px',
-  marginRight: '20px',
-}));
-
-/// ////////////////////////////////////////
-export const FirstPartyContainer = styled('form')(({ width }) => ({
+export const FirstPartyContainer = styled('form')(({ width, mnwidth }) => ({
   width: (width !== undefined) ? `${width}` : '100%',
+  minWidth: (mnwidth !== undefined) ? `${mnwidth}` : null,
   marginTop: '20px',
   marginBottom: '10px',
   display: 'flex',
@@ -141,8 +76,6 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
     letterSpacing: '0.5px',
   },
 }));
-
-/// /////////////////////////////////////////////
 
 export const StyledLink = styled(Link)(({ capital, fontWeight, fontSize }) => ({
 

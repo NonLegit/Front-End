@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import Signup from './pages/Signup';
+import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
 import ForgetUsernamePage from './pages/ForgetUsernamePage';
 import ForgetPasswordPage from './pages/ForgetPasswordPage';
@@ -37,7 +37,7 @@ function App() {
           <Route
             path="/register"
             element={
-              <Signup />
+              <SignUpPage />
           }
           />
           <Route
