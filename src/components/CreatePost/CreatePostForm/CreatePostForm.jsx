@@ -1,22 +1,36 @@
-import { Box, Divider } from '@mui/material';
+import {
+  Box, Divider, Typography,
+} from '@mui/material';
+
 import { useState } from 'react';
+
 import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined';
+import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+
 import RedditButton from '../../RedditButton/RedditButton';
+
 import {
-  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, OptionButton, OCHelperText,
+  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, OptionButton, OCHelperText, CustomTab, CustomTabs, PostMediaContainer, UploadButton, PostUrl,
 } from './styles';
 
 function CreatePostForm() {
   const [title, setTitle] = useState('');
-  const [postText, setPostTitle] = useState('');
+  const [postText, setPostTitle] = useState();
+  const [postMedia, setPostMedia] = useState([]);
+  const [postUrl, setPostUrl] = useState('');
   const [OC, setOC] = useState(false);
+  const [postType, setPostType] = useState(0);
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+    // console.log(36727);
   };
   const handlePostTextChange = (e) => {
+    // console.log(e.target.value);
     setPostTitle(e.target.value);
   };
   const handlePost = (e) => {
@@ -27,7 +41,25 @@ function CreatePostForm() {
   };
   const handleOC = () => {
     setOC(!OC);
-    // console.log(OC);
+  };
+  const handlePostType = (e, newPostType) => {
+    // console.log(newPostType);
+    setPostType(newPostType);
+  };
+  const handleUrlChange = (e) => {
+    setPostUrl(e.target.value);
+    // console.log(e);
+  };
+  const handleUrlEnter = (e) => {
+    // console.log(e);
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  };
+  const handlePostMedia = (e) => {
+    console.log(e.target.files);
+    const files = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
+    setPostMedia([...postMedia, ...files]);
   };
   return (
     <FormContainer>
@@ -44,6 +76,13 @@ function CreatePostForm() {
       </TitleContainer>
       <CustomDivider />
       <PostFormContainer>
+        <CustomTabs value={postType} onChange={handlePostType}>
+          <CustomTab icon={<PostAddOutlinedIcon />} iconPosition="start" label="post" value={0} />
+          <Divider orientation="vertical" flexItem light />
+          <CustomTab icon={<ImageOutlinedIcon />} iconPosition="start" label="images & videos" value={1} />
+          <Divider orientation="vertical" flexItem light />
+          <CustomTab icon={<AttachFileIcon sx={{ transform: 'rotate(45deg)' }} />} iconPosition="start" label="link" value={2} />
+        </CustomTabs>
         <FieldsContainer>
           <Box position="relative" display="flex" flexDirection="column">
             <PostTitle
@@ -53,13 +92,42 @@ function CreatePostForm() {
               onChange={handleTitleChange}
             />
           </Box>
-          <PostText
-            cols="30"
-            rows="10"
-            placeholder="Text(optional)"
-            value={postText}
-            onChange={handlePostTextChange}
-          />
+          {postType === 0 ? (
+            <PostText
+              placeholder="Text(optional)"
+              value={postText}
+              onChange={handlePostTextChange}
+            />
+          ) : null}
+          {postType === 1 ? (
+            <PostMediaContainer>
+              <Typography>
+                Drag and drop images or
+              </Typography>
+              <UploadButton
+                component="label"
+                variant="outlined"
+              >
+                upload
+                <input
+                  hidden
+                  accept="video/*,image/*"
+                  multiple
+                  type="file"
+                  onChange={handlePostMedia}
+                />
+              </UploadButton>
+              {postMedia.map((media) => (<img key={media} src={media} width={100} alt="" />))}
+            </PostMediaContainer>
+          ) : null}
+          {postType === 2 ? (
+            <PostUrl
+              placeholder="Url"
+              value={postUrl}
+              onChange={handleUrlChange}
+              onKeyDown={handleUrlEnter}
+            />
+          ) : null}
           <Box display="flex" mb={2} gap={1}>
             <OptionButton
               color={(OC ? 'secondary' : 'third')}

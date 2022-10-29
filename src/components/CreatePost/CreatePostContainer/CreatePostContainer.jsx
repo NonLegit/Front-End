@@ -10,7 +10,7 @@ function CreatePostContainer() {
   return (
     <OuterContainer>
       <MainContainer>
-        <MainContent>
+        <MainContent width={740}>
           <CreatePostForm />
         </MainContent>
         {match

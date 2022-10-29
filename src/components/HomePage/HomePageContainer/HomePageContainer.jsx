@@ -17,7 +17,7 @@ function HomePageContainer() {
   return (
     <OuterContainer>
       <MainContainer>
-        <MainContent>
+        <MainContent width={640}>
           <CreatePostInHome />
           <PostsClassification />
           <Post />

@@ -1,8 +1,8 @@
 import { MainContentContainer } from './styles';
 
-function MainContent({ children }) {
+function MainContent({ children, width }) {
   return (
-    <MainContentContainer>
+    <MainContentContainer width={width}>
       {children}
     </MainContentContainer>
   );

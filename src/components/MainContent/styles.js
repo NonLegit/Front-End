@@ -1,8 +1,8 @@
 import { styled } from '@mui/system';
 
-export const MainContentContainer = styled('div')(({ theme }) => ({
+export const MainContentContainer = styled('div')(({ theme, width }) => ({
   [theme.breakpoints.up('md')]: {
-    width: 640,
+    width,
   },
   [theme.breakpoints.down('md')]: {
     width: '100%',
