@@ -1,22 +1,17 @@
 import {
-  Box, Divider, Typography,
+  Box, Divider,
 } from '@mui/material';
 
 import { useState } from 'react';
 
-import AddIcon from '@mui/icons-material/Add';
-import CheckIcon from '@mui/icons-material/Check';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
-import AttachFileIcon from '@mui/icons-material/AttachFile';
-
-import RedditButton from '../../RedditButton/RedditButton';
-
 import {
-  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, OptionButton, OCHelperText, CustomTab, CustomTabs, PostMediaContainer, UploadButton, PostUrl,
+  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl,
 } from './styles';
+
+import PostMedia from '../PostMedia/PostMedia';
+import PostTags from '../PostTags/PostTags';
+import PostSubmission from '../PostSubmission/PostSubmission';
+import PostTypes from '../PostTypes/PostTypes';
 
 function CreatePostForm() {
   const [title, setTitle] = useState('');
@@ -76,13 +71,7 @@ function CreatePostForm() {
       </TitleContainer>
       <CustomDivider />
       <PostFormContainer>
-        <CustomTabs value={postType} onChange={handlePostType}>
-          <CustomTab icon={<PostAddOutlinedIcon />} iconPosition="start" label="post" value={0} />
-          <Divider orientation="vertical" flexItem light />
-          <CustomTab icon={<ImageOutlinedIcon />} iconPosition="start" label="images & videos" value={1} />
-          <Divider orientation="vertical" flexItem light />
-          <CustomTab icon={<AttachFileIcon sx={{ transform: 'rotate(45deg)' }} />} iconPosition="start" label="link" value={2} />
-        </CustomTabs>
+        <PostTypes postType={postType} handlePostType={handlePostType} />
         <FieldsContainer>
           <Box position="relative" display="flex" flexDirection="column">
             <PostTitle
@@ -100,25 +89,7 @@ function CreatePostForm() {
             />
           ) : null}
           {postType === 1 ? (
-            <PostMediaContainer>
-              <Typography>
-                Drag and drop images or
-              </Typography>
-              <UploadButton
-                component="label"
-                variant="outlined"
-              >
-                upload
-                <input
-                  hidden
-                  accept="video/*,image/*"
-                  multiple
-                  type="file"
-                  onChange={handlePostMedia}
-                />
-              </UploadButton>
-              {postMedia.map((media) => (<img key={media} src={media} width={100} alt="" />))}
-            </PostMediaContainer>
+            <PostMedia handlePostMedia={handlePostMedia} postMedia={postMedia} />
           ) : null}
           {postType === 2 ? (
             <PostUrl
@@ -128,108 +99,10 @@ function CreatePostForm() {
               onKeyDown={handleUrlEnter}
             />
           ) : null}
-          <Box display="flex" mb={2} gap={1}>
-            <OptionButton
-              color={(OC ? 'secondary' : 'third')}
-              variant={(OC ? 'contained' : 'outlined')}
-              padding="3px 16px"
-              fontSize={14}
-              fontWeight="bold"
-              onClick={handleOC}
-            >
-              {OC ? (
-                <CheckIcon sx={{
-                  fontSize: 27,
-                  marginRight: 0.6,
-                }}
-                />
-              ) : (
-                <AddIcon
-                  sx={{
-                    fontSize: 27,
-                    marginRight: 0.6,
-                  }}
-                />
-              )}
-              OC
-            </OptionButton>
-            <OptionButton
-              color="third"
-              variant="outlined"
-              padding="3px 16px"
-              fontSize={14}
-              fontWeight="bold"
-            >
-              <AddIcon
-                sx={{
-                  fontSize: 27,
-                  marginRight: 0.6,
-                }}
-              />
-              spoiler
-            </OptionButton>
-            <OptionButton
-              color="third"
-              variant="outlined"
-              padding="3px 16px"
-              fontSize={14}
-              fontWeight="bold"
-            >
-              <AddIcon
-                sx={{
-                  fontSize: 27,
-                  marginRight: 0.6,
-                }}
-              />
-              NSFW
-            </OptionButton>
-            <OptionButton
-              color="third"
-              variant="outlined"
-              padding="3px 16px"
-              fontSize={14}
-              fontWeight="bold"
-              disabled
-            >
-              <LocalOfferOutlinedIcon
-                sx={{
-                  marginRight: 1,
-                  transform: 'scalex(-1)',
-                }}
-              />
-              flair
-              <KeyboardArrowDownOutlinedIcon />
-            </OptionButton>
-          </Box>
-          {OC ? (
-            <OCHelperText>
-              Use the OC tag if you want to take credit for your post as Original Content.
-            </OCHelperText>
-          ) : null}
-          <Divider />
-          <Box my={2} gap={1} display="flex" justifyContent="flex-end">
-            <RedditButton
-              variant="outlined"
-              padding="3px 16px"
-              fontSize={14}
-              fontWeight="bold"
-              type="submit"
-              onClick={handleSaveDraft}
-            >
-              save draft
-            </RedditButton>
-            <RedditButton
-              variant="contained"
-              padding="3px 16px"
-              fontSize={14}
-              fontWeight="bold"
-              type="submit"
-              onClick={handlePost}
-            >
-              post
-            </RedditButton>
-          </Box>
         </FieldsContainer>
+        <PostTags OC={OC} handleOC={handleOC} />
+        <Divider />
+        <PostSubmission handleSaveDraft={handleSaveDraft} handlePost={handlePost} />
       </PostFormContainer>
     </FormContainer>
   );

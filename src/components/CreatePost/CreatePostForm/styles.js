@@ -1,6 +1,6 @@
 import { styled } from '@mui/system';
 import {
-  Typography, Box, Divider, Tab, Tabs, TextareaAutosize,
+  Typography, Box, Divider, TextareaAutosize,
 } from '@mui/material';
 import RedditButton from '../../RedditButton/RedditButton';
 
@@ -66,7 +66,6 @@ export const PostTitle = styled('input')(({ theme }) => ({
 }));
 
 export const PostText = styled(TextareaAutosize)(({ theme }) => ({
-  marginBottom: 16,
   padding: 10,
   border: '1px solid #edeff1',
   '&:focus-visible': {
@@ -80,51 +79,7 @@ export const PostText = styled(TextareaAutosize)(({ theme }) => ({
   minHeight: 182,
 }));
 
-export const OptionButton = styled(RedditButton)(() => ({
-}));
-
-export const OCHelperText = styled(Typography)(() => ({
-  fontSize: 12,
-  fontWeight: 400,
-  marginBottom: 16,
-}));
-
-export const CustomTabs = styled(Tabs)(() => ({
-  minHeight: 0,
-  '& .MuiTabs-indicator': {
-    height: 2,
-    transition: 'all 0s ease 0s',
-    webkitTransition: 'all 0s ease 0s',
-    bottom: 1,
-  },
-}));
-export const CustomTab = styled(Tab)(() => ({
-  textTransform: 'capitalize',
-  width: 'calc(100%/3.01)',
-  padding: '15px 0',
-  minHeight: 0,
-  fontWeight: 'bolder',
-  '&.Mui-selected': {
-    backgroundColor: '#0079d30d',
-  },
-}));
-
-export const PostMediaContainer = styled(Box)(({ theme }) => ({
-  marginBottom: 16,
-  padding: 10,
-  border: '1px dashed #edeff1',
-  borderRadius: 4,
-  fontSize: 14,
-  color: theme.palette.primary.main,
-  fontFamily: 'inherit',
-  minHeight: 280,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: 12,
-}));
 export const PostUrl = styled(TextareaAutosize)(({ theme }) => ({
-  marginBottom: 16,
   padding: 10,
   border: '1px solid #edeff1',
   '&:focus-visible': {
@@ -137,9 +92,4 @@ export const PostUrl = styled(TextareaAutosize)(({ theme }) => ({
   fontFamily: 'inherit',
   resize: 'none',
   minHeight: 66,
-}));
-export const UploadButton = styled(RedditButton)(() => ({
-  padding: '3px 16px',
-  fontSize: 14,
-  fontWeight: 'bold',
 }));
