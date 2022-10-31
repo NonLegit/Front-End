@@ -1,14 +1,36 @@
 import { IconButton, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import {
-  AddMoreMediaFiles, MediaFileContainer, MediaScreenShot, PostEmptyMediaContainer, PostOneMediaContainer, UploadButton,
+  AddMoreMediaFiles, PostEmptyMediaContainer, PostOneMediaContainer, UploadButton,
 } from './styles';
+import DraggableMedia from '../DraggableMedia/DraggableMedia';
 
 function PostMedia(props) {
-  const { handlePostMedia, postMedia } = props;
+  const { handlePostMedia, postMedia, setPostMedia } = props;
   const mediaCount = postMedia.length;
-  console.log(mediaCount);
-  console.log(postMedia);
+  const mediaSwap = (source, destination) => {
+    setPostMedia((postMedia) => {
+      const temp = [...postMedia];
+      if (Math.abs(source - destination) === 1) {
+        console.log(source, destination);
+        console.log('post', postMedia);
+        temp[source] = postMedia[destination];
+        temp[destination] = postMedia[source];
+        console.log(temp);
+      } else {
+        temp.splice(destination, 0, postMedia[source]);
+        // console.log(destination);
+        temp.splice((source > destination ? source + 1 : source), 1);
+        // console.log((source > destination ? source + 1 : source));
+      }
+      return temp;
+    });
+  };
+  // console.log(mediaCount);
+  // console.log(postMedia);
+  // console.log(postMedia);
   return (
     mediaCount === 0
       ? (
@@ -34,11 +56,11 @@ function PostMedia(props) {
       ) : (mediaCount >= 1
         ? (
           <PostOneMediaContainer>
-            {postMedia.map((media) => (
-              <MediaFileContainer key={media}>
-                <MediaScreenShot image={media} />
-              </MediaFileContainer>
-            ))}
+            <DndProvider backend={HTML5Backend}>
+              {postMedia.map((media, index) => (
+                <DraggableMedia mediaSwap={mediaSwap} media={media} key={media} id={index} />
+              ))}
+            </DndProvider>
             <AddMoreMediaFiles>
               <IconButton
                 color="third"

@@ -52,7 +52,7 @@ function CreatePostForm() {
     }
   };
   const handlePostMedia = (e) => {
-    console.log(e.target.files);
+    // console.log(e.target.files);
     const files = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
     setPostMedia([...postMedia, ...files]);
   };
@@ -89,7 +89,7 @@ function CreatePostForm() {
             />
           ) : null}
           {postType === 1 ? (
-            <PostMedia handlePostMedia={handlePostMedia} postMedia={postMedia} />
+            <PostMedia handlePostMedia={handlePostMedia} postMedia={postMedia} setPostMedia={setPostMedia} />
           ) : null}
           {postType === 2 ? (
             <PostUrl

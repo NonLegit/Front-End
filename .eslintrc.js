@@ -35,5 +35,9 @@ module.exports = {
     'max-len': ['error', { code: 2000 }],
     // disabling disallow nested ternary expressions
     'no-nested-ternary': 'off',
+    // disabling props spreading
+    'react/jsx-props-no-spreading': 'off',
+    // disabling no shadow
+    'no-shadow': 'off',
   },
 };

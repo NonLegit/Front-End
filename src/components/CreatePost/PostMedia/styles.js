@@ -20,11 +20,12 @@ export const PostOneMediaContainer = styled(Box)(() => ({
   padding: 12,
   border: '1px solid #edeff1',
   borderRadius: 4,
-  minHeight: 112,
+  height: 128,
   display: 'flex',
   justifyContent: 'flex-start',
   gap: 10,
-  overflow: 'auto',
+  overflowX: 'auto',
+  overflowY: 'hidden',
 }));
 
 export const UploadButton = styled(RedditButton)(() => ({
@@ -41,22 +42,4 @@ export const AddMoreMediaFiles = styled('div')(() => ({
   minWidth: 100,
   height: 100,
   borderRadius: 5,
-}));
-
-export const MediaFileContainer = styled('div')(() => ({
-  display: 'flex',
-  border: '2px solid #898989',
-  minWidth: 100,
-  height: 100,
-  borderRadius: 5,
-}));
-
-export const MediaScreenShot = styled('div')(({ image }) => ({
-  margin: 6,
-  borderRadius: 5,
-  backgroundImage: `url(${image})`,
-  flexGrow: 1,
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
 }));
