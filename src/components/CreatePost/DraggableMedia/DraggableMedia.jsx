@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { Droppable, MediaFileContainer, MediaScreenShot } from './styles';
+import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import {
+  DeleteButton, Droppable, MediaFileContainer, MediaScreenShot,
+} from './styles';
 
 function DraggableMedia(props) {
-  const { media, id, mediaSwap } = props;
+  const {
+    media, id, mediaSwap, activeMediaFile, setActiveMediaFile, mediaDelete,
+  } = props;
+
+  const [isHover, setIsHover] = useState(false);
   // console.log(media[30], id);
   // console.log('in', media[30], id);
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -23,11 +31,42 @@ function DraggableMedia(props) {
       isOver: !!monitor.isOver(),
     }),
   }), [id]);
-  console.log(isOver && isDragging);
+  // console.log(isOver && isDragging);
+  const handleClick = () => {
+    setActiveMediaFile(id);
+  };
+  const handleHovering = (value) => {
+    setIsHover(value);
+    // console.log('hi', value);
+  };
+  const handleDeletion = (e) => {
+    e.stopPropagation();
+    mediaDelete(id);
+  };
   return (
-    <Droppable ref={drop} isOver={isOver} isDragging={isDragging}>
-      <MediaFileContainer ref={drag}>
-        <MediaScreenShot image={media} isOver={isOver} isDragging={isDragging} />
+    <Droppable ref={drop} isOver={isOver}>
+      <MediaFileContainer
+        ref={drag}
+        isDragging={isDragging}
+        isActive={activeMediaFile === id}
+        onClick={handleClick}
+        isHover={isHover}
+      >
+        <MediaScreenShot
+          image={media.src}
+          onMouseEnter={() => handleHovering(true)}
+          onMouseLeave={() => handleHovering(false)}
+        >
+          {(isHover ? (
+            <DeleteButton onClick={handleDeletion}>
+              <ClearRoundedIcon sx={{
+                color: '#fff',
+                fontSize: 20,
+              }}
+              />
+            </DeleteButton>
+          ) : null)}
+        </MediaScreenShot>
       </MediaFileContainer>
     </Droppable>
   );

@@ -17,15 +17,21 @@ export const PostEmptyMediaContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const PostOneMediaContainer = styled(Box)(() => ({
-  padding: 12,
-  border: '1px solid #edeff1',
-  borderRadius: 4,
-  height: 128,
   display: 'flex',
   justifyContent: 'flex-start',
   gap: 10,
   overflowX: 'auto',
   overflowY: 'hidden',
+  paddingBottom: 10,
+}));
+
+export const PostMediaOuterContainer = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 15,
+  padding: 12,
+  border: '1px solid #edeff1',
+  borderRadius: 4,
 }));
 
 export const UploadButton = styled(RedditButton)(() => ({

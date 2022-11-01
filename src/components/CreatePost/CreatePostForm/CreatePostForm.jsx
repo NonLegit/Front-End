@@ -14,12 +14,16 @@ import PostSubmission from '../PostSubmission/PostSubmission';
 import PostTypes from '../PostTypes/PostTypes';
 
 function CreatePostForm() {
+  // states
   const [title, setTitle] = useState('');
   const [postText, setPostTitle] = useState();
   const [postMedia, setPostMedia] = useState([]);
   const [postUrl, setPostUrl] = useState('');
   const [OC, setOC] = useState(false);
   const [postType, setPostType] = useState(0);
+  const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
+
+  // handlers
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
     // console.log(36727);
@@ -53,9 +57,11 @@ function CreatePostForm() {
   };
   const handlePostMedia = (e) => {
     // console.log(e.target.files);
-    const files = Array.from(e.target.files).map((file) => URL.createObjectURL(file));
+    const files = Array.from(e.target.files).map((file) => ({ src: URL.createObjectURL(file), caption: '', link: '' }));
+    setActiveMediaFile(postMedia.length + files.length - 1);
     setPostMedia([...postMedia, ...files]);
   };
+
   return (
     <FormContainer>
       <TitleContainer my={2}>
@@ -89,7 +95,13 @@ function CreatePostForm() {
             />
           ) : null}
           {postType === 1 ? (
-            <PostMedia handlePostMedia={handlePostMedia} postMedia={postMedia} setPostMedia={setPostMedia} />
+            <PostMedia
+              handlePostMedia={handlePostMedia}
+              postMedia={postMedia}
+              setPostMedia={setPostMedia}
+              activeMediaFile={activeMediaFile}
+              setActiveMediaFile={setActiveMediaFile}
+            />
           ) : null}
           {postType === 2 ? (
             <PostUrl

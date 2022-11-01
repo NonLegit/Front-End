@@ -20,4 +20,5 @@ export const CustomTab = styled(Tab)(() => ({
   '&.Mui-selected': {
     backgroundColor: '#0079d30d',
   },
+  whiteSpace: 'nowrap',
 }));

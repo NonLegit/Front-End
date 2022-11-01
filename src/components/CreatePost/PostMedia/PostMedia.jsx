@@ -3,34 +3,43 @@ import AddIcon from '@mui/icons-material/Add';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import {
-  AddMoreMediaFiles, PostEmptyMediaContainer, PostOneMediaContainer, UploadButton,
+  AddMoreMediaFiles, PostEmptyMediaContainer, PostMediaOuterContainer, PostOneMediaContainer, UploadButton,
 } from './styles';
 import DraggableMedia from '../DraggableMedia/DraggableMedia';
+import PostMediaDetails from '../PostMediaDetails/PostMediaDetails';
 
 function PostMedia(props) {
-  const { handlePostMedia, postMedia, setPostMedia } = props;
+  const {
+    handlePostMedia, postMedia, setPostMedia, activeMediaFile, setActiveMediaFile,
+  } = props;
   const mediaCount = postMedia.length;
+
   const mediaSwap = (source, destination) => {
+    console.log(source, destination);
     setPostMedia((postMedia) => {
       const temp = [...postMedia];
-      if (Math.abs(source - destination) === 1) {
-        console.log(source, destination);
-        console.log('post', postMedia);
-        temp[source] = postMedia[destination];
-        temp[destination] = postMedia[source];
-        console.log(temp);
-      } else {
-        temp.splice(destination, 0, postMedia[source]);
-        // console.log(destination);
-        temp.splice((source > destination ? source + 1 : source), 1);
-        // console.log((source > destination ? source + 1 : source));
-      }
+      temp.splice(source, 1);
+      temp.splice(destination, 0, postMedia[source]);
+      console.log(temp);
       return temp;
     });
   };
-  // console.log(mediaCount);
-  // console.log(postMedia);
-  // console.log(postMedia);
+
+  const mediaDelete = (id) => {
+    setPostMedia((postMedia) => {
+      const temp = [...postMedia];
+      temp.splice(id, 1);
+      setActiveMediaFile((activeMediaFile) => {
+        if (activeMediaFile === id) {
+          return (activeMediaFile !== 0 ? activeMediaFile - 1 : 0);
+        } if (activeMediaFile > id) {
+          return activeMediaFile - 1;
+        }
+        return activeMediaFile;
+      });
+      return temp;
+    });
+  };
   return (
     mediaCount === 0
       ? (
@@ -55,39 +64,54 @@ function PostMedia(props) {
         </PostEmptyMediaContainer>
       ) : (mediaCount >= 1
         ? (
-          <PostOneMediaContainer>
-            <DndProvider backend={HTML5Backend}>
-              {postMedia.map((media, index) => (
-                <DraggableMedia mediaSwap={mediaSwap} media={media} key={media} id={index} />
-              ))}
-            </DndProvider>
-            <AddMoreMediaFiles>
-              <IconButton
-                color="third"
-                sx={{
-                  '&:hover': {
-                    backgroundColor: 'inherit',
-                    color: '#000',
-                  },
-                }}
-                disableRipple
-                component="label"
-              >
-                <input
-                  hidden
-                  accept="video/*,image/*"
-                  multiple
-                  type="file"
-                  onChange={handlePostMedia}
-                />
-                <AddIcon
+          <PostMediaOuterContainer>
+            <PostOneMediaContainer>
+              <DndProvider backend={HTML5Backend}>
+                {postMedia.map((media, index) => (
+                  <DraggableMedia
+                    mediaSwap={mediaSwap}
+                    mediaDelete={mediaDelete}
+                    media={media}
+                    key={media.src}
+                    id={index}
+                    activeMediaFile={activeMediaFile}
+                    setActiveMediaFile={setActiveMediaFile}
+                  />
+                ))}
+              </DndProvider>
+              <AddMoreMediaFiles>
+                <IconButton
+                  color="third"
                   sx={{
-                    fontSize: 35,
+                    '&:hover': {
+                      backgroundColor: 'inherit',
+                      color: '#000',
+                    },
                   }}
-                />
-              </IconButton>
-            </AddMoreMediaFiles>
-          </PostOneMediaContainer>
+                  disableRipple
+                  component="label"
+                >
+                  <input
+                    hidden
+                    accept="video/*,image/*"
+                    multiple
+                    type="file"
+                    onChange={handlePostMedia}
+                  />
+                  <AddIcon
+                    sx={{
+                      fontSize: 35,
+                    }}
+                  />
+                </IconButton>
+              </AddMoreMediaFiles>
+            </PostOneMediaContainer>
+            {mediaCount > 1
+              ? (postMedia.map((media, index) => (
+                (activeMediaFile === index ? <PostMediaDetails src={media.src} key={media.src} /> : false)
+              )))
+              : null}
+          </PostMediaOuterContainer>
         )
         : null)
   );
