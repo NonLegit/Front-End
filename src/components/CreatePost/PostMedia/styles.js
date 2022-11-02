@@ -19,7 +19,7 @@ export const PostEmptyMediaContainer = styled(Box)(({ theme }) => ({
 export const PostOneMediaContainer = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'flex-start',
-  gap: 10,
+  gap: 12,
   overflowX: 'auto',
   overflowY: 'hidden',
   paddingBottom: 10,

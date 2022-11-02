@@ -3,15 +3,15 @@ import {
 } from './styles';
 
 function PostMediaDetails(props) {
-  const { src } = props;
+  const { mediaFile, handleCaptionChange, handlePostLinkChange } = props;
   return (
     <PostMediaDetailsContainer>
       <PostMediaScreenshot>
-        <Screenshot src={src} alt="" />
+        <Screenshot src={mediaFile.src} alt="" />
       </PostMediaScreenshot>
       <MediaDetailsContainer>
-        <Caption placeholder="Add a caption..." />
-        <PostLink placeholder="Add a link..." />
+        <Caption placeholder="Add a caption..." value={mediaFile.caption} onChange={handleCaptionChange} />
+        <PostLink placeholder="Add a link..." value={mediaFile.link} onChange={handlePostLinkChange} />
       </MediaDetailsContainer>
     </PostMediaDetailsContainer>
   );

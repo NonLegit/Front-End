@@ -9,13 +9,26 @@ import DraggableMedia from '../DraggableMedia/DraggableMedia';
 import PostMediaDetails from '../PostMediaDetails/PostMediaDetails';
 
 function PostMedia(props) {
+  // props
   const {
     handlePostMedia, postMedia, setPostMedia, activeMediaFile, setActiveMediaFile,
   } = props;
   const mediaCount = postMedia.length;
 
+  // handlers
   const mediaSwap = (source, destination) => {
     console.log(source, destination);
+
+    setActiveMediaFile((activeMediaFile) => {
+      if (activeMediaFile === source) {
+        return destination;
+      }
+      if (activeMediaFile === destination) {
+        return source;
+      }
+      return activeMediaFile;
+    });
+
     setPostMedia((postMedia) => {
       const temp = [...postMedia];
       temp.splice(source, 1);
@@ -39,6 +52,17 @@ function PostMedia(props) {
       });
       return temp;
     });
+  };
+
+  const handleCaptionChange = (e) => {
+    const temp = [...postMedia];
+    temp[activeMediaFile].caption = e.target.value;
+    setPostMedia(temp);
+  };
+  const handlePostLinkChange = (e) => {
+    const temp = [...postMedia];
+    temp[activeMediaFile].link = e.target.value;
+    setPostMedia(temp);
   };
   return (
     mediaCount === 0
@@ -107,9 +131,14 @@ function PostMedia(props) {
               </AddMoreMediaFiles>
             </PostOneMediaContainer>
             {mediaCount > 1
-              ? (postMedia.map((media, index) => (
-                (activeMediaFile === index ? <PostMediaDetails src={media.src} key={media.src} /> : false)
-              )))
+              ? (
+                <PostMediaDetails
+                  mediaFile={postMedia[activeMediaFile]}
+                  key={postMedia[activeMediaFile].src}
+                  handleCaptionChange={handleCaptionChange}
+                  handlePostLinkChange={handlePostLinkChange}
+                />
+              )
               : null}
           </PostMediaOuterContainer>
         )
