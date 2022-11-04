@@ -6,12 +6,12 @@ export const DividerContainer = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  // margin: '15px 0px',
 }));
 
 export const Hr = styled('hr')(() => ({
   width: '40%',
   height: '0.5px',
+  margin: '5px',
   border: 'none',
   color: '#edeff1',
   backgroundColor: '#edeff1',

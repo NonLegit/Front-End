@@ -4,14 +4,15 @@ import theme from '../../../styles/theme';
 
 export const ThirdPartyContainer = styled(Box)(({ width }) => ({
   width: `${width}`,
-  margin: '20px 0px',
+  margin: '15px 0px',
 }));
 
 export const ThirdPartyBtn = styled(Button)(() => ({
-  width: '100%',
+  width: '95%',
   height: 50,
   margin: '10px 0px',
   padding: '0px',
+  border: '1.2.5px solid',
 
   fontFamily: 'ibm-plex-sans,sans-serif',
   fontWeight: '600',

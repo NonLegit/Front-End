@@ -11,6 +11,14 @@ const theme = createTheme({
       main: '#FF4500',
       light: '#FF5414',
     },
+    neutral: {
+      main: '#978A8C',
+      contrastText: '#fff',
+    },
   },
 });
+
+export const fonts = {
+  'system-ui': 'system-ui',
+};
 export default theme;
