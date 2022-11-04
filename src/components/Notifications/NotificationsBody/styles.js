@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 
-export const Notification = styled('section')(() => ({
+export const Notification = styled('section')(({ theme }) => ({
   padding: '20px 24px',
   maxWidth: ' 1248px',
   margin: ' 0 auto',
+  [theme.breakpoints.down('sm')]: {
+    padding: '63px 24px 20px',
+  },
 }));
 export const NotificationsContiner = styled('div')(({ theme }) => ({
   margin: '0 auto',
