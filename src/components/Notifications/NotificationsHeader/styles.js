@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 
 export const ContinerNotifications = styled('section')(() => ({
   background: '#dae0e6',
+  minHeight: '100vh',
 }));
-export const HeaderContiner = styled('div')(() => ({
+export const HeaderContiner = styled('header')(() => ({
   height: 131,
   margin: '0 auto',
   width: 648,
@@ -15,7 +16,7 @@ export const NotificationsHead = styled('h1')(() => ({
   lineHeight: '26px',
   margin: 0,
 }));
-export const TabsContiner = styled('div')(() => ({
+export const TabsContiner = styled('nav')(() => ({
   display: 'flex',
 }));
 export const TabText = styled('div')(() => ({

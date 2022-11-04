@@ -9,6 +9,7 @@ import Moderation from './pages/Moderation';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import theme from './styles/theme';
+import Notifications from './pages/Notifications';
 
 function App() {
   return (
@@ -51,6 +52,12 @@ function App() {
             path="/moderation"
             element={
               <Moderation />
+          }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <Notifications />
           }
           />
         </Routes>
