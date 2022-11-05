@@ -1,6 +1,5 @@
-import { Link } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import RedditButton from '../../../Search/RedditButton/RedditButton';
 
 export const AboutCountainer = styled('div')({
   fontSize: 10,
@@ -111,7 +110,16 @@ export const CustomLink = styled(Link)(() => ({
   flexDirection: 'column',
 }));
 
-export const CreatPost = styled(RedditButton)(() => ({
+export const CreatPost = styled(Button)(({
+  fontSize, padding, fontWeight,
+}) => ({
+  boxShadow: 'none',
+  fontSize,
+  padding,
+  borderRadius: 20,
+  textTransform: 'initial',
+  minWidth: 'auto',
+  fontWeight,
   margin: '14.4px',
   backgroundColor: '#0079d3',
   color: 'white',

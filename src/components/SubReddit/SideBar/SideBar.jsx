@@ -1,6 +1,6 @@
-import { SideBarContainer, CommunityContainer } from '../../Search/SideBar/style';
+import { SideBarContainer, CommunityContainer } from './style';
 
-import BackHome from '../../BackHomeBottun/BackHome';
+import BackHome from './BackHome/BackHome';
 import About from './AboutSubReddit/About';
 import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
