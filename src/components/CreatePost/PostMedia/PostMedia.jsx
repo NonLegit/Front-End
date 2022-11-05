@@ -17,7 +17,7 @@ function PostMedia(props) {
 
   // handlers
   const mediaSwap = (source, destination) => {
-    console.log(source, destination);
+    // console.log(source, destination);
 
     setActiveMediaFile((activeMediaFile) => {
       if (activeMediaFile === source) {
@@ -33,7 +33,7 @@ function PostMedia(props) {
       const temp = [...postMedia];
       temp.splice(source, 1);
       temp.splice(destination, 0, postMedia[source]);
-      console.log(temp);
+      // console.log(temp);
       return temp;
     });
   };

@@ -20,7 +20,7 @@ function App() {
           <Route
             path="/"
             element={
-              <HomePage />
+              <HomePage data-testid="home page" />
           }
           />
           <Route

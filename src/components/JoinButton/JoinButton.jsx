@@ -20,6 +20,7 @@ function JoinButton() {
       onClick={handleClick}
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
+      data-testid="join button"
     >
       {(joined ? (hover ? 'leave' : 'joined') : 'join')}
     </Button>

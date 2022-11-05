@@ -1,5 +1,7 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
+import { Link } from 'react-router-dom';
+import RedditButton from '../../RedditButton/RedditButton';
 
 export const Title = styled('div')(() => ({
   backgroundImage: 'url("https://styles.redditmedia.com/t5_2ql2m/styles/bannerBackgroundImage_h0m8doj409o91.png")',
@@ -47,4 +49,15 @@ export const CategoriesBox = styled(Box)(() => ({
   paddingLeft: 15,
   paddingTop: 15,
   paddingBottom: 15,
+}));
+
+export const CommunitiesTypeButton = styled(RedditButton)(() => ({
+  fontSize: 12,
+  padding: '2px 14px',
+  fontWeight: 'bold',
+  backgroundColor: '#f6f7f8',
+}));
+
+export const CustomLink = styled(Link)(() => ({
+  textDecoration: 'none',
 }));

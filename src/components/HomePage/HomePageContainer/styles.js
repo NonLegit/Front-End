@@ -9,7 +9,7 @@ export const MainContainer = styled('div')({
 export const OuterContainer = styled(Box)(({ theme }) => ({
   backgroundColor: '#DAE0E6',
   width: '100%',
-  height: '450vh',
+  height: '650vh',
   padding: '0 24px',
   [theme.breakpoints.down('sm')]: {
     padding: 0,

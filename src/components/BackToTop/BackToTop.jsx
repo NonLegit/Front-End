@@ -1,7 +1,7 @@
 import { BackToTopButton, BackToTopContainer } from './styles';
 
 function BackToTop() {
-  console.log(window.innerHeight);
+  // console.log(window.innerHeight);
   const handelClick = () => {
     window.scrollTo({
       top: 0,
