@@ -24,11 +24,18 @@ function App() {
           }
           />
           <Route
-            path="/user"
+            path="/user/:username/"
             element={
               <Profile />
           }
-          />
+          >
+            <Route
+              path=":subTitle"
+              element={
+                <Profile />
+          }
+            />
+          </Route>
           <Route
             path="/login"
             element={

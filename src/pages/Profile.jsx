@@ -1,6 +1,12 @@
+import Header from '../components/Profile/Header/Header';
+import MainContent from '../components/Profile/MainContent/MainContent';
+
 function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <Header />
+      <MainContent />
+    </>
   );
 }
 
