@@ -1,54 +1,40 @@
 /* eslint-disable import/no-cycle */
-import { useContext } from 'react';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import { useContext, createContext } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment/moment';
-import { EarlierContext } from '../NotificationsBody';
+import { CategoriesContext } from '../NotificationsBody';
 import {
-  Notification, NotificationImage, Options, MenuOptions, NotificationTime,
-  NotificationBody, ImageContiner, ChildImage, BodyHead, Body, ContainerHead, SeeMore,
+  Notification, Options, MenuOptions, NotificationTime,
+  NotificationBody, BodyHead, Body, ContainerHead, SeeMore,
 } from './styles';
+import NotificationImages from './NotificationImage/NotificationImages';
 
+export const ReplayContext = createContext();
 function NotificationCategories() {
   const {
     earlier, today, handleClose, handleClick, open, anchorEl,
-  } = useContext(EarlierContext);
+  } = useContext(CategoriesContext);
   const options = ['Hide this notification', 'Disable updates from this community'];
   const value = (today) || earlier;
   moment.updateLocale('en', {
     relativeTime: {
+      past: '%s ',
+      ago: '',
       s: 'now',
       m: '%d m',
       h: '%dh',
       dd: '%dd',
       MM: moment().format('MMM d'),
-      y: '%dy',
+      yy: '%dy',
     },
   });
   return (
     value?.map((ele, indx) => (
       <Notification key={`${ele.date}${indx + 0}`}>
-        <ImageContiner>
-          { (ele.replay === '1') ? (
-            <>
-              <NotificationImage src="https://styles.redditmedia.com/t5_78ssv9/styles/profileIcon_snoocf705ea1-8fa3-4bb7-8251-87244be506cc-headshot.png?width=64&height=64&frame=1&crop=64:64,smart&s=1cf9bff3cf29717ffc57976fb69334888e4774ef" alt="message" />
-              <ChildImage>
-                <ModeCommentIcon />
-              </ChildImage>
-            </>
-          ) : (
-            <>
-              <NotificationImage src="https://www.redditstatic.com/notifications/default_subreddit_avatar.png" alt="ring" />
-              <ChildImage>
-                {' '}
-                <NotificationsIcon />
-                {' '}
-              </ChildImage>
-            </>
-          ) }
-        </ImageContiner>
+        <ReplayContext.Provider value={ele.replay}>
+          <NotificationImages />
+        </ReplayContext.Provider>
         <NotificationBody>
           <ContainerHead>
             <BodyHead>
