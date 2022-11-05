@@ -1,6 +1,5 @@
-import { ThemeProvider } from '@emotion/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
@@ -9,6 +8,7 @@ import Moderation from './pages/Moderation';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import theme from './styles/theme';
+import SubReddit from './pages/SubReddit';
 
 function App() {
   return (
@@ -51,6 +51,12 @@ function App() {
             path="/moderation"
             element={
               <Moderation />
+          }
+          />
+          <Route
+            path="/SubReddit/:Name"
+            element={
+              <SubReddit />
           }
           />
         </Routes>

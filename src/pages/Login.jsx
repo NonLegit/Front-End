@@ -1,6 +1,9 @@
+import FormDialog from '../components/PopUpSubReddit/PopUp';
+
 function Login() {
   return (
-    <div>Login</div>
+
+    <FormDialog />
   );
 }
 
