@@ -29,7 +29,7 @@ export const SelectBox = styled(Box)(() => ({
 //   width: 180,
   border: ' 1px solid #eee',
   marginTop: 30,
-  marginLeft: 200,
+  marginLeft: 300,
   borderRadius: 4,
   boxShadow: '0 2px 4px 0 #eee',
   backgroundColor: 'white',

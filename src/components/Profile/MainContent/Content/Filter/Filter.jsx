@@ -21,9 +21,9 @@ function Filter() {
   const handleClick = (subPage) => {
     navigate(`sort=${subPage}`);
   };
-  //   const handleClick2 = (param) => {
-  //     navigate(`sort=top&t=${param}`);
-  //   };
+  const handleClick2 = () => {
+    navigate('sort=top&t=day');
+  };
   const handleClickList = () => {
     setShowList((prev) => !prev);
   };
@@ -50,14 +50,14 @@ function Filter() {
       </FilteButton>
 
       <FilteButton
-        startIcon={(subTitle === 'sort=top') ? <CloudUploadIcon /> : <CloudUploadOutlinedIcon />}
-        condition={(subTitle === 'sort=top').toString()}
+        startIcon={(subTitle === 'sort=top' || subTitle === 'sort=top&t=day') ? <CloudUploadIcon /> : <CloudUploadOutlinedIcon />}
+        condition={(subTitle === 'sort=top' || subTitle === 'sort=top&t=day').toString()}
         onClick={() => { handleClick('top'); }}
       >
         TOP
       </FilteButton>
       {
-            (subTitle === 'sort=top') && (
+            (subTitle === 'sort=top' || subTitle === 'sort=top&t=day') && (
 
               <FilteButton
                 endIcon={<KeyboardArrowDownOutlinedIcon />}
@@ -72,17 +72,14 @@ function Filter() {
       {showList && (
       <ClickAwayListener onClickAway={handleClickAway}>
         <SelectBox>
-          {['Now', 'Today', 'This Week', 'This Month', 'This Year', 'All Time'].map((text) => (
-            <SelectItem
-              color="inherit"
-              key={text}
-            //   onClick={() => { handleClick2(`${text}`); }}
-            //   condition={(subTitle === `sort=top&t=${text}`).toString()}
-            >
-              {text}
+          <SelectItem
+            color="inherit"
+            onClick={() => { handleClick2(); }}
+            condition={(subTitle === 'sort=top&t=day').toString()}
+          >
+            Today
 
-            </SelectItem>
-          ))}
+          </SelectItem>
         </SelectBox>
       </ClickAwayListener>
       )}

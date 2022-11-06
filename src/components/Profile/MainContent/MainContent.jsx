@@ -4,12 +4,12 @@ import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 import ProfilePage from './styles';
 
-const renderSwitch = (param) => {
+const renderSwitch = (param, username, karma, cake, followers) => {
   if (param === undefined || param.includes('sort')) {
     return (
       <ProfilePage>
-        <Content />
-        <Sidebar />
+        <Content username={username} />
+        <Sidebar username={username} karma={karma} cake={cake} followers={followers} />
       </ProfilePage>
     );
   }
@@ -20,9 +20,13 @@ const renderSwitch = (param) => {
 };
 
 function MainContent() {
+  const username = 'NourZiad';
+  const karma = 2;
+  const cake = 'October 5, 2022';
+  const followers = 3;
   const { subTitle } = useParams();
   return (
-    <Box>{renderSwitch(subTitle)}</Box>
+    <Box>{renderSwitch(subTitle, username, karma, cake, followers)}</Box>
   );
 }
 
