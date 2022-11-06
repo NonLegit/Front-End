@@ -1,10 +1,8 @@
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { useTheme } from '@mui/system';
 import { useReducer } from 'react';
 import { ReactionIconButton, Votes, Voting } from './styles';
+import VoteIcon from '../VoteIcons/VoteIcon/VoteIcon';
+import VotedIcon from '../VoteIcons/VotedIcon/VotedIcon';
 
 function Reactions({ flexDirection }) {
   const theme = useTheme();
@@ -24,23 +22,17 @@ function Reactions({ flexDirection }) {
       {(reaction === 1)
         ? (
           <ReactionIconButton onClick={() => dispatch('cancel upvote')}>
-            <ThumbUpIcon
-              sx={{
-                fontSize: 22,
-                color: theme.palette.secondary.main,
-              }}
+            <VotedIcon
+              color={theme.palette.secondary.main}
+              direction="up"
             />
           </ReactionIconButton>
         )
         : (
           <ReactionIconButton onClick={() => dispatch('upvote')}>
-            <ThumbUpOutlinedIcon
-              sx={{
-                fontSize: 22,
-                '&:hover': {
-                  color: theme.palette.secondary.main,
-                },
-              }}
+            <VoteIcon
+              color={theme.palette.secondary.main}
+              direction="up"
             />
           </ReactionIconButton>
         )}
@@ -50,22 +42,17 @@ function Reactions({ flexDirection }) {
       {(reaction === -1)
         ? (
           <ReactionIconButton onClick={() => dispatch('cancel downvote')}>
-            <ThumbDownIcon
-              sx={{
-                fontSize: 22,
-                color: theme.palette.primary.main,
-              }}
+            <VotedIcon
+              color={theme.palette.primary.main}
+              direction="down"
             />
           </ReactionIconButton>
         )
         : (
           <ReactionIconButton onClick={() => dispatch('downvote')}>
-            <ThumbDownOutlinedIcon sx={{
-              fontSize: 22,
-              '&:hover': {
-                color: theme.palette.primary.main,
-              },
-            }}
+            <VoteIcon
+              color={theme.palette.primary.main}
+              direction="down"
             />
           </ReactionIconButton>
         )}
