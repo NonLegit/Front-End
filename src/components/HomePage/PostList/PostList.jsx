@@ -6,20 +6,22 @@ function PostList(props) {
     <>
       {posts.map((post) => {
         const {
-          id, title, image, subredditName, username, flair, flairColor, popularity, flairFontColor, postMediaSrc, isVideo,
+          id, title, image, sr, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount,
         } = post;
         return (
           <Post
             title={title}
             image={image}
-            subredditName={subredditName}
-            username={username}
-            flair={flair}
-            flairColor={flairColor}
+            sr={sr}
+            creator={creator}
+            flairText={flairText}
+            flairBackgroundColor={flairBackgroundColor}
             popularity={popularity}
-            flairFontColor={flairFontColor}
-            postMediaSrc={postMediaSrc}
-            isVideo={isVideo}
+            flairColor={flairColor}
+            url={url}
+            kind={kind}
+            votes={votes}
+            commentCount={commentCount}
             key={id}
           />
         );

@@ -12,6 +12,7 @@ import PostMedia from '../PostMedia/PostMedia';
 import PostTags from '../PostTags/PostTags';
 import PostSubmission from '../PostSubmission/PostSubmission';
 import PostTypes from '../PostTypes/PostTypes';
+import SubredditsMenu from '../SubredditsMenu/SubredditsMenu';
 
 function CreatePostForm() {
   // states
@@ -76,6 +77,7 @@ function CreatePostForm() {
         </DraftsButton>
       </TitleContainer>
       <CustomDivider />
+      <SubredditsMenu />
       <PostFormContainer>
         <PostTypes postType={postType} handlePostType={handlePostType} />
         <FieldsContainer>

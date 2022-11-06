@@ -29,12 +29,12 @@ export const PostTitle = styled(Link)(() => ({
   },
 }));
 
-export const Flair = styled(RedditButton)(({ backgroundColor, flairFontColor }) => ({
+export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => ({
   fontSize: 10,
   padding: '2px 10px',
   fontWeight: 'normal',
   backgroundColor,
-  color: flairFontColor,
+  color: flairColor,
   '&:hover': {
     backgroundColor,
   },

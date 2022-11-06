@@ -46,11 +46,11 @@ export const PostTitle = styled(Link)(() => ({
   },
 }));
 
-export const PostMedia = styled(Box)(({ isVideo }) => ({
+export const PostMedia = styled(Box)(({ kind }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: isVideo ? '#000' : '#fff',
+  backgroundColor: (kind === 'video') ? '#000' : '#fff',
 }));
 
 export const CustomImage = styled('img')(() => ({

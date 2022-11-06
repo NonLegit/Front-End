@@ -16,15 +16,16 @@ import PostHeader from '../HomePage/PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    title, image, subredditName, username, flair, flairColor, popularity, flairFontColor, postMediaSrc, isVideo,
+    title, image, sr, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount,
   } = props;
+  // console.log(props);
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <PostContainer my={2}>
       {matchSm && (
-      <Reactions flexDirection="column" />
+      <Reactions flexDirection="column" votes={votes} />
       )}
       <Box
         p={1}
@@ -42,28 +43,28 @@ function Post(props) {
         <PostHeader
           title={title}
           image={image}
-          subredditName={subredditName}
-          username={username}
-          flair={flair}
+          sr={sr}
+          creator={creator}
+          flair={flairText}
+          flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
-          flairFontColor={flairFontColor}
         />
-        <PostMedia mt={1.5} isVideo={isVideo}>
+        <PostMedia mt={1.5} kind={kind}>
           {/* eslint-disable jsx-a11y/media-has-caption */}
           {/* */}
-          {isVideo ? (
+          {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={isVideo} type="video/mp4" />
+              <source src={url} type="video/mp4" />
             </video>
           ) : (
             <CustomImage
-              src={postMediaSrc}
+              src={url}
               alt="post image"
             />
           )}
           {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
         </PostMedia>
-        <PostReactions matchSm={matchSm} matchMd={matchMd} comments={157} />
+        <PostReactions votes={votes} matchSm={matchSm} matchMd={matchMd} comments={commentCount} />
       </Box>
     </PostContainer>
   );

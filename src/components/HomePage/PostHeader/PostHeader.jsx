@@ -12,9 +12,9 @@ import {
 
 function PostHeader(props) {
   const {
-    title, image, subredditName, username, flair, flairColor, flairFontColor,
+    title, image, sr, creator, flair, flairBackgroundColor, flairColor,
   } = props;
-  console.log(flairFontColor);
+  console.log(flairColor);
   return (
     <>
       <PostInfo py={1}>
@@ -28,7 +28,7 @@ function PostHeader(props) {
         />
         <PostInfoLink to="/" color="#000" fontWeight="bolder">
           r/
-          {subredditName}
+          {sr}
         </PostInfoLink>
         <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
           <span>
@@ -37,7 +37,7 @@ function PostHeader(props) {
           <div>Posted By</div>
           <PostInfoLink to="/" color="inherit" fontWeight="normal">
             u/
-            {username}
+            {creator}
           </PostInfoLink>
         </Box>
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
@@ -54,8 +54,8 @@ function PostHeader(props) {
           {' '}
           <Flair
             disableRipple
-            backgroundColor={flairColor}
-            flairFontColor={flairFontColor}
+            backgroundColor={flairBackgroundColor}
+            flairColor={flairColor}
           >
             {flair}
           </Flair>

@@ -4,7 +4,8 @@ import { ReactionIconButton, Votes, Voting } from './styles';
 import VoteIcon from '../VoteIcons/VoteIcon/VoteIcon';
 import VotedIcon from '../VoteIcons/VotedIcon/VotedIcon';
 
-function Reactions({ flexDirection }) {
+function Reactions(props) {
+  const { flexDirection, votes } = props;
   const theme = useTheme();
   const reducer = (state, action) => {
     switch (action) {
@@ -37,7 +38,7 @@ function Reactions({ flexDirection }) {
           </ReactionIconButton>
         )}
       <Votes color={(reaction === 0 ? '#000' : (reaction === 1 ? theme.palette.secondary.main : theme.palette.primary.main))}>
-        {156 + reaction}
+        {votes + reaction}
       </Votes>
       {(reaction === -1)
         ? (

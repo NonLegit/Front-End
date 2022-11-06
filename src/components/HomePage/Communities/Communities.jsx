@@ -7,9 +7,9 @@ import {
 } from './styles';
 
 function Communities(props) {
-  const { communitiesData } = props;
+  const { communities } = props;
   // console.log('hdj', communitiesData);
-  const { communitiesTitle, communitiesList } = communitiesData;
+  const { communitiesTitle, communitiesList } = communities;
   return (
     <CommunitiesContainer data-testid="Communities">
       <Title>

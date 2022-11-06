@@ -17,26 +17,25 @@ function HomePageContainer() {
 
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
-  const url = 'http://localhost:7000/data';
-  const [data, error] = useFetch(url);
-  console.log(error);
-  console.log(data);
-  const { communities, posts } = data ?? {};
+  const url = 'https://9370b8a3-3862-45f6-b3f0-060ec85cbc3f.mock.pstmn.io/communities';
+  const postsUrl = 'https://9370b8a3-3862-45f6-b3f0-060ec85cbc3f.mock.pstmn.io/users/best';
+  const [posts, postsError] = useFetch(postsUrl);
+  const [communities, communitiesError] = useFetch(url);
+  // console.log(error);
+  // console.log(data);
   console.log(posts);
   return (
     <OuterContainer>
-      {data
-      && (
       <MainContainer>
         <MainContent width={640}>
           <CreatePostInHome />
           <PostsClassification />
-          <PostList posts={posts} />
+          {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
         </MainContent>
         {match
         && (
         <SideBar>
-          <Communities communitiesData={communities} />
+          {!communitiesError ? (communities && <Communities communities={communities} />) : 'error in fetching communities'}
           <RedditPremium />
           <PersonalReddit />
           <HomePageFooter />
@@ -44,7 +43,6 @@ function HomePageContainer() {
         </SideBar>
         )}
       </MainContainer>
-      )}
     </OuterContainer>
   );
 }

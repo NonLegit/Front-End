@@ -22,7 +22,9 @@ import {
 import Reactions from '../../Reactions/Reactions';
 
 function PostReactions(props) {
-  const { matchSm, comments, matchMd } = props;
+  const {
+    matchSm, comments, matchMd, votes,
+  } = props;
 
   const [showMore, setShowMore] = useState(false);
   const [save, setSave] = useState(false);
@@ -35,7 +37,7 @@ function PostReactions(props) {
   return (
     <PostActions mt={0.5}>
       {!matchSm && (
-      <Reactions flexDirection="row" />
+      <Reactions flexDirection="row" votes={votes} />
       )}
       <ActionButton
         color="third"
