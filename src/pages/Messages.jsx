@@ -1,6 +1,6 @@
 function Messages() {
   return (
-    <div>Messages</div>
+    <div data-testid="messages-test">Messages</div>
   );
 }
 

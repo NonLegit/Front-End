@@ -7,6 +7,10 @@ import {
 } from './styles';
 import { ReplayContext } from '../NotificationCategories';
 
+/**
+ * Notification Images
+ * @return {React.Component} - Retrun all image beside notification body
+ */
 function NotificationImages() {
   const {
     value,

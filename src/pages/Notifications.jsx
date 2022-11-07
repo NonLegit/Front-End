@@ -4,7 +4,7 @@ import { ContinerNotifications } from '../components/Notifications/Notifications
 
 function Notifications() {
   return (
-    <ContinerNotifications>
+    <ContinerNotifications data-testid="notifications-test">
       <NotificationsHeader />
       <NotificationsBody />
     </ContinerNotifications>

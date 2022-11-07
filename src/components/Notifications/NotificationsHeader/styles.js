@@ -9,7 +9,7 @@ export const HeaderContiner = styled('header')(({ theme }) => ({
   height: 131,
   margin: '0 auto',
   width: 648,
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints?.down('md')]: {
     width: 'fit-content',
   },
 }));
@@ -23,12 +23,12 @@ export const NotificationsHead = styled('h1')(() => ({
 export const TabsContiner = styled('nav')(({ theme }) => ({
 
   display: 'flex',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints?.down('sm')]: {
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
     paddingLeft: '12px',
   },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints?.down('xs')]: {
     justifyContent: 'space-around',
   },
 }));
@@ -54,10 +54,14 @@ export const Tab = styled('div')(({ theme, index, active }) => ({
   '&:hover div': {
     color: 'black',
   },
-  [theme.breakpoints.down('sm')]: {
+  '& a': {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
+  [theme.breakpoints?.down('sm')]: {
     marginRight: index === '2' ? '0px' : '',
   },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints?.down('xs')]: {
     padding: '15px 14px 12px',
   },
 }));

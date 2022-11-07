@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`real fetch call 1`] = `
+<section
+  className="css-1cadxf9"
+  data-testid="notifications-body-test"
+>
+  <div
+    className="css-1otkajc"
+  >
+    <div
+      data-testid="notification-categories-today"
+    />
+    <div
+      data-testid="notification-categories-earlier"
+    />
+  </div>
+</section>
+`;

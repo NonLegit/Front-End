@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
 import NotificationCategories from './NotificationCategories/NotificationCategories';
 import
 {
@@ -9,15 +8,23 @@ import
 } from './styles';
 
 export const CategoriesContext = createContext();
+/**
+ * Notifications Body
+ * The component fetch data from api
+ *  and it has functions handleClick and handleClose
+ * @return {React.Component} - Body of each Notification depandent it's type
+ */
+
 function NotificationsBody() {
   const api = 'https://d441e0bc-931f-4cc7-ab12-a51e81f70be4.mock.pstmn.io/fruits';
   const [earlier, setEarlier] = useState([]);
   const [today, setToday] = useState([]);
   useEffect(() => {
-    axios.get(api) // fetch api
+    fetch(api) // fetch api
+      .then((response) => response.json())
       .then((actualData) => {
-        setEarlier(actualData.data.Earlier);
-        setToday(actualData.data.Today);
+        setEarlier(actualData.Earlier);
+        setToday(actualData.Today);
       })
       .catch((error) => {
         console.log(error);
@@ -50,7 +57,7 @@ function NotificationsBody() {
     setAnchorEl(null);
   };
   return (
-    <Notification>
+    <Notification data-testid="notifications-body-test">
       <NotificationsContiner>
         {(today.length !== 0) && <NotificationsHead>Today</NotificationsHead> }
 
