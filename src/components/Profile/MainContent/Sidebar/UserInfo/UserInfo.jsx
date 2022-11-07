@@ -1,6 +1,5 @@
 import {
   Box,
-  // Button,
   CardMedia,
   Typography,
 } from '@mui/material';
@@ -10,18 +9,18 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
-// import { useState } from 'react';
+import { useState } from 'react';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
-  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions,
+  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
 
 function UserInfo(props) {
-  // const [showList, setShowList] = useState(false);
-  // const handleClickList = () => {
-  //   setShowList((prev) => !prev);
-  // };
+  const [showList, setShowList] = useState(false);
+  const handleClickList = () => {
+    setShowList((prev) => !prev);
+  };
   const {
     username, karma, cake, followers,
   } = props;
@@ -30,7 +29,7 @@ function UserInfo(props) {
       <CardMedia
         component="img"
         height="94"
-        image="https://source.unsplash.com/random"
+        image="https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&height=384&crop=1280:384,smart&s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c"
         alt="cover image"
       />
       <AddPhoto sx={{
@@ -44,7 +43,7 @@ function UserInfo(props) {
       <ProfileBox>
         <Box sx={{ display: 'flex' }}>
           <Box>
-            <ProfilePic src="https://picsum.photos/200" alt="user photo" />
+            <ProfilePic src="https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21" alt="user photo" />
             <AddPhoto sx={{
               border: (theme) => `thin solid ${theme.palette.primary.main}`,
               position: 'absolute',
@@ -92,15 +91,15 @@ function UserInfo(props) {
         <AddSocialLink startIcon={<AddIcon />} variant="contained">Add social link</AddSocialLink>
         <br />
         <AddPost variant="contained">Add Post</AddPost>
-        {/* {showList
+        {showList
             && (
             <>
-              <Button>Profile moderation</Button>
-              <Button>Add to Custom Feed</Button>
-              <Button>Invite someone to chat</Button>
+              <OptionsButtons>Profile moderation</OptionsButtons>
+              <OptionsButtons>Add to Custom Feed</OptionsButtons>
+              <OptionsButtons>Invite someone to chat</OptionsButtons>
             </>
-            )} */}
-        <MoreOptions onClick={() => { }}>More options</MoreOptions>
+            )}
+        <MoreOptions onClick={() => { handleClickList(); }}>More options</MoreOptions>
       </ProfileBox>
 
     </UserInfoBox>

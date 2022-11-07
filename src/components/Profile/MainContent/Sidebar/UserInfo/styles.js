@@ -5,7 +5,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 
 export const UserInfoBox = styled(Card)(() => ({
-  height: 445,
+  // height: 445,
   backgroundColor: 'white',
   border: '1px solid #ccc',
   boxShadow: 'none',
@@ -50,11 +50,12 @@ export const WideButton = styled(Button)(() => ({
 }));
 
 export const ProfileBox = styled(Box)(() => ({
-  transform: 'translate(0,-30%)',
+  // transform: 'translate(0,-30%)',
   padding: 12,
   height: '100%',
   width: '100%',
   position: 'relative',
+  marginTop: -130,
 }));
 
 export const EngineIcon = styled(SettingsOutlinedIcon)(() => ({
@@ -89,7 +90,7 @@ export const FollowersArrow = styled(ArrowForwardIosOutlinedIcon)(() => ({
 }));
 export const AddSocialLink = styled(Button)(() => ({
   borderRadius: 999,
-  fontSize: 14,
+  fontSize: 12,
   fontWeight: 700,
   boxShadow: 'none',
   marginTop: 5,
@@ -133,6 +134,19 @@ export const MoreOptions = styled(Button)(() => ({
     border: 'none',
     boxShadow: 'none',
     height: 32,
+    backgroundColor: '#ededed',
+  },
+}));
+
+export const OptionsButtons = styled(Button)(({ theme }) => ({
+  fontSize: 12,
+  fontWeight: 700,
+  borderRadius: 999,
+  marginTop: 8,
+  color: theme.palette.primary.main,
+  display: 'block',
+  textTransform: 'unset',
+  '&:hover': {
     backgroundColor: '#ededed',
   },
 }));

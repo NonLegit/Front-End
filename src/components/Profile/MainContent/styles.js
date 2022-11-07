@@ -7,6 +7,7 @@ const ProfilePage = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'center',
   padding: '20px 24px',
+
 }));
 
 export default ProfilePage;
