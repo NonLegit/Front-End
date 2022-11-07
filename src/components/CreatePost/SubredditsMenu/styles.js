@@ -137,3 +137,8 @@ export const NoCommunitiesFound = styled(Box)(({ theme }) => ({
   textAlign: 'center',
 }
 ));
+
+export const ChosenCommunityIcon = styled(Avatar)(() => ({
+  height: 22,
+  width: 22,
+}));

@@ -24,7 +24,7 @@ function CreatePostForm() {
   const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [communityToPostIn, setCommunityToPostIn] = useState(null);
 
-  console.log(communityToPostIn);
+  console.log('dummy', communityToPostIn);
   // handlers
   const handleTitleChange = (e) => {
     setTitle(e.target.value);

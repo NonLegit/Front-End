@@ -4,6 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
 } from './styles';
+/**
+ * This component is the link between home page and create post page
+ * @component CreatePostInHome
+ * @returns {React.Component} User avatar
+ * @returns {React.Component} Inputs redirect user to create post page
+ */
 
 function CreatePostInHome() {
   const navigate = useNavigate();

@@ -3,6 +3,13 @@ import {
   RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
 } from './styles';
 import RedditButton from '../../RedditButton/RedditButton';
+/**
+ * This component contains info about personal
+ * Reddit frontpage.
+ *
+ * @component PersonalReddit
+ * @returns {React.Component}  Buttons to show info about communities
+ */
 
 function PersonalReddit() {
   return (

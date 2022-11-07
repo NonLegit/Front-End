@@ -2,6 +2,12 @@ import { Divider } from '@mui/material';
 import {
   Column, Footer, Row,
 } from './styles';
+/**
+ * This component is the footer of the page
+ *
+ * @component HomePageFooter
+ * @returns {React.Component} Footer
+ */
 
 function HomePageFooter() {
   return (

@@ -2,6 +2,12 @@ import { Box } from '@mui/system';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import RedditButton from '../../RedditButton/RedditButton';
 import { Header, Paragraph, PremiumReddit } from './styles';
+/**
+ * This component contains info about reddit premium.
+ *
+ * @component RedditPremium
+ * @returns {React.Component}  Information about Premium version of reddit.
+ */
 
 function RedditPremium() {
   return (

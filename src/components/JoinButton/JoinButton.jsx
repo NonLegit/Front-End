@@ -1,14 +1,22 @@
 import { useState } from 'react';
 import { Button } from './styles';
+/**
+ * This component is join button
+ *
+ * @component PostHeader
+ * @property {boolean} isJoined -Check whether the user joined the subreddit or not.
+ * @returns {React.Component} Join button
+ */
 
 function JoinButton(props) {
   const { isJoined } = props;
+
   const [joined, setJoined] = useState(isJoined);
   const [hover, setHover] = useState(false);
+
   const handleClick = () => {
     setJoined(!joined);
   };
-  // console.log(joined);
   const handleMouseIn = () => {
     setHover(true);
   };

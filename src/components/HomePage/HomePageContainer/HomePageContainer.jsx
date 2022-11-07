@@ -11,19 +11,25 @@ import CreatePostInHome from '../CreatePostInHome/CreatePostInHome';
 import BackToTop from '../../BackToTop/BackToTop';
 import useFetch from '../../../hooks/useFetch';
 import PostList from '../PostList/PostList';
+/**
+ * This component works as a container for all home page components
+ *
+ * @component HomePageContainer
+ * and a repository the data fetched in
+ * @returns {React.Component} Container represents the home page
+ */
 
 function HomePageContainer() {
+  // variables
   const theme = useTheme();
-
   const match = useMediaQuery(theme.breakpoints.up('md'));
-
   const communitiesUrl = 'subreddits/mine/subscriber';
   const postsUrl = '/users/best';
+
+  // states
   const [posts, postsError] = useFetch(postsUrl);
   const [communities, communitiesError] = useFetch(communitiesUrl);
-  // console.log(error);
-  // console.log(data);
-  console.log(communities);
+
   return (
     <OuterContainer>
       <MainContainer>

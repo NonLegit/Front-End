@@ -32,7 +32,7 @@ export const PostTitle = styled('input')(({ theme }) => ({
   fontWeight: 100,
   backgroundColor: '#f6f7f8',
   flexGrow: 1,
-  cursor: 'pointer',
+  cursor: 'text',
 }));
 
 export const AvatarContainer = styled('div')(() => ({

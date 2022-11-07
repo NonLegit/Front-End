@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Post/PostReactions/PostReactions.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Post/PostReactions/PostReactions.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
+
+// icons
+import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+
+// mui components
+import {
+  Box, ClickAwayListener, Divider, IconButton, ListItemButton, ListItemIcon,
+} from '@mui/material';
+
+// styles
+import {
+  PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
+} from './styles';
+import Reactions from '../../Reactions/Reactions';
+
+/**
+ * This component is the container of post reactions
+ *
+ * @component PostReactions
+ * @property {number} votes -Number of post votes.
+ * @property {boolean} matchMd -check whether screen size is larger than meduim
+ * @property {boolean} matchSm -check whether screen size is larger than small
+ * @property {number} commentCount -Number of post comments.
+ * @returns {React.Component}  All post reactions.
+ */
+
+function PostReactions(props) {
+  const {
+    matchSm, comments, matchMd, votes,
+  } = props;
+
+  const [showMore, setShowMore] = useState(false);
+  const [save, setSave] = useState(false);
+
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
+  const handleSave = () => setSave(!save);
+  const handleClickAway = () => setShowMore(false);
+  return (
+    &lt;PostActions mt={0.5}>
+      {!matchSm &amp;&amp; (
+      &lt;Reactions flexDirection="row" votes={votes} />
+      )}
+      &lt;ActionButton
+        color="third"
+        startIcon={&lt;ChatBubbleOutlineRoundedIcon />}
+      >
+        {comments}
+        {' '}
+        comments
+      &lt;/ActionButton>
+      &lt;ActionButton
+        color="third"
+        startIcon={&lt;CardGiftcardOutlinedIcon />}
+      >
+        award
+
+      &lt;/ActionButton>
+      &lt;ActionButton
+        color="third"
+        startIcon={&lt;ShareOutlinedIcon />}
+      >
+        Share
+
+      &lt;/ActionButton>
+      {matchMd &amp;&amp; (
+      &lt;ActionButton
+        color="third"
+        startIcon={save
+          ? (
+            &lt;BookmarksOutlinedIcon />
+          ) : (
+            &lt;BookmarkBorderIcon
+              sx={{
+                width: '25px !important',
+                height: '25px !important',
+              }}
+            />
+
+          )}
+        onClick={handleSave}
+      >
+        {save ? 'Unsave' : 'Save'}
+      &lt;/ActionButton>
+      )}
+      &lt;ClickAwayListener onClickAway={handleClickAway}>
+        &lt;Box position="relative" display="flex">
+          &lt;IconButton
+            sx={{
+              borderRadius: '10%',
+              py: 0.4,
+            }}
+            onClick={handleShowMore}
+            color="third"
+          >
+            &lt;MoreHorizOutlinedIcon />
+          &lt;/IconButton>
+
+          &lt;ShowMoreList display={(showMore === false ? 'none' : 'block')}>
+            {!matchMd &amp;&amp; (
+            &lt;>
+              &lt;ListItemButton onClick={handleSave}>
+                &lt;ListItemIcon>
+                  {save ? &lt;BookmarksOutlinedIcon /> : &lt;BookmarkBorderIcon />}
+                &lt;/ListItemIcon>
+                &lt;ShowMoreListItemText>
+                  {save ? 'Unsave' : 'Save'}
+                &lt;/ShowMoreListItemText>
+              &lt;/ListItemButton>
+              &lt;Divider />
+            &lt;/>
+            )}
+            &lt;ListItemButton>
+              &lt;ListItemIcon>
+                &lt;VisibilityOffOutlinedIcon />
+              &lt;/ListItemIcon>
+              &lt;ShowMoreListItemText>
+                hide
+              &lt;/ShowMoreListItemText>
+            &lt;/ListItemButton>
+            &lt;Divider />
+            &lt;ListItemButton>
+              &lt;ListItemIcon>
+                &lt;FlagOutlinedIcon />
+              &lt;/ListItemIcon>
+              &lt;ShowMoreListItemText>
+                report
+              &lt;/ShowMoreListItemText>
+            &lt;/ListItemButton>
+          &lt;/ShowMoreList>
+        &lt;/Box>
+      &lt;/ClickAwayListener>
+    &lt;/PostActions>
+  );
+}
+
+export default PostReactions;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SideBar.html">SideBar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Nov 07 2022 22:11:59 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

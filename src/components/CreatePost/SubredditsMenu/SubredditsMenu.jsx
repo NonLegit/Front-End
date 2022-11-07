@@ -10,7 +10,7 @@ import iMatcher from '../../../utils/iMatcher';
 import numberWithCommas from '../../../utils/numberWithCommas';
 import RedditButton from '../../RedditButton/RedditButton';
 import {
-  AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound,
+  AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon,
 } from './styles';
 
 function SubredditsMenu(props) {
@@ -21,6 +21,8 @@ function SubredditsMenu(props) {
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
   const [communityName, setCommunityName] = useState('');
+  const [chosenCommunityIcon, setChosenCommunityIcon] = useState(null);
+  const [showIcon, setShowIcon] = useState(false);
 
   // contexts
   const { communities } = useCommunitiesInCreatePostContext();
@@ -29,10 +31,12 @@ function SubredditsMenu(props) {
   const handleClickOnChoose = () => {
     setOpen(true);
     setSearching(true);
+    setChosenCommunityIcon(null);
   };
   const handleClickAway = () => {
     setOpen(false);
     setSearching(false);
+    setShowIcon(true);
   };
   const handleDrop = () => {
     if (open) {
@@ -43,25 +47,32 @@ function SubredditsMenu(props) {
       setSearching(true);
     }
   };
-  const chooseCommunity = (communityId, communityName) => {
+  const chooseCommunity = (communityId, communityName, icon) => {
     setCommunityToPostIn(communityId);
     setCommunityName(communityName);
+    setOpen(false);
+    setChosenCommunityIcon(icon);
   };
-  const handleCommunityNameChange = (e) => setCommunityName(e.target.value);
-  const handleFilter = (community) => iMatcher(community.subredditName, communityName);
+  const handleCommunityNameChange = (e) => {
+    setCommunityName(e.target.value);
+  };
+  const handleFilter = (community) => iMatcher(`r/${community.subredditName}`, communityName);
 
   // variables
   const filteredArray = communities.filter(handleFilter);
   const filteredCommunities = filteredArray.length === 0 ? null : filteredArray;
   const username = 'sa3eedosumboreh';
   const profileMatching = iMatcher(`u/${username}`, communityName);
+  const userIcon = 'https://styles.redditmedia.com/t5_758ciw/styles/profileIcon_snoodd8b11a2-0e4a-4403-a861-a9fa7474b850-headshot.png?width=256&height=256&crop=256:256,smart&s=bc53006491e647452f185afa69775cd6a241598c';
 
+  console.log(chosenCommunityIcon, showIcon);
   return (
     <MenuOuterContainer>
       <ClickAwayListener onClickAway={handleClickAway}>
         <Box height="100%" width="fit-content">
           <MenuContainer>
-            {searching ? <SearchIcon /> : <DashedCircle />}
+            {searching ? <SearchIcon />
+              : (showIcon && chosenCommunityIcon ? <ChosenCommunityIcon src={chosenCommunityIcon} /> : <DashedCircle />)}
             <SubredditSearchField
               type="text"
               placeholder={searching ? 'Search communities' : 'Choose a community'}
@@ -84,21 +95,22 @@ function SubredditsMenu(props) {
               <CustomList>
                 <ListItem
                   sx={{ cursor: 'pointer' }}
-                  onClick={() => chooseCommunity(10, username)}
+                  onClick={() => chooseCommunity(10, `u/${username}`, userIcon)}
                 >
                   <AvatarContainer>
                     <Link to="/">
-                      <CustomAvatar src="https://styles.redditmedia.com/t5_758ciw/styles/profileIcon_snoodd8b11a2-0e4a-4403-a861-a9fa7474b850-headshot.png?width=256&height=256&crop=256:256,smart&s=bc53006491e647452f185afa69775cd6a241598c" alt="avatar" />
+                      <CustomAvatar src={userIcon} alt="avatar" />
                     </Link>
                   </AvatarContainer>
                   <CommunityContainer>
                     <CommunityName>
+                      u/
                       {username}
                     </CommunityName>
                   </CommunityContainer>
                 </ListItem>
               </CustomList>
-              <Divider />
+              {(profileMatching && filteredCommunities) && <Divider />}
             </>
             )}
             {!filteredCommunities && !profileMatching && (
@@ -135,7 +147,7 @@ function SubredditsMenu(props) {
                   <ListItem
                     key={id}
                     sx={{ cursor: 'pointer' }}
-                    onClick={() => chooseCommunity(id, subredditName)}
+                    onClick={() => chooseCommunity(id, `r/${subredditName}`, icon)}
                   >
                     <CommunityAvatar src={icon} />
                     <CommunityContainer>

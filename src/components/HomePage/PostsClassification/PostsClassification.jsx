@@ -9,6 +9,11 @@ import UploadIcon from '@mui/icons-material/Upload';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { CustomClassLink, PostsClassContainer, ClassButton } from './styles';
+/**
+ * Determine which type of posts should be fetched
+ * @component PostsClassification
+ * @returns {React.Component} Tabs (each tab indicate the type of posts that will be fetched)
+ */
 
 function PostsClassification() {
   const { postClass } = useParams();
@@ -18,6 +23,7 @@ function PostsClassification() {
     new: (postClass === 'new'),
     top: (postClass === 'top'),
   });
+
   useEffect(() => {
     setActiveClass({
       best: (postClass === 'best' || !postClass),
@@ -26,6 +32,7 @@ function PostsClassification() {
       top: (postClass === 'top'),
     });
   }, [postClass]);
+
   return (
     <PostsClassContainer>
       <CustomClassLink to="/best/">
