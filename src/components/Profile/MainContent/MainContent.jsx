@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
+
 import ProfilePage from './styles';
 
 const renderSwitch = (param, username, karma, cake, followers) => {
