@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button } from './styles';
 
-function JoinButton() {
-  const [joined, setJoined] = useState(false);
+function JoinButton(props) {
+  const { isJoined } = props;
+  const [joined, setJoined] = useState(isJoined);
   const [hover, setHover] = useState(false);
   const handleClick = () => {
     setJoined(!joined);

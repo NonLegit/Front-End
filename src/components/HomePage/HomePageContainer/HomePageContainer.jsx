@@ -17,13 +17,13 @@ function HomePageContainer() {
 
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
-  const url = 'https://9370b8a3-3862-45f6-b3f0-060ec85cbc3f.mock.pstmn.io/communities';
-  const postsUrl = 'https://9370b8a3-3862-45f6-b3f0-060ec85cbc3f.mock.pstmn.io/users/best';
+  const communitiesUrl = 'subreddits/mine/subscriber';
+  const postsUrl = '/users/best';
   const [posts, postsError] = useFetch(postsUrl);
-  const [communities, communitiesError] = useFetch(url);
+  const [communities, communitiesError] = useFetch(communitiesUrl);
   // console.log(error);
   // console.log(data);
-  console.log(posts);
+  console.log(communities);
   return (
     <OuterContainer>
       <MainContainer>

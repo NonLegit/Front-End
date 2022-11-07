@@ -41,7 +41,7 @@ export const CustomDivider = styled(Divider)(() => ({
 export const PostFormContainer = styled('div')(() => ({
   backgroundColor: '#fff',
   borderRadius: 5,
-  marginTop: 20,
+  marginTop: 8,
   display: 'flex',
   flexDirection: 'column',
 }));

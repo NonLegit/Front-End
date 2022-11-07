@@ -10,11 +10,17 @@ function CommunityList(props) {
     <List sx={{ p: 0 }} data-testid="community list">
       {communitiesList.map((item, index) => {
         const {
-          id, name, image, status,
+          id, subredditName, icon, status, isJoined,
         } = item;
         return (
           <div key={id}>
-            <CommunityItem index={index + 1} name={name} image={image} status={status} />
+            <CommunityItem
+              index={index + 1}
+              subredditName={subredditName}
+              icon={icon}
+              status={status}
+              isJoined={isJoined}
+            />
             {(index < communitiesList.length - 1) && <Divider />}
           </div>
         );

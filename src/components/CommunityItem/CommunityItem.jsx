@@ -10,7 +10,7 @@ import JoinButton from '../JoinButton/JoinButton';
 
 function CommunityItem(props) {
   const {
-    index, image, name, status,
+    index, icon, subredditName, status, isJoined,
   } = props;
   console.log(props);
   return (
@@ -30,14 +30,14 @@ function CommunityItem(props) {
         />
       )}
       <CommunityImage
-        src={image}
+        src={icon}
         data-testid="image"
       />
       <CommunityName data-testid="name" variant="caption">
-        {name}
+        {subredditName}
       </CommunityName>
       <Box flexGrow={1} display="flex" justifyContent="flex-end">
-        <JoinButton />
+        <JoinButton isJoined={isJoined} />
       </Box>
     </CommunityListItem>
   );

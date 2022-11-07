@@ -51,6 +51,6 @@ export const Avatar = styled('img')(() => ({
   left: '50%',
   transform: 'translateX(-50%)',
   borderRadius: 20,
-  WebkitBorderRadius: 100,
+  WebkitBorderRadius: 20,
   MozBorderRadius: 20,
 }));

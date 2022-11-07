@@ -11,6 +11,6 @@ export const OuterContainer = styled('div')(({ theme }) => ({
   height: '450vh',
   padding: '0 24px',
   [theme.breakpoints.down('sm')]: {
-    padding: 0,
+    padding: '0 10px',
   },
 }));

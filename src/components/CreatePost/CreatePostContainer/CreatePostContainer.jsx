@@ -1,4 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
+import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
 import MainContent from '../../MainContent/MainContent';
 import SideBar from '../../SideBar/SideBar';
 import CreatePostForm from '../CreatePostForm/CreatePostForm';
@@ -7,11 +8,13 @@ import { MainContainer, OuterContainer } from './styles';
 function CreatePostContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
+  const { communities, communitiesError } = useCommunitiesInCreatePostContext();
+  console.log(communities);
   return (
     <OuterContainer>
       <MainContainer>
         <MainContent width={740}>
-          <CreatePostForm />
+          {!communitiesError ? (communities && <CreatePostForm />) : 'error in communities fetching'}
         </MainContent>
         {match
         && (

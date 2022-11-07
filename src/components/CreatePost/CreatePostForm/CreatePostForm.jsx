@@ -20,10 +20,11 @@ function CreatePostForm() {
   const [postText, setPostTitle] = useState();
   const [postMedia, setPostMedia] = useState([]);
   const [postUrl, setPostUrl] = useState('');
-  const [OC, setOC] = useState(false);
   const [postType, setPostType] = useState(0);
   const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
+  const [communityToPostIn, setCommunityToPostIn] = useState(null);
 
+  console.log(communityToPostIn);
   // handlers
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -38,9 +39,6 @@ function CreatePostForm() {
   };
   const handleSaveDraft = (e) => {
     e.preventDefault();
-  };
-  const handleOC = () => {
-    setOC(!OC);
   };
   const handlePostType = (e, newPostType) => {
     // console.log(newPostType);
@@ -77,7 +75,7 @@ function CreatePostForm() {
         </DraftsButton>
       </TitleContainer>
       <CustomDivider />
-      <SubredditsMenu />
+      <SubredditsMenu setCommunityToPostIn={setCommunityToPostIn} />
       <PostFormContainer>
         <PostTypes postType={postType} handlePostType={handlePostType} />
         <FieldsContainer>
@@ -114,7 +112,7 @@ function CreatePostForm() {
             />
           ) : null}
         </FieldsContainer>
-        <PostTags OC={OC} handleOC={handleOC} />
+        <PostTags />
         <Divider />
         <PostSubmission handleSaveDraft={handleSaveDraft} handlePost={handlePost} />
       </PostFormContainer>
