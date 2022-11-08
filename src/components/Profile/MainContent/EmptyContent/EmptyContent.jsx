@@ -3,7 +3,7 @@ import {
 } from './styles';
 
 function EmptyContent(props) {
-  const { username } = props;
+  const { emptyContent } = props;
   return (
     <>
       <EmptyContentBox>
@@ -24,10 +24,7 @@ function EmptyContent(props) {
           <DownArrow color="disabled" />
         </ArrowBox>
         <EmptyText>
-          hmm... u/
-          {username}
-          {' '}
-          hasn&apos;t posted recently
+          {emptyContent}
         </EmptyText>
       </SpecialBox>
       <EmptyContentBox>

@@ -23,7 +23,14 @@ function Header() {
             overview
 
           </HeaderButton>
-          {['posts', 'comments', 'history', 'saved', 'hidden', 'upvoted', 'downvoted'].map((text) => (
+          <HeaderButton
+            color="inherit"
+            onClick={() => { handleClick('submitted'); }}
+            condition={(subTitle === 'submitted').toString()}
+          >
+            posts
+          </HeaderButton>
+          {['comments', 'history', 'saved', 'hidden', 'upvoted', 'downvoted'].map((text) => (
             <HeaderButton
               color="inherit"
               key={text}

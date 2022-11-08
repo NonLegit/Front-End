@@ -1,22 +1,33 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import Content from './Content/Content';
+import PostsTap from './PostsTap/PostsTap';
 import Sidebar from './Sidebar/Sidebar';
 
-import ProfilePage from './styles';
+import { ProfilePage } from './styles';
+import UpVoted from './UpVoted/UpVoted';
 
-const renderSwitch = (param, username, karma, cake, followers) => {
-  if (param === undefined || param.includes('sort')) {
+const renderSwitch = (param, username) => {
+  console.log(param);
+  if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&t=day') {
     return (
-      <ProfilePage>
-        <Content username={username} />
-        <Sidebar username={username} karma={karma} cake={cake} followers={followers} />
-      </ProfilePage>
+      <Content username={username} />
+    );
+  }
+
+  if (param === 'submitted' || param === 'submitted/sort=new') {
+    return (
+      <PostsTap username={username} />
+    );
+  }
+  if (param === 'upvoted' || param === 'upvoted/sort=new') {
+    return (
+      <UpVoted username={username} />
     );
   }
 
   return (
-    <ProfilePage />
+    <>no</>
   );
 };
 
@@ -27,7 +38,12 @@ function MainContent() {
   const followers = 3;
   const { subTitle } = useParams();
   return (
-    <Box>{renderSwitch(subTitle, username, karma, cake, followers)}</Box>
+    <Box>
+      <ProfilePage>
+        {renderSwitch(subTitle, username, karma, cake, followers)}
+        <Sidebar username={username} karma={karma} cake={cake} followers={followers} />
+      </ProfilePage>
+    </Box>
   );
 }
 

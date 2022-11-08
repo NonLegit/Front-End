@@ -97,9 +97,11 @@ function UserInfo(props) {
               <OptionsButtons>Profile moderation</OptionsButtons>
               <OptionsButtons>Add to Custom Feed</OptionsButtons>
               <OptionsButtons>Invite someone to chat</OptionsButtons>
+              <MoreOptions onClick={() => { handleClickList(); }}>Fewer options</MoreOptions>
             </>
             )}
-        <MoreOptions onClick={() => { handleClickList(); }}>More options</MoreOptions>
+        {!showList
+            && <MoreOptions onClick={() => { handleClickList(); }}>More options</MoreOptions>}
       </ProfileBox>
 
     </UserInfoBox>

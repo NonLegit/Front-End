@@ -125,7 +125,7 @@ export const MoreOptions = styled(Button)(() => ({
   fontSize: 14,
   fontWeight: 700,
   boxShadow: 'none',
-  width: 'fit-content',
+  width: 120,
   marginLeft: '60%',
   marginTop: 10,
   height: 32,

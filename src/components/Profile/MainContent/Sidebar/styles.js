@@ -6,6 +6,8 @@ export const SidebarBox = styled(Box)(() => ({
   width: 312,
   height: 'fit-content',
   marginLeft: 24,
+  flex: '0 0 312px',
+  display: 'block',
 }));
 
 export const InfoBox = styled(Card)(() => ({

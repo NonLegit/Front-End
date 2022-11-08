@@ -12,17 +12,20 @@ import {
   FilterBox, FilteButton, SelectBox, SelectItem,
 } from './styles';
 
-function Filter() {
-  const { subTitle } = useParams();
+function Filter(props) {
+  const { subTitle2 } = props;
+  const { sort, subTitle } = useParams();
   const navigate = useNavigate();
-
+  const newCondition = (sort === 'sort=new' || subTitle === 'sort=new');
+  const hotCondition = (sort === 'sort=hot' || subTitle === 'sort=hot');
+  const topCondition = (sort === 'sort=top' || sort === 'sort=top&t=day' || subTitle === 'sort=top' || subTitle === 'sort=top&t=day');
   const [showList, setShowList] = useState(false);
   // navigate
   const handleClick = (subPage) => {
-    navigate(`sort=${subPage}`);
+    navigate(`${subTitle2}sort=${subPage}`);
   };
   const handleClick2 = () => {
-    navigate('sort=top&t=day');
+    navigate(`${subTitle2}sort=top&t=day`);
   };
   const handleClickList = () => {
     setShowList((prev) => !prev);
@@ -34,40 +37,40 @@ function Filter() {
   return (
     <FilterBox>
       <FilteButton
-        startIcon={(subTitle === 'sort=new') ? <NewReleasesIcon /> : <NewReleasesOutlinedIcon />}
-        condition={(subTitle === 'sort=new').toString()}
+        startIcon={newCondition ? <NewReleasesIcon /> : <NewReleasesOutlinedIcon />}
+        condition={newCondition.toString()}
         onClick={() => { handleClick('new'); }}
       >
         New
       </FilteButton>
 
       <FilteButton
-        startIcon={(subTitle === 'sort=hot') ? <LocalFireDepartmentIcon /> : <LocalFireDepartmentOutlinedIcon />}
-        condition={(subTitle === 'sort=hot').toString()}
+        startIcon={hotCondition ? <LocalFireDepartmentIcon /> : <LocalFireDepartmentOutlinedIcon />}
+        condition={hotCondition.toString()}
         onClick={() => { handleClick('hot'); }}
       >
         HOT
       </FilteButton>
 
       <FilteButton
-        startIcon={(subTitle === 'sort=top' || subTitle === 'sort=top&t=day') ? <CloudUploadIcon /> : <CloudUploadOutlinedIcon />}
-        condition={(subTitle === 'sort=top' || subTitle === 'sort=top&t=day').toString()}
+        startIcon={topCondition ? <CloudUploadIcon /> : <CloudUploadOutlinedIcon />}
+        condition={topCondition.toString()}
         onClick={() => { handleClick('top'); }}
       >
         TOP
       </FilteButton>
       {
-            (subTitle === 'sort=top' || subTitle === 'sort=top&t=day') && (
+          topCondition && (
 
-              <FilteButton
-                endIcon={<KeyboardArrowDownOutlinedIcon />}
-                condition={true.toString()}
-                onClick={() => { handleClickList(); }}
-              >
-                All Time
-              </FilteButton>
+            <FilteButton
+              endIcon={<KeyboardArrowDownOutlinedIcon />}
+              condition={true.toString()}
+              onClick={() => { handleClickList(); }}
+            >
+              All Time
+            </FilteButton>
 
-            )
+          )
         }
       {showList && (
       <ClickAwayListener onClickAway={handleClickAway}>
@@ -75,7 +78,7 @@ function Filter() {
           <SelectItem
             color="inherit"
             onClick={() => { handleClick2(); }}
-            condition={(subTitle === 'sort=top&t=day').toString()}
+            condition={(sort === 'sort=top&t=day' || subTitle === 'sort=top&t=day').toString()}
           >
             Today
 

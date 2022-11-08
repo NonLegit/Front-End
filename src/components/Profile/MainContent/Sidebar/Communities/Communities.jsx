@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { InfoBox } from '../styles';
+
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
 } from './styles';
@@ -16,7 +17,7 @@ function Communities() {
     <InfoBox>
       <Typography variant="body2" sx={{ fontWeight: 700 }}>You&apos;re a moderator of these communities</Typography>
       {communities.map((community) => (
-        <ComminityBox>
+        <ComminityBox key={community.id}>
           <HeaderAvatar>
             <HeaderAvatarText>r/</HeaderAvatarText>
           </HeaderAvatar>

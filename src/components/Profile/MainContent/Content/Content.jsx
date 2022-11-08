@@ -1,10 +1,10 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
+import EmptyContent from '../EmptyContent/EmptyContent';
+import Filter from '../Filter/Filter';
+import { NEW, NewBox } from '../styles';
 import Comments from './Comments/Comments';
-import EmptyContent from './EmptyContent/EmptyContent';
-import Filter from './Filter/Filter';
 import Posts from './Posts/Posts';
-
-import { ContentBox, NEW, NewBox } from './styles';
+import ContentBox from './styles';
 
 function Content(props) {
   const subReddit = 'hello_nour';
@@ -13,12 +13,13 @@ function Content(props) {
   const title = 'HI';
   const time = '1 month';
   const points = '1';
-
-  const isContent = false;
+  const isContent = true;
+  const emptyContent = `hmm... u/${username}
+          hasn't posted recently`;
   return (
     <ContentBox>
-      <Filter />
-      {!isContent && <EmptyContent username={username} />}
+      <Filter subTitle2="" />
+      {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
           && (
           <>
@@ -28,6 +29,15 @@ function Content(props) {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
+            <Posts subReddit={subReddit} />
+            <Comments
+              subReddit={subReddit}
+              publisher={publisher}
+              username={username}
+              title={title}
+              time={time}
+              points={points}
+            />
             <Posts subReddit={subReddit} />
             <Comments
               subReddit={subReddit}
