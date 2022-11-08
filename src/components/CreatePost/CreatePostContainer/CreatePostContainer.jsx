@@ -9,7 +9,6 @@ function CreatePostContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
   const { communities, communitiesError } = useCommunitiesInCreatePostContext();
-  console.log(communities);
   return (
     <OuterContainer>
       <MainContainer>

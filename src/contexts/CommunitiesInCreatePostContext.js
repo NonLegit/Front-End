@@ -7,7 +7,6 @@ const CommunitiesInCreatePostContext = createContext(null);
 function CommunitiesInCreatePostContextProvider({ children }) {
   const communitiesUrl = '/subreddits/mine/subscriber';
   const [communities, communitiesError] = useFetch(communitiesUrl);
-  console.log(communities, communitiesError);
   const value = useMemo(() => ({ communities: communities?.communitiesList, communitiesError }), [communities, communitiesError]);
   return (
     <CommunitiesInCreatePostContext.Provider

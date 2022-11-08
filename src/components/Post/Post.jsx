@@ -3,13 +3,11 @@ import {
   Box, Divider, useMediaQuery, useTheme,
 } from '@mui/material';
 
-// assets
-// import video from '../../assets/videos/mov_bbb.mp4';
-
 // styles
 import {
-  PostContainer, Popularity, PostMedia, CustomImage,
+  PostContainer, Popularity, PostMedia, CustomImage, PostText, PostTextContainer,
 } from './styles';
+
 import Reactions from './Reactions/Reactions';
 import PostReactions from './PostReactions/PostReactions';
 import PostHeader from './PostHeader/PostHeader';
@@ -28,12 +26,13 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {string} url -Source of media file in case of image/video kinds or url in case of url kind.
  * @property {number} votes -Number of post votes.
  * @property {number} commentCount -Number of post comments.
+ * @property {string} text -Post text in case of "self" kind.
  * @returns {React.Component} Post
  */
 
 function Post(props) {
   const {
-    title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount,
+    title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
   } = props;
 
   const theme = useTheme();
@@ -75,10 +74,18 @@ function Post(props) {
               <source src={url} type="video/mp4" />
             </video>
           ) : (
-            <CustomImage
-              src={url}
-              alt="post image"
-            />
+            (kind === 'image')
+              ? (
+                <CustomImage
+                  src={url}
+                  alt="post image"
+                />
+              ) : (
+                <PostText>
+                  <PostTextContainer />
+                  {text}
+                </PostText>
+              )
           )}
           {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
         </PostMedia>

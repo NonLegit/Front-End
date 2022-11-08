@@ -1,8 +1,9 @@
 import { Box } from '@mui/material';
 import RedditButton from '../../RedditButton/RedditButton';
+import { PostButton } from './styles';
 
 function PostSubmission(props) {
-  const { handleSaveDraft, handlePost } = props;
+  const { handleSaveDraft, handlePost, readyToPost } = props;
   return (
     <Box m={2} gap={1} display="flex" justifyContent="flex-end">
       <RedditButton
@@ -15,16 +16,14 @@ function PostSubmission(props) {
       >
         save draft
       </RedditButton>
-      <RedditButton
+      <PostButton
         variant="contained"
-        padding="3px 16px"
-        fontSize={14}
-        fontWeight="bold"
         type="submit"
         onClick={handlePost}
+        disabled={!readyToPost}
       >
         post
-      </RedditButton>
+      </PostButton>
     </Box>
   );
 }

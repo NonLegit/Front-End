@@ -57,3 +57,23 @@ export const CustomImage = styled('img')(() => ({
   maxWidth: '100%',
   maxHeight: '512px',
 }));
+
+export const PostText = styled('p')(() => ({
+  fontSize: 14,
+  fontWeight: 400,
+  lineHeight: '21px',
+  wordBreak: 'break-word',
+  marginBottom: 10,
+  marginTop: 0,
+  position: 'relative',
+  cursor: 'pointer',
+  maxHeight: 250,
+}));
+
+export const PostTextContainer = styled(Box)(() => ({
+  top: 0,
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  backgroundImage: 'linear-gradient(to bottom, transparent 70%, white)',
+}));

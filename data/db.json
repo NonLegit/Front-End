@@ -1,37 +1,112 @@
-{
-    "communitiesTitle":"communities near you",
-    "communitiesList":[
-        {
-            "id":0,
-            "subredditName":"r/CoronavirusEgypt",
-            "status":true,
-            "isJoined": false,
-            "membersCount": 617671,
-            "icon":"https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797"
-        },
-        {
-            "id":1,
-            "subredditName":"r/Egypt",
-            "status":true,
-            "isJoined": false,
-            "membersCount": 23458320,
-            "icon":"https://styles.redditmedia.com/t5_2haljk/styles/communityIcon_v3mfg6zq8ml41.jpg?format=pjpg&s=06415378b24bb050806de9bc4609263bcb23b362"
-        },
-        {
-            "id":2,
-            "subredditName":"r/CMP 2024",
-            "status":false,
-            "isJoined": false,
-            "membersCount": 10340400,
-            "icon":"https://styles.redditmedia.com/t5_2qh87/styles/communityIcon_ub69d1lpjlf51.png"
-        },
-        {
-            "id":3,
-            "subredditName":"r/CMP 2022",
-            "status":false,
-            "isJoined": false,
-            "membersCount": 10000,
-            "icon":"https://styles.redditmedia.com/t5_2qiq1/styles/communityIcon_dwmyh6nx1n821.png"
-        }
-    ]
-}
+[
+    {
+        "id":0,
+        "title":"In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "image":"https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
+        "sr":"toptalent",
+        "creator":"righteous_boldness07",
+        "flairText":"sports/r/all",
+        "flairBackgroundColor":"#0079D3",
+        "flairColor":"#000",
+        "popularity":"Popular videos",
+        "url":"https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e",
+        "votes":245,
+        "commentCount": 12,
+        "kind":"image"
+
+    },
+    {
+        "id":1,
+        "title":"Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
+        "image":"https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png",
+        "sr":"stream",
+        "creator":"skylinestar1986",
+        "flairText":"اي كلام/r/all",
+        "flairBackgroundColor":"#ea0027",
+        "flairColor":"#fff",
+        "popularity":"Because you've shown interest in this community",
+        "url":"https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4",
+        "votes":245,
+        "commentCount": 12,
+        "kind":"image"
+    }
+    ,
+    {
+        "id":2,
+        "title":"In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "image":"https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
+        "sr":"toptalent",
+        "creator":"righteous_boldness07",
+        "flairText":"sports/r/all",
+        "flairBackgroundColor":"#0079D3",
+        "flairColor":"#000",
+        "popularity":"Because you visited this community before",
+        "votes":145,
+        "commentCount": 12,
+        "url":"/assets/videos/mov_bbb.mp4",
+        "kind":"video"
+    }
+    ,
+    {
+        "id":3,
+        "title":"In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "image":"https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
+        "sr":"toptalent",
+        "creator":"righteous_boldness07",
+        "flairText":"sports/r/all",
+        "flairBackgroundColor":"#0079D3",
+        "flairColor":"#fff",
+        "popularity":"Because you visited this community before",
+        "url":"https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+        "votes":225,
+        "commentCount": 123,
+        "kind":"image"
+    },
+    {
+        "id":5,
+        "title":"In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "image":"https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
+        "sr":"toptalent",
+        "creator":"righteous_boldness07",
+        "flairText":"sports/r/all",
+        "flairBackgroundColor":"#0079D3",
+        "flairColor":"#fff",
+        "popularity":"Because you visited this community before",
+        "url":"/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4",
+        "votes":245,
+        "commentCount": 56,
+        "kind":"video"
+
+    },
+    {
+        "id":4,
+        "title":"In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "image":"https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
+        "sr":"toptalent",
+        "creator":"righteous_boldness07",
+        "flairText":"sports/r/all",
+        "flairBackgroundColor":"#0079D3",
+        "flairColor":"#fff",
+        "popularity":"Because you visited this community before",
+        "url":"https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+        "votes":245,
+        "commentCount": 30,
+        "kind":"image"
+    },
+    {
+        "id":5,
+        "title":"In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "image":"https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
+        "sr":"toptalent",
+        "creator":"righteous_boldness07",
+        "flairText":"sports/r/all",
+        "flairBackgroundColor":"#0079D3",
+        "flairColor":"#fff",
+        "popularity":"Because you visited this community before",
+        "url":"https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+        "votes":245,
+        "commentCount": 30,
+        "kind":"text",
+        "text":"Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome."
+    }
+]

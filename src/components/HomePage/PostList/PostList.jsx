@@ -13,7 +13,7 @@ function PostList(props) {
     <>
       {posts.map((post) => {
         const {
-          id, title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount,
+          id, title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
         } = post;
         return (
           <Post
@@ -29,6 +29,7 @@ function PostList(props) {
             kind={kind}
             votes={votes}
             commentCount={commentCount}
+            text={text}
             key={id}
           />
         );

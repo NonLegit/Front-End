@@ -13,52 +13,71 @@ import PostTags from '../PostTags/PostTags';
 import PostSubmission from '../PostSubmission/PostSubmission';
 import PostTypes from '../PostTypes/PostTypes';
 import SubredditsMenu from '../SubredditsMenu/SubredditsMenu';
+import usePost from '../../../hooks/usePost';
 
 function CreatePostForm() {
+  // variables
+  const postTypes = ['text', 'media', 'url'];
+
   // states
+  const [postMedia, setPostMedia] = useState([]);
+  const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [title, setTitle] = useState('');
   const [postText, setPostTitle] = useState();
-  const [postMedia, setPostMedia] = useState([]);
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(0);
-  const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [communityToPostIn, setCommunityToPostIn] = useState(null);
+  const [ownerType, setOwnerType] = useState(null);
+  const [spoiler, setSpoiler] = useState(false);
+  const [nswf, setNswf] = useState(false);
 
-  console.log('dummy', communityToPostIn);
   // handlers
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-    // console.log(36727);
-  };
-  const handlePostTextChange = (e) => {
-    // console.log(e.target.value);
-    setPostTitle(e.target.value);
-  };
   const handlePost = (e) => {
     e.preventDefault();
+    // console.log(title, postText, postTypes[postType], communityToPostIn, ownerType, spoiler, nswf);
+    const post = {
+      title,
+      text: postText,
+      kind: postTypes[postType],
+      owner: communityToPostIn,
+      ownerType,
+      spoiler,
+      nswf,
+    };
+    usePost('/posts', post);
+    // console.log(data, error);
+  };
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+  const handlePostTextChange = (e) => {
+    setPostTitle(e.target.value);
   };
   const handleSaveDraft = (e) => {
     e.preventDefault();
   };
   const handlePostType = (e, newPostType) => {
-    // console.log(newPostType);
     setPostType(newPostType);
   };
   const handleUrlChange = (e) => {
     setPostUrl(e.target.value);
-    // console.log(e);
   };
   const handleUrlEnter = (e) => {
-    // console.log(e);
     if (e.key === 'Enter') {
       e.preventDefault();
     }
   };
   const handlePostMedia = (e) => {
-    // console.log(e.target.files);
     const files = Array.from(e.target.files).map((file) => ({ src: URL.createObjectURL(file), caption: '', link: '' }));
     setActiveMediaFile(postMedia.length + files.length - 1);
     setPostMedia([...postMedia, ...files]);
+  };
+  const hanldeSpoiler = () => {
+    setSpoiler(!spoiler);
+  };
+
+  const hanldeNsfw = () => {
+    setNswf(!nswf);
   };
 
   return (
@@ -75,7 +94,10 @@ function CreatePostForm() {
         </DraftsButton>
       </TitleContainer>
       <CustomDivider />
-      <SubredditsMenu setCommunityToPostIn={setCommunityToPostIn} />
+      <SubredditsMenu
+        setCommunityToPostIn={setCommunityToPostIn}
+        setOwnerType={setOwnerType}
+      />
       <PostFormContainer>
         <PostTypes postType={postType} handlePostType={handlePostType} />
         <FieldsContainer>
@@ -112,9 +134,18 @@ function CreatePostForm() {
             />
           ) : null}
         </FieldsContainer>
-        <PostTags />
+        <PostTags
+          spoiler={spoiler}
+          hanldeSpoiler={hanldeSpoiler}
+          nswf={nswf}
+          hanldeNsfw={hanldeNsfw}
+        />
         <Divider />
-        <PostSubmission handleSaveDraft={handleSaveDraft} handlePost={handlePost} />
+        <PostSubmission
+          handleSaveDraft={handleSaveDraft}
+          handlePost={handlePost}
+          readyToPost={communityToPostIn != null}
+        />
       </PostFormContainer>
     </FormContainer>
   );
