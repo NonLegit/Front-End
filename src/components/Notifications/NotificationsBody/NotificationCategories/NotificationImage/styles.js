@@ -7,7 +7,7 @@ export const NotificationImage = styled('img')(() => ({
   objectFit: 'cover',
 }));
 export const ChildImage = styled('span')(({ theme }) => ({
-  backgroundColor: theme.palette.common.white,
+  backgroundColor: theme.palette?.common.white,
   border: '1px solid #edeff1',
   borderRadius: ' 50%',
   boxShadow: ' 0 2px 4px rgb(0 0 0 / 5%)',
@@ -16,7 +16,7 @@ export const ChildImage = styled('span')(({ theme }) => ({
   position: 'absolute',
   top: '18px',
   width: '20px',
-  color: theme.palette.primary.main,
+  color: theme.palette?.primary.main,
   '& svg': {
     fontSize: 'medium',
     paddingLeft: '1px',

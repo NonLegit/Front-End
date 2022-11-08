@@ -2,10 +2,11 @@ import styled from '@emotion/styled';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
-export const Notification = styled('div')(() => ({
+export const Notification = styled('div')(({ today }) => ({
   padding: '16px',
   display: 'flex',
   borderBottom: '1px solid #EDEFF1',
+  backgroundColor: today ? '#e9f5fd' : '',
 }));
 export const NotificationBody = styled('div')(() => ({
   cursor: 'pointer',
@@ -22,6 +23,7 @@ export const BodyHead = styled('div')(() => ({
 }));
 export const Body = styled('div')(() => ({
   fontWeight: '400',
+  fontSize: ' 14px',
   color: '#7c7c7c',
 }));
 export const SeeMore = styled('div')(() => ({

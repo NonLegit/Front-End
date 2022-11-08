@@ -19,6 +19,7 @@ export const NotificationsHead = styled('h1')(() => ({
   fontWeight: '600',
   lineHeight: '26px',
   margin: 0,
+
 }));
 export const TabsContiner = styled('nav')(({ theme }) => ({
 
@@ -39,7 +40,7 @@ export const Tab = styled('div')(({ theme, index, active }) => ({
   fontWeight: '700',
   fontSize: '14px',
   color: '#848485',
-  marginRight: index === '2' ? 'auto' : '',
+  marginRight: (index === '2') ? 'auto' : '',
   padding: ' 15px 17px 12px',
   cursor: 'pointer',
   display: 'flex',

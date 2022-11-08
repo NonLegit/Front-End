@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: pages/Notifications.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,37 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: pages/Notifications.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import NotificationsBody from '../components/Notifications/NotificationsBody/NotificationsBody';
+import NotificationsHeader from '../components/Notifications/NotificationsHeader/NotificationsHeader';
+import { ContinerNotifications } from '../components/Notifications/NotificationsHeader/styles';
 
+/**
+ * Notifications page
+ * @return {React.Component} - All Notifications page sections
+ */
 
-    <h3> </h3>
+function Notifications() {
+  return (
+    &lt;ContinerNotifications data-testid="notifications-test">
+      &lt;NotificationsHeader />
+      &lt;NotificationsBody />
+    &lt;/ContinerNotifications>
+  );
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Notifications;
+</code></pre>
+        </article>
+    </section>
 
 
 

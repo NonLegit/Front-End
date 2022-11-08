@@ -9,12 +9,14 @@ import
 } from './styles';
 /**
  * Notifications Header
- * The component has function clickTab
+ * The component has function clickTab to set active tab
  * @return {React.Component} - Header of notifications page
  */
 
 function NotificationsHeader() {
+  // to set active tab
   const [active, setActive] = useState([1, 0, 0, 0]);
+  // fuction to set styling of active tab
   const clickTab = (index) => {
     const arr = [...active];
     arr[index] = 1;

@@ -26,8 +26,9 @@ it('should render notifications page', () => {
 it('routes to message page by click message button', async () => {
   createMemoryHistory({ initialEntries: ['/notifications'] });
   render(<App />);
+  const notifications = screen.getByTestId('notifications-header-test');
   fireEvent.click(screen.getByTestId('message-router'));
-  expect(screen.getByTestId('messages-test')).toBeInTheDocument();
+  expect(notifications).not.toBeInTheDocument();
 });
 
 // test snapshot
