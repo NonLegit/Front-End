@@ -31,7 +31,6 @@
 // icons
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -40,10 +39,11 @@ import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 
 // mui components
 import {
-  Box, ClickAwayListener, Divider, IconButton, ListItemButton, ListItemIcon,
+  Box, ClickAwayListener, Divider, IconButton, ListItemButton, ListItemIcon, useMediaQuery,
 } from '@mui/material';
 
 // styles
+import { useTheme } from '@mui/system';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
 } from './styles';
@@ -67,7 +67,9 @@ function PostReactions(props) {
 
   const [showMore, setShowMore] = useState(false);
   const [save, setSave] = useState(false);
-
+  const theme = useTheme();
+  const matchXs = useMediaQuery(theme.breakpoints.down('xs'));
+  const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
   const handleShowMore = () => {
     setShowMore(!showMore);
   };
@@ -86,13 +88,8 @@ function PostReactions(props) {
         {' '}
         comments
       &lt;/ActionButton>
-      &lt;ActionButton
-        color="third"
-        startIcon={&lt;CardGiftcardOutlinedIcon />}
-      >
-        award
-
-      &lt;/ActionButton>
+      {!matchXs
+      &amp;&amp; (
       &lt;ActionButton
         color="third"
         startIcon={&lt;ShareOutlinedIcon />}
@@ -100,6 +97,7 @@ function PostReactions(props) {
         Share
 
       &lt;/ActionButton>
+      )}
       {matchMd &amp;&amp; (
       &lt;ActionButton
         color="third"
@@ -134,7 +132,24 @@ function PostReactions(props) {
             &lt;MoreHorizOutlinedIcon />
           &lt;/IconButton>
 
-          &lt;ShowMoreList display={(showMore === false ? 'none' : 'block')}>
+          &lt;ShowMoreList
+            sx={{ boxShadow: 2 }}
+            display={(showMore === false ? 'none' : 'block')}
+            match={matchXxs}
+          >
+            {matchXs &amp;&amp; (
+            &lt;>
+              &lt;ListItemButton onClick={handleSave}>
+                &lt;ListItemIcon>
+                  &lt;ShareOutlinedIcon />
+                &lt;/ListItemIcon>
+                &lt;ShowMoreListItemText>
+                  Share
+                &lt;/ShowMoreListItemText>
+              &lt;/ListItemButton>
+              &lt;Divider />
+            &lt;/>
+            )}
             {!matchMd &amp;&amp; (
             &lt;>
               &lt;ListItemButton onClick={handleSave}>
@@ -183,13 +198,13 @@ export default PostReactions;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SideBar.html">SideBar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Nov 08 2022 16:27:42 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Nov 08 2022 21:33:57 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

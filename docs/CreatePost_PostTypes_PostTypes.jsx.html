@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: MainContent/MainContent.jsx</title>
+    <title>JSDoc: Source: CreatePost/PostTypes/PostTypes.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: MainContent/MainContent.jsx</h1>
+    <h1 class="page-title">Source: CreatePost/PostTypes/PostTypes.jsx</h1>
 
     
 
@@ -26,26 +26,37 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { MainContentContainer } from './styles';
+            <pre class="prettyprint source linenums"><code>import { Divider } from '@mui/material';
+import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined';
+import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import { CustomTab, CustomTabs } from './styles';
 /**
- * This component works as a container for the left half components
- * like timeline
+ * This component contains the tabs of post types
  *
- * @component MainContent
- * @property {React.Component} children -Components which will be wrapped in main container
- * @property {number} width -The maximum width of the main content
- * @returns {React.Component} Container represents its children
+ * @component PostTypes
+ * @property {function} postType -Post type (text, image, video and url).
+ * @property {function} handlePostType -Hanlding post type.
+ * @returns {React.Component} tabs of post types
  */
 
-function MainContent({ children, width }) {
+function PostTypes(props) {
+  const { postType, handlePostType } = props;
   return (
-    &lt;MainContentContainer width={width}>
-      {children}
-    &lt;/MainContentContainer>
+    &lt;CustomTabs
+      value={postType}
+      onChange={handlePostType}
+    >
+      &lt;CustomTab icon={&lt;PostAddOutlinedIcon />} iconPosition="start" label="post" value={0} />
+      &lt;Divider orientation="vertical" flexItem light />
+      &lt;CustomTab icon={&lt;ImageOutlinedIcon />} iconPosition="start" label="images &amp; videos" value={1} />
+      &lt;Divider orientation="vertical" flexItem light />
+      &lt;CustomTab icon={&lt;AttachFileIcon sx={{ transform: 'rotate(45deg)' }} />} iconPosition="start" label="link" value={2} />
+    &lt;/CustomTabs>
   );
 }
 
-export default MainContent;
+export default PostTypes;
 </code></pre>
         </article>
     </section>

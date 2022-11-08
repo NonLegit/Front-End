@@ -8,6 +8,9 @@ import UploadOutlinedIcon from '@mui/icons-material/UploadOutlined';
 import UploadIcon from '@mui/icons-material/Upload';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/system';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CustomClassLink, PostsClassContainer, ClassButton } from './styles';
 /**
  * Determine which type of posts should be fetched
@@ -23,6 +26,8 @@ function PostsClassification() {
     new: (postClass === 'new'),
     top: (postClass === 'top'),
   });
+  const theme = useTheme();
+  const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   useEffect(() => {
     setActiveClass({
@@ -33,40 +38,86 @@ function PostsClassification() {
     });
   }, [postClass]);
 
+  const handleClick = (e) => {
+    if (!matchSm) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <PostsClassContainer>
-      <CustomClassLink to="/best/">
-        <ClassButton color={(activeClass.best ? 'primary' : 'third')} active={activeClass.best}>
-          {(activeClass.best ? <RocketIcon /> : <RocketOutlinedIcon />)}
+      {(matchSm || activeClass.best)
+      && (
+      <CustomClassLink
+        onClick={handleClick}
+        to="/best/"
+      >
+        <ClassButton
+          color={(activeClass.best ? 'primary' : 'third')}
+          active={activeClass.best}
+        >
+          {(activeClass.best && matchSm ? <RocketIcon /> : <RocketOutlinedIcon />)}
           <div>
             best
           </div>
+          {!matchSm && <ExpandMoreIcon />}
         </ClassButton>
       </CustomClassLink>
-      <CustomClassLink to="/hot/">
-        <ClassButton color={(activeClass.hot ? 'primary' : 'third')} active={activeClass.hot}>
-          {(activeClass.hot ? <LocalFireDepartmentIcon /> : <LocalFireDepartmentOutlinedIcon />)}
+      )}
+      {(matchSm || activeClass.hot)
+      && (
+      <CustomClassLink
+        onClick={handleClick}
+        to="/hot/"
+      >
+        <ClassButton
+          color={(activeClass.hot ? 'primary' : 'third')}
+          active={activeClass.hot}
+        >
+          {(activeClass.hot && matchSm ? <LocalFireDepartmentIcon /> : <LocalFireDepartmentOutlinedIcon />)}
           <div>
             hot
           </div>
+          {!matchSm && <ExpandMoreIcon />}
         </ClassButton>
       </CustomClassLink>
-      <CustomClassLink to="/new/">
-        <ClassButton color={(activeClass.new ? 'primary' : 'third')} active={activeClass.new}>
-          {(activeClass.new ? <NewReleasesIcon /> : <NewReleasesOutlinedIcon />)}
+      )}
+      {(matchSm || activeClass.new)
+      && (
+      <CustomClassLink
+        onClick={handleClick}
+        to="/new/"
+      >
+        <ClassButton
+          color={(activeClass.new ? 'primary' : 'third')}
+          active={activeClass.new}
+        >
+          {(activeClass.new && matchSm ? <NewReleasesIcon /> : <NewReleasesOutlinedIcon />)}
           <div>
             new
           </div>
+          {!matchSm && <ExpandMoreIcon />}
         </ClassButton>
       </CustomClassLink>
-      <CustomClassLink to="/top/">
-        <ClassButton color={(activeClass.top ? 'primary' : 'third')} active={activeClass.top}>
-          {(activeClass.top ? <UploadIcon /> : <UploadOutlinedIcon />)}
+      )}
+      {(matchSm || activeClass.top)
+      && (
+      <CustomClassLink
+        onClick={handleClick}
+        to="/top/"
+      >
+        <ClassButton
+          color={(activeClass.top ? 'primary' : 'third')}
+          active={activeClass.top}
+        >
+          {(activeClass.top && matchSm ? <UploadIcon /> : <UploadOutlinedIcon />)}
           <div>
             top
           </div>
+          {!matchSm && <ExpandMoreIcon />}
         </ClassButton>
       </CustomClassLink>
+      )}
     </PostsClassContainer>
   );
 }

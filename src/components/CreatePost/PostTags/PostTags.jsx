@@ -1,7 +1,7 @@
 import AddIcon from '@mui/icons-material/Add';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { NsfwButton, OptionButton, SpoilerButton } from './styles';
 /**
  * This component is post tags
@@ -18,8 +18,17 @@ function PostTags(props) {
   const {
     spoiler, hanldeSpoiler, nswf, hanldeNsfw,
   } = props;
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <Box display="flex" mx={2} mb={2} gap={1}>
+    <Box
+      display="flex"
+      flexWrap="wrap"
+      mx={2}
+      mb={2}
+      gap={1}
+      justifyContent={match ? 'center' : 'flex-start'}
+    >
       <SpoilerButton
         variant="outlined"
         color="third"

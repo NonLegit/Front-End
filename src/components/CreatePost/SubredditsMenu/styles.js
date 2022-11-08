@@ -9,7 +9,7 @@ export const MenuOuterContainer = styled(Box)(() => ({
   position: 'relative',
 }));
 
-export const MenuContainer = styled(Box)(({ theme }) => ({
+export const MenuContainer = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',
   height: '100%',
@@ -18,9 +18,6 @@ export const MenuContainer = styled(Box)(({ theme }) => ({
   padding: '0px 8px',
   border: '1px solid #edeff1',
   width: '100%',
-  [theme?.breakpoints.up('sm')]: {
-    width: '300px',
-  },
 }));
 
 export const SubredditSearchField = styled('input')(({ theme }) => ({
@@ -69,6 +66,14 @@ export const SubredditsContainer = styled(Box)(({ theme }) => ({
   [theme?.breakpoints.up('sm')]: {
     width: '300px',
   },
+}));
+
+export const ClickAwayContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  [theme?.breakpoints.up('sm')]: {
+    width: '300px',
+  },
+  height: '100%',
 }));
 
 export const CommunityCategory = styled(Box)(({ theme }) => ({

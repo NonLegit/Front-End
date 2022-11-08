@@ -4,25 +4,26 @@ import {
 import { styled } from '@mui/system';
 
 export const ActionButton = styled(Button)(() => ({
-  fontSize: 13,
+  fontSize: 12,
+  letterSpacing: 0.75,
   textTransform: 'capitalize',
   fontWeight: 'bold',
-  '& .MuiSvgIcon-root': {
-    marginRight: 3,
+  '& .MuiButton-startIcon': {
+    marginRight: 5,
     width: 20,
     height: 20,
   },
-  paddingTop: 8,
-  paddingBottom: 8,
+  paddingTop: 0,
+  paddingBottom: 0,
 }));
 
-export const ShowMoreList = styled(List)(({ theme, display }) => ({
+export const ShowMoreList = styled(List)(({ match, theme, display }) => ({
   display,
   position: 'absolute',
-  left: 0,
+  left: (match ? '-100%' : 0),
   top: '100%',
   backgroundColor: '#fff',
-  borderRadius: 7,
+  borderRadius: 4,
   padding: 0,
   '& .MuiListItemText-root .MuiTypography-root': {
     fontSize: 13,
@@ -44,9 +45,10 @@ export const ShowMoreList = styled(List)(({ theme, display }) => ({
   },
 }));
 
-export const ShowMoreListItemText = styled(ListItemText)(() => ({
+export const ShowMoreListItemText = styled(ListItemText)(({ theme }) => ({
   textTransform: 'capitalize',
   whiteSpace: 'nowrap',
+  color: theme.palette.third.main,
 }));
 
 export const PostActions = styled(Box)(() => ({

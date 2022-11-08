@@ -3,7 +3,6 @@ import { useState } from 'react';
 // icons
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import CardGiftcardOutlinedIcon from '@mui/icons-material/CardGiftcardOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -12,10 +11,11 @@ import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 
 // mui components
 import {
-  Box, ClickAwayListener, Divider, IconButton, ListItemButton, ListItemIcon,
+  Box, ClickAwayListener, Divider, IconButton, ListItemButton, ListItemIcon, useMediaQuery,
 } from '@mui/material';
 
 // styles
+import { useTheme } from '@mui/system';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
 } from './styles';
@@ -39,7 +39,9 @@ function PostReactions(props) {
 
   const [showMore, setShowMore] = useState(false);
   const [save, setSave] = useState(false);
-
+  const theme = useTheme();
+  const matchXs = useMediaQuery(theme.breakpoints.down('xs'));
+  const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
   const handleShowMore = () => {
     setShowMore(!showMore);
   };
@@ -58,13 +60,8 @@ function PostReactions(props) {
         {' '}
         comments
       </ActionButton>
-      <ActionButton
-        color="third"
-        startIcon={<CardGiftcardOutlinedIcon />}
-      >
-        award
-
-      </ActionButton>
+      {!matchXs
+      && (
       <ActionButton
         color="third"
         startIcon={<ShareOutlinedIcon />}
@@ -72,6 +69,7 @@ function PostReactions(props) {
         Share
 
       </ActionButton>
+      )}
       {matchMd && (
       <ActionButton
         color="third"
@@ -106,7 +104,24 @@ function PostReactions(props) {
             <MoreHorizOutlinedIcon />
           </IconButton>
 
-          <ShowMoreList display={(showMore === false ? 'none' : 'block')}>
+          <ShowMoreList
+            sx={{ boxShadow: 2 }}
+            display={(showMore === false ? 'none' : 'block')}
+            match={matchXxs}
+          >
+            {matchXs && (
+            <>
+              <ListItemButton onClick={handleSave}>
+                <ListItemIcon>
+                  <ShareOutlinedIcon />
+                </ListItemIcon>
+                <ShowMoreListItemText>
+                  Share
+                </ShowMoreListItemText>
+              </ListItemButton>
+              <Divider />
+            </>
+            )}
             {!matchMd && (
             <>
               <ListItemButton onClick={handleSave}>

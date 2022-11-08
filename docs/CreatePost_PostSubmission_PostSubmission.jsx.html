@@ -26,42 +26,69 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { Box } from '@mui/material';
+            <pre class="prettyprint source linenums"><code>import { Box, Checkbox } from '@mui/material';
 import RedditButton from '../../RedditButton/RedditButton';
-import { PostButton } from './styles';
+import {
+  ConnectAccounts, InfoIcon, PostButton, SendReplayFormLabel, SendReplyContainer,
+} from './styles';
 /**
- * This component contains post andn save draft buttons
+ * This component contains post and save draft buttons
  *
  * @component PostHeader
  * @property {function} handleSaveDraft -Hanlding save draft button
  * @property {function} handlePost -Hanlding post submitting
  * @property {boolean} readyToPost -Check whether the post button is disabled or not
+ * @property {boolean} sendReplies -Check whether the user need to be sent the post reply notifications or not.
+ * @property {function} handleSendReplies -Hanlding post reply notifications
  * @returns {React.Component} Container of buttons
  */
 
 function PostSubmission(props) {
-  const { handleSaveDraft, handlePost, readyToPost } = props;
+  const {
+    handleSaveDraft, handlePost, readyToPost, handleSendReplies, sendReplies,
+  } = props;
   return (
-    &lt;Box m={2} gap={1} display="flex" justifyContent="flex-end">
-      &lt;RedditButton
-        variant="outlined"
-        padding="3px 16px"
-        fontSize={14}
-        fontWeight="bold"
-        type="submit"
-        onClick={handleSaveDraft}
-      >
-        save draft
-      &lt;/RedditButton>
-      &lt;PostButton
-        variant="contained"
-        type="submit"
-        onClick={handlePost}
-        disabled={!readyToPost}
-        data-testid="post button"
-      >
-        post
-      &lt;/PostButton>
+    &lt;Box>
+      &lt;Box m={2} gap={1} display="flex" justifyContent="flex-end">
+        &lt;RedditButton
+          variant="outlined"
+          padding="3px 16px"
+          fontSize={14}
+          fontWeight="bold"
+          type="submit"
+          onClick={handleSaveDraft}
+        >
+          save draft
+        &lt;/RedditButton>
+        &lt;PostButton
+          variant="contained"
+          type="submit"
+          onClick={handlePost}
+          disabled={!readyToPost}
+          data-testid="post button"
+        >
+          post
+        &lt;/PostButton>
+      &lt;/Box>
+      &lt;SendReplyContainer p={2}>
+        &lt;SendReplayFormLabel
+          control={(
+            &lt;Checkbox
+              onChange={handleSendReplies}
+              checked={sendReplies}
+              size="small"
+              disableRipple
+            />
+)}
+          label="Send me post reply notifications"
+        />
+        &lt;Box display="flex">
+          &lt;ConnectAccounts>
+            Connect accounts to share your post
+          &lt;/ConnectAccounts>
+          &lt;InfoIcon />
+        &lt;/Box>
+      &lt;/SendReplyContainer>
     &lt;/Box>
   );
 }
@@ -77,13 +104,13 @@ export default PostSubmission;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SideBar.html">SideBar</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Nov 08 2022 16:27:42 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Nov 08 2022 21:33:57 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

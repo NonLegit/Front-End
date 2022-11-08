@@ -37,11 +37,15 @@ function CreatePostForm() {
   const [ownerType, setOwnerType] = useState(null);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
+  const [sendReplies, setSendReplies] = useState(true);
 
+  const handleSendReplies = (e) => {
+    setSendReplies(e.target.checked);
+  };
   // handlers
   const handlePost = (e) => {
     e.preventDefault();
-    console.log(title, postText, postTypes[postType], communityToPostIn, ownerType, spoiler, nswf);
+    console.log(title, postText, postTypes[postType], communityToPostIn, ownerType, spoiler, nswf, sendReplies);
     const post = {
       title,
       text: postText,
@@ -50,11 +54,14 @@ function CreatePostForm() {
       ownerType,
       spoiler,
       nswf,
+      sendReplies,
     };
     axios.post('/posts', JSON.stringify(post)).then((response) => {
       console.log(response.data);
+      alert('posted successfully');
     }).catch((e) => {
       console.log(e);
+      alert('somethig went wrong');
     });
   };
   const handleTitleChange = (e) => {
@@ -155,6 +162,8 @@ function CreatePostForm() {
           handleSaveDraft={handleSaveDraft}
           handlePost={handlePost}
           readyToPost={communityToPostIn != null && title}
+          handleSendReplies={handleSendReplies}
+          sendReplies={sendReplies}
         />
       </PostFormContainer>
     </FormContainer>

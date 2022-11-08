@@ -9,6 +9,12 @@ export const CustomTabs = styled(Tabs)(() => ({
     webkitTransition: 'all 0s ease 0s',
     bottom: 1,
   },
+  '& .MuiTabs-flexContainer': {
+    minWidth: 480,
+  },
+  '& .MuiTabs-scroller': {
+    overflowX: 'scroll !important',
+  },
 }));
 
 export const CustomTab = styled(Tab)(() => ({

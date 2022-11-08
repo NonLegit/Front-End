@@ -44,6 +44,7 @@ export const PostFormContainer = styled('div')(() => ({
   marginTop: 8,
   display: 'flex',
   flexDirection: 'column',
+  overflow: 'hidden',
 }));
 
 export const FieldsContainer = styled('form')(() => ({

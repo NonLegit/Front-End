@@ -10,8 +10,16 @@ import iMatcher from '../../../utils/iMatcher';
 import numberWithCommas from '../../../utils/numberWithCommas';
 import RedditButton from '../../RedditButton/RedditButton';
 import {
-  AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon,
+  AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon, ClickAwayContainer,
 } from './styles';
+/**
+ * This component contains the menu of subreddit that the use can post in
+ *
+ * @component SubredditsMenu
+ * @property {function} setCommunityToPostIn -Hanlding post owner (ID).
+ * @property {function} setOwnerType -Hanlding post owner type (subreddit or user).
+ * @returns {React.Component} Container of subreddit menu
+ */
 
 function SubredditsMenu(props) {
   // props
@@ -69,7 +77,7 @@ function SubredditsMenu(props) {
   return (
     <MenuOuterContainer>
       <ClickAwayListener onClickAway={handleClickAway}>
-        <Box height="100%" width="fit-content">
+        <ClickAwayContainer>
           <MenuContainer>
             {searching ? <SearchIcon />
               : (showIcon && chosenCommunityIcon ? <ChosenCommunityIcon src={chosenCommunityIcon} /> : <DashedCircle />)}
@@ -168,7 +176,7 @@ function SubredditsMenu(props) {
             <Divider />
           </SubredditsContainer>
           )}
-        </Box>
+        </ClickAwayContainer>
       </ClickAwayListener>
     </MenuOuterContainer>
   );

@@ -2,7 +2,7 @@ import { Box, IconButton } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const Voting = styled(Box)(({ flexDirection }) => ({
-  padding: '8px 4px',
+  padding: (flexDirection === 'column' ? '8px 4px' : 0),
   backgroundColor: (flexDirection === 'column' ? '#F8F9FA' : '#fff'),
   display: 'flex',
   borderRadius: '3px 0 0 3px',
