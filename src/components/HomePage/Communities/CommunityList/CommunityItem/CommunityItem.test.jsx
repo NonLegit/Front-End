@@ -12,24 +12,24 @@ describe(CommunityItem, () => {
   test('Community Item props work correctly with status up', () => {
     const testCase = {
       index: 2,
-      image: 'https://testing-library.com/img/octopus-64x64.png',
-      name: 'Community One',
+      icon: 'https://testing-library.com/img/octopus-64x64.png',
+      subredditName: 'Community One',
       status: true,
     };
 
     render(<CommunityItem
       index={testCase.index}
-      image={testCase.image}
-      name={testCase.name}
+      icon={testCase.icon}
+      subredditName={testCase.subredditName}
       status={testCase.status}
     />);
 
     const CommunityItemIndex = screen.getByTestId('index');
     expect(parseInt(CommunityItemIndex.textContent, 10)).toEqual(testCase.index);
     const CommunityItemImage = screen.getByTestId('image').firstChild;
-    expect(CommunityItemImage.src).toEqual(testCase.image);
+    expect(CommunityItemImage.src).toEqual(testCase.icon);
     const CommunityItemName = screen.getByTestId('name');
-    expect(CommunityItemName.textContent).toEqual(testCase.name);
+    expect(CommunityItemName.textContent).toEqual(`r/${testCase.subredditName}`);
     const CommunityItemStatusUp = screen.getByTestId('icon up');
     expect(CommunityItemStatusUp).toBeInTheDocument();
     const CommunityItemStatusDown = screen.queryByTestId('icon down');
@@ -40,24 +40,24 @@ describe(CommunityItem, () => {
 test('Community Item props work correctly with status down', () => {
   const testCase = {
     index: 2,
-    image: 'https://testing-library.com/img/octopus-64x64.png',
-    name: 'Community One',
+    icon: 'https://testing-library.com/img/octopus-64x64.png',
+    subredditName: 'Community One',
     status: false,
   };
 
   render(<CommunityItem
     index={testCase.index}
-    image={testCase.image}
-    name={testCase.name}
+    icon={testCase.icon}
+    subredditName={testCase.subredditName}
     status={testCase.status}
   />);
 
   const CommunityItemIndex = screen.getByTestId('index');
   expect(parseInt(CommunityItemIndex.textContent, 10)).toEqual(testCase.index);
   const CommunityItemImage = screen.getByTestId('image').firstChild;
-  expect(CommunityItemImage.src).toEqual(testCase.image);
+  expect(CommunityItemImage.src).toEqual(testCase.icon);
   const CommunityItemName = screen.getByTestId('name');
-  expect(CommunityItemName.textContent).toEqual(testCase.name);
+  expect(CommunityItemName.textContent).toEqual(`r/${testCase.subredditName}`);
   const CommunityItemStatusUp = screen.queryByTestId('icon up');
   expect(CommunityItemStatusUp).not.toBeInTheDocument();
   const CommunityItemStatusDown = screen.getByTestId('icon down');

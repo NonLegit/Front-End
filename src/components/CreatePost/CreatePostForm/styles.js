@@ -22,7 +22,7 @@ export const TitleContainer = styled(Box)(() => ({
 
 export const DraftsButton = styled(RedditButton)(({ theme }) => ({
   textTransform: 'uppercase',
-  color: theme.palette.primary.main,
+  color: theme?.palette?.primary?.main,
 }));
 
 export const Badge = styled('div')(() => ({
@@ -61,7 +61,7 @@ export const PostTitle = styled('input')(({ theme }) => ({
   },
   borderRadius: 4,
   fontSize: 14,
-  caretColor: theme.palette.primary.main,
+  caretColor: theme?.palette?.primary?.main,
   fontWeight: 400,
 }));
 
@@ -73,7 +73,7 @@ export const PostText = styled(TextareaAutosize)(({ theme }) => ({
   },
   borderRadius: 4,
   fontSize: 14,
-  caretColor: theme.palette.primary.main,
+  caretColor: theme?.palette?.primary?.main,
   fontWeight: 400,
   fontFamily: 'inherit',
   minHeight: 182,
@@ -87,7 +87,7 @@ export const PostUrl = styled(TextareaAutosize)(({ theme }) => ({
   },
   borderRadius: 4,
   fontSize: 14,
-  caretColor: theme.palette.primary.main,
+  caretColor: theme?.palette?.primary?.main,
   fontWeight: 400,
   fontFamily: 'inherit',
   resize: 'none',

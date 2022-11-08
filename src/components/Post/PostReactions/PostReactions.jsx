@@ -88,6 +88,7 @@ function PostReactions(props) {
 
           )}
         onClick={handleSave}
+        data-testid="save button"
       >
         {save ? 'Unsave' : 'Save'}
       </ActionButton>

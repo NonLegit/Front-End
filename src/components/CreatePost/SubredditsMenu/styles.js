@@ -18,7 +18,7 @@ export const MenuContainer = styled(Box)(({ theme }) => ({
   padding: '0px 8px',
   border: '1px solid #edeff1',
   width: '100%',
-  [theme.breakpoints.up('sm')]: {
+  [theme?.breakpoints.up('sm')]: {
     width: '300px',
   },
 }));
@@ -48,7 +48,7 @@ export const DashedCircle = styled('div')(() => ({
 }));
 
 export const DropIcon = styled(HiOutlineChevronDown)(({ theme }) => ({
-  color: theme.palette.third.main,
+  color: theme?.palette?.third?.main,
   fontSize: 18,
   cursor: 'pointer',
 }));
@@ -66,7 +66,7 @@ export const SubredditsContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   borderRadius: 4,
   overflowY: 'scroll',
-  [theme.breakpoints.up('sm')]: {
+  [theme?.breakpoints.up('sm')]: {
     width: '300px',
   },
 }));
@@ -77,7 +77,7 @@ export const CommunityCategory = styled(Box)(({ theme }) => ({
   letterSpacing: 0.9,
   lineHeight: '12px',
   textTransform: 'uppercase',
-  color: theme.palette.third.main,
+  color: theme?.palette?.third?.main,
 }));
 
 export const AvatarContainer = styled('div')(() => ({
@@ -114,7 +114,7 @@ export const Members = styled(Box)(({ theme }) => ({
   fontSize: 12,
   fontWeight: 400,
   lineHeight: '16px',
-  color: theme.palette.third.main,
+  color: theme?.palette?.third?.main,
 }));
 
 export const CommunityContainer = styled(Box)(() => ({
@@ -125,7 +125,7 @@ export const CommunityContainer = styled(Box)(() => ({
 
 export const SearchIcon = styled(IoSearchOutline)(({ theme }) => ({
   fontSize: 22,
-  color: theme.palette.third.main,
+  color: theme?.palette?.third?.main,
 }));
 
 export const NoCommunitiesFound = styled(Box)(({ theme }) => ({
@@ -133,7 +133,7 @@ export const NoCommunitiesFound = styled(Box)(({ theme }) => ({
   fontWeight: 500,
   lineHeight: '18px',
   padding: 20,
-  color: theme.palette.third.main,
+  color: theme?.palette?.third?.main,
   textAlign: 'center',
 }
 ));

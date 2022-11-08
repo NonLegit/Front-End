@@ -7,13 +7,13 @@ import Communities from './Communities';
 
 describe(Communities, () => {
   test('Communities is in the document', () => {
-    const communitiesData = {
+    const communities = {
       communitiesTitle: 'communities near you',
       communitiesList: [],
     };
     render(
       <Router>
-        <Communities communitiesData={communitiesData} />
+        <Communities communities={communities} />
       </Router>,
     );
     const CommunitiesComp = screen.getByTestId('Communities');
@@ -21,16 +21,16 @@ describe(Communities, () => {
   });
 
   test('Communities props works correctly', () => {
-    const communitiesData = {
+    const communities = {
       communitiesTitle: 'communities near you',
       communitiesList: [],
     };
     render(
       <Router>
-        <Communities communitiesData={communitiesData} />
+        <Communities communities={communities} />
       </Router>,
     );
     const communitiesTitle = screen.getByTestId('communities title');
-    expect(communitiesTitle.textContent).toEqual(communitiesData.communitiesTitle);
+    expect(communitiesTitle.textContent).toEqual(communities.communitiesTitle);
   });
 });

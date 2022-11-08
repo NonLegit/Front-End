@@ -1,6 +1,15 @@
 import { Box } from '@mui/material';
 import RedditButton from '../../RedditButton/RedditButton';
 import { PostButton } from './styles';
+/**
+ * This component contains post andn save draft buttons
+ *
+ * @component PostHeader
+ * @property {function} handleSaveDraft -Hanlding save draft button
+ * @property {function} handlePost -Hanlding post submitting
+ * @property {boolean} readyToPost -Check whether the post button is disabled or not
+ * @returns {React.Component} Container of buttons
+ */
 
 function PostSubmission(props) {
   const { handleSaveDraft, handlePost, readyToPost } = props;
@@ -21,6 +30,7 @@ function PostSubmission(props) {
         type="submit"
         onClick={handlePost}
         disabled={!readyToPost}
+        data-testid="post button"
       >
         post
       </PostButton>

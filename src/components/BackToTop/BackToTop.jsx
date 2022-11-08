@@ -1,7 +1,6 @@
 import { BackToTopButton, BackToTopContainer } from './styles';
 
 function BackToTop() {
-  // console.log(window.innerHeight);
   const handelClick = () => {
     window.scrollTo({
       top: 0,
@@ -9,7 +8,11 @@ function BackToTop() {
   };
   return (
     <BackToTopContainer>
-      <BackToTopButton variant="contained" onClick={handelClick}>
+      <BackToTopButton
+        variant="contained"
+        onClick={handelClick}
+        data-testid="back to top button"
+      >
         back to top
       </BackToTopButton>
     </BackToTopContainer>

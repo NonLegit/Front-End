@@ -27,10 +27,16 @@ function Reactions(props) {
   };
   const [reaction, dispatch] = useReducer(reducer, 0);
   return (
-    <Voting flexDirection={flexDirection} gap={0.5}>
+    <Voting
+      flexDirection={flexDirection}
+      gap={0.5}
+    >
       {(reaction === 1)
         ? (
-          <ReactionIconButton onClick={() => dispatch('cancel upvote')}>
+          <ReactionIconButton
+            onClick={() => dispatch('cancel upvote')}
+            data-testid="upvoted button"
+          >
             <VotedIcon
               color={theme.palette.secondary.main}
               direction="up"
@@ -38,7 +44,10 @@ function Reactions(props) {
           </ReactionIconButton>
         )
         : (
-          <ReactionIconButton onClick={() => dispatch('upvote')}>
+          <ReactionIconButton
+            onClick={() => dispatch('upvote')}
+            data-testid="upvote button"
+          >
             <VoteIcon
               color={theme.palette.secondary.main}
               direction="up"
@@ -50,7 +59,10 @@ function Reactions(props) {
       </Votes>
       {(reaction === -1)
         ? (
-          <ReactionIconButton onClick={() => dispatch('cancel downvote')}>
+          <ReactionIconButton
+            onClick={() => dispatch('cancel downvote')}
+            data-testid="downvoted button"
+          >
             <VotedIcon
               color={theme.palette.primary.main}
               direction="down"
@@ -58,10 +70,14 @@ function Reactions(props) {
           </ReactionIconButton>
         )
         : (
-          <ReactionIconButton onClick={() => dispatch('downvote')}>
+          <ReactionIconButton
+            onClick={() => dispatch('downvote')}
+            data-testid="downvote button"
+          >
             <VoteIcon
               color={theme.palette.primary.main}
               direction="down"
+              data-testid="downvote"
             />
           </ReactionIconButton>
         )}

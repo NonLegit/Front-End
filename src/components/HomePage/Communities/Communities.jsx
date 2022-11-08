@@ -5,11 +5,19 @@ import {
   CategoriesBox,
   CommunitiesContainer, CommunitiesTypeButton, Layer, Title, ViewAllButtonBox, CustomLink,
 } from './styles';
+/**
+ * This component is upper section of home page sidebar
+ *
+ * @component Communities
+ * @property {object} communities -Object contains the title of the communities and list of them
+ * @returns {React.Component} Communities
+ */
 
 function Communities(props) {
+  // props
   const { communities } = props;
-  // console.log('hdj', communitiesData);
   const { communitiesTitle, communitiesList } = communities;
+
   return (
     <CommunitiesContainer data-testid="Communities">
       <Title>

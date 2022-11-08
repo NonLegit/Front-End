@@ -25,6 +25,7 @@ function PostTags(props) {
         color="third"
         onClick={hanldeSpoiler}
         spoiler={spoiler}
+        data-testid="spoiler button"
       >
         <AddIcon
           sx={{
@@ -39,6 +40,7 @@ function PostTags(props) {
         variant={!nswf ? 'outlined' : ''}
         onClick={hanldeNsfw}
         nswf={nswf}
+        data-testid="nsfw button"
       >
         <AddIcon
           sx={{

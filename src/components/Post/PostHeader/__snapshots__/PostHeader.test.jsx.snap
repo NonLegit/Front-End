@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostHeader PostHeader renders correctly 1`] = `
+[
+  <div
+    className="MuiBox-root css-11kldd9"
+  >
+    <div
+      className="MuiAvatar-root MuiAvatar-circular css-2is7ki-MuiAvatar-root"
+    >
+      <img
+        alt="Profile Image"
+        className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+        src="image"
+      />
+    </div>
+    <a
+      className="css-kqg5s"
+      color="#000"
+      fontWeight="bolder"
+      href="/"
+      onClick={[Function]}
+    >
+      r/
+      owner
+    </a>
+    <div
+      className="MuiBox-root css-1clzuz0"
+    >
+      <span>
+        •
+      </span>
+      <div>
+        Posted By
+      </div>
+      <a
+        className="css-1fa4cpj"
+        color="inherit"
+        fontWeight="normal"
+        href="/"
+        onClick={[Function]}
+      >
+        u/
+        creator
+      </a>
+    </div>
+    <div
+      className="MuiBox-root css-m647gw"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1b88tlx-MuiButtonBase-root-MuiButton-root"
+        data-testid="join button"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        join
+      </button>
+    </div>
+  </div>,
+  <a
+    className="css-10m9jmh"
+    href="/"
+    onClick={[Function]}
+  >
+    <h3
+      className="MuiTypography-root MuiTypography-h6 css-6aghek-MuiTypography-root"
+    >
+      title
+       
+      <button
+        backgroundColor="flairBackgroundColor"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-748rc4-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        flairColor="flairColor"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </h3>
+  </a>,
+]
+`;

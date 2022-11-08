@@ -2,7 +2,13 @@ import {
   List, Divider,
 } from '@mui/material';
 import CommunityItem from './CommunityItem/CommunityItem';
-
+/**
+ * This component represents the list of communities on home page sidebar.
+ *
+ * @component CommunityList
+ * @property {Array<community>} communities -The list of communities.
+ * @returns {React.Component} Communities
+ */
 function CommunityList(props) {
   const { communitiesList } = props;
   return (

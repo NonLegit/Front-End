@@ -13,7 +13,14 @@ import PostTags from '../PostTags/PostTags';
 import PostSubmission from '../PostSubmission/PostSubmission';
 import PostTypes from '../PostTypes/PostTypes';
 import SubredditsMenu from '../SubredditsMenu/SubredditsMenu';
-import usePost from '../../../hooks/usePost';
+
+import axios from '../../../services/instance';
+/**
+ * This component is the main section off create post page which holds the form to submit posts
+ *
+ * @component CreatePostForm
+ * @returns {React.Component} CreatePostForm
+ */
 
 function CreatePostForm() {
   // variables
@@ -34,7 +41,7 @@ function CreatePostForm() {
   // handlers
   const handlePost = (e) => {
     e.preventDefault();
-    // console.log(title, postText, postTypes[postType], communityToPostIn, ownerType, spoiler, nswf);
+    console.log(title, postText, postTypes[postType], communityToPostIn, ownerType, spoiler, nswf);
     const post = {
       title,
       text: postText,
@@ -44,8 +51,11 @@ function CreatePostForm() {
       spoiler,
       nswf,
     };
-    usePost('/posts', post);
-    // console.log(data, error);
+    axios.post('/posts', JSON.stringify(post)).then((response) => {
+      console.log(response.data);
+    }).catch((e) => {
+      console.log(e);
+    });
   };
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -144,7 +154,7 @@ function CreatePostForm() {
         <PostSubmission
           handleSaveDraft={handleSaveDraft}
           handlePost={handlePost}
-          readyToPost={communityToPostIn != null}
+          readyToPost={communityToPostIn != null && title}
         />
       </PostFormContainer>
     </FormContainer>

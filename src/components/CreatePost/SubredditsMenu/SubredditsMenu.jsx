@@ -60,8 +60,8 @@ function SubredditsMenu(props) {
   const handleFilter = (community) => iMatcher(`r/${community.subredditName}`, communityName);
 
   // variables
-  const filteredArray = communities.filter(handleFilter);
-  const filteredCommunities = filteredArray.length === 0 ? null : filteredArray;
+  const filteredArray = communities?.filter(handleFilter);
+  const filteredCommunities = filteredArray?.length === 0 ? null : filteredArray;
   const username = 'sa3eedosumboreh';
   const profileMatching = iMatcher(`u/${username}`, communityName);
   const userIcon = 'https://styles.redditmedia.com/t5_758ciw/styles/profileIcon_snoodd8b11a2-0e4a-4403-a861-a9fa7474b850-headshot.png?width=256&height=256&crop=256:256,smart&s=bc53006491e647452f185afa69775cd6a241598c';
@@ -139,7 +139,7 @@ function SubredditsMenu(props) {
             )}
 
             <CustomList>
-              {(filteredCommunities || (profileMatching ? [] : communities)).map((community) => {
+              {(filteredCommunities || (profileMatching ? [] : communities))?.map((community) => {
                 const {
                   id, subredditName, membersCount, icon,
                 } = community;

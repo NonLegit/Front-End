@@ -13,9 +13,9 @@ import useFetch from '../../../hooks/useFetch';
 import PostList from '../PostList/PostList';
 /**
  * This component works as a container for all home page components
+ * and a repository the data fetched in
  *
  * @component HomePageContainer
- * and a repository the data fetched in
  * @returns {React.Component} Container represents the home page
  */
 
