@@ -1,14 +1,15 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import Content from './Content/Content';
+import Hidden from './Hidden/Hidden';
 import PostsTap from './PostsTap/PostsTap';
+import Saved from './Saved/Saved';
 import Sidebar from './Sidebar/Sidebar';
 
 import { ProfilePage } from './styles';
-import UpVoted from './UpVoted/UpVoted';
+import Voted from './Voted/Voted';
 
 const renderSwitch = (param, username) => {
-  console.log(param);
   if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&t=day') {
     return (
       <Content username={username} />
@@ -20,9 +21,19 @@ const renderSwitch = (param, username) => {
       <PostsTap username={username} />
     );
   }
-  if (param === 'upvoted' || param === 'upvoted/sort=new') {
+  if (param === 'upvoted' || param === 'downvoted') {
     return (
-      <UpVoted username={username} />
+      <Voted type={param} />
+    );
+  }
+  if (param === 'saved') {
+    return (
+      <Saved type={param} />
+    );
+  }
+  if (param === 'hidden') {
+    return (
+      <Hidden type={param} />
     );
   }
 

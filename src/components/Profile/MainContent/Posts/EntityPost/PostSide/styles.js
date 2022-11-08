@@ -53,18 +53,19 @@ export const DownArrowFilled = styled(ForwardIcon)(({ theme }) => ({
   height: 30,
   color: theme.palette.primary.main,
   borderRadius: 3,
-  transform: 'rotate(-90deg)',
+  transform: 'rotate(90deg)',
   '&:hover': {
     backgroundColor: '#d7d7d7',
   },
 
 }));
-export const Number = styled(Typography)(({ theme, conditionU, conditionD }) => ({
+
+export const Number = styled(Typography)(({ theme, upvoted, downvoted }) => ({
   fontWeight: 700,
-  ...((conditionU) && {
+  ...((upvoted === 'true') && {
     color: theme.palette.secondary.main,
   }),
-  ...((conditionD) && {
+  ...((downvoted === 'true') && {
     color: theme.palette.primary.main,
   }),
 }));

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import Filter from '../Filter/Filter';
@@ -7,14 +6,10 @@ import EmptyContent from '../EmptyContent/EmptyContent';
 import Posts from '../Posts/Posts';
 
 function PostsTap(props) {
-  const { subTitle, sort } = useParams();
+  const { subTitle } = useParams();
   const { username } = props;
   const subReddit = 'hello_nour';
   const isContent = true;
-  useEffect(() => {
-    // Update the document title using the browser API
-    console.log(subTitle, sort);
-  });
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
   return (

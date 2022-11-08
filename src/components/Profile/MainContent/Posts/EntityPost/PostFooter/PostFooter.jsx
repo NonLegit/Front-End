@@ -17,6 +17,9 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
 import UnfoldLessOutlinedIcon from '@mui/icons-material/UnfoldLessOutlined';
 import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
@@ -24,9 +27,10 @@ import {
 function PostFooter(props) {
   const numComments = 0;
   const {
-    subTitle, handleExpand, expand, upvoted,
+    approved, removed, spam, handleExpand, expand, voted, postedByOthers, saved, hidden,
   } = props;
-
+  const [isHidden, setIsHidden] = useState(hidden);
+  const [isSaved, setIsSaved] = useState(saved);
   const [showList, setShowList] = useState(false);
   // handle disable the list when click away
   const handleClick = () => {
@@ -37,6 +41,44 @@ function PostFooter(props) {
     setShowList(false);
   };
 
+  const handleClickHide = () => {
+    setIsHidden((prev) => !prev);
+  };
+
+  const handleClickSave = () => {
+    setIsSaved((prev) => !prev);
+  };
+
+  const moderator = [
+    {
+      id: 1, text: 'Approve', condition: approved, icon: <CheckCircleOutlineOutlinedIcon />,
+    },
+    {
+      id: 2, text: 'Removed', condition: removed, icon: <BlockOutlinedIcon />,
+    },
+    {
+      id: 3, text: 'Spam', condition: spam, icon: <CancelPresentationOutlinedIcon />,
+    },
+    {
+      id: 4, text: '', condition: null, icon: <AdminPanelSettingsOutlinedIcon />,
+    },
+  ];
+  const publisher = [
+    {
+      id: 1, text: 'Edit Post', icon: <ModeEditOutlinedIcon />,
+    },
+    isSaved ? {
+      id: 2, text: 'Unsave', icon: <BookmarksOutlinedIcon />, func: true,
+    } : {
+      id: 2, text: 'Save', icon: <BookmarkBorderOutlinedIcon />, func: true,
+    },
+    isHidden ? {
+      id: 3, text: 'Unhide', icon: <VisibilityOffIcon />, func: false,
+    } : {
+      id: 3, text: 'Hide', icon: <VisibilityOffOutlinedIcon />, func: false,
+    },
+  ];
+
   return (
     <FooterBox>
       <ElementBox>
@@ -44,93 +86,100 @@ function PostFooter(props) {
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
       </ElementBox>
       <Divider orientation="vertical" variant="middle" flexItem />
+
       <ElementBox>
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption">{numComments}</FooterText>
       </ElementBox>
-
       <ElementBox>
         <ShortcutOutlinedIcon />
         <FooterText variant="caption">Share</FooterText>
       </ElementBox>
-      <ElementBox condition2={(subTitle === 'Edited').toString()}>
-        <CheckCircleOutlineOutlinedIcon />
-        <FooterText variant="caption">Approve</FooterText>
-      </ElementBox>
-      <ElementBox condition={(subTitle === 'Spam').toString()}>
-        <BlockOutlinedIcon />
-        <FooterText variant="caption">Removed</FooterText>
-      </ElementBox>
-      <ElementBox>
-        <CancelPresentationOutlinedIcon />
-        <FooterText variant="caption">Spam</FooterText>
-      </ElementBox>
-      <ElementBox>
-        <AdminPanelSettingsOutlinedIcon />
-      </ElementBox>
-      {
-      !upvoted && (
+      {(!voted) && moderator.map((entity) => (
+        <ElementBox key={entity.id} approved={entity.condition} spam={entity.condition}>
+          {entity.icon}
+          <FooterText variant="caption">{entity.text}</FooterText>
+        </ElementBox>
+      ))}
+      {(!voted) && (
       <ElementBox>
         <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
         <FooterText variant="caption">Insights</FooterText>
       </ElementBox>
-      )
-      }
-      <ClickAwayListener onClickAway={handleClickAway}>
-        <ElementBox>
-          <MoreHorizOutlinedIcon onClick={handleClick} />
-        </ElementBox>
-
-      </ClickAwayListener>
-      {showList && (
-      <SelectBox>
-        <SelectItem>
-          <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
-          Edit Post
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
-          Save
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <PushPinOutlinedIcon sx={{ marginRight: 1 }} />
-          Pin Post To Profile
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
-          Hide
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
-          Delete
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-          Mark As OC
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-          Mark As Spoiler
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-          Mark As NSFW
-        </SelectItem>
-        <Divider />
-        <SelectItem>
-          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-          Send Me Reply Notifications
-        </SelectItem>
-
-      </SelectBox>
       )}
+
+      {(voted) && publisher.map((entity) => (
+        <ElementBox
+          key={entity.id}
+          onClick={entity.func ? () => { handleClickSave(); } : () => { handleClickHide(); }}
+        >
+          {entity.icon}
+          <FooterText variant="caption">{entity.text}</FooterText>
+        </ElementBox>
+      ))}
+
+      {postedByOthers ? (
+        <ElementBox>
+          <FlagOutlinedIcon />
+          <FooterText variant="caption">Report</FooterText>
+        </ElementBox>
+      ) : (
+        <ClickAwayListener onClickAway={handleClickAway}>
+          <ElementBox>
+            <MoreHorizOutlinedIcon onClick={handleClick} />
+            {showList && (
+            <SelectBox>
+              <SelectItem>
+                <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
+                Edit Post
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
+                Save
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <PushPinOutlinedIcon sx={{ marginRight: 1 }} />
+                Pin Post To Profile
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
+                Hide
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
+                Delete
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Mark As OC
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Mark As Spoiler
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Mark As NSFW
+              </SelectItem>
+              <Divider />
+              <SelectItem>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Send Me Reply Notifications
+              </SelectItem>
+
+            </SelectBox>
+            )}
+          </ElementBox>
+        </ClickAwayListener>
+      )}
+
     </FooterBox>
   );
 }

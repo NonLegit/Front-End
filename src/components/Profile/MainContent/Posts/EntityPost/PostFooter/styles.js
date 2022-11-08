@@ -14,7 +14,9 @@ export const FooterText = styled(Typography)(() => ({
   alignItems: 'center',
   fontWeight: 700,
 }));
-export const ElementBox = styled(Box)(({ condition, condition2, theme }) => ({
+export const ElementBox = styled(Box)(({
+  spam, approved, theme,
+}) => ({
   height: '100%',
   display: 'flex',
   marginRight: 1,
@@ -25,12 +27,12 @@ export const ElementBox = styled(Box)(({ condition, condition2, theme }) => ({
   '&:hover': {
     backgroundColor: '#1a1a1b1a',
   },
-  ...((condition === 'true') && {
+  ...((spam) && {
     color: '#ff585b80',
     '&:hover': {
     },
   }),
-  ...((condition2 === 'true') && {
+  ...((approved) && {
     color: '#46d16087',
     '&:hover': {
     },
@@ -40,7 +42,6 @@ export const ElementBox = styled(Box)(({ condition, condition2, theme }) => ({
 export const SelectBox = styled(Box)(() => ({
   width: 260,
   marginTop: 330,
-  marginLeft: 500,
   border: ' 1px solid #eee',
   borderRadius: 4,
   boxShadow: '0 2px 4px 0 #eee',

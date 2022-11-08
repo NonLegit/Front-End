@@ -18,10 +18,11 @@ export const PostsQueueBox = styled(Box)(() => ({
 export const EmptyImage = styled(Box)(() => ({
   height: 72,
   width: 96,
+
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#edeff1',
+  backgroundColor: '#f8f8f8',
   alignSelf: 'center',
 }));
 

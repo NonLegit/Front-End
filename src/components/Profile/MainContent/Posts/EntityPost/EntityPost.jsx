@@ -13,14 +13,16 @@ import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
 
 function EntityPost(props) {
-  const { subReddit, entity, upvoted } = props;
+  const {
+    subReddit, entity,
+  } = props;
   const [expand, setExpand] = useState();
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
   return (
     <PostsQueueBox>
-      <PostSide upvoted={upvoted} />
+      <PostSide upvoted={entity.upvoted} downvoted={entity.downvoted} />
       <Box sx={{ marginLeft: 1 }}>
         <Box sx={{ display: 'flex' }}>
           <EmptyImage>
@@ -34,7 +36,10 @@ function EntityPost(props) {
                 subTitle={subReddit}
                 handleExpand={handleExpand}
                 expand={expand}
-                upvoted={upvoted}
+                voted={entity.upvoted || entity.downvoted}
+                postedByOthers={entity.postedByOthers}
+                saved={entity.saved}
+                hidden={entity.hidden}
               />
             </Box>
           </PostContentBox>

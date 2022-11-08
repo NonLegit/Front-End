@@ -9,8 +9,6 @@ function BackHomeBottun() {
   return (
     <BackHome
       variant="contained"
-      p
-      adding="4px"
       fontSize={15}
       fontWeight="bold"
       onClick={() => goToTop()}

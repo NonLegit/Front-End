@@ -7,7 +7,7 @@ function PostSide(props) {
   return (
     <SidebarQueueBox>
       {upvoted ? <UpArrowFilled /> : <UpArrow />}
-      <Number variant="caption" conditionU={upvoted} conditionD={downvoted}>1</Number>
+      <Number variant="caption" upvoted={upvoted.toString()} downvoted={downvoted.toString()}>1</Number>
       {downvoted ? <DownArrowFilled /> : <DownArrow />}
     </SidebarQueueBox>
   );
