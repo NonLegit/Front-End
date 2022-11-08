@@ -6,12 +6,20 @@ import { styled } from '@mui/material/styles';
 export const DialogTitle = styled(DialogT)({
   fontWeight: 500,
   fontSize: 16,
-  borderBottom: '1px solid #edeff1',
   color: '#1c1c1c',
   display: 'flex',
   justifyContent: 'space-between',
-  marginBottom: 16,
-  padding: '0 0 16px',
+  padding: 0,
+});
+export const BOX = styled(Box)({
+  fontWeight: 500,
+  fontSize: 16,
+  color: '#1c1c1c',
+  display: 'flex',
+  // marginBottom: 16,
+  padding: '0 0 16px 0px',
+  justifyContent: 'space-between',
+  borderBottom: '1px solid #edeff1',
 });
 export const Container = styled(Box)({
   display: 'flex',

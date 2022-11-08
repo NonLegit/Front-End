@@ -5,6 +5,7 @@ export const Select = styled(Box)(() => ({
   display: 'flex',
   '&:hover': {
     cursor: 'pointer',
+    backgroundColor: '#e8e8e8',
   },
 }));
 
@@ -16,7 +17,8 @@ export const SelectBox = styled(Box)(() => ({
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
-
+  marginTop: 24,
+  marginLeft: 80,
 }));
 
 export const SelectItem = styled(Button)(() => ({

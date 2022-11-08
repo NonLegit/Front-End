@@ -22,7 +22,7 @@ export default function Sort() {
     <>
       <Select>
         <ClickAwayListener onClickAway={handleClickAway1}>
-          <Box sx={{ marginRight: 2, display: 'flex' }} onClick={() => { handleClick1(); }}>
+          <Box sx={{ display: 'flex' }} onClick={() => { handleClick1(); }}>
             <MoreHorizIcon />
           </Box>
         </ClickAwayListener>

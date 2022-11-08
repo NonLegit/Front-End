@@ -1,15 +1,22 @@
+// import { useState } from 'react';
 import { SideBarContainer, CommunityContainer } from './style';
 
 import BackHome from './BackHome/BackHome';
-import About from './AboutSubReddit/About';
+// import About from './AboutSubReddit/About';
 import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
+import Moderation from './Mderation/Moderation';
 
 function SideBar() {
+  // const [Moderate, setModerate] = useState(false);
+
   return (
     <SideBarContainer>
-      <CommunityContainer>
+      {/* <CommunityContainer>
         <About />
+      </CommunityContainer> */}
+      <CommunityContainer>
+        <Moderation />
       </CommunityContainer>
       <CommunityContainer>
         <Flirt />

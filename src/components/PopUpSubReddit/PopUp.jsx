@@ -11,12 +11,13 @@ import IconButton from '@mui/material/IconButton';
 import PersonIcon from '@mui/icons-material/Person';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import HttpsIcon from '@mui/icons-material/Https';
+import CloseIcon from '@mui/icons-material/Close';
 
 import {
   Actions,
   Adult,
   AdultContent,
-  Container, Count, DialogTitle, Disc, Name, NSFW, SecConatiner, SelectHeader, Warning, Btn,
+  Container, Count, DialogTitle, Disc, Name, NSFW, SecConatiner, SelectHeader, Warning, Btn, BOX,
 } from './style';
 import { CreatPost, CustomLink } from '../SubReddit/SideBar/AboutSubReddit/style';
 
@@ -46,6 +47,10 @@ export default function FormDialog() {
       setchecked('');
     }
   };
+  const check18 = () => {
+    const ele = document.getElementById('myCheck');
+    ele.checked = true;
+  };
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -54,7 +59,10 @@ export default function FormDialog() {
       <Container>
         <Dialog open={open} onClose={handleClose}>
           <Box sx={{ p: 2 }}>
-            <DialogTitle>Create a community</DialogTitle>
+            <BOX>
+              <DialogTitle>Create a community</DialogTitle>
+              <CloseIcon sx={{ cursor: 'pointer' }} onClick={handleClose} />
+            </BOX>
             <SecConatiner>
               <Name>Name</Name>
               <Disc>
@@ -130,13 +138,12 @@ export default function FormDialog() {
 
             <AdultContent> Adult content</AdultContent>
 
-            <Adult>
+            <Adult onClick={() => check18()}>
               <FormGroup>
-                <FormControlLabel control={<Checkbox />} />
+                <FormControlLabel control={<Checkbox />} id="myCheck" />
               </FormGroup>
               <NSFW>NSFW</NSFW>
               <Warning>18+ year old community</Warning>
-
             </Adult>
           </Box>
           <Actions>
