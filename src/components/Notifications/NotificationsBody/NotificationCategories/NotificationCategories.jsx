@@ -42,7 +42,7 @@ function NotificationCategories() {
     },
   });
   return (
-    <div data-testid={`notification-categories-${today ? 'today' : 'earlier'}`}>
+    <div data-testid={`notificationCategories-${today ? 'Today' : 'Earlier'}`}>
       { value?.map((ele, indx) => (
         <Notification today={today} key={`${ele.date}${indx + 0}`}>
           <ReplayContext.Provider value={ele.type}>
@@ -66,6 +66,7 @@ function NotificationCategories() {
               </BodyHead>
               <SeeMore>
                 <IconButton
+                  data-testid="seeMore"
                   id={indx}
                   aria-controls={open ? 'long-menu' : undefined}
                   aria-expanded={open ? 'true' : undefined}
@@ -76,6 +77,7 @@ function NotificationCategories() {
                   <MoreHorizIcon />
                 </IconButton>
                 <MenuOptions
+                  data-testid="options"
                   anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'right',

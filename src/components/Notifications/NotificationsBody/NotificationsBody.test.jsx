@@ -11,7 +11,7 @@ import NotificationsBody from './NotificationsBody';
 it('should render notifications body', () => {
   window.history.pushState({}, '', '/notifications');
   render(<App />);
-  expect(screen.getByTestId('notifications-body-test')).toBeInTheDocument();
+  expect(screen.getByTestId('notificationsBody')).toBeInTheDocument();
 });
 
 // check snap shot

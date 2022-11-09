@@ -3,7 +3,7 @@
 exports[`test snapshot 1`] = `
 <header
   className="css-1smv5mi"
-  data-testid="notifications-header-test"
+  data-testid="notificationsHeader"
 >
   <h1
     className="css-z0evd0"

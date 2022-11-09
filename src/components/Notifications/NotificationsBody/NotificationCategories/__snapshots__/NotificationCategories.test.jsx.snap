@@ -3,17 +3,21 @@
 exports[`check snap shot 1`] = `
 <section
   className="css-an41os"
-  data-testid="notifications-body-test"
+  data-testid="notificationsBody"
 >
   <div
     className="css-1otkajc"
-  >
-    <div
-      data-testid="notification-categories-today"
-    />
-    <div
-      data-testid="notification-categories-earlier"
-    />
-  </div>
+  />
+</section>
+`;
+
+exports[`check snap shot 2`] = `
+<section
+  className="css-an41os"
+  data-testid="notificationsBody"
+>
+  <div
+    className="css-1otkajc"
+  />
 </section>
 `;

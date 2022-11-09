@@ -12,21 +12,21 @@ import NotificationsHeader from './NotificationsHeader';
 it('should render notifications page', () => {
   window.history.pushState({}, '', '/notifications');
   render(<App />);
-  expect(screen.getByTestId('notifications-test')).toBeInTheDocument();
+  expect(screen.getByTestId('notifications')).toBeInTheDocument();
 });
 
 // render notifications Header
 it('should render notifications page', () => {
   window.history.pushState({}, '', '/notifications');
   render(<App />);
-  expect(screen.getByTestId('notifications-header-test')).toBeInTheDocument();
+  expect(screen.getByTestId('notificationsHeader')).toBeInTheDocument();
 });
 
 // message page by click message button
 it('routes to message page by click message button', async () => {
   createMemoryHistory({ initialEntries: ['/notifications'] });
   render(<App />);
-  const notifications = screen.getByTestId('notifications-header-test');
+  const notifications = screen.getByTestId('notificationsHeader');
   fireEvent.click(screen.getByTestId('message-router'));
   expect(notifications).not.toBeInTheDocument();
 });

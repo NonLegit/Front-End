@@ -20,8 +20,7 @@ export const CategoriesContext = createContext();
 
 function NotificationsBody() {
   // api
-  const api = 'https://d441e0bc-931f-4cc7-ab12-a51e81f70be4.mock.pstmn.io/fruits';
-
+  const api = 'https://d441e0bc-931f-4cc7-ab12-a51e81f70be4.mock.pstmn.io/notifications';
   // earlier data
   const [earlier, setEarlier] = useState([]);
   // today data
@@ -44,14 +43,16 @@ function NotificationsBody() {
         console.log(error);
       });
   }, [api]);
-  const handleClick = (event) => { // function to set what notifiacation we select and it's type
+  // function to set what notifiacation we select and it's type
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setSelect(event.currentTarget.getAttribute('id'));
     setType(event.currentTarget.getAttribute('catorige'));
   };
-  const handleClose = (event) => { // function to handel deleteing when click hide
+  // function to handel deleteing when click hide
+  const handleClose = (event) => {
     const tabindex = event.currentTarget.getAttribute('tabindex');
-    if (select != null && tabindex === '0') {
+    if (select !== null && tabindex === '0') {
       if (type === 'today') {
         setToday(
           today.filter((e, i) => i !== Number(select)),
@@ -66,24 +67,35 @@ function NotificationsBody() {
     setAnchorEl(null);
   };
   return (
-    <Notification data-testid="notifications-body-test">
+    <Notification data-testid="notificationsBody">
       <NotificationsContiner>
-        {(today.length !== 0) && <NotificationsHead>Today</NotificationsHead> }
+        { (today.length !== 0)
+        && (
+        <>
+          <NotificationsHead>Today</NotificationsHead>
 
-        <CategoriesContext.Provider value={{
-          today, handleClose, handleClick, open, anchorEl,
-        }}
-        >
-          <NotificationCategories />
-        </CategoriesContext.Provider>
+          <CategoriesContext.Provider value={{
+            today, handleClose, handleClick, open, anchorEl,
+          }}
+          >
+
+            <NotificationCategories />
+          </CategoriesContext.Provider>
+        </>
+        )}
         { (earlier.length !== 0)
-          && <NotificationsHead>Earlier</NotificationsHead> }
-        <CategoriesContext.Provider value={{
-          earlier, handleClose, handleClick, open, anchorEl,
-        }}
-        >
-          <NotificationCategories />
-        </CategoriesContext.Provider>
+          && (
+          <>
+            {' '}
+            <NotificationsHead>Earlier</NotificationsHead>
+            <CategoriesContext.Provider value={{
+              earlier, handleClose, handleClick, open, anchorEl,
+            }}
+            >
+              <NotificationCategories />
+            </CategoriesContext.Provider>
+          </>
+          )}
       </NotificationsContiner>
     </Notification>
   );

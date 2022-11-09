@@ -9,7 +9,7 @@ import { ContinerNotifications } from '../components/Notifications/Notifications
 
 function Notifications() {
   return (
-    <ContinerNotifications data-testid="notifications-test">
+    <ContinerNotifications data-testid="notifications">
       <NotificationsHeader />
       <NotificationsBody />
     </ContinerNotifications>
