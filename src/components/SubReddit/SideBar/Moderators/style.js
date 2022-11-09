@@ -45,6 +45,8 @@ export const Button = styled(ButtonBase)(({
   justifyContent: 'center',
   padding: '4px 16px',
   textalign: 'center',
+  border: '1px solid #0079d3',
+  height: 30,
 }));
 
 export const Icon = styled('div')(() => ({

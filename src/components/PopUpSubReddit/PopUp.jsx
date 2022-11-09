@@ -68,7 +68,7 @@ function FormDialog() {
     // axios.get(`http://localhost:8000/subreddit/${{ subRedditName }}`, {
     //   subredditName: subRedditName,
     // })
-    axios.get('https://ddc627dd-e722-4170-9831-6470c611b6bc.mock.pstmn.io/subreddi', {
+    axios.get(`https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/${subRedditName}/401`, {
     })
       .then((response) => {
         if (response.status === 200) {
@@ -91,13 +91,13 @@ function FormDialog() {
     e.preventDefault();
     if (subRedditName !== '' && errorMassage === '') {
       console.log(subRedditName, ' ', type, ' ', adult);
-      // axios.post('http://localhost:8000/posts', {
+      // axios.post('http://localhost:8000/subreddits/401', {
       //   owner: user,                                               ------> from log in in تجميعه
       //   name: subRedditName,
       //   type,
       //   NSFW: adult,
       // })
-      axios.post('https://ddc627dd-e722-4170-9831-6470c611b6bc.mock.pstmn.io/subreddit', {})
+      axios.post('https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/200', {})
         .then((response) => {
           if (response.status === 200) {
             document.location.href = 'http://localhost:3000';
@@ -202,7 +202,7 @@ function FormDialog() {
             <AdultContent> Adult content</AdultContent>
             <Adult>
               <FormGroup>
-                <FormControlLabel control={<Checkbox data-testid="myCheckBox" id="myCheck" onClick={(ele) => { setAdult(ele.target.checked); }} />} />
+                <FormControlLabel control={<Checkbox data-testid="my-Check-Box" id="myCheck" onClick={(ele) => { setAdult(ele.target.checked); }} />} />
               </FormGroup>
               <Adult onClick={check18} data-testid="cont">
                 <NSFWs>NSFW</NSFWs>
@@ -212,7 +212,7 @@ function FormDialog() {
           </Box>
           <Actions>
             <Stack spacing={2} direction="row" sx={{ alignItems: 'center' }}>
-              <Btn data-testid="cancelBtn" variant="outlined" onClick={handleClose}>Cancel</Btn>
+              <Btn data-testid="cancel-Btn" variant="outlined" onClick={handleClose}>Cancel</Btn>
             </Stack>
             <CustomLink>
               <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold" onClick={Submit}>

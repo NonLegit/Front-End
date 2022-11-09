@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, List } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const AboutContent = styled('h2')({
@@ -20,7 +20,7 @@ export const Add = styled('span')(({ condition }) => ({
   marginBottom: 12,
   marginTop: 8,
   borderRadius: 4,
-  height: 40,
+  // height: 40,
   cursor: 'pointer',
   '&:hover': {
     border: '1px solid #0079d3',
@@ -34,7 +34,7 @@ export const Add = styled('span')(({ condition }) => ({
     flexFlow: 'row',
   }),
 }));
-export const Text = styled('span')({
+export const Text = styled('span')(({ condition }) => ({
   fontFamily: 'Noto Sans,Arial,sans-serif',
   fontSize: 14,
   fontWeight: 400,
@@ -50,7 +50,18 @@ export const Text = styled('span')({
   maxWidth: 245,
   marginTop: -3,
   display: 'flex',
-});
+  ...((condition === 'true') && {
+    '&:hover': {
+      backgroundColor: '#f2f2f3',
+    },
+  }),
+  ...((condition === 'false') && {
+    '&:hover': {
+      backgroundColor: '#0079d3',
+      color: 'white',
+    },
+  }),
+}));
 export const Input = styled('textarea')({
   fontFamily: 'Noto Sans,Arial,sans-serif',
   backgroundColor: 'transparent',
@@ -88,7 +99,7 @@ export const Action = styled('p')(({ color }) => ({
   fontWeight: 700,
   color,
   marginTop: 0,
-
+  cursor: 'pointer',
 }));
 
 export const InputFooter = styled(Box)({
@@ -99,12 +110,29 @@ export const InputFooter = styled(Box)({
   width: '100%',
 });
 
-export const BOX = styled(Box)(({ condition }) => ({
-  display: 'flex',
+export const BOX = styled(Box)({
+  fontSize: 14,
+  fontWeight: 400,
+  color: '#0079d3',
+  cursor: 'pointer',
+  marginBottom: 8,
+  marginRight: 4,
+});
+
+export const Lists = styled(List)({
   width: '100%',
-  justifyContent: 'flex-start',
-  flexFlow: 'column',
-  ...((condition === 'true') && {
-    flexFlow: 'row',
-  }),
-}));
+  backgroundColor: 'white',
+  overflow: 'auto',
+  boxShadow: '0 2px 4px 0 rgba(28,28,28,0.2)',
+  '& ul': { padding: 0 },
+  '& ul>li': {
+    paddingTop: 0,
+    '&:hover': {
+      backgroundColor: '#0079d3',
+      color: 'white',
+    },
+  },
+  position: 'absolute',
+  zIndex: 1,
+  height: 200,
+});

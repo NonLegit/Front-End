@@ -1,6 +1,6 @@
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import {
-  Box, IconButton, ListItem, ListItemText,
+  Box, IconButton, ListItem, ListItemText, ClickAwayListener,
 } from '@mui/material';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
@@ -19,10 +19,23 @@ import AddList from './AddList/AddList';
 
 function Moderation() {
   const [more, setMore] = useState(false);
+  const [selection, setSelection] = useState('Add a Primary Topic');
   // const [data,setData] = useState('');
-
+  const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
+    'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
+    'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
+    'Mature Themes and Adult Content', 'Medical and Mental Health', "Men's Health", 'Meta/Reddit', 'Outdoors and Nature', 'Militery', 'Moves', 'Music', 'Outdoors and Nature', 'Place',
+    'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
   const changeShow = () => {
     setMore(!more);
+    setSelection('Add a Primary Topic');
+  };
+  const ListSelected = (e) => {
+    setMore(!more);
+    setSelection(e.target.textContent);
+  };
+  const handleClickAway = () => {
+    setMore(false);
   };
   return (
     <>
@@ -81,39 +94,46 @@ function Moderation() {
           </IconButton>
         </StyledTooltip>
       </Box>
+
       <SelectContainer
         onClick={changeShow}
       >
-        <Select>Add a Primary Topic</Select>
+        <Select>{selection}</Select>
         {!more && <ExpandMoreOutlinedIcon color="primary" sx={{ marginTop: '7px', marginLeft: '5px' }} />}
         {more && <ExpandLessOutlinedIcon color="primary" sx={{ marginTop: '7px', marginLeft: '5px' }} />}
       </SelectContainer>
+
       {more
       && (
-      <Lists
-        subheader={<li />}
-      >
-          {[0, 1, 2, 3, 4].map((sectionId) => (
-            <li key={`section-${sectionId}`}>
-              <ul>
-                {[0, 1, 2].map((item) => (
-                  <ListItem key={`item-${sectionId}-${item}`}>
-                    <ListItemText
-                      primary={`Item ${item}`}
-                      sx={{
-                        span: {
-                          fontWeight: 700,
-                          fontSize: 13,
-                        },
-                      }}
-                    />
-                  </ListItem>
-                ))}
-              </ul>
-            </li>
-          ))}
-      </Lists>
+        <ClickAwayListener onClickAway={handleClickAway}>
+          <Lists
+            subheader={<li />}
+          >
+            {[0].map((sectionId) => (
+              <li key={`section-${sectionId}`}>
+                <ul>
+                  {primary.map((item) => (
+                    <ListItem key={`item-${sectionId}-${item}`}>
+                      <ListItemText
+                        primary={`${item}`}
+                        sx={{
+                          span: {
+                            fontWeight: 700,
+                            fontSize: 13,
+                            cursor: 'pointer',
+                          },
+                        }}
+                        onClick={ListSelected}
+                      />
+                    </ListItem>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </Lists>
+        </ClickAwayListener>
       )}
+
       <AddList />
       <Hr sx={{ marginBottom: 1, marginTop: 0 }} />
       <CustomLink>

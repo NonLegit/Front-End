@@ -12,7 +12,7 @@ it('open form', async () => {
   render(<Popup />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
-  const cancel = screen.getByTestId('cancelBtn');
+  const cancel = screen.getByTestId('cancel-Btn');
   expect(cancel).toBeInTheDocument();
 });
 
@@ -24,7 +24,7 @@ it('subreddit empty', async () => {
   const input = screen.getByTestId('input');
   const warning = screen.getByTestId('warning');
   fireEvent.click(input);
-  const cancel = screen.getByTestId('cancelBtn');
+  const cancel = screen.getByTestId('cancel-Btn');
   fireEvent.click(cancel);
   expect(warning.innerHTML).toEqual('A community name is required');
 });
@@ -34,7 +34,7 @@ it('checkbox select from text', async () => {
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
   const input = screen.getByTestId('cont');
-  const check = screen.getByTestId('myCheckBox');
+  const check = screen.getByTestId('my-Check-Box');
   fireEvent.click(input);
   expect(check.firstChild).toBeChecked();
 });
@@ -44,7 +44,7 @@ it('close form', async () => {
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
 
-  const cancel = screen.getByTestId('cancelBtn');
+  const cancel = screen.getByTestId('cancel-Btn');
   fireEvent.click(cancel);
   expect(cancel).not.toBeVisible();
 });

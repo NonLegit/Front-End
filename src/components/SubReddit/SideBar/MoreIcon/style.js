@@ -17,7 +17,7 @@ export const SelectBox = styled(Box)(() => ({
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
-  marginTop: 24,
+  marginTop: 100,
   marginLeft: 80,
 }));
 
