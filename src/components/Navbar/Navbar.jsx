@@ -1,6 +1,13 @@
 function Navbar() {
   return (
-    <div>Navbar</div>
+    <div
+      style={{
+        height: 48,
+      }}
+    >
+      Navbar
+
+    </div>
   );
 }
 

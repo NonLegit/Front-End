@@ -1,6 +1,5 @@
-import { ThemeProvider } from '@emotion/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
@@ -9,52 +8,69 @@ import Moderation from './pages/Moderation';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import theme from './styles/theme';
+import CreatePost from './pages/CreatePost';
+import PostTypeContextProvider from './contexts/PostTypeContext';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router className="App">
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage />
+      <PostTypeContextProvider>
+        <Router className="App">
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage data-testid="home page" />
           }
-          />
-          <Route
-            path="/user"
-            element={
-              <Profile />
+            />
+            <Route
+              path="/:postClass"
+              element={
+                <HomePage />
           }
-          />
-          <Route
-            path="/login"
-            element={
-              <Login />
+            />
+            <Route
+              path="/user"
+              element={
+                <Profile />
           }
-          />
-          <Route
-            path="/search"
-            element={
-              <Search />
+            />
+            <Route
+              path="/login"
+              element={
+                <Login />
           }
-          />
-          <Route
-            path="/messages"
-            element={
-              <Messages />
+            />
+            <Route
+              path="/search"
+              element={
+                <Search />
           }
-          />
-          <Route
-            path="/moderation"
-            element={
-              <Moderation />
+            />
+            <Route
+              path="/messages"
+              element={
+                <Messages />
           }
-          />
-        </Routes>
-      </Router>
+            />
+            <Route
+              path="/moderation"
+              element={
+                <Moderation />
+          }
+            />
+            <Route
+              path="/submit"
+              element={
+                <CreatePost />
+            }
+            />
+          </Routes>
+        </Router>
+      </PostTypeContextProvider>
+
     </ThemeProvider>
   );
 }

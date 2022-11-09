@@ -29,5 +29,15 @@ module.exports = {
     // disabling importing React
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    // disabling prefer default export
+    'import/prefer-default-export': 'off',
+    // disables line length check
+    'max-len': ['error', { code: 2000 }],
+    // disabling disallow nested ternary expressions
+    'no-nested-ternary': 'off',
+    // disabling props spreading
+    'react/jsx-props-no-spreading': 'off',
+    // disabling no shadow
+    'no-shadow': 'off',
   },
 };

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePostContainer CreatePostContainer renders correctly 1`] = `
+<div
+  className="css-14pb1zu"
+>
+  <div
+    className="css-1l4w6pd"
+  >
+    <div
+      className="css-1tk12kl"
+      width={740}
+    />
+  </div>
+</div>
+`;
