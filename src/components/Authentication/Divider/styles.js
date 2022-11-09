@@ -6,6 +6,7 @@ export const DividerContainer = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+  justifyContent: 'space-around',
 }));
 
 export const Hr = styled('hr')(() => ({

@@ -2,11 +2,12 @@ import {
   Box, Button, TextField, Link,
   InputAdornment,
 } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+
 import { alpha, styled } from '@mui/material/styles';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import DoneIcon from '@mui/icons-material/Done';
-import theme from '../../styles/theme';
+import { LoadingButton } from '@mui/lab';
+import theme, { fonts } from '../../styles/theme';
 
 export const AuthenticationConatiner = styled(Box)(() => ({
   height: 'max-content',
@@ -74,14 +75,31 @@ export const RedditTextField = styled((props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <TextField {...props} size="small" autoComplete="off" />
 ))(({ clr }) => ({
+  '&.MuiTextField-root': {
 
-  width: '95%',
-  marginBottom: '10px',
+    width: '100%',
+    marginBottom: '10px',
+
+    // input text
+    '.MuiInputBase-input': {
+      fontSize: '12px',
+    },
+
+    // Helper Text
+    '.MuiFormHelperText-root': {
+      margin: '2px 0px 0px 0px',
+      color: theme.palette.error.main,
+      fontSize: '12px',
+      fontFamily: fonts['system-ui'],
+      fontWeight: '600',
+    },
+  },
+
   '& .MuiFilledInput-root': {
     border: `1px solid ${clr}`,
     overflow: 'hidden',
     borderRadius: 4,
-    backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
+    backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#2b2b2b',
 
     '&:hover': {
       backgroundColor: 'transparent',
@@ -102,7 +120,6 @@ export const RedditTextField = styled((props) => (
     lineHeight: '2em',
     letterSpacing: '0.1em',
   },
-
 }));
 
 export const AuthenticationButton = styled(Button)(({ width }) => ({
@@ -129,7 +146,6 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
   },
 }));
 
-/* Loading Button  */
 export const RedditLoadingButton = styled(LoadingButton)(({ width }) => ({
   width: (width !== undefined) ? `${width}` : '95%',
   height: 35,
@@ -171,5 +187,35 @@ export const StyledLink = styled(Link)(({ capital, fontWeight, fontSize }) => ({
 
 }));
 
+export const ButtonIcon = styled('img')(() => ({
+  width: 30,
+  borderRadius: 4,
+  marginLeft: '5px',
+  marginRight: '20px',
+}));
+
 export const wrongIcon = <InputAdornment position="end"><PriorityHighIcon color="error" fontSize="10px" /></InputAdornment>;
 export const rightIcon = <InputAdornment position="end"><DoneIcon color="primary" /></InputAdornment>;
+
+export const classjs = {
+  width: '95%',
+  height: 50,
+  margin: '10px 0px',
+  padding: '0px',
+  border: '1.2.5px solid',
+
+  fontFamily: 'ibm-plex-sans,sans-serif',
+  fontWeight: '600',
+  fontSize: '14px',
+  letterSpacing: '0.5px',
+
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+
+  '&:hover': {
+    backgroundColor: theme.palette.primary.light,
+    color: 'white',
+  },
+};

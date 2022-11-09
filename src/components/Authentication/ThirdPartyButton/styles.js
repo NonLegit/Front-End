@@ -8,7 +8,7 @@ export const ThirdPartyContainer = styled(Box)(({ width }) => ({
 }));
 
 export const ThirdPartyBtn = styled(Button)(() => ({
-  width: '95%',
+  width: '100%',
   height: 50,
   margin: '10px 0px',
   padding: '0px',

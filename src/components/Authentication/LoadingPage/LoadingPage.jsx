@@ -1,4 +1,6 @@
-import { StyledLink } from '../styles';
+import {
+  AuthenticationBG, AuthenticationBody, StyledLink,
+} from '../styles';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 
 function LoadingPage() {
@@ -14,8 +16,11 @@ function LoadingPage() {
     </>
   );
   return (
-    <AuthenticationHeader reddit title="Welcome back!" caption={caption} fontSize="14px" />
-
+    <>
+      <AuthenticationBG />
+      <AuthenticationBody mnwidth="280px" mxwidth="440px" />
+      <AuthenticationHeader reddit title="Welcome back!" caption={caption} fontSize="14px" />
+    </>
   );
 }
 
