@@ -1,4 +1,4 @@
-import Post from '../../Post/Post';
+import Post from '../../../Post/Post';
 /**
  * This component is the timeline (the container which contains all posts retrieved to be displayed)
  *

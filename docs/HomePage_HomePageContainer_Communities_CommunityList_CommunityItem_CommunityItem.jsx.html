@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: HomePage/HomePageContainer/PersonalReddit/PersonalReddit.jsx</title>
+    <title>JSDoc: Source: HomePage/HomePageContainer/Communities/CommunityList/CommunityItem/CommunityItem.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: HomePage/HomePageContainer/PersonalReddit/PersonalReddit.jsx</h1>
+    <h1 class="page-title">Source: HomePage/HomePageContainer/Communities/CommunityList/CommunityItem/CommunityItem.jsx</h1>
 
     
 
@@ -26,57 +26,63 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { Divider, Typography } from '@mui/material';
+            <pre class="prettyprint source linenums"><code>import {
+  Box,
+} from '@mui/material';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {
-  RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
+  CommunityName, CommunityImage, CommunityIndex, CommunityListItem,
 } from './styles';
-import RedditButton from '../../../RedditButton/RedditButton';
+import JoinButton from '../../../../../JoinButton/JoinButton';
 /**
- * This component contains info about personal
- * Reddit frontpage.
+ * This component represents the community in upper section of home page sidebar.
  *
- * @component PersonalReddit
- * @returns {React.Component}  Buttons to show info about communities
+ * @component CommunityItem
+ * @property {number} index -Community index.
+ * @property {string} icon -Community icon.
+ * @property {string} subredditName -Community name.
+ * @property {boolean} status -Community status.
+ * @property {boolean} isJoined -Check whether the logged in user is joined that community or not.
+ * @returns {React.Component} Communities
  */
 
-function PersonalReddit() {
+function CommunityItem(props) {
+  const {
+    index, icon, subredditName, status, isJoined,
+  } = props;
   return (
-    &lt;RedditPersonal>
-      &lt;UpperImage src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" />
-      &lt;MiddleBox>
-        &lt;RedditImage src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" />
-        &lt;Typography
-          component="p"
-          sx={{
-            fontWeight: 500,
-            textTransform: 'capitalize',
-            marginLeft: 7,
-            pb: 0.8,
-            pt: 3,
-          }}
-        >
-          home
-        &lt;/Typography>
-      &lt;/MiddleBox>
-      &lt;Paragraph>
-        Your personal Reddit frontpage. Come here to check in with your favorite communities.
-      &lt;/Paragraph>
-      &lt;Divider sx={{ mt: 1.5 }} />
-      &lt;CustomLink to="/submit">
-        &lt;RedditButton variant="contained" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-          create post
-        &lt;/RedditButton>
-      &lt;/CustomLink>
-      &lt;CustomLink>
-        &lt;RedditButton variant="outlined" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-          create community
-        &lt;/RedditButton>
-      &lt;/CustomLink>
-    &lt;/RedditPersonal>
+    &lt;CommunityListItem data-testid="Community Item">
+      &lt;CommunityIndex data-testid="index">
+        {index}
+      &lt;/CommunityIndex>
+      {status ? (
+        &lt;KeyboardArrowUpIcon
+          data-testid="icon up"
+          sx={{ color: '#46d160' }}
+        />
+      ) : (
+        &lt;KeyboardArrowDownIcon
+          data-testid="icon down"
+          sx={{ color: '#ea0027' }}
+        />
+      )}
+      &lt;CommunityImage
+        src={icon}
+        data-testid="image"
+      />
+      &lt;CommunityName data-testid="name" variant="caption">
+        r/
+        {subredditName}
+      &lt;/CommunityName>
+      &lt;Box flexGrow={1} display="flex" justifyContent="flex-end">
+        &lt;JoinButton isJoined={isJoined} />
+      &lt;/Box>
+    &lt;/CommunityListItem>
   );
 }
 
-export default PersonalReddit;
+export default CommunityItem;
 </code></pre>
         </article>
     </section>

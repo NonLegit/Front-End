@@ -6,15 +6,15 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {
   CommunityName, CommunityImage, CommunityIndex, CommunityListItem,
 } from './styles';
-import JoinButton from '../../../../JoinButton/JoinButton';
+import JoinButton from '../../../../../JoinButton/JoinButton';
 /**
  * This component represents the community in upper section of home page sidebar.
  *
  * @component CommunityItem
  * @property {number} index -Community index.
  * @property {string} icon -Community icon.
- * @property {string} icon -Community name.
- * @property {boolean} icon -Community status.
+ * @property {string} subredditName -Community name.
+ * @property {boolean} status -Community status.
  * @property {boolean} isJoined -Check whether the logged in user is joined that community or not.
  * @returns {React.Component} Communities
  */

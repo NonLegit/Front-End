@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
-import Communities from '../Communities/Communities';
+import Communities from './Communities/Communities';
 import RedditPremium from './RedditPremium/RedditPremium';
 import PersonalReddit from './PersonalReddit/PersonalReddit';
 import HomePageFooter from './HomePageFooter/HomePageFooter';
@@ -11,7 +11,7 @@ import PostsClassification from './PostsClassification/PostsClassification';
 import CreatePostInHome from './CreatePostInHome/CreatePostInHome';
 import BackToTop from '../../BackToTop/BackToTop';
 import useFetch from '../../../hooks/useFetch';
-import PostList from '../PostList/PostList';
+import PostList from './PostList/PostList';
 /**
  * This component works as a container for all home page components
  * and a repository the data fetched in
@@ -26,9 +26,7 @@ function HomePageContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
   const communitiesUrl = 'subreddits/mine/subscriber';
-  console.log(postClass);
   const postsUrl = `/users/${postClass || 'best'}`;
-  // console.log(postsUrl);
 
   // states
   const [posts, postsError] = useFetch(postsUrl);

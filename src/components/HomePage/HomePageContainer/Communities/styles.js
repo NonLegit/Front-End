@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../RedditButton/RedditButton';
 
 export const Title = styled('div')(() => ({
   backgroundImage: 'url("https://styles.redditmedia.com/t5_2ql2m/styles/bannerBackgroundImage_h0m8doj409o91.png")',

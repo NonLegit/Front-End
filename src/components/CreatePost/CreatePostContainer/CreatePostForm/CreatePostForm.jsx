@@ -61,6 +61,7 @@ function CreatePostForm() {
     };
     axios.post('/posts', JSON.stringify(post)).then((response) => {
       console.log(response.data);
+      console.log(response.status);
       alert('posted successfully');
     }).catch((e) => {
       console.log(e);

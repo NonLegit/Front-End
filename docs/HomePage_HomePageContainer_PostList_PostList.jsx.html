@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: HomePage/HomePageContainer/PersonalReddit/PersonalReddit.jsx</title>
+    <title>JSDoc: Source: HomePage/HomePageContainer/PostList/PostList.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: HomePage/HomePageContainer/PersonalReddit/PersonalReddit.jsx</h1>
+    <h1 class="page-title">Source: HomePage/HomePageContainer/PostList/PostList.jsx</h1>
 
     
 
@@ -26,57 +26,47 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { Divider, Typography } from '@mui/material';
-import {
-  RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
-} from './styles';
-import RedditButton from '../../../RedditButton/RedditButton';
+            <pre class="prettyprint source linenums"><code>import Post from '../../../Post/Post';
 /**
- * This component contains info about personal
- * Reddit frontpage.
+ * This component is the timeline (the container which contains all posts retrieved to be displayed)
  *
- * @component PersonalReddit
- * @returns {React.Component}  Buttons to show info about communities
+ * @component PostList
+ * @property {Array.&lt;post>} posts -post objects fetched
+ * @returns {React.Component} List of all posts
  */
 
-function PersonalReddit() {
+function PostList(props) {
+  const { posts } = props;
   return (
-    &lt;RedditPersonal>
-      &lt;UpperImage src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" />
-      &lt;MiddleBox>
-        &lt;RedditImage src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" />
-        &lt;Typography
-          component="p"
-          sx={{
-            fontWeight: 500,
-            textTransform: 'capitalize',
-            marginLeft: 7,
-            pb: 0.8,
-            pt: 3,
-          }}
-        >
-          home
-        &lt;/Typography>
-      &lt;/MiddleBox>
-      &lt;Paragraph>
-        Your personal Reddit frontpage. Come here to check in with your favorite communities.
-      &lt;/Paragraph>
-      &lt;Divider sx={{ mt: 1.5 }} />
-      &lt;CustomLink to="/submit">
-        &lt;RedditButton variant="contained" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-          create post
-        &lt;/RedditButton>
-      &lt;/CustomLink>
-      &lt;CustomLink>
-        &lt;RedditButton variant="outlined" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-          create community
-        &lt;/RedditButton>
-      &lt;/CustomLink>
-    &lt;/RedditPersonal>
+    &lt;>
+      {posts.map((post) => {
+        const {
+          id, title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+        } = post;
+        return (
+          &lt;Post
+            title={title}
+            image={image}
+            owner={owner}
+            creator={creator}
+            flairText={flairText}
+            flairBackgroundColor={flairBackgroundColor}
+            popularity={popularity}
+            flairColor={flairColor}
+            url={url}
+            kind={kind}
+            votes={votes}
+            commentCount={commentCount}
+            text={text}
+            key={id}
+          />
+        );
+      })}
+    &lt;/>
   );
 }
 
-export default PersonalReddit;
+export default PostList;
 </code></pre>
         </article>
     </section>

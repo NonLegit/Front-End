@@ -1,4 +1,10 @@
 import { BackToTopButton, BackToTopContainer } from './styles';
+/**
+ * This component is the back to top button
+ *
+ * @component BackToTop
+ * @returns {React.Component} back to top button
+ */
 
 function BackToTop() {
   const handelClick = () => {

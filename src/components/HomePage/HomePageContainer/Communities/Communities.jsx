@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../RedditButton/RedditButton';
 import CommunityList from './CommunityList/CommunityList';
 import {
   CategoriesBox,
