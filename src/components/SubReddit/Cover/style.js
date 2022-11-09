@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const Cover = styled('div')({
@@ -135,4 +136,40 @@ export const PostHeader = styled('div')({
   paddingLeft: 8,
   paddingRight: 8,
   fontSize: 14,
+});
+export const MainConatiner = styled(Box)({
+  backgroundColor: '#dae0e6',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  margin: '0 auto',
+});
+export const PostsContainer = styled('div')(({ theme }) => ({
+  [theme.breakpoints.between('1000', '5000')]: {
+    width: 640,
+  },
+  [theme.breakpoints.down('0', '999')]: {
+    width: '100%',
+  },
+}));
+export const PostContainer = styled(Box)(() => ({
+  width: '100%',
+  backgroundColor: '#fff',
+  display: 'flex',
+  borderRadius: 3,
+  border: '1px solid #ccc',
+  alignItems: 'center',
+  '&:hover':
+  {
+    borderColor: '#999',
+  },
+  margin: 0,
+}));
+export const TotalHeader = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+  background: '#dae0e6',
+  margin: '0 auto',
+  padding: '20px 24px',
 });

@@ -40,7 +40,7 @@ function AddSector() {
                 />
                 <InputFooter>
                   <Count
-                    Condition={(count === 0).toString()}
+                    condition={(count === 0).toString()}
                   >
                     {count}
                     {' '}

@@ -50,7 +50,7 @@ export const Input = styled('textarea')({
   },
 });
 
-export const Count = styled('p')(({ Condition }) => ({
+export const Count = styled('p')(({ condition }) => ({
   fontWeight: 400,
   color: '#7c7c7c',
   fontSize: 12,
@@ -62,7 +62,7 @@ export const Count = styled('p')(({ Condition }) => ({
   flexDirection: 'row',
   paddingLeft: 4,
   justifyContent: 'flex-start',
-  ...((Condition === 'true') && {
+  ...((condition === 'true') && {
     color: 'red',
   }),
 }));

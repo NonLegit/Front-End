@@ -1,5 +1,5 @@
 import {
-  Box, Button, DialogActions, DialogContent, DialogTitle as DialogT,
+  Box, Button, DialogActions, DialogContent, DialogTitle as DialogT, Tooltip, tooltipClasses,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -64,7 +64,7 @@ export const Disc = styled('p')({
   flexDirection: 'row',
   justifyContent: 'flex-start',
 });
-export const Count = styled('p')(({ Condition }) => ({
+export const Count = styled('p')(({ condition }) => ({
   fontWeight: 400,
   color: '#7c7c7c',
   fontSize: 12,
@@ -73,7 +73,7 @@ export const Count = styled('p')(({ Condition }) => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-start',
-  ...((Condition === 'true') && {
+  ...((condition === 'true') && {
     color: 'red',
   }),
 }));
@@ -96,7 +96,7 @@ export const Adult = styled(Box)({
   flexDirection: 'row',
   alignItems: 'center',
 });
-export const NSFW = styled(Box)({
+export const NSFWs = styled(Box)({
   fontSize: 12,
   display: 'inline-block',
   backgroundColor: '#ff585b',
@@ -148,3 +148,36 @@ export const Btn = styled(Button)({
   textTransform: 'initial',
 
 });
+export const Cont = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+export const ContUp = styled(Box)(({ condition, condition2, theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  [theme.breakpoints.between('0', '600')]: {
+    alignItems: ' flex-start',
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: 17,
+    ...((condition === 'true') && {
+      marginTop: 22,
+    }),
+    ...((condition2 === 'true') && {
+      marginTop: 0,
+    }),
+  },
+}));
+
+export const StyledTooltip = styled(({ className, ...props }) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.arrow}`]: {
+    color: theme.palette.common.black,
+  },
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: theme.palette.common.black,
+  },
+}));

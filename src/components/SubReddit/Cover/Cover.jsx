@@ -1,9 +1,11 @@
 import { Box } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+
 import {
   Com,
   Content,
-  Cover, Data, Desc, IconContainer, Image, Join, Logo, Name, Notification, PostHeader,
+  Cover, Data, Desc, IconContainer, Image, Join,
+  Logo, Name, Notification, PostContainer, PostHeader, PostsContainer, TotalHeader,
 } from './style';
 import SideBar from '../SideBar/SideBar';
 
@@ -19,6 +21,18 @@ import SideBar from '../SideBar/SideBar';
 // '../../removed after integration/HomePage/PostsClassification/PostsClassification';
 
 function Header() {
+  // const theme = createTheme({
+  //   breakpoints: {
+  //     values: {
+  //       xs: 0,
+  //       sm: 600,
+  //       md: 1000,
+  //       lg: 1200,
+  //       xl: 1536,
+  //     },
+  //   },
+  // });
+
   return (
     <>
       <Cover />
@@ -40,18 +54,30 @@ function Header() {
           <PostHeader>Posts</PostHeader>
         </IconContainer>
       </Logo>
-      <Box sx={{ backgroundColor: '#dae0e6', width: '100%' }}>
-        {/* <MainContent>
-          <CreatePostInHome />
+      <TotalHeader>
+        <Box sx={{ display: 'flex', flexDirection: 'row', margin: '0 auto' }}>
+          <PostsContainer theme>
+            <PostContainer>
+              <Box my={2} sx={{ '&:hover': { border: 1 }, width: '100%' }} />
+            </PostContainer>
+          </PostsContainer>
+          {/* <Post />
+          <Post />
+          <Post />
+         */}
+
+          {/* <CreatePostInHome />
           <PostsClassification />
           <Post />
           <Post />
           <Post />
           <Post />
-          <Post />
-        </MainContent> */}
-        <SideBar />
-      </Box>
+          <Post /> */}
+          <SideBar />
+
+        </Box>
+      </TotalHeader>
+
     </>
   );
 }

@@ -1,5 +1,5 @@
 import {
-  Box, Button, Link, List,
+  Box, Button, Link, List, Tooltip, tooltipClasses,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -192,3 +192,16 @@ export const SelectContainer = styled(Box)({
   alignItems: 'center',
   paddingLeft: '12px',
 });
+
+export const StyledTooltip = styled(({ className, ...props }) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.arrow}`]: {
+    color: theme.palette.common.black,
+  },
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: '#288eda',
+  },
+
+}));

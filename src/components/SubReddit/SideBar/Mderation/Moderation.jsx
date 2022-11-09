@@ -1,6 +1,6 @@
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import {
-  Box, IconButton, ListItem, ListItemText, Tooltip,
+  Box, IconButton, ListItem, ListItemText,
 } from '@mui/material';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
@@ -12,7 +12,7 @@ import {
   AboutCountainer, AboutString, CreatedSpan,
   More, Created, Icon, Hr, Bold, Light, SpecialBold, CustomLink,
   CreatPost, Admin, New,
-  Select, Lists, SelectContainer,
+  Select, Lists, SelectContainer, StyledTooltip,
 } from './style';
 import AddSector from './AddDisc/Add';
 import AddList from './AddList/AddList';
@@ -68,11 +68,18 @@ function Moderation() {
       <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: '4px' }}>
         <New>New</New>
         Community topics
-        <Tooltip title="Adding community topics allow people to find your community. Add a primary topic and sub topics to be discovered more easily.">
+        <StyledTooltip title="Adding community topics allow people to find your community. Add a primary topic and sub topics to be discovered more easily.">
           <IconButton>
-            <ErrorOutlineIcon sx={{ transform: 'rotate(180deg)', color: 'gray' }} />
+            <ErrorOutlineIcon sx={{
+              transform: 'rotate(180deg)',
+              color: 'gray',
+              '&:hover': {
+                color: '#288eda',
+              },
+            }}
+            />
           </IconButton>
-        </Tooltip>
+        </StyledTooltip>
       </Box>
       <SelectContainer
         onClick={changeShow}

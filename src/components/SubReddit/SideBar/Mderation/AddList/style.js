@@ -11,7 +11,7 @@ export const AboutContent = styled('h2')({
   marginBlockEnd: 0,
   // height: 127,
 });
-export const Add = styled('span')(({ Condition }) => ({
+export const Add = styled('span')(({ condition }) => ({
   flexFlow: 'column',
   transition: 'all .1s linear 0s',
   border: 'none',
@@ -30,7 +30,7 @@ export const Add = styled('span')(({ Condition }) => ({
     border: 'none',
   },
   alignItems: 'flex-start',
-  ...((Condition === 'true') && {
+  ...((condition === 'true') && {
     flexFlow: 'row',
   }),
 }));
@@ -66,7 +66,7 @@ export const Input = styled('textarea')({
   },
 });
 
-export const Count = styled('p')(({ Condition }) => ({
+export const Count = styled('p')(({ condition }) => ({
   fontWeight: 400,
   color: '#7c7c7c',
   fontSize: 12,
@@ -79,7 +79,7 @@ export const Count = styled('p')(({ Condition }) => ({
   flexDirection: 'row',
   paddingLeft: 4,
   justifyContent: 'flex-start',
-  ...((Condition === 'true') && {
+  ...((condition === 'true') && {
     color: 'red',
   }),
 }));
@@ -99,12 +99,12 @@ export const InputFooter = styled(Box)({
   width: '100%',
 });
 
-export const BOX = styled(Box)(({ Condition }) => ({
+export const BOX = styled(Box)(({ condition }) => ({
   display: 'flex',
   width: '100%',
   justifyContent: 'flex-start',
   flexFlow: 'column',
-  ...((Condition === 'true') && {
+  ...((condition === 'true') && {
     flexFlow: 'row',
   }),
 }));

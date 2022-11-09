@@ -25,7 +25,7 @@ function AddList() {
     <AboutContent>
       <ClickAwayListener onClickAway={handleClickAway1}>
         <Add>
-          <BOX Condition={show.toString()} onClick={() => { setShow(false); }}>
+          <BOX condition={show.toString()} onClick={() => { setShow(false); }}>
             <Text>
               {' '}
               Travel
@@ -48,7 +48,7 @@ function AddList() {
                 />
                 <InputFooter>
                   <Count
-                    Condition={(count === 25).toString()}
+                    condition={(count === 25).toString()}
                   >
                     {count}
                     /
