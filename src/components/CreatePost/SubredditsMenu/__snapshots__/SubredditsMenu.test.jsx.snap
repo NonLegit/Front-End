@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubredditsMenu SubredditsMenu renders correctly 1`] = `
+<div
+  className="MuiBox-root css-1s9msi9"
+>
+  <div
+    className="MuiBox-root css-1vfar3j"
+    onClick={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className="MuiBox-root css-1rru4r9"
+    >
+      <div
+        className="css-1hhs1ei"
+      />
+      <input
+        className="css-1gxbeht"
+        onChange={[Function]}
+        onClick={[Function]}
+        placeholder="Choose a community"
+        type="text"
+        value=""
+      />
+      <svg
+        className="css-1fyzswu"
+        fill="none"
+        height="1em"
+        onClick={[Function]}
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 9l-7 7-7-7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
