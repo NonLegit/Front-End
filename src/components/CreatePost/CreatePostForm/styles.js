@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import RedditButton from '../../RedditButton/RedditButton';
 
-export const FormContainer = styled('div')(() => ({
+export const FormContainer = styled('form')(() => ({
   marginTop: 20,
   display: 'flex',
   flexDirection: 'column',
@@ -47,14 +47,13 @@ export const PostFormContainer = styled('div')(() => ({
   overflow: 'hidden',
 }));
 
-export const FieldsContainer = styled('form')(() => ({
+export const FieldsContainer = styled('div')(() => ({
   margin: 16,
   display: 'flex',
   flexDirection: 'column',
 }));
 
-export const PostTitle = styled('input')(({ theme }) => ({
-  marginBottom: 16,
+export const PostTitle = styled(TextareaAutosize)(({ theme }) => ({
   padding: 10,
   border: '1px solid #edeff1',
   '&:focus-visible': {
@@ -63,7 +62,19 @@ export const PostTitle = styled('input')(({ theme }) => ({
   borderRadius: 4,
   fontSize: 14,
   caretColor: theme?.palette?.primary?.main,
+  paddingRight: 55,
+  resize: 'none',
   fontWeight: 400,
+  fontFamily: 'inherit',
+}));
+
+export const WordCounter = styled(Box)(({ theme }) => ({
+  color: theme.palette.third.main,
+  fontSize: 11,
+  fontWeight: 500,
+  position: 'absolute',
+  right: 10,
+  bottom: 8,
 }));
 
 export const PostText = styled(TextareaAutosize)(({ theme }) => ({

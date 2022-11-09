@@ -5,7 +5,7 @@ import {
 import { useState } from 'react';
 
 import {
-  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl,
+  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl, WordCounter,
 } from './styles';
 
 import PostMedia from '../PostMedia/PostMedia';
@@ -68,7 +68,7 @@ function CreatePostForm() {
     });
   };
   const handleTitleChange = (e) => {
-    setTitle(e.target.value);
+    setTitle(e.target.value.substr(0, Math.min(300, e.target.value.length)));
   };
   const handlePostTextChange = (e) => {
     setPostTitle(e.target.value);
@@ -82,7 +82,7 @@ function CreatePostForm() {
   const handleUrlChange = (e) => {
     setPostUrl(e.target.value);
   };
-  const handleUrlEnter = (e) => {
+  const handleEnter = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
     }
@@ -119,15 +119,28 @@ function CreatePostForm() {
         setOwnerType={setOwnerType}
       />
       <PostFormContainer>
-        <PostTypes postType={postType} handlePostType={handlePostType} />
+        <PostTypes
+          postType={postType}
+          handlePostType={handlePostType}
+        />
         <FieldsContainer>
-          <Box position="relative" display="flex" flexDirection="column">
+          <Box
+            position="relative"
+            display="flex"
+            flexDirection="column"
+            marginBottom={2}
+          >
             <PostTitle
               type="text"
               placeholder="Title"
               value={title}
               onChange={handleTitleChange}
+              onKeyDown={handleEnter}
             />
+            <WordCounter>
+              {title.length}
+              /300
+            </WordCounter>
           </Box>
           {postType === 0 ? (
             <PostText
@@ -150,7 +163,7 @@ function CreatePostForm() {
               placeholder="Url"
               value={postUrl}
               onChange={handleUrlChange}
-              onKeyDown={handleUrlEnter}
+              onKeyDown={handleEnter}
             />
           ) : null}
         </FieldsContainer>
