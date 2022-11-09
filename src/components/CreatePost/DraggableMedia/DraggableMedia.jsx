@@ -11,8 +11,6 @@ function DraggableMedia(props) {
   } = props;
 
   const [isHover, setIsHover] = useState(false);
-  // console.log(media[30], id);
-  // console.log('in', media[30], id);
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'media',
     item: { id },
@@ -23,7 +21,6 @@ function DraggableMedia(props) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'media',
     drop: (item) => {
-      // console.log(item.id, id);
       if (item.id === id) return;
       mediaSwap(item.id, id);
     },
@@ -31,13 +28,11 @@ function DraggableMedia(props) {
       isOver: !!monitor.isOver(),
     }),
   }), [id]);
-  // console.log(isOver && isDragging);
   const handleClick = () => {
     setActiveMediaFile(id);
   };
   const handleHovering = (value) => {
     setIsHover(value);
-    // console.log('hi', value);
   };
   const handleDeletion = (e) => {
     e.stopPropagation();

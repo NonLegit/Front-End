@@ -50,12 +50,10 @@ describe(PostTags, () => {
     );
     const spoilerButton = screen.getByTestId('spoiler button');
     expect(hanldeSpoiler.mock.calls.length).toEqual(0);
-    console.log(hanldeSpoiler.mock.calls.length);
     fireEvent.click(spoilerButton);
     expect(hanldeSpoiler.mock.calls.length).toEqual(1);
     const nsfwButton = screen.getByTestId('nsfw button');
     expect(hanldeNsfw.mock.calls.length).toEqual(0);
-    console.log(hanldeNsfw.mock.calls.length);
     fireEvent.click(nsfwButton);
     expect(hanldeNsfw.mock.calls.length).toEqual(1);
   });
@@ -75,7 +73,6 @@ describe(PostTags, () => {
       </ThemeProvider>,
     );
     const spoilerButton = screen.getByTestId('spoiler button');
-    console.log(spoilerButton.style);
     let style = window.getComputedStyle(spoilerButton);
     expect(style.backgroundColor).toEqual('rgb(0, 0, 0)');
     const nsfwButton = screen.getByTestId('nsfw button');
@@ -98,7 +95,6 @@ describe(PostTags, () => {
       </ThemeProvider>,
     );
     const spoilerButton = screen.getByTestId('spoiler button');
-    console.log(spoilerButton.style);
     let style = window.getComputedStyle(spoilerButton);
     expect(style.backgroundColor).not.toEqual('rgb(0, 0, 0)');
     const nsfwButton = screen.getByTestId('nsfw button');

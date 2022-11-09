@@ -41,11 +41,9 @@ describe(PostSubmission, () => {
     );
     const postButton = screen.getByTestId('post button');
     expect(handlePost.mock.calls.length).toEqual(0);
-    console.log(handlePost.mock.calls.length);
     fireEvent.click(postButton);
     expect(handlePost.mock.calls.length).toEqual(1);
     fireEvent.click(postButton);
-    console.log(handlePost.mock.calls.length);
     expect(handlePost.mock.calls.length).toEqual(2);
   });
 
@@ -62,7 +60,6 @@ describe(PostSubmission, () => {
     );
     const postButton = screen.getByTestId('post button');
     expect(handlePost.mock.calls.length).toEqual(0);
-    console.log(handlePost.mock.calls.length);
     fireEvent.click(postButton);
     expect(handlePost.mock.calls.length).toEqual(0);
   });

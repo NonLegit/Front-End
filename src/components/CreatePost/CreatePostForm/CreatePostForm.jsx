@@ -49,7 +49,6 @@ function CreatePostForm() {
   // handlers
   const handlePost = (e) => {
     e.preventDefault();
-    console.log(title, postText, postTypes[postType], communityToPostIn, ownerType, spoiler, nswf, sendReplies);
     const post = {
       title,
       text: postText,
