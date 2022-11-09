@@ -5,8 +5,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import {
   AddMoreMediaFiles, PostEmptyMediaContainer, PostMediaOuterContainer, PostOneMediaContainer, UploadButton,
 } from './styles';
-import DraggableMedia from '../DraggableMedia/DraggableMedia';
-import PostMediaDetails from '../PostMediaDetails/PostMediaDetails';
+import DraggableMedia from './DraggableMedia/DraggableMedia';
+import PostMediaDetails from './PostMediaDetails/PostMediaDetails';
 
 function PostMedia(props) {
   // props

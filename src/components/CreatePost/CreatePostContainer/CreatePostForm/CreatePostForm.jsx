@@ -8,14 +8,14 @@ import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl, WordCounter,
 } from './styles';
 
-import PostMedia from '../PostMedia/PostMedia';
-import PostTags from '../PostTags/PostTags';
-import PostSubmission from '../PostSubmission/PostSubmission';
-import PostTypes from '../PostTypes/PostTypes';
-import SubredditsMenu from '../SubredditsMenu/SubredditsMenu';
+import PostMedia from './PostMedia/PostMedia';
+import PostTags from './PostTags/PostTags';
+import PostSubmission from './PostSubmission/PostSubmission';
+import PostTypes from './PostTypes/PostTypes';
+import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 
-import axios from '../../../services/instance';
-import { usePostTypeContext } from '../../../contexts/PostTypeContext';
+import axios from '../../../../services/instance';
+import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 /**
  * This component is the main section off create post page which holds the form to submit posts
  *

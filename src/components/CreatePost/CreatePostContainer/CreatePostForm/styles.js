@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import {
   Typography, Box, Divider, TextareaAutosize,
 } from '@mui/material';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../RedditButton/RedditButton';
 
 export const FormContainer = styled('form')(() => ({
   marginTop: 20,

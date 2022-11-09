@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
 } from './styles';
-import { usePostTypeContext } from '../../../contexts/PostTypeContext';
+import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 /**
  * This component is the link between home page and create post page
  * @component CreatePostInHome

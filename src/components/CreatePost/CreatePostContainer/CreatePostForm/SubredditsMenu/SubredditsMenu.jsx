@@ -5,10 +5,10 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
-import iMatcher from '../../../utils/iMatcher';
-import numberWithCommas from '../../../utils/numberWithCommas';
-import RedditButton from '../../RedditButton/RedditButton';
+import { useCommunitiesInCreatePostContext } from '../../../../../contexts/CommunitiesInCreatePostContext';
+import iMatcher from '../../../../../utils/iMatcher';
+import numberWithCommas from '../../../../../utils/numberWithCommas';
+import RedditButton from '../../../../RedditButton/RedditButton';
 import {
   AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon, ClickAwayContainer,
 } from './styles';

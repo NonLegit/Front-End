@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../../RedditButton/RedditButton';
 
 export const OptionButton = styled(RedditButton)(() => ({
   padding: '3px 16px',

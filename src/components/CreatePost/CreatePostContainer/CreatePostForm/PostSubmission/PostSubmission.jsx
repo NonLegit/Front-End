@@ -1,5 +1,5 @@
 import { Box, Checkbox } from '@mui/material';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../../RedditButton/RedditButton';
 import {
   ConnectAccounts, InfoIcon, PostButton, SendReplayFormLabel, SendReplyContainer,
 } from './styles';

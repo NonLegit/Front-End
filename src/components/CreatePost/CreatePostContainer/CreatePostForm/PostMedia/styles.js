@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../../RedditButton/RedditButton';
 
 export const PostEmptyMediaContainer = styled(Box)(({ theme }) => ({
   padding: 10,

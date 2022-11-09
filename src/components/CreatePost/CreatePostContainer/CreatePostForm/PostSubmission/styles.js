@@ -2,7 +2,7 @@ import { Box, FormControlLabel } from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../../RedditButton/RedditButton';
 
 export const PostButton = styled(RedditButton)(() => ({
   padding: '3px 16px',

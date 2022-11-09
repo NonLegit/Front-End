@@ -2,7 +2,7 @@ import { Divider, Typography } from '@mui/material';
 import {
   RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
 } from './styles';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../RedditButton/RedditButton';
 /**
  * This component contains info about personal
  * Reddit frontpage.

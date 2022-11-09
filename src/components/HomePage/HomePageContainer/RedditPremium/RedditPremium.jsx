@@ -1,6 +1,6 @@
 import { Box } from '@mui/system';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
-import RedditButton from '../../RedditButton/RedditButton';
+import RedditButton from '../../../RedditButton/RedditButton';
 import { Header, Paragraph, PremiumReddit } from './styles';
 /**
  * This component contains info about reddit premium.

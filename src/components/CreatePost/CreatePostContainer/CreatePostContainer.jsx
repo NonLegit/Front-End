@@ -2,7 +2,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
 import MainContent from '../../MainContent/MainContent';
 import SideBar from '../../SideBar/SideBar';
-import CreatePostForm from '../CreatePostForm/CreatePostForm';
+import CreatePostForm from './CreatePostForm/CreatePostForm';
 import { MainContainer, OuterContainer } from './styles';
 /**
  * This component works as a container for all create post page components
