@@ -51,7 +51,7 @@ function PostFooter(props) {
 
   const moderator = [
     {
-      id: 1, text: 'Approve', condition: approved, icon: <CheckCircleOutlineOutlinedIcon />,
+      id: 1, text: 'Approved', condition: approved, icon: <CheckCircleOutlineOutlinedIcon />,
     },
     {
       id: 2, text: 'Removed', condition: removed, icon: <BlockOutlinedIcon />,
@@ -60,7 +60,7 @@ function PostFooter(props) {
       id: 3, text: 'Spam', condition: spam, icon: <CancelPresentationOutlinedIcon />,
     },
     {
-      id: 4, text: '', condition: null, icon: <AdminPanelSettingsOutlinedIcon />,
+      id: 4, text: '', condition: false, icon: <AdminPanelSettingsOutlinedIcon />,
     },
   ];
   const publisher = [
@@ -86,23 +86,26 @@ function PostFooter(props) {
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
       </ElementBox>
       <Divider orientation="vertical" variant="middle" flexItem />
-
       <ElementBox>
         <ChatBubbleOutlineOutlinedIcon />
-        <FooterText variant="caption">{numComments}</FooterText>
+        <FooterText variant="caption" responsiveshare={true.toString()}>{numComments}</FooterText>
       </ElementBox>
       <ElementBox>
         <ShortcutOutlinedIcon />
-        <FooterText variant="caption">Share</FooterText>
+        <FooterText variant="caption" responsiveshare={true.toString()}>Share</FooterText>
       </ElementBox>
       {(!voted) && moderator.map((entity) => (
-        <ElementBox key={entity.id} approved={entity.condition} spam={entity.condition}>
+        <ElementBox
+          key={entity.id}
+          approved={(entity.condition && entity.text === 'Approved').toString()}
+          spam={(entity.condition && (entity.text === 'Spam' || entity.text === 'Removed')).toString()}
+        >
           {entity.icon}
-          <FooterText variant="caption">{entity.text}</FooterText>
+          <FooterText variant="caption" condition={true.toString()}>{entity.text}</FooterText>
         </ElementBox>
       ))}
       {(!voted) && (
-      <ElementBox>
+      <ElementBox condition2={true.toString()}>
         <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
         <FooterText variant="caption">Insights</FooterText>
       </ElementBox>
@@ -114,14 +117,14 @@ function PostFooter(props) {
           onClick={entity.func ? () => { handleClickSave(); } : () => { handleClickHide(); }}
         >
           {entity.icon}
-          <FooterText variant="caption">{entity.text}</FooterText>
+          <FooterText variant="caption" condition={true.toString()}>{entity.text}</FooterText>
         </ElementBox>
       ))}
 
       {postedByOthers ? (
         <ElementBox>
           <FlagOutlinedIcon />
-          <FooterText variant="caption">Report</FooterText>
+          <FooterText variant="caption" condition={true.toString()}>Report</FooterText>
         </ElementBox>
       ) : (
         <ClickAwayListener onClickAway={handleClickAway}>

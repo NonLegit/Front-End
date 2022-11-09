@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 export const CommentsBox = styled(Box)(() => ({
   width: '100%',
-  height: 134,
+  minHeight: 134,
   backgroundColor: 'white',
 }));
 
@@ -14,7 +14,7 @@ export const CommentText = styled(Typography)(({ theme, coloring, hover }) => ({
   ...((coloring === undefined) && {
     color: theme.palette.primary.main,
   }),
-  ...((hover === true) && {
+  ...((hover === 'true') && {
     '&:hover': {
       textDecoration: 'underline',
       cursor: 'pointer',

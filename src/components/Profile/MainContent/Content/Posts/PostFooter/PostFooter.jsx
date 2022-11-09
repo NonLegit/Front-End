@@ -20,8 +20,7 @@ import {
 } from './styles';
 
 function PostFooter(props) {
-  const numComments = 0;
-  const { subTitle } = props;
+  const { subTitle, numComments } = props;
 
   const [showList, setShowList] = useState(false);
 
@@ -38,29 +37,29 @@ function PostFooter(props) {
     <FooterBox>
       <ElementBox>
         <ChatBubbleOutlineOutlinedIcon />
-        <FooterText variant="caption">{numComments}</FooterText>
+        <FooterText variant="caption" responsiveshare={true.toString()}>{numComments}</FooterText>
       </ElementBox>
 
       <ElementBox>
         <ShortcutOutlinedIcon />
-        <FooterText variant="caption">Share</FooterText>
+        <FooterText variant="caption" responsiveshare={true.toString()}>Share</FooterText>
       </ElementBox>
       <ElementBox condition2={(subTitle === 'Edited').toString()}>
         <CheckCircleOutlineOutlinedIcon />
-        <FooterText variant="caption">Approve</FooterText>
+        <FooterText variant="caption" responsiveapprove={true.toString()}>Approve</FooterText>
       </ElementBox>
       <ElementBox condition={(subTitle === 'Spam').toString()}>
         <BlockOutlinedIcon />
-        <FooterText variant="caption">Removed</FooterText>
+        <FooterText variant="caption" responsiveapprove={true.toString()}>Removed</FooterText>
       </ElementBox>
       <ElementBox>
         <CancelPresentationOutlinedIcon />
-        <FooterText variant="caption">Spam</FooterText>
+        <FooterText variant="caption" responsive={true.toString()}>Spam</FooterText>
       </ElementBox>
       <ElementBox>
         <AdminPanelSettingsOutlinedIcon />
       </ElementBox>
-      <ElementBox>
+      <ElementBox responsive={true.toString()}>
         <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
         <FooterText variant="caption">Insights</FooterText>
       </ElementBox>

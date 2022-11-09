@@ -1,21 +1,14 @@
 import { Typography } from '@mui/material';
-import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+// import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
+// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  ApprovedBox, HeaderPost, RemovalBox,
+  HeaderPost,
 } from './styles';
 
 function PostHeader(props) {
-  const nameUser = 'NourTest';
-  const Time = '6 days ago';
-  const { subTitle, subReddit } = props;
+  const { nameUser, Time, subReddit } = props;
   return (
     <HeaderPost>
-      {/* OR PHOTO */}
-      {/* <HeaderAvatar>
-        <HeaderAvatarText>r/</HeaderAvatarText>
-      </HeaderAvatar> */}
-      {/* OR PHOTO */}
       <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
         r/
         {subReddit}
@@ -33,7 +26,7 @@ function PostHeader(props) {
         {' '}
         {Time}
       </Typography>
-      {((subTitle === 'Spam').toString() === 'true')
+      {/* {((subTitle === 'Spam').toString() === 'true')
       && (
         <RemovalBox>
           <BlockOutlinedIcon fontSize="string" />
@@ -45,7 +38,7 @@ function PostHeader(props) {
       <ApprovedBox>
         <CheckCircleIcon fontSize="string" />
       </ApprovedBox>
-      )}
+      )} */}
     </HeaderPost>
   );
 }

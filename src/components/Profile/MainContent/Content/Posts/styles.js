@@ -2,9 +2,8 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const PostsQueueBox = styled(Box)(() => ({
-  height: 150,
+  minHeight: 150,
   display: 'flex',
-  //   alignItems: 'center',
   backgroundColor: 'white',
   marginTop: 10,
   borderRadius: 3,

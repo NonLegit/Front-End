@@ -1,15 +1,13 @@
 import BackHomeBottun from './BackHomeBottun/BackHome';
 import Communities from './Communities/Communities';
 import { SidebarBox } from './styles';
+/* eslint-disable import/no-cycle */
 import UserInfo from './UserInfo/UserInfo';
 
-function Sidebar(props) {
-  const {
-    username, karma, cake, followers,
-  } = props;
+function Sidebar() {
   return (
     <SidebarBox>
-      <UserInfo username={username} karma={karma} cake={cake} followers={followers} />
+      <UserInfo />
       <Communities />
       <BackHomeBottun />
     </SidebarBox>

@@ -15,7 +15,9 @@ export const PageHeader = styled(AppBar)(() => ({
 
 }));
 
-export const HeaderButton = styled(Button)(({ theme, condition }) => ({
+export const HeaderButton = styled(Button)(({
+  theme, condition, responsive, removedots,
+}) => ({
   fontWeight: 500,
   fontSize: 14,
   fontFamily: "'IBM Plex Sans', 'sans-serif'",
@@ -35,5 +37,98 @@ export const HeaderButton = styled(Button)(({ theme, condition }) => ({
 
     },
     color: theme.palette.primary.main,
+  }),
+  ...((responsive === 'res1') && {
+    [theme.breakpoints.between('0', '1000')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsive === 'res2') && {
+    [theme.breakpoints.between('0', '900')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsive === 'res3') && {
+    [theme.breakpoints.between('0', '700')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsive === 'res4') && {
+    [theme.breakpoints.between('0', '500')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsive === 'res5') && {
+    [theme.breakpoints.between('0', '400')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsive === 'res6') && {
+    [theme.breakpoints.between('0', '300')]: {
+      display: 'none',
+    },
+  }),
+  ...((removedots === 'true') && {
+    [theme.breakpoints.between('1000', '3000')]: {
+      display: 'none',
+    },
+  }),
+}));
+
+export const SelectBox = styled(Box)(() => ({
+  maxWidth: 200,
+  top: 30,
+  border: ' 1px solid #eee',
+  borderRadius: 4,
+  boxShadow: '0 2px 4px 0 #eee',
+  backgroundColor: 'white',
+  position: 'absolute',
+  zIndex: 10,
+
+}));
+
+export const SelectItem = styled(Button)(({ theme, responsive }) => ({
+  padding: 5,
+  color: 'black',
+  fontFamily: "'IBM Plex Sans', 'sans-serif'",
+  fontSize: 14,
+  fontWeight: 500,
+  width: '100%',
+  justifyContent: 'left',
+  textTransform: 'none',
+  display: 'none',
+  '& .MuiButtonBase-root:hover': {
+    color: 'black',
+    backgroundColor: '#d7d7d7',
+  },
+  ...((responsive === 'res1') && {
+    [theme.breakpoints.between('0', '1000')]: {
+      display: 'block',
+    },
+  }),
+  ...((responsive === 'res2') && {
+    [theme.breakpoints.between('0', '900')]: {
+      display: 'block',
+    },
+  }),
+  ...((responsive === 'res3') && {
+    [theme.breakpoints.between('0', '700')]: {
+      display: 'block',
+    },
+  }),
+  ...((responsive === 'res4') && {
+    [theme.breakpoints.between('0', '500')]: {
+      display: 'block',
+    },
+  }),
+  ...((responsive === 'res5') && {
+    [theme.breakpoints.between('0', '400')]: {
+      display: 'block',
+    },
+  }),
+  ...((responsive === 'res6') && {
+    [theme.breakpoints.between('0', '300')]: {
+      display: 'block',
+    },
   }),
 }));

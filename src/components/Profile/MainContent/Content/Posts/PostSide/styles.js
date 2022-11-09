@@ -4,12 +4,14 @@ import ForwardOutlinedIcon from '@mui/icons-material/ForwardOutlined';
 
 export const SidebarQueueBox = styled(Box)(() => ({
   height: '100%',
+  // position: 'relative',
   width: 40,
   backgroundColor: '#f8f9fa',
   paddingTop: 10,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  // height: 200,
 }));
 
 export const UpArrow = styled(ForwardOutlinedIcon)(({ theme }) => ({

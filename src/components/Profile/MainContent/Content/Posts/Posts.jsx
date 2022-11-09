@@ -11,20 +11,16 @@ import {
 } from './styles';
 
 function Posts(props) {
-  const { subReddit } = props;
-  const content = {
-    Title: 'new',
-    Paragraph: 'extra',
-  };
+  const { post } = props;
   return (
     <PostsQueueBox>
       <PostSide />
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
-          <PostHeader subReddit={subReddit} />
-          <TitlePost variant="h6">{content.Title}</TitlePost>
-          <ParagraphPost variant="body2">{content.Paragraph}</ParagraphPost>
-          <PostFooter subTitle={subReddit} />
+          <PostHeader subReddit={post.subReddit} nameUser={post.publisher} Time={post.time} />
+          <TitlePost variant="h6">{post.Title}</TitlePost>
+          <ParagraphPost variant="body2">{post.Paragraph}</ParagraphPost>
+          <PostFooter subTitle={post.subReddit} numComments={post.numComments} />
         </Box>
       </PostContentBox>
     </PostsQueueBox>

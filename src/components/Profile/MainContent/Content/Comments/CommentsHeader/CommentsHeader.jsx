@@ -1,11 +1,17 @@
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import { useContext } from 'react';
+/* eslint-disable import/no-cycle */
+import { UserContext } from '../../../MainContent';
+
 import { CommentText } from '../styles';
 import CommentsBoxHeader from './styles';
-// import { CommentsBoxHeader } from './styles';
 
 function CommentsHeader(props) {
   const {
-    subReddit, username, publisher, title,
+    username,
+  } = useContext(UserContext);
+  const {
+    subReddit, publisher, title,
   } = props;
   return (
 
@@ -13,7 +19,7 @@ function CommentsHeader(props) {
       <ChatBubbleOutlineOutlinedIcon />
       <CommentText
         variant="caption"
-        hover
+        hover="true"
       >
         {username}
 
@@ -25,7 +31,7 @@ function CommentsHeader(props) {
         {' '}
         .
       </CommentText>
-      <CommentText variant="caption" coloring="black" hover sx={{ fontWeight: 700 }}>
+      <CommentText variant="caption" coloring="black" hover="true" sx={{ fontWeight: 700 }}>
         u/
         {subReddit}
         {' '}
@@ -34,7 +40,7 @@ function CommentsHeader(props) {
       <CommentText variant="caption" coloring="#787c7e">
         Posted by
       </CommentText>
-      <CommentText variant="caption" coloring="#787c7e" hover>
+      <CommentText variant="caption" coloring="#787c7e" hover="true">
         {publisher}
       </CommentText>
     </CommentsBoxHeader>

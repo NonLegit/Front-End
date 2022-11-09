@@ -1,14 +1,21 @@
 import { Box, IconButton } from '@mui/material';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import { useContext } from 'react';
+/* eslint-disable import/no-cycle */
+import { UserContext } from '../../../MainContent';
+
 import { CommentText } from '../styles';
 import { CommentsBoxBlue, CommentsBoxContent } from './styles';
 
 function CommentsContent(props) {
   const {
-    username,
     points,
     time,
+    body,
   } = props;
+  const {
+    username,
+  } = useContext(UserContext);
   return (
     <CommentsBoxContent>
       <CommentsBoxBlue>
@@ -26,10 +33,10 @@ function CommentsContent(props) {
             ago
           </CommentText>
         </Box>
-        <Box><CommentText variant="body2" coloring="black">Welcome Asmaa</CommentText></Box>
+        <Box><CommentText variant="body2" coloring="black">{body}</CommentText></Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CommentText variant="caption" coloring="#787c7e" hover sx={{ fontWeight: 700 }}>Reply</CommentText>
-          <CommentText variant="caption" coloring="#787c7e" hover sx={{ fontWeight: 700 }}>Share</CommentText>
+          <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Reply</CommentText>
+          <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Share</CommentText>
           <IconButton>
             <MoreHorizOutlinedIcon />
           </IconButton>

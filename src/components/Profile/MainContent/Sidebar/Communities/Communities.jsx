@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+// import { useEffect, useState } from 'react';
 import { InfoBox } from '../styles';
 
 import {
@@ -6,14 +7,26 @@ import {
 } from './styles';
 
 function Communities() {
+  // will fetch the comminities here
+  // const [communities, setCommunities] = useState();
+
+  // useEffect(() => {
+  //   setCommunities([
+  //     { id: 1, name: 'basma', number: '3 Members' },
+  //     { id: 2, name: 'basma2', number: '6 Members' },
+  //     { id: 3, name: 'basma3', number: '8 Members' },
+  //     { id: 4, name: 'basma4', number: '9 Members' },
+  //   ]);
+  // }, []);
+
   const communities = [
     { id: 1, name: 'basma', number: '3 Members' },
     { id: 2, name: 'basma2', number: '6 Members' },
     { id: 3, name: 'basma3', number: '8 Members' },
     { id: 4, name: 'basma4', number: '9 Members' },
   ];
-  return (
 
+  return (
     <InfoBox>
       <Typography variant="body2" sx={{ fontWeight: 700 }}>You&apos;re a moderator of these communities</Typography>
       {communities.map((community) => (
@@ -27,7 +40,7 @@ function Communities() {
               r/
               {community.name}
             </SubReddit>
-            <Typography sx={{ fontSize: 12 }}>community.number</Typography>
+            <Typography sx={{ fontSize: 12 }}>{community.number}</Typography>
           </Box>
           <Joined variant="outlined" onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Joined>
         </ComminityBox>

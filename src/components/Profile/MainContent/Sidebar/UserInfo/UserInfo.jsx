@@ -9,21 +9,36 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
+/* eslint-disable import/no-cycle */
+import { UserContext } from '../../MainContent';
 
-function UserInfo(props) {
+function UserInfo() {
+  const [karma, setKarma] = useState();
+  const [cake, setCake] = useState();
+  const [followers, setFollowers] = useState();
+
+  const {
+    username,
+  } = useContext(UserContext);
+
+  // to be fetched here
+  useEffect(() => {
+    setKarma(2);
+    setCake('October 5, 2022');
+    setFollowers(3);
+  }, []);
+
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {
     setShowList((prev) => !prev);
   };
-  const {
-    username, karma, cake, followers,
-  } = props;
+
   return (
     <UserInfoBox>
       <CardMedia

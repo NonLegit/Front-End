@@ -6,9 +6,9 @@ import {
 } from './styles';
 
 function PostHeader(props) {
-  const nameUser = 'NourTest';
-  const Time = '6 days ago';
-  const { subTitle, subReddit } = props;
+  const {
+    subTitle, subReddit, nameUser, Time,
+  } = props;
   return (
     <HeaderPost>
       {/* OR PHOTO */}

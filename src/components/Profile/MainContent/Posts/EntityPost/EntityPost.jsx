@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import {
   EmptyImage,
@@ -11,12 +11,15 @@ import {
 import PostSide from './PostSide/PostSide';
 import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
+/* eslint-disable import/no-cycle */
+import { UserContext } from '../../MainContent';
 
 function EntityPost(props) {
   const {
-    subReddit, entity,
+    entity,
   } = props;
   const [expand, setExpand] = useState();
+  const { username } = useContext(UserContext);
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
@@ -31,15 +34,22 @@ function EntityPost(props) {
           <PostContentBox>
             <Box sx={{ marginLeft: 1 }}>
               <TitlePost variant="h6">{entity.Title}</TitlePost>
-              <PostHeader subReddit={subReddit} />
+              <PostHeader
+                subReddit={entity.subReddit}
+                nameUser={username}
+                Time={entity.time}
+              />
               <PostFooter
-                subTitle={subReddit}
+                subTitle={entity.subReddit}
                 handleExpand={handleExpand}
                 expand={expand}
                 voted={entity.upvoted || entity.downvoted}
                 postedByOthers={entity.postedByOthers}
                 saved={entity.saved}
                 hidden={entity.hidden}
+                approved={entity.approved}
+                removed={entity.removed}
+                spam={entity.spam}
               />
             </Box>
           </PostContentBox>

@@ -8,13 +8,32 @@ export const FooterBox = styled(Box)(() => ({
   alignItems: 'center',
 
 }));
-export const FooterText = styled(Typography)(() => ({
+export const FooterText = styled(Typography)(({
+  theme, responsive, responsiveapprove, responsiveshare,
+}) => ({
   marginLeft: 5,
   display: 'flex',
   alignItems: 'center',
   fontWeight: 700,
+  ...((responsive === 'true') && {
+    [theme.breakpoints.between('0', '1160')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsiveapprove === 'true') && {
+    [theme.breakpoints.between('0', '660')]: {
+      display: 'none',
+    },
+  }),
+  ...((responsiveshare === 'true') && {
+    [theme.breakpoints.between('0', '380')]: {
+      display: 'none',
+    },
+  }),
 }));
-export const ElementBox = styled(Box)(({ condition, condition2, theme }) => ({
+export const ElementBox = styled(Box)(({
+  condition, condition2, theme, responsive,
+}) => ({
   height: '100%',
   display: 'flex',
   marginRight: 1,
@@ -33,6 +52,11 @@ export const ElementBox = styled(Box)(({ condition, condition2, theme }) => ({
   ...((condition2 === 'true') && {
     color: '#46d16087',
     '&:hover': {
+    },
+  }),
+  ...((responsive) && {
+    [theme.breakpoints.between('0', '1050')]: {
+      display: 'none',
     },
   }),
 }));

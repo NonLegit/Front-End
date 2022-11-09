@@ -1,17 +1,19 @@
 import { Box, styled } from '@mui/material';
 
-export const ProfilePage = styled(Box)(() => ({
+export const ProfilePage = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   maxWidth: '100%',
   backgroundColor: '#dae0e6',
   display: 'flex',
   justifyContent: 'center',
   padding: '20px 24px',
-
+  [theme.breakpoints.between('0', '630')]: {
+    padding: 0,
+  },
 }));
 
 export const NEW = styled(Box)(() => ({
-  height: 76,
+  minHeight: 76,
   backgroundColor: 'white',
   border: '1px solid #edeff1',
   borderRadius: 4,
