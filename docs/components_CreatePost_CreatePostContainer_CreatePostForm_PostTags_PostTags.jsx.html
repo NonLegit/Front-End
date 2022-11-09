@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: pages/Notifications.jsx</title>
+    <title>JSDoc: Source: components/CreatePost/CreatePostContainer/CreatePostForm/PostTags/PostTags.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: pages/Notifications.jsx</h1>
+    <h1 class="page-title">Source: components/CreatePost/CreatePostContainer/CreatePostForm/PostTags/PostTags.jsx</h1>
 
     
 
@@ -26,25 +26,86 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import NotificationsBody from '../components/Notifications/NotificationsBody/NotificationsBody';
-import NotificationsHeader from '../components/Notifications/NotificationsHeader/NotificationsHeader';
-import { ContinerNotifications } from '../components/Notifications/NotificationsHeader/styles';
-
+            <pre class="prettyprint source linenums"><code>import AddIcon from '@mui/icons-material/Add';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { NsfwButton, OptionButton, SpoilerButton } from './styles';
 /**
- * Notifications page
- * @return {React.Component} - All Notifications page sections
+ * This component is post tags
+ *
+ * @component PostTags
+ * @property {boolean} spoiler -Check whether the post is spoiler or not.
+ * @property {function} hanldeSpoiler -function to handle click on spoiler button
+ * @property {boolean} nswf -Check whether the post is not safe for work or not.
+ * @property {function} hanldeNsfw -function to handle click on nsfw button
+ * @returns {React.Component} Join button
  */
 
-function Notifications() {
+function PostTags(props) {
+  const {
+    spoiler, hanldeSpoiler, nswf, hanldeNsfw,
+  } = props;
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    &lt;ContinerNotifications data-testid="notifications">
-      &lt;NotificationsHeader />
-      &lt;NotificationsBody />
-    &lt;/ContinerNotifications>
+    &lt;Box
+      display="flex"
+      flexWrap="wrap"
+      mx={2}
+      mb={2}
+      gap={1}
+      justifyContent={match ? 'center' : 'flex-start'}
+    >
+      &lt;SpoilerButton
+        variant="outlined"
+        color="third"
+        onClick={hanldeSpoiler}
+        spoiler={spoiler}
+        data-testid="spoiler button"
+      >
+        &lt;AddIcon
+          sx={{
+            fontSize: 27,
+            marginRight: 0.6,
+          }}
+        />
+        spoiler
+      &lt;/SpoilerButton>
+      &lt;NsfwButton
+        color="third"
+        variant={!nswf ? 'outlined' : ''}
+        onClick={hanldeNsfw}
+        nswf={nswf}
+        data-testid="nsfw button"
+      >
+        &lt;AddIcon
+          sx={{
+            fontSize: 27,
+            marginRight: 0.6,
+          }}
+        />
+        NSFW
+      &lt;/NsfwButton>
+      &lt;OptionButton
+        color="third"
+        variant="outlined"
+        disabled
+      >
+        &lt;LocalOfferOutlinedIcon
+          sx={{
+            marginRight: 1,
+            transform: 'scalex(-1)',
+          }}
+        />
+        flair
+        &lt;KeyboardArrowDownOutlinedIcon />
+      &lt;/OptionButton>
+    &lt;/Box>
   );
 }
 
-export default Notifications;
+export default PostTags;
 </code></pre>
         </article>
     </section>

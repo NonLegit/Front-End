@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Post/Post.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Post/Post.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// mui components
+import {
+  Box, Divider, useMediaQuery, useTheme,
+} from '@mui/material';
+
+// styles
+import {
+  PostContainer, Popularity, PostMedia, CustomImage, PostText, PostTextContainer,
+} from './styles';
+
+import Reactions from './Reactions/Reactions';
+import PostReactions from './PostReactions/PostReactions';
+import PostHeader from './PostHeader/PostHeader';
+/**
+ * This component is the view of the post in home page.
+ *
+ * @component Post
+ * @property {string} title -Post title.
+ * @property {string} image -Post owner icon.
+ * @property {string} owner -Post subreddit(post owner).
+ * @property {string} creator -Post creator.
+ * @property {string} flairText -Post flair text.
+ * @property {string} flairBackgroundColor -Post flair background color.
+ * @property {string} flairColor -Post flair color.
+ * @property {string} kind -Post kind (link, self, image, video).
+ * @property {string} url -Source of media file in case of image/video kinds or url in case of url kind.
+ * @property {number} votes -Number of post votes.
+ * @property {number} commentCount -Number of post comments.
+ * @property {string} text -Post text in case of "self" kind.
+ * @returns {React.Component} Post
+ */
+
+function Post(props) {
+  const {
+    title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+  } = props;
+
+  const theme = useTheme();
+  const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const matchMd = useMediaQuery(theme.breakpoints.up('md'));
+
+  return (
+    &lt;PostContainer my={2}>
+      {matchSm &amp;&amp; (
+      &lt;Reactions flexDirection="column" votes={votes} />
+      )}
+      &lt;Box
+        p={1}
+        flexGrow={1}
+        maxWidth={matchSm ? '94.5%' : '100%'}
+      >
+        &lt;Popularity pb={1}>
+          {popularity}
+        &lt;/Popularity>
+        &lt;Divider
+          sx={{
+            borderColor: 'rgb(0 0 0 / 9%)',
+          }}
+        />
+        &lt;PostHeader
+          title={title}
+          image={image}
+          owner={owner}
+          creator={creator}
+          flair={flairText}
+          flairBackgroundColor={flairBackgroundColor}
+          flairColor={flairColor}
+        />
+        &lt;PostMedia mt={1.5} kind={kind}>
+          {/* eslint-disable jsx-a11y/media-has-caption */}
+          {/* */}
+          {kind === 'video' ? (
+            &lt;video controls style={{ width: '100%', maxHeight: '512px' }}>
+              &lt;source src={url} type="video/mp4" />
+            &lt;/video>
+          ) : (
+            (kind === 'image')
+              ? (
+                &lt;CustomImage
+                  src={url}
+                  alt="post image"
+                />
+              ) : (
+                &lt;PostText>
+                  &lt;PostTextContainer />
+                  {text}
+                &lt;/PostText>
+              )
+          )}
+          {/* &lt;img src="./assets/images/Screenshot (1).png" alt="" /> */}
+        &lt;/PostMedia>
+        &lt;PostReactions
+          votes={votes}
+          matchSm={matchSm}
+          matchMd={matchMd}
+          comments={commentCount}
+        />
+      &lt;/Box>
+    &lt;/PostContainer>
+  );
+}
+
+export default Post;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackToTop.html">BackToTop</a></li><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NotificationCategories">NotificationCategories</a></li><li><a href="global.html#NotificationImages">NotificationImages</a></li><li><a href="global.html#Notifications">Notifications</a></li><li><a href="global.html#NotificationsBody">NotificationsBody</a></li><li><a href="global.html#NotificationsHeader">NotificationsHeader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Nov 09 2022 21:52:45 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: CreatePostForm</title>
+    <title>JSDoc: Source: components/CreatePost/CreatePostContainer/CreatePostForm/PostSubmission/PostSubmission.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,159 +17,86 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: CreatePostForm</h1>
+    <h1 class="page-title">Source: components/CreatePost/CreatePostContainer/CreatePostForm/PostSubmission/PostSubmission.jsx</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="CreatePostForm"><span class="type-signature"></span>new CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>This component is the main section off create post page which holds the form to submit posts</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html">components/CreatePost/CreatePostContainer/CreatePostForm/CreatePostForm.jsx</a>, <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>CreatePostForm</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">React.Component</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box, Checkbox } from '@mui/material';
+import RedditButton from '../../../../RedditButton/RedditButton';
+import {
+  ConnectAccounts, InfoIcon, PostButton, SendReplayFormLabel, SendReplyContainer,
+} from './styles';
+/**
+ * This component contains post and save draft buttons
+ *
+ * @component PostHeader
+ * @property {function} handleSaveDraft -Hanlding save draft button
+ * @property {function} handlePost -Hanlding post submitting
+ * @property {boolean} readyToPost -Check whether the post button is disabled or not
+ * @property {boolean} sendReplies -Check whether the user need to be sent the post reply notifications or not.
+ * @property {function} handleSendReplies -Hanlding post reply notifications
+ * @returns {React.Component} Container of buttons
+ */
+
+function PostSubmission(props) {
+  const {
+    handleSaveDraft, handlePost, readyToPost, handleSendReplies, sendReplies,
+  } = props;
+  return (
+    &lt;Box>
+      &lt;Box m={2} gap={1} display="flex" justifyContent="flex-end">
+        &lt;RedditButton
+          variant="outlined"
+          padding="3px 16px"
+          fontSize={14}
+          fontWeight="bold"
+          type="submit"
+          onClick={handleSaveDraft}
+        >
+          save draft
+        &lt;/RedditButton>
+        &lt;PostButton
+          variant="contained"
+          type="submit"
+          onClick={handlePost}
+          disabled={!readyToPost}
+          data-testid="post button"
+        >
+          post
+        &lt;/PostButton>
+      &lt;/Box>
+      &lt;SendReplyContainer p={2}>
+        &lt;SendReplayFormLabel
+          control={(
+            &lt;Checkbox
+              onChange={handleSendReplies}
+              checked={sendReplies}
+              size="small"
+              disableRipple
+            />
+)}
+          label="Send me post reply notifications"
+        />
+        &lt;Box display="flex">
+          &lt;ConnectAccounts>
+            Connect accounts to share your post
+          &lt;/ConnectAccounts>
+          &lt;InfoIcon />
+        &lt;/Box>
+      &lt;/SendReplyContainer>
+    &lt;/Box>
+  );
+}
+
+export default PostSubmission;
+</code></pre>
+        </article>
+    </section>
 
 
 

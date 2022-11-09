@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: pages/Notifications.jsx</title>
+    <title>JSDoc: Source: components/HomePage/HomePageContainer/Communities/Communities.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: pages/Notifications.jsx</h1>
+    <h1 class="page-title">Source: components/HomePage/HomePageContainer/Communities/Communities.jsx</h1>
 
     
 
@@ -26,25 +26,82 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import NotificationsBody from '../components/Notifications/NotificationsBody/NotificationsBody';
-import NotificationsHeader from '../components/Notifications/NotificationsHeader/NotificationsHeader';
-import { ContinerNotifications } from '../components/Notifications/NotificationsHeader/styles';
-
+            <pre class="prettyprint source linenums"><code>import { Link } from 'react-router-dom';
+import RedditButton from '../../../RedditButton/RedditButton';
+import CommunityList from './CommunityList/CommunityList';
+import {
+  CategoriesBox,
+  CommunitiesContainer, CommunitiesTypeButton, Layer, Title, ViewAllButtonBox, CustomLink,
+} from './styles';
 /**
- * Notifications page
- * @return {React.Component} - All Notifications page sections
+ * This component is upper section of home page sidebar
+ *
+ * @component Communities
+ * @property {object} communities -Object contains the title of the communities and list of them
+ * @returns {React.Component} Communities
  */
 
-function Notifications() {
+function Communities(props) {
+  // props
+  const { communities } = props;
+  const { communitiesTitle, communitiesList } = communities;
+
   return (
-    &lt;ContinerNotifications data-testid="notifications">
-      &lt;NotificationsHeader />
-      &lt;NotificationsBody />
-    &lt;/ContinerNotifications>
+    &lt;CommunitiesContainer data-testid="Communities">
+      &lt;Title>
+        &lt;Layer>
+          &lt;Link
+            to="/subreddits/leaderboard/"
+            data-testid="communities title"
+          >
+            {communitiesTitle}
+          &lt;/Link>
+        &lt;/Layer>
+      &lt;/Title>
+      &lt;CommunityList communitiesList={communitiesList} />
+      &lt;ViewAllButtonBox>
+        &lt;CustomLink
+          to="/subreddits/leaderboard/aww/"
+          style={{ width: '100%' }}
+        >
+          &lt;RedditButton
+            variant="contained"
+            padding="4px"
+            fontSize={15}
+            fontWeight="bold"
+            sx={{ width: '100%' }}
+          >
+            view all
+          &lt;/RedditButton>
+        &lt;/CustomLink>
+      &lt;/ViewAllButtonBox>
+      &lt;CategoriesBox>
+        &lt;CustomLink to="/subreddits/leaderboard/">
+          &lt;CommunitiesTypeButton>
+            top
+          &lt;/CommunitiesTypeButton>
+        &lt;/CustomLink>
+        &lt;CustomLink to="/subreddits/leaderboard/news/">
+          &lt;CommunitiesTypeButton>
+            news
+          &lt;/CommunitiesTypeButton>
+        &lt;/CustomLink>
+        &lt;CustomLink to="/subreddits/leaderboard/aww/">
+          &lt;CommunitiesTypeButton>
+            aww
+          &lt;/CommunitiesTypeButton>
+        &lt;/CustomLink>
+        &lt;CustomLink to="/subreddits/leaderboard/sports/">
+          &lt;CommunitiesTypeButton>
+            sports
+          &lt;/CommunitiesTypeButton>
+        &lt;/CustomLink>
+      &lt;/CategoriesBox>
+    &lt;/CommunitiesContainer>
   );
 }
 
-export default Notifications;
+export default Communities;
 </code></pre>
         </article>
     </section>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: CreatePostForm</title>
+    <title>JSDoc: Source: components/HomePage/HomePageContainer/Communities/CommunityList/CommunityItem/CommunityItem.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,159 +17,75 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: CreatePostForm</h1>
+    <h1 class="page-title">Source: components/HomePage/HomePageContainer/Communities/CommunityList/CommunityItem/CommunityItem.jsx</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="CreatePostForm"><span class="type-signature"></span>new CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>This component is the main section off create post page which holds the form to submit posts</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html">components/CreatePost/CreatePostContainer/CreatePostForm/CreatePostForm.jsx</a>, <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>CreatePostForm</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">React.Component</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  Box,
+} from '@mui/material';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {
+  CommunityName, CommunityImage, CommunityIndex, CommunityListItem,
+} from './styles';
+import JoinButton from '../../../../../JoinButton/JoinButton';
+/**
+ * This component represents the community in upper section of home page sidebar.
+ *
+ * @component CommunityItem
+ * @property {number} index -Community index.
+ * @property {string} icon -Community icon.
+ * @property {string} subredditName -Community name.
+ * @property {boolean} status -Community status.
+ * @property {boolean} isJoined -Check whether the logged in user is joined that community or not.
+ * @returns {React.Component} Communities
+ */
+
+function CommunityItem(props) {
+  const {
+    index, icon, subredditName, status, isJoined,
+  } = props;
+  return (
+    &lt;CommunityListItem data-testid="Community Item">
+      &lt;CommunityIndex data-testid="index">
+        {index}
+      &lt;/CommunityIndex>
+      {status ? (
+        &lt;KeyboardArrowUpIcon
+          data-testid="icon up"
+          sx={{ color: '#46d160' }}
+        />
+      ) : (
+        &lt;KeyboardArrowDownIcon
+          data-testid="icon down"
+          sx={{ color: '#ea0027' }}
+        />
+      )}
+      &lt;CommunityImage
+        src={icon}
+        data-testid="image"
+      />
+      &lt;CommunityName data-testid="name" variant="caption">
+        r/
+        {subredditName}
+      &lt;/CommunityName>
+      &lt;Box flexGrow={1} display="flex" justifyContent="flex-end">
+        &lt;JoinButton isJoined={isJoined} />
+      &lt;/Box>
+    &lt;/CommunityListItem>
+  );
+}
+
+export default CommunityItem;
+</code></pre>
+        </article>
+    </section>
 
 
 

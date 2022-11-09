@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: CreatePostForm</title>
+    <title>JSDoc: Source: components/HomePage/HomePageContainer/Communities/CommunityList/CommunityList.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,159 +17,56 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: CreatePostForm</h1>
+    <h1 class="page-title">Source: components/HomePage/HomePageContainer/Communities/CommunityList/CommunityList.jsx</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="CreatePostForm"><span class="type-signature"></span>new CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>This component is the main section off create post page which holds the form to submit posts</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html">components/CreatePost/CreatePostContainer/CreatePostForm/CreatePostForm.jsx</a>, <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>CreatePostForm</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">React.Component</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  List, Divider,
+} from '@mui/material';
+import CommunityItem from './CommunityItem/CommunityItem';
+/**
+ * This component represents the list of communities on home page sidebar.
+ *
+ * @component CommunityList
+ * @property {Array&lt;community>} communities -The list of communities.
+ * @returns {React.Component} Communities
+ */
+function CommunityList(props) {
+  const { communitiesList } = props;
+  return (
+
+    &lt;List sx={{ p: 0 }} data-testid="community list">
+      {communitiesList.map((item, index) => {
+        const {
+          id, subredditName, icon, status, isJoined,
+        } = item;
+        return (
+          &lt;div key={id}>
+            &lt;CommunityItem
+              index={index + 1}
+              subredditName={subredditName}
+              icon={icon}
+              status={status}
+              isJoined={isJoined}
+            />
+            {(index &lt; communitiesList.length - 1) &amp;&amp; &lt;Divider />}
+          &lt;/div>
+        );
+      })}
+    &lt;/List>
+  );
+}
+
+export default CommunityList;
+</code></pre>
+        </article>
+    </section>
 
 
 

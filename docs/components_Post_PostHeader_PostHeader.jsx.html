@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: CreatePostForm</title>
+    <title>JSDoc: Source: components/Post/PostHeader/PostHeader.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,159 +17,98 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: CreatePostForm</h1>
+    <h1 class="page-title">Source: components/Post/PostHeader/PostHeader.jsx</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="CreatePostForm"><span class="type-signature"></span>new CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>This component is the main section off create post page which holds the form to submit posts</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html">components/CreatePost/CreatePostContainer/CreatePostForm/CreatePostForm.jsx</a>, <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>CreatePostForm</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">React.Component</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// mui components
+import {
+  Avatar, Box, Typography,
+} from '@mui/material';
+import JoinButton from '../../JoinButton/JoinButton';
+
+// styles
+import {
+  Flair,
+  PostInfo, PostInfoLink, PostTitle,
+} from './styles';
+/**
+ * This component is the upper section of post
+ *
+ * @component PostHeader
+ * @property {string} title -Post title.
+ * @property {string} image -Post owner icon.
+ * @property {string} owner -Post subreddit(post owner).
+ * @property {string} creator -Post creator.
+ * @property {string} flairText -Post flair text.
+ * @property {string} flairBackgroundColor -Post flair background color.
+ * @property {string} flairColor -Post flair color.
+ * @returns {React.Component} Post header
+ */
+
+function PostHeader(props) {
+  const {
+    title, image, owner, creator, flair, flairBackgroundColor, flairColor,
+  } = props;
+  return (
+    &lt;>
+      &lt;PostInfo py={1}>
+        &lt;Avatar
+          src={image}
+          sx={{
+            width: 20,
+            height: 20,
+          }}
+          alt="Profile Image"
+        />
+        &lt;PostInfoLink to="/" color="#000" fontWeight="bolder">
+          r/
+          {owner}
+        &lt;/PostInfoLink>
+        &lt;Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
+          &lt;span>
+            •
+          &lt;/span>
+          &lt;div>Posted By&lt;/div>
+          &lt;PostInfoLink to="/" color="inherit" fontWeight="normal">
+            u/
+            {creator}
+          &lt;/PostInfoLink>
+        &lt;/Box>
+        &lt;Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
+          &lt;JoinButton />
+        &lt;/Box>
+      &lt;/PostInfo>
+      &lt;PostTitle to="/">
+        &lt;Typography
+          variant="h6"
+          component="h3"
+          sx={{ fontSize: 18 }}
+        >
+          {title}
+          {' '}
+          &lt;Flair
+            disableRipple
+            backgroundColor={flairBackgroundColor}
+            flairColor={flairColor}
+          >
+            {flair}
+          &lt;/Flair>
+        &lt;/Typography>
+      &lt;/PostTitle>
+    &lt;/>
+  );
+}
+
+export default PostHeader;
+</code></pre>
+        </article>
+    </section>
 
 
 

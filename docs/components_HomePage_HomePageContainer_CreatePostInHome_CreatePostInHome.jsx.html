@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: CreatePostForm</title>
+    <title>JSDoc: Source: components/HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,159 +17,72 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: CreatePostForm</h1>
+    <h1 class="page-title">Source: components/HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome.jsx</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="CreatePostForm"><span class="type-signature"></span>new CreatePostForm<span class="signature">()</span><span class="type-signature"> &rarr; {React.Component}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>This component is the main section off create post page which holds the form to submit posts</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html">components/CreatePost/CreatePostContainer/CreatePostForm/CreatePostForm.jsx</a>, <a href="components_CreatePost_CreatePostContainer_CreatePostForm_CreatePostForm.jsx.html#line26">line 26</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>CreatePostForm</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">React.Component</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
+} from './styles';
+import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
+/**
+ * This component is the link between home page and create post page
+ * @component CreatePostInHome
+ * @returns {React.Component} User avatar
+ * @returns {React.Component} Inputs redirect user to create post page
+ */
+
+function CreatePostInHome() {
+  const navigate = useNavigate();
+  const { setInitialPostType } = usePostTypeContext();
+  const handleClick = (postType) => {
+    navigate('/submit');
+    setInitialPostType(postType);
+  };
+  return (
+    &lt;CreatePostContainer>
+      &lt;AvatarContainer>
+        &lt;Link to="/">
+          &lt;Avatar src="https://styles.redditmedia.com/t5_758ciw/styles/profileIcon_snoodd8b11a2-0e4a-4403-a861-a9fa7474b850-headshot.png?width=256&amp;height=256&amp;crop=256:256,smart&amp;s=bc53006491e647452f185afa69775cd6a241598c" alt="avatar" />
+        &lt;/Link>
+      &lt;/AvatarContainer>
+      &lt;PostTitle
+        type="text"
+        placeholder="Create Post"
+        onClick={() => handleClick(0)}
+      />
+      &lt;Link
+        to="/submit"
+        onClick={() => handleClick(1)}
+      >
+        &lt;CustomIconButton color="third">
+          &lt;InsertPhotoOutlinedIcon />
+        &lt;/CustomIconButton>
+      &lt;/Link>
+      &lt;Link
+        to="/submit"
+        onClick={() => handleClick(2)}
+      >
+        &lt;CustomIconButton color="third">
+          &lt;AttachFileIcon sx={{ transform: 'rotate(45deg)' }} />
+        &lt;/CustomIconButton>
+      &lt;/Link>
+    &lt;/CreatePostContainer>
+  );
+}
+
+export default CreatePostInHome;
+</code></pre>
+        </article>
+    </section>
 
 
 
