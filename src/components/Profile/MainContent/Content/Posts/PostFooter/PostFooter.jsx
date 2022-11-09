@@ -19,6 +19,12 @@ import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
 
+/**
+ * footer for a post conatining all icons
+ * @return {React.Component} - PostFooter
+ * @param {string} subTitle - to check if a post is a spam or approved
+ * @param {string} numberOfComments - get number of comments in the post
+ */
 function PostFooter(props) {
   const { subTitle, numComments } = props;
 
@@ -65,12 +71,11 @@ function PostFooter(props) {
       </ElementBox>
       <ClickAwayListener onClickAway={handleClickAway}>
         <ElementBox>
-          <MoreHorizOutlinedIcon onClick={handleClick} />
+          <MoreHorizOutlinedIcon onClick={handleClick} data-testid="show-more" />
         </ElementBox>
-
       </ClickAwayListener>
       {showList && (
-      <SelectBox>
+      <SelectBox data-testid="more-menu">
         <SelectItem>
           <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
           Edit Post

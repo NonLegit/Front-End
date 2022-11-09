@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
-/* eslint-disable import/no-cycle */
-import Posts from '../Posts/Posts';
-import { PostsContext, UserContext } from '../MainContent';
+import { UserContext } from '../../../../context/UserProvider';
+import { FilteredPostsContext } from '../../../../context/FilteredPostsProvider';
+import Post from '../Posts/Post';
 
 const renderSwitch = (param) => {
   switch (param) {
@@ -25,25 +25,26 @@ const renderSwitch = (param) => {
   }
 };
 
+/** filtered taps (saved - hidden - upvoted - downvoted)
+ * @return {React.Component} - PostsFilteredTap
+ * @param {string} type - conatins the subtitle of the page to render correctly
+ */
 function PostsFilteredTap(props) {
   const { type } = props;
+  // const [stateTap, setStateTap] = useState(type);
   const { username } = useContext(UserContext);
-  const { posts } = useContext(PostsContext);
+  const { posts } = useContext(FilteredPostsContext);
   const [isContent, setIsContent] = useState(false);
   useEffect(() => {
-    console.log(posts.length);
-    console.log(username);
+    // setStateTap(type);
     if (posts.length > 0) { setIsContent(true); }
-  }, [username]);
+  }, [username, posts, type]);
 
   const emptyContent = renderSwitch(type);
   return (
     <WideBox>
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
-      {isContent
-          && (
-          <Posts posts={posts} upvoted={type === 'upvoted'} downvoted={type === 'downvoted'} saved={type === 'saved'} hidden={type === 'hidden'} />
-          )}
+      {isContent && posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} type={type} />))}
     </WideBox>
   );
 }

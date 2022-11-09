@@ -7,19 +7,24 @@ import {
   PageHeader, HeaderBox, HeaderButton, SelectBox, SelectItem,
 } from './styles';
 
+/**
+ * Header for my profile
+ * @return {React.Component} - Header
+ */
 function Header() {
   const { subTitle } = useParams();
   const navigate = useNavigate();
 
-  // navigate
+  /**
+   * this function to navigate between the taps
+   * @param {string} subPage - the page to navigate to
+   */
   const handleClick = (subPage) => {
     navigate(`${subPage}`);
-    // console.log(filteration);
   };
 
   const [showList, setShowList] = useState(false);
 
-  // handle disable the list when click away
   const handleShowList = () => {
     setShowList((prev) => !prev);
   };
@@ -65,6 +70,7 @@ function Header() {
             color="inherit"
             onClick={() => { handleClick('submitted'); }}
             condition={(subTitle === 'submitted').toString()}
+            data-testid="posts-tap"
           >
             posts
           </HeaderButton>

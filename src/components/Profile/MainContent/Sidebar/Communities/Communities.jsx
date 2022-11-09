@@ -6,6 +6,9 @@ import {
   ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
 } from './styles';
 
+/** all comunities you afre a moderator of
+ * @return {React.Component} - Communities
+ */
 function Communities() {
   // will fetch the comminities here
   // const [communities, setCommunities] = useState();

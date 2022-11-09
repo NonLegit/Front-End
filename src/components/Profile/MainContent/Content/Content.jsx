@@ -1,25 +1,26 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../../context/UserProvider';
+import { ContentContext } from '../../../../context/ContentProvider';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
-/* eslint-disable import/no-cycle */
-import { CommentsContext, PostsContext, UserContext } from '../MainContent';
 import { NEW, NewBox } from '../styles';
-import Comments from './Comments/Comments';
-import Posts from './Posts/Posts';
 import ContentBox from './styles';
+import Posts from './Posts/Posts';
+import Comments from './Comments/Comments';
 
+/**
+ * Content for my profile
+ * @return {React.Component} - Content
+ */
 function Content() {
   const [isContent, setIsContent] = useState(false);
-  const { posts } = useContext(PostsContext);
+  const { posts, comments } = useContext(ContentContext);
   const { username } = useContext(UserContext);
-  const { comments } = useContext(CommentsContext);
 
   useEffect(() => {
-    console.log(posts.length);
-    console.log(username);
-    if (posts.length > 0) { setIsContent(true); }
-  }, [username]);
+    if (posts.length > 0 || comments.length > 0) { setIsContent(true); }
+  }, [username, posts, comments]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
@@ -37,14 +38,12 @@ function Content() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            <Posts post={posts[0]} />
-            <Comments
-              comment={comments[0]}
-            />
-            <Posts post={posts[1]} />
-            <Comments
-              comment={comments[1]}
-            />
+            {posts.map((post, index) => (
+              <Posts key={`${index + 0}`} post={post} />
+            ))}
+            {comments.map((comment, index) => (
+              <Comments key={`${index + 0}`} comment={comment} />
+            ))}
           </>
           )}
     </ContentBox>

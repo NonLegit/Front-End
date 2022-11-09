@@ -1,13 +1,20 @@
 import { Typography } from '@mui/material';
-import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+// import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
+// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  HeaderAvatar, HeaderAvatarText, ApprovedBox, HeaderPost, RemovalBox,
+  HeaderAvatar, HeaderAvatarText, HeaderPost,
 } from './styles';
 
+/**
+ * Header for a post
+ * @return {React.Component} - PostHeader
+ * @param {string} subReddit - name of subReddit the post published in
+ * @param {string} nameuser - name of publisher
+ * @param {string} time - time of publishing the post
+ */
 function PostHeader(props) {
   const {
-    subTitle, subReddit, nameUser, Time,
+    subReddit, nameUser, Time,
   } = props;
   return (
     <HeaderPost>
@@ -33,7 +40,7 @@ function PostHeader(props) {
         {' '}
         {Time}
       </Typography>
-      {((subTitle === 'Spam').toString() === 'true')
+      {/* {((subTitle === 'Spam').toString() === 'true')
       && (
         <RemovalBox>
           <BlockOutlinedIcon fontSize="string" />
@@ -45,7 +52,7 @@ function PostHeader(props) {
       <ApprovedBox>
         <CheckCircleIcon fontSize="string" />
       </ApprovedBox>
-      )}
+      )} */}
     </HeaderPost>
   );
 }

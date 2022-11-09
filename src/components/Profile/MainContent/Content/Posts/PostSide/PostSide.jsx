@@ -3,11 +3,16 @@ import {
   UpArrow, DownArrow, SidebarQueueBox,
 } from './styles';
 
-function PostSide() {
+/**
+ * sidebar of the post containing arrow up and down
+ * @return {React.Component} - PostSidebar
+ */
+function PostSide(props) {
+  const { points } = props;
   return (
     <SidebarQueueBox>
       <UpArrow />
-      <Typography variant="caption" sx={{ fontWeight: 700 }}>1</Typography>
+      <Typography variant="caption" sx={{ fontWeight: 700 }}>{points}</Typography>
       <DownArrow />
     </SidebarQueueBox>
   );

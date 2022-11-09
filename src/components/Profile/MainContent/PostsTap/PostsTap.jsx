@@ -4,20 +4,21 @@ import { useContext, useEffect, useState } from 'react';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox, WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
-import Posts from '../Posts/Posts';
-/* eslint-disable import/no-cycle */
-import { PostsContext, UserContext } from '../MainContent';
+import { PostsContext } from '../../../../context/PostsProvider';
+import { UserContext } from '../../../../context/UserProvider';
+import Post from '../Posts/Post';
 
+/** posts tap in my profile
+ * @return {React.Component} - PostsTap
+ */
 function PostsTap() {
   const { subTitle } = useParams();
   const { username } = useContext(UserContext);
   const { posts } = useContext(PostsContext);
   const [isContent, setIsContent] = useState(false);
   useEffect(() => {
-    console.log(posts.length);
-    console.log(username);
     if (posts.length > 0) { setIsContent(true); }
-  }, [username]);
+  }, [username, posts]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
@@ -34,7 +35,7 @@ function PostsTap() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            <Posts posts={posts} />
+            { posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} />))}
           </>
 
           )}

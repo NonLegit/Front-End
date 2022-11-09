@@ -1,11 +1,16 @@
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { useContext } from 'react';
 /* eslint-disable import/no-cycle */
-import { UserContext } from '../../../MainContent';
+import { UserContext } from '../../../../../../context/UserProvider';
 
 import { CommentText } from '../styles';
 import CommentsBoxHeader from './styles';
 
+/**
+ * the header of an comment
+ * @return {React.Component} - CommentsHeader
+ * @param {string} username - name of the currently loggedin user
+ */
 function CommentsHeader(props) {
   const {
     username,

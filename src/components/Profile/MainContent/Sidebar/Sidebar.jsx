@@ -4,6 +4,9 @@ import { SidebarBox } from './styles';
 /* eslint-disable import/no-cycle */
 import UserInfo from './UserInfo/UserInfo';
 
+/** sidebar in profile containing the userinfo and communities you are a moderator of
+ * @return {React.Component} - Sidebar
+ */
 function Sidebar() {
   return (
     <SidebarBox>

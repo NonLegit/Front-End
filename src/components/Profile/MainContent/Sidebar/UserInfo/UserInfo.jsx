@@ -16,8 +16,11 @@ import {
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
 /* eslint-disable import/no-cycle */
-import { UserContext } from '../../MainContent';
+import { UserContext } from '../../../../../context/UserProvider';
 
+/** UserInfo Box in sidebar
+ * @return {React.Component} - UserInfo
+ */
 function UserInfo() {
   const [karma, setKarma] = useState();
   const [cake, setCake] = useState();
@@ -46,6 +49,7 @@ function UserInfo() {
         height="94"
         image="https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&height=384&crop=1280:384,smart&s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c"
         alt="cover image"
+        data-testid="cover-photo"
       />
       <AddPhoto sx={{
         border: (theme) => `thin solid ${theme.palette.primary.main}`,
