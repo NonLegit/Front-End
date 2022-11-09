@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: NotificationsBody/NotificationCategories/NotificationCategories.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: NotificationsBody/NotificationCategories/NotificationCategories.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable import/no-cycle */
+import { useContext, createContext } from 'react';
+import IconButton from '@mui/material/IconButton';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import moment from 'moment/moment';
+import { CategoriesContext } from '../NotificationsBody';
+import {
+  Notification, Options, MenuOptions, NotificationTime,
+  NotificationBody, BodyHead, Body, ContainerHead, SeeMore,
+} from './styles';
+import NotificationImages from './NotificationImage/NotificationImages';
+
+export const ReplayContext = createContext();
+/**
+ * Notification Categories
+ * @param {Array} earlier - Array of earlier notifications
+ * @param {Array} today - type of today notifiactions
+ * @param {Function} handleClose - function to set what notifiacation we select and it's type
+ * @param {Function} handleClick - function to handel deleteing when click hide
+ * @param {Boolean} open - bool to set open or close
+ * @param {object} anchorEl - anchor element
+ * @return {React.Component} - Retrun all notificaions dependent on type today or earlier
+ */
+function NotificationCategories() {
+  const {
+    earlier, today, handleClose, handleClick, open, anchorEl,
+  } = useContext(CategoriesContext);
+  // options of see more
+  const options = ['Hide this notification', 'Disable updates from this community'];
+  // to set today or earlier
+  const value = (today) || earlier;
+  moment.updateLocale('en', {
+    relativeTime: {
+      past: '%s ',
+      ago: '',
+      s: 'now',
+      mm: '%dm',
+      hh: '%dh',
+      dd: '%dd',
+      MM: moment().format('MMM d'),
+      yy: '%dy',
+    },
+  });
+  return (
+    &lt;div data-testid={`notification-categories-${today ? 'today' : 'earlier'}`}>
+      { value?.map((ele, indx) => (
+        &lt;Notification today={today} key={`${ele.date}${indx + 0}`}>
+          &lt;ReplayContext.Provider value={ele.type}>
+            &lt;NotificationImages />
+          &lt;/ReplayContext.Provider>
+          &lt;NotificationBody>
+            &lt;ContainerHead>
+              &lt;BodyHead>
+                { (ele.type === 'follower') ? ('New follower!')
+                  : (ele.type === 'msg') ? ('New message! ')
+                    : (ele.type === 'post_reply') ? (`u/${ele.userId} replied to your post in r/${ele.subreddit}`)
+                      : (ele.type === 'comment_reply') ? (`u/${ele.userId} replied to your comment in r/${ele.subreddit}`)
+                        : (ele.type === 'user_mention') ? (`u/${ele.userId} mentioned you in r/${ele.subreddit}`)
+                          : (ele.type === 'post_upvote') ? (`u/${ele.userId} upvote you post in r/${ele.subreddit}`)
+                            : (ele.type === 'comment_upvote') ? (`u/${ele.userId} upvote you comment in r/${ele.subreddit}`) : '' }
+                &lt;NotificationTime>
+                  { ' · ' }
+                  { (moment.utc(ele.createdAt).local().startOf('seconds')
+                    .fromNow())}
+                &lt;/NotificationTime>
+              &lt;/BodyHead>
+              &lt;SeeMore>
+                &lt;IconButton
+                  id={indx}
+                  aria-controls={open ? 'long-menu' : undefined}
+                  aria-expanded={open ? 'true' : undefined}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  catorige={(today) ? 'today' : 'earlier'}
+                >
+                  &lt;MoreHorizIcon />
+                &lt;/IconButton>
+                &lt;MenuOptions
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  id={indx}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                >
+                  {options.map((option) => (
+                    &lt;Options
+                      key={option}
+                      selected={option === 'Pyxis'}
+                      onClick={handleClose}
+                    >
+                      {option}
+                    &lt;/Options>
+                  ))}
+                &lt;/MenuOptions>
+              &lt;/SeeMore>
+            &lt;/ContainerHead>
+            &lt;Body>
+              { (ele.type === 'follower') ? (`${ele.userId} followed you. Follow them back or start a chat! `)
+                : (ele.type === 'msg') ? (`${ele.userId} send message to you!! `)
+                  : (String(ele.type).includes('post')) ? ele.postId : ele.commentId }
+            &lt;/Body>
+          &lt;/NotificationBody>
+        &lt;/Notification>
+
+      ))}
+    &lt;/div>
+  );
+}
+
+export default NotificationCategories;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#NotificationCategories">NotificationCategories</a></li><li><a href="global.html#NotificationImages">NotificationImages</a></li><li><a href="global.html#NotificationsBody">NotificationsBody</a></li><li><a href="global.html#NotificationsHeader">NotificationsHeader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Nov 08 2022 17:06:39 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

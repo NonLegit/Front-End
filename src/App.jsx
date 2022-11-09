@@ -10,6 +10,7 @@ import Search from './pages/Search';
 import theme from './styles/theme';
 import CreatePost from './pages/CreatePost';
 import PostTypeContextProvider from './contexts/PostTypeContext';
+import Notifications from './pages/Notifications';
 
 function App() {
   return (
@@ -67,10 +68,15 @@ function App() {
                 <CreatePost />
             }
             />
+            <Route
+              path="/notifications"
+              element={
+                <Notifications />
+          }
+            />
           </Routes>
         </Router>
       </PostTypeContextProvider>
-
     </ThemeProvider>
   );
 }

@@ -28,6 +28,7 @@ module.exports = {
     'no-console': 0,
     // disabling importing React
     'react/jsx-uses-react': 'off',
+    // disabling importing react in jsx scope
     'react/react-in-jsx-scope': 'off',
     // disabling prefer default export
     'import/prefer-default-export': 'off',

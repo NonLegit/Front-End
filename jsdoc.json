@@ -10,6 +10,8 @@
     },
     "plugins": ["plugins/markdown", "better-docs/component"],
     "templates": {
+        "cleverLinks": true,
+    "monospaceLinks": true,
       "better-docs": {
         "name": "My React components"
       }
@@ -20,3 +22,4 @@
       "readme": "README.md"
     }
   }
+

@@ -1,5 +1,6 @@
 function Navbar() {
   return (
+
     <div
       style={{
         height: 48,
@@ -8,6 +9,7 @@ function Navbar() {
       Navbar
 
     </div>
+
   );
 }
 
