@@ -24,7 +24,7 @@ function NotificationsHeader() {
   };
   return (
     <ThemeProvider theme={theme}>
-      <HeaderContiner data-testid="notificationsHeader">
+      <HeaderContiner data-testid="notifications-header">
         <NotificationsHead>Notifications</NotificationsHead>
         <TabsContiner>
           <Tab index="1" active={active[0]} onClick={() => { clickTab(0); }}>

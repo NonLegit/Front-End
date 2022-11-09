@@ -8,7 +8,7 @@ import NotificationImages from './NotificationImages';
 // check render images
 it('render notification images', async () => {
   render(<NotificationImages />);
-  expect(screen.getByTestId('notificationImage')).toBeInTheDocument();
+  expect(screen.getByTestId('notification-image')).toBeInTheDocument();
 });
 
 // check snap shot

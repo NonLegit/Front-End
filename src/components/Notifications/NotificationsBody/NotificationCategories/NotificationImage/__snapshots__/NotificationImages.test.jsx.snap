@@ -3,7 +3,7 @@
 exports[`check snap shot 1`] = `
 <div
   className="css-80o13o"
-  data-testid="notificationImage"
+  data-testid="notification-image"
 >
   <img
     alt="ring"

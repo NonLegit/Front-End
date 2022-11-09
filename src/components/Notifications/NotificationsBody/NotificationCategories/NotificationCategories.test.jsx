@@ -8,9 +8,3 @@ it('check snap shot', async () => {
   const tree = renderer.create(<NotificationBody />, <NotificationCategories />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-// check snap shot
-it('check snap shot', async () => {
-  const tree = renderer.create(<NotificationBody />, <NotificationCategories />).toJSON();
-  expect(tree).toMatchSnapshot();
-});

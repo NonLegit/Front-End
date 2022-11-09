@@ -20,7 +20,7 @@ export const CategoriesContext = createContext();
 
 function NotificationsBody() {
   // api
-  const api = 'https://d441e0bc-931f-4cc7-ab12-a51e81f70be4.mock.pstmn.io/notifications';
+  const api = 'https://3fa9144e-7687-495e-9c29-266e723973b7.mock.pstmn.io/notifications';
   // earlier data
   const [earlier, setEarlier] = useState([]);
   // today data
@@ -67,7 +67,7 @@ function NotificationsBody() {
     setAnchorEl(null);
   };
   return (
-    <Notification data-testid="notificationsBody">
+    <Notification data-testid="notifications-body">
       <NotificationsContiner>
         { (today.length !== 0)
         && (
@@ -78,7 +78,6 @@ function NotificationsBody() {
             today, handleClose, handleClick, open, anchorEl,
           }}
           >
-
             <NotificationCategories />
           </CategoriesContext.Provider>
         </>

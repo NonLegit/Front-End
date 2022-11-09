@@ -42,7 +42,7 @@ function NotificationCategories() {
     },
   });
   return (
-    <div data-testid={`notificationCategories-${today ? 'Today' : 'Earlier'}`}>
+    <div data-testid={`notification-categories-${today ? 'today' : 'earlier'}`}>
       { value?.map((ele, indx) => (
         <Notification today={today} key={`${ele.date}${indx + 0}`}>
           <ReplayContext.Provider value={ele.type}>

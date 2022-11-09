@@ -3,7 +3,7 @@
 exports[`check snap shot 1`] = `
 <section
   className="css-an41os"
-  data-testid="notificationsBody"
+  data-testid="notifications-body"
 >
   <div
     className="css-1otkajc"
