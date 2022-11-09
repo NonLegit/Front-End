@@ -10,17 +10,18 @@ import
 } from './styles';
 
 export const CategoriesContext = createContext();
+const client = axios.create({
+  baseURL: 'https://3fa9144e-7687-495e-9c29-266e723973b7.mock.pstmn.io',
+});
 /**
  * Notifications Body
  * - fech notifications data from api
- * - and it has functions handleClick to set what notifiacation we select and it's type
- * - and handleClose handel deleteing when click hide
+ * @property  {function} handleClick to set what notifiacation we select and it's type
+ * @property {function} handel deleteing when click hide
  * @return {React.Component} - Body of each Notification depandent it's type
  */
 
 function NotificationsBody() {
-  // api
-  const api = 'https://3fa9144e-7687-495e-9c29-266e723973b7.mock.pstmn.io/notifications';
   // earlier data
   const [earlier, setEarlier] = useState([]);
   // today data
@@ -34,7 +35,7 @@ function NotificationsBody() {
   // boll anchor element
   const open = Boolean(anchorEl);
   useEffect(() => {
-    axios.get(api) // fetch api
+    client.get('notifications') // fetch api
       .then((actualData) => {
         setToday(actualData.data.filter((e) => moment(e.createdAt).isSame(moment(), 'day')));
         setEarlier(actualData.data.filter((e) => !moment(e.createdAt).isSame(moment(), 'day')));
@@ -42,7 +43,7 @@ function NotificationsBody() {
       .catch((error) => {
         console.log(error);
       });
-  }, [api]);
+  }, []);
   // function to set what notifiacation we select and it's type
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
