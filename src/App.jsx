@@ -9,64 +9,68 @@ import Profile from './pages/Profile';
 import Search from './pages/Search';
 import theme from './styles/theme';
 import CreatePost from './pages/CreatePost';
+import PostTypeContextProvider from './contexts/PostTypeContext';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router className="App">
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage data-testid="home page" />
+      <PostTypeContextProvider>
+        <Router className="App">
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage data-testid="home page" />
           }
-          />
-          <Route
-            path="/:postClass"
-            element={
-              <HomePage />
+            />
+            <Route
+              path="/:postClass"
+              element={
+                <HomePage />
           }
-          />
-          <Route
-            path="/user"
-            element={
-              <Profile />
+            />
+            <Route
+              path="/user"
+              element={
+                <Profile />
           }
-          />
-          <Route
-            path="/login"
-            element={
-              <Login />
+            />
+            <Route
+              path="/login"
+              element={
+                <Login />
           }
-          />
-          <Route
-            path="/search"
-            element={
-              <Search />
+            />
+            <Route
+              path="/search"
+              element={
+                <Search />
           }
-          />
-          <Route
-            path="/messages"
-            element={
-              <Messages />
+            />
+            <Route
+              path="/messages"
+              element={
+                <Messages />
           }
-          />
-          <Route
-            path="/moderation"
-            element={
-              <Moderation />
+            />
+            <Route
+              path="/moderation"
+              element={
+                <Moderation />
           }
-          />
-          <Route
-            path="/submit"
-            element={
-              <CreatePost />
+            />
+            <Route
+              path="/submit"
+              element={
+                <CreatePost />
             }
-          />
-        </Routes>
-      </Router>
+            />
+          </Routes>
+        </Router>
+      </PostTypeContextProvider>
+
     </ThemeProvider>
   );
 }

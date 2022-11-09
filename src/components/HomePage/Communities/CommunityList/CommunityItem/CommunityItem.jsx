@@ -23,7 +23,6 @@ function CommunityItem(props) {
   const {
     index, icon, subredditName, status, isJoined,
   } = props;
-  console.log(props);
   return (
     <CommunityListItem data-testid="Community Item">
       <CommunityIndex data-testid="index">

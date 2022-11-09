@@ -27,7 +27,6 @@ function PostHeader(props) {
   const {
     title, image, owner, creator, flair, flairBackgroundColor, flairColor,
   } = props;
-  console.log(flairColor);
   return (
     <>
       <PostInfo py={1}>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
 } from './styles';
+import { usePostTypeContext } from '../../../contexts/PostTypeContext';
 /**
  * This component is the link between home page and create post page
  * @component CreatePostInHome
@@ -13,8 +14,10 @@ import {
 
 function CreatePostInHome() {
   const navigate = useNavigate();
-  const handleClick = () => {
+  const { setInitialPostType } = usePostTypeContext();
+  const handleClick = (postType) => {
     navigate('/submit');
+    setInitialPostType(postType);
   };
   return (
     <CreatePostContainer>
@@ -26,14 +29,20 @@ function CreatePostInHome() {
       <PostTitle
         type="text"
         placeholder="Create Post"
-        onClick={handleClick}
+        onClick={() => handleClick(0)}
       />
-      <Link to="/submit">
+      <Link
+        to="/submit"
+        onClick={() => handleClick(1)}
+      >
         <CustomIconButton color="third">
           <InsertPhotoOutlinedIcon />
         </CustomIconButton>
       </Link>
-      <Link to="/submit">
+      <Link
+        to="/submit"
+        onClick={() => handleClick(2)}
+      >
         <CustomIconButton color="third">
           <AttachFileIcon sx={{ transform: 'rotate(45deg)' }} />
         </CustomIconButton>

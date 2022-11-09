@@ -1,4 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -20,11 +21,14 @@ import PostList from '../PostList/PostList';
  */
 
 function HomePageContainer() {
+  const { postClass } = useParams();
   // variables
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
   const communitiesUrl = 'subreddits/mine/subscriber';
-  const postsUrl = '/users/best';
+  console.log(postClass);
+  const postsUrl = `/users/${postClass || 'best'}`;
+  // console.log(postsUrl);
 
   // states
   const [posts, postsError] = useFetch(postsUrl);

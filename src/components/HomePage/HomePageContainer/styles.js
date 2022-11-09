@@ -4,6 +4,7 @@ import { styled } from '@mui/system';
 export const MainContainer = styled('div')({
   display: 'flex',
   justifyContent: 'center',
+  height: '100%',
 });
 
 export const OuterContainer = styled(Box)(({ theme }) => ({
@@ -12,6 +13,6 @@ export const OuterContainer = styled(Box)(({ theme }) => ({
   height: '650vh',
   padding: '0 24px',
   [theme.breakpoints.down('sm')]: {
-    padding: 0,
+    padding: 5,
   },
 }));

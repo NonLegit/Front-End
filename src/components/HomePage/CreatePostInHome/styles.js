@@ -12,9 +12,12 @@ export const CreatePostContainer = styled('div')(() => ({
   border: '1px solid #ccc',
 }));
 
-export const CustomIconButton = styled(IconButton)(() => ({
+export const CustomIconButton = styled(IconButton)(({ theme }) => ({
   borderRadius: 8,
   padding: 5,
+  [theme.breakpoints.down('xs')]: {
+    display: 'none',
+  },
 }));
 
 export const PostTitle = styled('input')(({ theme }) => ({
@@ -25,6 +28,7 @@ export const PostTitle = styled('input')(({ theme }) => ({
   },
   '&:hover': {
     outline: `1px solid ${theme.palette.primary.main}`,
+    backgroundColor: '#fff',
   },
   borderRadius: 4,
   fontSize: 14,

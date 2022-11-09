@@ -15,6 +15,7 @@ import PostTypes from '../PostTypes/PostTypes';
 import SubredditsMenu from '../SubredditsMenu/SubredditsMenu';
 
 import axios from '../../../services/instance';
+import { usePostTypeContext } from '../../../contexts/PostTypeContext';
 /**
  * This component is the main section off create post page which holds the form to submit posts
  *
@@ -23,6 +24,9 @@ import axios from '../../../services/instance';
  */
 
 function CreatePostForm() {
+  // contexts
+  const { initialPostType } = usePostTypeContext();
+
   // variables
   const postTypes = ['text', 'media', 'url'];
 
@@ -32,7 +36,7 @@ function CreatePostForm() {
   const [title, setTitle] = useState('');
   const [postText, setPostTitle] = useState();
   const [postUrl, setPostUrl] = useState('');
-  const [postType, setPostType] = useState(0);
+  const [postType, setPostType] = useState(initialPostType);
   const [communityToPostIn, setCommunityToPostIn] = useState(null);
   const [ownerType, setOwnerType] = useState(null);
   const [spoiler, setSpoiler] = useState(false);

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonalReddit PersonalReddit renders correctly 1`] = `
+[
+  <div
+    className="css-170bi6"
+  >
+    <img
+      className="css-1fb17k2"
+      src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png"
+    />
+    <div
+      className="MuiBox-root css-19sk4h4"
+    >
+      <img
+        className="css-1bg7efm"
+        src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-gkoyxa-MuiTypography-root"
+      >
+        home
+      </p>
+    </div>
+    <div
+      className="MuiBox-root css-zlg1p4"
+    >
+      Your personal Reddit frontpage. Come here to check in with your favorite communities.
+    </div>
+    <hr
+      className="MuiDivider-root MuiDivider-fullWidth css-v9rab2-MuiDivider-root"
+    />
+    <a
+      className="css-jta5yf"
+      href="/submit"
+      onClick={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1b07p3c-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        fontSize={15}
+        fontWeight="bold"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        padding="4px"
+        tabIndex={0}
+        type="button"
+      >
+        create post
+      </button>
+    </a>
+    <a
+      className="css-jta5yf"
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1gr231h-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        fontSize={15}
+        fontWeight="bold"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        padding="4px"
+        tabIndex={0}
+        type="button"
+      >
+        create community
+      </button>
+    </a>
+  </div>,
+  ",",
+]
+`;

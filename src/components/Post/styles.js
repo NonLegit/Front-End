@@ -68,6 +68,7 @@ export const PostText = styled('p')(() => ({
   position: 'relative',
   cursor: 'pointer',
   maxHeight: 250,
+  overflow: 'hidden',
 }));
 
 export const PostTextContainer = styled(Box)(() => ({

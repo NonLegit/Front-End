@@ -8,10 +8,11 @@ const useFetch = (url) => {
   useEffect(() => {
     axios.get(url).then((response) => {
       setData(response.data);
+      setError(null);
     }).catch((error) => {
       setError(error);
     });
-  }, []);
+  }, [url]);
 
   return [data, error];
 };

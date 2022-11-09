@@ -13,7 +13,7 @@ export const CustomTabs = styled(Tabs)(() => ({
     minWidth: 480,
   },
   '& .MuiTabs-scroller': {
-    overflowX: 'scroll !important',
+    overflowX: 'auto !important',
   },
 }));
 
