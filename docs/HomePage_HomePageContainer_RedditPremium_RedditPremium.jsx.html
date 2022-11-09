@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: JoinButton/JoinButton.jsx</title>
+    <title>JSDoc: Source: HomePage/HomePageContainer/RedditPremium/RedditPremium.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: JoinButton/JoinButton.jsx</h1>
+    <h1 class="page-title">Source: HomePage/HomePageContainer/RedditPremium/RedditPremium.jsx</h1>
 
     
 
@@ -26,45 +26,45 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
-import { Button } from './styles';
+            <pre class="prettyprint source linenums"><code>import { Box } from '@mui/system';
+import SportsScoreIcon from '@mui/icons-material/SportsScore';
+import RedditButton from '../../../RedditButton/RedditButton';
+import { Header, Paragraph, PremiumReddit } from './styles';
 /**
- * This component is join button
+ * This component contains info about reddit premium.
  *
- * @component PostHeader
- * @property {boolean} isJoined -Check whether the user joined the subreddit or not.
- * @returns {React.Component} Join button
+ * @component RedditPremium
+ * @returns {React.Component}  Information about Premium version of reddit.
  */
 
-function JoinButton(props) {
-  const { isJoined } = props;
-
-  const [joined, setJoined] = useState(isJoined);
-  const [hover, setHover] = useState(false);
-
-  const handleClick = () => {
-    setJoined(!joined);
-  };
-  const handleMouseIn = () => {
-    setHover(true);
-  };
-  const handleMouseOut = () => {
-    setHover(false);
-  };
+function RedditPremium() {
   return (
-    &lt;Button
-      variant={(joined ? 'outlined' : 'contained')}
-      onClick={handleClick}
-      onMouseEnter={handleMouseIn}
-      onMouseLeave={handleMouseOut}
-      data-testid="join button"
-    >
-      {(joined ? (hover ? 'leave' : 'joined') : 'join')}
-    &lt;/Button>
+    &lt;PremiumReddit>
+      &lt;Box display="flex" mb={2}>
+        &lt;SportsScoreIcon
+          sx={{
+            fontSize: 40,
+            mx: 1,
+          }}
+          color="secondary"
+        />
+        &lt;Box display="flex" flexDirection="column">
+          &lt;Header>
+            Reddit Premium
+          &lt;/Header>
+          &lt;Paragraph>
+            The best Reddit experience, with monthly Coins
+          &lt;/Paragraph>
+        &lt;/Box>
+      &lt;/Box>
+      &lt;RedditButton variant="contained" color="secondary" padding="4px" fontSize={15} fontWeight="bold">
+        try now
+      &lt;/RedditButton>
+    &lt;/PremiumReddit>
   );
 }
 
-export default JoinButton;
+export default RedditPremium;
 </code></pre>
         </article>
     </section>

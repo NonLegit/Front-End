@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: JoinButton/JoinButton.jsx</title>
+    <title>JSDoc: Source: HomePage/HomePageContainer/HomePageFooter/HomePageFooter.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: JoinButton/JoinButton.jsx</h1>
+    <h1 class="page-title">Source: HomePage/HomePageContainer/HomePageFooter/HomePageFooter.jsx</h1>
 
     
 
@@ -26,45 +26,64 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
-import { Button } from './styles';
+            <pre class="prettyprint source linenums"><code>import { Divider } from '@mui/material';
+import {
+  Column, Footer, Row,
+} from './styles';
 /**
- * This component is join button
+ * This component is the footer of the page
  *
- * @component PostHeader
- * @property {boolean} isJoined -Check whether the user joined the subreddit or not.
- * @returns {React.Component} Join button
+ * @component HomePageFooter
+ * @returns {React.Component} Footer
  */
 
-function JoinButton(props) {
-  const { isJoined } = props;
-
-  const [joined, setJoined] = useState(isJoined);
-  const [hover, setHover] = useState(false);
-
-  const handleClick = () => {
-    setJoined(!joined);
-  };
-  const handleMouseIn = () => {
-    setHover(true);
-  };
-  const handleMouseOut = () => {
-    setHover(false);
-  };
+function HomePageFooter() {
   return (
-    &lt;Button
-      variant={(joined ? 'outlined' : 'contained')}
-      onClick={handleClick}
-      onMouseEnter={handleMouseIn}
-      onMouseLeave={handleMouseOut}
-      data-testid="join button"
-    >
-      {(joined ? (hover ? 'leave' : 'joined') : 'join')}
-    &lt;/Button>
+    &lt;Footer>
+      &lt;Row>
+        &lt;Column>
+          User Agreement
+        &lt;/Column>
+        &lt;Column>
+          Content Policy
+        &lt;/Column>
+        &lt;Column>
+          Privacy Policy
+        &lt;/Column>
+        &lt;Column>
+          Moderator Code Of Conduct
+        &lt;/Column>
+      &lt;/Row>
+      &lt;Divider sx={{ mb: 1 }} />
+      &lt;Row>
+        &lt;Column>
+          English
+        &lt;/Column>
+        &lt;Column>
+          Français
+        &lt;/Column>
+        &lt;Column>
+          Italiano
+        &lt;/Column>
+        &lt;Column>
+          Deutsch
+        &lt;/Column>
+        &lt;Column>
+          Español
+        &lt;/Column>
+        &lt;Column>
+          Português
+        &lt;/Column>
+      &lt;/Row>
+      &lt;Divider sx={{ mb: 1 }} />
+      &lt;div>
+        Reddit Inc © 2022. All rights reserved
+      &lt;/div>
+    &lt;/Footer>
   );
 }
 
-export default JoinButton;
+export default HomePageFooter;
 </code></pre>
         </article>
     </section>

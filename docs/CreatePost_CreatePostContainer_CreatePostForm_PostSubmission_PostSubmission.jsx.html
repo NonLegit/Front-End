@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: HomePage/Communities/CommunityList/CommunityItem/CommunityItem.jsx</title>
+    <title>JSDoc: Source: CreatePost/CreatePostContainer/CreatePostForm/PostSubmission/PostSubmission.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: HomePage/Communities/CommunityList/CommunityItem/CommunityItem.jsx</h1>
+    <h1 class="page-title">Source: CreatePost/CreatePostContainer/CreatePostForm/PostSubmission/PostSubmission.jsx</h1>
 
     
 
@@ -26,63 +26,74 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import {
-  Box,
-} from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+            <pre class="prettyprint source linenums"><code>import { Box, Checkbox } from '@mui/material';
+import RedditButton from '../../../../RedditButton/RedditButton';
 import {
-  CommunityName, CommunityImage, CommunityIndex, CommunityListItem,
+  ConnectAccounts, InfoIcon, PostButton, SendReplayFormLabel, SendReplyContainer,
 } from './styles';
-import JoinButton from '../../../../JoinButton/JoinButton';
 /**
- * This component represents the community in upper section of home page sidebar.
+ * This component contains post and save draft buttons
  *
- * @component CommunityItem
- * @property {number} index -Community index.
- * @property {string} icon -Community icon.
- * @property {string} icon -Community name.
- * @property {boolean} icon -Community status.
- * @property {boolean} isJoined -Check whether the logged in user is joined that community or not.
- * @returns {React.Component} Communities
+ * @component PostHeader
+ * @property {function} handleSaveDraft -Hanlding save draft button
+ * @property {function} handlePost -Hanlding post submitting
+ * @property {boolean} readyToPost -Check whether the post button is disabled or not
+ * @property {boolean} sendReplies -Check whether the user need to be sent the post reply notifications or not.
+ * @property {function} handleSendReplies -Hanlding post reply notifications
+ * @returns {React.Component} Container of buttons
  */
 
-function CommunityItem(props) {
+function PostSubmission(props) {
   const {
-    index, icon, subredditName, status, isJoined,
+    handleSaveDraft, handlePost, readyToPost, handleSendReplies, sendReplies,
   } = props;
   return (
-    &lt;CommunityListItem data-testid="Community Item">
-      &lt;CommunityIndex data-testid="index">
-        {index}
-      &lt;/CommunityIndex>
-      {status ? (
-        &lt;KeyboardArrowUpIcon
-          data-testid="icon up"
-          sx={{ color: '#46d160' }}
-        />
-      ) : (
-        &lt;KeyboardArrowDownIcon
-          data-testid="icon down"
-          sx={{ color: '#ea0027' }}
-        />
-      )}
-      &lt;CommunityImage
-        src={icon}
-        data-testid="image"
-      />
-      &lt;CommunityName data-testid="name" variant="caption">
-        r/
-        {subredditName}
-      &lt;/CommunityName>
-      &lt;Box flexGrow={1} display="flex" justifyContent="flex-end">
-        &lt;JoinButton isJoined={isJoined} />
+    &lt;Box>
+      &lt;Box m={2} gap={1} display="flex" justifyContent="flex-end">
+        &lt;RedditButton
+          variant="outlined"
+          padding="3px 16px"
+          fontSize={14}
+          fontWeight="bold"
+          type="submit"
+          onClick={handleSaveDraft}
+        >
+          save draft
+        &lt;/RedditButton>
+        &lt;PostButton
+          variant="contained"
+          type="submit"
+          onClick={handlePost}
+          disabled={!readyToPost}
+          data-testid="post button"
+        >
+          post
+        &lt;/PostButton>
       &lt;/Box>
-    &lt;/CommunityListItem>
+      &lt;SendReplyContainer p={2}>
+        &lt;SendReplayFormLabel
+          control={(
+            &lt;Checkbox
+              onChange={handleSendReplies}
+              checked={sendReplies}
+              size="small"
+              disableRipple
+            />
+)}
+          label="Send me post reply notifications"
+        />
+        &lt;Box display="flex">
+          &lt;ConnectAccounts>
+            Connect accounts to share your post
+          &lt;/ConnectAccounts>
+          &lt;InfoIcon />
+        &lt;/Box>
+      &lt;/SendReplyContainer>
+    &lt;/Box>
   );
 }
 
-export default CommunityItem;
+export default PostSubmission;
 </code></pre>
         </article>
     </section>

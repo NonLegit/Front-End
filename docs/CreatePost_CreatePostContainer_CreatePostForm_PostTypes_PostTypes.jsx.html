@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: JoinButton/JoinButton.jsx</title>
+    <title>JSDoc: Source: CreatePost/CreatePostContainer/CreatePostForm/PostTypes/PostTypes.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: JoinButton/JoinButton.jsx</h1>
+    <h1 class="page-title">Source: CreatePost/CreatePostContainer/CreatePostForm/PostTypes/PostTypes.jsx</h1>
 
     
 
@@ -26,45 +26,67 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
-import { Button } from './styles';
+            <pre class="prettyprint source linenums"><code>import { Divider } from '@mui/material';
+import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined';
+import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import { CustomTab, CustomTabs } from './styles';
 /**
- * This component is join button
+ * This component contains the tabs of post types
  *
- * @component PostHeader
- * @property {boolean} isJoined -Check whether the user joined the subreddit or not.
- * @returns {React.Component} Join button
+ * @component PostTypes
+ * @property {function} postType -Post type (text, image, video and url).
+ * @property {function} handlePostType -Hanlding post type.
+ * @returns {React.Component} tabs of post types
  */
 
-function JoinButton(props) {
-  const { isJoined } = props;
-
-  const [joined, setJoined] = useState(isJoined);
-  const [hover, setHover] = useState(false);
-
-  const handleClick = () => {
-    setJoined(!joined);
-  };
-  const handleMouseIn = () => {
-    setHover(true);
-  };
-  const handleMouseOut = () => {
-    setHover(false);
-  };
+function PostTypes(props) {
+  const { postType, handlePostType } = props;
   return (
-    &lt;Button
-      variant={(joined ? 'outlined' : 'contained')}
-      onClick={handleClick}
-      onMouseEnter={handleMouseIn}
-      onMouseLeave={handleMouseOut}
-      data-testid="join button"
+    &lt;CustomTabs
+      value={postType}
+      onChange={handlePostType}
     >
-      {(joined ? (hover ? 'leave' : 'joined') : 'join')}
-    &lt;/Button>
+      &lt;CustomTab
+        icon={&lt;PostAddOutlinedIcon />}
+        iconPosition="start"
+        label="post"
+        value={0}
+        data-testid="text"
+      />
+      &lt;Divider
+        orientation="vertical"
+        flexItem
+        light
+      />
+      &lt;CustomTab
+        icon={&lt;ImageOutlinedIcon />}
+        iconPosition="start"
+        label="images &amp; videos"
+        value={1}
+        data-testid="media"
+      />
+      &lt;Divider
+        orientation="vertical"
+        flexItem
+        light
+      />
+      &lt;CustomTab
+        icon={(
+          &lt;AttachFileIcon
+            sx={{ transform: 'rotate(45deg)' }}
+          />
+)}
+        iconPosition="start"
+        label="link"
+        value={2}
+        data-testid="url"
+      />
+    &lt;/CustomTabs>
   );
 }
 
-export default JoinButton;
+export default PostTypes;
 </code></pre>
         </article>
     </section>
