@@ -147,7 +147,7 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
 }));
 
 export const RedditLoadingButton = styled(LoadingButton)(({ width }) => ({
-  width: (width !== undefined) ? `${width}` : '95%',
+  width: (width !== undefined) ? `${width}` : '100%',
   height: 35,
   margin: '10px 0px',
 
@@ -196,26 +196,3 @@ export const ButtonIcon = styled('img')(() => ({
 
 export const wrongIcon = <InputAdornment position="end"><PriorityHighIcon color="error" fontSize="10px" /></InputAdornment>;
 export const rightIcon = <InputAdornment position="end"><DoneIcon color="primary" /></InputAdornment>;
-
-export const classjs = {
-  width: '95%',
-  height: 50,
-  margin: '10px 0px',
-  padding: '0px',
-  border: '1.2.5px solid',
-
-  fontFamily: 'ibm-plex-sans,sans-serif',
-  fontWeight: '600',
-  fontSize: '14px',
-  letterSpacing: '0.5px',
-
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-
-  '&:hover': {
-    backgroundColor: theme.palette.primary.light,
-    color: 'white',
-  },
-};

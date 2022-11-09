@@ -1,45 +1,7 @@
 import axios from 'axios';
+import DoneIcon from '@mui/icons-material/Done';
 import { wrongIcon, rightIcon } from './styles';
 import theme from '../../styles/theme';
-/* Google Authentication */
-export const responseGoogleSuccess = (googleResponse) => {
-  axios.post(
-    'https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/google/1',
-    {
-      acess_Token: googleResponse.accessToken,
-    },
-  ).then((response) => {
-    if (response.status === 200) {
-      window.location.href = './';
-    } else {
-      // 400 expired
-      alert(response.data.message);
-    }
-  });
-};
-
-export const responseGoogleFail = (response) => {
-  alert('Error When connecting to Google');
-  console.log(response);
-};
-
-/* FaceBook Authentication */
-export const responseFacebook = (facebookResponse) => {
-  console.log('FaceBook', facebookResponse);
-  axios.post(
-    'https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/facebook/1',
-    {
-      acess_Token: facebookResponse.accessToken,
-    },
-  ).then((response) => {
-    if (response.status === 200) {
-      window.location.href = './';
-    } else {
-      // 400 expired
-      alert(response.data.message);
-    }
-  });
-};
 
 export const checkEmail = (email, setEmail) => {
   if (!/\S+@\S+\.\S+/.test(email.input)) {
@@ -206,5 +168,87 @@ export const signUp = (
       console.log('Error');
     }
     setLoading(false);
+  });
+};
+
+// Login
+export const checkUserNameLogin = (userName, setUserName) => {
+  const username = userName.input;
+  console.log(userName);
+
+  // Check Username bwteen 3-20 characters
+  if (username.length < 3 || username.length > 20) {
+    console.log('length problem');
+    setUserName((prevState) => ({
+      ...prevState,
+      color: theme.palette.error.main,
+      icon: wrongIcon,
+      error: 'Username must be between 3 and 20 characters',
+    }));
+    return;
+  }
+  // else Valid
+  setUserName((prevState) => ({
+    ...prevState,
+    color: theme.palette.primary.main,
+    icon: rightIcon,
+    error: null,
+  }));
+};
+
+// Note Aasync for debugging timeout
+export const logIn = async (
+  event,
+  userName,
+  setUserName,
+  password,
+  setPassword,
+  setLoading,
+  setButtonText,
+  setRedirectCaption,
+) => {
+  event.preventDefault();
+  console.log(password);
+
+  console.log(userName);
+  // Verify UserName and Password API
+  setLoading(true);
+  checkUserNameLogin(userName, setUserName);
+  if (userName.error != null) {
+    console.log(userName, password);
+    console.log("Couldn't login");
+    setLoading(false);
+  }
+
+  axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/login/1', userName, password).then((response) => {
+    console.log(response);
+    setLoading(false);
+    if (response.status === 200) {
+      // Suceess;
+      setButtonText(<DoneIcon />);
+      setRedirectCaption(true);
+      setTimeout(() => {
+        // Add to the local stroage
+        localStorage.setItem('Reddit_user', JSON.stringify({ userName, password }));
+        window.location.href = '/';
+      }, 1000);
+      console.log('login up');
+    } else if (response.status === 404) {
+      // Invlaid Username or password
+      setUserName((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'Incorrect username or password',
+      }));
+      setPassword((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: null,
+      }));
+    } else {
+      alert(response.data.message);
+    }
   });
 };

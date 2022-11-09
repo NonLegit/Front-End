@@ -1,47 +1,45 @@
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
 import {
-  AuthenticationBody, FirstPartyContainer, StyledLink, wrongIcon,
-  rightIcon, RedditTextField, RedditLoadingButton,
+  AuthenticationBody, FirstPartyContainer, StyledLink,
+  RedditTextField, RedditLoadingButton,
 } from '../styles';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
-import { ThirdPartyContainer } from '../ThirdPartyButton/styles';
-import ThirdPartyButton from '../ThirdPartyButton/ThirdPartyButton';
+// import { ThirdPartyContainer } from '../../ThirdParty/ThirdPartyButton/styles';
+// import ThirdPartyButton from '../../ThirdParty/ThirdPartyButton/ThirdPartyButton';
 import Divider from '../Divider/Divider';
 
 import LoadingPage from '../LoadingPage/LoadingPage';
-import theme, { fonts } from '../../../styles/theme';
 
-import Google from '../../../assets/images/google.png';
-import Facebook from '../../../assets/images/facebook.png';
+import { checkUserNameLogin, logIn } from '../scripts';
+import theme, { fonts } from '../../../styles/theme';
+// import Google from '../../../assets/images/google.png';
+// import Facebook from '../../../assets/images/facebook.png';
+import ThirdParty from '../../ThirdParty/ThirdParty';
 
 function LogIn() {
   const [remeberMe, setRemeberMe] = useState(false);
 
   const [buttonTxt, setButtonText] = useState('Log In');
-  const [userNameState, setuserNameState] = useState({
-    Value: false, Error: '', color: theme.palette.neutral.main,
+  const [userName, setUserName] = useState({
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  const [passwordState, setpasswordState] = useState({
-    Value: false, color: theme.palette.neutral.main,
+  const [password, setPassword] = useState({
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  const [userNameIcon, setUserNameIcon] = useState(null);
-  const [passwordIcon, setPasswordIcon] = useState(null);
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
   const [redirectCaption, setRedirectCaption] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setButtonText('Log in');
-    const item = localStorage.getItem('Reddit_user');
-    if (item != null) {
-      setRemeberMe(true);
-      setTimeout(() => {
-        window.location.href = './';
-      }, 1000);
-    }
+    // const item = localStorage.getItem('Reddit_user');
+    // if (item != null) {
+    //   setRemeberMe(true);
+    //   setTimeout(() => {
+    //     window.location.href = './';
+    //   }, 1000);
+    // }
+    setRemeberMe(false);
   }, []);
 
   const caption = (
@@ -57,73 +55,26 @@ function LogIn() {
     </>
   );
 
-  const logIn = async (event) => {
-    event.preventDefault();
-    console.log(password);
-
-    console.log(userName);
-    // Verify UserName and Password API
-    setLoading(true);
-    setUserNameIcon(null);
-    setuserNameState({ Value: false, Error: '', color: theme.palette.neutral.main });
-    setPasswordIcon(null);
-    setpasswordState({ Value: false, color: theme.palette.neutral.main });
-
-    // Validate User Name
-    if (userName.length < 3 || userName.length > 20) {
-      setuserNameState({ Value: true, Error: 'Username must be between 3 and 20 characters' });
-    }
-    // Delay just for loading API(Will be Remove Later :))
-    setTimeout(() => {
-      // 1.Afetr response of API has arrived
-      setLoading(false);
-
-      // 2.Sucessfull login
-      if (userName === 'Basma' && password === '123') {
-        setButtonText(<DoneIcon />);
-        setRedirectCaption(true);
-        setTimeout(() => {
-          // Add to the local stroage
-          localStorage.setItem('Reddit_user', JSON.stringify({ userName, password }));
-          window.location.href = '/';
-        }, 1000);
-      } else {
-        // 3.Falied Login
-        setuserNameState({
-          Value: true, Error: 'Incorrect username or password', color: theme.palette.error.main,
-        });
-        setpasswordState({ Value: true, color: theme.palette.error.main });
-        setUserNameIcon(wrongIcon);
-        setPasswordIcon(wrongIcon);
-      }
-    }, 1000);
-  };
-
-  const checkUserName = (e) => {
-    const name = e.target.value.trim();
-    if (name.length < 3 || name.length > 20) {
-      setuserNameState({
-        Value: true, Error: 'Username must be between 3 and 20 characters', color: theme.palette.error.main,
-      });
-      setUserNameIcon(wrongIcon);
-    } else {
-      setuserNameState({ Value: false, Error: '', color: theme.palette.primary.main });
-      setUserNameIcon(rightIcon);
-    }
-    setUserName(name);
-  };
-
   return (
     <AuthenticationBody mnwidth="290px" mxwidth={remeberMe ? '440px' : '290px'}>
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit={false} title="Log in" caption={caption} />
-          <ThirdPartyContainer>
-            <ThirdPartyButton img={Google} alt="Google" txt="continue with google" />
-            <ThirdPartyButton img={Facebook} alt="Facebook" txt="continue with facebook" />
-          </ThirdPartyContainer>
+          <ThirdParty />
           <Divider />
-          <FirstPartyContainer width="290px" onSubmit={logIn}>
+          <FirstPartyContainer
+            width="290px"
+            onSubmit={(event) => logIn(
+              event,
+              userName,
+              setUserName,
+              password,
+              setPassword,
+              setLoading,
+              setButtonText,
+              setRedirectCaption,
+            )}
+          >
             <RedditTextField
               label="Username"
               variant="filled"
@@ -131,15 +82,18 @@ function LogIn() {
               required
               InputProps={{
                 endAdornment: (
-                  userNameIcon
+                  userName.icon
                 ),
                 disableUnderline: true,
               }}
-              clr={userNameState.color}
-              onBlur={checkUserName}
+              clr={userName.color}
+              onBlur={() => checkUserNameLogin(userName, setUserName)}
+              onChange={(e) => setUserName((prevState) => ({
+                ...prevState,
+                input: e.target.value.trim(),
+              }))}
+              helperText={userName.error}
             />
-            {userNameState.Value ? <Typography color="error" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="-5px 0px 10px 2px">{userNameState.Error}</Typography>
-              : null}
             <RedditTextField
               label="Password"
               variant="filled"
@@ -147,12 +101,15 @@ function LogIn() {
               required
               InputProps={{
                 endAdornment: (
-                  passwordIcon
+                  password.icon
                 ),
                 disableUnderline: true,
               }}
-              clr={passwordState.color}
-              onBlur={(e) => setPassword(e.target.value)}
+              clr={password.color}
+              onBlur={(e) => setPassword((prevState) => ({
+                ...prevState,
+                input: e.target.value.trim(),
+              }))}
             />
             <RedditLoadingButton type="submit" loading={loading}>
               {buttonTxt}

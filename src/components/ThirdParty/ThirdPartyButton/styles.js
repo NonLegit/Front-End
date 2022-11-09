@@ -1,11 +1,6 @@
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../styles/theme';
-
-export const ThirdPartyContainer = styled(Box)(({ width }) => ({
-  width: `${width}`,
-  margin: '15px 0px',
-}));
 
 export const ThirdPartyBtn = styled(Button)(() => ({
   width: '100%',
