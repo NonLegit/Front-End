@@ -21,7 +21,7 @@ function SignUp() {
 
   const signUpView = userNamePage
     ? <SignUpUsername setUserNamePage={setUserNamePage} email={email} />
-    : <SignUpEmail setUserNamePage={setUserNamePage} email={email} setEmail={setEmail} />;
+    : <SignUpEmail setUserNamePage={setUserNamePage} setEmail={setEmail} />;
 
   return (
     <AuthenticationConatiner>

@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export const ThirdPartyBtn = styled(Button)(() => ({
   width: '100%',

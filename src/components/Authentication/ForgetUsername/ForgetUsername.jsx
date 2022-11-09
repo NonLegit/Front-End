@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
-import {
-  AuthenticationBody, FirstPartyContainer, AuthenticationInput, AuthenticationButton, StyledLink,
-} from '../styles';
+import { AuthenticationBody, StyledLink } from '../styles';
 
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';
+import Email from '../Email/Email';
 
 function ForgetUsername() {
   const [remeberMe, setremeberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (false) {
       setremeberMe(true);
@@ -25,6 +26,7 @@ function ForgetUsername() {
   const recoverUsername = () => {
     // Check nonempty inputfileds
     console.log('RecoverUsername');
+    setLoading(true);
     /* BackAPI */
     // 1.Validate Email format and username
     // 2.Button becomes trick
@@ -35,10 +37,7 @@ function ForgetUsername() {
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
-          <FirstPartyContainer onSubmit={recoverUsername}>
-            <AuthenticationInput label="Email Address" variant="outlined" />
-            <AuthenticationButton type="submit" width="155px">Email Me</AuthenticationButton>
-          </FirstPartyContainer>
+          <Email onSubmitFn={recoverUsername} loading={loading} isPopUp={false} buttonText="Email Me" btnWidth="155px" />
 
           <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
             Don

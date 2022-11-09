@@ -14,7 +14,7 @@ import {
 import {
   refreshUsernames, checkUserName, checkPassword, signUp,
 } from '../../scripts';
-import theme from '../../../../styles/theme';
+import theme, { fonts } from '../../../../styles/theme';
 
 function SignUpUsername({ setUserNamePage, email }) {
   const [userNames, setUserNames] = useState([]);
@@ -27,10 +27,13 @@ function SignUpUsername({ setUserNamePage, email }) {
   });
   const [verified, setVerified] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [redirectCaption, setRedirectCaption] = useState(false);
+  const [buttonTxt, setButtonText] = useState('Sign up');
 
   useEffect(() => {
     refreshUsernames(setUserNames);
   }, []);
+
   return (
     <ChooseUsernameContainer>
       <Header>
@@ -129,7 +132,9 @@ function SignUpUsername({ setUserNamePage, email }) {
           ))) : null}
         </SuggestionBox>
       </Body>
-
+      {redirectCaption
+        ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="auto">You are now logged in. You will soon be redirected</Typography>
+        : null}
       <Footer>
         <BackLink onClick={() => setUserNamePage(false)} href="#">Back</BackLink>
         <RedditLoadingButton
@@ -143,10 +148,12 @@ function SignUpUsername({ setUserNamePage, email }) {
             setPassword,
             email,
             verified,
+            setButtonText,
+            setRedirectCaption,
           )}
           loading={loading}
         >
-          Sign up
+          {buttonTxt}
         </RedditLoadingButton>
       </Footer>
     </ChooseUsernameContainer>

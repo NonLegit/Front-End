@@ -3,6 +3,13 @@ import {
 } from '../styles';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 
+/**
+ * Loading Page Component When Already Logged in
+ *  * @example
+ * return (
+ *   <LogInPage/>
+ * )
+ */
 function LoadingPage() {
   const caption = (
     <>

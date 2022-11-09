@@ -2,7 +2,7 @@ import SignUp from '../components/Authentication/SignUp/SignUp';
 
 function SignUpPage() {
   return (
-    <SignUp />
+    <SignUp data-testid="register-test" />
   );
 }
 

@@ -1,22 +1,47 @@
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import {
-  AuthenticationBG, AuthenticationBody, FirstPartyContainer,
-  StyledLink, RedditTextField, RedditLoadingButton,
+  AuthenticationBG, AuthenticationBody, StyledLink, wrongIcon,
 } from '../../styles';
+import theme from '../../../../styles/theme';
+
 import AuthenticationHeader from '../../AuthenticationHeader/AuthenticationHeader';
+import ThirdParty from '../../ThirdParty/ThirdParty';
 import Divider from '../../Divider/Divider';
+import Email from '../../Email/Email';
 
-import {
-  checkEmail, signUpEmail,
-} from '../../scripts';
-import ThirdParty from '../../../ThirdParty/ThirdParty';
-
-function SignUpEmail({ setUserNamePage, email, setEmail }) {
+function SignUpEmail({ setUserNamePage, setEmail }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     console.log('rerender');
   }, []);
+
+  const continueEmail = (event, email) => {
+    setLoading(true);
+    event.preventDefault();
+    console.log(email);
+    if (email.error !== null) {
+      setLoading(false);
+      return;
+    }
+
+    if (email.input === '') {
+      // Empty Field
+      setEmail((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'Please enter your email to continue',
+      }));
+      setLoading(false);
+      return;
+    }
+    setTimeout(() => {
+      setLoading(false);
+      setUserNamePage(true);
+      console.log(email);
+    }, 500);
+  };
 
   const caption = (
     <>
@@ -36,34 +61,11 @@ function SignUpEmail({ setUserNamePage, email, setEmail }) {
       <AuthenticationBG />
       <AuthenticationBody mnwidth="280px" mxwidth="280px">
         <AuthenticationHeader reddit={false} title="Sign up" caption={caption} />
-
-        <ThirdParty />
+        <ThirdParty circular={false} />
 
         <Divider />
 
-        <FirstPartyContainer width="280px" onSubmit={(event) => signUpEmail(event, email, setEmail, setUserNamePage, setLoading)} noValidate>
-          <RedditTextField
-            label="Email"
-            variant="filled"
-            required
-            InputProps={{
-              endAdornment: (
-                email.icon
-              ),
-              disableUnderline: true,
-            }}
-            clr={email.color}
-            onBlur={() => checkEmail(email, setEmail)}
-            onChange={(e) => setEmail((prevState) => ({
-              ...prevState,
-              input: e.target.value.trim(),
-            }))}
-            helperText={email.error}
-          />
-          <RedditLoadingButton type="submit" loading={loading}>
-            continue
-          </RedditLoadingButton>
-        </FirstPartyContainer>
+        <Email onSubmitFn={continueEmail} loading={loading} isPopUp={false} width="280px" buttonText="continue" />
 
         <Typography paragraph fontSize={12}>
           Already a redditor?

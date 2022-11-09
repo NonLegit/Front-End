@@ -76,10 +76,8 @@ export const RedditTextField = styled((props) => (
   <TextField {...props} size="small" autoComplete="off" />
 ))(({ clr }) => ({
   '&.MuiTextField-root': {
-
     width: '100%',
     marginBottom: '10px',
-
     // input text
     '.MuiInputBase-input': {
       fontSize: '12px',
@@ -98,9 +96,8 @@ export const RedditTextField = styled((props) => (
   '& .MuiFilledInput-root': {
     border: `1px solid ${clr}`,
     overflow: 'hidden',
-    borderRadius: 4,
     backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#2b2b2b',
-
+    // border: '10px solid black',
     '&:hover': {
       backgroundColor: 'transparent',
     },
@@ -146,7 +143,7 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
   },
 }));
 
-export const RedditLoadingButton = styled(LoadingButton)(({ width }) => ({
+export const RedditLoadingButton = styled(LoadingButton)(({ width, isPopUp }) => ({
   width: (width !== undefined) ? `${width}` : '100%',
   height: 35,
   margin: '10px 0px',
@@ -156,7 +153,7 @@ export const RedditLoadingButton = styled(LoadingButton)(({ width }) => ({
   fontSize: '14px',
   letterSpacing: '0.5px',
 
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: isPopUp ? 'white' : theme.palette.primary.main,
   color: 'white',
 
   '&:hover': {
