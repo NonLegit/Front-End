@@ -12,7 +12,7 @@ import Moderation from './Mderation/Moderation';
 function SideBar() {
   const [moderate, setModerate] = useState(false);
   useEffect(() => {
-    setModerate(false);
+    setModerate(true);
   }, []);
   return (
     <SideBarContainer>
