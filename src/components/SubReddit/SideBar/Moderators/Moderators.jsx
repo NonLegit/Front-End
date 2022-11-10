@@ -2,7 +2,10 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline'; import {
   AboutCountainer, AboutString, CustomLink, Button, Container, Name, Data,
   ViewAll, ViewAllContainer,
 } from './style';
-
+/**
+ * Moderators section in sidebar
+ * @return {React.Component} - Moderators section in sidebar
+ */
 function Moderators() {
   return (
     <>

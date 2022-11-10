@@ -4,13 +4,17 @@ import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutl
 import {
   AboutContent, Action, Add, Count, Input, InputFooter, Text,
 } from './style';
-
+/**
+ * Add discreption for the community
+ * @return {React.Component} - Add discreption
+ */
 function AddSector() {
   const [show, setShow] = useState(true);
   const [count, setCount] = useState(500);
   const [tempString, setTempString] = useState('');
   const [disc, setDisc] = useState('Ahmed');
   const [haveDisc, setHaveDisc] = useState(true);
+  // return to defult mode when click away
   const handleClickAway1 = () => {
     const btn = document.getElementById('save');
     btn.click();
@@ -21,7 +25,7 @@ function AddSector() {
     setTempString(disc);
     setCount(500 - disc.length);
   }, []);
-  // ///////////////////////////////////
+  // count number of char in input feild to make sure not exeed the limit
   const handleChange = (event) => {
     if (event.target.value.length < 501) {
       setTempString(event.target.value);
@@ -33,7 +37,7 @@ function AddSector() {
     <AboutContent>
       <ClickAwayListener onClickAway={handleClickAway1}>
         <Add>
-          <Box onClick={() => { setShow(false); setCount(500 - disc.length); }} sx={{ display: 'flex' }}>
+          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - disc.length); }} sx={{ display: 'flex' }}>
             {show && !haveDisc && <Text> Add description</Text>}
             {haveDisc && show && (
             <>
@@ -50,6 +54,7 @@ function AddSector() {
             && (
               <>
                 <Input
+                  data-testid="input"
                   type="text"
                   value={tempString}
                   placeholder="Tell us About your community"
@@ -77,6 +82,7 @@ function AddSector() {
                       }}
                       sx={{ marginRight: '8px' }}
                       color="red"
+                      data-testid="cancel"
                     >
                       Cancel
                     </Action>

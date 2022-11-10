@@ -5,11 +5,14 @@ import About from './AboutSubReddit/About';
 import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
-
+/**
+ * SideBar for subreddit
+ * @return {React.Component} - SideBar for subreddit
+ */
 function SideBar() {
   const [moderate, setModerate] = useState(false);
   useEffect(() => {
-    setModerate(true);
+    setModerate(false);
   }, []);
   return (
     <SideBarContainer>

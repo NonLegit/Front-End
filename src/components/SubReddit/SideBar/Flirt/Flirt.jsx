@@ -2,7 +2,10 @@ import { Box } from '@mui/material';
 import {
   Button, Container, See, String,
 } from './style';
-
+/**
+ * Filter section
+ * @return {React.Component} - Filter section
+ */
 function Flirt() {
   return (
     <>

@@ -5,7 +5,10 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import {
   Select, SelectBox, SelectItem,
 } from './style';
-
+/**
+ * More icon
+ * @return {React.Component} - More icon
+ */
 export default function Sort(props) {
   const { margin } = props;
   const { marginLeft } = props;
@@ -24,13 +27,13 @@ export default function Sort(props) {
     <>
       <Select>
         <ClickAwayListener onClickAway={handleClickAway1}>
-          <Box sx={{ display: 'flex' }} onClick={() => { handleClick1(); }}>
+          <Box data-testid="sort" sx={{ display: 'flex' }} onClick={() => { handleClick1(); }}>
             <MoreHorizIcon />
           </Box>
         </ClickAwayListener>
       </Select>
       {showList1 && (
-      <SelectBox sx={{ marginTop: margin, marginLeft }}>
+      <SelectBox data-testid="items" sx={{ marginTop: margin, marginLeft }}>
         <SelectItem>Add to Custom Feed</SelectItem>
         <SelectItem>Add to Favorites</SelectItem>
       </SelectBox>

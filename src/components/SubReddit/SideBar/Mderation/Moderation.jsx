@@ -16,7 +16,10 @@ import {
 } from './style';
 import AddSector from './AddDisc/Add';
 import AddList from './AddList/AddList';
-
+/**
+ * About section in sidebar for moderators only instead of about section for normal users
+ * @return {React.Component} - Moderators section in sidebar
+ */
 function Moderation() {
   const [more, setMore] = useState(false);
   const [selection, setSelection] = useState('Add a Primary Topic');
@@ -26,14 +29,17 @@ function Moderation() {
     'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
     'Mature Themes and Adult Content', 'Medical and Mental Health', "Men's Health", 'Meta/Reddit', 'Outdoors and Nature', 'Militery', 'Moves', 'Music', 'Outdoors and Nature', 'Place',
     'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
+  // show select list or not
   const changeShow = () => {
     setMore(!more);
     setSelection('Add a Primary Topic');
   };
+  // handel on select item
   const ListSelected = (e) => {
     setMore(!more);
     setSelection(e.target.textContent);
   };
+  // close the list in  click away
   const handleClickAway = () => {
     setMore(false);
   };
@@ -98,7 +104,7 @@ function Moderation() {
       <SelectContainer
         onClick={changeShow}
       >
-        <Select>{selection}</Select>
+        <Select data-testid="select">{selection}</Select>
         {!more && <ExpandMoreOutlinedIcon color="primary" sx={{ marginTop: '7px', marginLeft: '5px' }} />}
         {more && <ExpandLessOutlinedIcon color="primary" sx={{ marginTop: '7px', marginLeft: '5px' }} />}
       </SelectContainer>
@@ -107,6 +113,7 @@ function Moderation() {
       && (
         <ClickAwayListener onClickAway={handleClickAway}>
           <Lists
+            data-testid="list"
             subheader={<li />}
           >
             {[0].map((sectionId) => (

@@ -6,7 +6,10 @@ import {
   AboutContent, AboutCountainer, AboutDisc, AboutString, CreatedSpan,
   More, Created, Icon, Hr, Bold, Light, SpecialBold, CustomLink, CreatPost,
 } from './style';
-
+/**
+ * About Section for normal user
+ * @return {React.Component} - About Section for normal user
+ */
 function About() {
   return (
     <>

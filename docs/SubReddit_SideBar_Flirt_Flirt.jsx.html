@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: SubReddit/SideBar/Flirt/Flirt.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: SubReddit/SideBar/Flirt/Flirt.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box } from '@mui/material';
+import {
+  Button, Container, See, String,
+} from './style';
+/**
+ * Filter section
+ * @return {React.Component} - Filter section
+ */
+function Flirt() {
+  return (
+    &lt;>
+      &lt;Container>
+        &lt;String>
+          Filter by flair
+        &lt;/String>
+      &lt;/Container>
+      &lt;Box sx={{ padding: '12px' }}>
+        &lt;Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+          &lt;Button backgroundColor="#94e044">&lt;span>Look what I made!&lt;/span>&lt;/Button>
+        &lt;/Box>
+        &lt;Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+          &lt;Button backgroundColor="#0dd3bb">&lt;span>Look what!&lt;/span>&lt;/Button>
+        &lt;/Box>
+        &lt;Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+          &lt;Button backgroundColor="#ff652b">I made!&lt;/Button>
+        &lt;/Box>
+        &lt;Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+          &lt;Button backgroundColor="#fff911">Look &lt;/Button>
+        &lt;/Box>
+      &lt;/Box>
+      &lt;See>See more&lt;/See>
+    &lt;/>
+  );
+}
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Flirt;
+</code></pre>
+        </article>
+    </section>
 
 
 

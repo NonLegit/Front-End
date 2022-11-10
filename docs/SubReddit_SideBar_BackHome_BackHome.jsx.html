@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: SubReddit/SideBar/BackHome/BackHome.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,46 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: SubReddit/SideBar/BackHome/BackHome.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// eslint-disable-next-line import/no-named-as-default
+import BackHome from './style';
+/**
+ * function to handle in click back to to of page
+ * @returns top of the page
+ */
+function BackHomeBottun() {
+  function goToTop() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+  /**
+ * button on click on it back to top of bage
+ * @return {React.Component} - button
+ */
+  return (
+    &lt;BackHome
+      variant="contained"
+      fontSize={15}
+      fontWeight="bold"
+      onClick={() => goToTop()}
+    >
+      Back to Top
+    &lt;/BackHome>
+  );
+}
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default BackHomeBottun;
+</code></pre>
+        </article>
+    </section>
 
 
 
