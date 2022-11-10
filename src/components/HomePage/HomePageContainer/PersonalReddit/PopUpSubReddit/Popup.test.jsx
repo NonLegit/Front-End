@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
 import {
   fireEvent,
