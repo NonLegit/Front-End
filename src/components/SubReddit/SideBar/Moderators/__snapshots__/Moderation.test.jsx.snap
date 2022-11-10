@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="css-1f2ln3t"
+  >
+    <h2
+      className="css-dgde1h"
+    >
+      Moderators
+    </h2>
+  </div>,
+  <a
+    className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="MuiButtonBase-root css-azyh4b-MuiButtonBase-root"
+      disabled={false}
+      fontSize={15}
+      fontWeight="bold"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      padding="4px"
+      tabIndex={0}
+      type="button"
+      variant="outlined"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ubwraf-MuiSvgIcon-root"
+        data-testid="MailOutlineIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+        />
+      </svg>
+       
+      Message the Mods
+    </button>
+  </a>,
+  <div
+    className="css-1w5iul1"
+  >
+    <div
+      className="css-nc9z8t"
+    >
+      u/Lulzorr
+    </div>
+    <div
+      className="css-wozbvd"
+    >
+      3:20 browse it
+    </div>
+  </div>,
+  <div
+    className="css-1w5iul1"
+  >
+    <div
+      className="css-nc9z8t"
+    >
+      u/Lulzorr
+    </div>
+    <div
+      className="css-wozbvd"
+    >
+      3:20 browse it
+    </div>
+  </div>,
+  <div
+    className="css-1w5iul1"
+  >
+    <div
+      className="css-nc9z8t"
+    >
+      u/Lulzorr
+    </div>
+    <div
+      className="css-wozbvd"
+    >
+      3:20 browse it
+    </div>
+  </div>,
+  <div
+    className="css-e3tcub"
+  >
+    <div
+      className="css-qq790j"
+    >
+      VIEW ALL MODERATORS
+    </div>
+  </div>,
+]
+`;

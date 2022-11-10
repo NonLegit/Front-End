@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
+
 import Navbar from './components/Navbar/Navbar';
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
@@ -17,6 +18,7 @@ import theme from './styles/theme';
 import CreatePost from './pages/CreatePost';
 import PostTypeContextProvider from './contexts/PostTypeContext';
 import Notifications from './pages/Notifications';
+import SubReddit from './pages/SubReddit';
 
 function App() {
   return (
@@ -105,6 +107,12 @@ function App() {
           }
             />
           </Routes>
+          <Route
+            path="/SubReddit/:Name"
+            element={
+              <SubReddit />
+          }
+          />
         </Router>
       </PostTypeContextProvider>
     </ThemeProvider>
