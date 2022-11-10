@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
@@ -73,12 +72,6 @@ function App() {
               path="/username"
               element={
                 <ForgetUsernamePage />
-          }
-            />
-            <Route
-              path="/login"
-              element={
-                <Login />
           }
             />
             <Route

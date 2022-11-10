@@ -21,6 +21,10 @@ const theme = createTheme({
     action: {
       hoverOpacity: 0.1,
     },
+    neutral: {
+      main: '#978A8C',
+      contrastText: '#fff',
+    },
   },
   breakpoints: {
     values: {
@@ -30,10 +34,6 @@ const theme = createTheme({
       md: 900,
       lg: 1200,
       xl: 1536,
-    },
-    neutral: {
-      main: '#978A8C',
-      contrastText: '#fff',
     },
   },
 });

@@ -14,7 +14,7 @@ import {
  * @component
  * @returns {React.Component}
  */
-function UserNamePasswordForm() {
+function FirstParty() {
   const [buttonTxt, setButtonText] = useState('Log In');
   const [userName, setUserName] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
@@ -158,4 +158,4 @@ function UserNamePasswordForm() {
   );
 }
 
-export default UserNamePasswordForm;
+export default FirstParty;
