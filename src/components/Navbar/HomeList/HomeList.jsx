@@ -10,7 +10,7 @@ import OutboundOutlinedIcon from '@mui/icons-material/OutboundOutlined';
 import Avatar from '@mui/material/Avatar';
 import AddIcon from '@mui/icons-material/Add';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import { StyledList, StyledListItemButton, StyledListItemText } from './styles';
+import StyledList from './styles';
 import Reddit from '../assests/Reddit.svg';
 
 function HomeList() {
@@ -42,22 +42,22 @@ function HomeList() {
       <Collapse in={Boolean(OpenHomeList)} timeout="auto" unmountOnExit>
         <List component="div" disablePadding sx={{ position: 'absolute', width: '270px', left: '0px' }} subheader={<ListSubheader>feeds</ListSubheader>}>
           {FeedsList.map((items) => (
-            <StyledListItemButton>
+            <ListItemButton>
               <ListItemIcon>
                 {items.icon}
               </ListItemIcon>
-              <StyledListItemText primary={items.label} />
-            </StyledListItemButton>
+              <ListItemText primary={items.label} />
+            </ListItemButton>
           ))}
           <List component="div" disablePadding sx={{ position: 'absolute', width: '270px' }} subheader={<ListSubheader>others</ListSubheader>}>
             {
               OthersList.map((items) => (
-                <StyledListItemButton>
+                <ListItemButton>
                   <ListItemIcon>
                     {items.icon}
                   </ListItemIcon>
-                  <StyledListItemText primary={items.label} />
-                </StyledListItemButton>
+                  <ListItemText primary={items.label} />
+                </ListItemButton>
               ))
             }
           </List>
