@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Authentication/ThirdParty/scripts.js</title>
+    <title>JSDoc: Source: components/Authentication/ThirdParty/ThirdParty.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Authentication/ThirdParty/scripts.js</h1>
+    <h1 class="page-title">Source: components/Authentication/ThirdParty/ThirdParty.jsx</h1>
 
     
 
@@ -26,50 +26,60 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import axios from 'axios';
-/**
- * @param {JsonResponse} googleResponse
- * @return If Valid Token Then user is Logged in and redirected to the homepage
- */
-export const responseGoogleSuccess = (googleResponse) => {
-  axios.post(
-    'https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/google/1',
-    {
-      tokenId: googleResponse.tokenId,
-    },
-  ).then((response) => {
-    if (response.status === 200 || response.status === 201) {
-      window.location.href = './';
-    }
-  }).catch((error) => {
-    console.log(error);
-  });
-};
+            <pre class="prettyprint source linenums"><code>import GoogleLogin from 'react-google-login';
+import { gapi } from 'gapi-script';
 
-export const responseGoogleFail = (googleResponse) => {
-  console.log('Error When Connecting to Google', googleResponse);
-};
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { ThirdPartyContainer } from './styles';
+import ThirdPartyButton from './ThirdPartyButton/ThirdPartyButton';
+
+import {
+  responseGoogleSuccess, responseGoogleFail, responseFacebook,
+} from './scripts';
+import Google from '../../../assets/images/google.png';
+import Facebook from '../../../assets/images/facebook.png';
 
 /**
- *
- * @param {JsonResponse} facebookResponse
- * @return If Valid Token Then user is Logged in and redirected to the homepage
+ * Third Party Component
+ * @returns {React.Component} - Continue with google and Facebook
  */
-export const responseFacebook = (facebookResponse) => {
-  console.log('FaceBook', facebookResponse);
-  axios.post(
-    'https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/facebook/1',
-    {
-      access_Token: facebookResponse.accessToken,
-    },
-  ).then((response) => {
-    if (response.status === 200 || response.status === 20) {
-      window.location.href = './';
-    }
-  }).catch((error) => {
-    console.log(error);
-  });
-};
+function ThirdParty({ circular }) {
+  const clientId = '374002806091-7pces2dv4vr0vb8lchmputreqnlalqes.apps.googleusercontent.com';
+
+  // Facebook
+  const initClient = () => {
+    gapi.auth2.init({
+      clientId,
+      scope: '',
+    });
+  };
+  gapi.load('client:auth2', initClient);
+  return (
+    &lt;ThirdPartyContainer>
+      &lt;GoogleLogin
+        clientId={clientId}
+        render={(renderProps) => (
+          circular ? &lt;h1>Helo&lt;/h1>
+            : &lt;ThirdPartyButton onClick={renderProps.onClick} img={Google} alt="Google" txt="continue with google" />
+        )}
+        onSuccess={responseGoogleSuccess}
+        onFailure={responseGoogleFail}
+        cookiePolicy="single_host_origin"
+        testid="google-btn-test"
+      />
+      &lt;FacebookLogin
+        appId="1217433968834337"
+        callback={responseFacebook}
+        render={(renderProps) => (
+          circular ? &lt;h1>Helo&lt;/h1>
+            : &lt;ThirdPartyButton onClick={renderProps.onClick} img={Facebook} alt="Facebook" txt="continue with facebook" />
+        )}
+      />
+    &lt;/ThirdPartyContainer>
+  );
+}
+
+export default ThirdParty;
 </code></pre>
         </article>
     </section>

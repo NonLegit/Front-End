@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Authentication/SignUp/SignUp.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Authentication/SignUp/SignUp.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useEffect, useState } from 'react';
+import LoadingPage from '../LoadingPage/LoadingPage';
+import { AuthenticationConatiner } from '../styles';
 
+import SignUpEmail from './SignUpEmail/SignUpEmail';
+import SignUpUsername from './SignUpUsername/SignUpUsername';
+import theme from '../../../styles/theme';
 
-    <h3> </h3>
+/**
+ * SignUp Page Differenet Components
+ * @returns {React.Component} - Main Body of SignUp
+ */
+function SignUp() {
+  const [remeberMe, setremeberMe] = useState(false);
+  const [userNamePage, setUserNamePage] = useState(false);
+  const [email, setEmail] = useState({
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
+  });
 
+  useEffect(() => {
+    // check if logged in before (cokkies check)
+    setremeberMe(false);
+    setUserNamePage(false);
+  }, []);
 
+  const signUpView = userNamePage
+    ? &lt;SignUpUsername setUserNamePage={setUserNamePage} email={email} />
+    : &lt;SignUpEmail setUserNamePage={setUserNamePage} setEmail={setEmail} />;
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+  return (
+    &lt;AuthenticationConatiner data-testid="signup-test">
+      {remeberMe ? &lt;LoadingPage /> : signUpView}
+    &lt;/AuthenticationConatiner>
+  );
+}
+export default SignUp;
+</code></pre>
+        </article>
+    </section>
 
 
 

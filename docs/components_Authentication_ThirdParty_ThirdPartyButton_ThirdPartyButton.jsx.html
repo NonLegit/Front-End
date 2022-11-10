@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Authentication/ThirdParty/ThirdPartyButton/ThirdPartyButton.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,36 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Authentication/ThirdParty/ThirdPartyButton/ThirdPartyButton.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { ThirdPartyBtn, ButtonIcon } from './styles';
 
+/**
+ * Third Party Button
+ * @returns {React.Component} -Third Party Button Styled
+ */
+function ThirdPartyButton({
+  img, alt, txt, onClick,
+}) {
+  return (
+    &lt;ThirdPartyBtn variant="outlined" onClick={onClick}>
+      &lt;ButtonIcon src={img} alt={alt} />
+      {txt}
+    &lt;/ThirdPartyBtn>
+  );
+}
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default ThirdPartyButton;
+</code></pre>
+        </article>
+    </section>
 
 
 
