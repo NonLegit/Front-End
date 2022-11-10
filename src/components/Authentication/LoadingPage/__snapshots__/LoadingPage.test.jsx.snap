@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Page SnapShot 1`] = `
+Array [
+  <div
+    className="MuiBox-root css-1i4eqyw"
+  />,
+  <div
+    className="MuiBox-root css-1rv97zb"
+    mnwidth="280px"
+    mxwidth="440px"
+  />,
+  <div
+    className="MuiBox-root css-eyuwdo"
+  >
+    <img
+      alt="Reddit"
+      src="https://www.redditstatic.com/accountmanager/18e257d5fdea817c0f12cccf8867d930.svg"
+      width="40px"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-1sg842v-MuiTypography-root"
+    >
+      Welcome back!
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-g041yz-MuiTypography-root"
+    >
+      You are already logged in and will be redirected back to Reddit shortly.
+      <br />
+      <br />
+      If you are not redirected automatically, follow
+       
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jbmv31-MuiTypography-root-MuiLink-root"
+        href="google.com"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        this link
+      </a>
+      .
+    </p>
+  </div>,
+]
+`;

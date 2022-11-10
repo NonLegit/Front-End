@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Authentication/scripts.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Authentication/scripts.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import axios from 'axios';
+import DoneIcon from '@mui/icons-material/Done';
+import { wrongIcon, rightIcon } from './styles';
+import theme from '../../styles/theme';
+
+/**
+ * Fill array with 5 new random usernames
+ * @param {statefunction} setUserNames
+ * @returns {void}
+ *
+ */
+export const refreshUsernames = (setUserNames) => {
+  axios.get('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/username/random').then((response) => {
+    setUserNames(response.data.usernames);
+  }).catch((error) => {
+    console.log(error);
+  });
+};
+
+/**
+ * checks for length of the username, Format,unique
+ * @param {state} userName
+ * @param {statefunction} setUserName
+ * @returns {void}
+ *
+ */
+export const checkUserName = (userName, setUserName) => {
+  const username = userName.input;
+  // console.log(username);
+  // Check Username bwteen 3-20 characters
+  if (username.length &lt; 3 || username.length > 20) {
+    console.log('length problem');
+    setUserName((prevState) => ({
+      ...prevState,
+      color: theme.palette.error.main,
+      icon: wrongIcon,
+      error: 'Username must be between 3 and 20 characters',
+    }));
+    return;
+  }
+
+  // Check Invalid UserName
+  if (!/^[A-Za-z0-9_-]*$/.test(username)) {
+    console.log('invalid');
+    setUserName((prevState) => ({
+      ...prevState,
+      color: theme.palette.error.main,
+      icon: wrongIcon,
+      error: 'Letters, numbers, dashes, and underscores only. Please try again without symbols.',
+    }));
+    return;
+  }
+
+  // Check Unique Username
+  axios.get('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/unique/1').then((response) => {
+    console.log(response.data);
+    if (response.data.status === false) {
+      console.log('Reapeated');
+      setUserName((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'That username is already taken.',
+      }));
+      return;
+    }
+    // Valid UserName
+    setUserName((prevState) => ({
+      ...prevState,
+      color: theme.palette.primary.main,
+      icon: rightIcon,
+      error: null,
+    }));
+  }).catch((error) => console.log(error));
+};
+
+/**
+ * Check for password length if so then set as accepted
+ * @param {state} password
+ * @param {statefunction} setPassword
+ * @returns {void}
+ */
+export const checkPassword = (password, setPassword) => {
+  const passwordInput = password.input;
+  console.log(passwordInput);
+  // Check Username bwteen 3-20 characters
+  if (passwordInput.length &lt; 8) {
+    console.log('length problem');
+    setPassword((prevState) => ({
+      ...prevState,
+      color: theme.palette.error.main,
+      icon: wrongIcon,
+      error: 'Password must be at least 8 characters long',
+    }));
+    return;
+  }
+
+  // Accepeted
+  setPassword((prevState) => ({
+    ...prevState,
+    color: theme.palette.primary.main,
+    icon: rightIcon,
+    error: null,
+  }));
+};
+
+/**
+ * Check if we can SignUp or not if there is no probelm in username and password, call the endpoint
+ * @param {statefunction} setLoading
+ * @param {state} userName
+ * @param {statefunction} setUserName
+ * @param {state} password
+ * @param {statefunction} setPassword
+ * @param {state} email
+ * @param {state} verified
+ * @returns {void}
+ */
+export const signUp = (
+  setLoading,
+  userName,
+  password,
+  setPassword,
+  email,
+  verified,
+  setButtonText,
+  setRedirectCaption,
+) => {
+  setLoading(true);
+  if (userName.error != null || password.error != null) {
+    console.log(userName, password);
+    console.log("Couldn't signup");
+    setLoading(false);
+    return;
+  }
+  if (!verified) {
+    setLoading(false);
+    return;
+  }
+  if (password.score &lt; 2) {
+    setPassword((prevState) => ({
+      ...prevState,
+      color: theme.palette.error.main,
+      icon: wrongIcon,
+      error: 'This Password isn\'t acceptable',
+    }));
+    setLoading(false);
+    return;
+  }
+  axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/signup/1', userName, password, email).then((response) => {
+    setLoading(false);
+    if (response.status === 201) {
+      setButtonText(&lt;DoneIcon />);
+      setRedirectCaption(true);
+      setTimeout(() => {
+        // Suceess
+        window.location.href = './';
+        console.log('Sign up');
+      }, 1000);
+    } else {
+      console.log('Error');
+    }
+  }).catch((error) => console.log(error));
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#LogInPage">LogInPage</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#SignUpUsername">SignUpUsername</a></li><li><a href="global.html#ThirdParty">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserNamePasswordForm">UserNamePasswordForm</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 09:22:31 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

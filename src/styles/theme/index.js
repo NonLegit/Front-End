@@ -6,6 +6,7 @@ const theme = createTheme({
       main: '#0079D3',
       light: '#1484D6',
       dark: '#1484D6',
+      fade: '#3394DC',
     },
     secondary: {
       main: '#FF4500',
@@ -30,6 +31,14 @@ const theme = createTheme({
       lg: 1200,
       xl: 1536,
     },
+    neutral: {
+      main: '#978A8C',
+      contrastText: '#fff',
+    },
   },
 });
+
+export const fonts = {
+  'system-ui': 'system-ui',
+};
 export default theme;
