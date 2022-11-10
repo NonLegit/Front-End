@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PersonalReddit PersonalReddit renders correctly 1`] = `
-[
+Array [
   <div
     className="css-170bi6"
   >
@@ -60,9 +60,9 @@ exports[`PersonalReddit PersonalReddit renders correctly 1`] = `
       </button>
     </a>
     <a
-      className="css-jta5yf"
-      href="/"
-      onClick={[Function]}
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onFocus={[Function]}
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1gr231h-MuiButtonBase-root-MuiButton-root"
@@ -70,6 +70,7 @@ exports[`PersonalReddit PersonalReddit renders correctly 1`] = `
         fontSize={15}
         fontWeight="bold"
         onBlur={[Function]}
+        onClick={[Function]}
         onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -88,6 +89,9 @@ exports[`PersonalReddit PersonalReddit renders correctly 1`] = `
         create community
       </button>
     </a>
+    <div
+      className="MuiBox-root css-cxf04i"
+    />
   </div>,
   ",",
 ]

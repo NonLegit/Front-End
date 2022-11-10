@@ -1,7 +1,9 @@
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { ThemeProvider } from '@mui/system';
 import PostSubmission from './PostSubmission';
+import theme from '../../../../../styles/theme';
 
 describe(PostSubmission, () => {
   const handleSaveDraft = jest.fn((param) => param);
@@ -18,11 +20,13 @@ describe(PostSubmission, () => {
     };
     const tree = renderer
       .create(
-        <PostSubmission
-          handleSaveDraft={testCase.handleSaveDraft}
-          handlePost={testCase.handlePost}
-          readyToPost={testCase.readyToPost}
-        />,
+        <ThemeProvider theme={theme}>
+          <PostSubmission
+            handleSaveDraft={testCase.handleSaveDraft}
+            handlePost={testCase.handlePost}
+            readyToPost={testCase.readyToPost}
+          />
+        </ThemeProvider>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -33,11 +37,13 @@ describe(PostSubmission, () => {
       handleSaveDraft, handlePost, readyToPost: true,
     };
     render(
-      <PostSubmission
-        handleSaveDraft={testCase.handleSaveDraft}
-        handlePost={testCase.handlePost}
-        readyToPost={testCase.readyToPost}
-      />,
+      <ThemeProvider theme={theme}>
+        <PostSubmission
+          handleSaveDraft={testCase.handleSaveDraft}
+          handlePost={testCase.handlePost}
+          readyToPost={testCase.readyToPost}
+        />
+      </ThemeProvider>,
     );
     const postButton = screen.getByTestId('post button');
     expect(handlePost.mock.calls.length).toEqual(0);
@@ -52,11 +58,13 @@ describe(PostSubmission, () => {
       handleSaveDraft, handlePost, readyToPost: false,
     };
     render(
-      <PostSubmission
-        handleSaveDraft={testCase.handleSaveDraft}
-        handlePost={testCase.handlePost}
-        readyToPost={testCase.readyToPost}
-      />,
+      <ThemeProvider theme={theme}>
+        <PostSubmission
+          handleSaveDraft={testCase.handleSaveDraft}
+          handlePost={testCase.handlePost}
+          readyToPost={testCase.readyToPost}
+        />
+      </ThemeProvider>,
     );
     const postButton = screen.getByTestId('post button');
     expect(handlePost.mock.calls.length).toEqual(0);

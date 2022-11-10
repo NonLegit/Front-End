@@ -115,6 +115,7 @@ function FormDialog() {
           fontWeight="bold"
           sx={{ mt: 1.8 }}
           onClick={handleClickOpen}
+          data-testid="btn"
         >
           create community
         </RedditButton>

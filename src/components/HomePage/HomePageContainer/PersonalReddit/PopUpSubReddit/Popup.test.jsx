@@ -4,7 +4,7 @@ import {
   fireEvent,
   render, screen,
 } from '@testing-library/react';
-import App from '../../App';
+import App from '../../../../../App';
 import Popup from './PopUp';
 
 it('open form', async () => {
@@ -31,20 +31,20 @@ it('subreddit empty', async () => {
 it('checkbox select from text', async () => {
   window.history.pushState({}, '', '/Login');
   render(<App />);
-  const btn = screen.getByTestId('btn');
+  const btn = screen.queryByTestId('btn');
   fireEvent.click(btn);
-  const input = screen.getByTestId('cont');
-  const check = screen.getByTestId('my-Check-Box');
+  const input = screen.queryByTestId('cont');
+  const check = screen.queryByTestId('my-Check-Box');
   fireEvent.click(input);
   expect(check.firstChild).toBeChecked();
 });
 
 it('close form', async () => {
   render(<Popup />);
-  const btn = screen.getByTestId('btn');
+  const btn = screen.queryByTestId('btn');
   fireEvent.click(btn);
 
-  const cancel = screen.getByTestId('cancel-Btn');
+  const cancel = screen.queryByTestId('cancel-Btn');
   fireEvent.click(cancel);
   expect(cancel).not.toBeVisible();
 });
