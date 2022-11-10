@@ -10,6 +10,10 @@ import ThirdParty from '../../ThirdParty/ThirdParty';
 import Divider from '../../Divider/Divider';
 import Email from '../../Email/Email';
 
+/**
+ * SignUp Email Componenet
+ * @returns {React.Component}
+ */
 function SignUpEmail({ setUserNamePage, setEmail }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -59,7 +63,7 @@ function SignUpEmail({ setUserNamePage, setEmail }) {
   return (
     <>
       <AuthenticationBG />
-      <AuthenticationBody mnwidth="280px" mxwidth="280px">
+      <AuthenticationBody mnwidth="280px" mxwidth="280px" data-testid="signup-email-test">
         <AuthenticationHeader reddit={false} title="Sign up" caption={caption} />
         <ThirdParty circular={false} />
 

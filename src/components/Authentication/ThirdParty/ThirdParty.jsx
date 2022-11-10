@@ -11,6 +11,10 @@ import {
 import Google from '../../../assets/images/google.png';
 import Facebook from '../../../assets/images/facebook.png';
 
+/**
+ * Third Party Component
+ * @returns {React.Component} - Continue with google and Facebook
+ */
 function ThirdParty({ circular }) {
   const clientId = '374002806091-7pces2dv4vr0vb8lchmputreqnlalqes.apps.googleusercontent.com';
 

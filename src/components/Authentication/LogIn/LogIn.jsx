@@ -10,7 +10,7 @@ import Divider from '../Divider/Divider';
 import FirstParty from '../FirstParty/FirstParty';
 
 /**
- * Login Page Differenet  Components
+ * Login Page Differenet Components
  * @returns {React.Component} - Main Body of Login Page
  */
 function LogIn() {

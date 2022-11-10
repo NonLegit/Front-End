@@ -27,11 +27,11 @@ function Email({
         error: null,
       }));
     }
-    console.log('Email in check email', email);
+    // console.log('Email in check email', email);
   };
 
   return (
-    <FirstPartyContainer width={width} onSubmit={(e) => onSubmitFn(e, email)} noValidate data-testid="SignUpEmail-test">
+    <FirstPartyContainer width={width} onSubmit={(e) => { onSubmitFn(e, email); }} noValidate data-testid="SignUpEmail-test">
       <RedditTextField
         label="Email"
         variant="filled"

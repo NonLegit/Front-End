@@ -26,7 +26,7 @@ export const refreshUsernames = (setUserNames) => {
  */
 export const checkUserName = (userName, setUserName) => {
   const username = userName.input;
-  console.log(username);
+  // console.log(username);
   // Check Username bwteen 3-20 characters
   if (username.length < 3 || username.length > 20) {
     console.log('length problem');
@@ -118,7 +118,6 @@ export const checkPassword = (password, setPassword) => {
 export const signUp = (
   setLoading,
   userName,
-  setUserName,
   password,
   setPassword,
   email,
@@ -127,9 +126,6 @@ export const signUp = (
   setRedirectCaption,
 ) => {
   setLoading(true);
-  checkUserName(userName, setUserName);
-  checkPassword(password, setPassword);
-
   if (userName.error != null || password.error != null) {
     console.log(userName, password);
     console.log("Couldn't signup");

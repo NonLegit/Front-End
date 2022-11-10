@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SigUp test snapshot 1`] = `
-Array [
+<div
+  className="MuiBox-root css-19sqwra"
+  data-testid="signup-test"
+>
   <div
     className="MuiBox-root css-1i4eqyw"
-  />,
+  />
   <div
     className="MuiBox-root css-rjktpo"
     data-testid="signup-email-test"
@@ -76,6 +79,9 @@ Array [
           src="google.png"
         />
         continue with google
+        <span
+          className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1inhtju-MuiButtonBase-root-MuiButton-root"
@@ -102,6 +108,9 @@ Array [
           src="facebook.png"
         />
         continue with facebook
+        <span
+          className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
     </div>
     <div
@@ -188,6 +197,9 @@ Array [
         type="submit"
       >
         continue
+        <span
+          className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
     </form>
     <p
@@ -205,6 +217,6 @@ Array [
         log in
       </a>
     </p>
-  </div>,
-]
+  </div>
+</div>
 `;

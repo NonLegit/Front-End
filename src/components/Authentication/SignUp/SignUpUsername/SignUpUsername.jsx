@@ -16,6 +16,10 @@ import {
 } from '../../scripts';
 import theme, { fonts } from '../../../../styles/theme';
 
+/**
+ * SignUp Username and Password Component
+ * @returns {React.Component} -set username ans password, Suggest username, Check I am not a robot
+ */
 function SignUpUsername({ setUserNamePage, email }) {
   const [userNames, setUserNames] = useState([]);
 
@@ -35,7 +39,7 @@ function SignUpUsername({ setUserNamePage, email }) {
   }, []);
 
   return (
-    <ChooseUsernameContainer>
+    <ChooseUsernameContainer data-testid="signup-username-test">
       <Header>
         <Typography variant="h1" fontSize={18} fontWeight={700} fontFamily="ibm-plex-sans,sans-serif" marginBottom="10px">
           {/* Modify this font to be in the theme */}
@@ -61,11 +65,14 @@ function SignUpUsername({ setUserNamePage, email }) {
               disableUnderline: true,
             }}
             clr={userName.color}
-            onBlur={() => checkUserName(userName, setUserName)}
-            onChange={(e) => setUserName((prevState) => ({
-              ...prevState,
-              input: e.target.value.trim(),
-            }))}
+            onChange={(e) => {
+              setUserName((prevState) => ({
+                ...prevState,
+                input: e.target.value.trim(),
+              }));
+              checkUserName(userName, setUserName);
+            }}
+            data-testid="username-signup-field-test"
             helperText={userName.error}
           />
 
@@ -90,14 +97,16 @@ function SignUpUsername({ setUserNamePage, email }) {
               disableUnderline: true,
             }}
             clr={password.color}
-            onBlur={() => checkPassword(password, setPassword)}
-            onChange={(e) => setPassword((prevState) => ({
-              ...prevState,
-              input: e.target.value.trim(),
-            }))}
+            onChange={(e) => {
+              setPassword((prevState) => ({
+                ...prevState,
+                input: e.target.value.trim(),
+              }));
+              checkPassword(password, setPassword);
+            }}
             helperText={password.error}
+            data-testid="password-signup-field-test"
           />
-
           <ReCAPTCHA
             sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
             onExpired={() => setVerified(false)}
@@ -126,6 +135,8 @@ function SignUpUsername({ setUserNamePage, email }) {
                 input: i,
               }))}
               href="#"
+              helperText={password.error}
+              data-testid={`suggest-username-${i}-test`}
             >
               {i}
             </SuggestLink>
@@ -143,7 +154,6 @@ function SignUpUsername({ setUserNamePage, email }) {
           onClick={() => signUp(
             setLoading,
             userName,
-            setUserName,
             password,
             setPassword,
             email,
@@ -152,6 +162,7 @@ function SignUpUsername({ setUserNamePage, email }) {
             setRedirectCaption,
           )}
           loading={loading}
+          data-testid="sigup-btn-test"
         >
           {buttonTxt}
         </RedditLoadingButton>
