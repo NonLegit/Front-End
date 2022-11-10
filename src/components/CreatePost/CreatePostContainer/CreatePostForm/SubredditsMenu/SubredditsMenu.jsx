@@ -64,6 +64,7 @@ function SubredditsMenu(props) {
   };
   const handleCommunityNameChange = (e) => {
     setCommunityName(e.target.value);
+    setChosenCommunityIcon(null);
   };
   const handleFilter = (community) => iMatcher(`r/${community.subredditName}`, communityName);
 

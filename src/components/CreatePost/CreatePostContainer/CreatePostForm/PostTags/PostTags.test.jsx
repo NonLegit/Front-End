@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@mui/system';
 import PostTags from './PostTags';
-import theme from '../../../styles/theme';
+import theme from '../../../../../styles/theme';
 
 describe(PostTags, () => {
   const hanldeSpoiler = jest.fn((param) => param);

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: MainContent/Posts/EntityPost/PostFooter/PostFooter.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: MainContent/Posts/EntityPost/PostFooter/PostFooter.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import ShortcutOutlinedIcon from '@mui/icons-material/ShortcutOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
+import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import { useState } from 'react';
+import { ClickAwayListener, Divider } from '@mui/material';
+
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import UnfoldLessOutlinedIcon from '@mui/icons-material/UnfoldLessOutlined';
+import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {
+  ElementBox, FooterBox, FooterText,
+} from './styles';
+import PostFooterList from './PostFooterList/PostFooterList';
+
+/** Footer of the post that contain all icons
+ * @return {React.Component} - PostFooter
+ * @param {function} handleExpand - pass the event to the parent to show the paragraph of the post
+ * @param {state} expand - pass a state to the parent to change the icon
+ * @param {object} entity - contains all info of the post
+ */
+function PostFooter(props) {
+  const {
+    numComments,
+    approved,
+    removed,
+    spam,
+    handleExpand,
+    expand,
+    voted,
+    postedByOthers,
+    saved,
+    hidden,
+  } = props;
+  const [isHidden, setIsHidden] = useState(hidden);
+  const [isSaved, setIsSaved] = useState(saved);
+  const [showList, setShowList] = useState(false);
+  // handle disable the list when click away
+  const handleClick = () => {
+    setShowList((prev) => !prev);
+  };
+
+  const handleClickAway = () => {
+    setShowList(false);
+  };
+
+  const handleClickHide = () => {
+    setIsHidden((prev) => !prev);
+  };
+
+  const handleClickSave = () => {
+    setIsSaved((prev) => !prev);
+  };
+
+  const moderator = [
+    {
+      id: 1, text: 'Approved', condition: approved, icon: &lt;CheckCircleOutlineOutlinedIcon />,
+    },
+    {
+      id: 2, text: 'Removed', condition: removed, icon: &lt;BlockOutlinedIcon />,
+    },
+    {
+      id: 3, text: 'Spam', condition: spam, icon: &lt;CancelPresentationOutlinedIcon />,
+    },
+    {
+      id: 4, text: '', condition: false, icon: &lt;AdminPanelSettingsOutlinedIcon />,
+    },
+  ];
+  const publisher = [
+    {
+      id: 1, text: 'Edit Post', icon: &lt;ModeEditOutlinedIcon />,
+    },
+    isSaved ? {
+      id: 2, text: 'Unsave', icon: &lt;BookmarksOutlinedIcon />, func: true,
+    } : {
+      id: 2, text: 'Save', icon: &lt;BookmarkBorderOutlinedIcon />, func: true,
+    },
+    isHidden ? {
+      id: 3, text: 'Unhide', icon: &lt;VisibilityOffIcon />, func: false,
+    } : {
+      id: 3, text: 'Hide', icon: &lt;VisibilityOffOutlinedIcon />, func: false,
+    },
+  ];
+
+  return (
+    &lt;FooterBox>
+      &lt;ElementBox>
+        {expand ? &lt;UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
+          : &lt;UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
+      &lt;/ElementBox>
+      &lt;Divider orientation="vertical" variant="middle" flexItem />
+      &lt;ElementBox>
+        &lt;ChatBubbleOutlineOutlinedIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>{numComments}&lt;/FooterText>
+      &lt;/ElementBox>
+      &lt;ElementBox>
+        &lt;ShortcutOutlinedIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>Share&lt;/FooterText>
+      &lt;/ElementBox>
+      {(!voted) &amp;&amp; moderator.map((entity) => (
+        &lt;ElementBox
+          key={entity.id}
+          approved={(entity.condition &amp;&amp; entity.text === 'Approved')?.toString()}
+          spam={(entity.condition &amp;&amp; (entity.text === 'Spam' || entity.text === 'Removed'))?.toString()}
+        >
+          {entity.icon}
+          &lt;FooterText variant="caption" condition={true.toString()}>{entity.text}&lt;/FooterText>
+        &lt;/ElementBox>
+      ))}
+      {(!voted) &amp;&amp; (
+      &lt;ElementBox condition2={true.toString()}>
+        &lt;SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
+        &lt;FooterText variant="caption">Insights&lt;/FooterText>
+      &lt;/ElementBox>
+      )}
+
+      {(voted) &amp;&amp; publisher.map((entity) => (
+        &lt;ElementBox
+          key={entity.id}
+          onClick={entity.func ? () => { handleClickSave(); } : () => { handleClickHide(); }}
+          data-testid={(entity.id === 3) &amp;&amp; 'hidden'}
+        >
+          {entity.icon}
+          &lt;FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 3) &amp;&amp; 'text-hide'}>{entity.text}&lt;/FooterText>
+        &lt;/ElementBox>
+      ))}
+
+      {postedByOthers ? (
+        &lt;ElementBox>
+          &lt;FlagOutlinedIcon />
+          &lt;FooterText variant="caption" condition={true.toString()}>Report&lt;/FooterText>
+        &lt;/ElementBox>
+      ) : (
+        &lt;ClickAwayListener onClickAway={handleClickAway}>
+          &lt;ElementBox>
+            &lt;MoreHorizOutlinedIcon onClick={handleClick} />
+            {showList &amp;&amp; (
+              &lt;PostFooterList />
+            )}
+          &lt;/ElementBox>
+        &lt;/ClickAwayListener>
+      )}
+
+    &lt;/FooterBox>
+  );
+}
+
+export default PostFooter;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsContent">CommentsContent</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#EntityPost">EntityPost</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostHeader">PostHeader</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UserInfo">UserInfo</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Nov 09 2022 18:58:53 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,6 +1,13 @@
+/* eslint-disable import/no-named-default */
+import { default as MyProfileHeader } from '../components/Profile/Header/Header';
+import { default as MyProfileContent } from '../components/Profile/MainContent/MainContent';
+
 function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <MyProfileHeader />
+      <MyProfileContent />
+    </>
   );
 }
 

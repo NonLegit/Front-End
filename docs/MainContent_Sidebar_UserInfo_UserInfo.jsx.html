@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: MainContent/Sidebar/UserInfo/UserInfo.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: MainContent/Sidebar/UserInfo/UserInfo.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box, CardMedia, Typography } from '@mui/material';
+import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
+import FilterVintageIcon from '@mui/icons-material/FilterVintage';
+import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import PersonIcon from '@mui/icons-material/Person';
+import CakeIcon from '@mui/icons-material/Cake';
+import AddIcon from '@mui/icons-material/Add';
+import { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import {
+  AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
+  UserInfoBox, UserName, InfoBox,
+  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
+} from './styles';
+import { UserContext } from '../../../../../context/UserProvider';
+
+/** UserInfo Box in sidebar
+ * @return {React.Component} - UserInfo
+ */
+function UserInfo() {
+  const [karma, setKarma] = useState();
+  const [cake, setCake] = useState();
+  const [followers, setFollowers] = useState();
+
+  const client = axios.create({
+    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+  });
+  const {
+    username,
+  } = useContext(UserContext);
+
+  // to be fetched here
+  useEffect(() => {
+    client.get(`users/${username}/about/200`) // fetch api
+      .then((actualData) => {
+        setKarma(actualData.data.user.postKarma);
+        setCake(actualData.data.user.gender);
+        // check with back end
+        setFollowers(actualData.data.user.followersCount);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [username]);
+
+  const [showList, setShowList] = useState(false);
+  const handleClickList = () => {
+    setShowList((prev) => !prev);
+  };
+
+  return (
+    &lt;UserInfoBox>
+      &lt;CardMedia
+        component="img"
+        height="94"
+        image="https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&amp;height=384&amp;crop=1280:384,smart&amp;s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c"
+        alt="cover image"
+        data-testid="cover-photo"
+      />
+      &lt;AddPhoto sx={{
+        border: (theme) => `thin solid ${theme.palette.primary.main}`,
+        transform: 'translate(730% ,-130%)',
+      }}
+      >
+        &lt;AddAPhotoOutlinedIcon color="primary" fontSize="small" disabled />
+      &lt;/AddPhoto>
+
+      &lt;ProfileBox>
+        &lt;Box sx={{ display: 'flex' }}>
+          &lt;Box>
+            &lt;ProfilePic src="https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&amp;height=256&amp;crop=256:256,smart&amp;s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21" alt="user photo" />
+            &lt;AddPhoto sx={{
+              border: (theme) => `thin solid ${theme.palette.primary.main}`,
+              position: 'absolute',
+              transform: 'translate(180% ,-100%)',
+            }}
+            >
+              &lt;AddAPhotoOutlinedIcon color="primary" fontSize="small" />
+            &lt;/AddPhoto>
+
+          &lt;/Box>
+          &lt;EngineIcon color="primary" />
+        &lt;/Box>
+        &lt;UserName variant="caption">
+          u/
+          {username}
+        &lt;/UserName>
+        &lt;br />
+        &lt;WideButton variant="contained" color="primary" endIcon={&lt;ArrowForwardIosOutlinedIcon />}>
+          Create Avatar
+        &lt;/WideButton>
+        &lt;InfoBox>
+          &lt;EntityBox>
+            &lt;Typography variant="body2" sx={{ marginBottom: '5px' }}>Karma&lt;/Typography>
+            &lt;Box sx={{ display: 'flex' }}>
+              &lt;FilterVintageIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
+              &lt;Typography variant="caption" sx={{ color: '#7c7c7c' }}>{karma}&lt;/Typography>
+            &lt;/Box>
+          &lt;/EntityBox>
+          &lt;EntityBox>
+            &lt;Typography variant="body2" sx={{ marginBottom: '5px' }}>Cake Day&lt;/Typography>
+            &lt;Box sx={{ display: 'flex' }}>
+              &lt;CakeIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
+              &lt;Typography variant="caption" sx={{ color: '#7c7c7c' }}>{cake}&lt;/Typography>
+            &lt;/Box>
+          &lt;/EntityBox>
+          &lt;EntityBox>
+            &lt;Typography variant="body2" sx={{ marginBottom: '5px' }}>Followers&lt;/Typography>
+            &lt;Box sx={{ display: 'flex' }}>
+              &lt;PersonIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
+              &lt;Typography variant="caption" sx={{ color: '#7c7c7c' }}>{followers}&lt;/Typography>
+              &lt;FollowersArrow fontSize="string" color="disabled" />
+            &lt;/Box>
+          &lt;/EntityBox>
+        &lt;/InfoBox>
+        &lt;AddSocialLink startIcon={&lt;AddIcon />} variant="contained">Add social link&lt;/AddSocialLink>
+        &lt;br />
+        &lt;AddPost variant="contained">Add Post&lt;/AddPost>
+        {showList
+            &amp;&amp; (
+            &lt;>
+              &lt;OptionsButtons>Profile moderation&lt;/OptionsButtons>
+              &lt;OptionsButtons>Add to Custom Feed&lt;/OptionsButtons>
+              &lt;OptionsButtons>Invite someone to chat&lt;/OptionsButtons>
+              &lt;MoreOptions onClick={() => { handleClickList(); }}>Fewer options&lt;/MoreOptions>
+            &lt;/>
+            )}
+        {!showList
+            &amp;&amp; &lt;MoreOptions onClick={() => { handleClickList(); }}>More options&lt;/MoreOptions>}
+      &lt;/ProfileBox>
+
+    &lt;/UserInfoBox>
+  );
+}
+
+export default UserInfo;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="global.html#Post">Post</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 04:03:53 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
