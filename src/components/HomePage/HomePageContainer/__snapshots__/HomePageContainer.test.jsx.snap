@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePageContainer HomePageContainer renders correctly 1`] = `
-[
+Array [
   <div
-    className="MuiBox-root css-h8b045"
+    className="MuiBox-root css-101ole"
   >
     <div
-      className="css-1l4w6pd"
+      className="css-1yelhn"
     >
       <div
         className="css-3ggxsn"
@@ -30,7 +30,7 @@ exports[`HomePageContainer HomePageContainer renders correctly 1`] = `
             </a>
           </div>
           <input
-            className="css-1q4soll"
+            className="css-1txqv5e"
             onClick={[Function]}
             placeholder="Create Post"
             type="text"
@@ -40,7 +40,7 @@ exports[`HomePageContainer HomePageContainer renders correctly 1`] = `
             onClick={[Function]}
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1d2l2z3-MuiButtonBase-root-MuiIconButton-root"
+              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
@@ -75,7 +75,7 @@ exports[`HomePageContainer HomePageContainer renders correctly 1`] = `
             onClick={[Function]}
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1d2l2z3-MuiButtonBase-root-MuiIconButton-root"
+              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
