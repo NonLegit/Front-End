@@ -6,7 +6,9 @@ import {
   Select, SelectBox, SelectItem,
 } from './style';
 
-export default function Sort() {
+export default function Sort(props) {
+  const { margin } = props;
+  const { marginLeft } = props;
   const [showList1, setShowList1] = useState(false);
 
   // handle disable the list when click away
@@ -28,7 +30,7 @@ export default function Sort() {
         </ClickAwayListener>
       </Select>
       {showList1 && (
-      <SelectBox>
+      <SelectBox sx={{ marginTop: margin, marginLeft }}>
         <SelectItem>Add to Custom Feed</SelectItem>
         <SelectItem>Add to Favorites</SelectItem>
       </SelectBox>

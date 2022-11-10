@@ -61,22 +61,21 @@ export const Created = styled('div')({
   display: 'flex',
   flexFlow: 'row nowrap',
   marginTop: 1,
+  paddingLeft: 12,
 });
 
-export const Icon = styled('div')({
-  fontSize: 20,
-  fontWeight: 400,
-  height: 20,
-  verticalAlign: 'middle',
-  width: 20,
-  margin: '3px 8px 0 8px',
-
-});
+export const Icon = styled('div')(() => ({
+  marginRight: 4,
+  marginLeft: -2,
+  flex: '0 0 auto',
+}));
 
 export const CreatedSpan = styled('h2')({
   color: '#7c7c7c',
   marginBlockStart: 0,
   marginBlockEnd: 0,
+  fontSize: 16,
+  fontWeight: 400,
 });
 export const Hr = styled('hr')({
   backgroundColor: '#1a1a1b12',

@@ -48,7 +48,7 @@ function Moderation() {
             <AdminPanelSettingsOutlinedIcon />
             Mood Tools
           </Admin>
-          <Sort />
+          <Sort margin={15} />
         </More>
       </AboutCountainer>
       <AddSector />

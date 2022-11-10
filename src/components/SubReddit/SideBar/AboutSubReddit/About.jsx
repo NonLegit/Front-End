@@ -1,5 +1,5 @@
-import MailIcon from '@mui/icons-material/Mail';
 import { Box } from '@mui/material';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import Sort from '../MoreIcon/More';
 
 import {
@@ -14,8 +14,8 @@ function About() {
         <AboutString>
           About Community
         </AboutString>
-        <More>
-          <Sort />
+        <More sx={{ marginBottom: 1 }}>
+          <Sort margin={1} marginLeft="-51px" />
         </More>
       </AboutCountainer>
       <AboutContent>
@@ -28,7 +28,7 @@ function About() {
         </AboutDisc>
       </AboutContent>
       <Created>
-        <Icon><MailIcon /></Icon>
+        <Icon><EmailOutlinedIcon /></Icon>
         <CreatedSpan>Created Oct 19, 2012</CreatedSpan>
       </Created>
       <Hr />
