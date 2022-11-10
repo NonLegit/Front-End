@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
+import PostTypeContextProvider from '../../../../contexts/PostTypeContext';
 import CreatePostForm from './CreatePostForm';
 
 let realUseContext;
@@ -19,7 +20,9 @@ afterEach(() => {
 test('CreatePostForm', () => {
   useContextMock.mockReturnValue([]);
   const element = new ShallowRenderer().render(
-    <CreatePostForm />,
+    <PostTypeContextProvider>
+      <CreatePostForm />
+    </PostTypeContextProvider>,
   );
   expect(element.props.children).not.toBeNull();
 });

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePageFooter HomePageFooter renders correctly 1`] = `
-[
+Array [
   <div
     className="css-1jk8dg8"
   >

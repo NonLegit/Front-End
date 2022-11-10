@@ -66,6 +66,7 @@ Array [
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1gr231h-MuiButtonBase-root-MuiButton-root"
+        data-testid="btn"
         disabled={false}
         fontSize={15}
         fontWeight="bold"

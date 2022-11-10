@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@mui/system';
 import PostTypes from './PostTypes';
-import theme from '../../../styles/theme';
+import theme from '../../../../../styles/theme';
 
 describe(PostTypes, () => {
   const handlePostType = jest.fn((param) => param);

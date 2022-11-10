@@ -8,7 +8,7 @@ exports[`PostTypes PostTypes renders correctly 1`] = `
     className="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
     onScroll={[Function]}
     style={
-      {
+      Object {
         "marginBottom": -0,
         "overflow": "hidden",
       }
@@ -59,7 +59,7 @@ exports[`PostTypes PostTypes renders correctly 1`] = `
         post
         <span
           className="MuiTabs-indicator css-1tpncd7-MuiTabs-indicator"
-          style={{}}
+          style={Object {}}
         />
       </button>
       <hr
