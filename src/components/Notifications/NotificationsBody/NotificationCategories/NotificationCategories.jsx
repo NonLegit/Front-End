@@ -12,7 +12,8 @@ import NotificationImages from './NotificationImage/NotificationImages';
 
 export const ReplayContext = createContext();
 /**
- *  @component Notification Categories
+ *  Notification Categories
+ *  @component
  * @param {Array} earlier - Array of earlier notifications
  * @param {Array} today - type of today notifiactions
  * @param {Function} handleClose - function to set what notifiacation we select and it's type

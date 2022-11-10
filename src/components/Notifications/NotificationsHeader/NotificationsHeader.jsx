@@ -8,7 +8,8 @@ import
   NotificationsHead, HeaderContiner, TabsContiner, Tab, TabText, theme,
 } from './styles';
 /**
- * @component Notifications Header
+ * Notifications Header
+ * @component
  * The component has function clickTab to set active tab
  * @return {React.Component} - Header of notifications page
  */
