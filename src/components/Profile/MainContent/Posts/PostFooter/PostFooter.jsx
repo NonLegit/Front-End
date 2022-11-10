@@ -7,7 +7,7 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ClickAwayListener, Divider } from '@mui/material';
 
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
@@ -21,6 +21,7 @@ import {
   ElementBox, FooterBox, FooterText,
 } from './styles';
 import PostFooterList from './PostFooterList/PostFooterList';
+import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListResponsive';
 
 /** Footer of the post that contain all icons
  * @return {React.Component} - PostFooter
@@ -44,6 +45,7 @@ function PostFooter(props) {
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
   const [showList, setShowList] = useState(false);
+  const [showList2, setShowList2] = useState(false);
   // handle disable the list when click away
   const handleClick = () => {
     setShowList((prev) => !prev);
@@ -52,6 +54,15 @@ function PostFooter(props) {
   const handleClickAway = () => {
     setShowList(false);
   };
+
+  // handle disable the list when click away
+  const handleClick2 = () => {
+    setShowList2((prev) => !prev);
+  };
+
+  // const handleClickAway2 = () => {
+  //   setShowList2(false);
+  // };
 
   // switch icon to hidden post and vice verse
   const handleClickHide = () => {
@@ -62,6 +73,12 @@ function PostFooter(props) {
   const handleClickSave = () => {
     setIsSaved((prev) => !prev);
   };
+
+  useEffect(() => {
+    // console.log(type);
+    setIsSaved(saved);
+    setIsHidden(hidden);
+  }, [saved, hidden]);
 
   const moderator = [
     {
@@ -82,14 +99,14 @@ function PostFooter(props) {
       id: 1, text: 'Edit Post', icon: <ModeEditOutlinedIcon />,
     },
     isSaved ? {
-      id: 2, text: 'Unsave', icon: <BookmarksOutlinedIcon />, func: true,
+      id: 2, text: 'Unsave', icon: <BookmarksOutlinedIcon />, func: handleClickSave,
     } : {
-      id: 2, text: 'Save', icon: <BookmarkBorderOutlinedIcon />, func: true,
+      id: 2, text: 'Save', icon: <BookmarkBorderOutlinedIcon />, func: handleClickSave,
     },
     isHidden ? {
-      id: 3, text: 'Unhide', icon: <VisibilityOffIcon />, func: false,
+      id: 3, text: 'Unhide', icon: <VisibilityOffIcon />, func: handleClickHide,
     } : {
-      id: 3, text: 'Hide', icon: <VisibilityOffOutlinedIcon />, func: false,
+      id: 3, text: 'Hide', icon: <VisibilityOffOutlinedIcon />, func: handleClickHide,
     },
   ];
 
@@ -128,8 +145,9 @@ function PostFooter(props) {
       {(voted) && publisher.map((entity) => (
         <ElementBox
           key={entity.id}
-          onClick={entity.func ? () => { handleClickSave(); } : () => { handleClickHide(); }}
+          onClick={() => { entity.func(); }}
           data-testid={(entity.id === 3) && 'hidden'}
+          condition={true.toString()}
         >
           {entity.icon}
           <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 3) && 'text-hide'}>{entity.text}</FooterText>
@@ -137,7 +155,7 @@ function PostFooter(props) {
       ))}
 
       {postedByOthers ? (
-        <ElementBox>
+        <ElementBox condition={true.toString()}>
           <FlagOutlinedIcon />
           <FooterText variant="caption" condition={true.toString()}>Report</FooterText>
         </ElementBox>
@@ -151,6 +169,13 @@ function PostFooter(props) {
           </ElementBox>
         </ClickAwayListener>
       )}
+
+      <ElementBox show={true.toString()}>
+        <MoreHorizOutlinedIcon onClick={handleClick2} />
+        {showList2 && (
+          <PostFooterListResponsive />
+        )}
+      </ElementBox>
 
     </FooterBox>
   );

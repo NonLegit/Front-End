@@ -34,7 +34,7 @@ const renderSwitch = (param) => {
     );
   }
   return (
-    <>no</>
+    <div />
   );
 };
 

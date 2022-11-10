@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 import {
   EmptyImage,
@@ -23,13 +23,18 @@ function Post(props) {
     type,
   } = props;
   const [expand, setExpand] = useState();
+  const [subTitle, setSubTitle] = useState(type);
   const { username } = useContext(UserContext);
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
+  useEffect(() => {
+    console.log(type);
+    setSubTitle(type);
+  }, [type]);
   return (
     <PostsQueueBox>
-      <PostSide upvoted={type === 'upvoted'} downvoted={type === 'downvoted'} />
+      <PostSide upvoted={subTitle === 'upvoted'} downvoted={subTitle === 'downvoted'} />
 
       <Box sx={{ marginLeft: 6 }}>
         <Box sx={{ display: 'flex' }}>
@@ -53,10 +58,10 @@ function Post(props) {
                 subTitle={entity.ownerType}
                 handleExpand={handleExpand}
                 expand={expand}
-                voted={type === 'upvoted' || type === 'downvoted'}
+                voted={subTitle === 'upvoted' || subTitle === 'downvoted'}
                 postedByOthers={!(entity.creator === username)}
-                saved={type === 'saved'}
-                hidden={type === 'hidden'}
+                saved={subTitle === 'saved'}
+                hidden={subTitle === 'hidden'}
                 approved={entity.approved}
                 removed={entity.removed}
                 spam={entity.spam}
