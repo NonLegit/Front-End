@@ -3,6 +3,7 @@ import {
   RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
 } from './styles';
 import RedditButton from '../../../RedditButton/RedditButton';
+import FormDialog from './PopUpSubReddit/PopUp';
 /**
  * This component contains info about personal
  * Reddit frontpage.
@@ -39,11 +40,7 @@ function PersonalReddit() {
           create post
         </RedditButton>
       </CustomLink>
-      <CustomLink>
-        <RedditButton variant="outlined" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-          create community
-        </RedditButton>
-      </CustomLink>
+      <FormDialog />
     </RedditPersonal>
   );
 }

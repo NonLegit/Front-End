@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import {
   Box, Checkbox, Dialog, FilledInput, FormControl, FormControlLabel,
   FormGroup,
@@ -17,7 +16,8 @@ import {
   Container, Count, DialogTitle, Disc, Name, NSFWs,
   SecConatiner, SelectHeader, Warning, Btn, BOX, Cont, ContUp, StyledTooltip,
 } from './style';
-import { CreatPost, CustomLink } from '../SubReddit/SideBar/AboutSubReddit/style';
+import { CreatPost, CustomLink } from '../../../../SubReddit/SideBar/AboutSubReddit/style';
+import RedditButton from '../../../../RedditButton/RedditButton';
 /**
  * Pop up Creat Cummunity Form
  * @return {React.Component} - Popup Form
@@ -68,7 +68,7 @@ function FormDialog() {
     // axios.get(`http://localhost:8000/subreddit/${{ subRedditName }}`, {
     //   subredditName: subRedditName,
     // })
-    axios.get(`https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/${subRedditName}/401`, {
+    axios.get(`https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/${subRedditName}/200`, {
     })
       .then((response) => {
         if (response.status === 200) {
@@ -106,10 +106,19 @@ function FormDialog() {
     }
   };
   return (
-    <div>
-      <Button data-testid="btn" variant="outlined" onClick={handleClickOpen}>
-        Create a community
-      </Button>
+    <>
+      <CustomLink>
+        <RedditButton
+          variant="outlined"
+          padding="4px"
+          fontSize={15}
+          fontWeight="bold"
+          sx={{ mt: 1.8 }}
+          onClick={handleClickOpen}
+        >
+          create community
+        </RedditButton>
+      </CustomLink>
       <Container>
         <Dialog open={open} onClose={handleClose}>
           <Box sx={{ p: 2 }}>
@@ -222,7 +231,7 @@ function FormDialog() {
           </Actions>
         </Dialog>
       </Container>
-    </div>
+    </>
   );
 }
 export default FormDialog;

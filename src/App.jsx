@@ -106,13 +106,13 @@ function App() {
                 <Notifications />
           }
             />
-          </Routes>
-          <Route
-            path="/SubReddit/:Name"
-            element={
-              <SubReddit />
+            <Route
+              path="/SubReddit/:Name"
+              element={
+                <SubReddit />
           }
-          />
+            />
+          </Routes>
         </Router>
       </PostTypeContextProvider>
     </ThemeProvider>

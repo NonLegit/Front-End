@@ -26,7 +26,7 @@ export const Container = styled(Box)({
   alignItems: 'center',
   background: '#ffffff',
   boxSizing: 'border-box',
-  padding: 16,
+  padding: 0,
   position: 'relative',
   borderRadius: '0 4px 4px 0',
   flex: '1 1 100%',
@@ -34,7 +34,7 @@ export const Container = styled(Box)({
   maxHeight: '100%',
   maxWidth: '100vw',
   overflowY: 'auto',
-
+  marginTop: 0,
 });
 export const SecConatiner = styled(DialogContent)({
   marginBottom: 8,
