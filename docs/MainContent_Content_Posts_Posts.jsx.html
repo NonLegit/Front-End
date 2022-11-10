@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: MainContent/Content/Posts/Posts.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,57 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: MainContent/Content/Posts/Posts.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box } from '@mui/material';
+import PostFooter from './PostFooter/PostFooter';
+import PostHeader from './PostHeader/PostHeader';
+import PostSide from './PostSide/PostSide';
 
+import {
+  ParagraphPost,
+  PostContentBox,
+  PostsQueueBox,
+  TitlePost,
+} from './styles';
 
-    <h3> </h3>
+/**
+ * Posts inside the content of profile
+ * @return {React.Component} - Posts
+ * @param {object} post - conatin all info needed to be shown in the post
+ */
+function Posts(props) {
+  const { post } = props;
+  return (
+    &lt;PostsQueueBox>
+      &lt;PostSide points={post?.votes} />
+      &lt;PostContentBox>
+        &lt;Box sx={{ marginLeft: 1 }}>
+          &lt;PostHeader
+            subReddit={post?.ownerType}
+            nameUser={post?.author}
+            Time={post?.createdAt}
+          />
+          &lt;TitlePost variant="h6">{post?.title}&lt;/TitlePost>
+          &lt;ParagraphPost data-testid="post-body" variant="body2">{post?.text}&lt;/ParagraphPost>
+          &lt;PostFooter subTitle={post?.ownerType} numComments={post?.commentCount} />
+        &lt;/Box>
+      &lt;/PostContentBox>
+    &lt;/PostsQueueBox>
+  );
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Posts;
+</code></pre>
+        </article>
+    </section>
 
 
 

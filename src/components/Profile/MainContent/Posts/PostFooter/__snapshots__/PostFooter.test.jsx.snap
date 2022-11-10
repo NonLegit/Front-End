@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-146v974"
+>
+  <div
+    className="MuiBox-root css-orlaaz"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1or9raf-MuiSvgIcon-root"
+      data-testid="UnfoldMoreOutlinedIcon"
+      focusable="false"
+      onClick={[Function]}
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 5.83 15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"
+      />
+    </svg>
+  </div>
+  <hr
+    className="MuiDivider-root MuiDivider-middle MuiDivider-vertical MuiDivider-flexItem css-16bghm4-MuiDivider-root"
+  />
+  <div
+    className="MuiBox-root css-orlaaz"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="ChatBubbleOutlineOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-9pee2b-MuiTypography-root"
+      responsiveshare="true"
+    />
+  </div>
+  <div
+    className="MuiBox-root css-orlaaz"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="ShortcutOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="m15 5-1.41 1.41L15 7.83 17.17 10H8c-2.76 0-5 2.24-5 5v4h2v-4c0-1.65 1.35-3 3-3h9.17L15 14.17l-1.41 1.41L15 17l6-6-6-6z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-9pee2b-MuiTypography-root"
+      responsiveshare="true"
+    >
+      Share
+    </span>
+  </div>
+  <div
+    className="MuiBox-root css-orlaaz"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="CheckCircleOutlineOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-1a0mhoe-MuiTypography-root"
+      condition="true"
+    >
+      Approved
+    </span>
+  </div>
+  <div
+    className="MuiBox-root css-orlaaz"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="BlockOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-1a0mhoe-MuiTypography-root"
+      condition="true"
+    >
+      Removed
+    </span>
+  </div>
+  <div
+    className="MuiBox-root css-orlaaz"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="CancelPresentationOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM9.41 15.95 12 13.36l2.59 2.59L16 14.54l-2.59-2.59L16 9.36l-1.41-1.41L12 10.54 9.41 7.95 8 9.36l2.59 2.59L8 14.54z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-1a0mhoe-MuiTypography-root"
+      condition="true"
+    >
+      Spam
+    </span>
+  </div>
+  <div
+    approved="false"
+    className="MuiBox-root css-orlaaz"
+    spam="false"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="AdminPanelSettingsOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <g
+        fillRule="evenodd"
+      >
+        <circle
+          cx="17"
+          cy="15.5"
+          r="1.12"
+        />
+        <path
+          d="M17 17.5c-.73 0-2.19.36-2.24 1.08.5.71 1.32 1.17 2.24 1.17s1.74-.46 2.24-1.17c-.05-.72-1.51-1.08-2.24-1.08z"
+        />
+        <path
+          d="M18 11.09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55C13.18 21.99 14.97 23 17 23c3.31 0 6-2.69 6-6 0-2.97-2.16-5.43-5-5.91zM11 17c0 .56.08 1.11.23 1.62-.24.11-.48.22-.73.3-3.17-1-5.5-4.24-5.5-7.74v-3.6l5.5-2.4 5.5 2.4v3.51c-2.84.48-5 2.94-5 5.91zm6 4c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"
+        />
+      </g>
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-1a0mhoe-MuiTypography-root"
+      condition="true"
+    />
+  </div>
+  <div
+    className="MuiBox-root css-qtcv1i"
+    condition2="true"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-15eezmp-MuiSvgIcon-root"
+      data-testid="SignalCellularAltOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M17 4h3v16h-3V4zM5 14h3v6H5v-6zm6-5h3v11h-3V9z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-1l4yqms-MuiTypography-root"
+    >
+      Insights
+    </span>
+  </div>
+  <div
+    className="MuiBox-root css-orlaaz"
+    onClick={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="MoreHorizOutlinedIcon"
+      focusable="false"
+      onClick={[Function]}
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+      />
+    </svg>
+  </div>
+</div>
+`;
