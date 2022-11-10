@@ -24,7 +24,7 @@ export const responseGoogleFail = (googleResponse) => {
 
 /**
  *
- * @param {Json Response} facebookResponse
+ * @param {JsonResponse} facebookResponse
  * @return If Valid Token Then user is Logged in and redirected to the homepage
  */
 export const responseFacebook = (facebookResponse) => {

@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
-import LogIn from './LogIn';
+import Loading from './LoadingPage';
 
 // test snapshot
-test('test snapshot', async () => {
-  const tree = renderer.create(<LogIn />).toJSON();
+test('Loading Page SnapShot', async () => {
+  const tree = renderer.create(<Loading />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -9,6 +9,10 @@ import ThirdParty from '../ThirdParty/ThirdParty';
 import Divider from '../Divider/Divider';
 import FirstParty from '../FirstParty/FirstParty';
 
+/**
+ * Login Page Differenet  Components
+ * @returns {React.Component} - Main Body of Login Page
+ */
 function LogIn() {
   const [remeberMe, setRemeberMe] = useState(false);
 
@@ -31,7 +35,7 @@ function LogIn() {
   );
 
   return (
-    <AuthenticationBody mnwidth="290px" mxwidth={remeberMe ? '440px' : '290px'}>
+    <AuthenticationBody mnwidth="290px" mxwidth={remeberMe ? '440px' : '290px'} data-testid="login-test">
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit={false} title="Log in" caption={caption} />

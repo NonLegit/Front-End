@@ -143,7 +143,7 @@ export const AuthenticationButton = styled(Button)(({ width }) => ({
   },
 }));
 
-export const RedditLoadingButton = styled(LoadingButton)(({ width, isPopUp }) => ({
+export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) => ({
   width: (width !== undefined) ? `${width}` : '100%',
   height: 35,
   margin: '10px 0px',
@@ -153,7 +153,7 @@ export const RedditLoadingButton = styled(LoadingButton)(({ width, isPopUp }) =>
   fontSize: '14px',
   letterSpacing: '0.5px',
 
-  backgroundColor: isPopUp ? 'white' : theme.palette.primary.main,
+  backgroundColor: ispopup === 'true' ? 'white' : theme.palette.primary.main,
   color: 'white',
 
   '&:hover': {

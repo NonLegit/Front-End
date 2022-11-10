@@ -65,7 +65,7 @@ function SignUpEmail({ setUserNamePage, setEmail }) {
 
         <Divider />
 
-        <Email onSubmitFn={continueEmail} loading={loading} isPopUp={false} width="280px" buttonText="continue" />
+        <Email onSubmitFn={continueEmail} loading={loading} ispopup="false" width="280px" buttonText="continue" />
 
         <Typography paragraph fontSize={12}>
           Already a redditor?

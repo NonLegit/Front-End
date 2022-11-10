@@ -5,7 +5,7 @@ import {
 } from '../styles';
 
 function Email({
-  onSubmitFn, loading, isPopUp, width, buttonText, btnWidth,
+  onSubmitFn, loading, ispopup, width, buttonText, btnWidth,
 }) {
   const [email, setEmail] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
@@ -31,7 +31,7 @@ function Email({
   };
 
   return (
-    <FirstPartyContainer width={width} onSubmit={(e) => onSubmitFn(e, email)} noValidate>
+    <FirstPartyContainer width={width} onSubmit={(e) => onSubmitFn(e, email)} noValidate data-testid="SignUpEmail-test">
       <RedditTextField
         label="Email"
         variant="filled"
@@ -52,9 +52,9 @@ function Email({
           checkEmail(email, setEmail);
         }}
         helperText={email.error}
-        isPopUp={isPopUp}
+        ispopup={ispopup}
       />
-      <RedditLoadingButton type="submit" loading={loading} isPopUp={isPopUp} width={btnWidth}>
+      <RedditLoadingButton type="submit" loading={loading} data-testid="email-btn-test" ispopup={ispopup} width={btnWidth}>
         {buttonText}
       </RedditLoadingButton>
     </FirstPartyContainer>
