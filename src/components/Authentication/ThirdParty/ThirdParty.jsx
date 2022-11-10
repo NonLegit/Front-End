@@ -15,7 +15,7 @@ import Facebook from '../../../assets/images/facebook.png';
  * Third Party Component
  * @returns {React.Component} - Continue with google and Facebook
  */
-function ThirdParty({ circular }) {
+function ThirdParty() {
   const clientId = '374002806091-7pces2dv4vr0vb8lchmputreqnlalqes.apps.googleusercontent.com';
 
   // Facebook
@@ -31,8 +31,7 @@ function ThirdParty({ circular }) {
       <GoogleLogin
         clientId={clientId}
         render={(renderProps) => (
-          circular ? <h1>Helo</h1>
-            : <ThirdPartyButton onClick={renderProps.onClick} img={Google} alt="Google" txt="continue with google" />
+          <ThirdPartyButton onClick={renderProps.onClick} img={Google} alt="Google" txt="continue with google" />
         )}
         onSuccess={responseGoogleSuccess}
         onFailure={responseGoogleFail}
@@ -43,8 +42,7 @@ function ThirdParty({ circular }) {
         appId="1217433968834337"
         callback={responseFacebook}
         render={(renderProps) => (
-          circular ? <h1>Helo</h1>
-            : <ThirdPartyButton onClick={renderProps.onClick} img={Facebook} alt="Facebook" txt="continue with facebook" />
+          <ThirdPartyButton onClick={renderProps.onClick} img={Facebook} alt="Facebook" txt="continue with facebook" />
         )}
       />
     </ThirdPartyContainer>

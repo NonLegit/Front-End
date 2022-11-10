@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
 import ForgetUsernamePage from './pages/ForgetUsernamePage';
@@ -26,7 +26,7 @@ function App() {
       <CssBaseline />
       <PostTypeContextProvider>
         <Router className="App">
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
             <Route
               path="/"

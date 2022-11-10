@@ -66,11 +66,11 @@ function SignUpUsername({ setUserNamePage, email }) {
             }}
             clr={userName.color}
             onChange={(e) => {
+              checkUserName(e.target.value.trim(), setUserName);
               setUserName((prevState) => ({
                 ...prevState,
                 input: e.target.value.trim(),
               }));
-              checkUserName(userName, setUserName);
             }}
             data-testid="username-signup-field-test"
             helperText={userName.error}
@@ -98,11 +98,11 @@ function SignUpUsername({ setUserNamePage, email }) {
             }}
             clr={password.color}
             onChange={(e) => {
+              checkPassword(e.target.value.trim(), setPassword);
               setPassword((prevState) => ({
                 ...prevState,
                 input: e.target.value.trim(),
               }));
-              checkPassword(password, setPassword);
             }}
             helperText={password.error}
             data-testid="password-signup-field-test"

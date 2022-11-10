@@ -1,18 +1,21 @@
 import { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import theme from '../../../styles/theme';
+
 import {
   FirstPartyContainer, RedditTextField, wrongIcon, rightIcon, RedditLoadingButton,
 } from '../styles';
 
 function Email({
-  onSubmitFn, loading, ispopup, width, buttonText, btnWidth,
+  onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, defaultEmail,
 }) {
   const [email, setEmail] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
+  const [recaptchaState, setrecaptchaState] = useState(false);
 
-  const checkEmail = () => {
-    if (!/\S+@\S+\.\S+/.test(email.input)) {
+  const checkEmail = (emailInput) => {
+    if (!/\S+@\S+\.\S+/.test(emailInput)) {
       setEmail((prevState) => ({
         ...prevState,
         color: theme.palette.error.main,
@@ -31,9 +34,9 @@ function Email({
   };
 
   return (
-    <FirstPartyContainer width={width} onSubmit={(e) => { onSubmitFn(e, email); }} noValidate data-testid="SignUpEmail-test">
+    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); onSubmitFn(email); }} noValidate data-testid="SignUpEmail-test">
       <RedditTextField
-        label="Email"
+        label={fieldText}
         variant="filled"
         required
         InputProps={{
@@ -43,20 +46,30 @@ function Email({
           disableUnderline: true,
         }}
         clr={email.color}
-        onBlur={() => checkEmail(email, setEmail)}
+        onBlur={() => { if (recaptcha) setrecaptchaState(true); }}
         onChange={(e) => {
           setEmail((prevState) => ({
             ...prevState,
             input: e.target.value.trim(),
           }));
-          checkEmail(email, setEmail);
+          checkEmail(e.target.value.trim());
         }}
         helperText={email.error}
-        ispopup={ispopup}
+        defaultValue={defaultEmail}
       />
-      <RedditLoadingButton type="submit" loading={loading} data-testid="email-btn-test" ispopup={ispopup} width={btnWidth}>
+      <RedditLoadingButton type="submit" loading={loading} data-testid="email-btn-test" width={btnWidth}>
         {buttonText}
       </RedditLoadingButton>
+      {recaptchaState ? (
+        <ReCAPTCHA
+          sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
+          onExpired={() => setVerified(false)}
+          onChange={() => setVerified(true)}
+          size="normal"
+          sx={{ width: '320px' }}
+        />
+      )
+        : null}
     </FirstPartyContainer>
 
   );

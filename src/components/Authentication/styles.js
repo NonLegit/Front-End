@@ -1,6 +1,5 @@
 import {
-  Box, Button, TextField, Link,
-  InputAdornment,
+  Box, TextField, Link, InputAdornment,
 } from '@mui/material';
 
 import { alpha, styled } from '@mui/material/styles';
@@ -51,26 +50,6 @@ export const FirstPartyContainer = styled('form')(({ width, mnwidth }) => ({
   display: 'flex',
   flexDirection: 'column',
 }));
-
-export const AuthenticationInput = styled(TextField)(({ color }) => ({
-  width: '95%',
-  marginBottom: '10px',
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: `${color}`,
-    },
-    '&:hover fieldset': {
-      borderColor: `${color}`,
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: `${color}`,
-    },
-  },
-  '.MuiInputLabel-shrink': {
-    color: `${color}`,
-  },
-}));
-
 export const RedditTextField = styled((props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <TextField {...props} size="small" autoComplete="off" />
@@ -119,31 +98,7 @@ export const RedditTextField = styled((props) => (
   },
 }));
 
-export const AuthenticationButton = styled(Button)(({ width }) => ({
-  width: (width !== undefined) ? `${width}` : '100%',
-  height: 35,
-  margin: '15px 0px',
-
-  fontFamily: 'ibm-plex-sans,sans-serif',
-  fontWeight: '600',
-  fontSize: '14px',
-  letterSpacing: '0.5px',
-
-  backgroundColor: theme.palette.primary.main,
-  color: 'white',
-
-  '&:hover': {
-    backgroundColor: theme.palette.primary.fade,
-  },
-
-  '&.MuiButton-root': {
-    fontWeight: '600',
-    fontSize: '14px',
-    letterSpacing: '0.5px',
-  },
-}));
-
-export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) => ({
+export const RedditLoadingButton = styled(LoadingButton)(({ width }) => ({
   width: (width !== undefined) ? `${width}` : '100%',
   height: 35,
   margin: '10px 0px',
@@ -153,7 +108,7 @@ export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) =>
   fontSize: '14px',
   letterSpacing: '0.5px',
 
-  backgroundColor: ispopup === 'true' ? 'white' : theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.main,
   color: 'white',
 
   '&:hover': {

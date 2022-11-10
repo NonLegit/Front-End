@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+// import { EmailProvider } from '../../../contexts/SignUpEmailContext';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import { AuthenticationConatiner } from '../styles';
 
@@ -21,11 +22,12 @@ function SignUp() {
     // check if logged in before (cokkies check)
     setremeberMe(false);
     setUserNamePage(false);
+    console.log('SignuPPPPrenefe');
   }, []);
 
   const signUpView = userNamePage
     ? <SignUpUsername setUserNamePage={setUserNamePage} email={email} />
-    : <SignUpEmail setUserNamePage={setUserNamePage} setEmail={setEmail} />;
+    : <SignUpEmail setUserNamePage={setUserNamePage} setEmail={setEmail} email={email.input} />;
 
   return (
     <AuthenticationConatiner data-testid="signup-test">

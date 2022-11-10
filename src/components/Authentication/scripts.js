@@ -19,13 +19,12 @@ export const refreshUsernames = (setUserNames) => {
 
 /**
  * checks for length of the username, Format,unique
- * @param {state} userName
+ * @param {state} username
  * @param {statefunction} setUserName
  * @returns {void}
  *
  */
-export const checkUserName = (userName, setUserName) => {
-  const username = userName.input;
+export const checkUserName = (username, setUserName) => {
   // console.log(username);
   // Check Username bwteen 3-20 characters
   if (username.length < 3 || username.length > 20) {
@@ -80,11 +79,10 @@ export const checkUserName = (userName, setUserName) => {
  * @param {statefunction} setPassword
  * @returns {void}
  */
-export const checkPassword = (password, setPassword) => {
-  const passwordInput = password.input;
-  console.log(passwordInput);
-  // Check Username bwteen 3-20 characters
+export const checkPassword = (passwordInput, setPassword) => {
+  // Check password more than 7
   if (passwordInput.length < 8) {
+    console.log(passwordInput.length);
     console.log('length problem');
     setPassword((prevState) => ({
       ...prevState,
@@ -97,6 +95,33 @@ export const checkPassword = (password, setPassword) => {
 
   // Accepeted
   setPassword((prevState) => ({
+    ...prevState,
+    color: theme.palette.primary.main,
+    icon: rightIcon,
+    error: null,
+  }));
+};
+
+/**
+ * Check for password length if so then set as accepted
+ * @param {state} password
+ * @param {statefunction} setPassword
+ * @returns {void}
+ */
+export const matchPassword = (passwordOne, passwordTwoInput, setPasswordTwo) => {
+  if (passwordOne.input !== passwordTwoInput) {
+    console.log('Mismatch problem');
+    setPasswordTwo((prevState) => ({
+      ...prevState,
+      color: theme.palette.error.main,
+      icon: wrongIcon,
+      error: 'Password must match',
+    }));
+    return;
+  }
+
+  // Accepeted
+  setPasswordTwo((prevState) => ({
     ...prevState,
     color: theme.palette.primary.main,
     icon: rightIcon,
@@ -146,7 +171,7 @@ export const signUp = (
     setLoading(false);
     return;
   }
-  axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/signup/1', userName, password, email).then((response) => {
+  axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/signup/1', userName.input, password.input, email.input).then((response) => {
     setLoading(false);
     if (response.status === 201) {
       setButtonText(<DoneIcon />);
@@ -155,6 +180,7 @@ export const signUp = (
         // Suceess
         window.location.href = './';
         console.log('Sign up');
+        // console.log(userName, password, email);
       }, 1000);
     } else {
       console.log('Error');

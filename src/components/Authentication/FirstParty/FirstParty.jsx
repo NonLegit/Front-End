@@ -33,9 +33,8 @@ function FirstParty() {
    * Check if Valid username from length and format
    * @returns {null}
    */
-  const checkUserName = () => {
-    const username = userName.input;
-    console.log(userName);
+  const checkUserName = (username) => {
+    // const username = userName.input;
 
     // Check Username bwteen 3-20 characters
     if (username.length < 3 || username.length > 20) {
@@ -71,7 +70,16 @@ function FirstParty() {
       setLoading(false);
       return;
     }
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/login/1', userName, password).then((response) => {
+
+    setPassword((prevState) => ({
+      ...prevState,
+      color: theme.palette.neutral.main,
+      icon: null,
+      error: null,
+    }));
+    let x = 1;
+    if (userName.input === 'basma') { x = 3; }
+    axios.post(`https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/login/${x}`, userName.input, password.input).then((response) => {
       console.log(response);
       setLoading(false);
       if (response.status === 200) {
@@ -97,6 +105,7 @@ function FirstParty() {
           icon: wrongIcon,
           error: null,
         }));
+        setLoading(false);
       }
     });
   };
@@ -116,13 +125,12 @@ function FirstParty() {
           disableUnderline: true,
         }}
         clr={userName.color}
-        onBlur={() => checkUserName()}
         onChange={(e) => {
           setUserName((prevState) => ({
             ...prevState,
             input: e.target.value.trim(),
           }));
-          checkUserName();
+          checkUserName(e.target.value.trim());
         }}
         helperText={userName.error}
         data-testid="UserName-FirstParty-test"
@@ -146,7 +154,7 @@ function FirstParty() {
         data-testid="Password-FirstParty-test"
       />
 
-      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test" ispopup={false}>
+      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test">
         {buttonTxt}
       </RedditLoadingButton>
 

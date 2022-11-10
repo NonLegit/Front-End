@@ -39,7 +39,7 @@ function LogIn() {
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit={false} title="Log in" caption={caption} />
-          <ThirdParty circular={false} />
+          <ThirdParty />
           <Divider />
 
           <FirstParty />

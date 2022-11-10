@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
+// import { EmailConsumer } from '../../../../contexts/SignUpEmailContext';
 import {
-  AuthenticationBG, AuthenticationBody, StyledLink, wrongIcon,
+  AuthenticationBG, AuthenticationBody, rightIcon, StyledLink, wrongIcon,
 } from '../../styles';
 import theme from '../../../../styles/theme';
 
@@ -14,15 +15,14 @@ import Email from '../../Email/Email';
  * SignUp Email Componenet
  * @returns {React.Component}
  */
-function SignUpEmail({ setUserNamePage, setEmail }) {
+function SignUpEmail({ setUserNamePage, setEmail, email }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     console.log('rerender');
   }, []);
 
-  const continueEmail = (event, email) => {
+  const continueEmail = (email) => {
     setLoading(true);
-    event.preventDefault();
     console.log(email);
     if (email.error !== null) {
       setLoading(false);
@@ -33,6 +33,7 @@ function SignUpEmail({ setUserNamePage, setEmail }) {
       // Empty Field
       setEmail((prevState) => ({
         ...prevState,
+        input: email.input,
         color: theme.palette.error.main,
         icon: wrongIcon,
         error: 'Please enter your email to continue',
@@ -40,6 +41,13 @@ function SignUpEmail({ setUserNamePage, setEmail }) {
       setLoading(false);
       return;
     }
+    setEmail((prevState) => ({
+      ...prevState,
+      input: email.input,
+      color: theme.palette.primary.main,
+      icon: rightIcon,
+      error: null,
+    }));
     setTimeout(() => {
       setLoading(false);
       setUserNamePage(true);
@@ -65,12 +73,11 @@ function SignUpEmail({ setUserNamePage, setEmail }) {
       <AuthenticationBG />
       <AuthenticationBody mnwidth="280px" mxwidth="280px" data-testid="signup-email-test">
         <AuthenticationHeader reddit={false} title="Sign up" caption={caption} />
-        <ThirdParty circular={false} />
+        <ThirdParty />
 
         <Divider />
 
-        <Email onSubmitFn={continueEmail} loading={loading} ispopup="false" width="280px" buttonText="continue" />
-
+        <Email onSubmitFn={continueEmail} loading={loading} width="280px" buttonText="continue" fieldText="Email" recaptcha={false} setVerified={null} defaultEmail={email} />
         <Typography paragraph fontSize={12}>
           Already a redditor?
           {' '}
