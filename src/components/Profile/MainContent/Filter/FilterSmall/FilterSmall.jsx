@@ -10,6 +10,7 @@ import {
   FilteButton, FilterSmallBox, SelectBox, SelectItem,
 } from '../styles';
 
+// choose to render one of the new - hot - top buttons in smaller screens
 const renderSwitch = (
   newCondition,
   hotCondition,
@@ -28,6 +29,7 @@ const renderSwitch = (
         condition="true"
         onClick={() => { handleClickList(); }}
         endIcon={<KeyboardArrowDownOutlinedIcon />}
+        data-testid="new-btn"
       >
         New
       </FilteButton>
@@ -47,6 +49,7 @@ const renderSwitch = (
     );
   }
   if (topCondition) {
+    // top and all time button and its show more menu
     return (
       <>
         <FilteButton
@@ -90,8 +93,10 @@ function FilterSmall(props) {
   const { subTitle2 } = props;
   const { sort, subTitle } = useParams();
   const navigate = useNavigate();
+  // check the url of the page i m currently in
   const hotCondition = (sort === 'sort=hot' || subTitle === 'sort=hot');
   const topCondition = (sort === 'sort=top' || sort === 'sort=top&t=day' || subTitle === 'sort=top' || subTitle === 'sort=top&t=day');
+  // new by default
   const newCondition = !hotCondition && !topCondition;
   const [showList, setShowList] = useState(false);
   const [showList2, setShowList2] = useState(false);
@@ -103,6 +108,7 @@ function FilterSmall(props) {
     navigate(`${subTitle2}sort=top&t=day`);
   };
 
+  // show list of new - hot - top
   const handleClickList = () => {
     setShowList((prev) => !prev);
   };
@@ -111,6 +117,7 @@ function FilterSmall(props) {
     setShowList(false);
   };
 
+  // show list of all time
   const handleClickList2 = () => {
     setShowList2((prev) => !prev);
   };
@@ -148,7 +155,7 @@ function FilterSmall(props) {
 
       {showList && (
         <ClickAwayListener onClickAway={handleClickAway}>
-          <SelectBox sx={{ marginTop: -1, marginLeft: 0 }}>
+          <SelectBox sx={{ marginTop: -1, marginLeft: 0 }} data-testid="more-menu">
             { content.map((entity) => (
               <FilteButton
                 key={entity.id}

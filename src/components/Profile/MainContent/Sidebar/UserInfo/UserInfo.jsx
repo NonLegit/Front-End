@@ -1,8 +1,4 @@
-import {
-  Box,
-  CardMedia,
-  Typography,
-} from '@mui/material';
+import { Box, CardMedia, Typography } from '@mui/material';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -10,12 +6,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
 import { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
-/* eslint-disable import/no-cycle */
 import { UserContext } from '../../../../../context/UserProvider';
 
 /** UserInfo Box in sidebar
@@ -26,16 +22,26 @@ function UserInfo() {
   const [cake, setCake] = useState();
   const [followers, setFollowers] = useState();
 
+  const client = axios.create({
+    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+  });
   const {
     username,
   } = useContext(UserContext);
 
   // to be fetched here
   useEffect(() => {
-    setKarma(2);
-    setCake('October 5, 2022');
-    setFollowers(3);
-  }, []);
+    client.get(`users/${username}/about/200`) // fetch api
+      .then((actualData) => {
+        setKarma(actualData.data.user.postKarma);
+        setCake(actualData.data.user.gender);
+        // check with back end
+        setFollowers(actualData.data.user.followersCount);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [username]);
 
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {

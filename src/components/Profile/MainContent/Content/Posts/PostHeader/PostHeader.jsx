@@ -12,10 +12,30 @@ import {
  * @param {string} nameuser - name of publisher
  * @param {string} time - time of publishing the post
  */
+
+// calculate the time difference between post creation and current date
+const calculateTime = (d, time) => {
+  const year = d.getFullYear() - time.split('T')[0].split('-')[0];
+  const month = d.getMonth() - time.split('T')[0].split('-')[1];
+  const day = d.getDate() - time.split('T')[0].split('-')[2];
+
+  if (year > 0) {
+    return (`${year} years ago`);
+  }
+  if (month > 0) {
+    return (`${month} months ago`);
+  }
+  if (day > 0) {
+    return (`${day} days ago`);
+  }
+  return ('today');
+};
+
 function PostHeader(props) {
   const {
     subReddit, nameUser, Time,
   } = props;
+  const d = new Date();
   return (
     <HeaderPost>
       {/* OR PHOTO */}
@@ -38,7 +58,7 @@ function PostHeader(props) {
       </Typography>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         {' '}
-        {Time}
+        {calculateTime(d, Time)}
       </Typography>
       {/* {((subTitle === 'Spam').toString() === 'true')
       && (

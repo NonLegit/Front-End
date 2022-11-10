@@ -5,6 +5,7 @@ import { UserContext } from '../../../../context/UserProvider';
 import { FilteredPostsContext } from '../../../../context/FilteredPostsProvider';
 import Post from '../Posts/Post';
 
+// decide which message to show for an empty page
 const renderSwitch = (param) => {
   switch (param) {
     case 'upvoted':
@@ -31,13 +32,12 @@ const renderSwitch = (param) => {
  */
 function PostsFilteredTap(props) {
   const { type } = props;
-  // const [stateTap, setStateTap] = useState(type);
   const { username } = useContext(UserContext);
   const { posts } = useContext(FilteredPostsContext);
   const [isContent, setIsContent] = useState(false);
+  // check if the page have any content posts to show
   useEffect(() => {
-    // setStateTap(type);
-    if (posts.length > 0) { setIsContent(true); }
+    if (posts?.length > 0) { setIsContent(true); }
   }, [username, posts, type]);
 
   const emptyContent = renderSwitch(type);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: MainContent/Sidebar/Sidebar.jsx</title>
+    <title>JSDoc: Source: MainContent/Posts/PostSide/PostSide.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: MainContent/Sidebar/Sidebar.jsx</h1>
+    <h1 class="page-title">Source: MainContent/Posts/PostSide/PostSide.jsx</h1>
 
     
 
@@ -26,26 +26,27 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import BackHomeBottun from './BackHomeBottun/BackHome';
-import Communities from './Communities/Communities';
-import { SidebarBox } from './styles';
-import UserInfo from './UserInfo/UserInfo';
+            <pre class="prettyprint source linenums"><code>import {
+  UpArrow, DownArrow, SidebarQueueBox, UpArrowFilled, DownArrowFilled, Number,
+} from './styles';
 
-/** sidebar in profile containing the userinfo and communities you are a moderator of
- * @return {React.Component} - Sidebar
+/** Sidebar of the post conatining arrow up and down
+ * @return {React.Component} - Filter
+ * @param {boolean} upvoted - show if the comment is upvoted
+ * @param {boolean} downvoted - show if the comment is downvoted
  */
-function Sidebar() {
+function PostSide(props) {
+  const { upvoted, downvoted } = props;
   return (
-    &lt;SidebarBox>
-      &lt;UserInfo />
-      &lt;Communities />
-      &lt;BackHomeBottun />
-    &lt;/SidebarBox>
-
+    &lt;SidebarQueueBox>
+      {upvoted ? &lt;UpArrowFilled /> : &lt;UpArrow />}
+      &lt;Number variant="caption" upvoted={upvoted.toString()} downvoted={downvoted.toString()}>1&lt;/Number>
+      {downvoted ? &lt;DownArrowFilled /> : &lt;DownArrow />}
+    &lt;/SidebarQueueBox>
   );
 }
 
-export default Sidebar;
+export default PostSide;
 </code></pre>
         </article>
     </section>

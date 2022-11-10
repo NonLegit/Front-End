@@ -1,7 +1,6 @@
 import BackHomeBottun from './BackHomeBottun/BackHome';
 import Communities from './Communities/Communities';
 import { SidebarBox } from './styles';
-/* eslint-disable import/no-cycle */
 import UserInfo from './UserInfo/UserInfo';
 
 /** sidebar in profile containing the userinfo and communities you are a moderator of

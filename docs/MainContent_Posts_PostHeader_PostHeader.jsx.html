@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: MainContent/Content/Posts/PostHeader/PostHeader.jsx</title>
+    <title>JSDoc: Source: MainContent/Posts/PostHeader/PostHeader.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: MainContent/Content/Posts/PostHeader/PostHeader.jsx</h1>
+    <h1 class="page-title">Source: MainContent/Posts/PostHeader/PostHeader.jsx</h1>
 
     
 
@@ -30,18 +30,17 @@
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  HeaderAvatar, HeaderAvatarText, HeaderPost,
+  HeaderPost,
 } from './styles';
 
-/**
- * Header for a post
+/** Header of the post
  * @return {React.Component} - PostHeader
- * @param {string} subReddit - name of subReddit the post published in
- * @param {string} nameuser - name of publisher
- * @param {string} time - time of publishing the post
+ * @param {string} nameUser - name of the currently loggedin user
+ * @param {string} Time - contains the time of the post
+ * @param {string} nameUser - contains the name of subreddit the post piblished in
  */
 
-// calculate the time difference between post creation and current date
+// calculate the time difference between the creation day and current day
 const calculateTime = (d, time) => {
   const year = d.getFullYear() - time.split('T')[0].split('-')[0];
   const month = d.getMonth() - time.split('T')[0].split('-')[1];
@@ -60,18 +59,11 @@ const calculateTime = (d, time) => {
 };
 
 function PostHeader(props) {
-  const {
-    subReddit, nameUser, Time,
-  } = props;
+  const { nameUser, Time, subReddit } = props;
   const d = new Date();
   return (
     &lt;HeaderPost>
-      {/* OR PHOTO */}
-      &lt;HeaderAvatar>
-        &lt;HeaderAvatarText>r/&lt;/HeaderAvatarText>
-      &lt;/HeaderAvatar>
-      {/* OR PHOTO */}
-      &lt;Typography variant="caption" sx={{ fontWeight: 700, marginLeft: 1, '&amp;:hover': { textDecoration: 'underline' } }}>
+      &lt;Typography variant="caption" sx={{ fontWeight: 700, '&amp;:hover': { textDecoration: 'underline' } }}>
         r/
         {subReddit}
         {' '}

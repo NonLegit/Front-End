@@ -11,8 +11,28 @@ import {
  * @param {string} Time - contains the time of the post
  * @param {string} nameUser - contains the name of subreddit the post piblished in
  */
+
+// calculate the time difference between the creation day and current day
+const calculateTime = (d, time) => {
+  const year = d.getFullYear() - time.split('T')[0].split('-')[0];
+  const month = d.getMonth() - time.split('T')[0].split('-')[1];
+  const day = d.getDate() - time.split('T')[0].split('-')[2];
+
+  if (year > 0) {
+    return (`${year} years ago`);
+  }
+  if (month > 0) {
+    return (`${month} months ago`);
+  }
+  if (day > 0) {
+    return (`${day} days ago`);
+  }
+  return ('today');
+};
+
 function PostHeader(props) {
   const { nameUser, Time, subReddit } = props;
+  const d = new Date();
   return (
     <HeaderPost>
       <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
@@ -30,7 +50,7 @@ function PostHeader(props) {
       </Typography>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         {' '}
-        {Time}
+        {calculateTime(d, Time)}
       </Typography>
       {/* {((subTitle === 'Spam').toString() === 'true')
       && (

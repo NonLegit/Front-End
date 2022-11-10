@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
+import { UserContext } from '../../../../../context/UserProvider';
 import { InfoBox } from '../styles';
-
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
 } from './styles';
@@ -11,39 +12,43 @@ import {
  */
 function Communities() {
   // will fetch the comminities here
-  // const [communities, setCommunities] = useState();
+  const [communities, setCommunities] = useState();
+  const {
+    username,
+  } = useContext(UserContext);
 
-  // useEffect(() => {
-  //   setCommunities([
-  //     { id: 1, name: 'basma', number: '3 Members' },
-  //     { id: 2, name: 'basma2', number: '6 Members' },
-  //     { id: 3, name: 'basma3', number: '8 Members' },
-  //     { id: 4, name: 'basma4', number: '9 Members' },
-  //   ]);
-  // }, []);
+  const client = axios.create({
+    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+  });
 
-  const communities = [
-    { id: 1, name: 'basma', number: '3 Members' },
-    { id: 2, name: 'basma2', number: '6 Members' },
-    { id: 3, name: 'basma3', number: '8 Members' },
-    { id: 4, name: 'basma4', number: '9 Members' },
-  ];
+  // fetch data of communities i am a moderator of
+  useEffect(() => {
+    client.get(`subreddit/mine/${username}/200`) // fetch api
+      .then((actualData) => {
+        console.log(actualData.data.subreddits);
+        setCommunities(actualData.data.subreddits);
+        // setCommunities(actualData.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [username]);
 
   return (
     <InfoBox>
       <Typography variant="body2" sx={{ fontWeight: 700 }}>You&apos;re a moderator of these communities</Typography>
-      {communities.map((community) => (
-        <ComminityBox key={community.id}>
+      {communities?.map((community, index) => (
+        <ComminityBox key={`${index + 0}`}>
           <HeaderAvatar>
             <HeaderAvatarText>r/</HeaderAvatarText>
           </HeaderAvatar>
 
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <SubReddit to={`/r/${community.name}`}>
+            <SubReddit to={`/r/${community.subredditName}`}>
               r/
-              {community.name}
+              {community.subredditName}
             </SubReddit>
-            <Typography sx={{ fontSize: 12 }}>{community.number}</Typography>
+            <Typography sx={{ fontSize: 12 }}>{community.membersCount}</Typography>
           </Box>
           <Joined variant="outlined" onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Joined>
         </ComminityBox>

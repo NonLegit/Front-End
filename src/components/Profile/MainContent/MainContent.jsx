@@ -44,7 +44,6 @@ const renderSwitch = (param) => {
  */
 function MainContent() {
   const { subTitle } = useParams();
-
   return (
     <Box>
       <UserProvider>

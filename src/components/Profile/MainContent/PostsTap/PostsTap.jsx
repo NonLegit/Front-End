@@ -16,6 +16,8 @@ function PostsTap() {
   const { username } = useContext(UserContext);
   const { posts } = useContext(PostsContext);
   const [isContent, setIsContent] = useState(false);
+
+  // check if the page have any content posts to show
   useEffect(() => {
     if (posts.length > 0) { setIsContent(true); }
   }, [username, posts]);

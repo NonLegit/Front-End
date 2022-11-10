@@ -27,11 +27,11 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import { Box } from '@mui/material';
-import { createContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import FilteredPostsProvider from '../../../context/FilteredPostsProvider';
+import ContentProvider from '../../../context/ContentProvider';
+import PostsProvider from '../../../context/PostsProvider';
 import UserProvider from '../../../context/UserProvider';
-/* eslint-disable import/no-cycle */
-/* eslint-disable react/jsx-no-constructed-context-values */
 import Content from './Content/Content';
 import PostsFilteredTap from './PostsFilteredTap/PostsFilteredTap';
 import PostsTap from './PostsTap/PostsTap';
@@ -41,18 +41,24 @@ import { ProfilePage } from './styles';
 const renderSwitch = (param) => {
   if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&amp;t=day') {
     return (
-      &lt;Content />
+      &lt;ContentProvider>
+        &lt;Content />
+      &lt;/ContentProvider>
     );
   }
 
   if (param === 'submitted' || param === 'submitted/sort=new') {
     return (
-      &lt;PostsTap />
+      &lt;PostsProvider>
+        &lt;PostsTap />
+      &lt;/PostsProvider>
     );
   }
   if (param === 'upvoted' || param === 'downvoted' || param === 'saved' || param === 'hidden') {
     return (
-      &lt;PostsFilteredTap type={param} />
+      &lt;FilteredPostsProvider param={param}>
+        &lt;PostsFilteredTap type={param} />
+      &lt;/FilteredPostsProvider>
     );
   }
   return (
@@ -60,55 +66,19 @@ const renderSwitch = (param) => {
   );
 };
 
-export const PostsContext = createContext();
-export const CommentsContext = createContext();
-
 /**
  * Main content of the profile pagee containing comments and posts
  * @return {React.Component} - MainContent
  */
 function MainContent() {
-  const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    setPosts([
-      {
-        id: 1, Title: 'meet', Paragraph: 'extre', subReddit: 'hello_noura', publisher: 'basma', time: '15 month', numComments: 15, expand: false, postedByOthers: true, upvoted: true, downvoted: false, saved: true, hidden: false, approved: true, removed: false, spam: false,
-      },
-      {
-        id: 2, Title: 'new22', Paragraph: 'extre', subReddit: 'hello_nour2', publisher: 'basma', time: '1 month', numComments: 0, expand: false, postedByOthers: false, upvoted: false, downvoted: false, saved: false, hidden: false, approved: true, removed: false, spam: true,
-      },
-      {
-        id: 3, Title: 'basma', Paragraph: 'extre', subReddit: 'hello_nour3', publisher: 'basma', time: '1 month', numComments: 0, expand: false, postedByOthers: false, upvoted: false, downvoted: true, saved: false, hidden: true, approved: false, removed: true, spam: false,
-      },
-      {
-        id: 4, Title: 'lorem', Paragraph: 'extre', subReddit: 'hello_nour4', publisher: 'basma', time: '1 month', numComments: 0, expand: false, postedByOthers: true, upvoted: true, downvoted: false, saved: false, hidden: true, approved: false, removed: false, spam: false,
-      },
-    ]);
-    setComments([
-      {
-        id: 1, body: 'welcome soma', subReddit: 'hello_nour', publisher: 'basma', title: 'HI', time: '1 month', points: '1',
-      },
-      {
-        id: 2, body: 'welcome soma22', subReddit: 'hello_nouraaa', publisher: 'basmahi', title: 'cool', time: '1 month', points: '1',
-      },
-    ]);
-  }, []);
-
   const { subTitle } = useParams();
-
   return (
     &lt;Box>
       &lt;UserProvider>
-        &lt;PostsContext.Provider value={{ posts }}>
-          &lt;CommentsContext.Provider value={{ comments }}>
-            &lt;ProfilePage>
-              {renderSwitch(subTitle)}
-              &lt;Sidebar />
-            &lt;/ProfilePage>
-          &lt;/CommentsContext.Provider>
-        &lt;/PostsContext.Provider>
+        &lt;ProfilePage>
+          {renderSwitch(subTitle)}
+          &lt;Sidebar />
+        &lt;/ProfilePage>
       &lt;/UserProvider>
     &lt;/Box>
   );
@@ -125,13 +95,13 @@ export default MainContent;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsContent">CommentsContent</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#EntityPost">EntityPost</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostHeader">PostHeader</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UserInfo">UserInfo</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="global.html#Post">Post</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Nov 09 2022 18:58:53 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 04:03:53 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

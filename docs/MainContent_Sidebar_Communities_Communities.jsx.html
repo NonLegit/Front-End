@@ -27,9 +27,10 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import { Box, Typography } from '@mui/material';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
+import { UserContext } from '../../../../../context/UserProvider';
 import { InfoBox } from '../styles';
-
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
 } from './styles';
@@ -39,39 +40,43 @@ import {
  */
 function Communities() {
   // will fetch the comminities here
-  // const [communities, setCommunities] = useState();
+  const [communities, setCommunities] = useState();
+  const {
+    username,
+  } = useContext(UserContext);
 
-  // useEffect(() => {
-  //   setCommunities([
-  //     { id: 1, name: 'basma', number: '3 Members' },
-  //     { id: 2, name: 'basma2', number: '6 Members' },
-  //     { id: 3, name: 'basma3', number: '8 Members' },
-  //     { id: 4, name: 'basma4', number: '9 Members' },
-  //   ]);
-  // }, []);
+  const client = axios.create({
+    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+  });
 
-  const communities = [
-    { id: 1, name: 'basma', number: '3 Members' },
-    { id: 2, name: 'basma2', number: '6 Members' },
-    { id: 3, name: 'basma3', number: '8 Members' },
-    { id: 4, name: 'basma4', number: '9 Members' },
-  ];
+  // fetch data of communities i am a moderator of
+  useEffect(() => {
+    client.get(`subreddit/mine/${username}/200`) // fetch api
+      .then((actualData) => {
+        console.log(actualData.data.subreddits);
+        setCommunities(actualData.data.subreddits);
+        // setCommunities(actualData.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [username]);
 
   return (
     &lt;InfoBox>
       &lt;Typography variant="body2" sx={{ fontWeight: 700 }}>You&amp;apos;re a moderator of these communities&lt;/Typography>
-      {communities.map((community) => (
-        &lt;ComminityBox key={community.id}>
+      {communities?.map((community, index) => (
+        &lt;ComminityBox key={`${index + 0}`}>
           &lt;HeaderAvatar>
             &lt;HeaderAvatarText>r/&lt;/HeaderAvatarText>
           &lt;/HeaderAvatar>
 
           &lt;Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            &lt;SubReddit to={`/r/${community.name}`}>
+            &lt;SubReddit to={`/r/${community.subredditName}`}>
               r/
-              {community.name}
+              {community.subredditName}
             &lt;/SubReddit>
-            &lt;Typography sx={{ fontSize: 12 }}>{community.number}&lt;/Typography>
+            &lt;Typography sx={{ fontSize: 12 }}>{community.membersCount}&lt;/Typography>
           &lt;/Box>
           &lt;Joined variant="outlined" onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined&lt;/Joined>
         &lt;/ComminityBox>
@@ -91,13 +96,13 @@ export default Communities;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsContent">CommentsContent</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#EntityPost">EntityPost</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostHeader">PostHeader</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UserInfo">UserInfo</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="global.html#Post">Post</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Nov 09 2022 18:58:53 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 04:03:52 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

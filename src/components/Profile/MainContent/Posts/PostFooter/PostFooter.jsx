@@ -53,10 +53,12 @@ function PostFooter(props) {
     setShowList(false);
   };
 
+  // switch icon to hidden post and vice verse
   const handleClickHide = () => {
     setIsHidden((prev) => !prev);
   };
 
+  // switch icon to saved post and vice versa
   const handleClickSave = () => {
     setIsSaved((prev) => !prev);
   };

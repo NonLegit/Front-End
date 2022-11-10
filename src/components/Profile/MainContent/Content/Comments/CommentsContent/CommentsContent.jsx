@@ -1,7 +1,6 @@
 import { Box, IconButton } from '@mui/material';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { useContext } from 'react';
-/* eslint-disable import/no-cycle */
 import { UserContext } from '../../../../../../context/UserProvider';
 
 import { CommentText } from '../styles';
@@ -14,6 +13,25 @@ import { CommentsBoxBlue, CommentsBoxContent } from './styles';
  * @param {string} time - time of creating the comment
  * @param {string} body - the body paragraph of the comment
  */
+
+// calculate the time difference between post creation and current date
+const calculateTime = (d, time) => {
+  const year = d.getFullYear() - time.split('T')[0].split('-')[0];
+  const month = d.getMonth() - time.split('T')[0].split('-')[1];
+  const day = d.getDate() - time.split('T')[0].split('-')[2];
+
+  if (year > 0) {
+    return (`${year} years ago`);
+  }
+  if (month > 0) {
+    return (`${month} months ago`);
+  }
+  if (day > 0) {
+    return (`${day} days ago`);
+  }
+  return ('today');
+};
+
 function CommentsContent(props) {
   const {
     points,
@@ -23,6 +41,7 @@ function CommentsContent(props) {
   const {
     username,
   } = useContext(UserContext);
+  const d = new Date();
   return (
     <CommentsBoxContent>
       <CommentsBoxBlue>
@@ -35,9 +54,7 @@ function CommentsContent(props) {
             {' '}
             point .
             {' '}
-            {time}
-            {' '}
-            ago
+            {calculateTime(d, time)}
           </CommentText>
         </Box>
         <Box><CommentText variant="body2" coloring="black">{body}</CommentText></Box>

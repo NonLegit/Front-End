@@ -40,9 +40,7 @@ exports[`test snapshot 1`] = `
     <span
       className="MuiTypography-root MuiTypography-caption css-9pee2b-MuiTypography-root"
       responsiveshare="true"
-    >
-      0
-    </span>
+    />
   </div>
   <div
     className="MuiBox-root css-orlaaz"

@@ -7,8 +7,9 @@ export const SidebarQueueBox = styled(Box)(() => ({
   height: '100%',
   width: 40,
   backgroundColor: '#f8f9fa',
-  justifyContent: 'center',
+  paddingTop: 5,
   display: 'flex',
+  position: 'absolute',
   flexDirection: 'column',
   alignItems: 'center',
 }));

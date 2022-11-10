@@ -18,7 +18,7 @@ function FilteredPostsProvider(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [param]);
 
   return (
     <FilteredPostsContext.Provider value={{ posts }}>

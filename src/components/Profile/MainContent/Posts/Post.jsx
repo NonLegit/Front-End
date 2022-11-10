@@ -11,7 +11,6 @@ import {
 import PostSide from './PostSide/PostSide';
 import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
-/* eslint-disable import/no-cycle */
 import { UserContext } from '../../../../context/UserProvider';
 
 /** the post that appear in posts - saved - hidden - upvoted - downvotep taps
@@ -32,7 +31,7 @@ function Post(props) {
     <PostsQueueBox>
       <PostSide upvoted={type === 'upvoted'} downvoted={type === 'downvoted'} />
 
-      <Box sx={{ marginLeft: 1 }}>
+      <Box sx={{ marginLeft: 6 }}>
         <Box sx={{ display: 'flex' }}>
           <EmptyImage>
             <ArticleOutlinedIcon fontSize="small" color="disabled" />
@@ -45,7 +44,8 @@ function Post(props) {
                 nameUser={username}
                 Time={entity.createdAt}
               />
-              {/* postedByOthers
+              {/*
+                  saved - hidden
                   approved
                   removed
                   spam */}
@@ -54,7 +54,7 @@ function Post(props) {
                 handleExpand={handleExpand}
                 expand={expand}
                 voted={type === 'upvoted' || type === 'downvoted'}
-                postedByOthers={false}
+                postedByOthers={!(entity.creator === username)}
                 saved={type === 'saved'}
                 hidden={type === 'hidden'}
                 approved={entity.approved}

@@ -1,6 +1,5 @@
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { useContext } from 'react';
-/* eslint-disable import/no-cycle */
 import { UserContext } from '../../../../../../context/UserProvider';
 
 import { CommentText } from '../styles';

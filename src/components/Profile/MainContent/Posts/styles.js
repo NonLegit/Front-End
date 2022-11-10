@@ -2,9 +2,6 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const PostsQueueBox = styled(Box)(() => ({
-//   height: 94,
-//   height: 'fit-content',
-//   height: '100%',
   display: 'flex',
   backgroundColor: 'white',
   borderRadius: 3,
@@ -13,6 +10,8 @@ export const PostsQueueBox = styled(Box)(() => ({
     border: '1px solid #898989',
     cursor: 'pointer',
   },
+  position: 'relative',
+
 }));
 
 export const EmptyImage = styled(Box)(() => ({
@@ -29,6 +28,7 @@ export const EmptyImage = styled(Box)(() => ({
 export const PostContentBox = styled(Box)(() => ({
   height: '100%',
   width: '100%',
+
 }));
 
 export const TitlePost = styled(Typography)(({ theme }) => ({
