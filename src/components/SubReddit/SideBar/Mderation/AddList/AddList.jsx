@@ -30,6 +30,8 @@ function AddList() {
   const [count, setCount] = useState(tags.length);
 
   const handleClickAway1 = () => {
+    const btn = document.getElementById('cancel');
+    btn.click();
     setShow(true);
     setCount(tags.length);
   };
@@ -138,6 +140,7 @@ function AddList() {
                   setShow(true);
                   setTempString(tags);
                 }}
+                id="cancel"
                 color="red"
                 sx={{ marginRight: '8px' }}
               >

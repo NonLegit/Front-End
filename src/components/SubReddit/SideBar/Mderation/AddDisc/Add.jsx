@@ -12,11 +12,14 @@ function AddSector() {
   const [disc, setDisc] = useState('Ahmed');
   const [haveDisc, setHaveDisc] = useState(true);
   const handleClickAway1 = () => {
+    const btn = document.getElementById('save');
+    btn.click();
     setShow(true);
-    setCount(500);
+    setCount(500 - disc.length);
   };
   useEffect(() => {
     setTempString(disc);
+    setCount(500 - disc.length);
   }, []);
   // ///////////////////////////////////
   const handleChange = (event) => {
@@ -30,7 +33,7 @@ function AddSector() {
     <AboutContent>
       <ClickAwayListener onClickAway={handleClickAway1}>
         <Add>
-          <Box onClick={() => { setShow(false); setCount(500); }} sx={{ display: 'flex' }}>
+          <Box onClick={() => { setShow(false); setCount(500 - disc.length); }} sx={{ display: 'flex' }}>
             {show && !haveDisc && <Text> Add description</Text>}
             {haveDisc && show && (
             <>
@@ -79,10 +82,13 @@ function AddSector() {
                     </Action>
                     <Action
                       onClick={() => {
-                        setShow(true); setDisc(tempString); setCount(500 - disc.length);
-                        if (disc === '') { setHaveDisc(true); }
+                        setShow(true); setDisc(tempString.trim()); setCount(500 - disc.length);
+                        if (disc === '' || disc.length === 0) { setHaveDisc(false); } else {
+                          setHaveDisc(true);
+                        }
                       }}
                       color="#0079d3"
+                      id="save"
                     >
                       Save
 

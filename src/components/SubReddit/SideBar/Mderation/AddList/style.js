@@ -2,7 +2,7 @@ import { Box, List } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const AboutContent = styled('h2')({
-  padding: 12,
+  // padding: 12,
   margin: 0,
   color: '#1c1c1c',
   fill: '#1c1c1c',
