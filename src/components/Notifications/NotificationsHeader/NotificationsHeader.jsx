@@ -8,7 +8,7 @@ import
   NotificationsHead, HeaderContiner, TabsContiner, Tab, TabText, theme,
 } from './styles';
 /**
- * Notifications Header
+ * @component Notifications Header
  * The component has function clickTab to set active tab
  * @return {React.Component} - Header of notifications page
  */
@@ -41,7 +41,7 @@ function NotificationsHeader() {
           </Tab>
           <Tab active={active[3]} onClick={() => { clickTab(3); }}>
             <SettingsOutlinedIcon />
-            <Link to="/settings">
+            <Link to="/">
               <TabText>
                 Settings
               </TabText>

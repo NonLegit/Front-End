@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/SubReddit/SideBar/Mderation/AddDisc/Add.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/SubReddit/SideBar/Mderation/AddDisc/Add.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box, ClickAwayListener } from '@mui/material';
+import { useState, useEffect } from 'react';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import {
+  AboutContent, Action, Add, Count, Input, InputFooter, Text,
+} from './style';
+/**
+ * Add discreption for the community
+ * @return {React.Component} - Add discreption
+ */
+function AddSector() {
+  const [show, setShow] = useState(true);
+  const [count, setCount] = useState(500);
+  const [tempString, setTempString] = useState('');
+  const [disc, setDisc] = useState('Ahmed');
+  const [haveDisc, setHaveDisc] = useState(true);
+  // return to defult mode when click away
+  const handleClickAway1 = () => {
+    const btn = document.getElementById('save');
+    btn.click();
+    setShow(true);
+    setCount(500 - disc.length);
+  };
+  useEffect(() => {
+    setTempString(disc);
+    setCount(500 - disc.length);
+  }, []);
+  // count number of char in input feild to make sure not exeed the limit
+  const handleChange = (event) => {
+    if (event.target.value.length &lt; 501) {
+      setTempString(event.target.value);
+      // setData(event.target.value);
+      setCount(500 - event.target.value.length);
+    }
+  };
+  return (
+    &lt;AboutContent>
+      &lt;ClickAwayListener onClickAway={handleClickAway1}>
+        &lt;Add>
+          &lt;Box data-testid="add" onClick={() => { setShow(false); setCount(500 - disc.length); }} sx={{ display: 'flex' }}>
+            {show &amp;&amp; !haveDisc &amp;&amp; &lt;Text> Add description&lt;/Text>}
+            {haveDisc &amp;&amp; show &amp;&amp; (
+            &lt;>
+              &lt;Text>
+                {' '}
+                {disc}
+              &lt;/Text>
+              {' '}
+              &lt;ModeEditOutlineOutlinedIcon color="primary" />
+            &lt;/>
+            )}
+          &lt;/Box>
+          {!show
+            &amp;&amp; (
+              &lt;>
+                &lt;Input
+                  data-testid="input"
+                  type="text"
+                  value={tempString}
+                  placeholder="Tell us About your community"
+                  onChange={handleChange}
+                  onInput={(e) => {
+                  // eslint-disable-next-line radix
+                    e.target.value = e.target.value.slice(0, 500);
+                    setTempString(e.target.value = e.target.value.slice(0, 500));
+                    e.target.style.height = `${e.target.scrollHeight}px`;
+                  }}
+                />
+                &lt;InputFooter>
+                  &lt;Count
+                    condition={(count === 0).toString()}
+                  >
+                    {count}
+                    {' '}
+                    Characters remaining
+                  &lt;/Count>
+                  &lt;Box sx={{ display: 'flex' }}>
+                    &lt;Action
+                      onClick={() => {
+                        setShow(true); setDisc(''); setTempString(''); setCount(500 - disc.length);
+                        setHaveDisc(false);
+                      }}
+                      sx={{ marginRight: '8px' }}
+                      color="red"
+                      data-testid="cancel"
+                    >
+                      Cancel
+                    &lt;/Action>
+                    &lt;Action
+                      onClick={() => {
+                        setShow(true); setDisc(tempString.trim()); setCount(500 - disc.length);
+                        if (disc === '' || disc.length === 0) { setHaveDisc(false); } else {
+                          setHaveDisc(true);
+                        }
+                      }}
+                      color="#0079d3"
+                      id="save"
+                    >
+                      Save
+
+                    &lt;/Action>
+                  &lt;/Box>
+                &lt;/InputFooter>
+              &lt;/>
+            )}
+        &lt;/Add>
+      &lt;/ClickAwayListener>
+    &lt;/AboutContent>
+  );
+}
+export default AddSector;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackToTop.html">BackToTop</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="global.html#Post">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AddList">AddList</a></li><li><a href="global.html#AddSector">AddSector</a></li><li><a href="global.html#BackHomeBottun">BackHomeBottun</a></li><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Flirt">Flirt</a></li><li><a href="global.html#FormDialog">FormDialog</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Moderation">Moderation</a></li><li><a href="global.html#Moderators">Moderators</a></li><li><a href="global.html#Notifications">Notifications</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#SignUpUsername">SignUpUsername</a></li><li><a href="global.html#ThirdParty">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 20:06:19 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/SubReddit/SideBar/Mderation/Moderation.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/SubReddit/SideBar/Mderation/Moderation.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import {
+  Box, IconButton, ListItem, ListItemText, ClickAwayListener,
+} from '@mui/material';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { useState } from 'react';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
+import Sort from '../MoreIcon/More';
+import {
+  AboutCountainer, AboutString, CreatedSpan,
+  More, Created, Icon, Hr, Bold, Light, SpecialBold, CustomLink,
+  CreatPost, Admin, New,
+  Select, Lists, SelectContainer, StyledTooltip,
+} from './style';
+import AddSector from './AddDisc/Add';
+import AddList from './AddList/AddList';
+/**
+ * About section in sidebar for moderators only instead of about section for normal users
+ * @return {React.Component} - Moderators section in sidebar
+ */
+function Moderation() {
+  const [more, setMore] = useState(false);
+  const [selection, setSelection] = useState('Add a Primary Topic');
+  // const [data,setData] = useState('');
+  const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
+    'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
+    'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
+    'Mature Themes and Adult Content', 'Medical and Mental Health', "Men's Health", 'Meta/Reddit', 'Outdoors and Nature', 'Militery', 'Moves', 'Music', 'Outdoors and Nature', 'Place',
+    'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
+  // show select list or not
+  const changeShow = () => {
+    setMore(!more);
+    setSelection('Add a Primary Topic');
+  };
+  // handel on select item
+  const ListSelected = (e) => {
+    setMore(!more);
+    setSelection(e.target.textContent);
+  };
+  // close the list in  click away
+  const handleClickAway = () => {
+    setMore(false);
+  };
+  return (
+    &lt;>
+      &lt;AboutCountainer>
+        &lt;AboutString>
+          About Community
+        &lt;/AboutString>
+        &lt;More>
+          &lt;Admin>
+            &lt;AdminPanelSettingsOutlinedIcon />
+            Mood Tools
+          &lt;/Admin>
+          &lt;Sort margin={15} />
+        &lt;/More>
+      &lt;/AboutCountainer>
+      &lt;AddSector />
+
+      &lt;Created>
+        &lt;Icon>&lt;EmailOutlinedIcon />&lt;/Icon>
+        &lt;CreatedSpan>Created Oct 19, 2012&lt;/CreatedSpan>
+      &lt;/Created>
+      &lt;Hr />
+      &lt;Box sx={{
+        display: 'flex', justifyContent: 'space-between', paddingLeft: 3,
+      }}
+      >
+        &lt;span>
+          &lt;Bold>
+            1.4m
+          &lt;/Bold>
+          &lt;Light>Members&lt;/Light>
+        &lt;/span>
+        &lt;span>
+          &lt;SpecialBold>
+            1.0k
+          &lt;/SpecialBold>
+          &lt;Light>Online&lt;/Light>
+        &lt;/span>
+        &lt;span />
+        &lt;div />
+      &lt;/Box>
+      &lt;Hr sx={{ marginTop: 0 }} />
+      &lt;Box sx={{ display: 'flex', alignItems: 'center', marginLeft: '4px' }}>
+        &lt;New>New&lt;/New>
+        Community topics
+        &lt;StyledTooltip title="Adding community topics allow people to find your community. Add a primary topic and sub topics to be discovered more easily.">
+          &lt;IconButton>
+            &lt;ErrorOutlineIcon sx={{
+              transform: 'rotate(180deg)',
+              color: 'gray',
+              '&amp;:hover': {
+                color: '#288eda',
+              },
+            }}
+            />
+          &lt;/IconButton>
+        &lt;/StyledTooltip>
+      &lt;/Box>
+
+      &lt;SelectContainer
+        onClick={changeShow}
+      >
+        &lt;Select data-testid="select">{selection}&lt;/Select>
+        {!more &amp;&amp; &lt;ExpandMoreOutlinedIcon color="primary" sx={{ marginTop: '7px', marginLeft: '5px' }} />}
+        {more &amp;&amp; &lt;ExpandLessOutlinedIcon color="primary" sx={{ marginTop: '7px', marginLeft: '5px' }} />}
+      &lt;/SelectContainer>
+
+      {more
+      &amp;&amp; (
+        &lt;ClickAwayListener onClickAway={handleClickAway}>
+          &lt;Lists
+            data-testid="list"
+            subheader={&lt;li />}
+          >
+            {[0].map((sectionId) => (
+              &lt;li key={`section-${sectionId}`}>
+                &lt;ul>
+                  {primary.map((item) => (
+                    &lt;ListItem key={`item-${sectionId}-${item}`}>
+                      &lt;ListItemText
+                        primary={`${item}`}
+                        sx={{
+                          span: {
+                            fontWeight: 700,
+                            fontSize: 13,
+                            cursor: 'pointer',
+                          },
+                        }}
+                        onClick={ListSelected}
+                      />
+                    &lt;/ListItem>
+                  ))}
+                &lt;/ul>
+              &lt;/li>
+            ))}
+          &lt;/Lists>
+        &lt;/ClickAwayListener>
+      )}
+
+      &lt;AddList />
+      &lt;Hr sx={{ marginBottom: 1, marginTop: 0 }} />
+      &lt;CustomLink>
+        &lt;CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">
+          create Post
+        &lt;/CreatPost>
+      &lt;/CustomLink>
+    &lt;/>
+  );
+}
+export default Moderation;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackToTop.html">BackToTop</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="global.html#Post">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AddList">AddList</a></li><li><a href="global.html#AddSector">AddSector</a></li><li><a href="global.html#BackHomeBottun">BackHomeBottun</a></li><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Flirt">Flirt</a></li><li><a href="global.html#FormDialog">FormDialog</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Moderation">Moderation</a></li><li><a href="global.html#Moderators">Moderators</a></li><li><a href="global.html#Notifications">Notifications</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#SignUpUsername">SignUpUsername</a></li><li><a href="global.html#ThirdParty">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 20:06:19 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

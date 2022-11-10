@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Profile/MainContent/Posts/PostFooter/PostFooterList/PostFooterList.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Profile/MainContent/Posts/PostFooter/PostFooterList/PostFooterList.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
+import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+
+import { Divider } from '@mui/material';
+import { SelectBox, SelectItem } from './styles';
+
+/** List items of post footer
+ * @return {React.Component} - PostFooterList
+ */
+function PostFooterList() {
+  return (
+    &lt;SelectBox>
+      &lt;SelectItem>
+        &lt;ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
+        Edit Post
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
+        Save
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;PushPinOutlinedIcon sx={{ marginRight: 1 }} />
+        Pin Post To Profile
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
+        Hide
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
+        Delete
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+        Mark As OC
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+        Mark As Spoiler
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+        Mark As NSFW
+      &lt;/SelectItem>
+      &lt;Divider />
+      &lt;SelectItem>
+        &lt;CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+        Send Me Reply Notifications
+      &lt;/SelectItem>
+
+    &lt;/SelectBox>
+  );
+}
+
+export default PostFooterList;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackToTop.html">BackToTop</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="global.html#Post">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AddList">AddList</a></li><li><a href="global.html#AddSector">AddSector</a></li><li><a href="global.html#BackHomeBottun">BackHomeBottun</a></li><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Flirt">Flirt</a></li><li><a href="global.html#FormDialog">FormDialog</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Moderation">Moderation</a></li><li><a href="global.html#Moderators">Moderators</a></li><li><a href="global.html#Notifications">Notifications</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#SignUpUsername">SignUpUsername</a></li><li><a href="global.html#ThirdParty">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 20:06:19 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

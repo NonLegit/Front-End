@@ -10,7 +10,7 @@ import {
 import { ReplayContext } from '../NotificationCategories';
 
 /**
- * Notification Images
+ *  @component NotificationImages
  * @param {string} value - type of notifiaction
  * @return {React.Component} - Retrun all image beside notification body
  */
