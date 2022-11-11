@@ -9,7 +9,7 @@ export const StyledNavbar = styled(AppBar)(() => ({
   borderColor: 'white',
   borderStyle: 'solid',
   borderWidth: 1,
-  position: 'fixed',
+  position: 'sticky',
   alignItems: 'center',
   justifyContent: 'center',
   border: '1px solid #edeff1',
