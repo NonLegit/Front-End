@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Navbar/UserList/UserList.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Navbar/UserList/UserList.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  List, ListItemButton, ListItemIcon, Collapse, Box, Typography, Divider, ListItemText,
+} from '@mui/material';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import Avatar from '@mui/material/Avatar';
+import * as React from 'react';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
+import Reddit from '../assests/Reddit.svg';
+import {
+  StyledList,
+} from './styles';
+import karma from '../assests/karma.png';
+import { FirstList, SecondList, ExploreList } from './Lists';
+
+/**
+ *
+ * @returns {React.Component} the User list which is the right lish in logged in navbar.
+ */
+function UserList() {
+  const [OpenUserList, setOpenUserList] = React.useState(0);
+  const handleClickUserList = () => {
+    setOpenUserList(!OpenUserList);
+  };
+
+  const [OpenExploreList, setOpenExploreList] = React.useState(0);
+  const handleClickExploreList = () => {
+    setOpenExploreList(!OpenExploreList);
+  };
+
+  const [OpenSubList, setOpenSubList] = React.useState([0, 0, 0, 0, 0, 0, 0]);
+  const handleClickSubList = (index) => {
+    const arr = [0, 0, 0, 0, 0, 0, 0];
+    arr[index] = (OpenSubList[index] === 1) ? 0 : 1;
+    setOpenSubList(arr);
+  };
+
+  return (
+    &lt;StyledList>
+      &lt;ListItemButton onClick={handleClickUserList}>
+        &lt;Box sx={{ display: 'flex', alignItems: 'center' }}>
+          &lt;ListItemIcon>
+            &lt;Box>
+              &lt;Avatar src={Reddit} />
+            &lt;/Box>
+          &lt;/ListItemIcon>
+          &lt;Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}>
+            &lt;Typography sx={{ fontSize: '12px', color: '#1C1C1C' }}>username&lt;/Typography>
+            &lt;Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              &lt;img alt="" src={karma} width={12} height={12} />
+              &lt;Typography sx={{ fontSize: '12px', color: '#A8AAAB', whiteSpace: 'nowrap' }}> 1 karma&lt;/Typography>
+            &lt;/Box>
+          &lt;/Box>
+        &lt;/Box>
+        &lt;ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
+      &lt;/ListItemButton>
+      &lt;Collapse in={Boolean(OpenUserList)} timeout="auto" unmountOnExit>
+        &lt;List component="div" disablePadding sx={{ position: 'absolute', width: '100%' }}>
+          &lt;ListItemButton>
+            &lt;ListItemIcon sx={{ display: 'contents' }}>
+              &lt;AccountCircleOutlinedIcon sx={{ color: '#787C7E' }} />
+            &lt;/ListItemIcon>
+            &lt;ListItemText primary="my stuff" />
+          &lt;/ListItemButton>
+          {
+          FirstList.map((items) => (
+            &lt;ListItemButton>
+              &lt;ListItemText primary={items} />
+            &lt;/ListItemButton>
+          ))
+          }
+          &lt;Divider />
+          {SecondList.map((items) => (
+            &lt;ListItemButton>
+              &lt;ListItemIcon sx={{ display: 'contents' }}>
+                {items.icon}
+              &lt;/ListItemIcon>
+              &lt;ListItemText primary={items.label} />
+            &lt;/ListItemButton>
+          ))}
+          &lt;ListItemButton onClick={handleClickExploreList}>
+            &lt;ListItemIcon sx={{ display: 'contents' }}>
+              &lt;AutoFixHighOutlinedIcon />
+            &lt;/ListItemIcon>
+            &lt;ListItemText primary="Explore" />
+            {OpenExploreList ? &lt;ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : &lt;ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
+          &lt;/ListItemButton>
+          &lt;Collapse in={Boolean(OpenExploreList)} timeout="auto" unmountOnExit>
+            {
+                ExploreList.map((Sub, index) => (
+                  &lt;>
+                    &lt;ListItemButton onClick={() => { handleClickSubList(index); }}>
+                      &lt;ListItemText primary={Sub.SubList} />
+                      {OpenSubList[index] ? &lt;ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : &lt;ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
+                    &lt;/ListItemButton>
+                    &lt;Collapse in={Boolean(OpenSubList[index])} timeout="auto" unmountOnExit>
+                      {Sub.Content.map((items) => (
+                        &lt;ListItemButton>
+                          &lt;ListItemText primary={items} />
+                        &lt;/ListItemButton>
+                      ))}
+                    &lt;/Collapse>
+                  &lt;/>
+                ))
+              }
+          &lt;/Collapse>
+          &lt;Divider />
+          &lt;ListItemButton>
+            &lt;ListItemIcon sx={{ display: 'contents' }}>
+              &lt;LoginOutlinedIcon sx={{ color: 'black', fontSize: 25 }} />
+            &lt;/ListItemIcon>
+            &lt;ListItemText primary="log out" />
+          &lt;/ListItemButton>
+        &lt;/List>
+      &lt;/Collapse>
+    &lt;/StyledList>
+  );
+}
+
+export default UserList;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DrawerBottom">DrawerBottom</a></li><li><a href="global.html#ForgetPass">ForgetPass</a></li><li><a href="global.html#ForgetUser">ForgetUser</a></li><li><a href="global.html#HomeList">HomeList</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#SNavbar">SNavbar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserList">UserList</a></li><li><a href="global.html#UserNamePasswordForm">UserNamePasswordForm</a></li><li><a href="global.html#logoIcon">logoIcon</a></li><li><a href="global.html#navIcons">navIcons</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#searchButton">searchButton</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Nov 11 2022 11:40:23 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
