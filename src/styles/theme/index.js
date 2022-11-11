@@ -27,14 +27,6 @@ const theme = createTheme({
     },
   },
   breakpoints: {
-    values: {
-      xxs: 335,
-      xs: 420,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
-    },
     neutral: {
       main: '#978A8C',
       contrastText: '#fff',

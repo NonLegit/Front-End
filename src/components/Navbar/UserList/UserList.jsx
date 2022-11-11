@@ -17,7 +17,8 @@ import karma from '../assests/karma.png';
 import { firstList, secondList, exploreList } from './Lists';
 
 /**
- *
+ * UserList
+ * @component
  * @returns {React.Component} the User list which is the right lish in logged in navbar.
  */
 function UserList() {
@@ -59,7 +60,7 @@ function UserList() {
       </ListItemButton>
       <Collapse in={Boolean(openUserList)} timeout="auto" unmountOnExit>
         <List component="div" disablePadding sx={{ position: 'absolute', width: '100%' }}>
-          <ListItemButton disabled>
+          <ListItemButton>
             <ListItemIcon sx={{ display: 'contents' }}>
               <AccountCircleOutlinedIcon sx={{ color: '#787C7E' }} />
             </ListItemIcon>
@@ -72,7 +73,7 @@ function UserList() {
             </ListItemButton>
           ))
           }
-          <Divider />
+          <Divider sx={{ borderColor: '#cacbcd' }} />
           {secondList.map((items, index) => (
             <ListItemButton key={`${index + 0}`}>
               <ListItemIcon sx={{ display: 'contents' }}>
@@ -107,7 +108,7 @@ function UserList() {
                 ))
               }
           </Collapse>
-          <Divider />
+          <Divider sx={{ borderColor: '#cacbcd' }} />
           <ListItemButton>
             <ListItemIcon sx={{ display: 'contents' }}>
               <LoginOutlinedIcon sx={{ color: 'black', fontSize: 25 }} />

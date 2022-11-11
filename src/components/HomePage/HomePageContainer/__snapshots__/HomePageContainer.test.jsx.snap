@@ -40,7 +40,7 @@ Array [
             onClick={[Function]}
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
+              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1855g04-MuiButtonBase-root-MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
@@ -75,7 +75,7 @@ Array [
             onClick={[Function]}
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
+              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1855g04-MuiButtonBase-root-MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}

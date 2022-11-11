@@ -1,19 +1,10 @@
 import {
-  List, styled, alpha,
+  List, styled,
 } from '@mui/material';
 
-const StyledList = styled(List)(({ theme }) => ({
+export const StyledList = styled(List)(({ theme }) => ({
   position: 'relative',
-  [theme.breakpoints.up('lg')]: {
-    display: 'none',
-  },
-  [theme.breakpoints.down('lg')]: {
-    display: 'flex',
-  },
-  '& .MuiCollapse-wrapperInner': {
-    height: '465px',
-    overflowY: 'scroll',
-  },
+  display: 'flex',
   '& .MuiButtonBase-root': {
     justifyContent: 'flex-start',
     backgroundColor: 'white',
@@ -38,7 +29,7 @@ const StyledList = styled(List)(({ theme }) => ({
     padding: '8px 25px',
     backgroundColor: 'white',
     '&:hover': {
-      backgroundColor: alpha('#000000', 0.04),
+      backgroundColor: '#cacbcd',
     },
     '& .MuiListItemText-root': {
       margin: '0px',
@@ -62,5 +53,3 @@ const StyledList = styled(List)(({ theme }) => ({
     },
   },
 }));
-
-export default StyledList;

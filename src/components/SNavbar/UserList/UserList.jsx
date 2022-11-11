@@ -8,6 +8,11 @@ import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import StyledList from './styles';
 
+/**
+ * UserList
+ * @component
+ * @returns {React.Component} the User list which is the right lish in logged in navbar.
+ */
 function UserList({ logInPopup }) {
   const [openHomeList, setOpenHomeList] = React.useState(0);
   const handleClickHomeList = () => {

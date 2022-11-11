@@ -7,7 +7,8 @@ import { IconButton, Zoom, Box } from '@mui/material';
 import StyledTooltip from './styles';
 
 /**
- *
+ *  NavIcons
+ * @component
  * @returns {React.Component} the three icons in the navbar (Popular - notifications - create post)
  */
 function NavIcons() {

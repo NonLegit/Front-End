@@ -3,7 +3,8 @@ import { InputBase } from '@mui/material';
 import Search from './styles';
 
 /**
- *
+ * SearchField Sign Navbar
+ * @component
  * @returns {React.Component} the search bar in the navbar.
  */
 function SearchField() {

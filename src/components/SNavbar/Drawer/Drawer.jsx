@@ -12,7 +12,8 @@ import { firstList, exploreList } from './Lists';
 import StyledDrawer from './styles';
 
 /**
- *
+ * Drawer
+ * @component
  * @returns {React.Component} the side bar that permenantely appears on the left on the page
  *  in case of signed out
  */

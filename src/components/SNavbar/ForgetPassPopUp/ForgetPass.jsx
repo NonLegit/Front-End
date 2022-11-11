@@ -2,7 +2,7 @@
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { forgetPassContext } from '../SNavbar';
+import { ForgetPassContext } from '../SNavbar';
 import StyledDialog from '../SignUpPopUp/styles';
 import {
   StyledLink, FirstPartyContainer, AuthenticationInput, AuthenticationButton,
@@ -10,6 +10,8 @@ import {
 import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
 
 /**
+ * ForgetPassword popUp
+ * @component
  * Forget password popup different components
  * @returns {React.Component} main body of forget password popup
  */
@@ -20,7 +22,7 @@ function ForgetPassword() {
     handleClickOpenForgotUser,
     handleClickOpenSignUp,
     handleClickOpenLogIn,
-  } = React.useContext(forgetPassContext);
+  } = React.useContext(ForgetPassContext);
 
   const caption = (
     <>

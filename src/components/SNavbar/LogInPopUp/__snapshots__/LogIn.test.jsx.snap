@@ -138,7 +138,7 @@ exports[`test snapshot 1`] = `
             Home
           </button>
           <div
-            className="MuiBox-root css-12nalwd"
+            className="MuiBox-root css-1vqopat"
           >
             <svg
               aria-hidden={true}

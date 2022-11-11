@@ -15,7 +15,8 @@ import StyledList from './styles';
 import Reddit from '../assests/Reddit.svg';
 
 /**
- *
+ *  HomeList
+ * @component
  * @returns {React.Component} left list in navbar in logged in mode
  */
 function HomeList() {

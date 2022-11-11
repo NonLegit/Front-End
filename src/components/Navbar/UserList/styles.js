@@ -1,10 +1,11 @@
 import {
-  List, styled, alpha, Switch,
+  List, styled, Switch,
 } from '@mui/material';
 
-export const StyledList = styled(List)(() => ({
+export const StyledList = styled(List)(({ theme }) => ({
   position: 'relative',
   '& .MuiButtonBase-root': {
+    paddingTop: '0px',
     '& .MuiAvatar-root': {
       backgroundColor: '#D7DFE2',
       width: '20px',
@@ -21,18 +22,25 @@ export const StyledList = styled(List)(() => ({
   },
   '& .MuiCollapse-root': {
     '& .MuiList-root': {
+      boxShadow: '0 2px 4px 0 rgba(28,28,28,0.2)',
       position: 'absolute',
       width: '252px',
       left: '-80px',
       height: '340px',
-      overflowY: 'scroll',
+      overflowY: 'auto',
+      [theme.breakpoints.down('md')]: {
+        left: '-135px',
+      },
+      [theme.breakpoints.between('0', '400')]: {
+        left: '-155px',
+      },
     },
     '& .MuiButtonBase-root': {
       padding: '8px 25px',
       backgroundColor: 'white',
       width: '100%',
       '&:hover': {
-        backgroundColor: alpha('#000000', 0.04),
+        backgroundColor: '#cacbcd',
       },
       '& .MuiListItemText-root': {
         margin: '0px',

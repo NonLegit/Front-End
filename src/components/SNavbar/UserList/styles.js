@@ -11,11 +11,11 @@ const StyledList = styled(List)(() => ({
     '& .MuiList-root': {
       backgroundColor: 'white',
       position: 'absolute',
+      left: '-90px',
       '& .MuiButtonBase-root': {
         padding: '8px 25px',
         backgroundColor: 'white',
         width: '170px',
-        left: '-90px',
         '&:hover': {
           backgroundColor: '#0079d3',
           '& .MuiTypography-root': {

@@ -2,13 +2,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import Navbar from './components/Navbar/Navbar';
+// import SNavbar from './components/SNavbar/SNavbar';
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
 import ForgetUsernamePage from './pages/ForgetUsernamePage';
 import ForgetPasswordPage from './pages/ForgetPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 
-// import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
 import Messages from './pages/Messages';
 import Moderation from './pages/Moderation';

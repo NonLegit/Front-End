@@ -1,5 +1,5 @@
 import {
-  List, styled, alpha,
+  List, styled,
 } from '@mui/material';
 
 const StyledList = styled(List)(({ theme }) => ({
@@ -9,9 +9,10 @@ const StyledList = styled(List)(({ theme }) => ({
     backgroundColor: 'white',
     width: 'auto',
     '&:hover': {
-      backgroundColor: 'transparent',
+      backgroundColor: '#f6f7f8',
     },
     '& .MuiListItemText-root': {
+
       paddingRight: '150px',
       [theme.breakpoints.down('lg')]: {
         display: 'none',
@@ -23,12 +24,19 @@ const StyledList = styled(List)(({ theme }) => ({
       padding: '0px',
     },
   },
+  '& .MuiCollapse-root .MuiList-root': {
+    boxShadow: '0 2px 4px 0 rgba(28,28,28,0.2)',
+    [theme.breakpoints.between('0', '400')]: {
+      left: '-60px',
+      width: '250px',
+    },
+  },
 
   '& .MuiCollapse-root .MuiButtonBase-root': {
     padding: '8px 25px',
     backgroundColor: 'white',
     '&:hover': {
-      backgroundColor: alpha('#000000', 0.04),
+      backgroundColor: '#cacbcd',
     },
     '& .MuiListItemText-root': {
       margin: '0px',

@@ -7,7 +7,7 @@ import {
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
 import ExpandLess from '@mui/icons-material/ExpandLess';
-import StyledList from './styles';
+import { StyledList } from './styles';
 import { firstList, exploreList } from '../Drawer/Lists';
 
 /**
@@ -40,7 +40,7 @@ function HomeList() {
       <Collapse
         in={Boolean(openHomeList)}
         sx={{
-          position: 'absolute', width: '270px', left: '0px', top: '55px',
+          position: 'absolute', width: '270px', left: '0px', top: '55px', height: '465px !important', overflowY: 'scroll',
         }}
         timeout="auto"
         unmountOnExit

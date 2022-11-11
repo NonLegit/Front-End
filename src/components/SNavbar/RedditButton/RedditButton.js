@@ -11,7 +11,7 @@ const RedditButton = styled(Button)(({
   minWidth: 'auto',
   width: '120px',
   fontWeight,
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     display: 'none',
   },
 }));

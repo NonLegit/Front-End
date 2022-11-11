@@ -3,13 +3,14 @@ import { InputBase } from '@mui/material';
 import Search from './styles';
 
 /**
- *
+ *  SearchField
+ * @component
  * @returns {React.Component} the search bar in the navbar.
  */
 function SearchField() {
   return (
     <Search>
-      <SearchIcon />
+      <SearchIcon sx={{ cursor: 'pointer' }} />
       <InputBase placeholder="Search nonlegit" />
     </Search>
   );

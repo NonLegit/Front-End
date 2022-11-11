@@ -9,7 +9,8 @@ import NavIcons from './NavIcons/NavIcons';
 import LogoIcon from './Logo/logoIcon';
 
 /**
- *
+ * Navbar
+ * @component
  * @returns {React.Component} the whole logged in navbar with the two lists,
  * Search bar and icon buttons
  */

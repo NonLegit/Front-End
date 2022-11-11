@@ -22,12 +22,14 @@ import PermanentDrawerLeft from './Drawer/Drawer';
 import DrawerBottom from './DrawerBottom/DrawerBottom';
 import HomeList from './HomeList/HomeList';
 
-export const signupContext = createContext();
-export const loginContext = createContext();
-export const forgetUserContext = createContext();
-export const forgetPassContext = createContext();
+export const SignupContext = createContext();
+export const LoginContext = createContext();
+export const ForgetUserContext = createContext();
+export const ForgetPassContext = createContext();
 
 /**
+ * SNavbar
+ * @component
  * signed out mode navbar different components
  * @returns {React.Component} main body of navbar in signed out mode
  */
@@ -79,7 +81,12 @@ function SNavbar() {
               <LogoIcon />
               <HomeList />
 
-              <HomeButton startIcon={<HomeIcon />}>
+              <HomeButton
+                sx={{
+                  display: { xs: 'none', lg: 'none' },
+                }}
+                startIcon={<HomeIcon />}
+              >
                 Home
               </HomeButton>
               <SearchButton />
@@ -115,14 +122,14 @@ function SNavbar() {
               </RedditButton>
             </Box>
 
-            <signupContext.Provider value={{
+            <SignupContext.Provider value={{
               openSignUp, handleClose, handleClickOpenLogIn,
             }}
             >
               <SignUp />
-            </signupContext.Provider>
+            </SignupContext.Provider>
 
-            <loginContext.Provider value={{
+            <LoginContext.Provider value={{
               openLogIn,
               handleClose,
               handleClickOpenForgotUser,
@@ -131,9 +138,9 @@ function SNavbar() {
             }}
             >
               <LogIn />
-            </loginContext.Provider>
+            </LoginContext.Provider>
 
-            <forgetUserContext.Provider value={{
+            <ForgetUserContext.Provider value={{
               openForgotUser,
               handleClose,
               handleClickOpenSignUp,
@@ -141,9 +148,9 @@ function SNavbar() {
             }}
             >
               <ForgetUsername />
-            </forgetUserContext.Provider>
+            </ForgetUserContext.Provider>
 
-            <forgetPassContext.Provider value={{
+            <ForgetPassContext.Provider value={{
               openForgotpass,
               handleClose,
               handleClickOpenForgotUser,
@@ -152,14 +159,14 @@ function SNavbar() {
             }}
             >
               <ForgetPassword />
-            </forgetPassContext.Provider>
+            </ForgetPassContext.Provider>
 
             <UserList logInPopup={handleClickOpenLogIn} />
           </Box>
         </MuiToolbar>
       </StyledNavbar>
       <Box sx={{
-        display: { xs: 'none', lg: 'flex' }, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'absolute',
+        display: { xs: 'none', lg: 'none' }, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'absolute',
       }}
       >
         <PermanentDrawerLeft />

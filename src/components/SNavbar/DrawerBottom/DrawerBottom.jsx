@@ -3,7 +3,8 @@ import StyledBottom from './styles';
 import RedditButton from '../RedditButton/RedditButton';
 
 /**
- *
+ * DrawerBottom
+ * @component
  * @param {logInPopup} param0 opening the register popup window
  * @returns {React.Component} the bottom of the left permanent sidebar
  */

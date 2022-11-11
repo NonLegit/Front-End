@@ -8,9 +8,11 @@ import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/Authe
 import ThirdParty from '../ِAuthentication/ThirdParty/ThirdParty';
 import Divider from '../ِAuthentication/Divider/Divider';
 import FirstParty from '../ِAuthentication/FirstParty/FirstParty';
-import { loginContext } from '../SNavbar';
+import { LoginContext } from '../SNavbar';
 
 /**
+ *  LogIn popUp
+ * @component
  * Login popup Differenet Components
  * @returns {React.Component} - Main Body of Login Page
  */
@@ -34,7 +36,7 @@ function LogIn() {
     handleClickOpenForgotUser,
     handleClickOpenForgotPass,
     handleClickOpenSignUp,
-  } = React.useContext(loginContext);
+  } = React.useContext(LoginContext);
 
   return (
     <StyledDialog

@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material';
 
-const Search = styled(Box)(() => ({
+const Search = styled(Box)(({ theme }) => ({
   position: 'relative',
   marginLeft: '34px',
   marginRight: '34px',
@@ -37,6 +37,16 @@ const Search = styled(Box)(() => ({
     width: '100%',
     padding: '0px 0px 0px 0px',
     placeholder: 'Search nonlegit',
+    [theme.breakpoints.between('0', '400')]: {
+      display: 'none',
+    },
+  },
+  [theme.breakpoints.between('0', '400')]: {
+    border: 0,
+    backgroundColor: 'white',
+    '&:hover': {
+      border: 0,
+    },
   },
 }));
 

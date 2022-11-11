@@ -3,6 +3,8 @@ import LogoText from '../assests/LogoText.svg';
 import Logo from '../assests/Logo.svg';
 
 /**
+ * LogoIcon
+ * @component
  * Both of the logo and word are hyperlinks to the homepage.
  * @returns {React.Component} logo and nonlegit word beside it.
  */

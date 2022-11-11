@@ -2,13 +2,15 @@
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { forgetUserContext } from '../SNavbar';
+import { ForgetUserContext } from '../SNavbar';
 import StyledDialog from '../SignUpPopUp/styles';
 import { StyledLink } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
 import Email from '../ِAuthentication/Email/Email';
 
 /**
+ *  ForgetUsername popUp
+ * @component
  * forget username popup different components
  * @returns {React.Component} main body of forget username popup
  */
@@ -19,7 +21,7 @@ function ForgetUsername() {
     handleClose,
     handleClickOpenSignUp,
     handleClickOpenLogIn,
-  } = React.useContext(forgetUserContext);
+  } = React.useContext(ForgetUserContext);
 
   const caption = (
     <>

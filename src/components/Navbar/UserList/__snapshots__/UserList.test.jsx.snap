@@ -2,7 +2,7 @@
 
 exports[`test snapshot 1`] = `
 <ul
-  className="MuiList-root MuiList-padding css-zqzbi5-MuiList-root"
+  className="MuiList-root MuiList-padding css-17i7u3w-MuiList-root"
 >
   <div
     className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"

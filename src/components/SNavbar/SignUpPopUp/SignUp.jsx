@@ -2,7 +2,7 @@
 import { Box, Typography } from '@mui/material';
 import { useContext, useState, useEffect } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { signupContext } from '../SNavbar';
+import { SignupContext } from '../SNavbar';
 import StyledDialog from './styles';
 import {
   StyledLink, wrongIcon,
@@ -15,7 +15,8 @@ import ThirdParty from '../ِAuthentication/ThirdParty/ThirdParty';
 import Divider from '../ِAuthentication/Divider/Divider';
 import Email from '../ِAuthentication/Email/Email';
 /**
- *
+ * SignUp popUp
+ * @component
  * @param {setUserNamePage} param0
  * @param {setEmail} param1 used for animate the email input field
  * @returns {React.Component} sign up popup different component
@@ -69,7 +70,7 @@ function SignUp({ setUserNamePage, setEmail }) {
 
   const {
     openSignUp, handleClose, handleClickOpenLogIn,
-  } = useContext(signupContext);
+  } = useContext(SignupContext);
   return (
     <StyledDialog
       data-testid="signup-popup"
