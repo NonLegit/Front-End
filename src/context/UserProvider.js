@@ -4,11 +4,11 @@ import { createContext, useEffect, useState } from 'react';
 export const UserContext = createContext();
 
 function UserProvider(props) {
-  const { children } = props;
+  const { children, name } = props;
   const [username, setUsername] = useState();
   useEffect(() => {
-    setUsername('NourZiad111');
-  }, []);
+    setUsername(name);
+  }, [name]);
 
   return (
     <UserContext.Provider value={{ username }}>

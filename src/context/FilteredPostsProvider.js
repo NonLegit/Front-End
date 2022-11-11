@@ -5,20 +5,20 @@ import axios from 'axios';
 export const FilteredPostsContext = createContext();
 
 function FilteredPostsProvider(props) {
-  const { param, children } = props;
+  const { param, children, name } = props;
   const [posts, setPosts] = useState([]);
   const client = axios.create({
-    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+    baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
   });
   useEffect(() => {
-    client.get(`users/nour/${param}/200`) // fetch api
+    client.get(`users/${name}/${param}/200`) // fetch api
       .then((actualData) => {
         setPosts(actualData.data.posts);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [param]);
+  }, [param, name]);
 
   return (
     <FilteredPostsContext.Provider value={{ posts }}>

@@ -13,9 +13,13 @@ import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
 import { UserContext } from '../../../../context/UserProvider';
 
-/** the post that appear in posts - saved - hidden - upvoted - downvotep taps
- * @return {React.Component} - EntityPost
- * @param {object} entity - an entity conatins all post informations
+/**
+ * the post that appear in posts - saved - hidden - upvoted - downvotep taps
+ *
+ * @component Post
+ * @property {object} entity - an entity conatins all post informations
+ * @property {string} type -subTitle of the page
+ * @returns {React.Component} Post
  */
 function Post(props) {
   const {
@@ -29,12 +33,11 @@ function Post(props) {
     setExpand((prev) => !prev);
   };
   useEffect(() => {
-    console.log(type);
     setSubTitle(type);
   }, [type]);
   return (
     <PostsQueueBox>
-      <PostSide upvoted={subTitle === 'upvoted'} downvoted={subTitle === 'downvoted'} />
+      <PostSide points={entity?.votes} postVoteStatus={entity?.postVoteStatus} />
 
       <Box sx={{ marginLeft: 6 }}>
         <Box sx={{ display: 'flex' }}>
@@ -49,17 +52,12 @@ function Post(props) {
                 nameUser={username}
                 Time={entity.createdAt}
               />
-              {/*
-                  saved - hidden
-                  approved
-                  removed
-                  spam */}
               <PostFooter
                 subTitle={entity.ownerType}
                 handleExpand={handleExpand}
                 expand={expand}
-                voted={subTitle === 'upvoted' || subTitle === 'downvoted'}
-                postedByOthers={!(entity.creator === username)}
+                submitted={subTitle === undefined}
+                postedByOthers={!(entity.author === username)}
                 saved={subTitle === 'saved'}
                 hidden={subTitle === 'hidden'}
                 approved={entity.approved}

@@ -7,9 +7,11 @@ import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 
 import { Divider } from '@mui/material';
 import { SelectBox, SelectItem } from './styles';
-
-/** List items of post footer
- * @return {React.Component} - PostFooterList
+/**
+ * List items of post footer
+ *
+ * @component PostFooterList
+ * @returns {React.Component} PostFooterList
  */
 function PostFooterList() {
   return (

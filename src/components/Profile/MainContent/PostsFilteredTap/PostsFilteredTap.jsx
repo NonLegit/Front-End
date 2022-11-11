@@ -26,9 +26,12 @@ const renderSwitch = (param) => {
   }
 };
 
-/** filtered taps (saved - hidden - upvoted - downvoted)
- * @return {React.Component} - PostsFilteredTap
- * @param {string} type - conatins the subtitle of the page to render correctly
+/**
+ * filtered taps (saved - hidden - upvoted - downvoted)
+ *
+ * @component PostsFilteredTap
+ * @property {string} type - conatins the subtitle of the page to render correctly
+ * @returns {React.Component} PostsFilteredTap
  */
 function PostsFilteredTap(props) {
   const { type } = props;

@@ -32,7 +32,7 @@ export const FooterText = styled(Typography)(({
   }),
 }));
 export const ElementBox = styled(Box)(({
-  condition, condition2, theme, responsive,
+  condition, condition2, theme, responsive, responsive3icons,
 }) => ({
   height: '100%',
   display: 'flex',
@@ -59,19 +59,29 @@ export const ElementBox = styled(Box)(({
       display: 'none',
     },
   }),
+  ...((responsive3icons) && {
+    [theme.breakpoints.between('0', '400')]: {
+      display: 'none',
+    },
+  }),
 }));
 
-export const SelectBox = styled(Box)(() => ({
+export const SelectBox = styled(Box)(({ theme }) => ({
   width: 260,
   marginTop: 330,
-  marginLeft: 500,
+  // marginLeft: 500,
   border: ' 1px solid #eee',
   borderRadius: 4,
   boxShadow: '0 2px 4px 0 #eee',
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
-
+  [theme.breakpoints.between('0', '700')]: {
+    marginLeft: -200,
+  },
+  [theme.breakpoints.between('0', '500')]: {
+    width: 200,
+  },
 }));
 
 export const SelectItem = styled(Button)(() => ({
@@ -82,9 +92,4 @@ export const SelectItem = styled(Button)(() => ({
   width: '100%',
   justifyContent: 'left',
   textTransform: 'none',
-  // not working
-  '& .MuiButtonBase-root:hover': {
-    color: 'black',
-    backgroundColor: '#d7d7d7',
-  },
 }));

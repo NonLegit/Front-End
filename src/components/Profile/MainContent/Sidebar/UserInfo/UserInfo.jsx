@@ -6,42 +6,41 @@ import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
 import { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
 import { UserContext } from '../../../../../context/UserProvider';
+import { UserInfoContext } from '../../../../../context/UserInfoProvider';
 
-/** UserInfo Box in sidebar
- * @return {React.Component} - UserInfo
+/**
+ * UserInfo Box in sidebar containing all info of a user
+ *
+ * @component UserInfo
+ * @returns {React.Component} UserInfo
  */
 function UserInfo() {
   const [karma, setKarma] = useState();
   const [cake, setCake] = useState();
   const [followers, setFollowers] = useState();
 
-  const client = axios.create({
-    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
-  });
-  const {
-    username,
-  } = useContext(UserContext);
+  const { username } = useContext(UserContext);
+  const { info } = useContext(UserInfoContext);
 
   // to be fetched here
   useEffect(() => {
-    client.get(`users/${username}/about/200`) // fetch api
-      .then((actualData) => {
-        setKarma(actualData.data.user.postKarma);
-        setCake(actualData.data.user.gender);
-        // check with back end
-        setFollowers(actualData.data.user.followersCount);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [username]);
+    setKarma(info.postKarma);
+    // check with back end
+    setFollowers(info.followersCount);
+    const month = info.createdAt?.split('-')[1];
+    const date = new Date();
+    date.setMonth(month - 1);
+
+    setCake(`${date.toLocaleString('en-US', {
+      month: 'long',
+    })} ${info.createdAt?.split('-')[2]}, ${info.createdAt?.split('-')[0]}`);
+  }, [info]);
 
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {
@@ -119,14 +118,14 @@ function UserInfo() {
         {showList
             && (
             <>
-              <OptionsButtons>Profile moderation</OptionsButtons>
+              <OptionsButtons data-testid="option">Profile moderation</OptionsButtons>
               <OptionsButtons>Add to Custom Feed</OptionsButtons>
               <OptionsButtons>Invite someone to chat</OptionsButtons>
               <MoreOptions onClick={() => { handleClickList(); }}>Fewer options</MoreOptions>
             </>
             )}
         {!showList
-            && <MoreOptions onClick={() => { handleClickList(); }}>More options</MoreOptions>}
+            && <MoreOptions data-testid="show-more" onClick={() => { handleClickList(); }}>More options</MoreOptions>}
       </ProfileBox>
 
     </UserInfoBox>

@@ -19,6 +19,8 @@ export const AddPhoto = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  position: 'absolute',
+  zIndex: '50',
   '&:hover': {
     cursor: 'pointer',
   },
@@ -55,7 +57,7 @@ export const ProfileBox = styled(Box)(() => ({
   height: '100%',
   width: '100%',
   position: 'relative',
-  marginTop: -130,
+  marginTop: -95,
 }));
 
 export const EngineIcon = styled(SettingsOutlinedIcon)(() => ({

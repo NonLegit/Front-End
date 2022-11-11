@@ -5,15 +5,15 @@ import axios from 'axios';
 export const ContentContext = createContext();
 
 function ContentProvider(props) {
-  const { children } = props;
+  const { children, name } = props;
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
   const client = axios.create({
-    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+    baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
   });
 
   useEffect(() => {
-    client.get('users/nour/overview/200') // fetch api
+    client.get(`users/${name}/overview/200`) // fetch api
       .then((actualData) => {
         setPosts(actualData.data.posts);
         setComments(actualData.data.comments);
@@ -21,7 +21,7 @@ function ContentProvider(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [name]);
 
   return (
     <ContentContext.Provider value={{ posts, comments }}>
