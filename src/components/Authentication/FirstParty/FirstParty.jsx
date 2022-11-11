@@ -1,44 +1,45 @@
-import { useState, useEffect } from 'react';
-import { Typography } from '@mui/material';
+import { useState } from 'react';
 import axios from 'axios';
+
+// mui components
+import { Typography } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
+
+// styles
 import { FirstPartyContainer } from './styles';
-import theme, { fonts } from '../../../styles/theme';
 import {
   RedditLoadingButton, RedditTextField, wrongIcon, rightIcon,
 } from '../styles';
+import theme, { fonts } from '../../../styles/theme';
 
 /**
- * Component for Logiing in by username and passsword
+ * Form for Logging in by username and passsword
  *
  * @component
- * @returns {React.Component}
+ * @returns {React.Component} First Party Form
  */
 function FirstParty() {
-  const [buttonTxt, setButtonText] = useState('Log In');
+  // useState
   const [userName, setUserName] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
   const [password, setPassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  const [redirectCaption, setRedirectCaption] = useState(false);
+  const [buttonTxt, setButtonText] = useState('Log In');
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setButtonText('Log in');
-  }, []);
+  const [redirectCaption, setRedirectCaption] = useState(false);
 
   /**
-   * Check if Valid username from length and format
-   * @returns {null}
+   *
+   * Function to check if length of provided string 3-20 accordingly change color and mesaages of username input field
+   * @param {string} username  -username to check on
+   * @returns void
    */
   const checkUserName = (username) => {
-    // const username = userName.input;
-
+    console.log(userName); // late
     // Check Username bwteen 3-20 characters
     if (username.length < 3 || username.length > 20) {
-      console.log('length problem');
       setUserName((prevState) => ({
         ...prevState,
         color: theme.palette.error.main,
@@ -55,44 +56,51 @@ function FirstParty() {
       error: null,
     }));
   };
+
   /**
    *
-   * @param {event} event
-   * @returns Either logging in and redirecting to the homepage or Error flags on the inputfields
+   * Function Calls /users/login endpoint to Redirect to Home Page or Invalid so Error Messages Appear
+   * @param {event} event -Onsubmit of the form
+   * @returns void
    */
-  const logIn = async (event) => {
+  const logIn = (event) => {
     event.preventDefault();
+    console.log(userName);// Not Late
     setLoading(true);
-    console.log(password);
-    console.log(userName);
     if (userName.error != null) {
-      console.log("Couldn't login");
       setLoading(false);
       return;
     }
 
+    // Case of previous trial was error
     setPassword((prevState) => ({
       ...prevState,
       color: theme.palette.neutral.main,
       icon: null,
       error: null,
     }));
-    let x = 1;
-    if (userName.input === 'basma') { x = 3; }
-    axios.post(`https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/login/${x}`, userName.input, password.input).then((response) => {
-      console.log(response);
-      setLoading(false);
+
+    // API Call
+    const x = userName.input === 'basma' ? 3 : 1;
+    axios.post(`https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/login/${x}`, { userName: userName.input, password: password.input }).then((response) => {
       if (response.status === 200) {
+        setLoading(false);
+        // sucess
+        // ==>response.data.token
+        // ==>response.data.expiresin
+        // ==>Cokies Point
         setButtonText(<DoneIcon />);
         setRedirectCaption(true);
         setTimeout(() => {
-          window.location.href = '/';
+          // window.location.href = '/';
         }, 1000);
-        console.log('login up');
       }
     }).catch((error) => {
+      setLoading(false);
+      console.log(error);
       if (error.response.status === 404) {
         // Invlaid Username or password
+        // update username and password states
         setUserName((prevState) => ({
           ...prevState,
           color: theme.palette.error.main,
@@ -105,12 +113,16 @@ function FirstParty() {
           icon: wrongIcon,
           error: null,
         }));
-        setLoading(false);
+      } else if (error.response.status === 400) {
+        // Provide username or password
+        // ==> errorMessage [Check with BE]
+        console.log('status 400 is returned');
       }
     });
   };
 
   return (
+
     <FirstPartyContainer width="290px" onSubmit={logIn} data-testid="FirstParty-test">
 
       <RedditTextField
@@ -147,7 +159,7 @@ function FirstParty() {
           disableUnderline: true,
         }}
         clr={password.color}
-        onBlur={(e) => setPassword((prevState) => ({
+        onChange={(e) => setPassword((prevState) => ({
           ...prevState,
           input: e.target.value.trim(),
         }))}
@@ -161,8 +173,8 @@ function FirstParty() {
       {redirectCaption
         ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="10px 0px">You are now logged in. You will soon be redirected</Typography>
         : null}
-
     </FirstPartyContainer>
+
   );
 }
 

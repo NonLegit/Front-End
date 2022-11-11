@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react';
+
+// mui components
 import { Typography } from '@mui/material';
 
-import { AuthenticationBody, StyledLink } from '../styles';
-
+// componenets
 import LoadingPage from '../LoadingPage/LoadingPage';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import ThirdParty from '../ThirdParty/ThirdParty';
 import Divider from '../Divider/Divider';
 import FirstParty from '../FirstParty/FirstParty';
 
+// styles
+import { AuthenticationBody, StyledLink } from '../styles';
+
 /**
- * Login Page Differenet Components
+ * Login Page Component
  * @returns {React.Component} - Main Body of Login Page
  */
 function LogIn() {
+  // state
   const [remeberMe, setRemeberMe] = useState(false);
 
+  // effect
   useEffect(() => {
-    // Check fot Cokkies sent by Back
+    //= =>Check on Cookies
     setRemeberMe(false);
   }, []);
 
@@ -41,9 +47,7 @@ function LogIn() {
           <AuthenticationHeader reddit={false} title="Log in" caption={caption} />
           <ThirdParty />
           <Divider />
-
           <FirstParty />
-
           <Typography paragraph fontSize="12px" fontFamily="ibm-plex-sans,sans-serif">
             Forgot your
             {' '}
@@ -52,7 +56,6 @@ function LogIn() {
             <StyledLink href="/password" fontWeight="400" capital="none">password</StyledLink>
             {' ?'}
           </Typography>
-
           <Typography paragraph fontSize={12}>
             New to Reddit?
             {' '}
