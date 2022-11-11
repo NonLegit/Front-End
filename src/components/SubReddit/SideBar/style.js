@@ -11,6 +11,7 @@ export const SideBarContainer = styled('div')(({ theme }) => ({
   marginLeft: 24,
   backgroundColor: 'transparent',
   position: 'relative',
+  marginTop: 16,
 }));
 export const CommunityContainer = styled('div')({
   background: 'white',

@@ -1,23 +1,22 @@
 import * as React from 'react';
 import {
-  Box, Checkbox, Dialog, FilledInput, FormControl, FormControlLabel,
-  FormGroup,
-  InputAdornment, InputLabel, Radio, RadioGroup, Stack,
+  Box, Checkbox, Dialog, FormControlLabel, FormGroup, Stack,
 } from '@mui/material';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import IconButton from '@mui/material/IconButton';
-import PersonIcon from '@mui/icons-material/Person';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import HttpsIcon from '@mui/icons-material/Https';
-import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import {
   Actions, Adult, AdultContent,
-  Container, Count, DialogTitle, Disc, Name, NSFWs,
-  SecConatiner, SelectHeader, Warning, Btn, BOX, Cont, ContUp, StyledTooltip,
+  Container, NSFWs,
+  Warning, Btn,
 } from './style';
 import { CreatPost, CustomLink } from '../../../../SubReddit/SideBar/AboutSubReddit/style';
 import RedditButton from '../../../../RedditButton/RedditButton';
+import RadioBtn from './RadioBtn/RadioBtn';
+import Header from './Header/Header';
+import Input from './Input/Input';
+
+const Form = axios.create({
+  baseURL: 'https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io',
+});
 /**
  * Pop up Creat Cummunity Form
  * @return {React.Component} - Popup Form
@@ -68,7 +67,7 @@ function FormDialog() {
     // axios.get(`http://localhost:8000/subreddit/${{ subRedditName }}`, {
     //   subredditName: subRedditName,
     // })
-    axios.get(`https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/${subRedditName}/200`, {
+    Form.get(`/subreddits/${subRedditName}/401`, {
     })
       .then((response) => {
         if (response.status === 200) {
@@ -82,6 +81,9 @@ function FormDialog() {
   const check18 = () => {
     const ele = document.getElementById('myCheck');
     ele.click();
+  };
+  const myType = (t) => {
+    setType(t);
   };
   /**
    * make post action
@@ -97,10 +99,10 @@ function FormDialog() {
       //   type,
       //   NSFW: adult,
       // })
-      axios.post('https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/200', {})
+      Form.post('/subreddits/200', {})
         .then((response) => {
           if (response.status === 200) {
-            document.location.href = 'http://localhost:3000';
+            document.location.href = 'https://localhost:3000/';
           }
         });
     }
@@ -123,92 +125,9 @@ function FormDialog() {
       <Container>
         <Dialog open={open} onClose={handleClose}>
           <Box sx={{ p: 2 }}>
-            <BOX>
-              <DialogTitle>Create a community</DialogTitle>
-              <CloseIcon sx={{ cursor: 'pointer' }} onClick={handleClose} />
-            </BOX>
-            <SecConatiner>
-              <Name>Name</Name>
-              <Disc sx={{ height: 'fit-content', alignItems: 'center' }}>
-                Community names including capitalization cannot be changed.
-                <StyledTooltip
-                  title='Names cannot have spaces (e.g., "r/bookclub" not "r/book club"), must be between 3-21 characters, and underscores ("_") are the only special characters allowed. Avoid using solely trademarked names (e.g., "r/FansOfAcme" not "r/Acme").'
-                >
-                  <IconButton>
-                    <ErrorOutlineIcon sx={{ transform: 'rotate(180deg)', fontSize: 'small', color: 'gray' }} />
-                  </IconButton>
-                </StyledTooltip>
-              </Disc>
-            </SecConatiner>
-            <FormControl fullWidth sx={{ height: 28 }}>
-              <InputLabel htmlFor="name" />
-              <FilledInput
-                sx={{
-                  '&: after': { borderBottom: '2px solid #040404de', padding: 0 },
-                  height: 28,
-                  '& .css-1vbc0rj-MuiInputBase-input-MuiFilledInput-input': { padding: 0 },
-                }}
-                onInput={(e) => {
-                  // eslint-disable-next-line radix
-                  e.target.value = e.target.value.slice(0, 21);
-                }}
-                id="name"
-                data-testid="input"
-                value={subRedditName}
-                onChange={handleChange}
-                startAdornment={<InputAdornment position="start">r/</InputAdornment>}
-                maxLength={21}
-                onBlur={() => check()}
-              />
-            </FormControl>
-            <Count
-              condition={(count === 0).toString()}
-            >
-              {count}
-              {' '}
-              Characters remaining
-            </Count>
-            <Count data-testid="warning" condition="true">{checked}</Count>
-            <Count condition="true">{errorMassage}</Count>
-            <SelectHeader> Community type</SelectHeader>
-            <FormControl sx={{ marginBottom: '30px' }}>
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                name="radio-buttons-group"
-                id="type"
-                defaultValue="Public"
-                onChange={(e) => setType(e.target.value)}
-              >
-                <ContUp condition2="true">
-                  <Cont>
-                    <FormControlLabel value="Public" control={<Radio />} sx={{ margin: 0 }} />
-                    <PersonIcon sx={{ color: 'gray' }} />
-                    <Name sx={{ margin: 1 }}>Public</Name>
-                  </Cont>
-                  <Disc sx={{ pt: 0.5 }}>Anyone can view, post, and comment to this community</Disc>
-                </ContUp>
-                <ContUp>
-                  <Cont>
-                    <FormControlLabel value="Restricted" control={<Radio />} sx={{ margin: 0 }} />
-                    <VisibilityIcon sx={{ color: 'gray' }} />
-                    <Name sx={{ margin: 1 }}>Restricted</Name>
-                  </Cont>
-                  <Disc sx={{ pt: 0.5 }}>
-                    Anyone can view this community, but only approved users can post
-                  </Disc>
-                </ContUp>
-                <ContUp condition="true">
-                  <Cont>
-                    <FormControlLabel value="Private" control={<Radio />} sx={{ margin: 0 }} />
-                    <HttpsIcon sx={{ color: 'gray' }} />
-                    <Name sx={{ margin: 1 }}>Private</Name>
-                  </Cont>
-                  <Disc sx={{ pt: 0.5 }}>
-                    Only approved users can view and submit to this community
-                  </Disc>
-                </ContUp>
-              </RadioGroup>
-            </FormControl>
+            <Header handleClose={handleClose} />
+            <Input subRedditName={subRedditName} handleChange={handleChange} check={check} count={count} checked={checked} errorMassage={errorMassage} />
+            <RadioBtn myType={myType} />
             <AdultContent> Adult content</AdultContent>
             <Adult>
               <FormGroup>

@@ -31,7 +31,7 @@ function Header() {
                 <Com>r/3amjokes</Com>
               </Desc>
               <Box sx={{ display: 'flex' }}>
-                <Join>Joined</Join>
+                <Join onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
                 <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0 }} /></Notification>
               </Box>
             </Content>
