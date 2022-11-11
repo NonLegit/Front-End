@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<span
+  className="css-19lxpi3"
+  data-testid="add"
+  id="add"
+  onClick={[Function]}
+  onTouchEnd={[Function]}
+>
+  <div
+    className="MuiBox-root css-p58oka"
+  />
+  <textarea
+    autoFocus={true}
+    className="css-h1mzer"
+    data-testid="input"
+    id="input"
+    onInput={[Function]}
+    type="text"
+  />
+  <div
+    className="MuiBox-root css-1e5p0dr"
+  >
+    <p
+      className="css-13icyxo"
+    >
+      / 25
+    </p>
+    <div
+      className="MuiBox-root css-1euf48e"
+    >
+      <p
+        className="css-1w2jjrd"
+        color="red"
+        id="cancel"
+        onClick={[Function]}
+      >
+        Cancel
+      </p>
+      <p
+        className="css-44rl5i"
+        color="#0079d3"
+        onClick={[Function]}
+      >
+        Save
+      </p>
+    </div>
+  </div>
+</span>
+`;
