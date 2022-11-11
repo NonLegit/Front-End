@@ -22,7 +22,6 @@ function ForgetPassword() {
   const [email, setEmail] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-
   useEffect(() => {
     // check if connected Cookies
     if (false) {
@@ -37,40 +36,44 @@ function ForgetPassword() {
     </>
   );
 
-  const checkUserName = () => {
-    const username = userName.input;
-    // console.log(userName);
+  const checkUserName = (username) => {
+    // const username = userName.input;
+    console.log(username);
 
     // Check Username bwteen 3-20 characters
     if (username.length < 3 || username.length > 20) {
       console.log('length problem');
-      setUserName((prevState) => ({
-        ...prevState,
+      setUserName(() => ({
         color: theme.palette.error.main,
         icon: wrongIcon,
         error: 'Username must be between 3 and 20 characters',
+        input: username,
       }));
+      console.log(userName);
       return;
     }
     // else Valid
-    setUserName((prevState) => ({
-      ...prevState,
+    setUserName(() => ({
       color: theme.palette.primary.main,
       icon: rightIcon,
       error: null,
+      input: username,
     }));
+    console.log(userName);
   };
 
-  const checkEmail = () => {
-    if (email.input === '') {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please enter an email address to continue',
-      }));
-    }
-    if (!/\S+@\S+\.\S+/.test(email.input)) {
+  const checkEmail = (emailInput) => {
+    console.log('Check eail', emailInput);
+    // if (emailInput === '') {
+    //   setEmail((prevState) => ({
+    //     ...prevState,
+    //     color: theme.palette.error.main,
+    //     icon: wrongIcon,
+    //     error: 'Please enter an email address to continue',
+    //   }));
+    //   return;
+    // }
+    if (!/\S+@\S+\.\S+/.test(emailInput)) {
       setEmail((prevState) => ({
         ...prevState,
         color: theme.palette.error.main,
@@ -88,8 +91,18 @@ function ForgetPassword() {
   };
 
   const recoverPassword = () => {
+    console.log('REacover');
+    console.log(userName);
     setLoading(true);
-    if (userName.error != null || email.error != null) {
+    checkUserName(userName.input);
+    checkEmail(email.input);
+
+    if (userName.input === '' && email.input === '') {
+      setLoading(false);
+      return;
+    }
+
+    if (userName.error !== null && email.error !== null) {
       setLoading(false);
       return;
     }
@@ -108,11 +121,11 @@ function ForgetPassword() {
   };
 
   return (
-    <AuthenticationBody mnwidth="280px" mxwidth="440px">
+    <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="forgetpassword-test">
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-          <FirstPartyContainer noValidate>
+          <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); recoverPassword(); }}>
             <RedditTextField
               label="Username"
               variant="filled"
@@ -130,7 +143,7 @@ function ForgetPassword() {
                   ...prevState,
                   input: e.target.value.trim(),
                 }));
-                checkUserName();
+                checkUserName(e.target.value.trim());
               }}
               helperText={userName.error}
             />
@@ -151,11 +164,11 @@ function ForgetPassword() {
                   ...prevState,
                   input: e.target.value.trim(),
                 }));
-                checkEmail();
+                checkEmail(e.target.value.trim());
               }}
               helperText={email.error}
             />
-            <RedditLoadingButton type="submit" width="155px" loading={loading} onClick={recoverPassword}>
+            <RedditLoadingButton type="submit" width="155px" loading={loading}>
               {buttonText}
             </RedditLoadingButton>
             {redirectCaption

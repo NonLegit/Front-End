@@ -198,5 +198,22 @@ exports[`test snapshot 1`] = `
       />
     </svg>
   </div>
+  <div
+    className="MuiBox-root css-azdl7z"
+    show="true"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="MoreHorizOutlinedIcon"
+      focusable="false"
+      onClick={[Function]}
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+      />
+    </svg>
+  </div>
 </div>
 `;

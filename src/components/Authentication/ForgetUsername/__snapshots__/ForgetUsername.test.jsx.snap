@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForgetUsername-test-snapshot 1`] = `
+<div
+  className="MuiBox-root css-1rv97zb"
+  data-testid="forgetusername-test"
+  mnwidth="280px"
+  mxwidth="440px"
+>
+  <div
+    className="MuiBox-root css-eyuwdo"
+  >
+    <img
+      alt="Reddit"
+      src="https://www.redditstatic.com/accountmanager/18e257d5fdea817c0f12cccf8867d930.svg"
+      width="40px"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-1sg842v-MuiTypography-root"
+    >
+      Recover your username
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-g041yz-MuiTypography-root"
+    >
+      Tell us the email address associated with your Reddit account, and we’ll send you an email with your username.
+    </p>
+  </div>
+  <form
+    className="css-1b9eai0"
+    data-testid="SignUpEmail-test"
+    noValidate={true}
+    onSubmit={[Function]}
+  >
+    <div
+      className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
+      clr="#978A8C"
+    >
+      <label
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink={false}
+        htmlFor=":r0:"
+        id=":r0:-label"
+      >
+        Email Address
+        <span
+          aria-hidden={true}
+          className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+        >
+           
+          *
+        </span>
+      </label>
+      <div
+        className="MuiInputBase-root MuiFilledInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1pw81iq-MuiInputBase-root-MuiFilledInput-root"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoComplete="off"
+          autoFocus={false}
+          className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-c5v1qu-MuiInputBase-input-MuiFilledInput-input"
+          defaultValue=""
+          disabled={false}
+          id=":r0:"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+        />
+      </div>
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1dixbnn-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+      data-testid="email-btn-test"
+      disabled={false}
+      id=":r1:"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="submit"
+      width="155px"
+    >
+      Email Me
+    </button>
+  </form>
+  <p
+    className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-ozxtq0-MuiTypography-root"
+  >
+    Don
+    '
+    t have an email or need assistance logging in? GET HELP
+  </p>
+  <p
+    className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-11y2vdi-MuiTypography-root"
+  >
+    <a
+      capital="uppercase"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1xn5q3i-MuiTypography-root-MuiLink-root"
+      href="/login"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      log in
+    </a>
+     • 
+    <a
+      capital="uppercase"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1xn5q3i-MuiTypography-root-MuiLink-root"
+      href="/register"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      sign up
+    </a>
+  </p>
+</div>
+`;

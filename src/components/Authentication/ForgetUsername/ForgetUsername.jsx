@@ -10,6 +10,13 @@ import Email from '../Email/Email';
 
 import { fonts } from '../../../styles/theme';
 
+/**
+ * Component for Forget Username Page
+ *
+ * @component
+ * @returns {React.Component}
+ */
+
 function ForgetUsername() {
   const [remeberMe, setremeberMe] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -34,6 +41,13 @@ function ForgetUsername() {
 
   const recoverUsername = (email) => {
     setLoading(true);
+
+    if (email.error != null) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+      return;
+    }
     if (!verified) {
       setLoading(false);
       return;
@@ -53,14 +67,14 @@ function ForgetUsername() {
     });
   };
   return (
-    <AuthenticationBody mnwidth="280px" mxwidth="440px">
+    <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="forgetusername-test">
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
           <Email onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} defaultEmail="" />
 
           {redirectCaption
-            ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
+            ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
             : null}
           <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
             Don

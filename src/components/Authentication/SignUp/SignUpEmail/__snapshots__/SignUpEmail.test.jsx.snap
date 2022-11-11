@@ -129,7 +129,6 @@ Array [
       <div
         className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
         clr="#978A8C"
-        ispopup="false"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
@@ -171,7 +170,6 @@ Array [
         data-testid="email-btn-test"
         disabled={false}
         id=":r1:"
-        ispopup="false"
         onBlur={[Function]}
         onContextMenu={[Function]}
         onDragLeave={[Function]}
