@@ -24,6 +24,8 @@ export const StyledList = styled(List)(() => ({
       position: 'absolute',
       width: '252px',
       left: '-80px',
+      height: '340px',
+      overflowY: 'scroll',
     },
     '& .MuiButtonBase-root': {
       padding: '8px 25px',

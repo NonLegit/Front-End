@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<a
+  href="wwww.reddit.com"
+>
+  <div
+    className="MuiBox-root css-k008qs"
+  >
+    <div
+      className="MuiBox-root css-8opyo5"
+    >
+      <img
+        alt=""
+        height={32}
+        src="Logo.svg"
+        width={32}
+      />
+    </div>
+    <div
+      className="MuiBox-root css-tjofhy"
+    >
+      <img
+        alt=""
+        height={20}
+        src="LogoText.svg"
+        width={57}
+      />
+    </div>
+  </div>
+</a>
+`;

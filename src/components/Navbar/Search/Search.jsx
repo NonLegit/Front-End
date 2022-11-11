@@ -2,7 +2,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import { InputBase } from '@mui/material';
 import Search from './styles';
 
-function searchButton() {
+/**
+ *
+ * @returns {React.Component} the search bar in the navbar.
+ */
+function SearchField() {
   return (
     <Search>
       <SearchIcon />
@@ -11,4 +15,4 @@ function searchButton() {
   );
 }
 
-export default searchButton;
+export default SearchField;

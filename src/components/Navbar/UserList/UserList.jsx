@@ -1,34 +1,41 @@
+/* eslint-disable react/no-array-index-key */
 import {
   List, ListItemButton, ListItemIcon, Collapse, Box, Typography, Divider, ListItemText,
 } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import ExpandLess from '@mui/icons-material/ExpandLess';
 import Avatar from '@mui/material/Avatar';
 import * as React from 'react';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import ExpandLess from '@mui/icons-material/ExpandLess';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import Reddit from '../assests/Reddit.svg';
 import {
   StyledList,
 } from './styles';
 import karma from '../assests/karma.png';
-import { FirstList, SecondList, ExploreList } from './Lists';
+import { firstList, secondList, exploreList } from './Lists';
 
+/**
+ *
+ * @returns {React.Component} the User list which is the right lish in logged in navbar.
+ */
 function UserList() {
-  const [OpenUserList, setOpenUserList] = React.useState(0);
+  const [openUserList, setOpenUserList] = React.useState(0);
   const handleClickUserList = () => {
-    setOpenUserList(!OpenUserList);
+    setOpenUserList(!openUserList);
   };
 
-  const [OpenExploreList, setOpenExploreList] = React.useState(0);
+  const [openExploreList, setOpenExploreList] = React.useState(0);
   const handleClickExploreList = () => {
-    setOpenExploreList(!OpenExploreList);
+    setOpenExploreList(!openExploreList);
   };
 
-  const [OpenSubList, setOpenSubList] = React.useState(0);
-  const handleClickSubList = () => {
-    setOpenSubList(!OpenSubList);
+  const [openSubList, setOpenSubList] = React.useState([0, 0, 0, 0, 0, 0, 0]);
+  const handleClickSubList = (index) => {
+    const arr = [0, 0, 0, 0, 0, 0, 0];
+    arr[index] = (openSubList[index] === 1) ? 0 : 1;
+    setOpenSubList(arr);
   };
 
   return (
@@ -50,22 +57,24 @@ function UserList() {
         </Box>
         <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
       </ListItemButton>
-      <Collapse in={Boolean(OpenUserList)} timeout="auto" unmountOnExit>
+      <Collapse in={Boolean(openUserList)} timeout="auto" unmountOnExit>
         <List component="div" disablePadding sx={{ position: 'absolute', width: '100%' }}>
-          <ListItemButton>
+          <ListItemButton disabled>
             <ListItemIcon sx={{ display: 'contents' }}>
               <AccountCircleOutlinedIcon sx={{ color: '#787C7E' }} />
             </ListItemIcon>
             <ListItemText primary="my stuff" />
           </ListItemButton>
-          {FirstList.map((items) => (
-            <ListItemButton>
+          {
+          firstList.map((items, index) => (
+            <ListItemButton key={`${index + 0}`}>
               <ListItemText primary={items} />
             </ListItemButton>
-          ))}
+          ))
+          }
           <Divider />
-          {SecondList.map((items) => (
-            <ListItemButton>
+          {secondList.map((items, index) => (
+            <ListItemButton key={`${index + 0}`}>
               <ListItemIcon sx={{ display: 'contents' }}>
                 {items.icon}
               </ListItemIcon>
@@ -77,19 +86,19 @@ function UserList() {
               <AutoFixHighOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary="Explore" />
-            {OpenExploreList ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
+            {openExploreList ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
           </ListItemButton>
-          <Collapse in={Boolean(OpenExploreList)} timeout="auto" unmountOnExit>
+          <Collapse in={Boolean(openExploreList)} timeout="auto" unmountOnExit>
             {
-                ExploreList.map((Sub) => (
+                exploreList.map((Sub, index) => (
                   <>
-                    <ListItemButton onClick={handleClickSubList}>
+                    <ListItemButton key={`${index + 0}`} onClick={() => { handleClickSubList(index); }}>
                       <ListItemText primary={Sub.SubList} />
-                      {OpenSubList ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
+                      {openSubList[index] ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
                     </ListItemButton>
-                    <Collapse in={Boolean(OpenSubList)} timeout="auto" unmountOnExit>
+                    <Collapse in={Boolean(openSubList[index])} timeout="auto" unmountOnExit>
                       {Sub.Content.map((items) => (
-                        <ListItemButton>
+                        <ListItemButton key={`${index + 0}`}>
                           <ListItemText primary={items} />
                         </ListItemButton>
                       ))}

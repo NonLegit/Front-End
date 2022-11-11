@@ -1,12 +1,12 @@
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
-export const FirstList = ['Online Status', 'profile', 'create avatar', 'user settings'];
-export const SecondList = [
+export const firstList = ['Online Status', 'profile', 'create avatar', 'user settings'];
+export const secondList = [
   { icon: <PeopleOutlinedIcon sx={{ color: 'black', fontSize: 25 }} />, label: 'create a community' },
   { icon: <HelpOutlineOutlinedIcon />, label: 'help center' },
 ];
-export const ExploreList = [
+export const exploreList = [
   {
     SubList: 'Gaming',
     Content: ['Valheim', 'Genshin Impact', 'Minecraft', 'Pokimane', 'Halo Infinite', 'Call of Duty: Warzone', 'Path of Exile',
@@ -18,7 +18,7 @@ export const ExploreList = [
       'Boston Celtics', 'Arsenal F.C.', 'Phiadelphia 76ers', 'Premier League', 'UFC'],
   },
   {
-    SubList: 'Business Education and Finance',
+    SubList: 'Business Education...',
     Content: ['GameStop', 'Moderna', 'Pfizer', 'Johnson & Johnson',
       'AstraZeneca', 'Walgreens', 'Best Buy', 'Novavax', 'SpaceX', 'Tesla'],
   },

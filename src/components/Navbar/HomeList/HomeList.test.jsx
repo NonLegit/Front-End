@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
-import Navbar from './Navbar';
+import HomeList from './HomeList';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(<Navbar />).toJSON();
+  const tree = renderer.create(<HomeList />).toJSON();
   expect(tree).toMatchSnapshot();
 });

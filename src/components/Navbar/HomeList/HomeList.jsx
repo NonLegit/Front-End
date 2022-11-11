@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import HomeIcon from '@mui/icons-material/Home';
 import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 import {
@@ -13,17 +14,21 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import StyledList from './styles';
 import Reddit from '../assests/Reddit.svg';
 
+/**
+ *
+ * @returns {React.Component} left list in navbar in logged in mode
+ */
 function HomeList() {
-  const [OpenHomeList, setOpenHomeList] = React.useState(0);
+  const [openHomeList, setopenHomeList] = React.useState(0);
   const handleClickHomeList = () => {
-    setOpenHomeList(!OpenHomeList);
+    setopenHomeList(!openHomeList);
   };
-  const FeedsList = [
+  const feedsList = [
     { icon: <HomeIcon />, label: 'home' },
     { icon: <OutboundOutlinedIcon />, label: 'popular' },
     { icon: <ContactlessOutlinedIcon />, label: 'all' },
   ];
-  const OthersList = [
+  const othersList = [
     { icon: <Avatar src={Reddit} />, label: 'user settings' },
     { icon: <Avatar src={Reddit} />, label: 'messages' },
     { icon: <AddIcon sx={{ fontSize: 30 }} />, label: 'create post' },
@@ -39,20 +44,21 @@ function HomeList() {
         <ListItemText primary="Home" sx={{ color: 'black', paddingLeft: '5px' }} />
         <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
       </ListItemButton>
-      <Collapse in={Boolean(OpenHomeList)} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding sx={{ position: 'absolute', width: '270px', left: '0px' }} subheader={<ListSubheader>feeds</ListSubheader>}>
-          {FeedsList.map((items) => (
-            <ListItemButton>
+      <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit sx={{ position: 'absolute', width: '270px', left: '0px' }}>
+        <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
+          {feedsList.map((items, index) => (
+            <ListItemButton key={`${index + 0}`}>
               <ListItemIcon>
                 {items.icon}
               </ListItemIcon>
               <ListItemText primary={items.label} />
             </ListItemButton>
           ))}
-          <List component="div" disablePadding sx={{ position: 'absolute', width: '270px' }} subheader={<ListSubheader>others</ListSubheader>}>
-            {
-              OthersList.map((items) => (
-                <ListItemButton>
+        </List>
+        <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
+          {
+              othersList.map((items, index) => (
+                <ListItemButton key={`${index + 0}`}>
                   <ListItemIcon>
                     {items.icon}
                   </ListItemIcon>
@@ -60,7 +66,6 @@ function HomeList() {
                 </ListItemButton>
               ))
             }
-          </List>
         </List>
       </Collapse>
     </StyledList>

@@ -6,8 +6,13 @@ import HomeList from './HomeList/HomeList';
 import UserList from './UserList/UserList';
 import SearchButton from './Search/Search';
 import NavIcons from './NavIcons/NavIcons';
-import LogoIcon from './Logo/logoIcon';
+import LogoIcon from './Logo/LogoIcon';
 
+/**
+ *
+ * @returns {React.Component} the whole logged in navbar with the two lists,
+ * Search bar and icon buttons
+ */
 function Navbar() {
   return (
     <StyledNavbar>

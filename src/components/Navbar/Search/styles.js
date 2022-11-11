@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material';
 
-const search = styled(Box)(() => ({
+const Search = styled(Box)(() => ({
   position: 'relative',
   marginLeft: '34px',
   marginRight: '34px',
@@ -40,4 +40,4 @@ const search = styled(Box)(() => ({
   },
 }));
 
-export default search;
+export default Search;
