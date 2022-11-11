@@ -20,10 +20,12 @@ import AddList from './AddList/AddList';
  * About section in sidebar for moderators only instead of about section for normal users
  * @return {React.Component} - Moderators section in sidebar
  */
-function Moderation() {
+function Moderation(props) {
+  const {
+    topics, disc, client, Name,
+  } = props;
   const [more, setMore] = useState(false);
   const [selection, setSelection] = useState('Add a Primary Topic');
-  // const [data,setData] = useState('');
   const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
     'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
     'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
@@ -57,7 +59,7 @@ function Moderation() {
           <Sort margin={15} />
         </More>
       </AboutCountainer>
-      <AddSector />
+      <AddSector disc2={disc} client={client} Name={Name} />
 
       <Created>
         <Icon><EmailOutlinedIcon /></Icon>
@@ -141,7 +143,7 @@ function Moderation() {
         </ClickAwayListener>
       )}
 
-      <AddList />
+      <AddList topics={topics} client={client} Name={Name} />
       <Hr sx={{ marginBottom: 1, marginTop: 0 }} />
       <CustomLink>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">

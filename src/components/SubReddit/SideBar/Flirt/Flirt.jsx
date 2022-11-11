@@ -1,12 +1,27 @@
 import { Box } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
-  Button, Container, See, String,
+  Button,
+  Container, See, Span, String,
 } from './style';
 /**
  * Filter section
  * @return {React.Component} - Filter section
  */
-function Flirt() {
+function Flirt(props) {
+  const [flair, setFalir] = useState([]);
+  const { Name } = useParams();
+  const { client } = props;
+  useEffect(() => {
+    client.get(`subreddits/${Name}/flairs/200`) // fetch api
+      .then((actualData) => {
+        setFalir(actualData.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
       <Container>
@@ -15,18 +30,11 @@ function Flirt() {
         </String>
       </Container>
       <Box sx={{ padding: '12px' }}>
-        <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
-          <Button backgroundColor="#94e044"><span>Look what I made!</span></Button>
-        </Box>
-        <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
-          <Button backgroundColor="#0dd3bb"><span>Look what!</span></Button>
-        </Box>
-        <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
-          <Button backgroundColor="#ff652b">I made!</Button>
-        </Box>
-        <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
-          <Button backgroundColor="#fff911">Look </Button>
-        </Box>
+        { flair.map((entity, index) => (
+          <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+            <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
+          </Box>
+        ))}
       </Box>
       <See>See more</See>
     </>

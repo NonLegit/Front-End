@@ -10,7 +10,8 @@ import {
  * About Section for normal user
  * @return {React.Component} - About Section for normal user
  */
-function About() {
+function About(props) {
+  const { disc } = props;
   return (
     <>
       <AboutCountainer>
@@ -23,11 +24,12 @@ function About() {
       </AboutCountainer>
       <AboutContent>
         <AboutDisc>
-          /r/3amjokes - for all the stupid humor of sleep deprivation.
+          {/* /r/3amjokes - for all the stupid humor of sleep deprivation.
           &quot; So bad, its good &quot;
           Have you been up for
           longer than a normal human being can operate?
-          Good. Have you just laughed at a joke that wouldn &apos; t be funny otherwise?
+          Good. Have you just laughed at a joke that wouldn &apos; t be funny otherwise? */}
+          {disc}
         </AboutDisc>
       </AboutContent>
       <Created>

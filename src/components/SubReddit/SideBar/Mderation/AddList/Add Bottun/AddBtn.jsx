@@ -8,6 +8,7 @@ import {
 const { ClickAwayListener, Box } = require('@mui/material');
 
 function AddBtn(props) {
+  const { sendData } = props;
   const {
     handleClickAway1, falseShaw, show, tempString, removeItem, tags, handleChange, handleKeyDown, trueShawList, trueShaw,
     setTemp, setTag, count,
@@ -82,6 +83,7 @@ function AddBtn(props) {
                 trueShaw();
                 setTemp(tags);
                 setTemp(tags);
+                sendData();
               }}
               id="cancel"
               color="red"
@@ -96,6 +98,7 @@ function AddBtn(props) {
                 trueShaw();
                 setTag(tempString);
                 setTemp(tempString);
+                sendData();
               }}
             >
               Save

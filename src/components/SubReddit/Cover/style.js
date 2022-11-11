@@ -60,7 +60,7 @@ export const Desc = styled('div')({
   boxSizing: 'border-box',
 });
 
-export const Name = styled('h1')({
+export const Namee = styled('h1')({
   color: '#1c1c1c',
   display: 'inline-block',
   flex: 1,
