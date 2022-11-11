@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: SNavbar/ForgotPassPopUp/ForgetPass.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: SNavbar/ForgotPassPopUp/ForgetPass.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable import/no-cycle */
+import { Box, Typography } from '@mui/material';
+import * as React from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import { forgotPasscontext } from '../SNavbar';
+import { StyledDialog, StyledLink } from '../SignUpPopUp/styles';
+import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
+import { FirstPartyContainer, AuthenticationInput, AuthenticationButton } from '../ِAuthentication/styles';
+
+/**
+ * Forget password popup different components
+ * @returns {React.Component} main body of forget password popup
+ */
+function ForgetPass() {
+  const {
+    openForgotpass,
+    handleClose,
+    handleClickOpenForgotUser,
+    handleClickOpenSignUp,
+    handleClickOpenLogIn,
+  } = React.useContext(forgotPasscontext);
+
+  const caption = (
+    &lt;>
+      Tell us the username and email address associated with
+      your Reddit account, and we’ll send you an email with a link to reset your password.
+    &lt;/>
+  );
+
+  const recoverPassword = () => {
+    console.log('login');
+    /* BackAPI */
+    // 1.Validate Email format and username
+    // 2.Button becomes trick
+    // 3.message appears
+  };
+  return (
+    &lt;StyledDialog
+      fullscreen
+      open={openForgotpass}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      &lt;Box width="280px" height="454px">
+        &lt;CloseIcon
+          sx={{
+            position: 'absolute', right: '16px', top: '16px', cursor: 'pointer',
+          }}
+          onClick={handleClose}
+        />
+        &lt;>
+          &lt;AuthenticationHeader reddit={false} title="Reset your password" caption={caption} fontSize="14px" />
+          &lt;FirstPartyContainer width="280px" onSubmit={recoverPassword}>
+            &lt;AuthenticationInput label="Username" variant="outlined" />
+            &lt;AuthenticationInput label="Email" variant="outlined" />
+
+            &lt;AuthenticationButton type="submit" width="155px">Reset Password&lt;/AuthenticationButton>
+            &lt;StyledLink onClick={handleClickOpenForgotUser} fontWeight="600" capital="uppercase">FORGOT USERNAME?&lt;/StyledLink>
+          &lt;/FirstPartyContainer>
+          &lt;Typography paragraph fontSize="12px" margin="10px 0px">
+            Don
+            {'\''}
+            t have an email or need assistance logging in? GET HELP
+          &lt;/Typography>
+
+          &lt;Typography paragraph fontSize="12px" marginTop="10px" color="#3394DC">
+            &lt;StyledLink onClick={handleClickOpenLogIn} fontWeight="600" capital="uppercase">log in&lt;/StyledLink>
+            {' • '}
+            &lt;StyledLink onClick={handleClickOpenSignUp} fontWeight="600" capital="uppercase">sign up&lt;/StyledLink>
+          &lt;/Typography>
+        &lt;/>
+      &lt;/Box>
+    &lt;/StyledDialog>
+  );
+}
+
+export default ForgetPass;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DrawerBottom">DrawerBottom</a></li><li><a href="global.html#ForgetPass">ForgetPass</a></li><li><a href="global.html#ForgetUser">ForgetUser</a></li><li><a href="global.html#HomeList">HomeList</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#SNavbar">SNavbar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserList">UserList</a></li><li><a href="global.html#UserNamePasswordForm">UserNamePasswordForm</a></li><li><a href="global.html#logoIcon">logoIcon</a></li><li><a href="global.html#navIcons">navIcons</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#searchButton">searchButton</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Nov 11 2022 11:40:23 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

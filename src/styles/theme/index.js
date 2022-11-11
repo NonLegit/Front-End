@@ -35,6 +35,10 @@ const theme = createTheme({
       lg: 1200,
       xl: 1536,
     },
+    neutral: {
+      main: '#978A8C',
+      contrastText: '#fff',
+    },
   },
 });
 
