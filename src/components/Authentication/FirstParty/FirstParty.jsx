@@ -28,6 +28,7 @@ function FirstParty() {
   });
   const [buttonTxt, setButtonText] = useState('Log In');
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
 
   /**
@@ -37,7 +38,7 @@ function FirstParty() {
    * @returns void
    */
   const checkUserName = (username) => {
-    console.log(userName); // late
+    // console.log(userName); // late
     // Check Username bwteen 3-20 characters
     if (username.length < 3 || username.length > 20) {
       setUserName((prevState) => ({
@@ -65,7 +66,7 @@ function FirstParty() {
    */
   const logIn = (event) => {
     event.preventDefault();
-    console.log(userName);// Not Late
+    // console.log(userName);// Not Late
     setLoading(true);
     if (userName.error != null) {
       setLoading(false);
@@ -90,9 +91,10 @@ function FirstParty() {
         // ==>response.data.expiresin
         // ==>Cokies Point
         setButtonText(<DoneIcon />);
+        setDisabled(true);
         setRedirectCaption(true);
         setTimeout(() => {
-          // window.location.href = '/';
+          window.location.href = '/';
         }, 1000);
       }
     }).catch((error) => {
@@ -166,7 +168,7 @@ function FirstParty() {
         data-testid="Password-FirstParty-test"
       />
 
-      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test">
+      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test" disabled={disabled}>
         {buttonTxt}
       </RedditLoadingButton>
 
