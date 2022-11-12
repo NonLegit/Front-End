@@ -49,7 +49,9 @@ Array [
             </div>
           </a>
           <ul
-            className="MuiList-root MuiList-padding css-dhdqtm-MuiList-root"
+            className="MuiList-root MuiList-padding css-1bhmux-MuiList-root"
+            onClick={[Function]}
+            onTouchEnd={[Function]}
           >
             <div
               className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
@@ -231,6 +233,8 @@ Array [
         </div>
         <ul
           className="MuiList-root MuiList-padding css-97jf6p-MuiList-root"
+          onClick={[Function]}
+          onTouchEnd={[Function]}
         >
           <div
             className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-1eo7vkw-MuiButtonBase-root-MuiListItemButton-root"

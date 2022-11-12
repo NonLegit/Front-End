@@ -46,6 +46,8 @@ exports[`test snapshot 1`] = `
       </a>
       <ul
         className="MuiList-root MuiList-padding css-9h32pz-MuiList-root"
+        onClick={[Function]}
+        onTouchEnd={[Function]}
       >
         <div
           className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
@@ -274,6 +276,8 @@ exports[`test snapshot 1`] = `
       </div>
       <ul
         className="MuiList-root MuiList-padding css-1ovjbrw-MuiList-root"
+        onClick={[Function]}
+        onTouchEnd={[Function]}
       >
         <div
           className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
