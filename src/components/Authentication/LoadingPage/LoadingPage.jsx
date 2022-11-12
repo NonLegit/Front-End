@@ -5,6 +5,8 @@ import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 
 /**
  * Loading Page Component When Already Logged in
+ * @component
+ *
  *  * @example
  * return (
  *   <LogInPage/>

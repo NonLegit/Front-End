@@ -113,7 +113,7 @@ function Header() {
                 && (
                 <>
                   <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
-                  <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0 }} /></Notification>
+                  <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0, cursor: 'pointer' }} /></Notification>
                 </>
                 )}
               </Box>

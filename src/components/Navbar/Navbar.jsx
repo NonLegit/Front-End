@@ -16,6 +16,11 @@ import LogoIcon from './Logo/logoIcon';
  */
 function Navbar() {
   return (
+    window.location.pathname !== '/login'
+    && window.location.pathname !== '/password'
+    && window.location.pathname !== '/register'
+    && window.location.pathname !== '/username'
+    && (
     <StyledNavbar>
       <MuiToolbar>
         <Box sx={{
@@ -35,6 +40,7 @@ function Navbar() {
         </Box>
       </MuiToolbar>
     </StyledNavbar>
+    )
   );
 }
 

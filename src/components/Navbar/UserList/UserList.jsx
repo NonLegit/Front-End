@@ -9,6 +9,8 @@ import * as React from 'react';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
+import { Link } from 'react-router-dom';
+import FormDialog from '../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import Reddit from '../assests/Reddit.svg';
 import {
   StyledList,
@@ -67,20 +69,51 @@ function UserList() {
             <ListItemText primary="my stuff" />
           </ListItemButton>
           {
-          firstList.map((items, index) => (
-            <ListItemButton key={`${index + 0}`}>
-              <ListItemText primary={items} />
-            </ListItemButton>
-          ))
+            firstList.map((items, index) => (
+              (items === 'profile')
+                ? (
+                  <Link to="/user/nour" style={{ textDecoration: 'none' }}>
+                    <ListItemButton key={`${index + 0}`}>
+                      <ListItemText primary={items} />
+                    </ListItemButton>
+                  </Link>
+                )
+                : (
+                  <ListItemButton key={`${index + 0}`}>
+                    <ListItemText primary={items} />
+                  </ListItemButton>
+                )
+            ))
           }
           <Divider sx={{ borderColor: '#cacbcd' }} />
-          {secondList.map((items, index) => (
-            <ListItemButton key={`${index + 0}`}>
-              <ListItemIcon sx={{ display: 'contents' }}>
-                {items.icon}
-              </ListItemIcon>
-              <ListItemText primary={items.label} />
-            </ListItemButton>
+          { secondList.map((items, index) => (
+            (items.label === 'create a community')
+              ? (
+                <>
+                  <ListItemButton
+                    key={`${index + 0}`}
+                    onClick={() => {
+                      const ele = document.getElementById('popup-form-button');
+                      console.log(ele);
+                      ele.click();
+                    }}
+                  >
+                    <ListItemIcon sx={{ display: 'contents' }}>
+                      {items.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={items.label} />
+                  </ListItemButton>
+
+                  <FormDialog display="none" />
+                </>
+              ) : (
+                <ListItemButton key={`${index + 0}`}>
+                  <ListItemIcon sx={{ display: 'contents' }}>
+                    {items.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={items.label} />
+                </ListItemButton>
+              )
           ))}
           <ListItemButton onClick={handleClickExploreList}>
             <ListItemIcon sx={{ display: 'contents' }}>

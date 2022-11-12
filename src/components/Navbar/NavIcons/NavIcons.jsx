@@ -14,7 +14,7 @@ import StyledTooltip from './styles';
  */
 function NavIcons() {
   return (
-    <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'row' }}>
+    <Box sx={{ alignItems: 'flex-start', display: { xs: 'none', sm: 'flex' }, flexDirection: 'row' }}>
       <StyledTooltip
         title="Popular"
         TransitionComponent={Zoom}
@@ -61,7 +61,7 @@ function NavIcons() {
           sx={{ '&:hover': { backgroundColor: 'transparent' } }}
         >
           <Link to="/submit">
-            <AddIcon sx={{ color: 'black', fontSize: 30 }} />
+            <AddIcon sx={{ color: 'grey', fontSize: 30 }} />
           </Link>
         </IconButton>
       </StyledTooltip>

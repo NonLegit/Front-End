@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 import LogoText from '../assests/LogoText.svg';
 import Logo from '../assests/Logo.svg';
-
 /**
  * LogoIcon
  * @component
@@ -10,7 +10,7 @@ import Logo from '../assests/Logo.svg';
  */
 function LogoIcon() {
   return (
-    <a href="wwww.reddit.com">
+    <Link to="/" style={{ textDecoration: 'none' }}>
       <Box sx={{ display: 'flex' }}>
         <Box sx={{ padding: '8px 8px 8px 0px', display: 'flex', justifyContent: 'center' }}>
           <img alt="" src={Logo} width={32} height={32} />
@@ -19,7 +19,7 @@ function LogoIcon() {
           <img alt="" src={LogoText} width={57} height={20} />
         </Box>
       </Box>
-    </a>
+    </Link>
   );
 }
 

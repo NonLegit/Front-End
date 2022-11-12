@@ -15,7 +15,13 @@ Array [
           className="MuiBox-root css-7pf6at"
         >
           <a
-            href="wwww.reddit.com"
+            href="/"
+            onClick={[Function]}
+            style={
+              Object {
+                "textDecoration": "none",
+              }
+            }
           >
             <div
               className="MuiBox-root css-k008qs"
@@ -180,7 +186,6 @@ Array [
             fontWeight="700"
             margin="0px"
             onBlur={[Function]}
-            onClick={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -206,7 +211,6 @@ Array [
             fontWeight="700"
             margin="0px 0px 0px 16px"
             onBlur={[Function]}
-            onClick={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}

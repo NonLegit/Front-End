@@ -17,6 +17,7 @@ import Facebook from '../../../assets/images/facebook.png';
 
 /**
  * Third Party [Google and Facebook] Components
+ *  @component
  * @returns {React.Component} - Continue with google and Facebook
  */
 function ThirdParty() {

@@ -20,7 +20,7 @@ const Form = axios.create({
  * @component
  * @return {React.Component} - Popup Form
  */
-function FormDialog() {
+function FormDialog({ display }) {
   const [open, setOpen] = React.useState(false);
   const [subRedditName, setsubRedditName] = React.useState('');
   const [count, setcount] = React.useState(21);
@@ -109,7 +109,7 @@ function FormDialog() {
   };
   return (
     <>
-      <CustomLink>
+      <CustomLink sx={{ display }}>
         <RedditButton
           variant="outlined"
           padding="4px"
@@ -118,6 +118,7 @@ function FormDialog() {
           sx={{ mt: 1.8 }}
           onClick={handleClickOpen}
           data-testid="btn"
+          id="popup-form-button"
         >
           create community
         </RedditButton>

@@ -6,7 +6,7 @@ import { default as MyProfileHeader } from '../components/Profile/Header/Profile
 import { default as MyProfileContent } from '../components/Profile/MainContent/ProfileMainContent';
 
 function Profile() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   return (
     isLoggedIn ? (
       <>

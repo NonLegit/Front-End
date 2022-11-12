@@ -11,8 +11,10 @@ import OutboundOutlinedIcon from '@mui/icons-material/OutboundOutlined';
 import Avatar from '@mui/material/Avatar';
 import AddIcon from '@mui/icons-material/Add';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import { Link } from 'react-router-dom';
 import StyledList from './styles';
 import Reddit from '../assests/Reddit.svg';
+import FormDialog from '../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 
 /**
  *  HomeList
@@ -49,24 +51,78 @@ function HomeList() {
       <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit sx={{ position: 'absolute', width: '270px', left: '0px' }}>
         <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
           {feedsList.map((items, index) => (
-            <ListItemButton key={`${index + 0}`}>
-              <ListItemIcon>
-                {items.icon}
-              </ListItemIcon>
-              <ListItemText primary={items.label} />
-            </ListItemButton>
-          ))}
-        </List>
-        <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
-          {
-              othersList.map((items, index) => (
+            (items.label === 'home') ? (
+              <Link to="/" style={{ textDecoration: 'none' }}>
                 <ListItemButton key={`${index + 0}`}>
                   <ListItemIcon>
                     {items.icon}
                   </ListItemIcon>
                   <ListItemText primary={items.label} />
                 </ListItemButton>
-              ))
+              </Link>
+            )
+              : (
+                <ListItemButton key={`${index + 0}`}>
+                  <ListItemIcon>
+                    {items.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={items.label} />
+                </ListItemButton>
+              )
+          ))}
+        </List>
+        <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
+          {
+            othersList.map((items, index) => (
+              (items.label === 'create subreddit') ? (
+                <>
+                  <ListItemButton
+                    key={`${index + 0}`}
+                    onClick={() => {
+                      const ele = document.getElementById('popup-form-button');
+                      console.log(ele);
+                      ele.click();
+                    }}
+                  >
+                    <ListItemIcon>
+                      {items.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={items.label} />
+                  </ListItemButton>
+                  <FormDialog display="none" />
+                </>
+              )
+                : (items.label === 'create post')
+                  ? (
+                    <Link to="/submit" style={{ textDecoration: 'none' }}>
+                      <ListItemButton key={`${index + 0}`}>
+                        <ListItemIcon>
+                          {items.icon}
+                        </ListItemIcon>
+                        <ListItemText primary={items.label} />
+                      </ListItemButton>
+                    </Link>
+                  )
+                  : (items.label === 'notifications')
+                    ? (
+                      <Link to="/notifications" style={{ textDecoration: 'none' }}>
+                        <ListItemButton key={`${index + 0}`}>
+                          <ListItemIcon>
+                            {items.icon}
+                          </ListItemIcon>
+                          <ListItemText primary={items.label} />
+                        </ListItemButton>
+                      </Link>
+                    )
+                    : (
+                      <ListItemButton key={`${index + 0}`}>
+                        <ListItemIcon>
+                          {items.icon}
+                        </ListItemIcon>
+                        <ListItemText primary={items.label} />
+                      </ListItemButton>
+                    )
+            ))
             }
         </List>
       </Collapse>

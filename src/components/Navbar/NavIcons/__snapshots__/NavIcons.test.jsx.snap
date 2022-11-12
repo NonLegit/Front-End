@@ -2,7 +2,7 @@
 
 exports[`test snapshot 1`] = `
 <div
-  className="MuiBox-root css-1sp3ca1"
+  className="MuiBox-root css-2mjtug"
 >
   <button
     aria-label="show 17 new notifications"
@@ -120,7 +120,7 @@ exports[`test snapshot 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-17nxtc2-MuiSvgIcon-root"
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-s3z8ud-MuiSvgIcon-root"
         data-testid="AddIcon"
         focusable="false"
         viewBox="0 0 24 24"

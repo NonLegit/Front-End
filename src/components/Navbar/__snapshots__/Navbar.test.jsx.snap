@@ -11,7 +11,13 @@ exports[`test snapshot 1`] = `
       className="MuiBox-root css-1972ioa"
     >
       <a
-        href="wwww.reddit.com"
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "textDecoration": "none",
+          }
+        }
       >
         <div
           className="MuiBox-root css-k008qs"
@@ -133,7 +139,7 @@ exports[`test snapshot 1`] = `
       className="MuiBox-root css-192qrng"
     >
       <div
-        className="MuiBox-root css-1sp3ca1"
+        className="MuiBox-root css-2mjtug"
       >
         <button
           aria-label="show 17 new notifications"
@@ -251,7 +257,7 @@ exports[`test snapshot 1`] = `
           >
             <svg
               aria-hidden={true}
-              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-17nxtc2-MuiSvgIcon-root"
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-s3z8ud-MuiSvgIcon-root"
               data-testid="AddIcon"
               focusable="false"
               viewBox="0 0 24 24"
