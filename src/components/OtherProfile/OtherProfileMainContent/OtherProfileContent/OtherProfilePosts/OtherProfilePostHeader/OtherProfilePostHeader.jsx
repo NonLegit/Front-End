@@ -44,6 +44,15 @@ function OtherProfilePostHeader(props) {
   const handleJoin = () => {
     setJoined((prev) => !prev);
   };
+
+  const [hover, setHover] = useState(false);
+
+  const handleMouseIn = () => {
+    setHover(true);
+  };
+  const handleMouseOut = () => {
+    setHover(false);
+  };
   return (
     <HeaderPost>
       <Box sx={{
@@ -81,10 +90,15 @@ function OtherProfilePostHeader(props) {
           </Typography>
 
         </Box>
-        {joined
-          ? <Joined onClick={() => { handleJoin(); }} variant="outlined" onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Joined>
-          : <Joined onClick={() => { handleJoin(); }} variant="contained" onMouseLeave={(e) => { e.target.innerHTML = 'Join'; }}>Join</Joined>}
-
+        <Joined
+          variant={(joined ? 'outlined' : 'contained')}
+          onClick={handleJoin}
+          onMouseEnter={handleMouseIn}
+          onMouseLeave={handleMouseOut}
+          data-testid="join button"
+        >
+          {(joined ? (hover ? 'leave' : 'joined') : 'join')}
+        </Joined>
       </Box>
 
       {/* {((subTitle === 'Spam').toString() === 'true')
