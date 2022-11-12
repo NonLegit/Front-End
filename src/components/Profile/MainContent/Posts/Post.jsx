@@ -58,8 +58,8 @@ function Post(props) {
                 expand={expand}
                 submitted={subTitle === undefined}
                 postedByOthers={!(entity.author === username)}
-                saved={subTitle === 'saved'}
-                hidden={subTitle === 'hidden'}
+                saved={entity.isSaved}
+                hidden={entity.isHidden}
                 approved={entity.approved}
                 removed={entity.removed}
                 spam={entity.spam}

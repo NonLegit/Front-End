@@ -9,7 +9,7 @@ import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAlt
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import { useState } from 'react';
 import { ClickAwayListener, Divider } from '@mui/material';
-
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -18,13 +18,7 @@ import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
 import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
-
-/**
- * footer for a post conatining all icons
- * @return {React.Component} - PostFooter
- * @param {string} subTitle - to check if a post is a spam or approved
- * @param {string} numberOfComments - get number of comments in the post
- */
+import ModeratorList from './ModeratorList/ModeratorList';
 
 /**
  * footer for a post conatining all icons
@@ -35,7 +29,7 @@ import {
  * @returns {React.Component} PostFooter
  */
 function PostFooter(props) {
-  const { subTitle, numComments } = props;
+  const { subTitle, numComments, isSaved } = props;
 
   const [showList, setShowList] = useState(false);
 
@@ -48,6 +42,19 @@ function PostFooter(props) {
     setShowList(false);
   };
 
+  const [saved, setSaved] = useState(isSaved);
+  const handleSave = () => {
+    setSaved((prev) => !prev);
+  };
+  const [moderatorList, setModeratorList] = useState(false);
+
+  const handleModListClickAway = () => {
+    setModeratorList(false);
+  };
+
+  const handleModList = () => {
+    setModeratorList((prev) => !prev);
+  };
   return (
     <FooterBox>
       <ElementBox>
@@ -73,9 +80,14 @@ function PostFooter(props) {
         <CancelPresentationOutlinedIcon />
         <FooterText variant="caption" responsive={true.toString()}>Spam</FooterText>
       </ElementBox>
-      <ElementBox>
-        <AdminPanelSettingsOutlinedIcon />
-      </ElementBox>
+      <ClickAwayListener onClickAway={handleModListClickAway}>
+        <ElementBox>
+          <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
+          {moderatorList && (
+          <ModeratorList />
+          )}
+        </ElementBox>
+      </ClickAwayListener>
       <ElementBox responsive={true.toString()}>
         <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
         <FooterText variant="caption">Insights</FooterText>
@@ -90,10 +102,18 @@ function PostFooter(props) {
               Edit Post
             </SelectItem>
             <Divider />
-            <SelectItem>
-              <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
-              Save
-            </SelectItem>
+            {!saved ? (
+              <SelectItem onClick={() => { handleSave(); }}>
+                <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
+                Save
+              </SelectItem>
+            )
+              : (
+                <SelectItem condition={true.toString()} onClick={() => { handleSave(); }}>
+                  <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
+                  Unsave
+                </SelectItem>
+              )}
             <Divider />
             <SelectItem>
               <PushPinOutlinedIcon sx={{ marginRight: 1 }} />

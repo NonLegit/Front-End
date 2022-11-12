@@ -76,15 +76,16 @@ export const SelectBox = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
-  [theme.breakpoints.between('0', '700')]: {
-    marginLeft: -200,
+  [theme.breakpoints.between('0', '760')]: {
+    marginLeft: -150,
   },
   [theme.breakpoints.between('0', '500')]: {
+    marginTop: 360,
     width: 200,
   },
 }));
 
-export const SelectItem = styled(Button)(() => ({
+export const SelectItem = styled(Button)(({ theme, condition }) => ({
   padding: 5,
   color: '#878a8c',
   fontSize: 14,
@@ -92,4 +93,7 @@ export const SelectItem = styled(Button)(() => ({
   width: '100%',
   justifyContent: 'left',
   textTransform: 'none',
+  ...((condition === 'true') && {
+    color: theme.palette.primary.main,
+  }),
 }));

@@ -4,8 +4,10 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 
 import { Divider } from '@mui/material';
+import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
 /**
  * List items of post footer
@@ -13,7 +15,12 @@ import { SelectBox, SelectItem } from './styles';
  * @component PostFooterList
  * @returns {React.Component} PostFooterList
  */
-function PostFooterList() {
+function PostFooterList(props) {
+  const { isSaved } = props;
+  const [saved, setSaved] = useState(isSaved);
+  const handleClick = () => {
+    setSaved((prev) => !prev);
+  };
   return (
     <SelectBox>
       <SelectItem>
@@ -21,10 +28,18 @@ function PostFooterList() {
         Edit Post
       </SelectItem>
       <Divider />
-      <SelectItem>
-        <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
-        Save
-      </SelectItem>
+      {!saved ? (
+        <SelectItem onClick={() => { handleClick(); }}>
+          <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
+          Save
+        </SelectItem>
+      )
+        : (
+          <SelectItem condition={true.toString()} onClick={() => { handleClick(); }}>
+            <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
+            Unsave
+          </SelectItem>
+        )}
       <Divider />
       <SelectItem>
         <PushPinOutlinedIcon sx={{ marginRight: 1 }} />

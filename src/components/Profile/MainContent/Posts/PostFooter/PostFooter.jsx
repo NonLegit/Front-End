@@ -60,6 +60,10 @@ function PostFooter(props) {
     setShowList(false);
   };
 
+  const handleClickAway2 = () => {
+    setShowList2(false);
+  };
+
   // handle disable the list when click away
   const handleClick2 = () => {
     setShowList2((prev) => !prev);
@@ -195,19 +199,22 @@ function PostFooter(props) {
           <ElementBox>
             <MoreHorizOutlinedIcon onClick={handleClick} />
             {showList && (
-              <PostFooterList />
+              <PostFooterList isSaved={saved} />
             )}
           </ElementBox>
         </ClickAwayListener>
       )}
 
       {postedByOthers && (
-      <ElementBox show={true.toString()}>
-        <MoreHorizOutlinedIcon onClick={handleClick2} />
-        {showList2 && (
-        <PostFooterListResponsive />
-        )}
-      </ElementBox>
+      <ClickAwayListener onClickAway={handleClickAway2}>
+        <ElementBox show={true.toString()}>
+          <MoreHorizOutlinedIcon onClick={handleClick2} />
+          {showList2 && (
+          <PostFooterListResponsive isSaved={isSaved} />
+          )}
+        </ElementBox>
+      </ClickAwayListener>
+
       )}
 
     </FooterBox>

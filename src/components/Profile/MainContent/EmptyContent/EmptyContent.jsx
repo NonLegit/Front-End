@@ -1,12 +1,6 @@
 import {
   EmptyContentBox, DownArrow, UpArrow, SpecialBox, ArrowBox, EmptyText,
 } from './styles';
-
-/** the empty content when your having no posts nor comments
- * @return {React.Component} - EmptyContent
- * @param {string} emptyContent - the string that should appear in the empty page
- */
-
 /**
  * the empty content when your having no posts nor comments
  *

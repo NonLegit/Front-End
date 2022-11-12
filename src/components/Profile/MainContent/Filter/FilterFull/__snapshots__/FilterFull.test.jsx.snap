@@ -17,7 +17,7 @@ exports[`test snapshot 1`] = `
           className="MuiBox-root css-92i8si"
         >
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-qtnvr4-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-hph3bd-MuiButtonBase-root-MuiButton-root"
             condition="true"
             data-testid="new-btn"
             disabled={false}
@@ -74,7 +74,7 @@ exports[`test snapshot 1`] = `
           className="MuiBox-root css-bs36a5"
         >
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-qtnvr4-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-hph3bd-MuiButtonBase-root-MuiButton-root"
             condition="true"
             disabled={false}
             onBlur={[Function]}
@@ -111,7 +111,7 @@ exports[`test snapshot 1`] = `
             New
           </button>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xih1q7-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13ckc73-MuiButtonBase-root-MuiButton-root"
             condition="false"
             disabled={false}
             onBlur={[Function]}
@@ -145,10 +145,10 @@ exports[`test snapshot 1`] = `
                 />
               </svg>
             </span>
-            HOT
+            Hot
           </button>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xih1q7-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13ckc73-MuiButtonBase-root-MuiButton-root"
             condition="false"
             disabled={false}
             onBlur={[Function]}
@@ -182,7 +182,7 @@ exports[`test snapshot 1`] = `
                 />
               </svg>
             </span>
-            TOP
+            Top
           </button>
         </div>
       </div>

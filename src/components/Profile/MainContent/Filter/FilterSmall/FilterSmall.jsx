@@ -45,7 +45,7 @@ const renderSwitch = (
         onClick={() => { handleClickList(); }}
         endIcon={<KeyboardArrowDownOutlinedIcon />}
       >
-        HOT
+        Hot
       </FilteButton>
     );
   }
@@ -59,7 +59,7 @@ const renderSwitch = (
           onClick={() => { handleClickList(); }}
           endIcon={<KeyboardArrowDownOutlinedIcon />}
         >
-          TOP
+          Top
         </FilteButton>
         <FilteButton
           endIcon={<KeyboardArrowDownOutlinedIcon />}
@@ -73,7 +73,7 @@ const renderSwitch = (
                 <SelectItem
                   color="inherit"
                   onClick={() => { handleClick2(); }}
-                  condition={sort.includes('day').toString()}
+                  condition={(sort === 'sort=top&t=day').toString()}
                 >
                   Today
 

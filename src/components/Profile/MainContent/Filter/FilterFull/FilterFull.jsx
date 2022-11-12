@@ -64,7 +64,7 @@ function FilterFull(props) {
         condition={hotCondition.toString()}
         onClick={() => { handleClick('hot'); }}
       >
-        HOT
+        Hot
       </FilteButton>
 
       <FilteButton
@@ -72,7 +72,7 @@ function FilterFull(props) {
         condition={topCondition.toString()}
         onClick={() => { handleClick('top'); }}
       >
-        TOP
+        Top
       </FilteButton>
       {
           topCondition && (

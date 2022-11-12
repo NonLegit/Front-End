@@ -144,7 +144,7 @@ export const OptionsButtons = styled(Button)(({ theme }) => ({
   fontSize: 12,
   fontWeight: 700,
   borderRadius: 999,
-  marginTop: 8,
+  marginTop: 5,
   color: theme.palette.primary.main,
   display: 'block',
   textTransform: 'unset',

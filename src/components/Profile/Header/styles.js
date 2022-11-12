@@ -100,8 +100,8 @@ export const SelectBox = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
-  [theme.breakpoints.between('0', '370')]: {
-    marginLeft: -30,
+  [theme.breakpoints.between('0', '512')]: {
+    marginLeft: -40,
   },
 }));
 
