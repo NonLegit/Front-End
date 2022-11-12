@@ -2,7 +2,7 @@
 import HomeIcon from '@mui/icons-material/Home';
 import {
   List, ListItemButton, ListItemIcon, ListItemText,
-  Collapse, ListSubheader,
+  Collapse, ListSubheader, ClickAwayListener,
 } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
@@ -29,34 +29,35 @@ function HomeList() {
   };
 
   return (
-    <StyledList>
-      <ListItemButton onClick={handleClickHomeList}>
-        <ListItemIcon>
-          <HomeIcon />
-        </ListItemIcon>
-        <ListItemText primary="Home" sx={{ color: 'black', paddingLeft: '5px' }} />
-        <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
-      </ListItemButton>
-      <Collapse
-        in={Boolean(openHomeList)}
-        sx={{
-          position: 'absolute', width: '270px', left: '0px', top: '55px', height: '465px !important', overflowY: 'scroll',
-        }}
-        timeout="auto"
-        unmountOnExit
-      >
-        <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
-          {firstList.map((items, index) => (
-            <ListItemButton key={`${index + 0}`}>
-              <ListItemIcon>
-                {items.icon}
-              </ListItemIcon>
-              <ListItemText primary={items.label} />
-            </ListItemButton>
-          ))}
-        </List>
-        <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
-          {
+    <ClickAwayListener onClickAway={() => { setOpenHomeList(false); }}>
+      <StyledList>
+        <ListItemButton onClick={handleClickHomeList}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" sx={{ color: 'black', paddingLeft: '5px' }} />
+          <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
+        </ListItemButton>
+        <Collapse
+          in={Boolean(openHomeList)}
+          sx={{
+            position: 'absolute', width: '270px', left: '0px', top: '55px', height: '465px !important',
+          }}
+          timeout="auto"
+          unmountOnExit
+        >
+          <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
+            {firstList.map((items, index) => (
+              <ListItemButton key={`${index + 0}`}>
+                <ListItemIcon>
+                  {items.icon}
+                </ListItemIcon>
+                <ListItemText primary={items.label} />
+              </ListItemButton>
+            ))}
+          </List>
+          <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
+            {
           exploreList.map((Sub, index) => (
             <>
               <ListItemButton key={`${index + 0}`} onClick={() => { handleClickSubList(index); }}>
@@ -76,9 +77,10 @@ function HomeList() {
             </>
           ))
           }
-        </List>
-      </Collapse>
-    </StyledList>
+          </List>
+        </Collapse>
+      </StyledList>
+    </ClickAwayListener>
   );
 }
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import {
-  List, ListItemButton, ListItemIcon, Collapse, Box, Typography, Divider, ListItemText,
+  List, ListItemButton, ListItemIcon, Collapse, Box, Typography, Divider, ListItemText, ClickAwayListener,
 } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -42,33 +42,37 @@ function UserList() {
   };
 
   return (
-    <StyledList>
-      <ListItemButton onClick={handleClickUserList}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <ListItemIcon>
-            <Box>
-              <Avatar src={Reddit} />
-            </Box>
-          </ListItemIcon>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}>
-            <Typography sx={{ fontSize: '12px', color: '#1C1C1C' }}>username</Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img alt="" src={karma} width={12} height={12} />
-              <Typography sx={{ fontSize: '12px', color: '#A8AAAB', whiteSpace: 'nowrap' }}> 1 karma</Typography>
+    <ClickAwayListener onClickAway={() => { setOpenUserList(false); }}>
+      <StyledList>
+
+        <ListItemButton onClick={handleClickUserList}>
+
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <ListItemIcon>
+              <Box>
+                <Avatar src={Reddit} />
+              </Box>
+            </ListItemIcon>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}>
+              <Typography sx={{ fontSize: '12px', color: '#1C1C1C' }}>username</Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img alt="" src={karma} width={12} height={12} />
+                <Typography sx={{ fontSize: '12px', color: '#A8AAAB', whiteSpace: 'nowrap' }}> 1 karma</Typography>
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
-      </ListItemButton>
-      <Collapse in={Boolean(openUserList)} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding sx={{ position: 'absolute', width: '100%' }}>
-          <ListItemButton>
-            <ListItemIcon sx={{ display: 'contents' }}>
-              <AccountCircleOutlinedIcon sx={{ color: '#787C7E' }} />
-            </ListItemIcon>
-            <ListItemText primary="my stuff" />
-          </ListItemButton>
-          {
+          <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
+        </ListItemButton>
+
+        <Collapse in={Boolean(openUserList)} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding sx={{ position: 'absolute', width: '100%' }}>
+            <ListItemButton>
+              <ListItemIcon sx={{ display: 'contents' }}>
+                <AccountCircleOutlinedIcon sx={{ color: '#787C7E' }} />
+              </ListItemIcon>
+              <ListItemText primary="my stuff" />
+            </ListItemButton>
+            {
             firstList.map((items, index) => (
               (items === 'profile')
                 ? (
@@ -85,44 +89,44 @@ function UserList() {
                 )
             ))
           }
-          <Divider sx={{ borderColor: '#cacbcd' }} />
-          { secondList.map((items, index) => (
-            (items.label === 'create a community')
-              ? (
-                <div key={`${index + 0}`}>
-                  <ListItemButton
-                    onClick={() => {
-                      const ele = document.getElementById('popup-form-button');
-                      console.log(ele);
-                      ele.click();
-                    }}
-                  >
+            <Divider sx={{ borderColor: '#cacbcd' }} />
+            { secondList.map((items, index) => (
+              (items.label === 'create a community')
+                ? (
+                  <div key={`${index + 0}`}>
+                    <ListItemButton
+                      onClick={() => {
+                        const ele = document.getElementById('popup-form-button');
+                        console.log(ele);
+                        ele.click();
+                      }}
+                    >
+                      <ListItemIcon sx={{ display: 'contents' }}>
+                        {items.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={items.label} />
+                    </ListItemButton>
+
+                    <FormDialog display="none" />
+                  </div>
+                ) : (
+                  <ListItemButton key={`${index + 0}`}>
                     <ListItemIcon sx={{ display: 'contents' }}>
                       {items.icon}
                     </ListItemIcon>
                     <ListItemText primary={items.label} />
                   </ListItemButton>
-
-                  <FormDialog display="none" />
-                </div>
-              ) : (
-                <ListItemButton key={`${index + 0}`}>
-                  <ListItemIcon sx={{ display: 'contents' }}>
-                    {items.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={items.label} />
-                </ListItemButton>
-              )
-          ))}
-          <ListItemButton onClick={handleClickExploreList}>
-            <ListItemIcon sx={{ display: 'contents' }}>
-              <AutoFixHighOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary="Explore" />
-            {openExploreList ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
-          </ListItemButton>
-          <Collapse in={Boolean(openExploreList)} timeout="auto" unmountOnExit>
-            {
+                )
+            ))}
+            <ListItemButton onClick={handleClickExploreList}>
+              <ListItemIcon sx={{ display: 'contents' }}>
+                <AutoFixHighOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Explore" />
+              {openExploreList ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
+            </ListItemButton>
+            <Collapse in={Boolean(openExploreList)} timeout="auto" unmountOnExit>
+              {
                 exploreList.map((Sub, index) => (
                   <div key={`${index + 0}`}>
                     <ListItemButton onClick={() => { handleClickSubList(index); }}>
@@ -139,17 +143,19 @@ function UserList() {
                   </div>
                 ))
               }
-          </Collapse>
-          <Divider sx={{ borderColor: '#cacbcd' }} />
-          <ListItemButton>
-            <ListItemIcon sx={{ display: 'contents' }}>
-              <LoginOutlinedIcon sx={{ color: 'black', fontSize: 25 }} />
-            </ListItemIcon>
-            <ListItemText primary="log out" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-    </StyledList>
+            </Collapse>
+            <Divider sx={{ borderColor: '#cacbcd' }} />
+            <ListItemButton>
+              <ListItemIcon sx={{ display: 'contents' }}>
+                <LoginOutlinedIcon sx={{ color: 'black', fontSize: 25 }} />
+              </ListItemIcon>
+              <ListItemText primary="log out" />
+            </ListItemButton>
+          </List>
+        </Collapse>
+
+      </StyledList>
+    </ClickAwayListener>
   );
 }
 

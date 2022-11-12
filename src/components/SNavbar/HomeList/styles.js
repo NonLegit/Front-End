@@ -28,10 +28,12 @@ export const StyledList = styled(List)(({ theme }) => ({
   '& .MuiCollapse-root .MuiButtonBase-root': {
     padding: '8px 25px',
     backgroundColor: 'white',
+    overflow: 'auto',
     '&:hover': {
       backgroundColor: '#cacbcd',
     },
     '& .MuiListItemText-root': {
+
       margin: '0px',
       [theme.breakpoints.down('lg')]: {
         display: 'flex',

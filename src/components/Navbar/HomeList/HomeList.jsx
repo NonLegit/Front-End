@@ -3,7 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 import {
   List, ListItemButton, ListItemIcon, ListItemText,
-  Collapse, ListSubheader,
+  Collapse, ListSubheader, ClickAwayListener,
 } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
@@ -40,41 +40,42 @@ function HomeList() {
     { icon: <NotificationsNoneIcon />, label: 'notifications' },
   ];
   return (
-    <StyledList>
-      <ListItemButton onClick={handleClickHomeList}>
-        <ListItemIcon>
-          <HomeIcon />
-        </ListItemIcon>
-        <ListItemText primary="Home" sx={{ color: 'black', paddingLeft: '5px' }} />
-        <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
-      </ListItemButton>
-      <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit sx={{ position: 'absolute', width: '270px', left: '0px' }}>
-        <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
-          {feedsList.map((items, index) => (
-            (items.label === 'home') ? (
+    <ClickAwayListener onClickAway={() => { setopenHomeList(false); }}>
+      <StyledList>
+        <ListItemButton onClick={handleClickHomeList}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" sx={{ color: 'black', paddingLeft: '5px' }} />
+          <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
+        </ListItemButton>
+        <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit sx={{ position: 'absolute', width: '270px', left: '0px' }}>
+          <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
+            {feedsList.map((items, index) => (
+              (items.label === 'home') ? (
 
-              <ListItemButton key={`${index + 0}`}>
-                <Link to="/" style={{ textDecoration: 'none', display: 'flex' }}>
-                  <ListItemIcon>
-                    {items.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={items.label} />
-                </Link>
-              </ListItemButton>
-
-            )
-              : (
                 <ListItemButton key={`${index + 0}`}>
-                  <ListItemIcon>
-                    {items.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={items.label} />
+                  <Link to="/" style={{ textDecoration: 'none', display: 'flex' }}>
+                    <ListItemIcon>
+                      {items.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={items.label} />
+                  </Link>
                 </ListItemButton>
+
               )
-          ))}
-        </List>
-        <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
-          {
+                : (
+                  <ListItemButton key={`${index + 0}`}>
+                    <ListItemIcon>
+                      {items.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={items.label} />
+                  </ListItemButton>
+                )
+            ))}
+          </List>
+          <List component="div" disablePadding subheader={<ListSubheader>others</ListSubheader>}>
+            {
             othersList.map((items, index) => (
               (items.label === 'create subreddit') ? (
                 <div key={`${index + 0}`}>
@@ -129,9 +130,10 @@ function HomeList() {
                     )
             ))
             }
-        </List>
-      </Collapse>
-    </StyledList>
+          </List>
+        </Collapse>
+      </StyledList>
+    </ClickAwayListener>
   );
 }
 

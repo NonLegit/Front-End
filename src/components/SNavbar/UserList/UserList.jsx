@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  List, ListItemButton, ListItemIcon, ListItemText, Collapse,
+  List, ListItemButton, ListItemIcon, ListItemText, Collapse, ClickAwayListener,
 } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
@@ -19,30 +19,32 @@ function UserList({ logInPopup }) {
     setOpenHomeList(!openHomeList);
   };
   return (
-    <StyledList>
-      <ListItemButton onClick={handleClickHomeList} sx={{ display: 'flex' }}>
-        <ListItemIcon sx={{ display: 'contents' }}>
-          <PersonOutlineOutlinedIcon />
-        </ListItemIcon>
-        <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
-      </ListItemButton>
-      <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <HelpOutlineOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary="help center" />
-          </ListItemButton>
-          <ListItemButton onClick={logInPopup}>
-            <ListItemIcon>
-              <LoginOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary="log in / sign up" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-    </StyledList>
+    <ClickAwayListener onClickAway={() => { setOpenHomeList(false); }}>
+      <StyledList>
+        <ListItemButton onClick={handleClickHomeList} sx={{ display: 'flex' }}>
+          <ListItemIcon sx={{ display: 'contents' }}>
+            <PersonOutlineOutlinedIcon />
+          </ListItemIcon>
+          <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
+        </ListItemButton>
+        <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <HelpOutlineOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="help center" />
+            </ListItemButton>
+            <ListItemButton onClick={logInPopup}>
+              <ListItemIcon>
+                <LoginOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="log in / sign up" />
+            </ListItemButton>
+          </List>
+        </Collapse>
+      </StyledList>
+    </ClickAwayListener>
   );
 }
 
