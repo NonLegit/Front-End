@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test snapshot 1`] = `
+exports[`Email snapshot 1`] = `
 <form
   className="css-1b9eai0"
   data-testid="SignUpEmail-test"
@@ -8,8 +8,7 @@ exports[`test snapshot 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
-    clr="#978A8C"
+    className="MuiFormControl-root MuiTextField-root css-3w7c82-MuiFormControl-root-MuiTextField-root"
   >
     <div
       className="MuiInputBase-root MuiFilledInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1pw81iq-MuiInputBase-root-MuiFilledInput-root"
@@ -28,6 +27,7 @@ exports[`test snapshot 1`] = `
         onFocus={[Function]}
         required={true}
         type="text"
+        value=""
       />
     </div>
   </div>

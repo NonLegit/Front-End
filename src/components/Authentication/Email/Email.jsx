@@ -1,20 +1,53 @@
 import { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
-import theme from '../../../styles/theme';
 
+// Compoenets
+import ReCAPTCHA from 'react-google-recaptcha';
+
+// styles
 import {
   FirstPartyContainer, RedditTextField, wrongIcon, rightIcon, RedditLoadingButton,
 } from '../styles';
+import theme from '../../../styles/theme';
 
+/**
+ * Email Compoenet with ReCAPTCHA if required
+ *
+ * @component
+ * @property {object} --email email Taken from input field
+ * @property {function} --setEmail set email object
+ * @property {function} --onSubmitFn On Submit form
+ * @property {boolean} --loading loading prop ofr RedditLoadingButton
+ * @property {string} --width width of the form
+ * @property {string} --buttonText text on the Submit button
+ * @property {string} --fieldText text on the input field
+ * @property {string} --btnWidth submit button width
+ * @property {bool} --recaptcha if we ReCAPTCHA is required on not
+ * @property {function} --setVerified to set that recaptcha is verified
+ * @property {boolean} --disabled to disabled prop ofr RedditLoadingButton
+ * @returns {React.Component} Email Form
+ */
 function Email({
-  onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, defaultEmail,
+  email, setEmail, onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, disabled,
 }) {
-  const [email, setEmail] = useState({
-    input: '', color: theme.palette.neutral.main, icon: null, error: null,
-  });
+  const [defaultEmailValue, setdefaultEmailValue] = useState(email?.input);
   const [recaptchaState, setrecaptchaState] = useState(false);
 
   const checkEmail = (emailInput) => {
+    // console.log('checkEmail');
+    // console.log(emailInput);
+    // console.log(email);// Old Value
+
+    // check if empty field
+    if (emailInput === '') {
+      setEmail((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'Please enter an email address to continue',
+      }));
+    }
+
+    // check Syntax
     if (!/\S+@\S+\.\S+/.test(emailInput)) {
       setEmail((prevState) => ({
         ...prevState,
@@ -30,22 +63,23 @@ function Email({
         error: null,
       }));
     }
-    // console.log('Email in check email', email);
   };
 
   return (
-    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); onSubmitFn(email); }} noValidate data-testid="SignUpEmail-test">
+    // right value emailon submit in case that we have made any change in input field
+    // in case no change the value there is wrong :) but the view here is true
+    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input); onSubmitFn(); }} noValidate data-testid="SignUpEmail-test">
       <RedditTextField
         label={fieldText}
         variant="filled"
         required
         InputProps={{
           endAdornment: (
-            email.icon
+            email?.icon
           ),
           disableUnderline: true,
         }}
-        clr={email.color}
+        clr={email?.color}
         onBlur={() => { if (recaptcha) setrecaptchaState(true); }}
         onChange={(e) => {
           setEmail((prevState) => ({
@@ -53,11 +87,12 @@ function Email({
             input: e.target.value.trim(),
           }));
           checkEmail(e.target.value.trim());
+          setdefaultEmailValue(e.target.value.trim());
         }}
-        helperText={email.error}
-        defaultValue={defaultEmail}
+        helperText={email?.error}
+        value={defaultEmailValue || ''}
       />
-      <RedditLoadingButton type="submit" loading={loading} data-testid="email-btn-test" width={btnWidth}>
+      <RedditLoadingButton type="submit" loading={loading} data-testid="email-btn-test" width={btnWidth} disabled={disabled}>
         {buttonText}
       </RedditLoadingButton>
       {recaptchaState ? (
@@ -71,8 +106,6 @@ function Email({
       )
         : null}
     </FirstPartyContainer>
-
   );
 }
-
 export default Email;

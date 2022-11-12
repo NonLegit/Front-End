@@ -163,7 +163,6 @@ exports[`SigUp test snapshot 1`] = `
             autoComplete="off"
             autoFocus={false}
             className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-c5v1qu-MuiInputBase-input-MuiFilledInput-input"
-            defaultValue=""
             disabled={false}
             id=":r0:"
             onAnimationStart={[Function]}
@@ -172,6 +171,7 @@ exports[`SigUp test snapshot 1`] = `
             onFocus={[Function]}
             required={true}
             type="text"
+            value=""
           />
         </div>
       </div>

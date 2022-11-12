@@ -127,8 +127,7 @@ Array [
       width="280px"
     >
       <div
-        className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
-        clr="#978A8C"
+        className="MuiFormControl-root MuiTextField-root css-3w7c82-MuiFormControl-root-MuiTextField-root"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
@@ -162,6 +161,7 @@ Array [
             onFocus={[Function]}
             required={true}
             type="text"
+            value=""
           />
         </div>
       </div>

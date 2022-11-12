@@ -22,6 +22,7 @@ function ForgetUsername() {
   const [loading, setLoading] = useState(false);
   const [verified, setVerified] = useState(false);
   const [buttonText, setbuttonText] = useState('Email Me');
+  const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
 
   useEffect(() => {
@@ -52,12 +53,13 @@ function ForgetUsername() {
       setLoading(false);
       return;
     }
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_username/204', email.input).then((response) => {
+    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_username/204', { email: email.input }).then((response) => {
       console.log(response);
       if (response.status === 204) {
         setTimeout(() => {
           setLoading(false);
           setbuttonText(<DoneIcon />);
+          setDisabled(true);
           setRedirectCaption(true);
         }, 1000);
       }
@@ -71,7 +73,7 @@ function ForgetUsername() {
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
-          <Email onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} defaultEmail="" />
+          <Email onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} defaultEmail="" disabled={disabled} />
 
           {redirectCaption
             ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>

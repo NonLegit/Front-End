@@ -1,57 +1,48 @@
-import { useEffect, useState } from 'react';
-import { Typography } from '@mui/material';
-// import { EmailConsumer } from '../../../../contexts/SignUpEmailContext';
-import {
-  AuthenticationBG, AuthenticationBody, rightIcon, StyledLink, wrongIcon,
-} from '../../styles';
-import theme from '../../../../styles/theme';
+import { useState } from 'react';
 
+// mui compoenets
+import { Typography } from '@mui/material';
+
+// components
 import AuthenticationHeader from '../../AuthenticationHeader/AuthenticationHeader';
 import ThirdParty from '../../ThirdParty/ThirdParty';
 import Divider from '../../Divider/Divider';
 import Email from '../../Email/Email';
 
-/**
- * SignUp Email Componenet
- * @returns {React.Component}
- */
-function SignUpEmail({ setUserNamePage, setEmail, email }) {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    console.log('rerender');
-  }, []);
+// styles
+import { AuthenticationBG, AuthenticationBody, StyledLink } from '../../styles';
 
-  const continueEmail = (email) => {
+/**
+ * SignUp Username and Password Page View
+ *
+ * @component
+ * @property {function} --setUserNamePage setView to Email Page on Back Button Click
+ * @property {object} --email email taken from user to sign up with
+ * @property {function} --setEmail set email taken from user
+ * @returns {React.Component} Email SignUp Component
+ */
+function SignUpEmail({ setUserNamePage, email, setEmail }) {
+  // states
+  const [loading, setLoading] = useState(false);
+
+  const continueEmail = () => {
+    // console.log(email);// true value but case no change wrong value
     setLoading(true);
-    console.log(email);
+    // Has error (syntax error Email or empty Email)
     if (email.error !== null) {
       setLoading(false);
       return;
     }
-
+    // check if Empty (case he didn't make any change in the input field)
     if (email.input === '') {
-      // Empty Field
-      setEmail((prevState) => ({
-        ...prevState,
-        input: email.input,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please enter your email to continue',
-      }));
       setLoading(false);
       return;
     }
-    setEmail((prevState) => ({
-      ...prevState,
-      input: email.input,
-      color: theme.palette.primary.main,
-      icon: rightIcon,
-      error: null,
-    }));
+
+    // Email is Accepted
     setTimeout(() => {
       setLoading(false);
       setUserNamePage(true);
-      console.log(email);
     }, 500);
   };
 
@@ -74,10 +65,8 @@ function SignUpEmail({ setUserNamePage, setEmail, email }) {
       <AuthenticationBody mnwidth="280px" mxwidth="280px" data-testid="signup-email-test">
         <AuthenticationHeader reddit={false} title="Sign up" caption={caption} />
         <ThirdParty />
-
         <Divider />
-
-        <Email onSubmitFn={continueEmail} loading={loading} width="280px" buttonText="continue" fieldText="Email" recaptcha={false} setVerified={null} defaultEmail={email} />
+        <Email email={email} setEmail={setEmail} onSubmitFn={continueEmail} loading={loading} width="280px" buttonText="continue" fieldText="Email" recaptcha={false} setVerified={null} disabled={false} />
         <Typography paragraph fontSize={12}>
           Already a redditor?
           {' '}

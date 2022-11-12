@@ -11,10 +11,17 @@ import LoadingPage from '../LoadingPage/LoadingPage';
 
 import theme, { fonts } from '../../../styles/theme';
 
+/**
+ * Component for Forget Password Page
+ *
+ * @component
+ * @returns {React.Component}
+ */
 function ForgetPassword() {
   const [remeberMe, setremeberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const [buttonText, setbuttonText] = useState('Reset Password');
+  const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
   const [userName, setUserName] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
@@ -24,9 +31,7 @@ function ForgetPassword() {
   });
   useEffect(() => {
     // check if connected Cookies
-    if (false) {
-      setremeberMe(true);
-    }
+    setremeberMe(false);
   }, []);
 
   const caption = (
@@ -37,43 +42,36 @@ function ForgetPassword() {
   );
 
   const checkUserName = (username) => {
-    // const username = userName.input;
-    console.log(username);
-
     // Check Username bwteen 3-20 characters
     if (username.length < 3 || username.length > 20) {
       console.log('length problem');
-      setUserName(() => ({
+      setUserName((prevState) => ({
+        ...prevState,
         color: theme.palette.error.main,
         icon: wrongIcon,
         error: 'Username must be between 3 and 20 characters',
-        input: username,
       }));
-      console.log(userName);
       return;
     }
     // else Valid
-    setUserName(() => ({
+    setUserName((prevState) => ({
+      ...prevState,
       color: theme.palette.primary.main,
       icon: rightIcon,
       error: null,
-      input: username,
     }));
-    console.log(userName);
   };
 
   const checkEmail = (emailInput) => {
-    console.log('Check eail', emailInput);
-    // if (emailInput === '') {
-    //   setEmail((prevState) => ({
-    //     ...prevState,
-    //     color: theme.palette.error.main,
-    //     icon: wrongIcon,
-    //     error: 'Please enter an email address to continue',
-    //   }));
-    //   return;
-    // }
-    if (!/\S+@\S+\.\S+/.test(emailInput)) {
+    // console.log('Check eail', emailInput);
+    if (emailInput === '') {
+      setEmail((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'Please enter an email address to continue',
+      }));
+    } else if (!/\S+@\S+\.\S+/.test(emailInput)) {
       setEmail((prevState) => ({
         ...prevState,
         color: theme.palette.error.main,
@@ -91,25 +89,27 @@ function ForgetPassword() {
   };
 
   const recoverPassword = () => {
-    console.log('REacover');
-    console.log(userName);
+    console.log('Recover Password');
     setLoading(true);
-    checkUserName(userName.input);
+    // Setting error in case of first time
     checkEmail(email.input);
+    checkUserName(userName.input);
 
-    if (userName.input === '' && email.input === '') {
+    if (email.input === '' || userName.input === '') {
       setLoading(false);
       return;
     }
 
-    if (userName.error !== null && email.error !== null) {
+    if (email.error != null || userName.error != null) {
       setLoading(false);
       return;
     }
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_password/204', email.input).then((response) => {
+    console.log(email, userName);
+    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_password/204', { email: email.input, userName: userName.input }).then((response) => {
       if (response.status === 204) {
         setTimeout(() => {
           setLoading(false);
+          setDisabled(true);
           setbuttonText(<DoneIcon />);
           setRedirectCaption(true);
         }, 1000);
@@ -146,6 +146,7 @@ function ForgetPassword() {
                 checkUserName(e.target.value.trim());
               }}
               helperText={userName.error}
+              data-testid="forgetpassword-username-input"
             />
 
             <RedditTextField
@@ -167,13 +168,14 @@ function ForgetPassword() {
                 checkEmail(e.target.value.trim());
               }}
               helperText={email.error}
+              data-testid="forgetpassword-email-input"
             />
-            <RedditLoadingButton type="submit" width="155px" loading={loading}>
+            <RedditLoadingButton type="submit" width="155px" loading={loading} disabled={disabled} data-testid="reset-password-btn-test">
               {buttonText}
             </RedditLoadingButton>
             {redirectCaption
               ? (
-                <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">
+                <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetpassword-redirect-caption-test">
                   Thanks! If your Reddit username and email address match, you’ll get an email with a link to reset your password shortly.
                 </Typography>
               )

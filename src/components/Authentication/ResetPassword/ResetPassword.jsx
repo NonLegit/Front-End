@@ -75,7 +75,7 @@ function ResetPassword() {
           }}
           clr={password.color}
           onChange={(e) => {
-            checkPassword(e.target.value.trim(), setPassword);
+            checkPassword(e.target.value.trim(), setPassword, undefined);
             setPassword((prevState) => ({
               ...prevState,
               input: e.target.value.trim(),
