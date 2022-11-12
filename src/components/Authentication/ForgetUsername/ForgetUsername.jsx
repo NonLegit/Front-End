@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+// mui compocnents
 import { Typography } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
-import { AuthenticationBody, StyledLink } from '../styles';
 
+// componenents
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Email from '../Email/Email';
 
-import { fonts } from '../../../styles/theme';
+// styles
+import { AuthenticationBody, StyledLink } from '../styles';
+import theme, { fonts } from '../../../styles/theme';
 
 /**
  * Component for Forget Username Page
  *
  * @component
- * @returns {React.Component}
+ * @returns {React.Component} --Forget Username page
  */
 
 function ForgetUsername() {
+  // states
+  const [email, setEmail] = useState({
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
+  });
   const [remeberMe, setremeberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const [verified, setVerified] = useState(false);
@@ -27,10 +35,8 @@ function ForgetUsername() {
 
   useEffect(() => {
     // check if already logged in Cokkies
+    // ==>Chceck for cookies
     setremeberMe(false);
-    setLoading(false);
-    setRedirectCaption(false);
-    setbuttonText('Email Me');
   }, []);
 
   const caption = (
@@ -40,31 +46,43 @@ function ForgetUsername() {
     </>
   );
 
-  const recoverUsername = (email) => {
+  const recoverUsername = () => {
+    console.log(email);
     setLoading(true);
 
+    // if there is a problem with email
     if (email.error != null) {
       setTimeout(() => {
         setLoading(false);
       }, 500);
       return;
     }
+
+    // not verified
     if (!verified) {
       setLoading(false);
       return;
     }
+
+    // Accepted Call API
     axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_username/204', { email: email.input }).then((response) => {
-      console.log(response);
+      // console.log(response);
       if (response.status === 204) {
+        // => check with Back this repsonse is empty
         setTimeout(() => {
           setLoading(false);
-          setbuttonText(<DoneIcon />);
           setDisabled(true);
+          setbuttonText(<DoneIcon />);
           setRedirectCaption(true);
         }, 1000);
       }
     }).catch((error) => {
       setLoading(false);
+      if (error.response.status === 400) {
+        // =>check with back
+        // "status": "string",
+        // "errorMessage": "string"
+      }
       console.log(error);
     });
   };
@@ -73,7 +91,7 @@ function ForgetUsername() {
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
-          <Email onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} defaultEmail="" disabled={disabled} />
+          <Email email={email} setEmail={setEmail} onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} disabled={disabled} />
 
           {redirectCaption
             ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>

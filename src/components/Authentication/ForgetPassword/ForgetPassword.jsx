@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+// mui components
 import { Typography } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
+
+// componnets
+import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
+import LoadingPage from '../LoadingPage/LoadingPage';
+
+// styles
 import {
   AuthenticationBody, FirstPartyContainer, StyledLink, RedditTextField,
   wrongIcon, rightIcon, RedditLoadingButton,
 } from '../styles';
-import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
-import LoadingPage from '../LoadingPage/LoadingPage';
-
 import theme, { fonts } from '../../../styles/theme';
 
 /**
  * Component for Forget Password Page
  *
  * @component
- * @returns {React.Component}
+ * @returns {React.Component} --ForgetPassword Page Component
  */
 function ForgetPassword() {
+  // states
   const [remeberMe, setremeberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const [buttonText, setbuttonText] = useState('Reset Password');
@@ -31,6 +37,7 @@ function ForgetPassword() {
   });
   useEffect(() => {
     // check if connected Cookies
+    //= >Check for cookies from BE
     setremeberMe(false);
   }, []);
 
@@ -63,7 +70,6 @@ function ForgetPassword() {
   };
 
   const checkEmail = (emailInput) => {
-    // console.log('Check eail', emailInput);
     if (emailInput === '') {
       setEmail((prevState) => ({
         ...prevState,
@@ -89,23 +95,24 @@ function ForgetPassword() {
   };
 
   const recoverPassword = () => {
-    console.log('Recover Password');
     setLoading(true);
     // Setting error in case of first time
     checkEmail(email.input);
     checkUserName(userName.input);
 
+    // Case he didn't enter anything
     if (email.input === '' || userName.input === '') {
       setLoading(false);
       return;
     }
 
+    // There are some errors in the email or username
     if (email.error != null || userName.error != null) {
       setLoading(false);
       return;
     }
-    console.log(email, userName);
     axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_password/204', { email: email.input, userName: userName.input }).then((response) => {
+      // console.log(response);
       if (response.status === 204) {
         setTimeout(() => {
           setLoading(false);
@@ -116,6 +123,11 @@ function ForgetPassword() {
       }
     }).catch((error) => {
       setLoading(false);
+      if (error.response.status === 400) {
+        // =>check with back
+        // "status": "string",
+        // "errorMessage": "string"
+      }
       console.log(error);
     });
   };

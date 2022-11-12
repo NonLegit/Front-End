@@ -199,7 +199,7 @@ export const signUp = (
 };
 
 /**
- * Check for password length if so then set as accepted
+ * Check for Passwords matched or not
  * @param {state} password
  * @param {function} setPassword
  * @returns {void}

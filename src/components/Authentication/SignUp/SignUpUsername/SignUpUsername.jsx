@@ -27,9 +27,9 @@ import theme, { fonts } from '../../../../styles/theme';
  * @property {SetFunction} --setUserNamePage setView to Email Page on Back Button Click
  * @property {object} --email setView to Email Page on Back Button Click
  * @property {object} --userName userName to SignUp with
- * @property {SetFunction} --setUserName to set UserName
+ * @property {function} --setUserName to set UserName
  * @property {object} --password password to SignUp with
- * @property {SetFunction} --setPassword to set password
+ * @property {function} --setPassword to set password
  * @returns {React.Component} UserName and Password Form
  */
 function SignUpUsername({
@@ -51,8 +51,8 @@ function SignUpUsername({
   }, []);
 
   const signUpFunction = () => {
-    checkUserName(userName.input, setUserName);
-    checkPassword(password.input, setPassword, password);
+    checkUserName(userName?.input, setUserName);
+    checkPassword(password?.input, setPassword, password);
     signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption);
   };
 
@@ -96,9 +96,10 @@ function SignUpUsername({
           <PasswordStrengthBar
             password={password?.input}
             minLength={4}
-            onChangeScore={(e) => setPassword((
-              prevState,
-            ) => ({ ...prevState, score: e }))}
+            onChangeScore={(e) => (setPassword((prevState) => ({
+              ...prevState,
+              score: e,
+            })))}
             scoreWords={[]}
             shortScoreWord=""
           />
