@@ -21,7 +21,7 @@ import {
  * @returns {React.Component} Tabs (each tab indicate the type of posts that will be fetched)
  */
 
-function PostsClassification(props) {
+function PostsClassificationSubreddit(props) {
   const { subredditName } = props;
   const { postClass } = useParams();
   const [activeClass, setActiveClass] = useState(null);
@@ -120,4 +120,4 @@ function PostsClassification(props) {
   );
 }
 
-export default PostsClassification;
+export default PostsClassificationSubreddit;

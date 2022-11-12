@@ -1,0 +1,2690 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 120,
+   "numPassedTests": 172,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 120,
+   "numTotalTests": 172,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 105,
+      "total": 105,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1668287494422,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostTags"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTags PostTags renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostTags renders correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostTags"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTags spoiler and nsfw works correctly",
+               "location": null,
+               "status": "passed",
+               "title": "spoiler and nsfw works correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostTags"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTags spoiler and nsfw colors are correct 1",
+               "location": null,
+               "status": "passed",
+               "title": "spoiler and nsfw colors are correct 1"
+            },
+            {
+               "ancestorTitles": [
+                  "PostTags"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTags spoiler and nsfw colors are correct 2",
+               "location": null,
+               "status": "passed",
+               "title": "spoiler and nsfw colors are correct 2"
+            }
+         ],
+         "endTime": 1668287563606,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\CreatePost\\CreatePostContainer\\CreatePostForm\\PostTags\\PostTags.test.jsx",
+         "startTime": 1668287505422,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostSubmission"
+               ],
+               "failureMessages": [],
+               "fullName": "PostSubmission PostSubmission renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostSubmission renders correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostSubmission"
+               ],
+               "failureMessages": [],
+               "fullName": "PostSubmission PostSubmission posts correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostSubmission posts correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostSubmission"
+               ],
+               "failureMessages": [],
+               "fullName": "PostSubmission Post button is disabled correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Post button is disabled correctly"
+            }
+         ],
+         "endTime": 1668287563793,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\CreatePost\\CreatePostContainer\\CreatePostForm\\PostSubmission\\PostSubmission.test.jsx",
+         "startTime": 1668287505423,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "CommunityItem"
+               ],
+               "failureMessages": [],
+               "fullName": "CommunityItem Community Item is in the document",
+               "location": null,
+               "status": "passed",
+               "title": "Community Item is in the document"
+            },
+            {
+               "ancestorTitles": [
+                  "CommunityItem"
+               ],
+               "failureMessages": [],
+               "fullName": "CommunityItem Community Item props work correctly with status up",
+               "location": null,
+               "status": "passed",
+               "title": "Community Item props work correctly with status up"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Community Item props work correctly with status down",
+               "location": null,
+               "status": "passed",
+               "title": "Community Item props work correctly with status down"
+            }
+         ],
+         "endTime": 1668287566210,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\Communities\\CommunityList\\CommunityItem\\CommunityItem.test.jsx",
+         "startTime": 1668287564327,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostTypes"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTypes PostTypes renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostTypes renders correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostTypes"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTypes postType works correctly",
+               "location": null,
+               "status": "passed",
+               "title": "postType works correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostTypes"
+               ],
+               "failureMessages": [],
+               "fullName": "PostTypes handlePostType works correctly",
+               "location": null,
+               "status": "passed",
+               "title": "handlePostType works correctly"
+            }
+         ],
+         "endTime": 1668287567092,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\CreatePost\\CreatePostContainer\\CreatePostForm\\PostTypes\\PostTypes.test.jsx",
+         "startTime": 1668287564327,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Short length username",
+               "location": null,
+               "status": "passed",
+               "title": "Short length username"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Empty Fields",
+               "location": null,
+               "status": "passed",
+               "title": "Empty Fields"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Valid Username length",
+               "location": null,
+               "status": "passed",
+               "title": "Valid Username length"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287575952,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\FirstParty\\FirstParty.test.jsx",
+         "startTime": 1668287567399,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Short length username",
+               "location": null,
+               "status": "passed",
+               "title": "Short length username"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Empty Fields",
+               "location": null,
+               "status": "passed",
+               "title": "Empty Fields"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Valid Username length",
+               "location": null,
+               "status": "passed",
+               "title": "Valid Username length"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287576171,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\ِAuthentication\\FirstParty\\FirstParty.test.jsx",
+         "startTime": 1668287566258,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "Reactions"
+               ],
+               "failureMessages": [],
+               "fullName": "Reactions Reactions renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Reactions renders correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "Reactions"
+               ],
+               "failureMessages": [],
+               "fullName": "Reactions Upvoting and downvoting work correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Upvoting and downvoting work correctly"
+            }
+         ],
+         "endTime": 1668287584706,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Post\\Reactions\\Reactions.test.jsx",
+         "startTime": 1668287575991,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "Post"
+               ],
+               "failureMessages": [],
+               "fullName": "Post Reactions renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Reactions renders correctly"
+            }
+         ],
+         "endTime": 1668287585730,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Post\\Post.test.jsx",
+         "startTime": 1668287576253,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "JoinButton"
+               ],
+               "failureMessages": [],
+               "fullName": "JoinButton Button is in the document",
+               "location": null,
+               "status": "passed",
+               "title": "Button is in the document"
+            },
+            {
+               "ancestorTitles": [
+                  "JoinButton"
+               ],
+               "failureMessages": [],
+               "fullName": "JoinButton Button displays Join Initially",
+               "location": null,
+               "status": "passed",
+               "title": "Button displays Join Initially"
+            },
+            {
+               "ancestorTitles": [
+                  "JoinButton"
+               ],
+               "failureMessages": [],
+               "fullName": "JoinButton Button displays Join while hovering Without Clicking",
+               "location": null,
+               "status": "passed",
+               "title": "Button displays Join while hovering Without Clicking"
+            },
+            {
+               "ancestorTitles": [
+                  "JoinButton"
+               ],
+               "failureMessages": [],
+               "fullName": "JoinButton Click on the button when its content is \"Join\"",
+               "location": null,
+               "status": "passed",
+               "title": "Click on the button when its content is \"Join\""
+            },
+            {
+               "ancestorTitles": [
+                  "JoinButton"
+               ],
+               "failureMessages": [],
+               "fullName": "JoinButton Button displays leave while hovering after Clicking",
+               "location": null,
+               "status": "passed",
+               "title": "Button displays leave while hovering after Clicking"
+            },
+            {
+               "ancestorTitles": [
+                  "JoinButton"
+               ],
+               "failureMessages": [],
+               "fullName": "JoinButton Button displays joined after mouse leaving",
+               "location": null,
+               "status": "passed",
+               "title": "Button displays joined after mouse leaving"
+            }
+         ],
+         "endTime": 1668287586832,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\JoinButton\\JoinButton.test.jsx",
+         "startTime": 1668287584756,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostReactions"
+               ],
+               "failureMessages": [],
+               "fullName": "PostReactions PostReactions renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostReactions renders correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "PostReactions"
+               ],
+               "failureMessages": [],
+               "fullName": "PostReactions Save button works correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Save button works correctly"
+            }
+         ],
+         "endTime": 1668287588704,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Post\\PostReactions\\PostReactions.test.jsx",
+         "startTime": 1668287585778,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open form",
+               "location": null,
+               "status": "passed",
+               "title": "open form"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "subreddit empty",
+               "location": null,
+               "status": "passed",
+               "title": "subreddit empty"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "checkbox select from text",
+               "location": null,
+               "status": "passed",
+               "title": "checkbox select from text"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "close form",
+               "location": null,
+               "status": "passed",
+               "title": "close form"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287592435,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PersonalReddit\\PopUpSubReddit\\Popup.test.jsx",
+         "startTime": 1668287588797,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostList"
+               ],
+               "failureMessages": [],
+               "fullName": "PostList Reactions renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Reactions renders correctly"
+            }
+         ],
+         "endTime": 1668287594494,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PostList\\PostList.test.jsx",
+         "startTime": 1668287592503,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287596824,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\ِAuthentication\\Email\\Email.test.jsx",
+         "startTime": 1668287594757,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "should render Forget username page",
+               "location": null,
+               "status": "passed",
+               "title": "should render Forget username page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Empty Email Field Keeps view on ForgetUsername Page",
+               "location": null,
+               "status": "passed",
+               "title": "Empty Email Field Keeps view on ForgetUsername Page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Invlaid Email",
+               "location": null,
+               "status": "passed",
+               "title": "Invlaid Email"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "ForgetUsername-test-snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "ForgetUsername-test-snapshot"
+            }
+         ],
+         "endTime": 1668287603503,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\ForgetUsername\\ForgetUsername.test.jsx",
+         "startTime": 1668287586876,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "should render notifications page",
+               "location": null,
+               "status": "passed",
+               "title": "should render notifications page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "should render notifications page",
+               "location": null,
+               "status": "passed",
+               "title": "should render notifications page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "routes to message page by click message button",
+               "location": null,
+               "status": "passed",
+               "title": "routes to message page by click message button"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287603537,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Notifications\\NotificationsHeader\\NotificationsHeader.test.jsx",
+         "startTime": 1668287596874,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "should render Forget password page",
+               "location": null,
+               "status": "passed",
+               "title": "should render Forget password page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Empty Fields Keeps view on Forget password Page",
+               "location": null,
+               "status": "passed",
+               "title": "Empty Fields Keeps view on Forget password Page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Invlaid UserName",
+               "location": null,
+               "status": "passed",
+               "title": "Invlaid UserName"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Invlaid Email",
+               "location": null,
+               "status": "passed",
+               "title": "Invlaid Email"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Valid inpts",
+               "location": null,
+               "status": "passed",
+               "title": "Valid inpts"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "ForgetPassword-test-snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "ForgetPassword-test-snapshot"
+            }
+         ],
+         "endTime": 1668287604453,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\ForgetPassword\\ForgetPassword.test.jsx",
+         "startTime": 1668287505422,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "should render Signup page",
+               "location": null,
+               "status": "passed",
+               "title": "should render Signup page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Empty Email Field Keeps view on SigUpEmail Page",
+               "location": null,
+               "status": "passed",
+               "title": "Empty Email Field Keeps view on SigUpEmail Page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "InValid Email Field Keeps view on SigUpEmail Page",
+               "location": null,
+               "status": "passed",
+               "title": "InValid Email Field Keeps view on SigUpEmail Page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Valid Email Field changes view to SignUpUsername Page",
+               "location": null,
+               "status": "passed",
+               "title": "Valid Email Field changes view to SignUpUsername Page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "SigUp test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "SigUp test snapshot"
+            }
+         ],
+         "endTime": 1668287604504,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\SignUp\\SignUp.test.jsx",
+         "startTime": 1668287505423,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "SubredditsMenu"
+               ],
+               "failureMessages": [],
+               "fullName": "SubredditsMenu SubredditsMenu renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "SubredditsMenu renders correctly"
+            }
+         ],
+         "endTime": 1668287605586,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\CreatePost\\CreatePostContainer\\CreatePostForm\\SubredditsMenu\\SubredditsMenu.test.jsx",
+         "startTime": 1668287603592,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "Communities"
+               ],
+               "failureMessages": [],
+               "fullName": "Communities Communities is in the document",
+               "location": null,
+               "status": "passed",
+               "title": "Communities is in the document"
+            },
+            {
+               "ancestorTitles": [
+                  "Communities"
+               ],
+               "failureMessages": [],
+               "fullName": "Communities Communities props works correctly",
+               "location": null,
+               "status": "passed",
+               "title": "Communities props works correctly"
+            }
+         ],
+         "endTime": 1668287605632,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\Communities\\Communities.test.jsx",
+         "startTime": 1668287603566,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostHeader"
+               ],
+               "failureMessages": [],
+               "fullName": "PostHeader PostHeader renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostHeader renders correctly"
+            }
+         ],
+         "endTime": 1668287606430,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Post\\PostHeader\\PostHeader.test.jsx",
+         "startTime": 1668287604657,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "CreatePostInHome"
+               ],
+               "failureMessages": [],
+               "fullName": "CreatePostInHome CreatePostInHome renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "CreatePostInHome renders correctly"
+            }
+         ],
+         "endTime": 1668287606498,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\CreatePostInHome\\CreatePostInHome.test.jsx",
+         "startTime": 1668287604713,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "HomePageContainer"
+               ],
+               "failureMessages": [],
+               "fullName": "HomePageContainer HomePageContainer renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "HomePageContainer renders correctly"
+            }
+         ],
+         "endTime": 1668287607725,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\HomePageContainer.test.jsx",
+         "startTime": 1668287605647,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "CreatePostForm",
+               "location": null,
+               "status": "passed",
+               "title": "CreatePostForm"
+            }
+         ],
+         "endTime": 1668287607924,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\CreatePost\\CreatePostContainer\\CreatePostForm\\CreatePostForm.test.jsx",
+         "startTime": 1668287605714,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287608893,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfilePostsTap\\OtherProfilePostsTap.test.jsx",
+         "startTime": 1668287606475,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "BackToTop"
+               ],
+               "failureMessages": [],
+               "fullName": "BackToTop BackToTop renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "BackToTop renders correctly"
+            },
+            {
+               "ancestorTitles": [
+                  "BackToTop"
+               ],
+               "failureMessages": [],
+               "fullName": "BackToTop BackToTop works correctly",
+               "location": null,
+               "status": "passed",
+               "title": "BackToTop works correctly"
+            }
+         ],
+         "endTime": 1668287610086,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\BackToTop\\BackToTop.test.jsx",
+         "startTime": 1668287607961,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "should render notifications body",
+               "location": null,
+               "status": "passed",
+               "title": "should render notifications body"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "check snap shot",
+               "location": null,
+               "status": "passed",
+               "title": "check snap shot"
+            }
+         ],
+         "endTime": 1668287610088,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Notifications\\NotificationsBody\\NotificationsBody.test.jsx",
+         "startTime": 1668287606545,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287610427,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\ProfileMainContent.test.jsx",
+         "startTime": 1668287607816,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open input to add disc",
+               "location": null,
+               "status": "passed",
+               "title": "open input to add disc"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287612372,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Mderation\\Mderation.test.jsx",
+         "startTime": 1668287608938,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287613103,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\Header\\ProfileHeader.test.jsx",
+         "startTime": 1668287610179,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287613556,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileSidebar\\OtherProfileUserInfo\\OtherProfileUserInfo.test.jsx",
+         "startTime": 1668287610609,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open input to add disc",
+               "location": null,
+               "status": "passed",
+               "title": "open input to add disc"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287614548,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Mderation\\AddDisc\\AddDisc.test.jsx",
+         "startTime": 1668287612453,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open input to add disc",
+               "location": null,
+               "status": "passed",
+               "title": "open input to add disc"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287615087,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Mderation\\AddList\\AddList.test.jsx",
+         "startTime": 1668287613166,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287615973,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\PostsTap\\PostsTap.test.jsx",
+         "startTime": 1668287613598,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "CreatePostContainer"
+               ],
+               "failureMessages": [],
+               "fullName": "CreatePostContainer CreatePostContainer renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "CreatePostContainer renders correctly"
+            }
+         ],
+         "endTime": 1668287616790,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\CreatePost\\CreatePostContainer\\CreatePostContainer.test.jsx",
+         "startTime": 1668287614593,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "CommunityList"
+               ],
+               "failureMessages": [],
+               "fullName": "CommunityList CommunityList is in the document",
+               "location": null,
+               "status": "passed",
+               "title": "CommunityList is in the document"
+            }
+         ],
+         "endTime": 1668287616968,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\Communities\\CommunityList\\CommunityList.test.jsx",
+         "startTime": 1668287615126,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test login popup",
+               "location": null,
+               "status": "passed",
+               "title": "test login popup"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287617999,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\DrawerBottom\\DrawerBottom.test.jsx",
+         "startTime": 1668287610183,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287618003,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Posts\\PostFooter\\PostFooter.test.jsx",
+         "startTime": 1668287616026,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "render notification images",
+               "location": null,
+               "status": "passed",
+               "title": "render notification images"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "check snap shot",
+               "location": null,
+               "status": "passed",
+               "title": "check snap shot"
+            }
+         ],
+         "endTime": 1668287618281,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Notifications\\NotificationsBody\\NotificationCategories\\NotificationImage\\NotificationImages.test.jsx",
+         "startTime": 1668287616844,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open form",
+               "location": null,
+               "status": "passed",
+               "title": "open form"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287619655,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\AboutSubReddit\\About.test.jsx",
+         "startTime": 1668287617019,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287620299,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfilePosts\\OtherProfileFooter\\OtherProfilePostFooterListResponsive\\OtherProfilePostFooterListResponsive.test.jsx",
+         "startTime": 1668287618199,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "show more menu",
+               "location": null,
+               "status": "passed",
+               "title": "show more menu"
+            }
+         ],
+         "endTime": 1668287620314,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileFilter\\OtherProfileFilterSmall\\OtherProfileFilterSmall.test.jsx",
+         "startTime": 1668287618349,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287620630,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Sidebar\\UserInfo\\UserInfo.test.jsx",
+         "startTime": 1668287618154,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PostsClassification"
+               ],
+               "failureMessages": [],
+               "fullName": "PostsClassification PostsClassification renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PostsClassification renders correctly"
+            }
+         ],
+         "endTime": 1668287622214,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PostsClassification\\PostsClassification.test.jsx",
+         "startTime": 1668287619724,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287623469,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfilePosts\\OtherProfilePostHeader\\OtherProfilePostHeader.test.jsx",
+         "startTime": 1668287620368,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287623541,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileSidebar\\OtherProfileCommunities\\OtherProfileCommunities.test.jsx",
+         "startTime": 1668287620356,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287624801,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfilePosts\\OtherProfilePostHeader\\OtherProfilePostHeader.test.jsx",
+         "startTime": 1668287620682,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287626371,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileFilter\\OtherProfileFilterFull\\OtherProfileFilterFull.test.jsx",
+         "startTime": 1668287622603,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287626757,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfilePosts\\OtherProfilePostSide\\OtherProfilePostSide.test.jsx",
+         "startTime": 1668287623540,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287626759,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfilePosts\\OtherProfilePostSide\\OtherProfilePostSide.test.jsx",
+         "startTime": 1668287623705,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287627625,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfileContent.test.jsx",
+         "startTime": 1668287624846,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287628754,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileMainContent.test.jsx",
+         "startTime": 1668287626412,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287628943,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfilePosts\\OtherProfilePosts.test.jsx",
+         "startTime": 1668287626813,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287628978,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileFilter\\OtherProfileFilter.test.jsx",
+         "startTime": 1668287626837,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "HomePageFooter"
+               ],
+               "failureMessages": [],
+               "fullName": "HomePageFooter HomePageFooter renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "HomePageFooter renders correctly"
+            }
+         ],
+         "endTime": 1668287630480,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\HomePageFooter\\HomePageFooter.test.jsx",
+         "startTime": 1668287628790,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "PersonalReddit"
+               ],
+               "failureMessages": [],
+               "fullName": "PersonalReddit PersonalReddit renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "PersonalReddit renders correctly"
+            }
+         ],
+         "endTime": 1668287630579,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PersonalReddit\\PersonalReddit.test.jsx",
+         "startTime": 1668287627673,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "RedditPremium"
+               ],
+               "failureMessages": [],
+               "fullName": "RedditPremium RedditPremium renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "RedditPremium renders correctly"
+            }
+         ],
+         "endTime": 1668287630617,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\RedditPremium\\RedditPremium.test.jsx",
+         "startTime": 1668287629026,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287630881,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfilePosts\\OtherProfilePosts.test.jsx",
+         "startTime": 1668287628988,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "show more menu",
+               "location": null,
+               "status": "passed",
+               "title": "show more menu"
+            }
+         ],
+         "endTime": 1668287632971,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Filter\\FilterSmall\\FilterSmall.test.jsx",
+         "startTime": 1668287630534,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287633044,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfileComments\\OtherProfileCommentsContent\\OtherProfileCommentsContent.test.jsx",
+         "startTime": 1668287630908,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287633206,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Posts\\PostFooter\\PostFooterListResponsive\\PostFooterListResponsive.test.jsx",
+         "startTime": 1668287630658,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287633552,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherHeader\\OtherProfileHeader.test.jsx",
+         "startTime": 1668287630626,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287636074,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Comments\\CommentsContent\\CommentsContent.test.jsx",
+         "startTime": 1668287633086,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "open posts tap",
+               "location": null,
+               "status": "passed",
+               "title": "open posts tap"
+            }
+         ],
+         "endTime": 1668287636521,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfilePosts\\OtherProfilePostFooter\\OtherProfilePostFooter.test.jsx",
+         "startTime": 1668287633251,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287637509,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Posts\\PostFooter\\PostFooterList\\PostFooterList.test.jsx",
+         "startTime": 1668287633673,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287637878,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfileComments\\OtherProfileCommentsHeader\\OtherProfileCommentsHeader.test.jsx",
+         "startTime": 1668287633012,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287639056,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Comments\\CommentsHeader\\CommentsHeader.test.jsx",
+         "startTime": 1668287636154,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287639496,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\PostsFilteredTap\\PostsFilteredTap.test.jsx",
+         "startTime": 1668287636576,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287641580,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileContent\\OtherProfileComments\\OtherProfileComments.test.jsx",
+         "startTime": 1668287637917,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287642255,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Sidebar\\Communities\\Communities.test.jsx",
+         "startTime": 1668287639537,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287642518,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Posts\\PostHeader\\PostHeader.test.jsx",
+         "startTime": 1668287639095,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287646672,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Posts\\PostHeader\\PostHeader.test.jsx",
+         "startTime": 1668287641613,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287648601,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Posts\\PostSide\\PostSide.test.jsx",
+         "startTime": 1668287646712,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287649189,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Filter\\FilterFull\\FilterFull.test.jsx",
+         "startTime": 1668287642293,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287649288,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Posts\\PostSide\\PostSide.test.jsx",
+         "startTime": 1668287642548,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "MainContent"
+               ],
+               "failureMessages": [],
+               "fullName": "MainContent MainContent renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "MainContent renders correctly"
+            }
+         ],
+         "endTime": 1668287650649,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\MainContent\\MainContent.test.jsx",
+         "startTime": 1668287649223,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287651984,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Content.test.jsx",
+         "startTime": 1668287649614,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287652162,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Comments\\Comments.test.jsx",
+         "startTime": 1668287648629,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287653159,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Content\\Posts\\Posts.test.jsx",
+         "startTime": 1668287650682,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287655362,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Filter\\Filter.test.jsx",
+         "startTime": 1668287652015,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287656089,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Posts\\Posts.test.jsx",
+         "startTime": 1668287653256,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "check snap shot",
+               "location": null,
+               "status": "passed",
+               "title": "check snap shot"
+            }
+         ],
+         "endTime": 1668287657499,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Notifications\\NotificationsBody\\NotificationCategories\\NotificationCategories.test.jsx",
+         "startTime": 1668287655414,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "SideBar"
+               ],
+               "failureMessages": [],
+               "fullName": "SideBar SideBar renders correctly",
+               "location": null,
+               "status": "passed",
+               "title": "SideBar renders correctly"
+            }
+         ],
+         "endTime": 1668287657939,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SideBar\\SideBar.test.jsx",
+         "startTime": 1668287656778,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287658708,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\ForgetPassPopUp\\ForgetPass.test.jsx",
+         "startTime": 1668287652206,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287660104,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\ForgetUserNamePopUp\\ForgetUser.test.jsx",
+         "startTime": 1668287657683,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "SigUp test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "SigUp test snapshot"
+            }
+         ],
+         "endTime": 1668287660468,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\SignUp\\SignUpUsername\\SignUpUsername.test.jsx",
+         "startTime": 1668287657986,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287661010,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Navbar\\Logo\\LogoIcon.test.jsx",
+         "startTime": 1668287658780,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287664713,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\SignUpPopUp\\SignUp.test.jsx",
+         "startTime": 1668287660229,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287664935,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\Cover\\Cover.test.jsx",
+         "startTime": 1668287637935,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287667034,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\LogInPopUp\\LogIn.test.jsx",
+         "startTime": 1668287660578,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "SigUp test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "SigUp test snapshot"
+            }
+         ],
+         "endTime": 1668287667916,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\ِAuthentication\\SignUpEmail\\SignUpEmail.test.jsx",
+         "startTime": 1668287664865,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "SigUp test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "SigUp test snapshot"
+            }
+         ],
+         "endTime": 1668287668058,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\SignUp\\SignUpEmail\\SignUpEmail.test.jsx",
+         "startTime": 1668287665143,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Email snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "Email snapshot"
+            }
+         ],
+         "endTime": 1668287668182,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\Email\\Email.test.jsx",
+         "startTime": 1668287661054,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287670277,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Navbar\\NavIcons\\NavIcons.test.jsx",
+         "startTime": 1668287667194,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287670921,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfileEmptyContent\\OtherProfileEmptyContent.test.jsx",
+         "startTime": 1668287667968,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287671595,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\PostClassificationSubreddit\\PostClassification.test.jsx",
+         "startTime": 1668287668318,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287672110,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Navbar\\Navbar.test.jsx",
+         "startTime": 1668287668620,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287673082,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\OtherProfile\\OtherProfileMainContent\\OtherProfilePosts\\OtherProfileFooter\\OtherProfilePostFooter.test.jsx",
+         "startTime": 1668287670325,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Loading Page SnapShot",
+               "location": null,
+               "status": "passed",
+               "title": "Loading Page SnapShot"
+            }
+         ],
+         "endTime": 1668287674482,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\LoadingPage\\LoadingPage.test.jsx",
+         "startTime": 1668287671619,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287675104,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\SNavbar.test.jsx",
+         "startTime": 1668287670975,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287675182,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\ِAuthentication\\ThirdParty\\ThirdParty.test.jsx",
+         "startTime": 1668287672284,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287675881,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Moderators\\Moderation.test.jsx",
+         "startTime": 1668287673127,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287678189,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\ThirdParty\\ThirdParty.test.jsx",
+         "startTime": 1668287675081,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287678245,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PersonalReddit\\PopUpSubReddit\\RadioBtn\\Radio.test.jsx",
+         "startTime": 1668287675229,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287678460,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\BackHome\\BackHome.test.jsx",
+         "startTime": 1668287675284,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287679979,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Sider.test.jsx",
+         "startTime": 1668287675930,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287680128,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PersonalReddit\\PopUpSubReddit\\Header\\Header.test.jsx",
+         "startTime": 1668287678290,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287681554,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\EmptyContent\\EmptyContent.test.jsx",
+         "startTime": 1668287678776,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287681646,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Mderation\\AddList\\Add Bottun\\AddBtn.test.jsx",
+         "startTime": 1668287679666,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287681800,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\Flirt\\Filter.test.jsx",
+         "startTime": 1668287680168,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287682209,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\HomePage\\HomePageContainer\\PersonalReddit\\PopUpSubReddit\\Input\\Input.test.jsx",
+         "startTime": 1668287680509,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287683279,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SubReddit\\SideBar\\MoreIcon\\More.test.jsx",
+         "startTime": 1668287681850,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287683824,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\Search\\Search.test.jsx",
+         "startTime": 1668287682295,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287685593,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Navbar\\Search\\Search.test.jsx",
+         "startTime": 1668287683327,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287686969,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Profile\\MainContent\\Posts\\PostFooter\\PostFooter.test.jsx",
+         "startTime": 1668287681699,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287687031,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\UserList\\UserList.test.jsx",
+         "startTime": 1668287683860,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287689116,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\HomeList\\HomeList.test.jsx",
+         "startTime": 1668287685899,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287696511,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\SNavbar\\Drawer\\Drawer.test.jsx",
+         "startTime": 1668287689186,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287697230,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Navbar\\HomeList\\HomeList.test.jsx",
+         "startTime": 1668287687076,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287699629,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Navbar\\UserList\\UserList.test.jsx",
+         "startTime": 1668287687006,
+         "status": "passed",
+         "summary": ""
+      },
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "test snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "test snapshot"
+            }
+         ],
+         "endTime": 1668287700511,
+         "message": "",
+         "name": "H:\\computer 3th first term\\sw\\Project\\development\\Reddit-Front\\src\\components\\Authentication\\LogIn\\Login.test.jsx",
+         "startTime": 1668287681592,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

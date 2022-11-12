@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import MainContent from '../../MainContent/MainContent';
-import Post from '../Post/Post';
+import PostSubreddit from '../Post/Post';
 import CreatePostInHome from '../../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from '../SideBar/SideBar';
 import {
   Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, Notification, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
-import PostsClassification from '../PostClassificationSubreddit/PostClassification';
+import PostsClassificationSubreddit from '../PostClassificationSubreddit/PostClassification';
 
 /**
  * Subreddit page
@@ -128,9 +128,9 @@ function Header() {
         <Box sx={{ display: 'flex', flexDirection: 'row', margin: '0 auto' }}>
           <MainContent width={640}>
             <CreatePostInHome />
-            <PostsClassification subredditName={Name} />
+            <PostsClassificationSubreddit subredditName={Name} />
             { posts?.map((posts, index) => (
-              <Post
+              <PostSubreddit
                 key={`${index + 0}`}
                 title={posts.title}
                 image={posts.image}
