@@ -1,11 +1,15 @@
+import { ThemeProvider } from '@mui/system';
+import layoutTheme from '../styles/theme/layout';
 import CreatePostContainer from '../components/CreatePost/CreatePostContainer/CreatePostContainer';
 import CommunitiesInCreatePostContextProvider from '../contexts/CommunitiesInCreatePostContext';
 
 function CreatePost() {
   return (
-    <CommunitiesInCreatePostContextProvider>
-      <CreatePostContainer />
-    </CommunitiesInCreatePostContextProvider>
+    <ThemeProvider theme={layoutTheme}>
+      <CommunitiesInCreatePostContextProvider>
+        <CreatePostContainer />
+      </CommunitiesInCreatePostContextProvider>
+    </ThemeProvider>
   );
 }
 

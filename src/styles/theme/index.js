@@ -26,12 +26,6 @@ const theme = createTheme({
       contrastText: '#fff',
     },
   },
-  breakpoints: {
-    neutral: {
-      main: '#978A8C',
-      contrastText: '#fff',
-    },
-  },
 });
 
 export const fonts = {

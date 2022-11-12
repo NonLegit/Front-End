@@ -32,6 +32,7 @@ function HomePageContainer() {
   const [posts, postsError] = useFetch(postsUrl);
   const [communities, communitiesError] = useFetch(communitiesUrl);
 
+  console.log(theme);
   return (
     <OuterContainer>
       <MainContainer>
