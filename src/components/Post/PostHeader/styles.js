@@ -20,6 +20,12 @@ export const PostInfoLink = styled(Link)(({ color, fontWeight }) => ({
   },
 }));
 
+export const CreatedAt = styled(Box)(({ color, fontWeight }) => ({
+  fontWeight,
+  color,
+  cursor: 'pointer',
+}));
+
 export const PostTitle = styled(Link)(() => ({
   textDecoration: 'none',
   color: '#000',
