@@ -49,10 +49,16 @@ function PostsClassification() {
       nonActiveIcon: <UploadOutlinedIcon />,
     },
   ];
+  /**
+   * this function handles change in post class
+   */
   const handleChangeClass = (e) => {
     e.stopPropagation();
     setOpen(false);
   };
+  /**
+   * this function handles click away from posts classification post
+   */
   const handleClickAway = () => {
     setOpen(false);
   };
@@ -60,6 +66,9 @@ function PostsClassification() {
     setActiveClass(postClass || 'best');
   }, [postClass]);
 
+  /**
+   * this function set the active class of posts
+   */
   const handleClick = (e) => {
     if (!matchSm) {
       e.preventDefault();

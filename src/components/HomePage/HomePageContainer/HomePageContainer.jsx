@@ -36,7 +36,6 @@ function HomePageContainer() {
   console.log(theme);
   const createdAt = '2017-07-21T17:32:28Z';
   console.log(calculateTime(createdAt));
-  // console.log('hgdh', new Date() - new Date(createdAt));
   return (
     <OuterContainer>
       <MainContainer>

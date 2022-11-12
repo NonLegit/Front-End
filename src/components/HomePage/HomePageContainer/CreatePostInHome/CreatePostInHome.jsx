@@ -15,6 +15,9 @@ import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 function CreatePostInHome() {
   const navigate = useNavigate();
   const { setInitialPostType } = usePostTypeContext();
+  /**
+   * this function to redirect user to create post page
+   */
   const handleClick = (postType) => {
     navigate('/submit');
     setInitialPostType(postType);

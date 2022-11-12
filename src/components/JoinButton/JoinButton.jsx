@@ -14,12 +14,23 @@ function JoinButton(props) {
   const [joined, setJoined] = useState(isJoined);
   const [hover, setHover] = useState(false);
 
+  /**
+   * this function toggles the join state of the user
+   */
   const handleClick = () => {
     setJoined(!joined);
   };
+
+  /**
+   * this function display leave to user if he have already joined the community while hovering
+   */
   const handleMouseIn = () => {
     setHover(true);
   };
+
+  /**
+   * this function display joined to user if he have already joined the community while not hovering
+   */
   const handleMouseOut = () => {
     setHover(false);
   };

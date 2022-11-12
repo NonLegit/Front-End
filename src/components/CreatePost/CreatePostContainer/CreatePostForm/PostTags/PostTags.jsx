@@ -1,8 +1,12 @@
 import AddIcon from '@mui/icons-material/Add';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { Box, useMediaQuery, useTheme } from '@mui/material';
-import { NsfwButton, OptionButton, SpoilerButton } from './styles';
+import {
+  Box, useMediaQuery, useTheme,
+} from '@mui/material';
+import {
+  CustomTooltip, NsfwButton, OptionButton, SpoilerButton,
+} from './styles';
 /**
  * This component is post tags
  *
@@ -29,50 +33,87 @@ function PostTags(props) {
       gap={1}
       justifyContent={match ? 'center' : 'flex-start'}
     >
-      <SpoilerButton
-        variant="outlined"
-        color="third"
-        onClick={hanldeSpoiler}
-        spoiler={spoiler}
-        data-testid="spoiler button"
+      <CustomTooltip
+        title="Mark as a spoiler"
+        placement="top"
+        arrow
+        disableInteractive
+        leaveTouchDelay={0}
+        enterDelay={500}
+        enterNextDelay={500}
       >
-        <AddIcon
-          sx={{
-            fontSize: 27,
-            marginRight: 0.6,
-          }}
-        />
-        spoiler
-      </SpoilerButton>
-      <NsfwButton
-        color="third"
-        variant={!nswf ? 'outlined' : ''}
-        onClick={hanldeNsfw}
-        nswf={nswf}
-        data-testid="nsfw button"
+        <SpoilerButton
+          variant="outlined"
+          color="third"
+          onClick={hanldeSpoiler}
+          spoiler={spoiler}
+          data-testid="spoiler button"
+        >
+          <AddIcon
+            sx={{
+              fontSize: 27,
+              marginRight: 0.6,
+            }}
+          />
+          spoiler
+        </SpoilerButton>
+      </CustomTooltip>
+      <CustomTooltip
+        title="Mark as Not Safe For Work"
+        placement="top"
+        arrow
+        disableInteractive
+        leaveTouchDelay={0}
+        enterDelay={500}
+        enterNextDelay={500}
       >
-        <AddIcon
-          sx={{
-            fontSize: 27,
-            marginRight: 0.6,
-          }}
-        />
-        NSFW
-      </NsfwButton>
-      <OptionButton
-        color="third"
-        variant="outlined"
-        disabled
+        <NsfwButton
+          color="third"
+          variant={!nswf ? 'outlined' : ''}
+          onClick={hanldeNsfw}
+          nswf={nswf}
+          data-testid="nsfw button"
+        >
+          <AddIcon
+            sx={{
+              fontSize: 27,
+              marginRight: 0.6,
+            }}
+          />
+          NSFW
+        </NsfwButton>
+      </CustomTooltip>
+      <CustomTooltip
+        title="Not available for this community"
+        placement="top"
+        arrow
+        disableInteractive
+        leaveTouchDelay={0}
+        enterDelay={500}
+        enterNextDelay={500}
       >
-        <LocalOfferOutlinedIcon
+        <Box
+          display="flex"
           sx={{
-            marginRight: 1,
-            transform: 'scalex(-1)',
+            cursor: 'not-allowed',
           }}
-        />
-        flair
-        <KeyboardArrowDownOutlinedIcon />
-      </OptionButton>
+        >
+          <OptionButton
+            color="third"
+            variant="outlined"
+            disabled
+          >
+            <LocalOfferOutlinedIcon
+              sx={{
+                marginRight: 1,
+                transform: 'scalex(-1)',
+              }}
+            />
+            flair
+            <KeyboardArrowDownOutlinedIcon />
+          </OptionButton>
+        </Box>
+      </CustomTooltip>
     </Box>
   );
 }
