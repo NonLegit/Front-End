@@ -72,11 +72,11 @@ function UserList() {
             firstList.map((items, index) => (
               (items === 'profile')
                 ? (
-                  <Link to="/user/nour" style={{ textDecoration: 'none' }}>
-                    <ListItemButton key={`${index + 0}`}>
+                  <ListItemButton key={`${index + 0}`}>
+                    <Link to="/user/nour" style={{ textDecoration: 'none', display: 'flex', width: '100%' }}>
                       <ListItemText primary={items} />
-                    </ListItemButton>
-                  </Link>
+                    </Link>
+                  </ListItemButton>
                 )
                 : (
                   <ListItemButton key={`${index + 0}`}>
@@ -89,9 +89,8 @@ function UserList() {
           { secondList.map((items, index) => (
             (items.label === 'create a community')
               ? (
-                <>
+                <div key={`${index + 0}`}>
                   <ListItemButton
-                    key={`${index + 0}`}
                     onClick={() => {
                       const ele = document.getElementById('popup-form-button');
                       console.log(ele);
@@ -105,7 +104,7 @@ function UserList() {
                   </ListItemButton>
 
                   <FormDialog display="none" />
-                </>
+                </div>
               ) : (
                 <ListItemButton key={`${index + 0}`}>
                   <ListItemIcon sx={{ display: 'contents' }}>
@@ -125,8 +124,8 @@ function UserList() {
           <Collapse in={Boolean(openExploreList)} timeout="auto" unmountOnExit>
             {
                 exploreList.map((Sub, index) => (
-                  <>
-                    <ListItemButton key={`${index + 0}`} onClick={() => { handleClickSubList(index); }}>
+                  <div key={`${index + 0}`}>
+                    <ListItemButton onClick={() => { handleClickSubList(index); }}>
                       <ListItemText primary={Sub.SubList} />
                       {openSubList[index] ? <ExpandLess sx={{ color: '#000000', fontSize: 20 }} /> : <ExpandMore sx={{ color: '#000000', fontSize: 20 }} />}
                     </ListItemButton>
@@ -137,7 +136,7 @@ function UserList() {
                         </ListItemButton>
                       ))}
                     </Collapse>
-                  </>
+                  </div>
                 ))
               }
           </Collapse>

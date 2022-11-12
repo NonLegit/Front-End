@@ -52,14 +52,16 @@ function HomeList() {
         <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
           {feedsList.map((items, index) => (
             (items.label === 'home') ? (
-              <Link to="/" style={{ textDecoration: 'none' }}>
-                <ListItemButton key={`${index + 0}`}>
+
+              <ListItemButton key={`${index + 0}`}>
+                <Link to="/" style={{ textDecoration: 'none', display: 'flex' }}>
                   <ListItemIcon>
                     {items.icon}
                   </ListItemIcon>
                   <ListItemText primary={items.label} />
-                </ListItemButton>
-              </Link>
+                </Link>
+              </ListItemButton>
+
             )
               : (
                 <ListItemButton key={`${index + 0}`}>
@@ -75,9 +77,8 @@ function HomeList() {
           {
             othersList.map((items, index) => (
               (items.label === 'create subreddit') ? (
-                <>
+                <div key={`${index + 0}`}>
                   <ListItemButton
-                    key={`${index + 0}`}
                     onClick={() => {
                       const ele = document.getElementById('popup-form-button');
                       console.log(ele);
@@ -90,29 +91,33 @@ function HomeList() {
                     <ListItemText primary={items.label} />
                   </ListItemButton>
                   <FormDialog display="none" />
-                </>
+                </div>
               )
                 : (items.label === 'create post')
                   ? (
-                    <Link to="/submit" style={{ textDecoration: 'none' }}>
-                      <ListItemButton key={`${index + 0}`}>
+
+                    <ListItemButton key={`${index + 0}`}>
+                      <Link to="/submit" style={{ textDecoration: 'none', display: 'flex' }}>
                         <ListItemIcon>
                           {items.icon}
                         </ListItemIcon>
                         <ListItemText primary={items.label} />
-                      </ListItemButton>
-                    </Link>
+                      </Link>
+                    </ListItemButton>
+
                   )
                   : (items.label === 'notifications')
                     ? (
-                      <Link to="/notifications" style={{ textDecoration: 'none' }}>
-                        <ListItemButton key={`${index + 0}`}>
+                      <ListItemButton key={`${index + 0}`}>
+                        <Link to="/notifications" style={{ textDecoration: 'none', display: 'flex' }}>
+
                           <ListItemIcon>
                             {items.icon}
                           </ListItemIcon>
                           <ListItemText primary={items.label} />
-                        </ListItemButton>
-                      </Link>
+
+                        </Link>
+                      </ListItemButton>
                     )
                     : (
                       <ListItemButton key={`${index + 0}`}>
