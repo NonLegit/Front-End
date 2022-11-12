@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/OtherProfile/OtherProfileMainContent/OtherProfilePosts/OtherProfileFooter/OtherProfilePostFooter.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/OtherProfile/OtherProfileMainContent/OtherProfilePosts/OtherProfileFooter/OtherProfilePostFooter.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import ShortcutOutlinedIcon from '@mui/icons-material/ShortcutOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+
+import { useEffect, useState } from 'react';
+import { Divider } from '@mui/material';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import UnfoldLessOutlinedIcon from '@mui/icons-material/UnfoldLessOutlined';
+import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {
+  ElementBox, FooterBox, FooterText,
+} from './styles';
+import OtherProfilePostFooterListResponsive from './OtherProfilePostFooterListResponsive/OtherProfilePostFooterListResponsive';
+/**
+ * Footer of the post that contain all icons
+ *
+ * @component OtherProfilePostFooter
+ * @property {function} handleExpand - pass the event to the parent to show the paragraph of the post
+ * @property {state} expand - pass a state to the parent to change the icon
+ * @property {object} entity - contains all info of the post
+ * @returns {React.Component} OtherProfilePostFooter
+ */
+function OtherProfilePostFooter(props) {
+  const {
+    numComments,
+    handleExpand,
+    expand,
+    saved,
+    hidden,
+    submitted,
+  } = props;
+  const [isHidden, setIsHidden] = useState(hidden);
+  const [isSaved, setIsSaved] = useState(saved);
+  // const [showList, setShowList] = useState(false);
+  const [showList2, setShowList2] = useState(false);
+
+  // handle disable the list when click away
+  const handleClick2 = () => {
+    setShowList2((prev) => !prev);
+  };
+
+  // switch icon to hidden post and vice verse
+  const handleClickHide = () => {
+    setIsHidden((prev) => !prev);
+  };
+
+  // switch icon to saved post and vice versa
+  const handleClickSave = () => {
+    setIsSaved((prev) => !prev);
+  };
+
+  useEffect(() => {
+    setIsSaved(saved);
+    setIsHidden(hidden);
+  }, [saved, hidden]);
+
+  const publisher = [
+    isSaved ? {
+      id: 2, text: 'Unsave', icon: &lt;BookmarksOutlinedIcon />, func: handleClickSave,
+    } : {
+      id: 2, text: 'Save', icon: &lt;BookmarkBorderOutlinedIcon />, func: handleClickSave,
+    },
+    isHidden ? {
+      id: 3, text: 'Unhide', icon: &lt;VisibilityOffIcon />, func: handleClickHide,
+    } : {
+      id: 3, text: 'Hide', icon: &lt;VisibilityOffOutlinedIcon />, func: handleClickHide,
+    },
+  ];
+
+  return (
+    &lt;FooterBox>
+      &lt;ElementBox>
+        {expand ? &lt;UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
+          : &lt;UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
+      &lt;/ElementBox>
+      &lt;Divider orientation="vertical" variant="middle" flexItem />
+      {/* number of comments and share section */}
+      &lt;ElementBox>
+        &lt;ChatBubbleOutlineOutlinedIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>
+          {numComments}
+          {' '}
+          Comments
+        &lt;/FooterText>
+      &lt;/ElementBox>
+      &lt;ElementBox condition={true.toString()}>
+        &lt;CardGiftcardIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>Award&lt;/FooterText>
+      &lt;/ElementBox>
+      &lt;ElementBox>
+        &lt;ShortcutOutlinedIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>Share&lt;/FooterText>
+      &lt;/ElementBox>
+
+      {/* number of comments and share section */}
+
+      {(submitted) &amp;&amp; publisher.map((entity) => (
+        &lt;ElementBox
+          key={entity.id}
+          onClick={() => { entity.func(); }}
+          data-testid={(entity.id === 3) &amp;&amp; 'hidden'}
+          condition={true.toString()}
+        >
+          {entity.icon}
+          &lt;FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 3) &amp;&amp; 'text-hide'}>{entity.text}&lt;/FooterText>
+        &lt;/ElementBox>
+      ))}
+
+      &lt;ElementBox condition={true.toString()}>
+        &lt;FlagOutlinedIcon />
+        &lt;FooterText variant="caption" condition={true.toString()}>Report&lt;/FooterText>
+      &lt;/ElementBox>
+
+      &lt;ElementBox show={true.toString()}>
+        &lt;MoreHorizOutlinedIcon onClick={handleClick2} />
+        {showList2 &amp;&amp; (
+        &lt;OtherProfilePostFooterListResponsive isSaved={isSaved} />
+        )}
+      &lt;/ElementBox>
+
+    &lt;/FooterBox>
+  );
+}
+
+export default OtherProfilePostFooter;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AddList.html">AddList</a></li><li><a href="AddSector.html">AddSector</a></li><li><a href="BackHomeBottun.html">BackHomeBottun</a></li><li><a href="BackToTop.html">BackToTop</a></li><li><a href="Comments.html">Comments</a></li><li><a href="CommentsContent.html">CommentsContent</a></li><li><a href="CommentsHeader.html">CommentsHeader</a></li><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="Content.html">Content</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="DrawerBottom.html">DrawerBottom</a></li><li><a href="Email.html">Email</a></li><li><a href="EmptyContent.html">EmptyContent</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilterFull.html">FilterFull</a></li><li><a href="FilterSmall.html">FilterSmall</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="Flirt.html">Flirt</a></li><li><a href="ForgetPassword.html">ForgetPassword</a></li><li><a href="ForgetUsername.html">ForgetUsername</a></li><li><a href="FormDialog.html">FormDialog</a></li><li><a href="Header.html">Header</a></li><li><a href="HomeList.html">HomeList</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="Input.html">Input</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LoadingPage.html">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="LogoIcon.html">LogoIcon</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="Moderation.html">Moderation</a></li><li><a href="ModeratorList.html">ModeratorList</a></li><li><a href="Moderators.html">Moderators</a></li><li><a href="NavIcons.html">NavIcons</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="Notifications.html">Notifications</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="OtherProfileComments.html">OtherProfileComments</a></li><li><a href="OtherProfileCommentsContent.html">OtherProfileCommentsContent</a></li><li><a href="OtherProfileCommentsHeader.html">OtherProfileCommentsHeader</a></li><li><a href="OtherProfileCommunities.html">OtherProfileCommunities</a></li><li><a href="OtherProfileContent.html">OtherProfileContent</a></li><li><a href="OtherProfileEmptyContent.html">OtherProfileEmptyContent</a></li><li><a href="OtherProfileFilter.html">OtherProfileFilter</a></li><li><a href="OtherProfileFilterFull.html">OtherProfileFilterFull</a></li><li><a href="OtherProfileFilterSmall.html">OtherProfileFilterSmall</a></li><li><a href="OtherProfileHeader.html">OtherProfileHeader</a></li><li><a href="OtherProfileMainContent.html">OtherProfileMainContent</a></li><li><a href="OtherProfilePost.html">OtherProfilePost</a></li><li><a href="OtherProfilePostFooter.html">OtherProfilePostFooter</a></li><li><a href="OtherProfilePostFooterListResponsive.html">OtherProfilePostFooterListResponsive</a></li><li><a href="OtherProfilePostHeader.html">OtherProfilePostHeader</a></li><li><a href="OtherProfilePostSide.html">OtherProfilePostSide</a></li><li><a href="OtherProfilePosts.html">OtherProfilePosts</a></li><li><a href="OtherProfilePostsTap.html">OtherProfilePostsTap</a></li><li><a href="OtherProfileSidebar.html">OtherProfileSidebar</a></li><li><a href="OtherProfileUserInfo.html">OtherProfileUserInfo</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostFooter.html">PostFooter</a></li><li><a href="PostFooterList.html">PostFooterList</a></li><li><a href="PostFooterListResponsive.html">PostFooterListResponsive</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSide.html">PostSide</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="Posts.html">Posts</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="PostsFilteredTap.html">PostsFilteredTap</a></li><li><a href="PostsTap.html">PostsTap</a></li><li><a href="ProfileHeader.html">ProfileHeader</a></li><li><a href="ProfileMainContent.html">ProfileMainContent</a></li><li><a href="RadioBtn.html">RadioBtn</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SNavbar.html">SNavbar</a></li><li><a href="SearchField.html">SearchField</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="Sidebar_.html">Sidebar</a></li><li><a href="SignUp.html">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="SignUpUsername.html">SignUpUsername</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li><li><a href="ThirdParty.html">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="UserInfo.html">UserInfo</a></li><li><a href="UserList.html">UserList</a></li><li><a href="UserNamePasswordForm.html">UserNamePasswordForm</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#matchPassword">matchPassword</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sat Nov 12 2022 22:51:45 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
