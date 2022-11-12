@@ -70,7 +70,7 @@ function SNavbar() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <>
       <StyledNavbar>
         <MuiToolbar>
           <Box sx={{
@@ -172,7 +172,7 @@ function SNavbar() {
         <PermanentDrawerLeft />
         <DrawerBottom logInPopup={handleClickOpenLogIn} />
       </Box>
-    </Box>
+    </>
   );
 }
 

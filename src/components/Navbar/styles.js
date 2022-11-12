@@ -1,6 +1,8 @@
 import { AppBar, styled } from '@mui/material';
+import theme from '../../styles/theme';
 
 const StyledNavbar = styled(AppBar)(() => ({
+  zIndex: theme.zIndex.drawer + 1,
   backgroundColor: 'white',
   borderColor: 'white',
   borderStyle: 'solid',
@@ -21,6 +23,7 @@ const StyledNavbar = styled(AppBar)(() => ({
     width: '100%',
     position: 'relative',
     height: '48px',
+    flexGrow: '1',
     '@media (min-width: 600px)': {
       minHeight: '48px',
     },

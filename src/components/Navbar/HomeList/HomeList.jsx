@@ -33,6 +33,7 @@ function HomeList() {
     { icon: <Avatar src={Reddit} />, label: 'user settings' },
     { icon: <Avatar src={Reddit} />, label: 'messages' },
     { icon: <AddIcon sx={{ fontSize: 30 }} />, label: 'create post' },
+    { icon: <AddIcon sx={{ fontSize: 30 }} />, label: 'create subreddit' },
     { icon: <ContactlessOutlinedIcon />, label: 'top communities' },
     { icon: <NotificationsNoneIcon />, label: 'notifications' },
   ];

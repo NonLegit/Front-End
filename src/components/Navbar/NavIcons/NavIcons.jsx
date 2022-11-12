@@ -4,6 +4,7 @@ import { grey } from '@mui/material/colors';
 import OutboundOutlinedIcon from '@mui/icons-material/OutboundOutlined';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { IconButton, Zoom, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 import StyledTooltip from './styles';
 
 /**
@@ -43,7 +44,9 @@ function NavIcons() {
           sx={{ '&:hover': { backgroundColor: 'transparent' } }}
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsNoneIcon sx={{ color: grey[600], fontSize: 25 }} />
+            <Link to="/notifications">
+              <NotificationsNoneIcon sx={{ color: grey[600], fontSize: 25 }} />
+            </Link>
           </Badge>
         </IconButton>
       </StyledTooltip>
@@ -57,7 +60,9 @@ function NavIcons() {
         <IconButton
           sx={{ '&:hover': { backgroundColor: 'transparent' } }}
         >
-          <AddIcon sx={{ fontSize: 30 }} />
+          <Link to="/submit">
+            <AddIcon sx={{ color: 'black', fontSize: 30 }} />
+          </Link>
         </IconButton>
       </StyledTooltip>
     </Box>
