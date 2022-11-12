@@ -4,7 +4,11 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import {
   BOX, DialogTitle, Disc, Name, SecConatiner, StyledTooltip,
 } from './style';
-
+/**
+ *@component
+ * @param {object} props
+ * @return {React.Component} -Header for pop up form
+ */
 function Header(props) {
   const { handleClose } = props;
   return (

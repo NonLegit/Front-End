@@ -1,5 +1,6 @@
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import {
   Action,
   Add, BOX, Count, Input, InputFooter, Text,
@@ -8,6 +9,7 @@ import {
 const { ClickAwayListener, Box } = require('@mui/material');
 
 function AddBtn(props) {
+  const { sendData } = props;
   const {
     handleClickAway1, falseShaw, show, tempString, removeItem, tags, handleChange, handleKeyDown, trueShawList, trueShaw,
     setTemp, setTag, count,
@@ -17,6 +19,13 @@ function AddBtn(props) {
       <Add data-testid="add" condition={show?.toString()} onClick={() => { falseShaw(); }} id="add">
         <>
           <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+            {tempString?.length === 0
+              && show && (
+              <Text condition={show?.toString()} sx={{ alignItems: 'center' }}>
+                <AddOutlinedIcon color="primary" />
+                Add Subject
+              </Text>
+            )}
             {tempString?.length > 0 && (tempString.slice(0, 4))?.map((tag, index) => (
               <Text key={`${index + 0}`} condition={show?.toString()}>
                 {tag}
@@ -47,7 +56,7 @@ function AddBtn(props) {
               {tempString.length - 4}
             </BOX>
             )}
-            {show && <ModeEditOutlineOutlinedIcon />}
+            {show && tempString?.length > 0 && <ModeEditOutlineOutlinedIcon />}
           </Box>
           {!show
             && (
@@ -82,6 +91,7 @@ function AddBtn(props) {
                 trueShaw();
                 setTemp(tags);
                 setTemp(tags);
+                sendData();
               }}
               id="cancel"
               color="red"
@@ -96,6 +106,7 @@ function AddBtn(props) {
                 trueShaw();
                 setTag(tempString);
                 setTemp(tempString);
+                sendData();
               }}
             >
               Save

@@ -16,18 +16,23 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
   'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
 /**
  * AddList(community topics)
+ * @component
  * @return {React.Component} - community topics
  */
-function AddList() {
+function AddList(props) {
+  const {
+    topics, client, Name,
+  } = props;
   const [show, setShow] = useState(true);
   const [showList, setShowList] = useState(true);
   // eslint-disable-next-line prefer-const
-  const [tags, setTags] = useState(['Ahmed', 'eslam', 'nour']);
+  const [tags, setTags] = useState(topics);
   const [tempString, setTempString] = useState(tags);
-  const [count, setCount] = useState(tags.length);
+  const [count, setCount] = useState(tags?.length);
   useEffect(() => {
-    setTempString(tags);
-  }, []);
+    setTags(topics);
+    setTempString(topics);
+  }, [topics]);
   // save the change in input field to get count if char
   const handleChange = (event) => {
     console.log((event.target > 'Text').length);
@@ -49,12 +54,7 @@ function AddList() {
   const removeItem = (value) => {
     setTempString(tempString.filter((ele, index) => index !== value));
   };
-  // return to default view of add list
-  const handleClickAway1 = () => {
-    setTags(tempString);
-    setShow(true);
-    setCount(tags.length);
-  };
+
   // add item when select from list
   const ListSelected = (e) => {
     e.stopPropagation();
@@ -81,12 +81,22 @@ function AddList() {
   const setTag = (t) => {
     setTags(t);
   };
+  const sendData = () => {
+    client.patch(`subreddit/${Name}`, { topics: tags }); // fetch api
+  };
+    // return to default view of add list
+  const handleClickAway1 = () => {
+    setTags(tempString);
+    setShow(true);
+    setCount(tags.length);
+    sendData();
+  };
   return (
     <AboutContent>
-      <AddBtn handleClickAway1={handleClickAway1} setTag={setTag} setTemp={setTemp} trueShaw={trueShaw} trueShawList={trueShawList} handleChange={handleChange} handleKeyDown={handleKeyDown} removeItem={removeItem} falseShaw={falseShaw} show={show} tempString={tempString} tags={tags} count={count} />
+      <AddBtn sendData={sendData} handleClickAway1={handleClickAway1} setTag={setTag} setTemp={setTemp} trueShaw={trueShaw} trueShawList={trueShawList} handleChange={handleChange} handleKeyDown={handleKeyDown} removeItem={removeItem} falseShaw={falseShaw} show={show} tempString={tempString} tags={tags} count={count} />
       {
           !show
-          && tempString.length < 25 && showList
+          && tempString?.length < 25 && showList
           && (
             <Lists
               subheader={<li />}

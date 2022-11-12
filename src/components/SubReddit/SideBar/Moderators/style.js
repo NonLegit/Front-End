@@ -49,12 +49,6 @@ export const Button = styled(ButtonBase)(({
   height: 30,
 }));
 
-export const Icon = styled('div')(() => ({
-  marginRight: 4,
-  marginLeft: -2,
-  flex: '0 0 auto',
-}));
-
 export const Container = styled('div')(() => ({
   fontSize: 12,
   fontWeight: 500,

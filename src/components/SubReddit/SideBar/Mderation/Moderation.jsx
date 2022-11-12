@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
 import Sort from '../MoreIcon/More';
@@ -18,27 +18,45 @@ import AddSector from './AddDisc/Add';
 import AddList from './AddList/AddList';
 /**
  * About section in sidebar for moderators only instead of about section for normal users
+ * @component
  * @return {React.Component} - Moderators section in sidebar
  */
-function Moderation() {
+function Moderation(props) {
+  const {
+    topics, disc, client, Name, primaryTopic, createdAt,
+  } = props;
   const [more, setMore] = useState(false);
-  const [selection, setSelection] = useState('Add a Primary Topic');
-  // const [data,setData] = useState('');
+  const [listOfTopics, setListOfTopics] = useState(false);
+  const [selection, setSelection] = useState(primaryTopic);
   const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
     'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
     'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
     'Mature Themes and Adult Content', 'Medical and Mental Health', "Men's Health", 'Meta/Reddit', 'Outdoors and Nature', 'Militery', 'Moves', 'Music', 'Outdoors and Nature', 'Place',
     'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
+
+  useEffect(() => {
+    setSelection(primaryTopic);
+    if (selection === 'Add a Primary Topic') {
+      setListOfTopics(false);
+    }
+  }, [primaryTopic]);
   // show select list or not
   const changeShow = () => {
     setMore(!more);
-    setSelection('Add a Primary Topic');
+    // setSelection('Add a Primary Topic');
+  };
+  const sendData = () => {
+    client.patch(`/subreddit/${Name}/setPrimaryTopic`, { primaryTopic: selection }); // fetch api
+    console.log(selection);
   };
   // handel on select item
   const ListSelected = (e) => {
     setMore(!more);
     setSelection(e.target.textContent);
+    setListOfTopics(true);
+    sendData();
   };
+
   // close the list in  click away
   const handleClickAway = () => {
     setMore(false);
@@ -57,11 +75,15 @@ function Moderation() {
           <Sort margin={15} />
         </More>
       </AboutCountainer>
-      <AddSector />
+      <AddSector disc2={disc} client={client} Name={Name} />
 
       <Created>
         <Icon><EmailOutlinedIcon /></Icon>
-        <CreatedSpan>Created Oct 19, 2012</CreatedSpan>
+        <CreatedSpan>
+          Created
+          {' '}
+          {createdAt}
+        </CreatedSpan>
       </Created>
       <Hr />
       <Box sx={{
@@ -85,7 +107,7 @@ function Moderation() {
       </Box>
       <Hr sx={{ marginTop: 0 }} />
       <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: '4px' }}>
-        <New>New</New>
+        {!listOfTopics && <New>New</New>}
         Community topics
         <StyledTooltip title="Adding community topics allow people to find your community. Add a primary topic and sub topics to be discovered more easily.">
           <IconButton>
@@ -140,8 +162,7 @@ function Moderation() {
           </Lists>
         </ClickAwayListener>
       )}
-
-      <AddList />
+      {listOfTopics && <AddList topics={topics} client={client} Name={Name} listOfTopics={listOfTopics} />}
       <Hr sx={{ marginBottom: 1, marginTop: 0 }} />
       <CustomLink>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">

@@ -8,9 +8,11 @@ import {
 } from './style';
 /**
  * About Section for normal user
+ * @component
  * @return {React.Component} - About Section for normal user
  */
-function About() {
+function About(props) {
+  const { disc, createdAt } = props;
   return (
     <>
       <AboutCountainer>
@@ -23,16 +25,16 @@ function About() {
       </AboutCountainer>
       <AboutContent>
         <AboutDisc>
-          /r/3amjokes - for all the stupid humor of sleep deprivation.
-          &quot; So bad, its good &quot;
-          Have you been up for
-          longer than a normal human being can operate?
-          Good. Have you just laughed at a joke that wouldn &apos; t be funny otherwise?
+          {disc}
         </AboutDisc>
       </AboutContent>
       <Created>
         <Icon><EmailOutlinedIcon /></Icon>
-        <CreatedSpan>Created Oct 19, 2012</CreatedSpan>
+        <CreatedSpan>
+          Created
+          {' '}
+          {createdAt}
+        </CreatedSpan>
       </Created>
       <Hr />
       <Box sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>

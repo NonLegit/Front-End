@@ -1,12 +1,13 @@
 import MailOutlineIcon from '@mui/icons-material/MailOutline'; import {
-  AboutCountainer, AboutString, CustomLink, Button, Container, Name, Data,
-  ViewAll, ViewAllContainer,
+  AboutCountainer, AboutString, CustomLink, Button, Container, Name, Data, ViewAll, ViewAllContainer,
 } from './style';
 /**
  * Moderators section in sidebar
+ * @component
  * @return {React.Component} - Moderators section in sidebar
  */
-function Moderators() {
+function Moderators(props) {
+  const { moderatoesName } = props;
   return (
     <>
       <AboutCountainer>
@@ -21,18 +22,19 @@ function Moderators() {
           Message the Mods
         </Button>
       </CustomLink>
-      <Container>
-        <Name>u/Lulzorr</Name>
-        <Data>3:20 browse it</Data>
-      </Container>
-      <Container>
-        <Name>u/Lulzorr</Name>
-        <Data>3:20 browse it</Data>
-      </Container>
-      <Container>
-        <Name>u/Lulzorr</Name>
-        <Data>3:20 browse it</Data>
-      </Container>
+      { moderatoesName?.map((entity, index) => (
+        <Container key={`${index + 0}`}>
+          <Name>
+            u/
+            {entity.name}
+          </Name>
+          <Data>
+            {entity.browsIt}
+            {' '}
+            browse it
+          </Data>
+        </Container>
+      ))}
       <ViewAllContainer>
         <ViewAll>VIEW ALL MODERATORS</ViewAll>
       </ViewAllContainer>
@@ -41,4 +43,3 @@ function Moderators() {
 }
 
 export default Moderators;
-// , backgroundColor: '#0079d3', color: 'white'

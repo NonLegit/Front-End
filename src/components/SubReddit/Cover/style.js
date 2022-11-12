@@ -60,7 +60,7 @@ export const Desc = styled('div')({
   boxSizing: 'border-box',
 });
 
-export const Name = styled('h1')({
+export const Namee = styled('h1')({
   color: '#1c1c1c',
   display: 'inline-block',
   flex: 1,
@@ -107,7 +107,29 @@ export const Join = styled('button')({
   justifyContent: 'center',
   textAlign: 'center',
 });
-
+export const JoinCommunity = styled('button')({
+  position: 'relative',
+  border: '1px solid #0079d3',
+  color: 'white',
+  fill: '#0079d3',
+  backgroundColor: '#0079d3',
+  width: 96,
+  fontFamily: 'Noto Sans,Arial,sans-serif',
+  fontSize: 14,
+  fontWeight: 700,
+  letterSpacing: 'unset',
+  textTransform: 'unset',
+  minHeight: 32,
+  minWidth: 32,
+  padding: '4px 16px',
+  cursor: 'pointer',
+  alignItems: 'center',
+  borderRadius: 9999,
+  boxSizing: 'border-box',
+  display: 'flex',
+  justifyContent: 'center',
+  textAlign: 'center',
+});
 export const Notification = styled('button')({
   fontSize: 14,
   fontWeight: 500,
@@ -144,14 +166,6 @@ export const MainConatiner = styled(Box)({
   flexDirection: 'row',
   margin: '0 auto',
 });
-export const PostsContainer = styled('div')(({ theme }) => ({
-  [theme.breakpoints.between('1000', '5000')]: {
-    width: 640,
-  },
-  [theme.breakpoints.down('0', '999')]: {
-    width: '100%',
-  },
-}));
 export const PostContainer = styled(Box)(() => ({
   width: '100%',
   backgroundColor: '#fff',

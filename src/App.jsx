@@ -133,7 +133,14 @@ function App() {
               element={
                 <SubReddit />
           }
-            />
+            >
+              <Route
+                path=":postClass"
+                element={
+                  <SubReddit />
+          }
+              />
+            </Route>
           </Routes>
         </Router>
       </PostTypeContextProvider>

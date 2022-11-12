@@ -42,9 +42,7 @@ Array [
   >
     <h2
       className="css-yevfdk"
-    >
-      /r/3amjokes - for all the stupid humor of sleep deprivation. " So bad, its good " Have you been up for longer than a normal human being can operate? Good. Have you just laughed at a joke that wouldn ' t be funny otherwise?
-    </h2>
+    />
   </h2>,
   <div
     className="css-1maxkpg"
@@ -67,7 +65,8 @@ Array [
     <h2
       className="css-1nrunep"
     >
-      Created Oct 19, 2012
+      Created
+       
     </h2>
   </div>,
   <hr
