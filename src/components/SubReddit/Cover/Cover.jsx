@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import MainContent from '../../MainContent/MainContent';
-// import PostsClassification from '../../HomePage/HomePageContainer/PostsClassification/PostsClassification';
 import Post from '../../Post/Post';
 import CreatePostInHome from '../../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from '../SideBar/SideBar';
@@ -31,12 +30,15 @@ function Header() {
   const client = axios.create({
     baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
   });
-  // https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io/subreddits/eslam/hot/200
+
+  const client2 = axios.create({
+    baseURL: 'https://0902e8c4-d1ea-4cb3-9e44-bfbc7241fa61.mock.pstmn.io',
+  });
   const { Name, postClass } = useParams();
   useEffect(() => {
     client.get(`/subreddits/${Name}/200/`) // fetch api
       .then((actualData) => {
-        // console.log(actualData.data);
+        console.log(actualData.data);
         setIcon(actualData.data.icon);
         setDisc(actualData.data.description);
         // console.log(actualData.data.description);
@@ -44,18 +46,18 @@ function Header() {
         setPrimaryTopic(actualData.data.primaryTopic);
         setCreatedAt(actualData.data.createdAt);
         setModeratoesName(actualData.data.moderatoesName);
-        // setPosts(actualData.data);
       })
       .catch((error) => {
         console.log(error);
       });
 
-    const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
-    client.get(postsUrl) // fetch api
+    //  const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
+    const postsUrl = `/users/${postClass || 'best'}`;
+    client2.get(postsUrl) // fetch api
       .then((actualData) => {
         setPosts(actualData.data);
-        // console.log('---------------------------');
-        // console.log(actualData.data);
+        console.log('---------------------------');
+        console.log(actualData.data);
       })
       .catch((error) => {
         console.log(error);
