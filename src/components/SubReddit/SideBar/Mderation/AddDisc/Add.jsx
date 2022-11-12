@@ -6,6 +6,7 @@ import {
 } from './style';
 /**
  * Add discreption for the community
+ * @component
  * @return {React.Component} - Add discreption
  */
 function AddSector(props) {
@@ -38,11 +39,13 @@ function AddSector(props) {
   const sendData = () => {
     client.patch(`subreddit/${Name}`, { description: disc }); // fetch api
   };
+  const c = disc?.length;
   return (
     <AboutContent>
       <ClickAwayListener onClickAway={handleClickAway1}>
         <Add>
-          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - disc.length); }} sx={{ display: 'flex' }}>
+
+          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex' }}>
             {show && !haveDisc && <Text> Add description</Text>}
             {haveDisc && show && (
             <>

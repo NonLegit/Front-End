@@ -12,7 +12,7 @@ function VoteIcon({ direction, color }) {
         '&:hover': {
           color,
         },
-        color: theme.palette.third.main,
+        color: theme.palette.third?.main,
       }}
     />
   );

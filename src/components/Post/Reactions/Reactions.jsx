@@ -38,7 +38,7 @@ function Reactions(props) {
             data-testid="upvoted button"
           >
             <VotedIcon
-              color={theme.palette.secondary.main}
+              color={theme.palette.secondary?.main}
               direction="up"
             />
           </ReactionIconButton>
@@ -49,12 +49,12 @@ function Reactions(props) {
             data-testid="upvote button"
           >
             <VoteIcon
-              color={theme.palette.secondary.main}
+              color={theme.palette.secondary?.main}
               direction="up"
             />
           </ReactionIconButton>
         )}
-      <Votes color={(reaction === 0 ? '#000' : (reaction === 1 ? theme.palette.secondary.main : theme.palette.primary.main))}>
+      <Votes color={(reaction === 0 ? '#000' : (reaction === 1 ? theme.palette.secondary?.main : theme.palette.primary?.main))}>
         {votes + reaction}
       </Votes>
       {(reaction === -1)
@@ -64,7 +64,7 @@ function Reactions(props) {
             data-testid="downvoted button"
           >
             <VotedIcon
-              color={theme.palette.primary.main}
+              color={theme.palette.primary?.main}
               direction="down"
             />
           </ReactionIconButton>
@@ -75,7 +75,7 @@ function Reactions(props) {
             data-testid="downvote button"
           >
             <VoteIcon
-              color={theme.palette.primary.main}
+              color={theme.palette.primary?.main}
               direction="down"
               data-testid="downvote"
             />

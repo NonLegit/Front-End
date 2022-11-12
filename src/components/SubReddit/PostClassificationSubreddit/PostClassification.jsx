@@ -17,7 +17,7 @@ import {
 
 /**
  * Determine which type of posts should be fetched
- * @component PostsClassification
+ * @component PostsClassification Subreddit
  * @returns {React.Component} Tabs (each tab indicate the type of posts that will be fetched)
  */
 

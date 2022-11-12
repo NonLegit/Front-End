@@ -2,6 +2,7 @@
 import BackHome from './style';
 /**
  * function to handle in click back to to of page
+ * @component
  * @returns top of the page
  */
 function BackHomeBottun() {

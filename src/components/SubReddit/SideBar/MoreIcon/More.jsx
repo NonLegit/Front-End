@@ -13,12 +13,12 @@ export default function Sort(props) {
   const { margin } = props;
   const { marginLeft } = props;
   const [showList1, setShowList1] = useState(false);
-
-  // handle disable the list when click away
+  // toggle the list when click
   const handleClick1 = () => {
     setShowList1((prev) => !prev);
   };
 
+  // handle disable the list when click away
   const handleClickAway1 = () => {
     setShowList1(false);
   };

@@ -7,6 +7,7 @@ import {
 } from './style';
 /**
  * Filter section
+ * @component
  * @return {React.Component} - Filter section
  */
 function Flirt(props) {

@@ -4,9 +4,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import {
-  Actions, Adult, AdultContent,
-  Container, NSFWs,
-  Warning, Btn,
+  Actions, Adult, AdultContent, Container, NSFWs, Warning, Btn,
 } from './style';
 import { CreatPost, CustomLink } from '../../../../SubReddit/SideBar/AboutSubReddit/style';
 import RedditButton from '../../../../RedditButton/RedditButton';
@@ -19,6 +17,7 @@ const Form = axios.create({
 });
 /**
  * Pop up Creat Cummunity Form
+ * @component
  * @return {React.Component} - Popup Form
  */
 function FormDialog() {
@@ -82,6 +81,7 @@ function FormDialog() {
     const ele = document.getElementById('myCheck');
     ele.click();
   };
+  // to set the type which selected in radio button
   const myType = (t) => {
     setType(t);
   };

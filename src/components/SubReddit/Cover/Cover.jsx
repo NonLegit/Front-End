@@ -9,52 +9,85 @@ import Post from '../../Post/Post';
 import CreatePostInHome from '../../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from '../SideBar/SideBar';
 import {
-  Com,
-  Content,
-  Cover, Data, Desc, IconContainer, Image, Join,
-  Logo, Namee, Notification, PostHeader, TotalHeader,
+  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, Notification, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
 import PostsClassification from '../PostClassificationSubreddit/PostClassification';
 
 /**
  * Subreddit page
+ * @component
  * @return {React.Component} - Subreddit page
  */
 
 function Header() {
   const [posts, setPosts] = useState([]);
   const [icon, setIcon] = useState();
+  const [join, setJoin] = useState('');
   const [disc, setDisc] = useState();
+  const [createdAt, setCreatedAt] = useState();
+  const [primaryTopic, setPrimaryTopic] = useState();
   const [topics, setTopics] = useState([]);
+  const [moderatoesName, setModeratoesName] = useState([]);
   const client = axios.create({
-    baseURL: 'https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io',
+    baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
   });
-
+  // https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io/subreddits/eslam/hot/200
   const { Name, postClass } = useParams();
-
   useEffect(() => {
-    client.get(`subreddits/${Name}/200`) // fetch api
+    client.get(`/subreddits/${Name}/200/`) // fetch api
       .then((actualData) => {
-        console.log(actualData.data);
+        // console.log(actualData.data);
         setIcon(actualData.data.icon);
         setDisc(actualData.data.description);
-        console.log(actualData.data.description);
+        // console.log(actualData.data.description);
         setTopics(actualData.data.topics);
+        setPrimaryTopic(actualData.data.primaryTopic);
+        setCreatedAt(actualData.data.createdAt);
+        setModeratoesName(actualData.data.moderatoesName);
         // setPosts(actualData.data);
       })
       .catch((error) => {
         console.log(error);
       });
-    const postsUrl = `/users/${postClass || 'best'}`;
+
+    const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
     client.get(postsUrl) // fetch api
       .then((actualData) => {
         setPosts(actualData.data);
+        // console.log('---------------------------');
+        // console.log(actualData.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [posts]);
+  }, [postClass]);
 
+  const [communities, setCommunities] = useState();
+  // const {
+  //   username,
+  // } = useContext(UserContext);
+  const username = 'Ahemd';
+  // ///////////////////////////////////////////////////////////////////////////////////////
+
+  // fetch data of communities i am a moderator of
+  useEffect(() => {
+    client.get(`subreddit/mine/${username}/200`) // fetch api
+      .then((actualData) => {
+        setCommunities(actualData.data.subreddits?.filter((e) => e.subredditName === Name.toString()));
+        if (communities?.length > 0) {
+          setJoin(true);
+        } else {
+          setJoin(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [username]);
+  // subscribr or unsubscribe
+  const sendData = (b) => {
+    client.patch(`subreddits/${Name}`, { sub: b }); // fetch api
+  };
   return (
     <>
       <Cover />
@@ -74,8 +107,15 @@ function Header() {
                 </Com>
               </Desc>
               <Box sx={{ display: 'flex' }}>
-                <Join onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
-                <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0 }} /></Notification>
+                {!join
+                && <JoinCommunity onClick={() => { setJoin(true); sendData(true); }}>Join</JoinCommunity>}
+                {join
+                && (
+                <>
+                  <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
+                  <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0 }} /></Notification>
+                </>
+                )}
               </Box>
             </Content>
           </Data>
@@ -87,8 +127,7 @@ function Header() {
           <MainContent width={640}>
             <CreatePostInHome />
             <PostsClassification subredditName={Name} />
-            title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
-            { posts.map((posts, index) => (
+            { posts?.map((posts, index) => (
               <Post
                 key={`${index + 0}`}
                 title={posts.title}
@@ -107,13 +146,11 @@ function Header() {
               />
             ))}
           </MainContent>
-          <SideBar Name={Name} client={client} topics={topics} disc={disc} />
+          <SideBar Name={Name} client={client} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
         </Box>
       </TotalHeader>
 
     </>
   );
 }
-// 3amjokes
-// r/3amjokes
 export default Header;

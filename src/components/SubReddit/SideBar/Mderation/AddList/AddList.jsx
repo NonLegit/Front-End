@@ -16,16 +16,19 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
   'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
 /**
  * AddList(community topics)
+ * @component
  * @return {React.Component} - community topics
  */
 function AddList(props) {
-  const { topics, client, Name } = props;
+  const {
+    topics, client, Name,
+  } = props;
   const [show, setShow] = useState(true);
   const [showList, setShowList] = useState(true);
   // eslint-disable-next-line prefer-const
   const [tags, setTags] = useState(topics);
   const [tempString, setTempString] = useState(tags);
-  const [count, setCount] = useState(tags.length);
+  const [count, setCount] = useState(tags?.length);
   useEffect(() => {
     setTags(topics);
     setTempString(topics);
@@ -93,7 +96,7 @@ function AddList(props) {
       <AddBtn sendData={sendData} handleClickAway1={handleClickAway1} setTag={setTag} setTemp={setTemp} trueShaw={trueShaw} trueShawList={trueShawList} handleChange={handleChange} handleKeyDown={handleKeyDown} removeItem={removeItem} falseShaw={falseShaw} show={show} tempString={tempString} tags={tags} count={count} />
       {
           !show
-          && tempString.length < 25 && showList
+          && tempString?.length < 25 && showList
           && (
             <Lists
               subheader={<li />}
