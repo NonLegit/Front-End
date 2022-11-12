@@ -10,10 +10,20 @@ import CommentsBoxHeader from './styles';
  * @return {React.Component} - CommentsHeader
  * @param {string} username - name of the currently loggedin user
  */
+
+/**
+ * Header of the comment
+ *
+ * @component CommentsHeader
+ * @param {string} username - name of the currently loggedin user.
+ * @property {string} subReddit -name of the subreddit in which is the comment.
+ * @property {string} publisher -creator of the comment.
+ * @property {string} title -the title of a comment.
+ * @returns {React.Component} CommentsHeader
+ */
+
 function CommentsHeader(props) {
-  const {
-    username,
-  } = useContext(UserContext);
+  const { username } = useContext(UserContext);
   const {
     subReddit, publisher, title,
   } = props;

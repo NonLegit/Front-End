@@ -5,14 +5,6 @@ import {
   HeaderAvatar, HeaderAvatarText, HeaderPost,
 } from './styles';
 
-/**
- * Header for a post
- * @return {React.Component} - PostHeader
- * @param {string} subReddit - name of subReddit the post published in
- * @param {string} nameuser - name of publisher
- * @param {string} time - time of publishing the post
- */
-
 // calculate the time difference between post creation and current date
 const calculateTime = (d, time) => {
   const year = d.getFullYear() - time.split('T')[0].split('-')[0];
@@ -30,6 +22,16 @@ const calculateTime = (d, time) => {
   }
   return ('today');
 };
+
+/**
+ * Header for a post
+ *
+ * @component PostHeader
+ * @property {string} subReddit - name of subReddit the post published in
+ * @property {string} nameuser - name of publisher
+ * @property {string} time - time of publishing the post
+ * @returns {React.Component} PostHeader
+ */
 
 function PostHeader(props) {
   const {

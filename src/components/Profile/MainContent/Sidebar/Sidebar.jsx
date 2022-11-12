@@ -3,8 +3,11 @@ import Communities from './Communities/Communities';
 import { SidebarBox } from './styles';
 import UserInfo from './UserInfo/UserInfo';
 
-/** sidebar in profile containing the userinfo and communities you are a moderator of
- * @return {React.Component} - Sidebar
+/**
+ * sidebar in profile containing the userinfo and communities you are a moderator of
+ *
+ * @component Sidebar
+ * @returns {React.Component} Sidebar
  */
 function Sidebar() {
   return (

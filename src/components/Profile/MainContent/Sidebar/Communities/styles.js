@@ -41,10 +41,12 @@ export const Joined = styled(Button)(() => ({
   borderRadius: 999,
   height: 32,
   width: 106,
+  fontWeight: 700,
   position: 'absolute',
-
+  boxShadow: 'none',
   right: 0,
   '&:hover': {
     backgroundColor: '#f5fafd',
+    boxShadow: 'none',
   },
 }));
