@@ -11,7 +11,7 @@ import {
 import OtherProfilePostSide from './OtherProfilePostSide/OtherProfilePostSide';
 import OtherProfilePostHeader from './OtherProfilePostHeader/OtherProfilePostHeader';
 import OtherProfilePostFooter from './OtherProfileFooter/OtherProfilePostFooter';
-import { UserContext } from '../../../../context/UserProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 
 /**
  * the post that appear in posts - saved - hidden - upvoted - downvotep taps

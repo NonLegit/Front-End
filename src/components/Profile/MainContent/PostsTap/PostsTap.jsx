@@ -4,8 +4,8 @@ import { useContext, useEffect, useState } from 'react';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox, WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
-import { PostsContext } from '../../../../context/PostsProvider';
-import { UserContext } from '../../../../context/UserProvider';
+import { PostsContext } from '../../../../contexts/PostsProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 import Post from '../Posts/Post';
 
 /**

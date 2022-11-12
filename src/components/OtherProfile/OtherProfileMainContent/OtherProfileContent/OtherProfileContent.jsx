@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../../context/UserProvider';
-import { ContentContext } from '../../../../context/ContentProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
+import { ContentContext } from '../../../../contexts/ContentProvider';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import ContentBox from './styles';

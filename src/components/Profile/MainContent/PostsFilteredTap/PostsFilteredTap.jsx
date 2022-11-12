@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
-import { UserContext } from '../../../../context/UserProvider';
-import { FilteredPostsContext } from '../../../../context/FilteredPostsProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
+import { FilteredPostsContext } from '../../../../contexts/FilteredPostsProvider';
 import Post from '../Posts/Post';
 
 // decide which message to show for an empty page

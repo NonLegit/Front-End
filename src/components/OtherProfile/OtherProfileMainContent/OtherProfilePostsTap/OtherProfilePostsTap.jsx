@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import { WideBox } from '../styles';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
-import { PostsContext } from '../../../../context/PostsProvider';
-import { UserContext } from '../../../../context/UserProvider';
+import { PostsContext } from '../../../../contexts/PostsProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 import Post from '../OtherProfilePosts/OtherProfilePost';
 
 /**

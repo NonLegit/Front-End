@@ -1,7 +1,7 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../../context/UserProvider';
-import { ContentContext } from '../../../../context/ContentProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
+import { ContentContext } from '../../../../contexts/ContentProvider';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox } from '../styles';

@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import FilteredPostsProvider from '../../../context/FilteredPostsProvider';
-import ContentProvider from '../../../context/ContentProvider';
-import PostsProvider from '../../../context/PostsProvider';
-import UserProvider from '../../../context/UserProvider';
-import UserInfoProvider from '../../../context/UserInfoProvider';
+import FilteredPostsProvider from '../../../contexts/FilteredPostsProvider';
+import ContentProvider from '../../../contexts/ContentProvider';
+import PostsProvider from '../../../contexts/PostsProvider';
+import UserProvider from '../../../contexts/UserProvider';
+import UserInfoProvider from '../../../contexts/UserInfoProvider';
 import Content from './Content/Content';
 import PostsFilteredTap from './PostsFilteredTap/PostsFilteredTap';
 import PostsTap from './PostsTap/PostsTap';

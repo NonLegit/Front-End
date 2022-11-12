@@ -1,6 +1,6 @@
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { useContext } from 'react';
-import { UserContext } from '../../../../../../context/UserProvider';
+import { UserContext } from '../../../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
 import CommentsBoxHeader from './styles';

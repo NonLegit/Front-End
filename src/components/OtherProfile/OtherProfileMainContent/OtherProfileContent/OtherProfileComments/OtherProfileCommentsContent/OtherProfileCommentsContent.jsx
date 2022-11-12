@@ -1,7 +1,7 @@
 import { Box, IconButton } from '@mui/material';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { useContext } from 'react';
-import { UserContext } from '../../../../../../context/UserProvider';
+import { UserContext } from '../../../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
 import { CommentsBoxBlue, CommentsBoxContent } from './styles';

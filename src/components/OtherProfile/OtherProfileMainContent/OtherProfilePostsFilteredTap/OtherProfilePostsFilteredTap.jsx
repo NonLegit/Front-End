@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { WideBox } from '../styles';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
-import { UserContext } from '../../../../context/UserProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 import { FilteredPostsContext } from '../../../../context/FilteredPostsProvider';
 import Post from '../OtherProfilePosts/OtherProfilePost';
 

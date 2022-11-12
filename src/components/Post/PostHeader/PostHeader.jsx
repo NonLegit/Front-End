@@ -3,6 +3,7 @@ import {
   Avatar, Box, Typography,
 } from '@mui/material';
 import calculateTime from '../../../utils/calculateTime';
+import JoinButton from '../../JoinButton/JoinButton';
 
 // styles
 import {
@@ -58,7 +59,9 @@ function PostHeader(props) {
             ago
           </CreatedAt>
         </Box>
-
+        <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
+          <JoinButton />
+        </Box>
       </PostInfo>
       <PostTitle to="/">
         <Typography

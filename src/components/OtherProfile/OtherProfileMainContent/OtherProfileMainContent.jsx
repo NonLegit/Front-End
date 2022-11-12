@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import ContentProvider from '../../../context/ContentProvider';
-import PostsProvider from '../../../context/PostsProvider';
-import UserProvider from '../../../context/UserProvider';
-import UserInfoProvider from '../../../context/UserInfoProvider';
+import ContentProvider from '../../../contexts/ContentProvider';
+import PostsProvider from '../../../contexts/PostsProvider';
+import UserProvider from '../../../contexts/UserProvider';
+import UserInfoProvider from '../../../contexts/UserInfoProvider';
 import OtherProfileContent from './OtherProfileContent/OtherProfileContent';
 import OtherProfilePostsTap from './OtherProfilePostsTap/OtherProfilePostsTap';
 import OtherProfileSidebar from './OtherProfileSidebar/OtherProfileSidebar';

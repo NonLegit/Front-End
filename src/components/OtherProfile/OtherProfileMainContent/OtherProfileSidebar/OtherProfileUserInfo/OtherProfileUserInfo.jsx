@@ -8,8 +8,8 @@ import {
   UserInfoBox, UserName, InfoBox,
   EntityBox, MoreOptions, OptionsButtons, UserInfoButton,
 } from './styles';
-import { UserContext } from '../../../../../context/UserProvider';
-import { UserInfoContext } from '../../../../../context/UserInfoProvider';
+import { UserContext } from '../../../../../contexts/UserProvider';
+import { UserInfoContext } from '../../../../../contexts/UserInfoProvider';
 
 /**
  * UserInfo Box in sidebar containing all info of a user

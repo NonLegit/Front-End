@@ -8,7 +8,7 @@ function PostsProvider(props) {
   const { children, name } = props;
   const [posts, setPosts] = useState([]);
   const client = axios.create({
-    baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
+    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io/',
   });
   useEffect(() => {
     client.get(`user/${name}/post/200`) // fetch api

@@ -11,7 +11,7 @@ import {
 import PostSide from './PostSide/PostSide';
 import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
-import { UserContext } from '../../../../context/UserProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 
 /**
  * the post that appear in posts - saved - hidden - upvoted - downvotep taps

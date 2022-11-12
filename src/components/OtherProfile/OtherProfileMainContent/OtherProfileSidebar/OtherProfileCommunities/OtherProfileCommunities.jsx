@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { UserContext } from '../../../../../context/UserProvider';
+import { UserContext } from '../../../../../contexts/UserProvider';
 import { InfoBox } from '../styles';
 import OtherProfileEntityComment from './OtherProfileEntityCommunity/OtherProfileEntityCommunity';
 
@@ -20,7 +20,7 @@ function OtherProfileCommunities() {
   } = useContext(UserContext);
 
   const client = axios.create({
-    baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
+    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io/',
   });
 
   // fetch data of communities i am a moderator of
