@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import Navbar from './components/Navbar/Navbar';
 // import SNavbar from './components/SNavbar/SNavbar';
+
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
 import ForgetUsernamePage from './pages/ForgetUsernamePage';

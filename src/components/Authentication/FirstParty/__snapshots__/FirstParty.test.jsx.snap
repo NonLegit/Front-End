@@ -92,7 +92,6 @@ exports[`test snapshot 1`] = `
     data-testid="login-btn-test"
     disabled={false}
     id=":r2:"
-    ispopup={false}
     onBlur={[Function]}
     onContextMenu={[Function]}
     onDragLeave={[Function]}
