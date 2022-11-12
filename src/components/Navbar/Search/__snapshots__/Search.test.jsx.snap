@@ -2,11 +2,11 @@
 
 exports[`test snapshot 1`] = `
 <div
-  className="MuiBox-root css-12nalwd"
+  className="MuiBox-root css-1akzw1d"
 >
   <svg
     aria-hidden={true}
-    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lw08pq-MuiSvgIcon-root"
     data-testid="SearchIcon"
     focusable="false"
     viewBox="0 0 24 24"

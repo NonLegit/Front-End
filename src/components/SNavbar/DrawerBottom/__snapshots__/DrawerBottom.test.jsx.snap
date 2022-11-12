@@ -15,7 +15,7 @@ exports[`test snapshot 1`] = `
     Create an account to follow your favorite communities and start taking part in conversations.
   </p>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1cozjvz-MuiButtonBase-root-MuiButton-root"
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-fi7ao1-MuiButtonBase-root-MuiButton-root"
     data-testid="drawer-login"
     disabled={false}
     fontSize="14px"

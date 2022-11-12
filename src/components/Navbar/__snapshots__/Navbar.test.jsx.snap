@@ -2,7 +2,7 @@
 
 exports[`test snapshot 1`] = `
 <header
-  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-1l8t0bn-MuiPaper-root-MuiAppBar-root"
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-1gbk6l3-MuiPaper-root-MuiAppBar-root"
 >
   <div
     className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
@@ -39,7 +39,7 @@ exports[`test snapshot 1`] = `
         </div>
       </a>
       <ul
-        className="MuiList-root MuiList-padding css-1xjet3m-MuiList-root"
+        className="MuiList-root MuiList-padding css-9h32pz-MuiList-root"
       >
         <div
           className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
@@ -100,11 +100,11 @@ exports[`test snapshot 1`] = `
         </div>
       </ul>
       <div
-        className="MuiBox-root css-12nalwd"
+        className="MuiBox-root css-1akzw1d"
       >
         <svg
           aria-hidden={true}
-          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lw08pq-MuiSvgIcon-root"
           data-testid="SearchIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -197,17 +197,22 @@ exports[`test snapshot 1`] = `
           <span
             className="MuiBadge-root MuiBadge-root css-1c32n2y-MuiBadge-root"
           >
-            <svg
-              aria-hidden={true}
-              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wpim99-MuiSvgIcon-root"
-              data-testid="NotificationsNoneIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <a
+              href="/notifications"
+              onClick={[Function]}
             >
-              <path
-                d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
-              />
-            </svg>
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wpim99-MuiSvgIcon-root"
+                data-testid="NotificationsNoneIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+                />
+              </svg>
+            </a>
             <span
               className="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge css-to4x1n-MuiBadge-badge"
             >
@@ -240,24 +245,29 @@ exports[`test snapshot 1`] = `
           tabIndex={0}
           type="button"
         >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-bq05nv-MuiSvgIcon-root"
-            data-testid="AddIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <a
+            href="/submit"
+            onClick={[Function]}
           >
-            <path
-              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-            />
-          </svg>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-17nxtc2-MuiSvgIcon-root"
+              data-testid="AddIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+              />
+            </svg>
+          </a>
           <span
             className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
       <ul
-        className="MuiList-root MuiList-padding css-17i7u3w-MuiList-root"
+        className="MuiList-root MuiList-padding css-1ovjbrw-MuiList-root"
       >
         <div
           className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"

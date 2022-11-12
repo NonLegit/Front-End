@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`test snapshot 1`] = `
-<div
-  className="MuiBox-root css-k008qs"
->
+Array [
   <header
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-awwlh0-MuiPaper-root-MuiAppBar-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-1gbk6l3-MuiPaper-root-MuiAppBar-root"
   >
     <div
       className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
@@ -45,7 +43,7 @@ exports[`test snapshot 1`] = `
             </div>
           </a>
           <ul
-            className="MuiList-root MuiList-padding css-1ongttv-MuiList-root"
+            className="MuiList-root MuiList-padding css-dhdqtm-MuiList-root"
           >
             <div
               className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
@@ -103,7 +101,7 @@ exports[`test snapshot 1`] = `
             </div>
           </ul>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-y5byps-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1byyxh9-MuiButtonBase-root-MuiButton-root"
             disabled={false}
             onBlur={[Function]}
             onContextMenu={[Function]}
@@ -138,7 +136,7 @@ exports[`test snapshot 1`] = `
             Home
           </button>
           <div
-            className="MuiBox-root css-1vqopat"
+            className="MuiBox-root css-bo8ww4"
           >
             <svg
               aria-hidden={true}
@@ -175,7 +173,7 @@ exports[`test snapshot 1`] = `
           className="MuiBox-root css-18jo1cl"
         >
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-jdn7ql-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-7zct2i-MuiButtonBase-root-MuiButton-root"
             data-testid="navbar-signup"
             disabled={false}
             fontSize="14px"
@@ -201,7 +199,7 @@ exports[`test snapshot 1`] = `
             sign up
           </button>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-v2n5y8-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-m78fzj-MuiButtonBase-root-MuiButton-root"
             data-testid="navbar-login"
             disabled={false}
             fontSize="14px"
@@ -228,7 +226,7 @@ exports[`test snapshot 1`] = `
           </button>
         </div>
         <ul
-          className="MuiList-root MuiList-padding css-wv4hsa-MuiList-root"
+          className="MuiList-root MuiList-padding css-97jf6p-MuiList-root"
         >
           <div
             className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-1eo7vkw-MuiButtonBase-root-MuiListItemButton-root"
@@ -278,9 +276,9 @@ exports[`test snapshot 1`] = `
         </ul>
       </div>
     </div>
-  </header>
+  </header>,
   <div
-    className="MuiBox-root css-17kq30y"
+    className="MuiBox-root css-7ptfrh"
   >
     <div
       className="MuiDrawer-root MuiDrawer-docked css-25fju2-MuiDrawer-docked"
@@ -817,7 +815,7 @@ exports[`test snapshot 1`] = `
         Create an account to follow your favorite communities and start taking part in conversations.
       </p>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1cozjvz-MuiButtonBase-root-MuiButton-root"
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-fi7ao1-MuiButtonBase-root-MuiButton-root"
         data-testid="drawer-login"
         disabled={false}
         fontSize="14px"
@@ -843,6 +841,6 @@ exports[`test snapshot 1`] = `
         Join Reddit
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
