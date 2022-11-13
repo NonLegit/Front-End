@@ -26,7 +26,9 @@ const StyledList = styled(List)(({ theme }) => ({
   },
   '& .MuiCollapse-root .MuiList-root': {
     boxShadow: '0 2px 4px 0 rgba(28,28,28,0.2)',
-    [theme.breakpoints.between('0', '400')]: {
+  },
+  [theme.breakpoints.between('0', '400')]: {
+    '& .MuiCollapse-root ': {
       left: '-60px',
       width: '250px',
     },

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -11,6 +11,7 @@ import {
   Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, Notification, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
 import PostsClassificationSubreddit from '../PostClassificationSubreddit/PostClassification';
+import theme2 from '../../../styles/theme/layout';
 
 /**
  * Subreddit page
@@ -115,7 +116,21 @@ function Header() {
                 && (
                 <>
                   <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
-                  <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0, cursor: 'pointer' }} /></Notification>
+                  <Notification sx={{
+                    '@media screen and (max-width: 435px)': {
+                      display: 'none',
+                    },
+                  }}
+                  >
+                    <NotificationsIcon
+                      color="primary"
+                      sx={{
+                        lineHeight: 0,
+                        cursor: 'pointer',
+
+                      }}
+                    />
+                  </Notification>
                 </>
                 )}
               </Box>
@@ -125,9 +140,19 @@ function Header() {
         </IconContainer>
       </Logo>
       <TotalHeader>
-        <Box sx={{ display: 'flex', flexDirection: 'row', margin: '0 auto' }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          margin: '0 auto',
+          '@media screen and (max-width: 435px)': {
+            width: '100%',
+          },
+        }}
+        >
           <MainContent width={640}>
-            <CreatePostInHome />
+            <ThemeProvider theme={theme2}>
+              <CreatePostInHome />
+            </ThemeProvider>
             <PostsClassificationSubreddit subredditName={Name} />
             { posts?.map((posts, index) => (
               <PostSubreddit

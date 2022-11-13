@@ -24,14 +24,17 @@ export const IconContainer = styled('div')({
   justifyContent: 'space-between',
 });
 
-export const Data = styled('div')({
+export const Data = styled('div')(({ theme }) => ({
   height: 80,
   width: 386,
   marginBottom: 12,
   marginTop: -14,
   display: 'flex',
   alignitems: 'flex-start',
-});
+  [theme.breakpoints.between('0', '435')]: {
+    width: 'fit-content',
+  },
+}));
 
 export const Image = styled('img')({
   backgroundColor: '#fff',
@@ -42,7 +45,7 @@ export const Image = styled('img')({
   height: 72,
   width: 72,
 });
-export const Content = styled('div')({
+export const Content = styled('div')(({ theme }) => ({
   boxSizing: 'border-box',
   alignItems: 'flex-start',
   display: 'inline-flex',
@@ -52,7 +55,10 @@ export const Content = styled('div')({
   justifyContent: 'space-between',
   position: 'relative',
   width: 'calc(100% - 80px)',
-});
+  [theme.breakpoints.between('0', '435')]: {
+    justifyContent: 'flex-start',
+  },
+}));
 export const Desc = styled('div')({
   display: 'inline-block',
   maxWidth: 'calc(100% - 96px)',
@@ -179,11 +185,14 @@ export const PostContainer = styled(Box)(() => ({
   },
   margin: 0,
 }));
-export const TotalHeader = styled('div')({
+export const TotalHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   flexGrow: 1,
   background: '#dae0e6',
   margin: '0 auto',
   padding: '20px 24px',
-});
+  [theme.breakpoints.between('0', '435')]: {
+    padding: '0px',
+  },
+}));

@@ -110,7 +110,7 @@ function SNavbar() {
                 fontWeight="700"
                 variant="outlined"
                 margin="0px"
-                // onClick={handleClickOpenSignUp}
+                onClick={handleClickOpenSignUp}
               >
                 sign up
               </RedditButton>
@@ -121,7 +121,7 @@ function SNavbar() {
                 fontWeight="700"
                 variant="contained"
                 margin="0px 0px 0px 16px"
-                // onClick={handleClickOpenLogIn}
+                onClick={handleClickOpenLogIn}
               >
                 log in
               </RedditButton>
