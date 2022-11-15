@@ -76,6 +76,7 @@ function FormDialog() {
         }
       });
   };
+
   /**
    * this function to click checkbox on click the text next to it
    */

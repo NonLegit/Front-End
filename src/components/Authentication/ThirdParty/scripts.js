@@ -17,7 +17,7 @@ export const responseGoogleSuccess = (googleResponse) => {
       // ==>response.data.token
       // ==>response.data.expiresin
       // ==>Cokies Point
-      window.location.href = './';
+      // window.location.href = './';
     }
   }).catch((error) => {
     if (error.response.status === 400) {
