@@ -1,7 +1,7 @@
 import axios from 'axios';
 
+const { REACT_APP_ENV, REACT_APP_PROXY_DEVELOPMENT, REACT_APP_PROXY_PRODUCTION } = process.env;
 const instance = axios.create({
-  baseURL: 'https://0902e8c4-d1ea-4cb3-9e44-bfbc7241fa61.mock.pstmn.io',
+  baseURL: REACT_APP_ENV === 'development' ? REACT_APP_PROXY_DEVELOPMENT : REACT_APP_PROXY_PRODUCTION,
 });
-
 export default instance;
