@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<h2
+  className="css-fo6dne"
+>
+  <span
+    className="css-9t27zl"
+    data-testid="add"
+    id="add"
+    onClick={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className="MuiBox-root css-p58oka"
+    />
+  </span>
+</h2>
+`;

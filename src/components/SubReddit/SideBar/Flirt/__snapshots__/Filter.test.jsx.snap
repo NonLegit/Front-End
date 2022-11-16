@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="css-tm1krm"
+  >
+    <h2
+      className="css-hzpx4j"
+    >
+      Filter by flair
+    </h2>
+  </div>,
+  <div
+    className="MuiBox-root css-38zrbw"
+  />,
+  <button
+    className="css-1qmeimn"
+  >
+    See more
+  </button>,
+]
+`;

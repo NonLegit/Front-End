@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-14rl5xe"
+  data-testid="login-test"
+  mnwidth="290px"
+  mxwidth="290px"
+>
+  <div
+    className="MuiBox-root css-eyuwdo"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-1sg842v-MuiTypography-root"
+    >
+      Log in
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-68wmct-MuiTypography-root"
+    >
+      By continuing, you agree to our
+       
+      <a
+        capital="none"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y1krgh-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/policies/user-agreement"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        User Agreement
+      </a>
+       
+      and
+       
+      <a
+        capital="none"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y1krgh-MuiTypography-root-MuiLink-root"
+        href="https://www.reddit.com/policies/privacy-policy"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        Privacy Policy 
+      </a>
+      .
+    </p>
+  </div>
+  <div
+    className="MuiBox-root css-1vt6mgo"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1inhtju-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <img
+        alt="Google"
+        className="css-1x4dpap"
+        src="google.png"
+      />
+      continue with google
+    </button>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1inhtju-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <img
+        alt="Facebook"
+        className="css-1x4dpap"
+        src="facebook.png"
+      />
+      continue with facebook
+    </button>
+  </div>
+  <div
+    className="MuiBox-root css-1rocah8"
+  >
+    <hr
+      className="css-1tv3lka"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-ikhzr9-MuiTypography-root"
+    >
+      OR
+    </p>
+    <hr
+      className="css-1tv3lka"
+    />
+  </div>
+  <form
+    className="css-bs3vrj"
+    data-testid="FirstParty-test"
+    onSubmit={[Function]}
+    width="290px"
+  >
+    <div
+      className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
+      clr="#978A8C"
+      data-testid="UserName-FirstParty-test"
+    >
+      <label
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink={false}
+        htmlFor=":r0:"
+        id=":r0:-label"
+      >
+        Username
+        <span
+          aria-hidden={true}
+          className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+        >
+           
+          *
+        </span>
+      </label>
+      <div
+        className="MuiInputBase-root MuiFilledInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1pw81iq-MuiInputBase-root-MuiFilledInput-root"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoComplete="off"
+          autoFocus={false}
+          className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-c5v1qu-MuiInputBase-input-MuiFilledInput-input"
+          disabled={false}
+          id=":r0:"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
+      clr="#978A8C"
+      data-testid="Password-FirstParty-test"
+    >
+      <label
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink={false}
+        htmlFor=":r1:"
+        id=":r1:-label"
+      >
+        Password
+        <span
+          aria-hidden={true}
+          className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+        >
+           
+          *
+        </span>
+      </label>
+      <div
+        className="MuiInputBase-root MuiFilledInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1pw81iq-MuiInputBase-root-MuiFilledInput-root"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoComplete="off"
+          autoFocus={false}
+          className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-c5v1qu-MuiInputBase-input-MuiFilledInput-input"
+          disabled={false}
+          id=":r1:"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="password"
+        />
+      </div>
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-15fwilh-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+      data-testid="login-btn-test"
+      disabled={false}
+      id=":r2:"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="submit"
+    >
+      Log In
+    </button>
+  </form>
+  <p
+    className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-1qvb19m-MuiTypography-root"
+  >
+    Forgot your
+     
+    <a
+      capital="none"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y1krgh-MuiTypography-root-MuiLink-root"
+      href="/username"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      username
+    </a>
+     or 
+    <a
+      capital="none"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y1krgh-MuiTypography-root-MuiLink-root"
+      href="/password"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      password
+    </a>
+     ?
+  </p>
+  <p
+    className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-4owvyy-MuiTypography-root"
+  >
+    New to Reddit?
+     
+    <a
+      capital="uppercase"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1xn5q3i-MuiTypography-root-MuiLink-root"
+      href="/register"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      sign up
+    </a>
+  </p>
+</div>
+`;

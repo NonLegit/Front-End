@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="css-l1ctgm"
+  >
+    <h2
+      className="css-dgde1h"
+    >
+      About Community
+    </h2>
+    <button
+      className="css-va39u0"
+    >
+      <div
+        className="MuiBox-root css-1k6kpcd"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="AdminPanelSettingsOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fillRule="evenodd"
+          >
+            <circle
+              cx="17"
+              cy="15.5"
+              r="1.12"
+            />
+            <path
+              d="M17 17.5c-.73 0-2.19.36-2.24 1.08.5.71 1.32 1.17 2.24 1.17s1.74-.46 2.24-1.17c-.05-.72-1.51-1.08-2.24-1.08z"
+            />
+            <path
+              d="M18 11.09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55C13.18 21.99 14.97 23 17 23c3.31 0 6-2.69 6-6 0-2.97-2.16-5.43-5-5.91zM11 17c0 .56.08 1.11.23 1.62-.24.11-.48.22-.73.3-3.17-1-5.5-4.24-5.5-7.74v-3.6l5.5-2.4 5.5 2.4v3.51c-2.84.48-5 2.94-5 5.91zm6 4c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"
+            />
+          </g>
+        </svg>
+        Mood Tools
+      </div>
+      <div
+        className="MuiBox-root css-uwcr2l"
+      >
+        <div
+          className="MuiBox-root css-k008qs"
+          data-testid="sort"
+          onClick={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MoreHorizIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>,
+  <h2
+    className="css-2v81eu"
+  >
+    <div
+      className="css-1pmeph4"
+      onClick={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className="MuiBox-root css-k008qs"
+        data-testid="add"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiBox-root css-156oqa0"
+        >
+           
+        </div>
+         
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
+          data-testid="ModeEditOutlineOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 21h3.75L17.81 9.94l-3.75-3.75L3 17.25V21zm2-2.92 9.06-9.06.92.92L5.92 19H5v-.92zM18.37 3.29a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34z"
+          />
+        </svg>
+      </div>
+    </div>
+  </h2>,
+  <div
+    className="css-1maxkpg"
+  >
+    <div
+      className="css-5uj27w"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="EmailOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+        />
+      </svg>
+    </div>
+    <h2
+      className="css-1nrunep"
+    >
+      Created
+       
+    </h2>
+  </div>,
+  <hr
+    className="css-1m0ad5p"
+  />,
+  <div
+    className="MuiBox-root css-5sth6c"
+  >
+    <span>
+      <div
+        className="css-p1puod"
+      >
+        1.4m
+      </div>
+      <p
+        className="css-k7lqej"
+      >
+        Members
+      </p>
+    </span>
+    <span>
+      <div
+        className="css-1o97w51"
+      >
+        1.0k
+      </div>
+      <p
+        className="css-k7lqej"
+      >
+        Online
+      </p>
+    </span>
+    <span />
+    <div />
+  </div>,
+  <hr
+    className="css-95v5z5"
+  />,
+  <div
+    className="MuiBox-root css-d4400k"
+  >
+    <div
+      className="MuiBox-root css-8cs3r5"
+    >
+      New
+    </div>
+    Community topics
+    <button
+      aria-label="Adding community topics allow people to find your community. Add a primary topic and sub topics to be discovered more easily."
+      aria-labelledby={null}
+      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+      data-mui-internal-clone-element={true}
+      disabled={false}
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-urtz9h-MuiSvgIcon-root"
+        data-testid="ErrorOutlineIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+        />
+      </svg>
+      <span
+        className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>,
+  <div
+    className="MuiBox-root css-5ukv8i"
+    onClick={[Function]}
+  >
+    <p
+      className="css-1udx7t0"
+      data-testid="select"
+    />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-1y0tgmx-MuiSvgIcon-root"
+      data-testid="ExpandMoreOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"
+      />
+    </svg>
+  </div>,
+  <hr
+    className="css-jj8fc0"
+  />,
+  <a
+    className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1anzha9-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      fontSize={15}
+      fontWeight="bold"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      padding="4px"
+      tabIndex={0}
+      type="button"
+    >
+      create Post
+      <span
+        className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </a>,
+]
+`;
