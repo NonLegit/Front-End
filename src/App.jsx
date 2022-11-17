@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+import Settings from './pages/Settings';
 import Navbar from './components/Navbar/Navbar';
 // import SNavbar from './components/SNavbar/SNavbar';
 
@@ -142,6 +143,7 @@ function App() {
           }
               />
             </Route>
+            <Route path="/Settings" element={<Settings />} />
           </Routes>
         </Router>
       </PostTypeContextProvider>

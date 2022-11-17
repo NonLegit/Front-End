@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import moment from 'moment/moment';
+// import axios from 'axios';
+// import moment from 'moment/moment';
+import NotificationsFetch from './Server';
 import NotificationCategories from './NotificationCategories/NotificationCategories';
 import
 {
@@ -10,9 +11,7 @@ import
 } from './styles';
 
 export const CategoriesContext = createContext();
-const client = axios.create({
-  baseURL: 'https://3fa9144e-7687-495e-9c29-266e723973b7.mock.pstmn.io',
-});
+
 /**
  * - Notifications Body
  * - fech notifications data from api
@@ -24,10 +23,12 @@ const client = axios.create({
  */
 
 function NotificationsBody() {
+  const baseURL = '/notifications';
   // earlier data
   const [earlier, setEarlier] = useState([]);
   // today data
   const [today, setToday] = useState([]);
+  const [dataToday, dataEarlier] = NotificationsFetch(baseURL);
   //  anchor element
   const [anchorEl, setAnchorEl] = useState(null);
   // index selected element
@@ -36,16 +37,11 @@ function NotificationsBody() {
   const [type, setType] = useState(null);
   // boll anchor element
   const open = Boolean(anchorEl);
+
   useEffect(() => {
-    client.get('notifications') // fetch api
-      .then((actualData) => {
-        setToday(actualData.data.filter((e) => moment(e.createdAt).isSame(moment(), 'day')));
-        setEarlier(actualData.data.filter((e) => !moment(e.createdAt).isSame(moment(), 'day')));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    setEarlier(dataEarlier);
+    setToday(dataToday);
+  }, [dataEarlier, dataToday]);
   // function to set what notifiacation we select and it's type
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -72,7 +68,7 @@ function NotificationsBody() {
   return (
     <Notification data-testid="notifications-body">
       <NotificationsContiner>
-        { (today.length !== 0)
+        { (today?.length !== 0)
         && (
         <>
           <NotificationsHead>Today</NotificationsHead>
@@ -85,7 +81,7 @@ function NotificationsBody() {
           </CategoriesContext.Provider>
         </>
         )}
-        { (earlier.length !== 0)
+        { (earlier?.length !== 0)
           && (
           <>
             {' '}
