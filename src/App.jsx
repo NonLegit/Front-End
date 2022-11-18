@@ -1,6 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
+import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPrivacy';
+import SettingsFeed from './components/Settings/SettingsFeed/SettingsFeed';
+import SettingsEmails from './components/Settings/SettingsEmails/SettingsEmails';
+import SettingsAccount from './components/Settings/SettingsAccount/SettingsAccount';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar/Navbar';
 // import SNavbar from './components/SNavbar/SNavbar';
@@ -143,7 +148,44 @@ function App() {
           }
               />
             </Route>
-            <Route path="/Settings" element={<Settings />} />
+            <Route
+              path="/settings"
+              element={
+                <Settings />
+          }
+            >
+
+              <Route
+                path="account"
+                element={
+                  <SettingsAccount />
+          }
+              />
+              <Route
+                path="profile"
+                element={
+                  <SettingsProfile />
+          }
+              />
+              <Route
+                path="privacy"
+                element={
+                  <SettingsPrivacy />
+          }
+              />
+              <Route
+                path="feed"
+                element={
+                  <SettingsFeed />
+          }
+              />
+              <Route
+                path="emails"
+                element={
+                  <SettingsEmails />
+          }
+              />
+            </Route>
           </Routes>
         </Router>
       </PostTypeContextProvider>

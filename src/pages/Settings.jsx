@@ -1,6 +1,13 @@
+import { Outlet } from 'react-router-dom';
+import SettingsHeader from '../components/Settings/SettingsHeader/SettingsHeader';
+import { SettingsContiner } from '../components/Settings/SettingsHeader/style';
+
 function Settings() {
   return (
-    <div>Settings</div>
+    <SettingsContiner>
+      <SettingsHeader />
+      <Outlet />
+    </SettingsContiner>
   );
 }
 
