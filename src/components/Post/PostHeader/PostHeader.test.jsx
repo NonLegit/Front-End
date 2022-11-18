@@ -7,7 +7,7 @@ import calculateTime from '../../../utils/calculateTime';
 describe(PostHeader, () => {
   it('PostHeader renders correctly', () => {
     const testCase = {
-      title: 'title', image: 'image', owner: 'owner', creator: 'creator', flair: 'flair', flairBackgroundColor: 'flairBackgroundColor', flairColor: 'flairColor',
+      title: 'title', image: 'image', owner: 'owner', author: 'author', flair: 'flair', flairBackgroundColor: 'flairBackgroundColor', flairColor: 'flairColor',
     };
     const tree = renderer
       .create(
@@ -16,7 +16,7 @@ describe(PostHeader, () => {
             title={testCase.title}
             image={testCase.image}
             owner={testCase.owner}
-            creator={testCase.creator}
+            author={testCase.author}
             flair={testCase.flairText}
             flairBackgroundColor={testCase.flairBackgroundColor}
             flairColor={testCase.flairColor}

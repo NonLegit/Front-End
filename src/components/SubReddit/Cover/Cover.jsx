@@ -160,7 +160,7 @@ function Header() {
                 title={posts.title}
                 image={posts.image}
                 owner={posts.owner}
-                creator={posts.creator}
+                author={posts.author}
                 flairText={posts.flairText}
                 flairBackgroundColor={posts.flairBackgroundColor}
                 popularity={posts.popularity}

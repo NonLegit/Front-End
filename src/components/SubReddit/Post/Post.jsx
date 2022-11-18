@@ -17,7 +17,7 @@ import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
    * @property {string} title -Post title.
    * @property {string} image -Post owner icon.
    * @property {string} owner -Post subreddit(post owner).
-   * @property {string} creator -Post creator.
+   * @property {string} author -Post author.
    * @property {string} flairText -Post flair text.
    * @property {string} flairBackgroundColor -Post flair background color.
    * @property {string} flairColor -Post flair color.
@@ -31,7 +31,7 @@ import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
 
 function PostSubreddit(props) {
   const {
-    title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    title, image, owner, author, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
   } = props;
 
   const theme = useTheme();
@@ -60,7 +60,7 @@ function PostSubreddit(props) {
           title={title}
           image={image}
           owner={owner}
-          creator={creator}
+          author={author}
           flair={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}

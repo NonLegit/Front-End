@@ -41,7 +41,7 @@ Array [
         onClick={[Function]}
       >
         u/
-        creator
+        author
       </a>
       <div
         className="MuiBox-root css-5ah3mn"

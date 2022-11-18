@@ -11,7 +11,7 @@ describe(PostList, () => {
     const testCase = [{
       commentCount:
         12,
-      creator:
+      author:
         'righteous_boldness07',
       flairBackgroundColor:
         '#0079D3',

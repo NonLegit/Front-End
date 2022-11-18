@@ -15,7 +15,7 @@ import {
    * @property {string} title -Post title.
    * @property {string} image -Post owner icon.
    * @property {string} owner -Post subreddit(post owner).
-   * @property {string} creator -Post creator.
+   * @property {string} author -Post author.
    * @property {string} flairText -Post flair text.
    * @property {string} flairBackgroundColor -Post flair background color.
    * @property {string} flairColor -Post flair color.
@@ -24,7 +24,7 @@ import {
 
 function PostHeaderSubreddit(props) {
   const {
-    title, image, owner, creator, flair, flairBackgroundColor, flairColor,
+    title, image, owner, author, flair, flairBackgroundColor, flairColor,
   } = props;
   return (
     <>
@@ -48,7 +48,7 @@ function PostHeaderSubreddit(props) {
           <div>Posted By</div>
           <PostInfoLink to="/" color="inherit" fontWeight="normal">
             u/
-            {creator}
+            {author}
           </PostInfoLink>
         </Box>
       </PostInfo>
