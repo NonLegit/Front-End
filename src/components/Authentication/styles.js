@@ -11,7 +11,7 @@ import theme, { fonts } from '../../styles/theme';
 export const AuthenticationConatiner = styled(Box)(() => ({
   height: 'max-content',
   minHeight: '100vh',
-
+  backgroundColor: 'white',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'space-around',

@@ -5,7 +5,10 @@ exports[`PostTags PostTags renders correctly 1`] = `
   className="MuiBox-root css-1iurqx8"
 >
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ma98a3-MuiButtonBase-root-MuiButton-root"
+    aria-label="Mark as a spoiler"
+    aria-labelledby={null}
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium  css-1ret1v4-MuiButtonBase-root-MuiButton-root"
+    data-mui-internal-clone-element={true}
     data-testid="spoiler button"
     disabled={false}
     onBlur={[Function]}
@@ -17,6 +20,7 @@ exports[`PostTags PostTags renders correctly 1`] = `
     onKeyUp={[Function]}
     onMouseDown={[Function]}
     onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     onMouseUp={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
@@ -37,9 +41,15 @@ exports[`PostTags PostTags renders correctly 1`] = `
       />
     </svg>
     spoiler
+    <span
+      className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
   </button>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-Third MuiButton-sizeMedium MuiButton-SizeMedium MuiButton-root MuiButton-Third MuiButton-sizeMedium MuiButton-SizeMedium css-193o0x8-MuiButtonBase-root-MuiButton-root"
+    aria-label="Mark as Not Safe For Work"
+    aria-labelledby={null}
+    className="MuiButtonBase-root MuiButton-root MuiButton-Third MuiButton-sizeMedium MuiButton-SizeMedium MuiButton-root MuiButton-Third MuiButton-sizeMedium MuiButton-SizeMedium  css-1q8br1y-MuiButtonBase-root-MuiButton-root"
+    data-mui-internal-clone-element={true}
     data-testid="nsfw button"
     disabled={false}
     nswf={true}
@@ -52,6 +62,7 @@ exports[`PostTags PostTags renders correctly 1`] = `
     onKeyUp={[Function]}
     onMouseDown={[Function]}
     onMouseLeave={[Function]}
+    onMouseOver={[Function]}
     onMouseUp={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
@@ -71,53 +82,69 @@ exports[`PostTags PostTags renders correctly 1`] = `
       />
     </svg>
     NSFW
+    <span
+      className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
   </button>
-  <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium Mui-disabled MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1bldzjd-MuiButtonBase-root-MuiButton-root"
-    disabled={true}
+  <div
+    aria-label="Not available for this community"
+    aria-labelledby={null}
+    className="MuiBox-root css-ze463t"
+    data-mui-internal-clone-element={true}
     onBlur={[Function]}
-    onContextMenu={[Function]}
-    onDragLeave={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
     onMouseLeave={[Function]}
-    onMouseUp={[Function]}
+    onMouseOver={[Function]}
     onTouchEnd={[Function]}
-    onTouchMove={[Function]}
     onTouchStart={[Function]}
-    tabIndex={-1}
-    type="button"
   >
-    <svg
-      aria-hidden={true}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-cjthd2-MuiSvgIcon-root"
-      data-testid="LocalOfferOutlinedIcon"
-      focusable="false"
-      viewBox="0 0 24 24"
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium Mui-disabled MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-ip0ak7-MuiButtonBase-root-MuiButton-root"
+      disabled={true}
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={-1}
+      type="button"
     >
-      <path
-        d="m21.41 11.58-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM13 20.01 4 11V4h7v-.01l9 9-7 7.02z"
-      />
-      <circle
-        cx="6.5"
-        cy="6.5"
-        r="1.5"
-      />
-    </svg>
-    flair
-    <svg
-      aria-hidden={true}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-      data-testid="KeyboardArrowDownOutlinedIcon"
-      focusable="false"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-      />
-    </svg>
-  </button>
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-cjthd2-MuiSvgIcon-root"
+        data-testid="LocalOfferOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="m21.41 11.58-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM13 20.01 4 11V4h7v-.01l9 9-7 7.02z"
+        />
+        <circle
+          cx="6.5"
+          cy="6.5"
+          r="1.5"
+        />
+      </svg>
+      flair
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="KeyboardArrowDownOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+        />
+      </svg>
+    </button>
+  </div>
 </div>
 `;

@@ -1,19 +1,35 @@
+import { useState } from 'react';
 import {
   UpArrow, DownArrow, SidebarQueueBox, UpArrowFilled, DownArrowFilled, Number,
 } from './styles';
 
-/** Sidebar of the post conatining arrow up and down
- * @return {React.Component} - Filter
- * @param {boolean} upvoted - show if the comment is upvoted
- * @param {boolean} downvoted - show if the comment is downvoted
+/**
+ * Sidebar of the post conatining arrow up and down
+ *
+ * @component PostSide
+ * @property {number} points -number of votes on a post
+ * @property {number} postVoteStatus -is the post upvoted or down voted or none
+ * @returns {React.Component} PostSide
  */
 function PostSide(props) {
-  const { upvoted, downvoted } = props;
+  const { points, postVoteStatus } = props;
+  const [postPoints, setPostPoints] = useState(points);
+
+  const handleClickUp = () => {
+    setPostPoints(postPoints + 1);
+  };
+  const handleClickDown = () => {
+    setPostPoints(postPoints - 1);
+  };
   return (
     <SidebarQueueBox>
-      {upvoted ? <UpArrowFilled /> : <UpArrow />}
-      <Number variant="caption" upvoted={upvoted.toString()} downvoted={downvoted.toString()}>1</Number>
-      {downvoted ? <DownArrowFilled /> : <DownArrow />}
+      {
+        (postVoteStatus === '1') ? <UpArrowFilled onClick={() => { handleClickDown(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
+      }
+      <Number variant="caption" sx={{ fontWeight: 700 }}>{postPoints}</Number>
+      {
+        (postVoteStatus === '-1') ? <DownArrowFilled onClick={() => { handleClickUp(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
+      }
     </SidebarQueueBox>
   );
 }

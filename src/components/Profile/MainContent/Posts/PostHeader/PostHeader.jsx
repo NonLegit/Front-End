@@ -5,13 +5,6 @@ import {
   HeaderPost,
 } from './styles';
 
-/** Header of the post
- * @return {React.Component} - PostHeader
- * @param {string} nameUser - name of the currently loggedin user
- * @param {string} Time - contains the time of the post
- * @param {string} nameUser - contains the name of subreddit the post piblished in
- */
-
 // calculate the time difference between the creation day and current day
 const calculateTime = (d, time) => {
   const year = d.getFullYear() - time.split('T')[0].split('-')[0];
@@ -29,6 +22,16 @@ const calculateTime = (d, time) => {
   }
   return ('today');
 };
+
+/**
+ * Header of the post
+ *
+ * @component PostHeader
+ * @property {string} nameUser -name of the currently loggedin user
+ * @property {string} Time -contains the time of the post
+ * @property {string} nameUser -contains the name of subreddit the post piblished in
+ * @returns {React.Component} PostHeader
+ */
 
 function PostHeader(props) {
   const { nameUser, Time, subReddit } = props;

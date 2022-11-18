@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import calculateTime from '../../../utils/calculateTime';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -32,6 +33,9 @@ function HomePageContainer() {
   const [posts, postsError] = useFetch(postsUrl);
   const [communities, communitiesError] = useFetch(communitiesUrl);
 
+  console.log(theme);
+  const createdAt = '2017-07-21T17:32:28Z';
+  console.log(calculateTime(createdAt));
   return (
     <OuterContainer>
       <MainContainer>

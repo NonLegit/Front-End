@@ -1,17 +1,11 @@
 import {
-  Box, ClickAwayListener,
+  //  Box, ClickAwayListener,
   ListItem, ListItemText,
 } from '@mui/material';
 import { useState, useEffect } from 'react';
-import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
-import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+import AddBtn from './Add Bottun/AddBtn';
 import {
   AboutContent,
-  Action,
-  Add, Count,
-  Input,
-  BOX,
-  InputFooter, Text,
   Lists,
 } from './style';
 
@@ -20,33 +14,29 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
   'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
   'Mature Themes and Adult Content', 'Medical and Mental Health', "Men's Health", 'Meta/Reddit', 'Outdoors and Nature', 'Militery', 'Moves', 'Music', 'Outdoors and Nature', 'Place',
   'Podcasts and Streamers', 'Polices', 'Progeamming', 'Reading, Writing, and Literature'];
-
 /**
  * AddList(community topics)
+ * @component
  * @return {React.Component} - community topics
  */
-function AddList() {
+function AddList(props) {
+  const {
+    topics, client, Name,
+  } = props;
   const [show, setShow] = useState(true);
   const [showList, setShowList] = useState(true);
   // eslint-disable-next-line prefer-const
-  const [tags, setTags] = useState(['Ahmed', 'eslam', 'nour']);
+  const [tags, setTags] = useState(topics);
   const [tempString, setTempString] = useState(tags);
-  const [count, setCount] = useState(tags.length);
-  // return to default view of add list
-  const handleClickAway1 = () => {
-    const btn = document.getElementById('cancel');
-    btn.click();
-    setShow(true);
-    setCount(tags.length);
-  };
+  const [count, setCount] = useState(tags?.length);
   useEffect(() => {
-    setTempString(tags);
-  }, []);
+    setTags(topics);
+    setTempString(topics);
+  }, [topics]);
   // save the change in input field to get count if char
   const handleChange = (event) => {
     console.log((event.target > 'Text').length);
     if (event.target.value.length < 26) {
-      // setData(event.target.value);
       setCount((event.target > 'Text').length);
     }
   };
@@ -61,9 +51,10 @@ function AddList() {
     e.target.value = '';
   };
   // to rempve element when press x
-  function removeItem(value) {
+  const removeItem = (value) => {
     setTempString(tempString.filter((ele, index) => index !== value));
-  }
+  };
+
   // add item when select from list
   const ListSelected = (e) => {
     e.stopPropagation();
@@ -75,103 +66,37 @@ function AddList() {
       input.focus();
     }
   };
+  const trueShaw = () => {
+    setShow(true);
+  };
+  const falseShaw = () => {
+    setShow(false);
+  };
+  const trueShawList = () => {
+    setShowList(true);
+  };
+  const setTemp = (t) => {
+    setTempString(t);
+  };
+  const setTag = (t) => {
+    setTags(t);
+  };
+  const sendData = () => {
+    client.patch(`subreddit/${Name}`, { topics: tags }); // fetch api
+  };
+    // return to default view of add list
+  const handleClickAway1 = () => {
+    setTags(tempString);
+    setShow(true);
+    setCount(tags.length);
+    sendData();
+  };
   return (
     <AboutContent>
-      <ClickAwayListener onClickAway={handleClickAway1}>
-        <Add data-testid="add" condition={show.toString()} onClick={() => { setShow(false); }} id="add">
-          <>
-            <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-              {tempString.length > 0 && (tempString.slice(0, 4)).map((tag, index) => (
-                <Text key={`${index + 0}`} condition={show.toString()}>
-                  {tag}
-                  <ClearOutlinedIcon
-                    fontSize="small"
-                    onClick={(e) => {
-                      removeItem(index);
-                      console.log(e.target.parentElement.textContent);
-                    }}
-                  />
-                </Text>
-              )) }
-              { !show && tags.length > 0
-              && (tempString.slice(4)).map((temp, index) => (
-                <Text key={`${index + 0}`} condition={show.toString()}>
-                  {temp}
-                  <ClearOutlinedIcon
-                    fontSize="small"
-                    onClick={(e) => {
-                      removeItem(index + 4);
-                      console.log(typeof (e.target.parentElement.textContent));
-                    }}
-                    sx={{ color: 'gray' }}
-                  />
-                </Text>
-              )) }
-              {show && tempString.length > 4 && (
-              <BOX>
-                +
-                  {tempString.length - 4}
-              </BOX>
-              )}
-              {show && <ModeEditOutlineOutlinedIcon />}
-            </Box>
-            {!show
-            && (
-            <Input
-              data-testid="input"
-              autoFocus
-              id="input"
-              type="text"
-              onChange={handleChange}
-              onFocus={() => setShowList(true)}
-              onInput={(e) => {
-                // eslint-disable-next-line radix
-                e.target.style.height = `${e.target.scrollHeight}px`;
-              }}
-              onKeyDown={handleKeyDown}
-            />
-            )}
-          </>
-          {!show && (
-          <InputFooter>
-            <Count
-              condition={(count === 25).toString()}
-            >
-              {tempString.length}
-              /
-              25
-            </Count>
-            <Box sx={{ display: 'flex', marginTop: '1px' }}>
-              <Action
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShow(true);
-                  setTempString(tags);
-                }}
-                id="cancel"
-                color="red"
-                sx={{ marginRight: '8px' }}
-              >
-                Cancel
-              </Action>
-              <Action
-                color="#0079d3"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShow(true);
-                  setTags(tempString);
-                }}
-              >
-                Save
-              </Action>
-            </Box>
-          </InputFooter>
-          )}
-        </Add>
-      </ClickAwayListener>
+      <AddBtn sendData={sendData} handleClickAway1={handleClickAway1} setTag={setTag} setTemp={setTemp} trueShaw={trueShaw} trueShawList={trueShawList} handleChange={handleChange} handleKeyDown={handleKeyDown} removeItem={removeItem} falseShaw={falseShaw} show={show} tempString={tempString} tags={tags} count={count} />
       {
           !show
-          && tempString.length < 25 && showList
+          && tempString?.length < 25 && showList
           && (
             <Lists
               subheader={<li />}
@@ -200,7 +125,6 @@ function AddList() {
             </Lists>
           )
         }
-
     </AboutContent>
   );
 }

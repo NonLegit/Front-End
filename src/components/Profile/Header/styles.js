@@ -2,10 +2,26 @@ import {
   AppBar, Box, Button, styled,
 } from '@mui/material';
 
-export const HeaderBox = styled(Box)(() => ({
+export const HeaderBox = styled(Box)(({ theme, subtitle }) => ({
   minHeight: 40,
   display: 'flex',
-  justifyContent: 'center',
+  // justifyContent: 'center',
+  marginLeft: 24,
+  ...((subtitle === undefined
+|| subtitle === 'sort=new'
+|| subtitle === 'sort=hot'
+|| subtitle === 'sort=top'
+|| subtitle === 'sort=top&t=day'
+  ) && {
+    marginLeft: 'calc((100% - 976px) / 2);',
+  }),
+  [theme.breakpoints.between('0', '970')]: {
+    marginLeft: 24,
+  },
+  [theme.breakpoints.between('0', '630')]: {
+    marginLeft: 5,
+  },
+
 }));
 
 export const PageHeader = styled(AppBar)(() => ({
@@ -64,7 +80,7 @@ export const HeaderButton = styled(Button)(({
     },
   }),
   ...((responsive === 'res6') && {
-    [theme.breakpoints.between('0', '300')]: {
+    [theme.breakpoints.between('0', '350')]: {
       display: 'none',
     },
   }),
@@ -75,7 +91,7 @@ export const HeaderButton = styled(Button)(({
   }),
 }));
 
-export const SelectBox = styled(Box)(() => ({
+export const SelectBox = styled(Box)(({ theme }) => ({
   maxWidth: 200,
   top: 30,
   border: ' 1px solid #eee',
@@ -84,7 +100,9 @@ export const SelectBox = styled(Box)(() => ({
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
-
+  [theme.breakpoints.between('0', '512')]: {
+    marginLeft: -40,
+  },
 }));
 
 export const SelectItem = styled(Button)(({ theme, responsive }) => ({
@@ -127,7 +145,7 @@ export const SelectItem = styled(Button)(({ theme, responsive }) => ({
     },
   }),
   ...((responsive === 'res6') && {
-    [theme.breakpoints.between('0', '300')]: {
+    [theme.breakpoints.between('0', '350')]: {
       display: 'block',
     },
   }),

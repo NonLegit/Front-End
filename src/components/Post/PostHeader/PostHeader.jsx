@@ -2,10 +2,12 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
+import calculateTime from '../../../utils/calculateTime';
 import JoinButton from '../../JoinButton/JoinButton';
 
 // styles
 import {
+  CreatedAt,
   Flair,
   PostInfo, PostInfoLink, PostTitle,
 } from './styles';
@@ -25,7 +27,7 @@ import {
 
 function PostHeader(props) {
   const {
-    title, image, owner, creator, flair, flairBackgroundColor, flairColor,
+    title, image, owner, creator, flair, flairBackgroundColor, flairColor, createdAt,
   } = props;
   return (
     <>
@@ -51,6 +53,11 @@ function PostHeader(props) {
             u/
             {creator}
           </PostInfoLink>
+          <CreatedAt color="inherit" fontWeight="normal">
+            {calculateTime(createdAt)}
+            {' '}
+            ago
+          </CreatedAt>
         </Box>
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
           <JoinButton />

@@ -4,12 +4,12 @@ import {
   fireEvent,
   render, screen,
 } from '@testing-library/react';
-import App from '../../../../../App';
-import Popup from './PopUp';
+// import App from '../../../../../App';
+// import Popup from './PopUp';
+import FormDialog from './PopUp';
 
 it('open form', async () => {
-  // window.history.pushState({}, '', '/Login');
-  render(<Popup />);
+  render(<FormDialog />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
   const cancel = screen.getByTestId('cancel-Btn');
@@ -17,8 +17,8 @@ it('open form', async () => {
 });
 
 it('subreddit empty', async () => {
-  window.history.pushState({}, '', '/Login');
-  render(<App />);
+  // window.history.pushState({}, '', '/');
+  render(<FormDialog />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
   const input = screen.getByTestId('input');
@@ -29,27 +29,27 @@ it('subreddit empty', async () => {
   expect(warning.innerHTML).toEqual('A community name is required');
 });
 it('checkbox select from text', async () => {
-  window.history.pushState({}, '', '/Login');
-  render(<App />);
-  const btn = screen.queryByTestId('btn');
+  // window.history.pushState({}, '', '/');
+  render(<FormDialog />);
+  const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
-  const input = screen.queryByTestId('cont');
-  const check = screen.queryByTestId('my-Check-Box');
+  const input = screen.getByTestId('cont');
+  const check = screen.getByTestId('my-Check-Box');
   fireEvent.click(input);
   expect(check.firstChild).toBeChecked();
 });
 
 it('close form', async () => {
-  render(<Popup />);
-  const btn = screen.queryByTestId('btn');
+  render(<FormDialog />);
+  const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
 
-  const cancel = screen.queryByTestId('cancel-Btn');
+  const cancel = screen.getByTestId('cancel-Btn');
   fireEvent.click(cancel);
   expect(cancel).not.toBeVisible();
 });
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<Popup />).toJSON();
+  const tree = renderer.create(<FormDialog />).toJSON();
   expect(tree).toMatchSnapshot();
 });

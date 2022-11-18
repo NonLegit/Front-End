@@ -8,7 +8,7 @@ exports[`test snapshot 1`] = `
     className="MuiBox-root css-1020iqq"
   >
     <div
-      className="MuiBox-root css-a9fzpl"
+      className="MuiBox-root css-su0a71"
     >
       <div
         className="MuiBox-root css-3jhl7o"
@@ -17,7 +17,7 @@ exports[`test snapshot 1`] = `
           className="MuiBox-root css-92i8si"
         >
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-qtnvr4-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-hph3bd-MuiButtonBase-root-MuiButton-root"
             condition="true"
             data-testid="new-btn"
             disabled={false}
@@ -74,8 +74,8 @@ exports[`test snapshot 1`] = `
           className="MuiBox-root css-bs36a5"
         >
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xih1q7-MuiButtonBase-root-MuiButton-root"
-            condition="false"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-hph3bd-MuiButtonBase-root-MuiButton-root"
+            condition="true"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -99,19 +99,19 @@ exports[`test snapshot 1`] = `
               <svg
                 aria-hidden={true}
                 className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                data-testid="NewReleasesOutlinedIcon"
+                data-testid="NewReleasesIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="m23 12-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-4.51 2.11.26 2.79-2.74.62-1.43 2.41L12 18.82l-2.58 1.11-1.43-2.41-2.74-.62.26-2.8L3.66 12l1.85-2.12-.26-2.78 2.74-.61 1.43-2.41L12 5.18l2.58-1.11 1.43 2.41 2.74.62-.26 2.79L20.34 12l-1.85 2.11zM11 15h2v2h-2zm0-8h2v6h-2z"
+                  d="m23 12-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 5h-2v-2h2v2zm0-4h-2V7h2v6z"
                 />
               </svg>
             </span>
             New
           </button>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xih1q7-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13ckc73-MuiButtonBase-root-MuiButton-root"
             condition="false"
             disabled={false}
             onBlur={[Function]}
@@ -145,10 +145,10 @@ exports[`test snapshot 1`] = `
                 />
               </svg>
             </span>
-            HOT
+            Hot
           </button>
           <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1xih1q7-MuiButtonBase-root-MuiButton-root"
+            className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-13ckc73-MuiButtonBase-root-MuiButton-root"
             condition="false"
             disabled={false}
             onBlur={[Function]}
@@ -182,7 +182,7 @@ exports[`test snapshot 1`] = `
                 />
               </svg>
             </span>
-            TOP
+            Top
           </button>
         </div>
       </div>
@@ -380,7 +380,7 @@ exports[`test snapshot 1`] = `
       </div>
     </div>
     <div
-      className="MuiBox-root css-1al1pk3"
+      className="MuiBox-root css-1kf8tao"
     >
       <div
         className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-f6ib2t-MuiPaper-root-MuiCard-root"
@@ -393,7 +393,7 @@ exports[`test snapshot 1`] = `
           src="https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&height=384&crop=1280:384,smart&s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c"
         />
         <div
-          className="MuiBox-root css-y7thls"
+          className="MuiBox-root css-x4iih0"
         >
           <svg
             aria-hidden={true}
@@ -409,7 +409,7 @@ exports[`test snapshot 1`] = `
           </svg>
         </div>
         <div
-          className="MuiBox-root css-10s5j26"
+          className="MuiBox-root css-fx6skf"
         >
           <div
             className="MuiBox-root css-k008qs"
@@ -423,7 +423,7 @@ exports[`test snapshot 1`] = `
                 src="https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21"
               />
               <div
-                className="MuiBox-root css-1mju1s"
+                className="MuiBox-root css-1kmk8kw"
               >
                 <svg
                   aria-hidden={true}
@@ -645,6 +645,7 @@ exports[`test snapshot 1`] = `
           </button>
           <button
             className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-u3opfe-MuiButtonBase-root-MuiButton-root"
+            data-testid="show-more"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}

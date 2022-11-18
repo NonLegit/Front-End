@@ -19,10 +19,10 @@ export const String = styled('h2')({
   fontWeight: 700,
   textTransform: 'none',
 });
-export const Button = styled('div')(({ backgroundColor }) => ({
+export const Button = styled('div')(({ backgroundColor, color }) => ({
   backgroundColor,
   borderRadius: 20,
-  color: 'rgb(0, 0, 0)',
+  color,
   fontSize: 14,
   padding: '5px 12px 7px',
   fontWeight: 500,
@@ -37,6 +37,7 @@ export const Button = styled('div')(({ backgroundColor }) => ({
   marginBottom: 3,
   height: 30,
   width: 'auto',
+  cursor: 'pointer',
 }));
 export const See = styled('button')({
   padding: '0 12px',
@@ -67,3 +68,6 @@ export const See = styled('button')({
   },
   marginBottom: 16,
 });
+export const Span = styled('span')(({ color }) => ({
+  color,
+}));

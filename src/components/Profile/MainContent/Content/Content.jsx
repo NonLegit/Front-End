@@ -1,7 +1,7 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../../context/UserProvider';
-import { ContentContext } from '../../../../context/ContentProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
+import { ContentContext } from '../../../../contexts/ContentProvider';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox } from '../styles';
@@ -10,8 +10,13 @@ import Posts from './Posts/Posts';
 import Comments from './Comments/Comments';
 
 /**
- * Content for my profile
- * @return {React.Component} - Content
+ * Content component display the comments and posts in the profile page
+ *
+ * @component Content
+ * @property {array} posts -array of posts objects
+ * @property {array} comments -array of comments objects
+ * @property {string} username
+ * @returns {React.Component} Content
  */
 function Content() {
   const [isContent, setIsContent] = useState(false);

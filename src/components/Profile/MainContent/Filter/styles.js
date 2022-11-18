@@ -25,8 +25,10 @@ export const FilterFullBox = styled(Box)(({ theme }) => ({
 export const FilteButton = styled(Button)(({ condition, theme }) => ({
   color: '#878a8c',
   borderRadius: 15,
-  marginRight: 8,
-
+  marginRight: 10,
+  marginLeft: 5,
+  textTransform: 'unset',
+  fontWeight: 700,
   ...((condition === 'true') && {
     color: theme.palette.primary.main,
     backgroundColor: '#f6f7f8',

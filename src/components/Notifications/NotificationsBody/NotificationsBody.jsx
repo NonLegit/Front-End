@@ -14,8 +14,10 @@ const client = axios.create({
   baseURL: 'https://3fa9144e-7687-495e-9c29-266e723973b7.mock.pstmn.io',
 });
 /**
- * Notifications Body
+ * - Notifications Body
  * - fech notifications data from api
+ *  @component
+ *
  * @property  {function} handleClick to set what notifiacation we select and it's type
  * @property {function} handel deleteing when click hide
  * @return {React.Component} - Body of each Notification depandent it's type

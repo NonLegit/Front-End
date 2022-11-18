@@ -32,9 +32,8 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    title, image, createdAt, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
   } = props;
-
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
@@ -65,6 +64,7 @@ function Post(props) {
           flair={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
+          createdAt={createdAt}
         />
         <PostMedia mt={1.5} kind={kind}>
           {/* eslint-disable jsx-a11y/media-has-caption */}

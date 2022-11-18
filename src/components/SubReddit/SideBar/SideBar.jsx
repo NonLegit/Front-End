@@ -7,9 +7,13 @@ import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
 /**
  * SideBar for subreddit
+ * @component
  * @return {React.Component} - SideBar for subreddit
  */
-function SideBar() {
+function SideBar(props) {
+  const {
+    client, disc, topics, Name, primaryTopic, createdAt, moderatoesName,
+  } = props;
   const [moderate, setModerate] = useState(false);
   useEffect(() => {
     setModerate(true);
@@ -19,19 +23,19 @@ function SideBar() {
       {!moderate
       && (
       <CommunityContainer>
-        <About />
+        <About disc={disc} createdAt={createdAt} />
       </CommunityContainer>
       )}
       {moderate && (
       <CommunityContainer>
-        <Moderation />
+        <Moderation topics={topics} disc={disc} client={client} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} />
       </CommunityContainer>
       )}
       <CommunityContainer>
-        <Flirt />
+        <Flirt client={client} />
       </CommunityContainer>
       <CommunityContainer sx={{ padding: '0px 12px' }}>
-        <Moderators />
+        <Moderators moderatoesName={moderatoesName} />
       </CommunityContainer>
       <BackHome sx={{ marginTop: -5 }} />
     </SideBarContainer>

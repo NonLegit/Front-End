@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreatePostInHome CreatePostInHome renders correctly 1`] = `
-[
+Array [
   <div
     className="css-ysyxwd"
   >
@@ -30,7 +30,7 @@ exports[`CreatePostInHome CreatePostInHome renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1855g04-MuiButtonBase-root-MuiIconButton-root"
         disabled={false}
         onBlur={[Function]}
         onContextMenu={[Function]}
@@ -65,7 +65,7 @@ exports[`CreatePostInHome CreatePostInHome renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1855g04-MuiButtonBase-root-MuiIconButton-root"
         disabled={false}
         onBlur={[Function]}
         onContextMenu={[Function]}
