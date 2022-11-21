@@ -55,8 +55,6 @@ function PostHeader(props) {
           </PostInfoLink>
           <CreatedAt color="inherit" fontWeight="normal">
             {calculateTime(createdAt)}
-            {' '}
-            ago
           </CreatedAt>
         </Box>
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">

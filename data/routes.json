@@ -1,6 +1,4 @@
 {
-    "/playbook/active/adham": "/playbookActive",
-    "/playbook/active/:id": "/playbookActive/:id",
     "/subreddits/mine/subscriber":"/subreddits",
     "/users/new":"/new",
     "/users/hot":"/hot",

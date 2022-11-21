@@ -38,95 +38,102 @@ describe(calculateTime, () => {
   const month = day * 30;
   const year = day * 365;
 
-  it('calculateTime works correctly', () => {
-    const today = new Date();
-    const testCases = [{
-      input: today - second,
-      output: '1 second',
-    },
-    {
-      input: today - 2 * second,
-      output: '2 seconds',
-    },
-    {
-      input: today - 60 * second,
-      output: '1 minute',
-    },
-    {
-      input: today - minute,
-      output: '1 minute',
-    },
-    {
-      input: today - 2 * minute,
-      output: '2 minutes',
-    },
-    {
-      input: today - 120 * minute,
-      output: '2 hours',
-    },
-    {
-      input: today - hour,
-      output: '1 hour',
-    },
-    {
-      input: today - 2 * hour,
-      output: '2 hours',
-    },
-    {
-      input: today - 24 * hour,
-      output: '1 day',
-    },
-    {
-      input: today - 1 * day,
-      output: '1 day',
-    },
-    {
-      input: today - 2 * day,
-      output: '2 days',
-    },
-    {
-      input: today - 7 * day,
-      output: '1 week',
-    },
-    {
-      input: today - 14 * day,
-      output: '2 weeks',
-    },
-    {
-      input: today - week,
-      output: '1 week',
-    },
-    {
-      input: today - 2 * week,
-      output: '2 weeks',
-    },
-    {
-      input: today - 30 * day,
-      output: '1 month',
-    },
-    {
-      input: today - month,
-      output: '1 month',
-    },
-    {
-      input: today - 2 * month,
-      output: '2 months',
-    },
-    {
-      input: today - 365 * day,
-      output: '1 year',
-    },
-    {
-      input: today - year,
-      output: '1 year',
-    },
-    {
-      input: today - 2 * year,
-      output: '2 years',
-    },
-    ];
-    testCases.forEach((testCase) => {
-      console.log(testCase.input);
+  const today = new Date();
+  const testCases = [{
+    input: today - second,
+    output: 'a few seconds ago',
+  },
+  {
+    input: today - 2 * second,
+    output: 'a few seconds ago',
+  },
+  {
+    input: today - 60 * second,
+    output: 'a minute ago',
+  },
+  {
+    input: today - minute,
+    output: 'a minute ago',
+  },
+  {
+    input: today - 2 * minute,
+    output: '2 minutes ago',
+  },
+  {
+    input: today - 120 * minute,
+    output: '2 hours ago',
+  },
+  {
+    input: today - hour,
+    output: 'an hour ago',
+  },
+  {
+    input: today - 21 * hour,
+    output: '21 hours ago',
+  },
+  {
+    input: today - 23 * hour,
+    output: 'a day ago',
+  },
+  {
+    input: today - 2 * hour,
+    output: '2 hours ago',
+  },
+  {
+    input: today - 24 * hour,
+    output: 'a day ago',
+  },
+  {
+    input: today - 1 * day,
+    output: 'a day ago',
+  },
+  {
+    input: today - 2 * day,
+    output: '2 days ago',
+  },
+  {
+    input: today - 7 * day,
+    output: '7 days ago',
+  },
+  {
+    input: today - 14 * day,
+    output: '14 days ago',
+  },
+  {
+    input: today - week,
+    output: '7 days ago',
+  },
+  {
+    input: today - 2 * week,
+    output: '14 days ago',
+  },
+  {
+    input: today - 30 * day,
+    output: 'a month ago',
+  },
+  {
+    input: today - month,
+    output: 'a month ago',
+  },
+  {
+    input: today - 2 * month,
+    output: '2 months ago',
+  },
+  {
+    input: today - 365 * day,
+    output: 'a year ago',
+  },
+  {
+    input: today - year,
+    output: 'a year ago',
+  },
+  {
+    input: today - 2 * year,
+    output: '2 years ago',
+  },
+  ];
+  testCases.forEach((testCase, index) => {
+    it(`Test Case #${index} : calculateTime works correctly with input = ${new Date(testCase.input).toISOString()}`, () => {
       expect(calculateTime(new Date(testCase.input).toISOString())).toBe(testCase.output);
     });
   });
