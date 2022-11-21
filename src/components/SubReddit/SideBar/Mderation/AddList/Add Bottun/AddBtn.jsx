@@ -1,5 +1,6 @@
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import {
   Action,
   Add, BOX, Count, Input, InputFooter, Text,
@@ -8,48 +9,54 @@ import {
 const { ClickAwayListener, Box } = require('@mui/material');
 
 function AddBtn(props) {
+  const { sendData } = props;
   const {
     handleClickAway1, falseShaw, show, tempString, removeItem, tags, handleChange, handleKeyDown, trueShawList, trueShaw,
     setTemp, setTag, count,
   } = props;
   return (
     <ClickAwayListener onClickAway={handleClickAway1}>
-      <Add data-testid="add" condition={show.toString()} onClick={() => { falseShaw(); }} id="add">
+      <Add data-testid="add" condition={show?.toString()} onClick={() => { falseShaw(); }} id="add">
         <>
           <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-            {tempString.length > 0 && (tempString.slice(0, 4)).map((tag, index) => (
-              <Text key={`${index + 0}`} condition={show.toString()}>
+            {tempString?.length === 0
+              && show && (
+              <Text condition={show?.toString()} sx={{ alignItems: 'center' }}>
+                <AddOutlinedIcon color="primary" />
+                Add Subject
+              </Text>
+            )}
+            {tempString?.length > 0 && (tempString.slice(0, 4))?.map((tag, index) => (
+              <Text key={`${index + 0}`} condition={show?.toString()}>
                 {tag}
                 <ClearOutlinedIcon
                   fontSize="small"
-                  onClick={(e) => {
+                  onClick={() => {
                     removeItem(index);
-                    console.log(e.target.parentElement.textContent);
                   }}
                 />
               </Text>
             )) }
-            { !show && tags.length > 0
-              && (tempString.slice(4)).map((temp, index) => (
-                <Text key={`${index + 0}`} condition={show.toString()}>
+            { !show && tags?.length > 0
+              && (tempString.slice(4))?.map((temp, index) => (
+                <Text key={`${index + 0}`} condition={show?.toString()}>
                   {temp}
                   <ClearOutlinedIcon
                     fontSize="small"
-                    onClick={(e) => {
+                    onClick={() => {
                       removeItem(index + 4);
-                      console.log(typeof (e.target.parentElement.textContent));
                     }}
                     sx={{ color: 'gray' }}
                   />
                 </Text>
               )) }
-            {show && tempString.length > 4 && (
+            {show && tempString?.length > 4 && (
             <BOX>
               +
               {tempString.length - 4}
             </BOX>
             )}
-            {show && <ModeEditOutlineOutlinedIcon />}
+            {show && tempString?.length > 0 && <ModeEditOutlineOutlinedIcon />}
           </Box>
           {!show
             && (
@@ -73,7 +80,7 @@ function AddBtn(props) {
           <Count
             condition={(count === 25).toString()}
           >
-            {tempString.length}
+            {tempString?.length}
             /
             25
           </Count>
@@ -84,6 +91,7 @@ function AddBtn(props) {
                 trueShaw();
                 setTemp(tags);
                 setTemp(tags);
+                sendData();
               }}
               id="cancel"
               color="red"
@@ -98,6 +106,7 @@ function AddBtn(props) {
                 trueShaw();
                 setTag(tempString);
                 setTemp(tempString);
+                sendData();
               }}
             >
               Save

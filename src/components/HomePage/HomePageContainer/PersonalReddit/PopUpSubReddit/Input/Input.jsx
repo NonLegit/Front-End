@@ -2,7 +2,11 @@ import {
   FilledInput, FormControl, InputAdornment, InputLabel,
 } from '@mui/material';
 import { Count } from './style';
-
+/**
+ * @component
+ * @param {object} props
+ * @return {React.Component} -input for pop up form
+ */
 function Input(props) {
   const {
     subRedditName, handleChange, check, count, checked, errorMassage,

@@ -6,13 +6,15 @@ import {
 } from './style';
 /**
  * Add discreption for the community
+ * @component
  * @return {React.Component} - Add discreption
  */
-function AddSector() {
+function AddSector(props) {
+  const { disc2, Name, client } = props;
   const [show, setShow] = useState(true);
   const [count, setCount] = useState(500);
   const [tempString, setTempString] = useState('');
-  const [disc, setDisc] = useState('Ahmed');
+  const [disc, setDisc] = useState(disc2);
   const [haveDisc, setHaveDisc] = useState(true);
   // return to defult mode when click away
   const handleClickAway1 = () => {
@@ -22,22 +24,28 @@ function AddSector() {
     setCount(500 - disc.length);
   };
   useEffect(() => {
-    setTempString(disc);
-    setCount(500 - disc.length);
-  }, []);
+    setTempString(disc2);
+    setDisc(disc2);
+    const a = disc2?.length;
+    setCount(500 - a);
+  }, [disc2]);
   // count number of char in input feild to make sure not exeed the limit
   const handleChange = (event) => {
     if (event.target.value.length < 501) {
       setTempString(event.target.value);
-      // setData(event.target.value);
       setCount(500 - event.target.value.length);
     }
   };
+  const sendData = () => {
+    client.patch(`subreddit/${Name}`, { description: disc }); // fetch api
+  };
+  const c = disc?.length;
   return (
     <AboutContent>
       <ClickAwayListener onClickAway={handleClickAway1}>
         <Add>
-          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - disc.length); }} sx={{ display: 'flex' }}>
+
+          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex' }}>
             {show && !haveDisc && <Text> Add description</Text>}
             {haveDisc && show && (
             <>
@@ -78,7 +86,7 @@ function AddSector() {
                     <Action
                       onClick={() => {
                         setShow(true); setDisc(''); setTempString(''); setCount(500 - disc.length);
-                        setHaveDisc(false);
+                        setHaveDisc(false); sendData();
                       }}
                       sx={{ marginRight: '8px' }}
                       color="red"
@@ -90,11 +98,12 @@ function AddSector() {
                       onClick={() => {
                         setShow(true); setDisc(tempString.trim()); setCount(500 - disc.length);
                         if (disc === '' || disc.length === 0) { setHaveDisc(false); } else {
-                          setHaveDisc(true);
+                          setHaveDisc(true); sendData();
                         }
                       }}
                       color="#0079d3"
                       id="save"
+
                     >
                       Save
 

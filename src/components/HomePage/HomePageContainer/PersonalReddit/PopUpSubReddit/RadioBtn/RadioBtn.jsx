@@ -7,7 +7,11 @@ import HttpsIcon from '@mui/icons-material/Https';
 import {
   Cont, ContUp, Disc, Name, SelectHeader,
 } from './style';
-
+/**
+ *@component
+ * @param {object} props
+ * @return {React.Component} -radio button in  pop up form
+ */
 function RadioBtn(props) {
   const { myType } = props;
   return (

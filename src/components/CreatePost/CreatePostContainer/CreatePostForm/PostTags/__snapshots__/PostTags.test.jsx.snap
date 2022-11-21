@@ -2,7 +2,7 @@
 
 exports[`PostTags PostTags renders correctly 1`] = `
 <div
-  className="MuiBox-root css-1e60fqd"
+  className="MuiBox-root css-1iurqx8"
 >
   <button
     className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ma98a3-MuiButtonBase-root-MuiButton-root"

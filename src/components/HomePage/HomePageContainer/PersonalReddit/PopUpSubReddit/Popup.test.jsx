@@ -4,12 +4,12 @@ import {
   fireEvent,
   render, screen,
 } from '@testing-library/react';
-import App from '../../../../../App';
-import Popup from './PopUp';
+// import App from '../../../../../App';
+// import Popup from './PopUp';
+import FormDialog from './PopUp';
 
 it('open form', async () => {
-  // window.history.pushState({}, '', '/Login');
-  render(<Popup />);
+  render(<FormDialog />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
   const cancel = screen.getByTestId('cancel-Btn');
@@ -17,8 +17,8 @@ it('open form', async () => {
 });
 
 it('subreddit empty', async () => {
-  window.history.pushState({}, '', '/Login');
-  render(<App />);
+  // window.history.pushState({}, '', '/');
+  render(<FormDialog />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
   const input = screen.getByTestId('input');
@@ -29,8 +29,8 @@ it('subreddit empty', async () => {
   expect(warning.innerHTML).toEqual('A community name is required');
 });
 it('checkbox select from text', async () => {
-  window.history.pushState({}, '', '/Login');
-  render(<App />);
+  // window.history.pushState({}, '', '/');
+  render(<FormDialog />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
   const input = screen.getByTestId('cont');
@@ -40,7 +40,7 @@ it('checkbox select from text', async () => {
 });
 
 it('close form', async () => {
-  render(<Popup />);
+  render(<FormDialog />);
   const btn = screen.getByTestId('btn');
   fireEvent.click(btn);
 
@@ -50,6 +50,6 @@ it('close form', async () => {
 });
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<Popup />).toJSON();
+  const tree = renderer.create(<FormDialog />).toJSON();
   expect(tree).toMatchSnapshot();
 });

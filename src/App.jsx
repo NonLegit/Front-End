@@ -50,8 +50,30 @@ function App() {
               path="/register"
               element={
                 <SignUpPage />
-          }
+}
             />
+            <Route
+              path="/user/:username/"
+              element={
+                <Profile />
+          }
+            >
+              <Route
+                path=":subTitle"
+                element={
+                  <Profile />
+          }
+              >
+                <Route
+                  path=":sort"
+                  element={
+                    <Profile />
+          }
+                />
+
+              </Route>
+            </Route>
+
             <Route
               path="/login"
               element={
@@ -111,7 +133,14 @@ function App() {
               element={
                 <SubReddit />
           }
-            />
+            >
+              <Route
+                path=":postClass"
+                element={
+                  <SubReddit />
+          }
+              />
+            </Route>
           </Routes>
         </Router>
       </PostTypeContextProvider>

@@ -13,48 +13,7 @@ Array [
   </div>,
   <div
     className="MuiBox-root css-38zrbw"
-  >
-    <div
-      className="MuiBox-root css-jhk7y7"
-    >
-      <div
-        className="css-p1332h"
-      >
-        <span>
-          Look what I made!
-        </span>
-      </div>
-    </div>
-    <div
-      className="MuiBox-root css-jhk7y7"
-    >
-      <div
-        className="css-5h24th"
-      >
-        <span>
-          Look what!
-        </span>
-      </div>
-    </div>
-    <div
-      className="MuiBox-root css-jhk7y7"
-    >
-      <div
-        className="css-569k9y"
-      >
-        I made!
-      </div>
-    </div>
-    <div
-      className="MuiBox-root css-jhk7y7"
-    >
-      <div
-        className="css-1k0cz42"
-      >
-        Look 
-      </div>
-    </div>
-  </div>,
+  />,
   <button
     className="css-1qmeimn"
   >

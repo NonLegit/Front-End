@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Profile/MainContent/Posts/PostFooter/PostFooter.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Profile/MainContent/Posts/PostFooter/PostFooter.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import ShortcutOutlinedIcon from '@mui/icons-material/ShortcutOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
+import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import { useEffect, useState } from 'react';
+import { ClickAwayListener, Divider } from '@mui/material';
+
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import UnfoldLessOutlinedIcon from '@mui/icons-material/UnfoldLessOutlined';
+import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {
+  ElementBox, FooterBox, FooterText,
+} from './styles';
+import PostFooterList from './PostFooterList/PostFooterList';
+import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListResponsive';
+
+/** Footer of the post that contain all icons
+ * @return {React.Component} - PostFooter
+ * @param {function} handleExpand - pass the event to the parent to show the paragraph of the post
+ * @param {state} expand - pass a state to the parent to change the icon
+ * @param {object} entity - contains all info of the post
+ */
+function PostFooter(props) {
+  const {
+    numComments,
+    approved,
+    removed,
+    spam,
+    handleExpand,
+    expand,
+    voted,
+    postedByOthers,
+    saved,
+    hidden,
+  } = props;
+  const [isHidden, setIsHidden] = useState(hidden);
+  const [isSaved, setIsSaved] = useState(saved);
+  const [showList, setShowList] = useState(false);
+  const [showList2, setShowList2] = useState(false);
+  // handle disable the list when click away
+  const handleClick = () => {
+    setShowList((prev) => !prev);
+  };
+
+  const handleClickAway = () => {
+    setShowList(false);
+  };
+
+  // handle disable the list when click away
+  const handleClick2 = () => {
+    setShowList2((prev) => !prev);
+  };
+
+  // const handleClickAway2 = () => {
+  //   setShowList2(false);
+  // };
+
+  // switch icon to hidden post and vice verse
+  const handleClickHide = () => {
+    setIsHidden((prev) => !prev);
+  };
+
+  // switch icon to saved post and vice versa
+  const handleClickSave = () => {
+    setIsSaved((prev) => !prev);
+  };
+
+  useEffect(() => {
+    // console.log(type);
+    setIsSaved(saved);
+    setIsHidden(hidden);
+  }, [saved, hidden]);
+
+  const moderator = [
+    {
+      id: 1, text: 'Approved', condition: approved, icon: &lt;CheckCircleOutlineOutlinedIcon />,
+    },
+    {
+      id: 2, text: 'Removed', condition: removed, icon: &lt;BlockOutlinedIcon />,
+    },
+    {
+      id: 3, text: 'Spam', condition: spam, icon: &lt;CancelPresentationOutlinedIcon />,
+    },
+    {
+      id: 4, text: '', condition: false, icon: &lt;AdminPanelSettingsOutlinedIcon />,
+    },
+  ];
+  const publisher = [
+    {
+      id: 1, text: 'Edit Post', icon: &lt;ModeEditOutlinedIcon />,
+    },
+    isSaved ? {
+      id: 2, text: 'Unsave', icon: &lt;BookmarksOutlinedIcon />, func: handleClickSave,
+    } : {
+      id: 2, text: 'Save', icon: &lt;BookmarkBorderOutlinedIcon />, func: handleClickSave,
+    },
+    isHidden ? {
+      id: 3, text: 'Unhide', icon: &lt;VisibilityOffIcon />, func: handleClickHide,
+    } : {
+      id: 3, text: 'Hide', icon: &lt;VisibilityOffOutlinedIcon />, func: handleClickHide,
+    },
+  ];
+
+  return (
+    &lt;FooterBox>
+      &lt;ElementBox>
+        {expand ? &lt;UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
+          : &lt;UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
+      &lt;/ElementBox>
+      &lt;Divider orientation="vertical" variant="middle" flexItem />
+      &lt;ElementBox>
+        &lt;ChatBubbleOutlineOutlinedIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>{numComments}&lt;/FooterText>
+      &lt;/ElementBox>
+      &lt;ElementBox>
+        &lt;ShortcutOutlinedIcon />
+        &lt;FooterText variant="caption" responsiveshare={true.toString()}>Share&lt;/FooterText>
+      &lt;/ElementBox>
+      {(!voted) &amp;&amp; moderator.map((entity) => (
+        &lt;ElementBox
+          key={entity.id}
+          approved={(entity.condition &amp;&amp; entity.text === 'Approved')?.toString()}
+          spam={(entity.condition &amp;&amp; (entity.text === 'Spam' || entity.text === 'Removed'))?.toString()}
+        >
+          {entity.icon}
+          &lt;FooterText variant="caption" condition={true.toString()}>{entity.text}&lt;/FooterText>
+        &lt;/ElementBox>
+      ))}
+      {(!voted) &amp;&amp; (
+      &lt;ElementBox condition2={true.toString()}>
+        &lt;SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
+        &lt;FooterText variant="caption">Insights&lt;/FooterText>
+      &lt;/ElementBox>
+      )}
+
+      {(voted) &amp;&amp; publisher.map((entity) => (
+        &lt;ElementBox
+          key={entity.id}
+          onClick={() => { entity.func(); }}
+          data-testid={(entity.id === 3) &amp;&amp; 'hidden'}
+          condition={true.toString()}
+        >
+          {entity.icon}
+          &lt;FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 3) &amp;&amp; 'text-hide'}>{entity.text}&lt;/FooterText>
+        &lt;/ElementBox>
+      ))}
+
+      {postedByOthers ? (
+        &lt;ElementBox condition={true.toString()}>
+          &lt;FlagOutlinedIcon />
+          &lt;FooterText variant="caption" condition={true.toString()}>Report&lt;/FooterText>
+        &lt;/ElementBox>
+      ) : (
+        &lt;ClickAwayListener onClickAway={handleClickAway}>
+          &lt;ElementBox>
+            &lt;MoreHorizOutlinedIcon onClick={handleClick} />
+            {showList &amp;&amp; (
+              &lt;PostFooterList />
+            )}
+          &lt;/ElementBox>
+        &lt;/ClickAwayListener>
+      )}
+
+      &lt;ElementBox show={true.toString()}>
+        &lt;MoreHorizOutlinedIcon onClick={handleClick2} />
+        {showList2 &amp;&amp; (
+          &lt;PostFooterListResponsive />
+        )}
+      &lt;/ElementBox>
+
+    &lt;/FooterBox>
+  );
+}
+
+export default PostFooter;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackToTop.html">BackToTop</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="global.html#Post">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AddList">AddList</a></li><li><a href="global.html#AddSector">AddSector</a></li><li><a href="global.html#BackHomeBottun">BackHomeBottun</a></li><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Flirt">Flirt</a></li><li><a href="global.html#FormDialog">FormDialog</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Moderation">Moderation</a></li><li><a href="global.html#Moderators">Moderators</a></li><li><a href="global.html#Notifications">Notifications</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#SignUpUsername">SignUpUsername</a></li><li><a href="global.html#ThirdParty">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 21:37:01 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

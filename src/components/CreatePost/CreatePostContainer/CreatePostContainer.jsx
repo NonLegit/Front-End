@@ -24,9 +24,7 @@ function CreatePostContainer() {
         </MainContent>
         {match
         && (
-        <SideBar>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed modi officiis ratione, sapiente maxime nihil, labore recusandae totam quisquam ipsa dolorum omnis rem soluta aperiam vero eum? Itaque, ipsum deleniti.
-        </SideBar>
+        <SideBar />
         )}
       </MainContainer>
     </OuterContainer>
