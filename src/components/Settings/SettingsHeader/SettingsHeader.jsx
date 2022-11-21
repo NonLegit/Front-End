@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  HeaderContiner, TabsContiner, Tab, TabText,
-} from './style';
+  HeaderContiner, TabsContiner, Tab, TabText, Nav,
+} from './styles';
 
 function SettingsHeader() {
   const [navigate, setNavigate] = useState('/settings');
@@ -11,11 +11,11 @@ function SettingsHeader() {
     setNavigate(window.location.pathname);
   }, [history]);
   return (
-    <>
-      <header>
-        <HeaderContiner>User settings</HeaderContiner>
-      </header>
-      <nav>
+    <section>
+
+      <HeaderContiner>User settings</HeaderContiner>
+
+      <Nav>
         <TabsContiner>
           <Tab
             active={navigate === '/settings' || navigate === '/settings/account'}
@@ -34,12 +34,9 @@ function SettingsHeader() {
           <Tab to="/settings/feed" active={window.location.pathname === '/settings/feed'}>
             <TabText> Feed Settings</TabText>
           </Tab>
-          <Tab to="emails" active={window.location.pathname === '/settings/emails'}>
-            <TabText> Email</TabText>
-          </Tab>
         </TabsContiner>
-      </nav>
-    </>
+      </Nav>
+    </section>
   );
 }
 

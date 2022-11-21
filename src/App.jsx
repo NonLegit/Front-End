@@ -4,7 +4,6 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
 import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPrivacy';
 import SettingsFeed from './components/Settings/SettingsFeed/SettingsFeed';
-import SettingsEmails from './components/Settings/SettingsEmails/SettingsEmails';
 import SettingsAccount from './components/Settings/SettingsAccount/SettingsAccount';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar/Navbar';
@@ -177,12 +176,6 @@ function App() {
                 path="feed"
                 element={
                   <SettingsFeed />
-          }
-              />
-              <Route
-                path="emails"
-                element={
-                  <SettingsEmails />
           }
               />
             </Route>
