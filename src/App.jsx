@@ -153,7 +153,12 @@ function App() {
                 <Settings />
           }
             >
-
+              <Route
+                path=""
+                element={
+                  <SettingsAccount />
+          }
+              />
               <Route
                 path="account"
                 element={

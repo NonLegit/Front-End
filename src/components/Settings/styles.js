@@ -30,7 +30,6 @@ export const AntSwitch = styled('div')(() => ({
   display: 'flex',
   justifyContent: ' flex-end',
   flexGrow: 1,
-
 }));
 export const Header = styled('h2')(() => ({
   padding: '32px 0px',
@@ -53,6 +52,7 @@ export const SettingsPageConranier = styled('div')(() => ({
   display: 'flex',
   maxWidth: '1200px',
   margin: '0 auto',
+  marginBottom: '32px',
 }));
 export const Text = styled('div')(() => ({
   marginBottom: 32,
@@ -61,4 +61,5 @@ export const SettingsContiner = styled('section')(() => ({
   backgroundColor: '#fff',
   minHeight: 'calc( 100vh - 48px )',
   paddingLeft: '28px',
+  overflow: 'auto',
 }));

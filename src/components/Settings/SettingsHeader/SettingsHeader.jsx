@@ -21,7 +21,7 @@ function SettingsHeader() {
             active={navigate === '/settings' || navigate === '/settings/account'}
             to="/settings/account"
           >
-            <TabText>Activity</TabText>
+            <TabText>Account</TabText>
           </Tab>
           <Tab to="/settings/profile" active={navigate === '/settings/profile'}>
             <TabText>

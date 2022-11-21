@@ -1,33 +1,22 @@
-import { styled } from '@mui/system';
+import { Box, styled } from '@mui/system';
 
-export const DisplayName = styled('input')(() => ({
-  height: '48px',
-  marginBottom: '8px',
-  borderRadius: '4px',
-  padding: '12px 24px 4px 12px',
-  width: '100%',
-  border: '1px solid #EDEFF1',
-  marginTop: '12px',
+export const ProfilePic = styled('img')(() => ({
+  outline: '4px solid white',
+  borderRadius: '3px 3px 0px 0px ',
+  marginTop: 20,
+  objectFit: 'cover',
 }));
-export const About = styled('textarea')(() => ({
-  width: '100%',
-  padding: '8px',
-  border: '1px solid #EDEFF1',
-  marginTop: '12px',
-}));
-export const AddSocialLinks = styled('div')(() => ({
-  marginTop: '12px',
-  fontSize: '12px',
-  fontWeight: '700',
-  lineHeight: '16px',
-  alignItems: 'center',
-  backgroundColor: '#EDEFF1',
-  borderRadius: '9999px',
-  color: '#1c1c1c',
-  cursor: 'pointer',
+export const AddPhoto = styled(Box)(() => ({
+  backgroundColor: 'white',
+  borderRadius: '50%',
+  width: 36,
+  height: 36,
   display: 'flex',
-  height: '47px',
-  marginRight: '8px',
-  padding: ' 10px 12px',
-  width: 'fit-content',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'absolute',
+  zIndex: '50',
+
+  cursor: 'pointer',
+
 }));
