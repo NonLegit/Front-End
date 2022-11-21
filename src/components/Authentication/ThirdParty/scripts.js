@@ -1,23 +1,18 @@
-import axios from 'axios';
+import { redirectHome } from '../../../scripts';
+import axios from '../../../services/instance';
+import { redditCookie } from '../scripts';
 /**
  * @param {JsonResponse} googleResponse
  * @return If Valid Token Then user is Logged in and redirected to the homepage
  */
-export const responseGoogleSuccess = (googleResponse) => {
+export const responseGoogleSuccess = (googleResponse, setCookies) => {
   console.log('Google', googleResponse);
-  axios.post(
-    'https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/google/1',
-    {
-      // ==>userName Attribute[Check with Back]
-      tokenId: googleResponse.tokenId,
-    },
-  ).then((response) => {
+  axios.post('/users/google', { tokenId: googleResponse.tokenId }).then((response) => {
     if (response.status === 200 || response.status === 201) {
       // success
-      // ==>response.data.token
-      // ==>response.data.expiresin
-      // ==>Cokies Point
-      // window.location.href = './';
+      // Add Reddit Cookie
+      redditCookie(setCookies);
+      redirectHome(1000);
     }
   }).catch((error) => {
     if (error.response.status === 400) {
@@ -37,21 +32,15 @@ export const responseGoogleFail = (googleResponse) => {
  * @param {JsonResponse} facebookResponse
  * @return If Valid Token Then user is Logged in and redirected to the homepage
  */
-export const responseFacebook = (facebookResponse) => {
+// eslint-disable-next-line no-unused-vars
+export const responseFacebook = (facebookResponse, setCookies) => {
   console.log('FaceBook', facebookResponse);
-  axios.post(
-    'https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/facebook/1',
-    {
-      // ==>userName Attribute[Check with Back]
-      access_Token: facebookResponse.accessToken,
-    },
-  ).then((response) => {
+  axios.post('/users/facebook', { access_token: facebookResponse.accessToken }).then((response) => {
     if (response.status === 200 || response.status === 201) {
       // success
-      // ==>response.data.token
-      // ==>response.data.expiresin
-      // ==>Cokies Point
-      // window.location.href = './';
+      // Add Reddit Cookie
+      redditCookie(setCookies);
+      redirectHome(1000);
     }
   }).catch((error) => {
     if (error.response.status === 400) {
