@@ -18,7 +18,7 @@ import Google from '../../../assets/images/google.png';
 import Facebook from '../../../assets/images/facebook.png';
 
 // environment variables
-const { REACT_APP_GOOGLECLIENTID, REACT_APP_FACEBOOKCLIENTID, REACT_APP_ENV } = process.env;
+const { REACT_APP_GOOGLECLIENTID, REACT_APP_FACEBOOKCLIENTID } = process.env;
 
 /**
  * Third Party [Google and Facebook] Components
@@ -45,11 +45,6 @@ function ThirdParty() {
 
   return (
     <ThirdPartyContainer>
-      <h1>
-        hii
-        {REACT_APP_ENV}
-        {REACT_APP_GOOGLECLIENTID}
-      </h1>
       <GoogleLogin
         clientId={googleClientId}
         render={(renderProps) => (
