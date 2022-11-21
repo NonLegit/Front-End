@@ -21,6 +21,7 @@ const renderSwitch = (
   handleClick2,
   handleClickAway2,
   sort,
+  allTime,
 ) => {
   if (newCondition) {
     return (
@@ -44,7 +45,7 @@ const renderSwitch = (
         onClick={() => { handleClickList(); }}
         endIcon={<KeyboardArrowDownOutlinedIcon />}
       >
-        HOT
+        Hot
       </FilteButton>
     );
   }
@@ -58,21 +59,21 @@ const renderSwitch = (
           onClick={() => { handleClickList(); }}
           endIcon={<KeyboardArrowDownOutlinedIcon />}
         >
-          TOP
+          Top
         </FilteButton>
         <FilteButton
           endIcon={<KeyboardArrowDownOutlinedIcon />}
           condition="true"
           onClick={() => { handleClickList2(); }}
         >
-          All Time
+          {allTime}
           {showList2 && (
             <ClickAwayListener onClickAway={handleClickAway2}>
               <SelectBox>
                 <SelectItem
                   color="inherit"
                   onClick={() => { handleClick2(); }}
-                  condition={sort.includes('day').toString()}
+                  condition={(sort === 'sort=top&t=day').toString()}
                 >
                   Today
 
@@ -89,6 +90,14 @@ const renderSwitch = (
   );
 };
 
+/**
+ * Filter the posts by type for small screens
+ *
+ * @component FilterSmall
+ * @property {string} subTitle -subTitle of page the user is currently in
+ * @returns {React.Component} FilterSmall
+ */
+
 function FilterSmall(props) {
   const { subTitle2 } = props;
   const { sort, subTitle } = useParams();
@@ -100,11 +109,14 @@ function FilterSmall(props) {
   const newCondition = !hotCondition && !topCondition;
   const [showList, setShowList] = useState(false);
   const [showList2, setShowList2] = useState(false);
+  const [allTime, setAllTime] = useState('All Time');
 
   const handleClick = (subPage) => {
+    setAllTime('All Time');
     navigate(`${subTitle2}sort=${subPage}`);
   };
   const handleClick2 = () => {
+    setAllTime('Today');
     navigate(`${subTitle2}sort=top&t=day`);
   };
 
@@ -151,6 +163,7 @@ function FilterSmall(props) {
         handleClick2,
         handleClickAway2,
         sort,
+        allTime,
       )}
 
       {showList && (

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test snapshot 1`] = `
+exports[`Email snapshot 1`] = `
 <form
   className="css-1b9eai0"
   data-testid="SignUpEmail-test"
@@ -8,24 +8,8 @@ exports[`test snapshot 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
-    clr="#978A8C"
+    className="MuiFormControl-root MuiTextField-root css-3w7c82-MuiFormControl-root-MuiTextField-root"
   >
-    <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
-      data-shrink={false}
-      htmlFor=":r0:"
-      id=":r0:-label"
-    >
-      Email
-      <span
-        aria-hidden={true}
-        className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
-      >
-         
-        *
-      </span>
-    </label>
     <div
       className="MuiInputBase-root MuiFilledInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1pw81iq-MuiInputBase-root-MuiFilledInput-root"
       onClick={[Function]}
@@ -43,6 +27,7 @@ exports[`test snapshot 1`] = `
         onFocus={[Function]}
         required={true}
         type="text"
+        value=""
       />
     </div>
   </div>

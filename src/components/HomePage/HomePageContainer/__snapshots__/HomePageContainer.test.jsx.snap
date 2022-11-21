@@ -3,7 +3,7 @@
 exports[`HomePageContainer HomePageContainer renders correctly 1`] = `
 Array [
   <div
-    className="MuiBox-root css-101ole"
+    className="MuiBox-root css-pwymh4"
   >
     <div
       className="css-1yelhn"
@@ -40,7 +40,7 @@ Array [
             onClick={[Function]}
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
+              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1855g04-MuiButtonBase-root-MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}
@@ -75,7 +75,7 @@ Array [
             onClick={[Function]}
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-ibn9bp-MuiButtonBase-root-MuiIconButton-root"
+              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-1855g04-MuiButtonBase-root-MuiIconButton-root"
               disabled={false}
               onBlur={[Function]}
               onContextMenu={[Function]}

@@ -4,6 +4,8 @@ import { ContinerNotifications } from '../components/Notifications/Notifications
 
 /**
  * Notifications page
+ *  @component
+ *
  * @return {React.Component} - All Notifications page sections
  */
 

@@ -28,29 +28,27 @@
         <article>
             <pre class="prettyprint source linenums"><code>import * as React from 'react';
 import {
-  Box, Checkbox, Dialog, FilledInput, FormControl, FormControlLabel,
-  FormGroup,
-  InputAdornment, InputLabel, Radio, RadioGroup, Stack,
+  Box, Checkbox, Dialog, FormControlLabel, FormGroup, Stack,
 } from '@mui/material';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import IconButton from '@mui/material/IconButton';
-import PersonIcon from '@mui/icons-material/Person';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import HttpsIcon from '@mui/icons-material/Https';
-import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import {
-  Actions, Adult, AdultContent,
-  Container, Count, DialogTitle, Disc, Name, NSFWs,
-  SecConatiner, SelectHeader, Warning, Btn, BOX, Cont, ContUp, StyledTooltip,
+  Actions, Adult, AdultContent, Container, NSFWs, Warning, Btn,
 } from './style';
 import { CreatPost, CustomLink } from '../../../../SubReddit/SideBar/AboutSubReddit/style';
 import RedditButton from '../../../../RedditButton/RedditButton';
+import RadioBtn from './RadioBtn/RadioBtn';
+import Header from './Header/Header';
+import Input from './Input/Input';
+
+const Form = axios.create({
+  baseURL: 'https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io',
+});
 /**
  * Pop up Creat Cummunity Form
+ * @component
  * @return {React.Component} - Popup Form
  */
-function FormDialog() {
+function FormDialog({ display }) {
   const [open, setOpen] = React.useState(false);
   const [subRedditName, setsubRedditName] = React.useState('');
   const [count, setcount] = React.useState(21);
@@ -96,7 +94,7 @@ function FormDialog() {
     // axios.get(`http://localhost:8000/subreddit/${{ subRedditName }}`, {
     //   subredditName: subRedditName,
     // })
-    axios.get(`https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/${subRedditName}/200`, {
+    Form.get(`/subreddits/${subRedditName}/401`, {
     })
       .then((response) => {
         if (response.status === 200) {
@@ -110,6 +108,10 @@ function FormDialog() {
   const check18 = () => {
     const ele = document.getElementById('myCheck');
     ele.click();
+  };
+  // to set the type which selected in radio button
+  const myType = (t) => {
+    setType(t);
   };
   /**
    * make post action
@@ -125,17 +127,17 @@ function FormDialog() {
       //   type,
       //   NSFW: adult,
       // })
-      axios.post('https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io/subreddits/200', {})
+      Form.post('/subreddits/200', {})
         .then((response) => {
           if (response.status === 200) {
-            document.location.href = 'http://localhost:3000';
+            document.location.href = 'https://localhost:3000/';
           }
         });
     }
   };
   return (
     &lt;>
-      &lt;CustomLink>
+      &lt;CustomLink sx={{ display }}>
         &lt;RedditButton
           variant="outlined"
           padding="4px"
@@ -144,6 +146,7 @@ function FormDialog() {
           sx={{ mt: 1.8 }}
           onClick={handleClickOpen}
           data-testid="btn"
+          id="popup-form-button"
         >
           create community
         &lt;/RedditButton>
@@ -151,92 +154,9 @@ function FormDialog() {
       &lt;Container>
         &lt;Dialog open={open} onClose={handleClose}>
           &lt;Box sx={{ p: 2 }}>
-            &lt;BOX>
-              &lt;DialogTitle>Create a community&lt;/DialogTitle>
-              &lt;CloseIcon sx={{ cursor: 'pointer' }} onClick={handleClose} />
-            &lt;/BOX>
-            &lt;SecConatiner>
-              &lt;Name>Name&lt;/Name>
-              &lt;Disc sx={{ height: 'fit-content', alignItems: 'center' }}>
-                Community names including capitalization cannot be changed.
-                &lt;StyledTooltip
-                  title='Names cannot have spaces (e.g., "r/bookclub" not "r/book club"), must be between 3-21 characters, and underscores ("_") are the only special characters allowed. Avoid using solely trademarked names (e.g., "r/FansOfAcme" not "r/Acme").'
-                >
-                  &lt;IconButton>
-                    &lt;ErrorOutlineIcon sx={{ transform: 'rotate(180deg)', fontSize: 'small', color: 'gray' }} />
-                  &lt;/IconButton>
-                &lt;/StyledTooltip>
-              &lt;/Disc>
-            &lt;/SecConatiner>
-            &lt;FormControl fullWidth sx={{ height: 28 }}>
-              &lt;InputLabel htmlFor="name" />
-              &lt;FilledInput
-                sx={{
-                  '&amp;: after': { borderBottom: '2px solid #040404de', padding: 0 },
-                  height: 28,
-                  '&amp; .css-1vbc0rj-MuiInputBase-input-MuiFilledInput-input': { padding: 0 },
-                }}
-                onInput={(e) => {
-                  // eslint-disable-next-line radix
-                  e.target.value = e.target.value.slice(0, 21);
-                }}
-                id="name"
-                data-testid="input"
-                value={subRedditName}
-                onChange={handleChange}
-                startAdornment={&lt;InputAdornment position="start">r/&lt;/InputAdornment>}
-                maxLength={21}
-                onBlur={() => check()}
-              />
-            &lt;/FormControl>
-            &lt;Count
-              condition={(count === 0).toString()}
-            >
-              {count}
-              {' '}
-              Characters remaining
-            &lt;/Count>
-            &lt;Count data-testid="warning" condition="true">{checked}&lt;/Count>
-            &lt;Count condition="true">{errorMassage}&lt;/Count>
-            &lt;SelectHeader> Community type&lt;/SelectHeader>
-            &lt;FormControl sx={{ marginBottom: '30px' }}>
-              &lt;RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                name="radio-buttons-group"
-                id="type"
-                defaultValue="Public"
-                onChange={(e) => setType(e.target.value)}
-              >
-                &lt;ContUp condition2="true">
-                  &lt;Cont>
-                    &lt;FormControlLabel value="Public" control={&lt;Radio />} sx={{ margin: 0 }} />
-                    &lt;PersonIcon sx={{ color: 'gray' }} />
-                    &lt;Name sx={{ margin: 1 }}>Public&lt;/Name>
-                  &lt;/Cont>
-                  &lt;Disc sx={{ pt: 0.5 }}>Anyone can view, post, and comment to this community&lt;/Disc>
-                &lt;/ContUp>
-                &lt;ContUp>
-                  &lt;Cont>
-                    &lt;FormControlLabel value="Restricted" control={&lt;Radio />} sx={{ margin: 0 }} />
-                    &lt;VisibilityIcon sx={{ color: 'gray' }} />
-                    &lt;Name sx={{ margin: 1 }}>Restricted&lt;/Name>
-                  &lt;/Cont>
-                  &lt;Disc sx={{ pt: 0.5 }}>
-                    Anyone can view this community, but only approved users can post
-                  &lt;/Disc>
-                &lt;/ContUp>
-                &lt;ContUp condition="true">
-                  &lt;Cont>
-                    &lt;FormControlLabel value="Private" control={&lt;Radio />} sx={{ margin: 0 }} />
-                    &lt;HttpsIcon sx={{ color: 'gray' }} />
-                    &lt;Name sx={{ margin: 1 }}>Private&lt;/Name>
-                  &lt;/Cont>
-                  &lt;Disc sx={{ pt: 0.5 }}>
-                    Only approved users can view and submit to this community
-                  &lt;/Disc>
-                &lt;/ContUp>
-              &lt;/RadioGroup>
-            &lt;/FormControl>
+            &lt;Header handleClose={handleClose} />
+            &lt;Input subRedditName={subRedditName} handleChange={handleChange} check={check} count={count} checked={checked} errorMassage={errorMassage} />
+            &lt;RadioBtn myType={myType} />
             &lt;AdultContent> Adult content&lt;/AdultContent>
             &lt;Adult>
               &lt;FormGroup>
@@ -274,13 +194,13 @@ export default FormDialog;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackToTop.html">BackToTop</a></li><li><a href="global.html#Communities">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="global.html#MainContent">MainContent</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="global.html#Post">Post</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#AddList">AddList</a></li><li><a href="global.html#AddSector">AddSector</a></li><li><a href="global.html#BackHomeBottun">BackHomeBottun</a></li><li><a href="global.html#Comments">Comments</a></li><li><a href="global.html#CommentsHeader">CommentsHeader</a></li><li><a href="global.html#Content">Content</a></li><li><a href="global.html#EmptyContent">EmptyContent</a></li><li><a href="global.html#Filter">Filter</a></li><li><a href="global.html#Flirt">Flirt</a></li><li><a href="global.html#FormDialog">FormDialog</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="global.html#Moderation">Moderation</a></li><li><a href="global.html#Moderators">Moderators</a></li><li><a href="global.html#Notifications">Notifications</a></li><li><a href="global.html#PostFooter">PostFooter</a></li><li><a href="global.html#PostFooterList">PostFooterList</a></li><li><a href="global.html#PostSide">PostSide</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#PostsFilteredTap">PostsFilteredTap</a></li><li><a href="global.html#PostsTap">PostsTap</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SignUp">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="global.html#SignUpUsername">SignUpUsername</a></li><li><a href="global.html#ThirdParty">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#UserInfo">UserInfo</a></li><li><a href="global.html#calculateTime">calculateTime</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AddList.html">AddList</a></li><li><a href="AddSector.html">AddSector</a></li><li><a href="BackHomeBottun.html">BackHomeBottun</a></li><li><a href="BackToTop.html">BackToTop</a></li><li><a href="Comments.html">Comments</a></li><li><a href="CommentsContent.html">CommentsContent</a></li><li><a href="CommentsHeader.html">CommentsHeader</a></li><li><a href="Communities.html">Communities</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="Content.html">Content</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="DrawerBottom.html">DrawerBottom</a></li><li><a href="Email.html">Email</a></li><li><a href="EmptyContent.html">EmptyContent</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilterFull.html">FilterFull</a></li><li><a href="FilterSmall.html">FilterSmall</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="Flirt.html">Flirt</a></li><li><a href="ForgetPassword.html">ForgetPassword</a></li><li><a href="ForgetUsername.html">ForgetUsername</a></li><li><a href="FormDialog.html">FormDialog</a></li><li><a href="Header.html">Header</a></li><li><a href="HomeList.html">HomeList</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="Input.html">Input</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LoadingPage.html">LoadingPage</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="LogoIcon.html">LogoIcon</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="Moderation.html">Moderation</a></li><li><a href="ModeratorList.html">ModeratorList</a></li><li><a href="Moderators.html">Moderators</a></li><li><a href="NavIcons.html">NavIcons</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="Notifications.html">Notifications</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="NotificationsHeader.html">NotificationsHeader</a></li><li><a href="OtherProfileComments.html">OtherProfileComments</a></li><li><a href="OtherProfileCommentsContent.html">OtherProfileCommentsContent</a></li><li><a href="OtherProfileCommentsHeader.html">OtherProfileCommentsHeader</a></li><li><a href="OtherProfileCommunities.html">OtherProfileCommunities</a></li><li><a href="OtherProfileContent.html">OtherProfileContent</a></li><li><a href="OtherProfileEmptyContent.html">OtherProfileEmptyContent</a></li><li><a href="OtherProfileFilter.html">OtherProfileFilter</a></li><li><a href="OtherProfileFilterFull.html">OtherProfileFilterFull</a></li><li><a href="OtherProfileFilterSmall.html">OtherProfileFilterSmall</a></li><li><a href="OtherProfileHeader.html">OtherProfileHeader</a></li><li><a href="OtherProfileMainContent.html">OtherProfileMainContent</a></li><li><a href="OtherProfilePost.html">OtherProfilePost</a></li><li><a href="OtherProfilePostFooter.html">OtherProfilePostFooter</a></li><li><a href="OtherProfilePostFooterListResponsive.html">OtherProfilePostFooterListResponsive</a></li><li><a href="OtherProfilePostHeader.html">OtherProfilePostHeader</a></li><li><a href="OtherProfilePostSide.html">OtherProfilePostSide</a></li><li><a href="OtherProfilePosts.html">OtherProfilePosts</a></li><li><a href="OtherProfilePostsTap.html">OtherProfilePostsTap</a></li><li><a href="OtherProfileSidebar.html">OtherProfileSidebar</a></li><li><a href="OtherProfileUserInfo.html">OtherProfileUserInfo</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="Post.html">Post</a></li><li><a href="PostFooter.html">PostFooter</a></li><li><a href="PostFooterList.html">PostFooterList</a></li><li><a href="PostFooterListResponsive.html">PostFooterListResponsive</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostHeaderSubreddit.html">PostHeaderSubreddit</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSide.html">PostSide</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostSubreddit.html">PostSubreddit</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="Posts.html">Posts</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="PostsClassificationSubreddit.html">PostsClassificationSubreddit</a></li><li><a href="PostsFilteredTap.html">PostsFilteredTap</a></li><li><a href="PostsTap.html">PostsTap</a></li><li><a href="ProfileHeader.html">ProfileHeader</a></li><li><a href="ProfileMainContent.html">ProfileMainContent</a></li><li><a href="RadioBtn.html">RadioBtn</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="SNavbar.html">SNavbar</a></li><li><a href="SearchField.html">SearchField</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="Sidebar_.html">Sidebar</a></li><li><a href="SignUp.html">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="SignUpUsername.html">SignUpUsername</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li><li><a href="ThirdParty.html">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="UserInfo.html">UserInfo</a></li><li><a href="UserList.html">UserList</a></li><li><a href="UserNamePasswordForm.html">UserNamePasswordForm</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#matchPassword">matchPassword</a></li><li><a href="global.html#refreshUsernames">refreshUsernames</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#signUp">signUp</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 10 2022 21:37:00 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sat Nov 12 2022 23:55:19 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

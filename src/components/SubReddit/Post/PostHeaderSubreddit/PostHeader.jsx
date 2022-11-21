@@ -22,7 +22,7 @@ import {
    * @returns {React.Component} Post header
    */
 
-function PostHeader(props) {
+function PostHeaderSubreddit(props) {
   const {
     title, image, owner, creator, flair, flairBackgroundColor, flairColor,
   } = props;
@@ -73,4 +73,4 @@ function PostHeader(props) {
   );
 }
 
-export default PostHeader;
+export default PostHeaderSubreddit;

@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
+
+// mui components
 import { IconButton, Typography } from '@mui/material';
+import UpdateIcon from '@mui/icons-material/Update';
+
+// Components
 import PasswordStrengthBar from 'react-password-strength-bar';
 import ReCAPTCHA from 'react-google-recaptcha';
-import UpdateIcon from '@mui/icons-material/Update';
+
+// styles
 import {
-  BackLink,
-  Body, ChooseUsernameContainer, Footer, Header, SuggestionBox, SuggestLink, TopBox,
+  BackLink, Body, ChooseUsernameContainer, Footer, Header, SuggestionBox, SuggestLink, TopBox,
 } from './styles';
 import {
-  FirstPartyContainer, RedditTextField,
-  rightIcon, RedditLoadingButton,
+  FirstPartyContainer, RedditTextField, rightIcon, RedditLoadingButton,
 } from '../../styles';
 import {
   refreshUsernames, checkUserName, checkPassword, signUp,
@@ -17,32 +21,45 @@ import {
 import theme, { fonts } from '../../../../styles/theme';
 
 /**
- * SignUp Username and Password Component
- * @returns {React.Component} -set username ans password, Suggest username, Check I am not a robot
+ * SignUp Username and Password Page View
+ *
+ * @component
+ * @property {SetFunction} --setUserNamePage setView to Email Page on Back Button Click
+ * @property {object} --email setView to Email Page on Back Button Click
+ * @property {object} --userName userName to SignUp with
+ * @property {function} --setUserName to set UserName
+ * @property {object} --password password to SignUp with
+ * @property {function} --setPassword to set password
+ * @returns {React.Component} UserName and Password Form
  */
-function SignUpUsername({ setUserNamePage, email }) {
-  const [userNames, setUserNames] = useState([]);
-
-  const [userName, setUserName] = useState({
-    input: '', color: theme.palette.neutral.main, icon: null, error: null,
-  });
-  const [password, setPassword] = useState({
-    input: '', color: theme.palette.neutral.main, icon: null, error: null, score: 0,
-  });
+function SignUpUsername({
+  setUserNamePage, email, userName, setUserName, password, setPassword,
+}) {
+  // states
+  const [defaultUserNameValue, setdefaultUserNameValue] = useState(userName?.input);
+  const [defaultPasswordValue, setdefaultPasswordValue] = useState(password?.input);
   const [verified, setVerified] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [redirectCaption, setRedirectCaption] = useState(false);
   const [buttonTxt, setButtonText] = useState('Sign up');
+  const [disabled, setDisabled] = useState(false);
+  const [redirectCaption, setRedirectCaption] = useState(false);
+  const [userNames, setUserNames] = useState([]);
 
+  // useEffecct
   useEffect(() => {
     refreshUsernames(setUserNames);
   }, []);
+
+  const signUpFunction = () => {
+    checkUserName(userName?.input, setUserName);
+    checkPassword(password?.input, setPassword, password);
+    signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption);
+  };
 
   return (
     <ChooseUsernameContainer data-testid="signup-username-test">
       <Header>
         <Typography variant="h1" fontSize={18} fontWeight={700} fontFamily="ibm-plex-sans,sans-serif" marginBottom="10px">
-          {/* Modify this font to be in the theme */}
           Choose your username
         </Typography>
         <Typography fontSize={14}>
@@ -57,31 +74,32 @@ function SignUpUsername({ setUserNamePage, email }) {
             label="Choose a username"
             variant="filled"
             required
-            value={userName.input}
             InputProps={{
               endAdornment: (
-                userName.icon
+                userName?.icon
               ),
               disableUnderline: true,
             }}
-            clr={userName.color}
+            clr={userName?.color}
             onChange={(e) => {
               setUserName((prevState) => ({
                 ...prevState,
                 input: e.target.value.trim(),
               }));
-              checkUserName(userName, setUserName);
+              checkUserName(e.target.value.trim(), setUserName);
+              setdefaultUserNameValue(e.target.value.trim());
             }}
+            value={defaultUserNameValue || ''}
             data-testid="username-signup-field-test"
-            helperText={userName.error}
+            helperText={userName?.error}
           />
-
           <PasswordStrengthBar
-            password={password.input}
+            password={password?.input}
             minLength={4}
-            onChangeScore={(e) => setPassword((
-              prevState,
-            ) => ({ ...prevState, score: e }))}
+            onChangeScore={(e) => (setPassword((prevState) => ({
+              ...prevState,
+              score: e,
+            })))}
             scoreWords={[]}
             shortScoreWord=""
           />
@@ -89,22 +107,23 @@ function SignUpUsername({ setUserNamePage, email }) {
             label="password"
             variant="filled"
             required
-            value={password.input}
             InputProps={{
               endAdornment: (
-                password.icon
+                password?.icon
               ),
               disableUnderline: true,
             }}
-            clr={password.color}
+            clr={password?.color}
             onChange={(e) => {
               setPassword((prevState) => ({
                 ...prevState,
                 input: e.target.value.trim(),
               }));
-              checkPassword(password, setPassword);
+              checkPassword(e.target.value.trim(), setPassword, undefined);
+              setdefaultPasswordValue(e.target.value.trim());
             }}
-            helperText={password.error}
+            value={defaultPasswordValue || ''}
+            helperText={password?.error}
             data-testid="password-signup-field-test"
           />
           <ReCAPTCHA
@@ -127,13 +146,16 @@ function SignUpUsername({ setUserNamePage, email }) {
           {userNames ? (userNames.map((i) => (
             <SuggestLink
               key={i}
-              onClick={() => setUserName((prevState) => ({
-                ...prevState,
-                color: theme.palette.primary.main,
-                icon: rightIcon,
-                error: null,
-                input: i,
-              }))}
+              onClick={() => {
+                setUserName((prevState) => ({
+                  ...prevState,
+                  color: theme.palette.primary.main,
+                  icon: rightIcon,
+                  error: null,
+                  input: i,
+                }));
+                setdefaultUserNameValue(i);
+              }}
               href="#"
               helperText={password.error}
               data-testid={`suggest-username-${i}-test`}
@@ -147,21 +169,12 @@ function SignUpUsername({ setUserNamePage, email }) {
         ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="auto">You are now logged in. You will soon be redirected</Typography>
         : null}
       <Footer>
-        <BackLink onClick={() => setUserNamePage(false)} href="#">Back</BackLink>
+        <BackLink onClick={() => { if (disabled) return; setUserNamePage(false); }} href="#">Back</BackLink>
         <RedditLoadingButton
-          type="submit"
           width="155px"
-          onClick={() => signUp(
-            setLoading,
-            userName,
-            password,
-            setPassword,
-            email,
-            verified,
-            setButtonText,
-            setRedirectCaption,
-          )}
+          onClick={signUpFunction}
           loading={loading}
+          disabled={disabled}
           data-testid="sigup-btn-test"
         >
           {buttonTxt}

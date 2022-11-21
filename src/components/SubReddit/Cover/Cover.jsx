@@ -1,17 +1,17 @@
-import { Box } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import MainContent from '../../MainContent/MainContent';
-// import PostsClassification from '../../HomePage/HomePageContainer/PostsClassification/PostsClassification';
-import Post from '../../Post/Post';
+import PostSubreddit from '../Post/Post';
 import CreatePostInHome from '../../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from '../SideBar/SideBar';
 import {
   Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, Notification, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
-import PostsClassification from '../PostClassificationSubreddit/PostClassification';
+import PostsClassificationSubreddit from '../PostClassificationSubreddit/PostClassification';
+import theme2 from '../../../styles/theme/layout';
 
 /**
  * Subreddit page
@@ -29,14 +29,17 @@ function Header() {
   const [topics, setTopics] = useState([]);
   const [moderatoesName, setModeratoesName] = useState([]);
   const client = axios.create({
-    baseURL: 'https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io',
+    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io',
   });
-  // https://d4c7978e-7da1-4346-bc22-092fa34e33fb.mock.pstmn.io/subreddits/eslam/hot/200
+
+  const client2 = axios.create({
+    baseURL: 'https://0902e8c4-d1ea-4cb3-9e44-bfbc7241fa61.mock.pstmn.io',
+  });
   const { Name, postClass } = useParams();
   useEffect(() => {
     client.get(`/subreddits/${Name}/200/`) // fetch api
       .then((actualData) => {
-        // console.log(actualData.data);
+        console.log(actualData.data);
         setIcon(actualData.data.icon);
         setDisc(actualData.data.description);
         // console.log(actualData.data.description);
@@ -44,18 +47,18 @@ function Header() {
         setPrimaryTopic(actualData.data.primaryTopic);
         setCreatedAt(actualData.data.createdAt);
         setModeratoesName(actualData.data.moderatoesName);
-        // setPosts(actualData.data);
       })
       .catch((error) => {
         console.log(error);
       });
 
-    const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
-    client.get(postsUrl) // fetch api
+    //  const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
+    const postsUrl = `/users/${postClass || 'best'}`;
+    client2.get(postsUrl) // fetch api
       .then((actualData) => {
         setPosts(actualData.data);
-        // console.log('---------------------------');
-        // console.log(actualData.data);
+        console.log('---------------------------');
+        console.log(actualData.data);
       })
       .catch((error) => {
         console.log(error);
@@ -113,7 +116,21 @@ function Header() {
                 && (
                 <>
                   <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
-                  <Notification><NotificationsIcon color="primary" sx={{ lineHeight: 0 }} /></Notification>
+                  <Notification sx={{
+                    '@media screen and (max-width: 435px)': {
+                      display: 'none',
+                    },
+                  }}
+                  >
+                    <NotificationsIcon
+                      color="primary"
+                      sx={{
+                        lineHeight: 0,
+                        cursor: 'pointer',
+
+                      }}
+                    />
+                  </Notification>
                 </>
                 )}
               </Box>
@@ -123,12 +140,22 @@ function Header() {
         </IconContainer>
       </Logo>
       <TotalHeader>
-        <Box sx={{ display: 'flex', flexDirection: 'row', margin: '0 auto' }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          margin: '0 auto',
+          '@media screen and (max-width: 435px)': {
+            width: '100%',
+          },
+        }}
+        >
           <MainContent width={640}>
-            <CreatePostInHome />
-            <PostsClassification subredditName={Name} />
+            <ThemeProvider theme={theme2}>
+              <CreatePostInHome />
+            </ThemeProvider>
+            <PostsClassificationSubreddit subredditName={Name} />
             { posts?.map((posts, index) => (
-              <Post
+              <PostSubreddit
                 key={`${index + 0}`}
                 title={posts.title}
                 image={posts.image}

@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 import { createTheme } from '@mui/material';
 
 export const ContinerNotifications = styled('section')(() => ({
-  background: '#dae0e6',
-  minHeight: '100vh',
+
 }));
 export const HeaderContiner = styled('header')(({ theme }) => ({
   height: 131,

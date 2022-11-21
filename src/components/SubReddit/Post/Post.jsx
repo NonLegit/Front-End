@@ -9,9 +9,9 @@ import {
 } from './style';
 import Reactions from '../../Post/Reactions/Reactions';
 import PostReactions from '../../Post/PostReactions/PostReactions';
-import PostHeader from './PostHeaderSubreddit/PostHeader';
+import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
 /**
-   * This component is the view of the post in home page.
+   * This component is the view of the post in Subreddit.
    *
    * @component Post Subreddit
    * @property {string} title -Post title.
@@ -29,7 +29,7 @@ import PostHeader from './PostHeaderSubreddit/PostHeader';
    * @returns {React.Component} Post
    */
 
-function Post(props) {
+function PostSubreddit(props) {
   const {
     title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
   } = props;
@@ -56,7 +56,7 @@ function Post(props) {
             borderColor: 'rgb(0 0 0 / 9%)',
           }}
         />
-        <PostHeader
+        <PostHeaderSubreddit
           title={title}
           image={image}
           owner={owner}
@@ -99,4 +99,4 @@ function Post(props) {
   );
 }
 
-export default Post;
+export default PostSubreddit;

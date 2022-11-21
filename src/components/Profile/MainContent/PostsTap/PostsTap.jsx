@@ -4,12 +4,15 @@ import { useContext, useEffect, useState } from 'react';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox, WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
-import { PostsContext } from '../../../../context/PostsProvider';
-import { UserContext } from '../../../../context/UserProvider';
+import { PostsContext } from '../../../../contexts/PostsProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 import Post from '../Posts/Post';
 
-/** posts tap in my profile
- * @return {React.Component} - PostsTap
+/**
+ * posts tap in my profile
+ *
+ * @component PostsTap
+ * @returns {React.Component} PostsTap
  */
 function PostsTap() {
   const { subTitle } = useParams();

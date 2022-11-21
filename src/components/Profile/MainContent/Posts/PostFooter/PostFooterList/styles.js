@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const SelectBox = styled(Box)(() => ({
+export const SelectBox = styled(Box)(({ theme }) => ({
   width: 260,
   marginTop: 330,
   border: ' 1px solid #eee',
@@ -10,10 +10,13 @@ export const SelectBox = styled(Box)(() => ({
   backgroundColor: 'white',
   position: 'absolute',
   zIndex: 10,
+  [theme.breakpoints.between('0', '760')]: {
+    marginLeft: -230,
+  },
 
 }));
 
-export const SelectItem = styled(Button)(() => ({
+export const SelectItem = styled(Button)(({ theme, condition }) => ({
   padding: 5,
   color: '#878a8c',
   fontSize: 14,
@@ -21,9 +24,7 @@ export const SelectItem = styled(Button)(() => ({
   width: '100%',
   justifyContent: 'left',
   textTransform: 'none',
-  // not working
-  '& .MuiButtonBase-root:hover': {
-    color: 'black',
-    backgroundColor: '#d7d7d7',
-  },
+  ...((condition === 'true') && {
+    color: theme.palette.primary.main,
+  }),
 }));

@@ -16,6 +16,13 @@ import {
   FilteButton, FilterFullBox, SelectBox, SelectItem,
 } from '../styles';
 
+/**
+ * filter posts by their type for large screens
+ *
+ * @component FilterFull
+ * @property {string} subTitle -subTitle of page the user is currently in
+ * @returns {React.Component} FilterFull
+ */
 function FilterFull(props) {
   const { subTitle2 } = props;
   const { sort, subTitle } = useParams();
@@ -24,11 +31,15 @@ function FilterFull(props) {
   const hotCondition = (sort === 'sort=hot' || subTitle === 'sort=hot');
   const topCondition = (sort === 'sort=top' || sort === 'sort=top&t=day' || subTitle === 'sort=top' || subTitle === 'sort=top&t=day');
   const [showList, setShowList] = useState(false);
+  const [allTime, setAllTime] = useState('All Time');
+
   // navigate
   const handleClick = (subPage) => {
+    setAllTime('All Time');
     navigate(`${subTitle2}sort=${subPage}`);
   };
   const handleClick2 = () => {
+    setAllTime('Today');
     navigate(`${subTitle2}sort=top&t=day`);
   };
   const handleClickList = () => {
@@ -41,8 +52,8 @@ function FilterFull(props) {
   return (
     <FilterFullBox>
       <FilteButton
-        startIcon={newCondition ? <NewReleasesIcon /> : <NewReleasesOutlinedIcon />}
-        condition={newCondition.toString()}
+        startIcon={(newCondition || (!hotCondition && !topCondition)) ? <NewReleasesIcon /> : <NewReleasesOutlinedIcon />}
+        condition={(newCondition || (!hotCondition && !topCondition)).toString()}
         onClick={() => { handleClick('new'); }}
       >
         New
@@ -53,7 +64,7 @@ function FilterFull(props) {
         condition={hotCondition.toString()}
         onClick={() => { handleClick('hot'); }}
       >
-        HOT
+        Hot
       </FilteButton>
 
       <FilteButton
@@ -61,7 +72,7 @@ function FilterFull(props) {
         condition={topCondition.toString()}
         onClick={() => { handleClick('top'); }}
       >
-        TOP
+        Top
       </FilteButton>
       {
           topCondition && (
@@ -70,7 +81,7 @@ function FilterFull(props) {
               condition={true.toString()}
               onClick={() => { handleClickList(); }}
             >
-              All Time
+              {allTime}
                 {showList && (
                 <ClickAwayListener onClickAway={handleClickAway}>
                   <SelectBox>

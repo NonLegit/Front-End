@@ -14,6 +14,9 @@ export const PostContainer = styled(Box)(() => ({
     {
       borderColor: '#999',
     },
+  // [theme.breakpoints.between('0', '435')]: {
+  //   width: '70%',
+  // },
 }));
 
 export const Popularity = styled(Box)(() => ({

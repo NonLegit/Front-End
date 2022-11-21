@@ -4,24 +4,26 @@ import CommentsHeader from './CommentsHeader/CommentsHeader';
 import { CommentsBox } from './styles';
 
 /**
- * Comment component in profile
- * @return {React.Component} - Comments
- * @param {object} comment - conatin all info needed to be shown in the comment
+ * Content component represents an entity of a comment
+ *
+ * @component Comments
+ * @property {object} comment - conatin all info needed to be shown in the comment
+ * @returns {React.Component} Comments
  */
 function Comments(props) {
   const { comment } = props;
   return (
     <CommentsBox>
       <CommentsHeader
-        subReddit={comment.creator} // from back
-        publisher={comment.owner}
-        title={comment.owner} // from back
+        subReddit={comment?.ownerType}
+        publisher={comment?.author}
+        title={comment?.title}
       />
       <Divider variant="middle" />
       <CommentsContent
-        time={comment.createdAt}
-        points={comment.votes}
-        body={comment.text}
+        time={comment?.createdAt}
+        points={comment?.votes}
+        body={comment?.text}
       />
       {/* <Divider orientation="vertical" flexItem /> */}
 

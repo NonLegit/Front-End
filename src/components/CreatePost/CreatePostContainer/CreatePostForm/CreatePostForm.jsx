@@ -43,10 +43,17 @@ function CreatePostForm() {
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
 
+  /**
+   * This function check if server should send email to user as a reply to the post
+   */
   const handleSendReplies = (e) => {
     setSendReplies(e.target.checked);
   };
   // handlers
+
+  /**
+   * This function send post request to create post
+   */
   const handlePost = (e) => {
     e.preventDefault();
     const post = {
@@ -68,21 +75,36 @@ function CreatePostForm() {
       alert('somethig went wrong');
     });
   };
+  /**
+   * This function handles title change
+   */
   const handleTitleChange = (e) => {
     setTitle(e.target.value.substr(0, Math.min(300, e.target.value.length)));
   };
+  /**
+   * This function handles post text change
+   */
   const handlePostTextChange = (e) => {
     setPostTitle(e.target.value);
   };
   const handleSaveDraft = (e) => {
     e.preventDefault();
   };
+  /**
+   * This function handles post type change
+   */
   const handlePostType = (e, newPostType) => {
     setPostType(newPostType);
   };
+  /**
+   * This function handles post url change
+   */
   const handleUrlChange = (e) => {
     setPostUrl(e.target.value);
   };
+  /**
+   * This function prevents user from type Enter in input fields
+   */
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -93,10 +115,15 @@ function CreatePostForm() {
     setActiveMediaFile(postMedia.length + files.length - 1);
     setPostMedia([...postMedia, ...files]);
   };
+  /**
+   * This function handles if post is spoiler or not
+   */
   const hanldeSpoiler = () => {
     setSpoiler(!spoiler);
   };
-
+  /**
+   * This function handles if post is not safe for work or not
+   */
   const hanldeNsfw = () => {
     setNswf(!nswf);
   };

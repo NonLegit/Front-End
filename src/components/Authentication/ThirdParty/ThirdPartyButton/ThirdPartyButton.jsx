@@ -2,6 +2,7 @@ import { ThirdPartyBtn, ButtonIcon } from './styles';
 
 /**
  * Third Party Button
+ *  @component
  * @returns {React.Component} -Third Party Button Styled
  */
 function ThirdPartyButton({

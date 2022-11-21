@@ -1,6 +1,5 @@
 import {
-  Box, Button, TextField, Link,
-  InputAdornment,
+  Box, TextField, Link, InputAdornment,
 } from '@mui/material';
 
 import { alpha, styled } from '@mui/material/styles';
@@ -12,7 +11,7 @@ import theme, { fonts } from '../../styles/theme';
 export const AuthenticationConatiner = styled(Box)(() => ({
   height: 'max-content',
   minHeight: '100vh',
-
+  backgroundColor: 'white',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'space-around',
@@ -51,26 +50,6 @@ export const FirstPartyContainer = styled('form')(({ width, mnwidth }) => ({
   display: 'flex',
   flexDirection: 'column',
 }));
-
-export const AuthenticationInput = styled(TextField)(({ color }) => ({
-  width: '95%',
-  marginBottom: '10px',
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: `${color}`,
-    },
-    '&:hover fieldset': {
-      borderColor: `${color}`,
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: `${color}`,
-    },
-  },
-  '.MuiInputLabel-shrink': {
-    color: `${color}`,
-  },
-}));
-
 export const RedditTextField = styled((props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <TextField {...props} size="small" autoComplete="off" />
@@ -103,7 +82,7 @@ export const RedditTextField = styled((props) => (
     },
     '&.Mui-focused': {
       backgroundColor: 'transparent',
-      boxShadow: `${alpha(clr, 0.25)} 0 0 0 2px`,
+      boxShadow: clr ? `${alpha(clr, 0.25)} 0 0 0 2px` : 'none',
       borderColor: `${clr}`,
     },
   },
@@ -119,31 +98,7 @@ export const RedditTextField = styled((props) => (
   },
 }));
 
-export const AuthenticationButton = styled(Button)(({ width }) => ({
-  width: (width !== undefined) ? `${width}` : '100%',
-  height: 35,
-  margin: '15px 0px',
-
-  fontFamily: 'ibm-plex-sans,sans-serif',
-  fontWeight: '600',
-  fontSize: '14px',
-  letterSpacing: '0.5px',
-
-  backgroundColor: theme.palette.primary.main,
-  color: 'white',
-
-  '&:hover': {
-    backgroundColor: theme.palette.primary.fade,
-  },
-
-  '&.MuiButton-root': {
-    fontWeight: '600',
-    fontSize: '14px',
-    letterSpacing: '0.5px',
-  },
-}));
-
-export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) => ({
+export const RedditLoadingButton = styled(LoadingButton)(({ width }) => ({
   width: (width !== undefined) ? `${width}` : '100%',
   height: 35,
   margin: '10px 0px',
@@ -153,7 +108,7 @@ export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) =>
   fontSize: '14px',
   letterSpacing: '0.5px',
 
-  backgroundColor: ispopup === 'true' ? 'white' : theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.main,
   color: 'white',
 
   '&:hover': {

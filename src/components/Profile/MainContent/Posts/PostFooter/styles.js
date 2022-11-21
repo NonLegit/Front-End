@@ -26,7 +26,7 @@ export const FooterText = styled(Typography)(({ theme, condition, responsiveshar
 
 }));
 export const ElementBox = styled(Box)(({
-  spam, approved, theme, condition2, condition, show,
+  spam, approved, theme, condition2, condition, show, modicons,
 }) => ({
   height: '100%',
   display: 'flex',
@@ -64,6 +64,11 @@ export const ElementBox = styled(Box)(({
   ...((show === 'true') && {
     [theme.breakpoints.between('0', '450')]: {
       display: 'block',
+    },
+  }),
+  ...((modicons === 'true') && {
+    [theme.breakpoints.between('0', '540')]: {
+      display: 'none',
     },
   }),
 }));

@@ -8,7 +8,6 @@ export const MainContainer = styled('div')(() => ({
 export const OuterContainer = styled('div')(({ theme }) => ({
   backgroundColor: '#DAE0E6',
   width: '100%',
-  height: '450vh',
   padding: '0 24px',
   [theme.breakpoints.down('sm')]: {
     padding: '0 10px',

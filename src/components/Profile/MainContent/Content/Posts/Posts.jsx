@@ -11,15 +11,17 @@ import {
 } from './styles';
 
 /**
- * Posts inside the content of profile
- * @return {React.Component} - Posts
- * @param {object} post - conatin all info needed to be shown in the post
+ * Posts component represents an entity component
+ *
+ * @component Posts
+ * @property {object} post -post entity
+ * @returns {React.Component} Posts
  */
 function Posts(props) {
   const { post } = props;
   return (
     <PostsQueueBox>
-      <PostSide points={post?.votes} />
+      <PostSide points={post?.votes} postVoteStatus={post?.postVoteStatus} />
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
           <PostHeader
@@ -29,7 +31,7 @@ function Posts(props) {
           />
           <TitlePost variant="h6">{post?.title}</TitlePost>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
-          <PostFooter subTitle={post?.ownerType} numComments={post?.commentCount} />
+          <PostFooter isSaved={post.isSaved} subTitle={post?.ownerType} numComments={post?.commentCount} />
         </Box>
       </PostContentBox>
     </PostsQueueBox>

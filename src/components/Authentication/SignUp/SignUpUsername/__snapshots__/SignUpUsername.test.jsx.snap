@@ -2,36 +2,136 @@
 
 exports[`SigUp test snapshot 1`] = `
 <div
-  className="MuiBox-root css-1vflqu4"
-  data-testid="signup-username-test"
+  className="MuiBox-root css-pdterq"
+  data-testid="signup-test"
 >
   <div
-    className="MuiBox-root css-thfq4s"
-  >
-    <h1
-      className="MuiTypography-root MuiTypography-h1 css-z653r9-MuiTypography-root"
-    >
-      Choose your username
-    </h1>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
-    >
-      Your username is how other community members will see you. This name will be used to
-       
-      credit you for things you share on Reddit. What should we call you?
-    </p>
-  </div>
+    className="MuiBox-root css-1i4eqyw"
+  />
   <div
-    className="MuiBox-root css-8kx4ml"
+    className="MuiBox-root css-rjktpo"
+    data-testid="signup-email-test"
+    mnwidth="280px"
+    mxwidth="280px"
   >
+    <div
+      className="MuiBox-root css-eyuwdo"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1sg842v-MuiTypography-root"
+      >
+        Sign up
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-68wmct-MuiTypography-root"
+      >
+        By continuing, you are setting up a Reddit account and agree to our
+         
+        <a
+          capital="none"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y1krgh-MuiTypography-root-MuiLink-root"
+          href="https://www.redditinc.com/policies/user-agreement"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          User Agreement
+        </a>
+         
+        and
+         
+        <a
+          capital="none"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y1krgh-MuiTypography-root-MuiLink-root"
+          href="https://www.reddit.com/policies/privacy-policy"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Privacy Policy 
+        </a>
+        .
+      </p>
+    </div>
+    <div
+      className="MuiBox-root css-1vt6mgo"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1inhtju-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <img
+          alt="Google"
+          className="css-1x4dpap"
+          src="google.png"
+        />
+        continue with google
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1inhtju-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <img
+          alt="Facebook"
+          className="css-1x4dpap"
+          src="facebook.png"
+        />
+        continue with facebook
+      </button>
+    </div>
+    <div
+      className="MuiBox-root css-1rocah8"
+    >
+      <hr
+        className="css-1tv3lka"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ikhzr9-MuiTypography-root"
+      >
+        OR
+      </p>
+      <hr
+        className="css-1tv3lka"
+      />
+    </div>
     <form
-      className="css-h670yo"
-      width="350px"
+      className="css-1notis6"
+      data-testid="SignUpEmail-test"
+      noValidate={true}
+      onSubmit={[Function]}
+      width="280px"
     >
       <div
         className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
         clr="#978A8C"
-        data-testid="username-signup-field-test"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
@@ -39,7 +139,7 @@ exports[`SigUp test snapshot 1`] = `
           htmlFor=":r0:"
           id=":r0:-label"
         >
-          Choose a username
+          Email
           <span
             aria-hidden={true}
             className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
@@ -69,242 +169,44 @@ exports[`SigUp test snapshot 1`] = `
           />
         </div>
       </div>
-      <div
-        style={
-          Object {
-            "position": "relative",
-          }
-        }
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-15fwilh-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+        data-testid="email-btn-test"
+        disabled={false}
+        id=":r1:"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="submit"
       >
-        <div
-          style={
-            Object {
-              "alignItems": "center",
-              "display": "flex",
-              "margin": "5px 0 0",
-            }
-          }
-        >
-          <div
-            style={
-              Object {
-                "backgroundColor": "#ddd",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "height": 2,
-                "maxWidth": "100%",
-                "position": "relative",
-                "width": "100%",
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "width": 4,
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "backgroundColor": "#ddd",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "height": 2,
-                "maxWidth": "100%",
-                "position": "relative",
-                "width": "100%",
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "width": 4,
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "backgroundColor": "#ddd",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "height": 2,
-                "maxWidth": "100%",
-                "position": "relative",
-                "width": "100%",
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "width": 4,
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "backgroundColor": "#ddd",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "height": 2,
-                "maxWidth": "100%",
-                "position": "relative",
-                "width": "100%",
-              }
-            }
-          />
-        </div>
-        <p
-          style={
-            Object {
-              "color": "#898792",
-              "fontSize": 14,
-              "margin": "5px 0 0",
-              "textAlign": "right",
-            }
-          }
-        />
-      </div>
-      <div
-        className="MuiFormControl-root MuiTextField-root css-fp4mq4-MuiFormControl-root-MuiTextField-root"
-        clr="#978A8C"
-        data-testid="password-signup-field-test"
-      >
-        <label
-          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink={false}
-          htmlFor=":r1:"
-          id=":r1:-label"
-        >
-          password
-          <span
-            aria-hidden={true}
-            className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
-          >
-             
-            *
-          </span>
-        </label>
-        <div
-          className="MuiInputBase-root MuiFilledInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1pw81iq-MuiInputBase-root-MuiFilledInput-root"
-          onClick={[Function]}
-        >
-          <input
-            aria-invalid={false}
-            autoComplete="off"
-            autoFocus={false}
-            className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-c5v1qu-MuiInputBase-input-MuiFilledInput-input"
-            disabled={false}
-            id=":r1:"
-            onAnimationStart={[Function]}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        sx={
-          Object {
-            "width": "320px",
-          }
-        }
-      />
+        continue
+      </button>
     </form>
-    <div
-      className="MuiBox-root css-1f25e0l"
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-4owvyy-MuiTypography-root"
     >
-      <div
-        className="MuiBox-root css-fgbwvu"
+      Already a redditor?
+       
+      <a
+        capital="uppercase"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1xn5q3i-MuiTypography-root-MuiLink-root"
+        href="/login"
+        onBlur={[Function]}
+        onFocus={[Function]}
       >
-        <span
-          className="MuiTypography-root MuiTypography-p css-1w4dg3y-MuiTypography-root"
-        >
-          Here are some username suggestions
-        </span>
-        <button
-          aria-label="delete"
-          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="UpdateIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z"
-            />
-          </svg>
-          <span
-            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    className="MuiBox-root css-42g8kd"
-  >
-    <a
-      className="css-uj3a55"
-      href="#"
-      onClick={[Function]}
-    >
-      Back
-    </a>
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1dixbnn-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
-      data-testid="sigup-btn-test"
-      disabled={false}
-      id=":r2:"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="submit"
-      width="155px"
-    >
-      Sign up
-      <span
-        className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+        log in
+      </a>
+    </p>
   </div>
 </div>
 `;

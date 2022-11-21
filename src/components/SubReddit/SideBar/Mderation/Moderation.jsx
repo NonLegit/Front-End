@@ -45,10 +45,11 @@ function Moderation(props) {
     setMore(!more);
     // setSelection('Add a Primary Topic');
   };
+
   const sendData = () => {
-    client.patch(`/subreddit/${Name}/setPrimaryTopic`, { primaryTopic: selection }); // fetch api
-    console.log(selection);
+    client.patch(`subreddit/${Name}`, { primaryTopic: selection }); // fetch api
   };
+
   // handel on select item
   const ListSelected = (e) => {
     setMore(!more);

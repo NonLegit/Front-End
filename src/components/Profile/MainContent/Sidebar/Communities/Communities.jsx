@@ -1,15 +1,19 @@
 import { Box, Typography } from '@mui/material';
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { UserContext } from '../../../../../context/UserProvider';
+import { UserContext } from '../../../../../contexts/UserProvider';
 import { InfoBox } from '../styles';
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
 } from './styles';
 
-/** all comunities you afre a moderator of
- * @return {React.Component} - Communities
+/**
+ * all comunities you afre a moderator of
+ *
+ * @component Communities
+ * @returns {React.Component} Communities
  */
+
 function Communities() {
   // will fetch the comminities here
   const [communities, setCommunities] = useState();
@@ -18,14 +22,13 @@ function Communities() {
   } = useContext(UserContext);
 
   const client = axios.create({
-    baseURL: 'https://eec81823-8c2a-4b43-a068-05d358081539.mock.pstmn.io',
+    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io',
   });
 
   // fetch data of communities i am a moderator of
   useEffect(() => {
     client.get(`subreddit/mine/${username}/200`) // fetch api
       .then((actualData) => {
-        console.log(actualData.data.subreddits);
         setCommunities(actualData.data.subreddits);
         // setCommunities(actualData.data)
       })
@@ -48,7 +51,11 @@ function Communities() {
               r/
               {community.subredditName}
             </SubReddit>
-            <Typography sx={{ fontSize: 12 }}>{community.membersCount}</Typography>
+            <Typography sx={{ fontSize: 12 }}>
+              {community.membersCount}
+              {' '}
+              members
+            </Typography>
           </Box>
           <Joined variant="outlined" onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Joined>
         </ComminityBox>

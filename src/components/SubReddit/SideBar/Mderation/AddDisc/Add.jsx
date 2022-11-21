@@ -28,6 +28,11 @@ function AddSector(props) {
     setDisc(disc2);
     const a = disc2?.length;
     setCount(500 - a);
+    if (disc?.length > 0) {
+      setHaveDisc(false);
+    } else {
+      setHaveDisc(true);
+    }
   }, [disc2]);
   // count number of char in input feild to make sure not exeed the limit
   const handleChange = (event) => {

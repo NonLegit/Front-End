@@ -13,10 +13,11 @@ function PostList(props) {
     <>
       {posts.map((post) => {
         const {
-          id, title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+          id, createdAt, title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
         } = post;
         return (
           <Post
+            createdAt={createdAt}
             title={title}
             image={image}
             owner={owner}

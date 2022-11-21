@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
-import MainContent from '../MainContent';
+import MainContent from '../ProfileMainContent';
 import Post from './Post';
 
 test('test snapshot', async () => {
