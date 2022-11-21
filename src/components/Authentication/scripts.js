@@ -1,8 +1,17 @@
-import axios from 'axios';
+// mui components
 import DoneIcon from '@mui/icons-material/Done';
+
+// services
+import axios from '../../services/instance';
+
+// scripts
+import { redirectLogin } from '../../scripts';
+
+// styles
 import { wrongIcon, rightIcon } from './styles';
 import theme from '../../styles/theme';
 
+const config = { headers: { 'Content-Type': 'application/json' } };
 /**
  * Fill array with 5 new random usernames
  * @param {function} setUserNames
@@ -177,12 +186,19 @@ export const signUp = (
     return;
   }
   // SignUpEndPoint
-  axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/signup/1', {
-  // console.log(userName.input, password.input, email.input);
+  // axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/signup/1', {
+  axios.post('http://localhost:8000/api/v1/users/signup', {
+    // console.log(userName.input, password.input, email.input);
     userName: userName.input,
     email: email.input,
     password: password.input,
-  }).then((response) => {
+  }, { withCredentials: true }, config).then((response) => {
+  // axios.get('http://localhost:8000/api/v1/users/me/', { withCredentials: true }, config).then((response) => {
+    // console.log(response.headers['set-cookies']);
+    // console.log(response.headers);
+    console.log('heree');
+    // console.log(Cookies.get('jwt'));
+    // console.log(response);
     setLoading(false);
     if (response.status === 201) {
       setButtonText(<DoneIcon />);
@@ -190,7 +206,7 @@ export const signUp = (
       setRedirectCaption(true);
       setTimeout(() => {
         // Suceess
-        window.location.href = './';
+        // window.location.href = './';
       }, 1000);
     } else {
       console.log('Error');
@@ -223,4 +239,22 @@ export const matchPassword = (passwordOne, passwordTwoInput, setPasswordTwo) => 
     icon: rightIcon,
     error: null,
   }));
+};
+
+/**
+ *
+ * Add Reddit Cookie
+ * Must be Authorized user
+ * @returns {void}
+ */
+export const redditCookie = (setCookie) => {
+  axios.get('/users/me/').then((response) => {
+    if (response.status === 200) {
+    // set cookie
+      const date = new Date();
+      date.setDate(date.getDate() + 90);
+      setCookie('redditUser', response.data.user, { path: '/', expires: date });
+    }
+    // unauthorized =>Redirect to login page
+  }).catch(() => redirectLogin(20));
 };

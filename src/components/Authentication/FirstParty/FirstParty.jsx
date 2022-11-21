@@ -1,9 +1,15 @@
 import { useState } from 'react';
-import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 // mui components
 import { Typography } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
+
+// services
+import axios from '../../../services/instance';
+
+// scripts
+import { redirectHome } from '../../../scripts';
 
 // styles
 import { FirstPartyContainer } from './styles';
@@ -11,6 +17,7 @@ import {
   RedditLoadingButton, RedditTextField, wrongIcon, rightIcon,
 } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+import { redditCookie } from '../scripts';
 
 /**
  * Form for Logging in by username and passsword
@@ -30,6 +37,10 @@ function FirstParty() {
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
+
+  // useCookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
 
   /**
    *
@@ -67,6 +78,7 @@ function FirstParty() {
   const logIn = (event) => {
     event.preventDefault();
     // console.log(userName);// Not Late
+    // Add cookie to localStorage
     setLoading(true);
     if (userName.error != null) {
       setLoading(false);
@@ -82,25 +94,22 @@ function FirstParty() {
     }));
 
     // API Call
-    const x = userName.input === 'basma' ? 3 : 1;
-    axios.post(`https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/login/${x}`, { userName: userName.input, password: password.input }).then((response) => {
+    console.log(userName.input);
+    axios.post('/users/login', { userName: userName.input, password: password.input }).then((response) => {
+      console.log(response);
       if (response.status === 200) {
         setLoading(false);
-        // sucess
-        // ==>response.data.token
-        // ==>response.data.expiresin
-        // ==>Cokies Point
         setButtonText(<DoneIcon />);
         setDisabled(true);
         setRedirectCaption(true);
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 1000);
+        // Add Reddit Cookie
+        redditCookie(setCookies);
+        redirectHome(1000);
       }
     }).catch((error) => {
       setLoading(false);
       console.log(error);
-      if (error.response.status === 404) {
+      if (error.response.status === 404 || error.response.status === 400) {
         // Invlaid Username or password
         // update username and password states
         setUserName((prevState) => ({
@@ -115,10 +124,8 @@ function FirstParty() {
           icon: wrongIcon,
           error: null,
         }));
-      } else if (error.response.status === 400) {
-        // Provide username or password
-        // ==> errorMessage [Check with BE]
-        console.log('status 400 is returned');
+      } else {
+        console.log(error.response.data.errorMessage);
       }
     });
   };
