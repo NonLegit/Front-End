@@ -1,5 +1,5 @@
-const notifications = require( './Notifications.json' );
-const settings = require( './Settings.json' );
+const notifications = require('./Notifications.json');
+const settings = require('./Settings.json');
 const overview = require('./overview.json');
 const subreddits = require('./subreddits.json');
 const user = require('./user.json');

@@ -7,6 +7,7 @@ import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
 import { useContext, useEffect, useState } from 'react';
 import moment from 'moment/moment';
+import { Link } from 'react-router-dom';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
@@ -14,7 +15,6 @@ import {
 } from './styles';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import { UserInfoContext } from '../../../../../contexts/UserInfoProvider';
-
 /**
  * UserInfo Box in sidebar containing all info of a user
  *
@@ -73,7 +73,9 @@ function UserInfo() {
             </AddPhoto>
 
           </Box>
-          <EngineIcon color="primary" />
+          <Link to="/settings">
+            <EngineIcon color="primary" />
+          </Link>
         </Box>
         <UserName variant="caption">
           u/
