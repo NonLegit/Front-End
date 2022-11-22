@@ -16,8 +16,12 @@ function SideBar(props) {
   } = props;
   const [moderate, setModerate] = useState(false);
   useEffect(() => {
-    setModerate(true);
-  }, []);
+    if (moderatoesName?.indexOf(Name) === -1) {
+      setModerate(false);
+    } else {
+      setModerate(true);
+    }
+  }, [moderatoesName]);
   return (
     <SideBarContainer>
       {!moderate

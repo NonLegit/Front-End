@@ -2,7 +2,7 @@ import { Box, ThemeProvider } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import MainContent from '../../MainContent/MainContent';
 import PostSubreddit from '../Post/Post';
 import CreatePostInHome from '../../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
@@ -12,6 +12,8 @@ import {
 } from './style';
 import PostsClassificationSubreddit from '../PostClassificationSubreddit/PostClassification';
 import theme2 from '../../../styles/theme/layout';
+import useFetch from '../../../hooks/useFetch';
+import PostJoin from './PostJoin';
 
 /**
  * Subreddit page
@@ -28,68 +30,49 @@ function Header() {
   const [primaryTopic, setPrimaryTopic] = useState();
   const [topics, setTopics] = useState([]);
   const [moderatoesName, setModeratoesName] = useState([]);
-  const client = axios.create({
-    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io',
-  });
-
-  const client2 = axios.create({
-    baseURL: 'https://0902e8c4-d1ea-4cb3-9e44-bfbc7241fa61.mock.pstmn.io',
-  });
-  const { Name, postClass } = useParams();
-  useEffect(() => {
-    client.get(`/subreddits/${Name}/200/`) // fetch api
-      .then((actualData) => {
-        console.log(actualData.data);
-        setIcon(actualData.data.icon);
-        setDisc(actualData.data.description);
-        // console.log(actualData.data.description);
-        setTopics(actualData.data.topics);
-        setPrimaryTopic(actualData.data.primaryTopic);
-        setCreatedAt(actualData.data.createdAt);
-        setModeratoesName(actualData.data.moderatoesName);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    //  const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
-    const postsUrl = `/users/${postClass || 'best'}`;
-    client2.get(postsUrl) // fetch api
-      .then((actualData) => {
-        setPosts(actualData.data);
-        console.log('---------------------------');
-        console.log(actualData.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [postClass]);
-
-  const [communities, setCommunities] = useState();
-  // const {
-  //   username,
-  // } = useContext(UserContext);
+  const [fixedName, setFixedName] = useState();
   const username = 'Ahemd';
-  // ///////////////////////////////////////////////////////////////////////////////////////
 
-  // fetch data of communities i am a moderator of
+  const client = axios.create({
+    baseURL: 'http://localhost:8000/',
+  });
+
+  const { Name, postClass } = useParams();
+  const [data, dataError] = useFetch(`/subreddits/${Name}`);
+  const value = useMemo(() => ({ data, dataError }), [data, dataError]);
+  console.log(value);
+
+  const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
+  const [data3, dataError3] = useFetch(postsUrl);
+  console.log(dataError3);
   useEffect(() => {
-    client.get(`subreddit/mine/${username}/200`) // fetch api
-      .then((actualData) => {
-        setCommunities(actualData.data.subreddits?.filter((e) => e.subredditName === Name.toString()));
-        if (communities?.length > 0) {
-          setJoin(true);
-        } else {
-          setJoin(false);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [username]);
+    setIcon(data?.icon);
+    setDisc(data?.description);
+    setTopics(data?.topics);
+    setPrimaryTopic(data?.primaryTopic);
+    setCreatedAt(data?.createdAt);
+    setModeratoesName(data?.moderators);
+    setFixedName(data?.fixedName);
+
+    setPosts(data3);
+  }, [data, postClass, data3]);
+  const [communities, setCommunities] = useState();
+  // fetch data of communities i am a moderator of
+  const [data2, dataError2] = useFetch('/subreddit/mine/moderator');
+  const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
+  console.log(value2);
+  useEffect(() => {
+    setCommunities(data2?.subreddits?.filter((e) => e.subredditName === Name.toString()));
+    console.log(dataError2);
+    if (communities?.length > 0) {
+      setJoin(true);
+    } else {
+      setJoin(false);
+    }
+  }, [data2, username]);
   // subscribr or unsubscribe
   const sendData = (b) => {
-    client.patch(`subreddits/${Name}`, { sub: b }); // fetch api
+    PostJoin(`/subreddits/${Name}/subscribe`, b);
   };
   return (
     <>
@@ -106,7 +89,7 @@ function Header() {
                 </Namee>
                 <Com>
                   r/
-                  {Name}
+                  {fixedName}
                 </Com>
               </Desc>
               <Box sx={{ display: 'flex' }}>
@@ -154,13 +137,13 @@ function Header() {
               <CreatePostInHome />
             </ThemeProvider>
             <PostsClassificationSubreddit subredditName={Name} />
-            { posts?.map((posts, index) => (
+            { posts?.map((posts) => (
               <PostSubreddit
-                key={`${index + 0}`}
+                createdAt={createdAt}
                 title={posts.title}
                 image={posts.image}
-                owner={posts.owner}
-                creator={posts.creator}
+                owner={Name}
+                author={posts.author}
                 flairText={posts.flairText}
                 flairBackgroundColor={posts.flairBackgroundColor}
                 popularity={posts.popularity}
@@ -170,6 +153,7 @@ function Header() {
                 votes={posts.votes}
                 commentCount={posts.commentCount}
                 text={posts.text}
+                key={posts.id}
               />
             ))}
           </MainContent>

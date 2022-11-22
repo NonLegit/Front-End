@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import moment from 'moment/moment';
 import Sort from '../MoreIcon/More';
 
 import {
@@ -33,7 +34,7 @@ function About(props) {
         <CreatedSpan>
           Created
           {' '}
-          {createdAt}
+          {moment(createdAt).add(1, 'days').utc().format('MMMM DD, YYYY')}
         </CreatedSpan>
       </Created>
       <Hr />

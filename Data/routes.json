@@ -1,0 +1,11 @@
+{
+  "/subreddits/:name/":"/Subreddit",
+  "/subreddits":"/CreatSubreddit",
+  "/subreddit/mine/moderator":"/Community",
+  "/subreddits/:subredditName/flairs":"/Flair",
+  "/subreddits/:subredditName/:name/hot":"/Hot",
+  "/subreddits/:Name/subscribe":"/Join",
+  "/subreddits/:Name/best":"/best",
+  "/subreddits/:Name/Top":"/top",
+  "/subreddits/:Name/New":"/New"
+}
