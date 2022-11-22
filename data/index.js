@@ -1,17 +1,15 @@
-const homePagePosts = require('./homePagePosts.json');
-const createPostSubreddits = require('./createPostSubreddits.json');
-const submitPost = require('./submitPost.json');
-const usernameAvailability = require('./usernameAvailability.json');
-// Something more
-
 const {
   top, best, hot, newPosts,
-} = homePagePosts;
+} = require('./homePagePosts.json');
+const { subreddits } = require('./createPostSubreddits.json');
+const { posts } = require('./submitPost.json');
+const { usernameAvailable } = require('./usernameAvailability.json');
+// Something more
 
 module.exports = () => ({
-  subreddits: createPostSubreddits,
-  posts: submitPost,
-  usernameAvailable: usernameAvailability,
+  subreddits,
+  posts,
+  usernameAvailable,
   top,
   best,
   hot,

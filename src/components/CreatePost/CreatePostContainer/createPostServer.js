@@ -9,6 +9,8 @@ import useFetch from '../../../hooks/useFetch';
 const createPostServer = () => {
   const communitiesUrl = '/subreddits/mine/subscriber';
   const [communities, communitiesError, statusCode] = useFetch(communitiesUrl);
+  console.log('communities', communities);
+  console.log(statusCode);
   if (statusCode === 200) {
     if (statusCode === 201) {
       // redirection code
