@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 // mui components
-import { Typography, Checkbox } from '@mui/material';
+import { Typography } from '@mui/material';
+// import { Checkbox } from '@mui/material';
 
 // components
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
@@ -39,6 +40,8 @@ function ResetPassword() {
   const [buttonText, setbuttonText] = useState('set Password');
   const [loading, setLoading] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [expiredToken, setExpiredToken] = useState(false);
 
   // useCookies
   // eslint-disable-next-line no-unused-vars
@@ -54,7 +57,8 @@ function ResetPassword() {
   ); return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px">
       <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-      <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword); }}>
+      {/* <h1>{token}</h1> */}
+      <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, setPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken); }}>
         <RedditTextField
           label="New Password"
           variant="filled"
@@ -99,18 +103,21 @@ function ResetPassword() {
           helperText={repassword.error}
         />
         <CheckBoxConatiner>
-          <Checkbox sx={{ padding: '0px 5px 0px 0px' }} onChange={(event) => setLogOut(event.target.checked)} />
+          {/* <Checkbox sx={{ padding: '0px 5px 0px 0px' }} onChange={(event) => setLogOut(event.target.checked)} /> */}
           <Typography fontSize="12px" fontWeight="400">
             Changing your password logs you out of all browsers on your device(s).
-            {' '}
-            Checking this box also logs you out of all apps you have authorized.
+            {/* {' '} */}
+            {/* Checking this box also logs you out of all apps you have authorized. */}
           </Typography>
         </CheckBoxConatiner>
         <RedditLoadingButton type="submit" width="155px" loading={loading}>
           {buttonText}
         </RedditLoadingButton>
         {redirectCaption
-          ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</Typography>
+          ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">you’ve successfully changed your password.You can now log in using your new password</Typography>
+          : null}
+        {expiredToken
+          ? <Typography color="error" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="0px 0px">Token has expired</Typography>
           : null}
       </FirstPartyContainer>
       <Typography paragraph fontSize="12px" marginTop="10px" color="#3394DC">

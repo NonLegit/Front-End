@@ -6,5 +6,6 @@
    "/users/facebook":"/facebook",
    "/users/login":"/login",
    "/users/forgot_password":"/forgetpassword",
-   "/users/forgot_username":"/forgetusername"
+   "/users/forgot_username":"/forgetusername",
+   "/users/reset_password/:token":"/resetpassword"
 }

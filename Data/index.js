@@ -6,6 +6,7 @@ const facebook = require('./facebook.json');
 const login = require('./login.json');
 const forgetpassword = require('./forgetpassword.json');
 const forgetusername = require('./forgetusername.json');
+const resetpassword = require('./resetpassword.json');
 // Something more
 
 module.exports = () => ({
@@ -17,5 +18,6 @@ module.exports = () => ({
   login,
   forgetpassword,
   forgetusername,
+  resetpassword,
   // Something more
 });
