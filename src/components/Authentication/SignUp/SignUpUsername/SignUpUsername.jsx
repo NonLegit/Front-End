@@ -47,7 +47,7 @@ function SignUpUsername({
   const [redirectCaption, setRedirectCaption] = useState(false);
   const [userNames, setUserNames] = useState([]);
 
-  // useEffecct
+  // useEffect
   useEffect(() => {
     refreshUsernames(setUserNames);
   }, []);
@@ -55,7 +55,7 @@ function SignUpUsername({
   const signUpFunction = () => {
     checkUserNameSignUp(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
-    signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies);
+    signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies);
   };
 
   return (

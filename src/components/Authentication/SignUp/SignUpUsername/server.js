@@ -89,6 +89,7 @@ export const checkUserNameSignUp = (username, setUserName) => {
 export const signUp = (
   email,
   userName,
+  setuserName,
   password,
   setPassword,
   verified,
@@ -150,5 +151,27 @@ export const signUp = (
     } else {
       console.log('Error');
     }
-  }).catch((error) => console.log(error));
+  }).catch((error) => {
+    if (error.response.data.errorType === 1) {
+      setLoading(false);
+      // weak password
+      setPassword((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'This Password isn\'t acceptable',
+      }));
+    } else if (error.response.data.errorType === 2) {
+      setLoading(false);
+      // repeated mail or username but for our logic it is only email
+      // Repeated
+      setuserName((prevState) => ({
+        ...prevState,
+        color: theme.palette.error.main,
+        icon: wrongIcon,
+        error: 'That user already exists.',
+      }));
+    }
+    console.log(error);
+  });
 };

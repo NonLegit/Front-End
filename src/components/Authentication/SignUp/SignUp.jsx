@@ -8,7 +8,7 @@ import SignUpUsername from './SignUpUsername/SignUpUsername';
 import LoadingPage from '../LoadingPage/LoadingPage';
 
 // styles
-import { AuthenticationConatiner } from '../styles';
+import { AuthenticationConatiner, AuthenticationBG, AuthenticationBody } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
@@ -59,7 +59,16 @@ function SignUp() {
 
   return (
     <AuthenticationConatiner data-testid="signup-test">
-      {remeberMe ? <LoadingPage /> : signUpView}
+      {remeberMe
+        ? (
+          <>
+            <AuthenticationBG />
+            <AuthenticationBody mnwidth="280px" mxwidth="280px" data-testid="signup-email-test">
+              <LoadingPage />
+            </AuthenticationBody>
+          </>
+        )
+        : signUpView}
     </AuthenticationConatiner>
   );
 }

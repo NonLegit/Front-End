@@ -5,10 +5,10 @@ import { gapi } from 'gapi-script';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
-// scripts
+// server
 import {
   responseGoogleSuccess, responseGoogleFail, responseFacebook,
-} from './scripts';
+} from './server';
 
 // styles
 import { ThirdPartyContainer } from './styles';

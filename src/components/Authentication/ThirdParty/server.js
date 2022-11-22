@@ -2,8 +2,10 @@ import { redirectHome } from '../../../scripts';
 import axios from '../../../services/instance';
 import { redditCookie } from '../scripts';
 /**
- * @param {JsonResponse} googleResponse
- * @return If Valid Token Then user is Logged in and redirected to the homepage
+ * If Valid Token Then user is Logged in and redirected to the homepage
+ * @param {JsonResponse} googleResponse --Google Response
+ * @param {setFunction} setCookies --add Cookies
+ * @return {void}
  */
 export const responseGoogleSuccess = (googleResponse, setCookies) => {
   console.log('Google', googleResponse);
@@ -23,16 +25,19 @@ export const responseGoogleSuccess = (googleResponse, setCookies) => {
   });
 };
 
+/**
+ *
+ * @param {JsonResponse} googleResponse --Google Response
+ */
 export const responseGoogleFail = (googleResponse) => {
   console.log('Error When Connecting to Google', googleResponse);
 };
 
 /**
  *
- * @param {JsonResponse} facebookResponse
- * @return If Valid Token Then user is Logged in and redirected to the homepage
+ * @param {JsonResponse} facebookResponse --Fcaebook Response
+ * @param {setFunction} setCookies --add Cookies* @return If Valid Token Then user is Logged in and redirected to the homepage
  */
-// eslint-disable-next-line no-unused-vars
 export const responseFacebook = (facebookResponse, setCookies) => {
   console.log('FaceBook', facebookResponse);
   axios.post('/users/facebook', { access_token: facebookResponse.accessToken }).then((response) => {

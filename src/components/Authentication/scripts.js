@@ -33,12 +33,13 @@ export const redditCookie = (setCookie) => {
  *
  */
 export const refreshUsernames = (setUserNames) => {
-  axios.get('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/username/random').then((response) => {
-    // ==>This API isn't in the documentation check with the back
-    setUserNames(response.data.usernames);
-  }).catch((error) => {
-    console.log(error);
-  });
+  setUserNames(['Basma', 'Eslam', 'Ali', 'Youssef', 'Aya']);
+  // axios.get('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/username/random').then((response) => {
+  //   // ==>This API isn't in the documentation check with the back
+  //   setUserNames(response.data.usernames);
+  // }).catch((error) => {
+  //   console.log(error);
+  // });
 };
 
 /**
