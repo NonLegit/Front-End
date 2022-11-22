@@ -104,7 +104,7 @@ export const recoverPassword = (
   }).catch((error) => {
     setLoading(false);
     console.log(error);
-    if (error.response.status === 404) {
+    if (error.response?.status === 404) {
       // This user Doesn't exist
       setUserName((prevState) => ({
         ...prevState,
@@ -112,7 +112,7 @@ export const recoverPassword = (
         icon: wrongIcon,
         error: 'That user doesn\'t exist',
       }));
-      console.log(error.response.errorMessage);
+      console.log(error.response?.errorMessage);
     }
     // 400 provode username and Password[Isn't reached]
   });

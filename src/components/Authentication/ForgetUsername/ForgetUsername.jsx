@@ -82,7 +82,7 @@ function ForgetUsername() {
           />
 
           {redirectCaption
-            ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
+            ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there are any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
             : null}
           <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
             Don

@@ -51,6 +51,7 @@ function Email({
         clr={email?.color}
         onBlur={() => { if (recaptcha) setrecaptchaState(true); }}
         onChange={(e) => {
+          if (recaptcha) setrecaptchaState(true);
           setEmail((prevState) => ({
             ...prevState,
             input: e.target.value.trim(),

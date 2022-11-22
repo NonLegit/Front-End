@@ -5,7 +5,7 @@ const google = require('./google.json');
 const facebook = require('./facebook.json');
 const login = require('./login.json');
 const forgetpassword = require('./forgetpassword.json');
-
+const forgetusername = require('./forgetusername.json');
 // Something more
 
 module.exports = () => ({
@@ -16,5 +16,6 @@ module.exports = () => ({
   facebook,
   login,
   forgetpassword,
+  forgetusername,
   // Something more
 });

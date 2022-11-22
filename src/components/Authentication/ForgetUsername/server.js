@@ -37,7 +37,7 @@ export const recoverUsername = (
   // Accepted Call API
   axios.post('/users/forgot_username', { email: email.input }).then((response) => {
     // console.log(response);
-    if (response.status === 204) {
+    if (response.status === 204 || response.status === 201 || response.status === 200) {
       setTimeout(() => {
         setLoading(false);
         setDisabled(true);
@@ -48,9 +48,16 @@ export const recoverUsername = (
   }).catch((error) => {
     setLoading(false);
     console.log(error);
-    if (error.response.status === 404) {
-      // email not found in DB
-      console.log(error.response.data.errorMessage);
+    if (error.response?.status === 404) {
+      // email not found in DB [Don't Give the user This info]
+      setTimeout(() => {
+        setLoading(false);
+        setDisabled(true);
+        setbuttonText(<DoneIcon />);
+        setRedirectCaption(true);
+      }, 1000);
+    } else {
+      // 400 empty username or password[Won't reach this case]
     }
   });
 };
