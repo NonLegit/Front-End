@@ -1,4 +1,4 @@
-import { redirectHome } from '../../../scripts';
+import { redirectHome } from '../../../utils/Redirect';
 import axios from '../../../services/instance';
 import { redditCookie } from '../scripts';
 /**

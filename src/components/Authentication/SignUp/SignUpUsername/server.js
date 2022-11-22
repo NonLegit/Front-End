@@ -10,7 +10,7 @@ import theme from '../../../../styles/theme/index';
 
 // Scripts
 import { redditCookie } from '../../scripts';
-import { redirectHome } from '../../../../scripts';
+import { redirectHome } from '../../../../utils/Redirect';
 /**
  *
  * check if username length [3-20], if valid username syntax,if username is unique and change state object accordingly

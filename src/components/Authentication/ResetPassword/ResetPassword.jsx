@@ -55,7 +55,7 @@ function ResetPassword() {
       Choose a new password here, then log in to your account.
     </>
   ); return (
-    <AuthenticationBody mnwidth="280px" mxwidth="440px">
+    <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="resetpassword-test">
       <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
       {/* <h1>{token}</h1> */}
       <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, setPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken); }}>
@@ -80,6 +80,7 @@ function ResetPassword() {
             matchPassword(repassword, e.target.value.trim(), setRePassword);
           }}
           helperText={password.error}
+          data-testid="resetpassword-password-input"
         />
         <RedditTextField
           label="Verify Password"
@@ -101,6 +102,7 @@ function ResetPassword() {
             }));
           }}
           helperText={repassword.error}
+          data-testid="resetpassword-repassword-input"
         />
         <CheckBoxConatiner>
           {/* <Checkbox sx={{ padding: '0px 5px 0px 0px' }} onChange={(event) => setLogOut(event.target.checked)} /> */}
@@ -110,7 +112,7 @@ function ResetPassword() {
             {/* Checking this box also logs you out of all apps you have authorized. */}
           </Typography>
         </CheckBoxConatiner>
-        <RedditLoadingButton type="submit" width="155px" loading={loading}>
+        <RedditLoadingButton type="submit" width="155px" loading={loading} data-testid="set-newpassword-btn-test">
           {buttonText}
         </RedditLoadingButton>
         {redirectCaption

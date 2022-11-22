@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
+
 // components
 import SignUpEmail from './SignUpEmail/SignUpEmail';
 import SignUpUsername from './SignUpUsername/SignUpUsername';
@@ -12,6 +13,7 @@ import theme from '../../../styles/theme';
 
 // scripts
 import { redditCookie } from '../scripts';
+
 // environment variables
 const { REACT_APP_ENV } = process.env;
 
@@ -41,7 +43,13 @@ function SignUp() {
   // useEffect
   useEffect(() => {
     // Check on Cookies
-    if (Cookies.get('jwt') || REACT_APP_ENV === 'development') {
+    // developememt
+    if (REACT_APP_ENV === 'development') {
+      if (cookies.redditUser === undefined) {
+        setremeberMe(false);
+      } else { setremeberMe(true); }
+    } else if (Cookies.get('jwt')) {
+      // production
       // Redirect to loading page
       // check on Reddit cookie
       if (cookies.redditUser === undefined) {
@@ -49,9 +57,9 @@ function SignUp() {
       }
       setremeberMe(true);
     } else {
+      // No Cookie by Back End
       setremeberMe(false);
     }
-    setUserNamePage(false);
   }, []);
 
   const signUpView = userNamePage

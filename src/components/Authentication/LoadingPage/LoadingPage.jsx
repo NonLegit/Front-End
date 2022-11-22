@@ -7,7 +7,7 @@ import { Typography } from '@mui/material';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 
 // scripts
-import { redirectHome } from '../../../scripts';
+import { redirectHome } from '../../../utils/Redirect';
 
 // styles
 import { StyledLink } from '../styles';

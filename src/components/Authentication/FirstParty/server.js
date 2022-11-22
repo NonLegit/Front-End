@@ -12,7 +12,7 @@ import theme from '../../../styles/theme';
 // scripts
 import { redditCookie } from '../scripts';
 // scripts
-import { redirectHome } from '../../../scripts';
+import { redirectHome } from '../../../utils/Redirect';
 
 /**
 *

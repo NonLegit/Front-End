@@ -6,8 +6,10 @@ import { wrongIcon, rightIcon } from './styles';
 import theme from '../../styles/theme';
 
 // scripts
-import { redirectLogin } from '../../scripts';
+import { redirectLogin } from '../../utils/Redirect';
 
+// utils
+import { EmailFormat } from '../../utils/checkEmail';
 /**
  *
  * Add Reddit Cookie
@@ -58,7 +60,7 @@ export const checkEmail = (emailInput, setEmail) => {
       icon: wrongIcon,
       error: 'Please enter an email address to continue',
     }));
-  } else if (!/\S+@\S+\.\S+/.test(emailInput)) {
+  } else if (!EmailFormat(emailInput)) {
     setEmail((prevState) => ({
       ...prevState,
       color: theme.palette.error.main,
