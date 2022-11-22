@@ -46,7 +46,6 @@ export const Joined = styled(Button)(() => ({
   boxShadow: 'none',
   right: 0,
   '&:hover': {
-    backgroundColor: '#f5fafd',
     boxShadow: 'none',
   },
 }));

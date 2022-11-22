@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import CommunitiesProvider from '../../../contexts/CommunitiesProvider';
 import FilteredPostsProvider from '../../../contexts/FilteredPostsProvider';
 import ContentProvider from '../../../contexts/ContentProvider';
 import PostsProvider from '../../../contexts/PostsProvider';
@@ -29,7 +30,7 @@ const renderSwitch = (param, username) => {
   }
   if (param === 'upvoted' || param === 'downvoted' || param === 'saved' || param === 'hidden') {
     return (
-      <FilteredPostsProvider param={param} name={username}>
+      <FilteredPostsProvider param={param}>
         <PostsFilteredTap type={param} />
       </FilteredPostsProvider>
     );
@@ -54,8 +55,10 @@ function ProfileMainContent() {
       <UserProvider name={username}>
         <ProfilePage>
           {renderSwitch(subTitle, username)}
-          <UserInfoProvider name={username}>
-            <Sidebar />
+          <UserInfoProvider>
+            <CommunitiesProvider>
+              <Sidebar />
+            </CommunitiesProvider>
           </UserInfoProvider>
         </ProfilePage>
       </UserProvider>

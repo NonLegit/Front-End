@@ -7,7 +7,8 @@ export const ProfilePage = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   padding: '20px 24px',
-  [theme.breakpoints.between('0', '630')]: {
+
+  [theme.breakpoints.between('0', '650')]: {
     padding: 0,
   },
 }));

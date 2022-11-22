@@ -6,12 +6,6 @@ import { CommentText } from '../styles';
 import CommentsBoxHeader from './styles';
 
 /**
- * the header of an comment
- * @return {React.Component} - CommentsHeader
- * @param {string} username - name of the currently loggedin user
- */
-
-/**
  * Header of the comment
  *
  * @component CommentsHeader

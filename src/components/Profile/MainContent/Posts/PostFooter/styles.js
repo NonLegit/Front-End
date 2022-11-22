@@ -19,14 +19,14 @@ export const FooterText = styled(Typography)(({ theme, condition, responsiveshar
     },
   }),
   ...((responsiveshare === 'true') && {
-    [theme.breakpoints.between('0', '500')]: {
+    [theme.breakpoints.between('0', '600')]: {
       display: 'none',
     },
   }),
 
 }));
 export const ElementBox = styled(Box)(({
-  spam, approved, theme, condition2, condition, show, modicons,
+  spam, approved, theme, condition2, condition, show, modicons, awardedit,
 }) => ({
   height: '100%',
   display: 'flex',
@@ -54,7 +54,7 @@ export const ElementBox = styled(Box)(({
     },
   }),
   ...((condition) && {
-    [theme.breakpoints.between('0', '450')]: {
+    [theme.breakpoints.between('0', '650')]: {
       display: 'none',
     },
   }),
@@ -62,12 +62,17 @@ export const ElementBox = styled(Box)(({
     display: 'none',
   }),
   ...((show === 'true') && {
-    [theme.breakpoints.between('0', '450')]: {
+    [theme.breakpoints.between('0', '650')]: {
       display: 'block',
     },
   }),
   ...((modicons === 'true') && {
     [theme.breakpoints.between('0', '540')]: {
+      display: 'none',
+    },
+  }),
+  ...((awardedit === 'true') && {
+    [theme.breakpoints.between('0', '420')]: {
       display: 'none',
     },
   }),

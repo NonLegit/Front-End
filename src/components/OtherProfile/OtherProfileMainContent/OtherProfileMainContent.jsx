@@ -8,6 +8,7 @@ import OtherProfileContent from './OtherProfileContent/OtherProfileContent';
 import OtherProfilePostsTap from './OtherProfilePostsTap/OtherProfilePostsTap';
 import OtherProfileSidebar from './OtherProfileSidebar/OtherProfileSidebar';
 import { ProfilePage } from './styles';
+import CommunitiesProvider from '../../../contexts/CommunitiesProvider';
 
 const renderSwitch = (param, username) => {
   if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&t=day') {
@@ -45,8 +46,10 @@ function OtherProfileMainContent() {
       <UserProvider name={username}>
         <ProfilePage>
           {renderSwitch(subTitle, username)}
-          <UserInfoProvider name={username}>
-            <OtherProfileSidebar />
+          <UserInfoProvider>
+            <CommunitiesProvider>
+              <OtherProfileSidebar />
+            </CommunitiesProvider>
           </UserInfoProvider>
         </ProfilePage>
       </UserProvider>

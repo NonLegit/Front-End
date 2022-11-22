@@ -3,6 +3,7 @@ import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import CakeIcon from '@mui/icons-material/Cake';
 import { useContext, useEffect, useState } from 'react';
+import moment from 'moment/moment';
 import {
   WideButton, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
@@ -18,7 +19,8 @@ import { UserInfoContext } from '../../../../../contexts/UserInfoProvider';
  * @returns {React.Component} OtherProfileUserInfo
  */
 function OtherProfileUserInfo() {
-  const [karma, setKarma] = useState();
+  const [postKarma, setPostKarma] = useState();
+  const [commentKarma, setCommentKarma] = useState();
   const [cake, setCake] = useState();
 
   const { username } = useContext(UserContext);
@@ -26,14 +28,9 @@ function OtherProfileUserInfo() {
 
   // to be fetched here
   useEffect(() => {
-    setKarma(info.postKarma);
-    const month = info.createdAt?.split('-')[1];
-    const date = new Date();
-    date.setMonth(month - 1);
-
-    setCake(`${date.toLocaleString('en-US', {
-      month: 'long',
-    })} ${info.createdAt?.split('-')[2]}, ${info.createdAt?.split('-')[0]}`);
+    setPostKarma(info?.postKarma);
+    setCommentKarma(info?.commentKarma);
+    setCake(info?.createdAt);
   }, [info]);
 
   const [showList, setShowList] = useState(false);
@@ -75,14 +72,14 @@ function OtherProfileUserInfo() {
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Karma</Typography>
             <Box sx={{ display: 'flex' }}>
               <FilterVintageIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
-              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{karma}</Typography>
+              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{postKarma + commentKarma }</Typography>
             </Box>
           </EntityBox>
           <EntityBox>
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Cake Day</Typography>
             <Box sx={{ display: 'flex' }}>
               <CakeIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
-              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{cake}</Typography>
+              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{moment(cake, 'YYYY-MM-DD-HH-mm').add(1, 'days').utc().format('MMMM DD, YYYY')}</Typography>
             </Box>
           </EntityBox>
         </InfoBox>

@@ -5,7 +5,10 @@ import { useState, useContext, useEffect } from 'react';
 import {
   EmptyImage,
   PostContentBox,
+  PostImage,
+  PostSidebaRes,
   PostsQueueBox,
+  TagPost,
   TitlePost,
 } from './styles';
 import PostSide from './PostSide/PostSide';
@@ -37,23 +40,35 @@ function Post(props) {
   }, [type]);
   return (
     <PostsQueueBox>
-      <PostSide points={entity?.votes} postVoteStatus={entity?.postVoteStatus} />
+      <PostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} />
 
-      <Box sx={{ marginLeft: 6 }}>
+      <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
-          <EmptyImage>
-            <ArticleOutlinedIcon fontSize="small" color="disabled" />
-          </EmptyImage>
+          {entity.images.length === 0 ? (
+            <EmptyImage>
+              <ArticleOutlinedIcon fontSize="small" color="disabled" />
+            </EmptyImage>
+          )
+            : (
+              <EmptyImage>
+                <PostImage src={entity.images[0]} alt="post pic" />
+              </EmptyImage>
+            )}
           <PostContentBox>
             <Box sx={{ marginLeft: 1 }}>
-              <TitlePost variant="h6">{entity.title}</TitlePost>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+                <TitlePost variant="h6">{entity.title}</TitlePost>
+                {entity.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
+                {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
+              </Box>
               <PostHeader
                 subReddit={entity.ownerType}
-                nameUser={username}
+                nameUser={entity.author}
                 Time={entity.createdAt}
+                nsfw={entity.nsfw}
+                locked={entity.locked}
               />
               <PostFooter
-                subTitle={entity.ownerType}
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}
@@ -64,12 +79,17 @@ function Post(props) {
                 removed={entity.removed}
                 spam={entity.spam}
                 numComments={entity.commentCount}
+                points={entity.votes}
+                postVoteStatus={entity.postVoteStatus}
+                nsfw={entity.nsfw}
+                spoiler={entity.spoiler}
+                sendReplies={entity.sendReplies}
               />
             </Box>
           </PostContentBox>
         </Box>
         {expand && <Box>{entity.text}</Box>}
-      </Box>
+      </PostSidebaRes>
     </PostsQueueBox>
   );
 }

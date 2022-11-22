@@ -6,6 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
 import { useContext, useEffect, useState } from 'react';
+import moment from 'moment/moment';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
@@ -21,25 +22,19 @@ import { UserInfoContext } from '../../../../../contexts/UserInfoProvider';
  * @returns {React.Component} UserInfo
  */
 function UserInfo() {
-  const [karma, setKarma] = useState();
+  const [postKarma, setPostKarma] = useState();
+  const [commentKarma, setCommentKarma] = useState();
   const [cake, setCake] = useState();
   const [followers, setFollowers] = useState();
 
   const { username } = useContext(UserContext);
   const { info } = useContext(UserInfoContext);
 
-  // to be fetched here
   useEffect(() => {
-    setKarma(info.postKarma);
-    // check with back end
-    setFollowers(info.followersCount);
-    const month = info.createdAt?.split('-')[1];
-    const date = new Date();
-    date.setMonth(month - 1);
-
-    setCake(`${date.toLocaleString('en-US', {
-      month: 'long',
-    })} ${info.createdAt?.split('-')[2]}, ${info.createdAt?.split('-')[0]}`);
+    setPostKarma(info?.postKarma);
+    setCommentKarma(info?.commentKarma);
+    setFollowers(info?.followersCount);
+    setCake(info?.createdAt);
   }, [info]);
 
   const [showList, setShowList] = useState(false);
@@ -93,14 +88,16 @@ function UserInfo() {
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Karma</Typography>
             <Box sx={{ display: 'flex' }}>
               <FilterVintageIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
-              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{karma}</Typography>
+              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{postKarma + commentKarma }</Typography>
             </Box>
           </EntityBox>
           <EntityBox>
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Cake Day</Typography>
             <Box sx={{ display: 'flex' }}>
               <CakeIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
-              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>{cake}</Typography>
+              <Typography variant="caption" sx={{ color: '#7c7c7c' }}>
+                {moment(cake, 'YYYY-MM-DD-HH-mm').add(1, 'days').utc().format('MMMM DD, YYYY')}
+              </Typography>
             </Box>
           </EntityBox>
           <EntityBox>
@@ -116,16 +113,14 @@ function UserInfo() {
         <br />
         <AddPost variant="contained">Add Post</AddPost>
         {showList
-            && (
+          ? (
             <>
               <OptionsButtons data-testid="option">Profile moderation</OptionsButtons>
               <OptionsButtons>Add to Custom Feed</OptionsButtons>
               <OptionsButtons>Invite someone to chat</OptionsButtons>
               <MoreOptions onClick={() => { handleClickList(); }}>Fewer options</MoreOptions>
             </>
-            )}
-        {!showList
-            && <MoreOptions data-testid="show-more" onClick={() => { handleClickList(); }}>More options</MoreOptions>}
+          ) : <MoreOptions data-testid="show-more" onClick={() => { handleClickList(); }}>More options</MoreOptions>}
       </ProfileBox>
 
     </UserInfoBox>

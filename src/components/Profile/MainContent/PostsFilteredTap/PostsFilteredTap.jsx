@@ -1,30 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
+import renderText from '../../../../utils/renderText';
 import { WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import { UserContext } from '../../../../contexts/UserProvider';
 import { FilteredPostsContext } from '../../../../contexts/FilteredPostsProvider';
 import Post from '../Posts/Post';
-
-// decide which message to show for an empty page
-const renderSwitch = (param) => {
-  switch (param) {
-    case 'upvoted':
-      return `hmm...looks like you
-            haven't upvoted and thing yet`;
-    case 'downvoted':
-      return `hmm... looks like you
-            haven't downvoted and thing yet`;
-    case 'saved':
-      return `hmm... looks like you
-            haven't saved and thing yet`;
-    case 'hidden':
-      return `hmm... looks like you
-            haven't hidden and thing yet`;
-
-    default:
-      return 'foo';
-  }
-};
 
 /**
  * filtered taps (saved - hidden - upvoted - downvoted)
@@ -43,7 +23,7 @@ function PostsFilteredTap(props) {
     if (posts?.length > 0) { setIsContent(true); }
   }, [username, posts, type]);
 
-  const emptyContent = renderSwitch(type);
+  const emptyContent = renderText(type);
   return (
     <WideBox>
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
