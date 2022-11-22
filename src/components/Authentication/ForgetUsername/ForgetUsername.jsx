@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
 
-// mui compocnents
+// mui components
 import { Typography } from '@mui/material';
 
 // componenents
@@ -14,8 +14,10 @@ import Email from '../Email/Email';
 import { AuthenticationBody, StyledLink } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
 
-// scripts
+// server
 import { recoverUsername } from './server';
+
+// scripts
 import { redditCookie } from '../scripts';
 
 /**

@@ -5,7 +5,7 @@ import axios from '../../../services/instance';
 // mui components
 
 // scripts
-import { redditCookie,matchPassword } from '../scripts';
+import { redditCookie, matchPassword } from '../scripts';
 import { redirectHome } from '../../../scripts';
 
 /**
@@ -14,7 +14,7 @@ import { redirectHome } from '../../../scripts';
 * @param {string} username  -username to check on
 * @returns void
 */
-export const resetPassword = (setLoading, password, repassword, token, setbuttonText, setRedirectCaption, setCookies,setRePassword) => {
+export const resetPassword = (setLoading, password, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword) => {
   setLoading(true);
   if (password.error != null || repassword.error != null) {
     setLoading(false);

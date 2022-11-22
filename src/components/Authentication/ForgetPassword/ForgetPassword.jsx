@@ -16,9 +16,11 @@ import {
 } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
 
+// server
+import { checkUserName, recoverPassword } from './server';
+
 // scripts
-import { checkUserName, checkEmail, recoverPassword } from './server';
-import { redditCookie } from '../scripts';
+import { redditCookie, checkEmail } from '../scripts';
 
 /**
  * Component for Forget Password Page

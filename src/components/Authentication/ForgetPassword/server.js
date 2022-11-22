@@ -8,6 +8,9 @@ import axios from '../../../services/instance';
 import { wrongIcon, rightIcon } from '../styles';
 import theme from '../../../styles/theme';
 
+// scripts
+import { checkEmail } from '../scripts';
+
 /**
  *
  * @param {string} username --userName Object
@@ -41,38 +44,6 @@ export const checkUserName = (username, error, setUserName) => {
     icon: rightIcon,
     error: null,
   }));
-};
-
-/**
- *
- * Check on Email Format
- * @param {Srting} emailInput  --email input string
- * @param {setfunction} setEmail  --setfunction for the Email Object
- * @returns {void}
- */
-export const checkEmail = (emailInput, setEmail) => {
-  if (emailInput === '') {
-    setEmail((prevState) => ({
-      ...prevState,
-      color: theme.palette.error.main,
-      icon: wrongIcon,
-      error: 'Please enter an email address to continue',
-    }));
-  } else if (!/\S+@\S+\.\S+/.test(emailInput)) {
-    setEmail((prevState) => ({
-      ...prevState,
-      color: theme.palette.error.main,
-      icon: wrongIcon,
-      error: 'Please fix your email to continue',
-    }));
-  } else {
-    setEmail((prevState) => ({
-      ...prevState,
-      color: theme.palette.primary.main,
-      icon: rightIcon,
-      error: null,
-    }));
-  }
 };
 
 /**

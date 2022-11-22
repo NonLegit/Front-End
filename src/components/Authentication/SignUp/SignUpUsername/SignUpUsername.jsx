@@ -15,10 +15,11 @@ import {
 import {
   FirstPartyContainer, RedditTextField, rightIcon, RedditLoadingButton,
 } from '../../styles';
+
+// server
+import { checkUserNameSignUp, signUp } from './server';
 // scripts
-import {
-  refreshUsernames, checkUserName, checkPassword, signUp,
-} from '../../scripts';
+import { refreshUsernames, checkPassword } from '../../scripts';
 import theme, { fonts } from '../../../../styles/theme';
 
 /**
@@ -52,7 +53,7 @@ function SignUpUsername({
   }, []);
 
   const signUpFunction = () => {
-    checkUserName(userName?.input, setUserName);
+    checkUserNameSignUp(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
     signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies);
   };
@@ -87,7 +88,7 @@ function SignUpUsername({
                 ...prevState,
                 input: e.target.value.trim(),
               }));
-              checkUserName(e.target.value.trim(), setUserName);
+              checkUserNameSignUp(e.target.value.trim(), setUserName);
               setdefaultUserNameValue(e.target.value.trim());
             }}
             value={defaultUserNameValue || ''}
