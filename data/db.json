@@ -1,4 +1,7 @@
 {
+  "usernameAvailable":{
+    "available": true
+    },
   "posts": [
     {
       "{\"title\":\"jxbhjx\",\"text\":\"jxbjh\",\"kind\":\"text\",\"owner\":0,\"ownerType\":\"Subreddit\",\"spoiler\":false,\"nswf\":false,\"sendReplies\":true}": "",

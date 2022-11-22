@@ -3,5 +3,6 @@
     "/users/new":"/new",
     "/users/hot":"/hot",
     "/users/top":"/top",
-    "/users/best":"/best"
+    "/users/best":"/best",
+    "/users/username_available?userName=*":"/usernameAvailable"
 }
