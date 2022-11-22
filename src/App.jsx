@@ -88,11 +88,12 @@ function App() {
           }
             />
             <Route
-              path="/resetpassword"
+              path="/resetpassword/:token"
               element={
                 <ResetPasswordPage />
           }
             />
+
             <Route
               path="/username"
               element={

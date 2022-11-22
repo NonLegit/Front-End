@@ -1,32 +1,54 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+
+// mui components
 import { Typography, Checkbox } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 
+// components
+import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
+
+// styles
+import { CheckBoxConatiner } from './styles';
+import theme, { fonts } from '../../../styles/theme';
 import {
   AuthenticationBody, FirstPartyContainer, StyledLink, RedditTextField, RedditLoadingButton,
 } from '../styles';
 
-import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
-import { CheckBoxConatiner } from './styles';
+// services
+import axios from '../../../services/instance';
 
-import theme, { fonts } from '../../../styles/theme';
-import { checkPassword, matchPassword } from '../scripts';
+// scripts
+import { checkPassword, matchPassword, redditCookie } from '../scripts';
+import { redirectHome } from '../../../scripts';
 
+/**
+ * Component for Reset Password Page
+ *
+ * @component
+ * @returns {React.Component} --ResetPassword Page Component
+ */
 function ResetPassword() {
+  // states
   const [password, setPassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
   const [repassword, setRePassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  // const [Logout, setLogOut] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [Logout, setLogOut] = useState(false);
   const [buttonText, setbuttonText] = useState('set Password');
   const [loading, setLoading] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
 
-  useEffect(() => {
-  }, []);
+  // useCookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  // useParams
+  const { token } = useParams();
 
   const caption = (
     <>
@@ -36,24 +58,33 @@ function ResetPassword() {
 
   const resetPassword = () => {
     setLoading(true);
-    console.log('ResetPassword');
+
     setLoading(true);
     if (password.error != null || repassword.error != null) {
       setLoading(false);
       return;
     }
     // Check API with BE
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/reset_password/200').then((response) => {
+    axios.post(`/users/reset_password/${token}`, {
+      //= >Logout paramter ??
+      password: password.input,
+      confirmPassword: repassword.input,
+    }).then((response) => {
       if (response.status === 200) {
         setTimeout(() => {
           setbuttonText(<DoneIcon />);
           setRedirectCaption(true);
-          setTimeout(() => {
-            window.location.href = './';
-          }, 500);
-        }, 1000);
+          redditCookie(setCookies);
+          redirectHome(1000);
+        }, 500);
       }
     }).catch((error) => {
+      if (error.response.status === 400) {
+        // =>Handle Rest Reponses
+        //= >mismatch between passwords
+        //= >invalid token
+      }
+      // invlaid Token
       setLoading(false);
       console.log(error);
     });
@@ -61,7 +92,7 @@ function ResetPassword() {
   return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px">
       <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-      <FirstPartyContainer>
+      <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(); }}>
         <RedditTextField
           label="New Password"
           variant="filled"
@@ -75,11 +106,11 @@ function ResetPassword() {
           }}
           clr={password.color}
           onChange={(e) => {
-            checkPassword(e.target.value.trim(), setPassword, undefined);
             setPassword((prevState) => ({
               ...prevState,
               input: e.target.value.trim(),
             }));
+            checkPassword(e.target.value.trim(), setPassword, undefined);
           }}
           helperText={password.error}
         />
@@ -105,7 +136,7 @@ function ResetPassword() {
           helperText={repassword.error}
         />
         <CheckBoxConatiner>
-          <Checkbox sx={{ padding: '0px 5px 0px 0px' }} />
+          <Checkbox sx={{ padding: '0px 5px 0px 0px' }} onChange={(event) => setLogOut(event.target.checked)} />
           <Typography fontSize="12px" fontWeight="400">
             Changing your password logs you out of all browsers on your device(s).
             {' '}
