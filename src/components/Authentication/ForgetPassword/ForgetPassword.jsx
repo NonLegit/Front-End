@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 // mui components
 import { Typography } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
 
 // componnets
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
@@ -12,9 +12,15 @@ import LoadingPage from '../LoadingPage/LoadingPage';
 // styles
 import {
   AuthenticationBody, FirstPartyContainer, StyledLink, RedditTextField,
-  wrongIcon, rightIcon, RedditLoadingButton,
+  RedditLoadingButton,
 } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+
+// server
+import { checkUserName, recoverPassword } from './server';
+
+// scripts
+import { redditCookie, checkEmail } from '../scripts';
 
 /**
  * Component for Forget Password Page
@@ -35,10 +41,22 @@ function ForgetPassword() {
   const [email, setEmail] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
+
+  // cookies
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
   useEffect(() => {
-    // check if connected Cookies
-    //= >Check for cookies from BE
-    setremeberMe(false);
+    // check if already logged in Cokkies
+    if (Cookies.get('jwt')) {
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
+      }
+      setremeberMe(true);
+    } else {
+      setremeberMe(false);
+    }
   }, []);
 
   const caption = (
@@ -48,96 +66,26 @@ function ForgetPassword() {
     </>
   );
 
-  const checkUserName = (username) => {
-    // Check Username bwteen 3-20 characters
-    if (username.length < 3 || username.length > 20) {
-      console.log('length problem');
-      setUserName((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Username must be between 3 and 20 characters',
-      }));
-      return;
-    }
-    // else Valid
-    setUserName((prevState) => ({
-      ...prevState,
-      color: theme.palette.primary.main,
-      icon: rightIcon,
-      error: null,
-    }));
-  };
-
-  const checkEmail = (emailInput) => {
-    if (emailInput === '') {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please enter an email address to continue',
-      }));
-    } else if (!/\S+@\S+\.\S+/.test(emailInput)) {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please fix your email to continue',
-      }));
-    } else {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.primary.main,
-        icon: rightIcon,
-        error: null,
-      }));
-    }
-  };
-
-  const recoverPassword = () => {
-    setLoading(true);
-    // Setting error in case of first time
-    checkEmail(email.input);
-    checkUserName(userName.input);
-
-    // Case he didn't enter anything
-    if (email.input === '' || userName.input === '') {
-      setLoading(false);
-      return;
-    }
-
-    // There are some errors in the email or username
-    if (email.error != null || userName.error != null) {
-      setLoading(false);
-      return;
-    }
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_password/204', { email: email.input, userName: userName.input }).then((response) => {
-      // console.log(response);
-      if (response.status === 204) {
-        setTimeout(() => {
-          setLoading(false);
-          setDisabled(true);
-          setbuttonText(<DoneIcon />);
-          setRedirectCaption(true);
-        }, 1000);
-      }
-    }).catch((error) => {
-      setLoading(false);
-      if (error.response.status === 400) {
-        // =>check with back
-        // "status": "string",
-        // "errorMessage": "string"
-      }
-      console.log(error);
-    });
-  };
-
   return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="forgetpassword-test">
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-          <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); recoverPassword(); }}>
+          <FirstPartyContainer
+            noValidate
+            onSubmit={(e) => {
+              e.preventDefault(); recoverPassword(
+                setLoading,
+                email,
+                setEmail,
+                userName,
+                setUserName,
+                setDisabled,
+                setbuttonText,
+                setRedirectCaption,
+              );
+            }}
+          >
             <RedditTextField
               label="Username"
               variant="filled"
@@ -155,7 +103,7 @@ function ForgetPassword() {
                   ...prevState,
                   input: e.target.value.trim(),
                 }));
-                checkUserName(e.target.value.trim());
+                checkUserName(e.target.value.trim(), userName.error, setUserName);
               }}
               helperText={userName.error}
               data-testid="forgetpassword-username-input"
@@ -177,7 +125,7 @@ function ForgetPassword() {
                   ...prevState,
                   input: e.target.value.trim(),
                 }));
-                checkEmail(e.target.value.trim());
+                checkEmail(e.target.value.trim(), setEmail);
               }}
               helperText={email.error}
               data-testid="forgetpassword-email-input"

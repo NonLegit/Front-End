@@ -1,0 +1,23 @@
+{
+    "status": "success",
+    "user": {
+    "id": 10,
+    "userName": "uniqueuser",
+    "email": "user@email.com",
+    "profilePicture": "src url",
+    "profileBackground": "string",
+    "adultContent": true,
+    "autoplayMedia": true,
+    "canbeFollowed": true,
+    "lastUpdatedPassword": "2022-10-22-06-12",
+    "followersCount": 0,
+    "friendsCount": 0,
+    "accountActivated": true,
+    "gender": "male",
+    "displayName": "firstname secondname",
+    "postKarma": 1,
+    "commentKarma": 1,
+    "createdAt": "2022-10-22-06-12",
+    "description": " info"
+    }   
+}
