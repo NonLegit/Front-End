@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 // mui compocnents
 import { Typography } from '@mui/material';
@@ -10,9 +11,15 @@ import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Email from '../Email/Email';
 
+// services
+import axios from '../../../services/instance';
+
 // styles
 import { AuthenticationBody, StyledLink } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+
+// scripts
+import { redditCookie } from '../scripts';
 
 /**
  * Component for Forget Username Page
@@ -33,10 +40,21 @@ function ForgetUsername() {
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
 
+  // cookies
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
   useEffect(() => {
     // check if already logged in Cokkies
-    // ==>Chceck for cookies
-    setremeberMe(false);
+    if (Cookies.get('jwt')) {
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
+      }
+      setremeberMe(true);
+    } else {
+      setremeberMe(false);
+    }
   }, []);
 
   const caption = (
@@ -65,7 +83,7 @@ function ForgetUsername() {
     }
 
     // Accepted Call API
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_username/204', { email: email.input }).then((response) => {
+    axios.post('/users/forgot_username', { email: email.input }).then((response) => {
       // console.log(response);
       if (response.status === 204) {
         // => check with Back this repsonse is empty
@@ -78,12 +96,11 @@ function ForgetUsername() {
       }
     }).catch((error) => {
       setLoading(false);
-      if (error.response.status === 400) {
-        // =>check with back
-        // "status": "string",
-        // "errorMessage": "string"
-      }
       console.log(error);
+      if (error.response.status === 400) {
+        // email not found in DB
+        console.log(error.response.errorMessage);
+      }
     });
   };
   return (

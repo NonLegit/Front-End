@@ -31,8 +31,6 @@ function LogIn() {
 
   // effect
   useEffect(() => {
-    console.log('hhh');
-    console.log(Cookies.get('jwt'));
     // Check on Cookies
     if (Cookies.get('jwt')) {
       // Redirect to loading page
