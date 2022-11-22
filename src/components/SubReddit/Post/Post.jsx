@@ -17,7 +17,7 @@ import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
    * @property {string} title -Post title.
    * @property {string} image -Post owner icon.
    * @property {string} owner -Post subreddit(post owner).
-   * @property {string} creator -Post creator.
+   * @property {string} author -Post author.
    * @property {string} flairText -Post flair text.
    * @property {string} flairBackgroundColor -Post flair background color.
    * @property {string} flairColor -Post flair color.

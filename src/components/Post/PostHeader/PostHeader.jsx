@@ -18,7 +18,7 @@ import {
  * @property {string} title -Post title.
  * @property {string} image -Post owner icon.
  * @property {string} owner -Post subreddit(post owner).
- * @property {string} creator -Post creator.
+ * @property {string} author -Post author.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
@@ -27,7 +27,7 @@ import {
 
 function PostHeader(props) {
   const {
-    title, image, owner, creator, flair, flairBackgroundColor, flairColor, createdAt,
+    title, image, owner, author, flair, flairBackgroundColor, flairColor, createdAt,
   } = props;
   return (
     <>
@@ -51,12 +51,10 @@ function PostHeader(props) {
           <div>Posted By</div>
           <PostInfoLink to="/" color="inherit" fontWeight="normal">
             u/
-            {creator}
+            {author}
           </PostInfoLink>
           <CreatedAt color="inherit" fontWeight="normal">
             {calculateTime(createdAt)}
-            {' '}
-            ago
           </CreatedAt>
         </Box>
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">

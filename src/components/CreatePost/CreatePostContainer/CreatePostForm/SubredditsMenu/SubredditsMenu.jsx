@@ -40,6 +40,7 @@ function SubredditsMenu(props) {
     setOpen(true);
     setSearching(true);
     setChosenCommunityIcon(null);
+    setCommunityToPostIn(null);
   };
   const handleClickAway = () => {
     setOpen(false);
