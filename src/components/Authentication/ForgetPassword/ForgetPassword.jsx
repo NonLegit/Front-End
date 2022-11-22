@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 // mui components
 import { Typography } from '@mui/material';
@@ -9,12 +11,18 @@ import DoneIcon from '@mui/icons-material/Done';
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';
 
+// services
+import axios from '../../../services/instance';
+
 // styles
 import {
   AuthenticationBody, FirstPartyContainer, StyledLink, RedditTextField,
   wrongIcon, rightIcon, RedditLoadingButton,
 } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+
+// scripts
+import { redditCookie } from '../scripts';
 
 /**
  * Component for Forget Password Page
@@ -35,10 +43,22 @@ function ForgetPassword() {
   const [email, setEmail] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
+
+  // cookies
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
   useEffect(() => {
-    // check if connected Cookies
-    //= >Check for cookies from BE
-    setremeberMe(false);
+    // check if already logged in Cokkies
+    if (Cookies.get('jwt')) {
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
+      }
+      setremeberMe(true);
+    } else {
+      setremeberMe(false);
+    }
   }, []);
 
   const caption = (
@@ -48,10 +68,17 @@ function ForgetPassword() {
     </>
   );
 
-  const checkUserName = (username) => {
+  const checkUserName = (username, error) => {
+    // console.log(username); //must be passed expilicity
+    // console.log('Check User');
+    // console.log(error); //must be passed expilicity
+    if (error === "That user doesn't exist") {
+      // wait for Data Base
+      return;
+    }
     // Check Username bwteen 3-20 characters
     if (username.length < 3 || username.length > 20) {
-      console.log('length problem');
+      // console.log('length problem');
       setUserName((prevState) => ({
         ...prevState,
         color: theme.palette.error.main,
@@ -95,10 +122,11 @@ function ForgetPassword() {
   };
 
   const recoverPassword = () => {
+    // console.log(userName); //correct
     setLoading(true);
     // Setting error in case of first time
     checkEmail(email.input);
-    checkUserName(userName.input);
+    checkUserName(userName.input, userName.error);
 
     // Case he didn't enter anything
     if (email.input === '' || userName.input === '') {
@@ -107,13 +135,19 @@ function ForgetPassword() {
     }
 
     // There are some errors in the email or username
-    if (email.error != null || userName.error != null) {
+    if (userName.error !== "That user doesn't exist" && (email.error != null || userName.error != null)) {
       setLoading(false);
       return;
     }
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_password/204', { email: email.input, userName: userName.input }).then((response) => {
-      // console.log(response);
+
+    axios.post('/users/forgot_password', { email: email.input, userName: userName.input }).then((response) => {
       if (response.status === 204) {
+        setUserName((prevState) => ({
+          ...prevState,
+          color: theme.palette.primary.main,
+          icon: rightIcon,
+          error: null,
+        }));
         setTimeout(() => {
           setLoading(false);
           setDisabled(true);
@@ -123,12 +157,17 @@ function ForgetPassword() {
       }
     }).catch((error) => {
       setLoading(false);
-      if (error.response.status === 400) {
-        // =>check with back
-        // "status": "string",
-        // "errorMessage": "string"
-      }
       console.log(error);
+      if (error.response.status === 404) {
+        // This user Doesn't exist
+        setUserName((prevState) => ({
+          ...prevState,
+          color: theme.palette.error.main,
+          icon: wrongIcon,
+          error: 'That user doesn\'t exist',
+        }));
+        console.log(error.response.errorMessage);
+      }
     });
   };
 
@@ -155,7 +194,7 @@ function ForgetPassword() {
                   ...prevState,
                   input: e.target.value.trim(),
                 }));
-                checkUserName(e.target.value.trim());
+                checkUserName(e.target.value.trim(), userName.error);
               }}
               helperText={userName.error}
               data-testid="forgetpassword-username-input"

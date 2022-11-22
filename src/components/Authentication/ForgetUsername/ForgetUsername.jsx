@@ -65,7 +65,7 @@ function ForgetUsername() {
   );
 
   const recoverUsername = () => {
-    console.log(email);
+    // console.log(email);
     setLoading(true);
 
     // if there is a problem with email
@@ -86,7 +86,6 @@ function ForgetUsername() {
     axios.post('/users/forgot_username', { email: email.input }).then((response) => {
       // console.log(response);
       if (response.status === 204) {
-        // => check with Back this repsonse is empty
         setTimeout(() => {
           setLoading(false);
           setDisabled(true);
@@ -97,9 +96,9 @@ function ForgetUsername() {
     }).catch((error) => {
       setLoading(false);
       console.log(error);
-      if (error.response.status === 400) {
+      if (error.response.status === 404) {
         // email not found in DB
-        console.log(error.response.errorMessage);
+        console.log(error.response.data.errorMessage);
       }
     });
   };
