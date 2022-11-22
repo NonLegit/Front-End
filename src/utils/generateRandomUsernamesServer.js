@@ -3,6 +3,15 @@ import { useEffect, useState } from 'react';
 import axios from '../services/instance';
 import replaceDashWithUnderScore from './replaceDashWithUnderScore';
 
+/**
+ * This function works as a server for generating random usernames
+ *
+ * @function generateRandomUsernamesServer
+ * @param {number} numberOfGeneratedUsernames - the maximum number of random usernames to be generated
+ * @param {React.State} deps - the dependencies on which random usernames generated
+ * @returns {Array.<string>} generated usernames
+ */
+
 const generateRandomUsernamesServer = (numberOfGeneratedUsernames, deps) => {
   const [generatedUsernames, setGeneratedUsernames] = useState(null);
   useEffect(() => {
