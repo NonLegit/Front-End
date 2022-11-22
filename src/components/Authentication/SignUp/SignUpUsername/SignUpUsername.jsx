@@ -108,6 +108,7 @@ function SignUpUsername({
           <RedditTextField
             label="password"
             variant="filled"
+            type="password"
             required
             InputProps={{
               endAdornment: (

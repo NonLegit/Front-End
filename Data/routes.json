@@ -1,0 +1,6 @@
+{
+    "/users/signup": "/signup",
+   "/users/username_available?userName=:username": "/unique",
+   "/users/me/": "/me"
+
+}
