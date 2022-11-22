@@ -1,5 +1,7 @@
 import axios from '../../services/instance';
-
+/**
+ * - settings Post data prefs
+ */
 const settingsPost = (prefs) => {
   const api = '/users/me/prefs';
 

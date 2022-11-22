@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import checkTimeNow from '../../../utils/checkTimeNow';
 import axios from '../../../services/instance';
-
+/**
+ * - Notifications Fetch
+ */
 const NotificationsFetch = () => {
   // earlier data
   const [earlier, setEarlier] = useState([]);
