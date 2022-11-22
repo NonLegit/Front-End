@@ -7,7 +7,7 @@ const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
 const Flair = require('./Flair.json');
 const Hot = require('./Hot.json');
-const Join = require('./Join.json');
+const Join = require('./join.json');
 const Best = require('./SubredditBestPosts.json');
 const New = require('./SubredditnewPosts.json');
 const Top = require('./SubredditnewPosts.json');
@@ -31,7 +31,7 @@ const upvoted = require('./upvoted.json');
 const saved = require('./saved.json');
 const hidden = require('./hidden.json');
 const postsTap = require('./postsTap.json');
-const join = require('./Join.json');
+const join = require('./join.json');
 
 // Something more
 
