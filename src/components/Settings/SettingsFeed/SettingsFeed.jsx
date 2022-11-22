@@ -26,7 +26,7 @@ function SettingsFeed() {
   }, [data, dataError]);
 
   return (
-    data === null ? (<div> error in fecting</div>)
+    data === null ? (<div data-testid="settings-feed"> error in fecting</div>)
       : (
         <SettingsPageConranier data-testid="settings-feed">
           <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>

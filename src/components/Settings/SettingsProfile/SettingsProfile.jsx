@@ -28,7 +28,7 @@ function SettingsProfile() {
     console.log(dataError);
   }, [data, dataError]);
   return (
-    data === null ? (<div> error in fecting</div>)
+    data === null ? (<div data-testid="settings-profile"> error in fecting</div>)
       : (
         <SettingsPageConranier data-testid="settings-profile">
           <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
