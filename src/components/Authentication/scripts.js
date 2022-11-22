@@ -4,14 +4,31 @@ import DoneIcon from '@mui/icons-material/Done';
 // services
 import axios from '../../services/instance';
 
-// scripts
-import { redirectLogin } from '../../scripts';
-
 // styles
 import { wrongIcon, rightIcon } from './styles';
 import theme from '../../styles/theme';
 
-const config = { headers: { 'Content-Type': 'application/json' } };
+// scripts
+import { redirectLogin, redirectHome } from '../../scripts';
+
+/**
+ *
+ * Add Reddit Cookie
+ * Must be Authorized user
+ * @returns {void}
+ */
+export const redditCookie = (setCookie) => {
+  axios.get('/users/me/').then((response) => {
+    if (response.status === 200) {
+    // set cookie
+      const date = new Date();
+      date.setDate(date.getDate() + 90);
+      setCookie('redditUser', response.data.user, { path: '/', expires: date });
+    }
+    // unauthorized =>Redirect to login page
+  }).catch(() => redirectLogin(20));
+};
+
 /**
  * Fill array with 5 new random usernames
  * @param {function} setUserNames
@@ -56,16 +73,13 @@ export const checkUserName = (username, setUserName) => {
       icon: wrongIcon,
       error: 'Letters, numbers, dashes, and underscores only. Please try again without symbols.',
     }));
-    // eslint-disable-next-line no-useless-return
     return;
   }
 
   // Check Unique Username
-  const x = username === 'basma' ? 3 : 4;
-  // ==>chek with back this Endpoint
-  axios.get(`https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/username_available/${x}?userName=${username}`).then((response) => {
+  axios.get(`/users/username_available?userName=${username}`).then((response) => {
     if (response.status === 200) {
-      if (response.data.available === false) {
+      if (response.data.available === true) {
         // Unique
         setUserName((prevState) => ({
           ...prevState,
@@ -74,7 +88,7 @@ export const checkUserName = (username, setUserName) => {
           error: null,
         }));
       } else {
-        // Reapeated
+        // Repeated
         setUserName((prevState) => ({
           ...prevState,
           color: theme.palette.error.main,
@@ -150,6 +164,7 @@ export const signUp = (
   setButtonText,
   setDisabled,
   setRedirectCaption,
+  setCookies,
 ) => {
   // console.log(email);
   // console.log(userName);// true value but case no change wrong value
@@ -186,28 +201,20 @@ export const signUp = (
     return;
   }
   // SignUpEndPoint
-  // axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/signup/1', {
-  axios.post('http://localhost:8000/api/v1/users/signup', {
+  axios.post('/users/signup', {
     // console.log(userName.input, password.input, email.input);
     userName: userName.input,
     email: email.input,
     password: password.input,
-  }, { withCredentials: true }, config).then((response) => {
-  // axios.get('http://localhost:8000/api/v1/users/me/', { withCredentials: true }, config).then((response) => {
-    // console.log(response.headers['set-cookies']);
-    // console.log(response.headers);
-    console.log('heree');
-    // console.log(Cookies.get('jwt'));
-    // console.log(response);
+  }).then((response) => {
     setLoading(false);
     if (response.status === 201) {
       setButtonText(<DoneIcon />);
       setDisabled(true);
       setRedirectCaption(true);
-      setTimeout(() => {
-        // Suceess
-        // window.location.href = './';
-      }, 1000);
+      // Add Reddit Cookie
+      redditCookie(setCookies);
+      redirectHome(1000);
     } else {
       console.log('Error');
     }
@@ -239,22 +246,4 @@ export const matchPassword = (passwordOne, passwordTwoInput, setPasswordTwo) => 
     icon: rightIcon,
     error: null,
   }));
-};
-
-/**
- *
- * Add Reddit Cookie
- * Must be Authorized user
- * @returns {void}
- */
-export const redditCookie = (setCookie) => {
-  axios.get('/users/me/').then((response) => {
-    if (response.status === 200) {
-    // set cookie
-      const date = new Date();
-      date.setDate(date.getDate() + 90);
-      setCookie('redditUser', response.data.user, { path: '/', expires: date });
-    }
-    // unauthorized =>Redirect to login page
-  }).catch(() => redirectLogin(20));
 };

@@ -17,6 +17,8 @@ import {
   RedditLoadingButton, RedditTextField, wrongIcon, rightIcon,
 } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+
+// scripts
 import { redditCookie } from '../scripts';
 
 /**

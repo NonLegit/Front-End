@@ -14,6 +14,8 @@ import FirstParty from '../FirstParty/FirstParty';
 
 // styles
 import { AuthenticationBody, StyledLink } from '../styles';
+
+// scripts
 import { redditCookie } from '../scripts';
 
 /**
@@ -25,16 +27,18 @@ function LogIn() {
   const [remeberMe, setRemeberMe] = useState(false);
 
   // cookies
-  const [cookies, setCookie] = useCookies(['redditUser']);
+  const [cookies, setCookies] = useCookies(['redditUser']);
 
   // effect
   useEffect(() => {
+    console.log('hhh');
+    console.log(Cookies.get('jwt'));
     // Check on Cookies
     if (Cookies.get('jwt')) {
       // Redirect to loading page
       // check on Reddit cookie
       if (cookies.redditUser === undefined) {
-        redditCookie(setCookie);
+        redditCookie(setCookies);
       }
       setRemeberMe(true);
     } else {
