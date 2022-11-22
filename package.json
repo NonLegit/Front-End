@@ -46,7 +46,7 @@
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --coverage --watchAll --json --outputFile=output.json",
     "eject": "react-scripts eject",
     "docs": "jsdoc -c jsdoc.json",
-    "server-json": "json-server --watch data/index.js --port 8000 --routes routes.json"
+    "server-json": "json-server --watch data/index.js --port 8000 --routes data/routes.json"
   },
   "eslintConfig": {
     "extends": [

@@ -28,7 +28,7 @@ function SettingsProfile() {
     console.log(dataError);
   }, [data, dataError]);
   return (
-    <SettingsPageConranier>
+    <SettingsPageConranier data-testid="settings-profile">
       <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
         <Header>Customize profile</Header>
         <SubHeader>PROFILE INFORMATION</SubHeader>

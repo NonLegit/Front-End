@@ -26,7 +26,7 @@ function SettingsFeed() {
   }, [data, dataError]);
 
   return (
-    <SettingsPageConranier>
+    <SettingsPageConranier data-testid="settings-feed">
       <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
         <Header>Feed settings</Header>
         <SubHeader>CONTENT PREFERENCES</SubHeader>

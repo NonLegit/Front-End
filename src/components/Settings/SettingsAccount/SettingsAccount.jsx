@@ -29,7 +29,7 @@ const SettingsAccount = () => {
     console.log(dataError);
   }, [data, dataError]);
   return (
-    <SettingsPageConranier data-testid="account-preferances">
+    <SettingsPageConranier data-testid="settings-account">
       <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
         <Header>Account settings</Header>
         <SettingsProvider prefs={prefs} setPrefs={setPrefs}>

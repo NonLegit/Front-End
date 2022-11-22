@@ -3,7 +3,7 @@
 exports[`test snapshot 1`] = `
 <div
   className="css-nvyjah"
-  data-testid="account-preferances"
+  data-testid="settings-account"
 >
   <div
     className="MuiBox-root css-dp89qc"

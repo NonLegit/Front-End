@@ -15,7 +15,7 @@ function SettingsHeader() {
     setNavigate(window.location.pathname);
   }, [history]);
   return (
-    <section>
+    <section data-testid="settings-header">
 
       <HeaderContiner>User settings</HeaderContiner>
 

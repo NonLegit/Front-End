@@ -11,7 +11,7 @@ import { AddBlock, AddButton, RedditTextField } from './styles';
  */
 function SettingsPrivacy() {
   return (
-    <SettingsPageConranier>
+    <SettingsPageConranier data-testid="settings-privacy">
       <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
         <Header>Safety & Privacy</Header>
         <ContentSubHeader sx={{ marginBottom: '32px' }}>Manage how we use data to personalize your Reddit experience, and control how other redditors interact with you.</ContentSubHeader>
