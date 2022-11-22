@@ -50,9 +50,11 @@ export const checkUserName = (username, setUserName) => {
 export const logIn = (event, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName) => {
   event.preventDefault();
   // console.log(userName);// Not Late
+  // console.log(password);// Not Late
+
   // Add cookie to localStorage
   setLoading(true);
-  if (userName.error != null) {
+  if (userName.error != null && userName.error !== 'Incorrect username or password') {
     setLoading(false);
     return;
   }
@@ -65,13 +67,20 @@ export const logIn = (event, setLoading, userName, password, setPassword, setBut
     error: null,
   }));
 
+  setUserName((prevState) => ({
+    ...prevState,
+    color: theme.palette.neutral.main,
+    icon: null,
+    error: null,
+  }));
+
   // API Call
   console.log(userName.input);
   axios.post('/users/login', {
     userName: userName.input, password: password.input,
   }).then((response) => {
     console.log(response);
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 201) {
       setLoading(false);
       setButtonText(<DoneIcon />);
       setDisabled(true);

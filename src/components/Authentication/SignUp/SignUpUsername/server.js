@@ -141,7 +141,7 @@ export const signUp = (
     password: password.input,
   }).then((response) => {
     setLoading(false);
-    if (response.status === 201) {
+    if (response.status === 201 || response.status === 200) {
       setButtonText(<DoneIcon />);
       setDisabled(true);
       setRedirectCaption(true);

@@ -1,7 +1,8 @@
 {
-    "/users/signup": "/signup",
+   "/users/signup": "/signup",
    "/users/username_available?userName=:username": "/unique",
    "/users/me/": "/me",
    "/users/google":"/google",
-   "/users/facebook":"/facebook"
+   "/users/facebook":"/facebook",
+   "/users/login":"/login"
 }
