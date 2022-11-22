@@ -12,7 +12,7 @@ const createPostServer = () => {
   console.log('communities', communities);
   console.log(statusCode);
   if (statusCode === 200) {
-    if (statusCode === 201) {
+    if (statusCode === 401) {
       // redirection code
     } else {
       console.log('errorMessage');
