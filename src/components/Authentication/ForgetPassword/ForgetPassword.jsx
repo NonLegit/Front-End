@@ -77,6 +77,7 @@ function ForgetPassword() {
               e.preventDefault(); recoverPassword(
                 setLoading,
                 email,
+                setEmail,
                 userName,
                 setUserName,
                 setDisabled,

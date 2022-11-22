@@ -61,6 +61,7 @@ export const checkUserName = (username, error, setUserName) => {
 export const recoverPassword = (
   setLoading,
   email,
+  setEmail,
   userName,
   setUserName,
   setDisabled,
@@ -70,8 +71,8 @@ export const recoverPassword = (
   // console.log(userName); //correct
   setLoading(true);
   // Setting error in case of first time
-  checkEmail(email.input);
-  checkUserName(userName.input, userName.error);
+  checkEmail(email.input, setEmail);
+  checkUserName(userName.input, userName.error, setUserName);
 
   // Case he didn't enter anything
   if (email.input === '' || userName.input === '') {
@@ -86,7 +87,7 @@ export const recoverPassword = (
   }
 
   axios.post('/users/forgot_password', { email: email.input, userName: userName.input }).then((response) => {
-    if (response.status === 204) {
+    if (response.status === 204 || response.status === 201 || response.status === 200) {
       setUserName((prevState) => ({
         ...prevState,
         color: theme.palette.primary.main,
@@ -113,5 +114,6 @@ export const recoverPassword = (
       }));
       console.log(error.response.errorMessage);
     }
+    // 400 provode username and Password[Isn't reached]
   });
 };

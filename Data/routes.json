@@ -4,5 +4,6 @@
    "/users/me/": "/me",
    "/users/google":"/google",
    "/users/facebook":"/facebook",
-   "/users/login":"/login"
+   "/users/login":"/login",
+   "/users/forgot_password":"/forgetpassword"
 }
