@@ -1,0 +1,16 @@
+[
+    {
+        "id": "0",
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white",
+        "permission": "modOnly"
+    },
+    {
+        "id": "0",
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white",
+        "permission": "modOnly"
+    }
+]

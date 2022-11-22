@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   Box, Checkbox, Dialog, FormControlLabel, FormGroup, Stack,
 } from '@mui/material';
-import axios from 'axios';
 import {
   Actions, Adult, AdultContent, Container, NSFWs, Warning, Btn,
 } from './style';
@@ -11,10 +10,12 @@ import RedditButton from '../../../../RedditButton/RedditButton';
 import RadioBtn from './RadioBtn/RadioBtn';
 import Header from './Header/Header';
 import Input from './Input/Input';
+import useFetch from './PopupFetch';
+import PostData from './PopupPost';
 
-const Form = axios.create({
-  baseURL: 'https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io',
-});
+// const Form = axios.create({
+//   baseURL: 'https://60d14a9b-9245-421f-9841-d211208805b8.mock.pstmn.io',
+// });
 /**
  * Pop up Creat Cummunity Form
  * @component
@@ -53,7 +54,8 @@ function FormDialog({ display }) {
   /**
    * this function to show message when bluring of the input feild if it is empty
    */
-  const check = () => {
+  const check = async () => {
+    console.log('#####');
     const ele = document.getElementById('name');
     if (ele.value.length === 0) {
       setchecked('A community name is required');
@@ -66,13 +68,16 @@ function FormDialog({ display }) {
     // axios.get(`http://localhost:8000/subreddit/${{ subRedditName }}`, {
     //   subredditName: subRedditName,
     // })
-    Form.get(`/subreddits/${subRedditName}/401`, {
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          setErrorMassage(`Sorry, r/${subRedditName} is taken. Try another.`);
-        }
-      });
+    // const [data, dataError] = await useFetch(`/subreddits/${subRedditName}`);
+    // console.log(dataError);
+    // console.log(data);
+    console.log(useFetch(`/subreddits/${subRedditName}`));
+    // if (useFetch(`/subreddits/${subRedditName}`)) {
+    //   setErrorMassage(`Sorry, r/${subRedditName} is taken. Try another.`);
+    // }
+    if (false) {
+      setErrorMassage('');
+    }
   };
 
   /**
@@ -100,12 +105,11 @@ function FormDialog({ display }) {
       //   type,
       //   NSFW: adult,
       // })
-      Form.post('/subreddits/200', {})
-        .then((response) => {
-          if (response.status === 200) {
-            document.location.href = 'https://localhost:3000/';
-          }
-        });
+      PostData('/subreddits', 'Hosny', subRedditName, type, adult);
+
+      if (PostData('/subreddits', 'Hosny', subRedditName, type, adult)) {
+        // document.location.href = 'https://localhost:3000/';
+      }
     }
   };
   return (

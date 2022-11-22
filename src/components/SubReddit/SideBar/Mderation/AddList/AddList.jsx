@@ -3,6 +3,9 @@ import {
   ListItem, ListItemText,
 } from '@mui/material';
 import { useState, useEffect } from 'react';
+import KeyDown from '../../../../../utils/KeyDown';
+import FilterArray from '../../../../../utils/FilterArray';
+import patchData from '../../../Cover/server';
 import AddBtn from './Add Bottun/AddBtn';
 import {
   AboutContent,
@@ -21,7 +24,7 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
  */
 function AddList(props) {
   const {
-    topics, client, Name,
+    topics, Name,
   } = props;
   const [show, setShow] = useState(true);
   const [showList, setShowList] = useState(true);
@@ -42,7 +45,7 @@ function AddList(props) {
   };
   // handel on press enter to add the community topic
   const handleKeyDown = (e) => {
-    if (tempString.length < 25 && !tempString.includes(e.target.value)) {
+    if (KeyDown(tempString, e.target.value)) {
       if (e.key !== 'Enter') return;
       const { value } = e.target;
       if (!value.trim()) return;
@@ -52,7 +55,7 @@ function AddList(props) {
   };
   // to rempve element when press x
   const removeItem = (value) => {
-    setTempString(tempString.filter((ele, index) => index !== value));
+    setTempString(FilterArray(tempString, value));
   };
 
   // add item when select from list
@@ -82,21 +85,39 @@ function AddList(props) {
     setTags(t);
   };
   const sendData = () => {
-    client.patch(`subreddit/${Name}`, { topics: tags }); // fetch api
+    patchData(`subreddits/${Name}`, { topics: tempString }); // fetch api
   };
     // return to default view of add list
   const handleClickAway1 = () => {
-    setTags(tempString);
+    // setTags(tempString);
     setShow(true);
-    setCount(tags.length);
-    sendData();
+    // setCount(tags.length);
+    // sendData();
+
+    console.log('hello');
+    if (tags !== tempString && !show) {
+      const alert = document.getElementById('ListAlert');
+      console.log('show');
+      alert.click();
+    } else {
+      // setShow(true);
+    }
+  };
+  const decord = () => {
+    trueShaw();
+    setTempString(tags);
+    setTag(tags);
+    setCount(500 - tags.length);
+    setShow(true);
+    trueShaw();
+    console.log(show);
   };
   return (
     <AboutContent>
-      <AddBtn sendData={sendData} handleClickAway1={handleClickAway1} setTag={setTag} setTemp={setTemp} trueShaw={trueShaw} trueShawList={trueShawList} handleChange={handleChange} handleKeyDown={handleKeyDown} removeItem={removeItem} falseShaw={falseShaw} show={show} tempString={tempString} tags={tags} count={count} />
+      <AddBtn sendData={sendData} decord={decord} handleClickAway1={handleClickAway1} setTag={setTag} setTemp={setTemp} trueShaw={trueShaw} trueShawList={trueShawList} handleChange={handleChange} handleKeyDown={handleKeyDown} removeItem={removeItem} falseShaw={falseShaw} show={show} tempString={tempString} tags={tags} count={count} />
       {
-          !show
-          && tempString?.length < 25 && showList
+          tempString?.length < 25 && showList
+          && !show
           && (
             <Lists
               subheader={<li />}
