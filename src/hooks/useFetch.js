@@ -11,11 +11,6 @@ const useFetch = (url) => {
       // console.log(response.data);
       setError(null);
     }).catch((error) => {
-      if (error.code === 'ERR_NETWORK') {
-        alert('error fetrching');
-      } else if (error.response.status === 401) {
-        window.location.href = './login';
-      }
       setError(error);
       console.log(error);
     });
