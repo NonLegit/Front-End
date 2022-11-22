@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
-
 // mui components
 import { Typography } from '@mui/material';
 
@@ -21,6 +20,8 @@ import { checkUserName, recoverPassword } from './server';
 
 // scripts
 import { redditCookie, checkEmail } from '../scripts';
+// environment variables
+const { REACT_APP_ENV } = process.env;
 
 /**
  * Component for Forget Password Page
@@ -47,7 +48,7 @@ function ForgetPassword() {
 
   useEffect(() => {
     // check if already logged in Cokkies
-    if (Cookies.get('jwt')) {
+    if (Cookies.get('jwt') || REACT_APP_ENV === 'development') {
       // Redirect to loading page
       // check on Reddit cookie
       if (cookies.redditUser === undefined) {

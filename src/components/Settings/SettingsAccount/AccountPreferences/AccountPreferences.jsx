@@ -1,3 +1,4 @@
+import { useCookies } from 'react-cookie';
 import {
   Button, ContentHeader, Content, ContentSubHeader,
   SubHeader, AntSwitch,
@@ -12,6 +13,7 @@ import { ChangeButton } from './styles';
  *
  */
 function AccountPreferences() {
+  const [cookies] = useCookies(['redditUser']);
   return (
     <>
       <SubHeader data-testid="account-preferances">ACCOUNT PREFERENCES</SubHeader>
@@ -21,7 +23,7 @@ function AccountPreferences() {
             Email address
           </ContentHeader>
           <ContentSubHeader>
-            eslamashraf.12342@gmail.com
+            {cookies.redditUser?.email}
           </ContentSubHeader>
         </Content>
         <AntSwitch>

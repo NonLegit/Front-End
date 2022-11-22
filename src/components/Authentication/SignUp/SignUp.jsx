@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
-
 // components
 import SignUpEmail from './SignUpEmail/SignUpEmail';
 import SignUpUsername from './SignUpUsername/SignUpUsername';
@@ -13,6 +12,8 @@ import theme from '../../../styles/theme';
 
 // scripts
 import { redditCookie } from '../scripts';
+// environment variables
+const { REACT_APP_ENV } = process.env;
 
 /**
  * SignUp Page Main Componnet with 2 view one for the Email and the Other for the userName
@@ -40,7 +41,7 @@ function SignUp() {
   // useEffect
   useEffect(() => {
     // Check on Cookies
-    if (Cookies.get('jwt')) {
+    if (Cookies.get('jwt') || REACT_APP_ENV === 'development') {
       // Redirect to loading page
       // check on Reddit cookie
       if (cookies.redditUser === undefined) {
