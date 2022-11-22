@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { Typography } from '@mui/material';
-import axios from 'axios';
+import axios from '../../../services/instance';
 import DoneIcon from '@mui/icons-material/Done';
 import { FirstPartyContainer } from './styles';
 import theme, { fonts } from '../../../../styles/theme';
 import {
   RedditLoadingButton, RedditTextField, wrongIcon, rightIcon,
 } from '../styles';
+import { redirectHome } from '../../../scripts';
 
 /**
  * Component for Logiing in by username and passsword
@@ -14,16 +16,24 @@ import {
  * @component
  * @returns {React.Component}
  */
+
 function UserNamePasswordForm() {
-  const [buttonTxt, setButtonText] = useState('Log In');
+  // useState
   const [userName, setUserName] = useState({
-    input: '', color: theme.palette?.neutral.main, icon: null, error: null,
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
   const [password, setPassword] = useState({
-    input: '', color: theme.palette?.neutral.main, icon: null, error: null,
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  const [redirectCaption, setRedirectCaption] = useState(false);
+  const [buttonTxt, setButtonText] = useState('Log In');
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [redirectCaption, setRedirectCaption] = useState(false);
+
+  // useCookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
 
   useEffect(() => {
     setButtonText('Log in');
@@ -63,27 +73,38 @@ function UserNamePasswordForm() {
   const logIn = async (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log(password);
-    console.log(userName);
     if (userName.error != null) {
       console.log("Couldn't login");
       setLoading(false);
       return;
     }
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/user/login/1', userName.input, password.input).then((response) => {
+    // Case of previous trial was error
+    setPassword((prevState) => ({
+      ...prevState,
+      color: theme.palette.neutral.main,
+      icon: null,
+      error: null,
+    }));
+
+    // API Call
+    console.log(userName.input);
+    axios.post('/users/login', { userName: userName.input, password: password.input }).then((response) => {
       console.log(response);
-      setLoading(false);
       if (response.status === 200) {
+        setLoading(false);
         setButtonText(<DoneIcon />);
+        setDisabled(true);
         setRedirectCaption(true);
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 1000);
-        console.log('login up');
+        // Add Reddit Cookie
+        redditCookie(setCookies);
+        redirectHome(1000);
       }
     }).catch((error) => {
-      if (error.response.status === 404) {
+      setLoading(false);
+      console.log(error);
+      if (error.response.status === 404 || error.response.status === 400) {
         // Invlaid Username or password
+        // update username and password states
         setUserName((prevState) => ({
           ...prevState,
           color: theme.palette.error.main,
@@ -96,6 +117,8 @@ function UserNamePasswordForm() {
           icon: wrongIcon,
           error: null,
         }));
+      } else {
+        console.log(error.response.data.errorMessage);
       }
     });
   };
@@ -138,10 +161,11 @@ function UserNamePasswordForm() {
           disableUnderline: true,
         }}
         clr={password.color}
-        onBlur={(e) => setPassword((prevState) => ({
+        onChange={(e) => setPassword((prevState) => ({
           ...prevState,
           input: e.target.value.trim(),
         }))}
+
         data-testid="Password-FirstParty-test"
       />
 

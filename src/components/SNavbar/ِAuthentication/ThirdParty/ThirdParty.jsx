@@ -12,16 +12,18 @@ import Google from '../images/google.png';
 import Facebook from '../images/facebook.png';
 
 function ThirdParty({ circular }) {
-  const clientId = '374002806091-7pces2dv4vr0vb8lchmputreqnlalqes.apps.googleusercontent.com';
-
-  // Facebook
+  const googleClientId = '374002806091-7pces2dv4vr0vb8lchmputreqnlalqes.apps.googleusercontent.com';
   const initClient = () => {
     gapi.auth2.init({
-      clientId,
+      clientId: googleClientId,
       scope: '',
     });
   };
   gapi.load('client:auth2', initClient);
+
+  // Facebook
+  const facebookAppId = '1217433968834337';
+  
   return (
     <ThirdPartyContainer>
       <GoogleLogin
