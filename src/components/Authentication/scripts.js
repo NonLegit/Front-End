@@ -148,10 +148,10 @@ export const checkPassword = (passwordInput, setPassword, password) => {
  * @param {object} password --password object to signup with
  * @param {setFunction} setPassword --setfunction for the password
  * @param {state} verified --bool if verified by the Captcha
- * @param {setfunction} setLoading -setfunction for the Laoding state of the button
- * @param {setfunction} setButtonText -setfunction for the Button Text
- * @param {setfunction} setDisabled -setfunction for the setting Button Disabled or Enabled
- * @param {setfunction} setRedirectCaption -setfunction for the Caption in SignUp Page
+ * @param {setfunction} setLoading --setfunction for the Laoding state of the button
+ * @param {setfunction} setButtonText --setfunction for the Button Text
+ * @param {setfunction} setDisabled --setfunction for the setting Button Disabled or Enabled
+ * @param {setfunction} setRedirectCaption --setfunction for the Caption in SignUp Page
  * @returns {void}
  */
 export const signUp = (

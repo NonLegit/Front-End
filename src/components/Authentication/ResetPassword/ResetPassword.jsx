@@ -4,7 +4,6 @@ import { useCookies } from 'react-cookie';
 
 // mui components
 import { Typography, Checkbox } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
 
 // components
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
@@ -16,13 +15,8 @@ import {
   AuthenticationBody, FirstPartyContainer, StyledLink, RedditTextField, RedditLoadingButton,
 } from '../styles';
 
-// services
-import axios from '../../../services/instance';
-
 // scripts
-import { checkPassword, matchPassword, redditCookie } from '../scripts';
-import { redirectHome } from '../../../scripts';
-
+import { checkPassword, matchPassword } from '../scripts';
 /**
  * Component for Reset Password Page
  *
@@ -56,48 +50,48 @@ function ResetPassword() {
     </>
   );
 
-  const resetPassword = () => {
-    setLoading(true);
-    if (password.error != null || repassword.error != null) {
-      setLoading(false);
-      return;
-    }
-    // check if Empty (case he didn't make any change in the input field)
-    if (password.input === '' || repassword.input === '') {
-      setLoading(false);
-      return;
-    }
-    // Check API with BE
-    axios.post(`/users/reset_password/${token}`, {
-      // =>Logout paramter ??
-      password: password.input,
-      confirmPassword: repassword.input,
-    }).then((response) => {
-      console.log(response);
-      if (response.status === 200) {
-        setTimeout(() => {
-          setbuttonText(<DoneIcon />);
-          setRedirectCaption(true);
-          redditCookie(setCookies);
-          redirectHome(1000);
-        }, 500);
-      }
-    }).catch((error) => {
-      if (error.response.status === 400) {
-        // =>Handle Rest Reponses
-        // =>mismatch between passwords
-        // =>invalid token
-        matchPassword(password, repassword, setRePassword);
-      }
-      // invalid Token
-      setLoading(false);
-      console.log(error);
-    });
-  };
+  // const resetPassword = () => {
+  //   setLoading(true);
+  //   if (password.error != null || repassword.error != null) {
+  //     setLoading(false);
+  //     return;
+  //   }
+  //   // check if Empty (case he didn't make any change in the input field)
+  //   if (password.input === '' || repassword.input === '') {
+  //     setLoading(false);
+  //     return;
+  //   }
+  //   // Check API with BE
+  //   axios.post(`/users/reset_password/${token}`, {
+  //     // =>Logout paramter ??
+  //     password: password.input,
+  //     confirmPassword: repassword.input,
+  //   }).then((response) => {
+  //     console.log(response);
+  //     if (response.status === 200) {
+  //       setTimeout(() => {
+  //         setbuttonText(<DoneIcon />);
+  //         setRedirectCaption(true);
+  //         redditCookie(setCookies);
+  //         redirectHome(1000);
+  //       }, 500);
+  //     }
+  //   }).catch((error) => {
+  //     if (error.response.status === 400) {
+  //       // =>Handle Rest Reponses
+  //       // =>mismatch between passwords
+  //       // =>invalid token
+  //       matchPassword(password, repassword, setRePassword);
+  //     }
+  //     // invalid Token
+  //     setLoading(false);
+  //     console.log(error);
+  //   });
+  // };
   return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px">
       <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-      <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(); }}>
+      <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword); }}>
         <RedditTextField
           label="New Password"
           variant="filled"

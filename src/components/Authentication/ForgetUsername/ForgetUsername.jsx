@@ -4,21 +4,18 @@ import Cookies from 'js-cookie';
 
 // mui compocnents
 import { Typography } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
 
 // componenents
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Email from '../Email/Email';
 
-// services
-import axios from '../../../services/instance';
-
 // styles
 import { AuthenticationBody, StyledLink } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
 
 // scripts
+import { recoverUsername } from './server';
 import { redditCookie } from '../scripts';
 
 /**
@@ -64,50 +61,23 @@ function ForgetUsername() {
     </>
   );
 
-  const recoverUsername = () => {
-    // console.log(email);
-    setLoading(true);
-
-    // if there is a problem with email
-    if (email.error != null) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-      return;
-    }
-
-    // not verified
-    if (!verified) {
-      setLoading(false);
-      return;
-    }
-
-    // Accepted Call API
-    axios.post('/users/forgot_username', { email: email.input }).then((response) => {
-      // console.log(response);
-      if (response.status === 204) {
-        setTimeout(() => {
-          setLoading(false);
-          setDisabled(true);
-          setbuttonText(<DoneIcon />);
-          setRedirectCaption(true);
-        }, 1000);
-      }
-    }).catch((error) => {
-      setLoading(false);
-      console.log(error);
-      if (error.response.status === 404) {
-        // email not found in DB
-        console.log(error.response.data.errorMessage);
-      }
-    });
-  };
   return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="forgetusername-test">
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
-          <Email email={email} setEmail={setEmail} onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} disabled={disabled} />
+          <Email
+            email={email}
+            setEmail={setEmail}
+            onSubmitFn={() => recoverUsername(setLoading, email, verified, setDisabled, setbuttonText, setRedirectCaption)}
+            loading={loading}
+            buttonText={buttonText}
+            btnWidth="155px"
+            fieldText="Email Address"
+            recaptcha
+            setVerified={setVerified}
+            disabled={disabled}
+          />
 
           {redirectCaption
             ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
