@@ -15,6 +15,7 @@ import {
 import {
   FirstPartyContainer, RedditTextField, rightIcon, RedditLoadingButton,
 } from '../../styles';
+// scripts
 import {
   refreshUsernames, checkUserName, checkPassword, signUp,
 } from '../../scripts';
@@ -33,7 +34,7 @@ import theme, { fonts } from '../../../../styles/theme';
  * @returns {React.Component} UserName and Password Form
  */
 function SignUpUsername({
-  setUserNamePage, email, userName, setUserName, password, setPassword,
+  setUserNamePage, email, userName, setUserName, password, setPassword, setCookies,
 }) {
   // states
   const [defaultUserNameValue, setdefaultUserNameValue] = useState(userName?.input);
@@ -53,7 +54,7 @@ function SignUpUsername({
   const signUpFunction = () => {
     checkUserName(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
-    signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption);
+    signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies);
   };
 
   return (
