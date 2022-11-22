@@ -45,7 +45,7 @@ function ProfileImage() {
             >
               <ProfilePic width="120px" height="120px" src={prefs?.profilePicture} alt="user photo" />
               <AddPhoto sx={{
-                border: (theme) => `thin solid ${theme.palette.primary.main}`,
+                border: (theme) => `thin solid ${theme.palette.primary?.main}`,
                 position: 'absolute',
                 right: '5%',
                 top: '65%',
@@ -73,7 +73,7 @@ function ProfileImage() {
                 alt="user photo"
               />
               <AddPhoto sx={{
-                border: (theme) => `thin solid ${theme.palette.primary.main}`,
+                border: (theme) => `thin solid ${theme.palette.primary?.main}`,
                 position: 'absolute',
                 right: '5%',
                 top: '65%',

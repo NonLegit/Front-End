@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-nvyjah"
+>
+  <div
+    className="MuiBox-root css-dp89qc"
+  >
+    <h2
+      className="css-1hww4d4"
+    >
+      Safety & Privacy
+    </h2>
+    <div
+      className="css-135y8re"
+    >
+      Manage how we use data to personalize your Reddit experience, and control how other redditors interact with you.
+    </div>
+    <h2
+      className="css-1izwtqu"
+    >
+      SAFETY
+    </h2>
+    <div
+      className="css-1yjvs5a"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          People You’ve Blocked
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          Blocked people can’t send you chat requests or private messages.
+        </div>
+      </div>
+      <div
+        className="css-8z2fgs"
+      >
+        <div
+          className="MuiFormControl-root MuiTextField-root css-142yrvc-MuiFormControl-root-MuiTextField-root"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-filled css-1mog9k0-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink={false}
+            htmlFor=":r0:"
+            id=":r0:-label"
+          >
+            BLOCK NEW USER
+          </label>
+          <div
+            className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-19mk8g1-MuiInputBase-root-MuiFilledInput-root"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoComplete="off"
+              autoFocus={false}
+              className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-c5v1qu-MuiInputBase-input-MuiFilledInput-input"
+              disabled={false}
+              id=":r0:"
+              onAnimationStart={[Function]}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={false}
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          className="css-t7v2ja"
+        >
+          ADD
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

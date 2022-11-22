@@ -42,7 +42,7 @@ function NotificationsHeader() {
           </Tab>
           <Tab active={active[3]} onClick={() => { clickTab(3); }}>
             <SettingsOutlinedIcon />
-            <Link to="/">
+            <Link to="/settings">
               <TabText>
                 Settings
               </TabText>

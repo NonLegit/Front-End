@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-nvyjah"
+>
+  <div
+    className="MuiBox-root css-dp89qc"
+  >
+    <h2
+      className="css-1hww4d4"
+    >
+      Customize profile
+    </h2>
+    <h2
+      className="css-1izwtqu"
+    >
+      PROFILE INFORMATION
+    </h2>
+    <div
+      className="css-1yjvs5a"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          Display name (optional)
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          Set a display name. This does not change your username.
+        </div>
+      </div>
+      <input
+        className="css-7bhg3f"
+        maxLength={30}
+        onBlur={[Function]}
+        onChange={[Function]}
+        value=""
+      />
+      <div
+        className="css-708jms"
+      >
+        30
+         
+        Character remaining
+      </div>
+    </div>
+    <div
+      className="css-1yjvs5a"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          About (optional)
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          A brief description of yourself shown on your profile.
+        </div>
+      </div>
+      <textarea
+        className="css-n1ebyx"
+        maxLength={200}
+        onBlur={[Function]}
+        onChange={[Function]}
+        value=""
+      />
+      <div
+        className="css-708jms"
+      >
+        200
+         
+        Character remaining
+      </div>
+    </div>
+    <div
+      className="css-1yjvs5a"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          Social links (5 max)
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          People who visit your profile will see your social links.
+        </div>
+      </div>
+      <div
+        className="css-1n3cfe9"
+      >
+        <div
+          className="MuiBox-root css-70qvj9"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="AddIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+          Add social link
+        </div>
+      </div>
+    </div>
+    <h2
+      className="css-1izwtqu"
+    >
+      IMAGES
+    </h2>
+    <div
+      className="css-1yjvs5a"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          Avatar and banner image
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          Images must be .png or .jpg format
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-1iu5tr5"
+      >
+        <div
+          className="MuiBox-root css-1574rcx"
+        >
+          <div
+            className="MuiBox-root css-79elbk"
+          >
+            <img
+              alt="user photo"
+              className="css-19xvoon"
+              height="120px"
+              width="120px"
+            />
+            <div
+              className="MuiBox-root css-1izo4jp"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall css-1bptiuh-MuiSvgIcon-root"
+                data-testid="AddAPhotoOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 6h-3.17L16 4h-6v2h5.12l1.83 2H21v12H5v-9H3v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM8 14c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm5-3c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3zM5 6h3V4H5V1H3v3H0v2h3v3h2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiBox-root css-k008qs"
+        >
+          <div
+            className="MuiBox-root css-79elbk"
+          >
+            <img
+              alt="user photo"
+              className="css-16vxn4c"
+              height="120px"
+              width="412px"
+            />
+            <div
+              className="MuiBox-root css-1izo4jp"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall css-1bptiuh-MuiSvgIcon-root"
+                data-testid="AddAPhotoOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 6h-3.17L16 4h-6v2h5.12l1.83 2H21v12H5v-9H3v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM8 14c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5-5 2.24-5 5zm5-3c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3zM5 6h3V4H5V1H3v3H0v2h3v3h2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2
+      className="css-1izwtqu"
+    >
+      PROFILE CATEGORY
+    </h2>
+    <div
+      className="css-m214ph"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          NSFW
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          This content is NSFW (may contain nudity, pornography, profanity or inappropriate content for those under 18)
+        </div>
+      </div>
+      <div
+        className="css-1au6i0y"
+        onClick={[Function]}
+      >
+        <span
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+        >
+          <span
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={null}
+          >
+            <input
+              checked={false}
+              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <span
+              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+            />
+          </span>
+          <span
+            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+          />
+        </span>
+      </div>
+    </div>
+    <h2
+      className="css-1izwtqu"
+    >
+      ADVANCED
+    </h2>
+    <div
+      className="css-m214ph"
+    >
+      <div
+        className="css-m67mx2"
+      >
+        <div
+          className="css-15qfu71"
+        >
+          Allow people to follow you
+        </div>
+        <div
+          className="css-1olqyvz"
+        >
+          Followers will be notified about posts you make to your profile and see them in their home feed.
+        </div>
+      </div>
+      <div
+        className="css-1au6i0y"
+        onClick={[Function]}
+      >
+        <span
+          className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+        >
+          <span
+            className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+            onBlur={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={null}
+          >
+            <input
+              checked={false}
+              className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <span
+              className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+            />
+          </span>
+          <span
+            className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

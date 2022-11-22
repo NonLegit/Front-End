@@ -27,7 +27,7 @@ export const Tab = styled(Link)(({ active, theme }) => ({
   borderBottom: '',
   ...((active) && {
     color: 'black',
-    borderBottom: `3px solid ${theme.palette.primary.main}`,
+    borderBottom: `3px solid ${theme.palette.primary?.main}`,
   }),
   '&:hover': {
     color: 'black',

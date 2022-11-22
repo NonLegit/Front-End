@@ -21,7 +21,7 @@ function ChangeGender() {
 
   const [open, setOpen] = useState(false);
   return (
-    <Button>
+    <Button data-testid="settings-cahnge-gender">
       <Content>
         <ContentHeader>
           Gender

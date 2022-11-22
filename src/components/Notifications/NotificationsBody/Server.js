@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import moment from 'moment/moment';
+import checkTimeNow from '../../../utils/checkTimeNow';
 import axios from '../../../services/instance';
 
 const NotificationsFetch = () => {
@@ -12,8 +12,8 @@ const NotificationsFetch = () => {
     axios.get(api) // fetch api
       .then((actualData) => {
         console.log(actualData.data);
-        setToday(actualData.data.filter((e) => moment(e.createdAt).isSame(moment(), 'day')));
-        setEarlier(actualData.data.filter((e) => !moment(e.createdAt).isSame(moment(), 'day')));
+        setToday(actualData.data.filter((e) => checkTimeNow(e.createdAt)));
+        setEarlier(actualData.data.filter((e) => !checkTimeNow(e.createdAt)));
       })
       .catch((error) => {
         console.log(error);

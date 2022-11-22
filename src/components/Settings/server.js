@@ -13,7 +13,7 @@ const settingsPost = (prefs) => {
     if (error.response.status === 401) {
       console.log('status 401 is returned');
     } else if (error.response.status === 304) {
-      console.log('status 304 is returned');
+      alert('OPeration failed');
     }
   });
 };

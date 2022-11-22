@@ -14,7 +14,7 @@ import { ChangeButton } from './styles';
 function AccountPreferences() {
   return (
     <>
-      <SubHeader>ACCOUNT PREFERENCES</SubHeader>
+      <SubHeader data-testid="account-preferances">ACCOUNT PREFERENCES</SubHeader>
       <Button>
         <Content>
           <ContentHeader>
