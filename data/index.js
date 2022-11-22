@@ -1,3 +1,11 @@
+const Subreddit = require('./Subreddit.json');
+const Flair = require('./Flair.json');
+const Hot = require('./Hot.json');
+const Join = require('./Join.json');
+const best = require('./SubredditBestPosts.json');
+const New = require('./SubredditnewPosts.json');
+const top = require('./SubredditnewPosts.json');
+const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
 const unique = require('./UniqueUserName.json');
 const me = require('./me.json');
@@ -17,10 +25,19 @@ const upvoted = require('./upvoted.json');
 const saved = require('./saved.json');
 const hidden = require('./hidden.json');
 const postsTap = require('./postsTap.json');
-const join = require('./join.json');
+const join = require('./Join.json');
+
 // Something more
 
 module.exports = () => ({
+  Subreddit,
+  Flair,
+  Hot,
+  Join,
+  best,
+  top,
+  New,
+  CreatSubreddit,
   signup,
   unique,
   me,
@@ -41,5 +58,6 @@ module.exports = () => ({
   hidden,
   postsTap,
   join,
+
   // Something more
 });
