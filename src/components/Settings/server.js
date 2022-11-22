@@ -9,6 +9,9 @@ const settingsPost = (prefs) => {
       console.log(response.data);
       alert('operation done successfully');
     }
+    if (response.status === 304) {
+      alert('OPeration failed');
+    }
   }).catch((error) => {
     console.log(error);
     if (error.code === 'ERR_NETWORK') {

@@ -6,7 +6,10 @@ export const SettingsContext = createContext();
 /**
  * Settings Provider
  * provide data prefs
- * @returns {React.Component} prefs Provider
+ * @param {children} - context consumer
+ * @param {object} perfs perfs data
+ * @param {function} setPrefs setPrefs
+ * @returns {React.Context} prefs Provider
  */
 function SettingsProvider(props) {
   const {
