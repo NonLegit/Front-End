@@ -28,47 +28,50 @@ function SettingsProfile() {
     console.log(dataError);
   }, [data, dataError]);
   return (
-    <SettingsPageConranier data-testid="settings-profile">
-      <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
-        <Header>Customize profile</Header>
-        <SubHeader>PROFILE INFORMATION</SubHeader>
-        <SettingsProvider prefs={prefs} setPrefs={setPrefs}>
-          <ProfileInoformation />
-        </SettingsProvider>
-        <SettingsProvider prefs={prefs} setPrefs={setPrefs}>
-          <ProfileImage />
-        </SettingsProvider>
-        <SubHeader>PROFILE CATEGORY</SubHeader>
-        <Button>
-          <Content>
-            <ContentHeader>
-              NSFW
-            </ContentHeader>
-            <ContentSubHeader>
-              This content is NSFW (may contain nudity, pornography, profanity or inappropriate content for those under 18)
-            </ContentSubHeader>
-          </Content>
-          <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, nsfw: !oldPrefs.nsfw })); settingsPost({ ...prefs, nsfw: !prefs?.nsfw }); }}>
-            <Switch checked={prefs?.nsfw || false} />
-          </AntSwitch>
-        </Button>
-        <SubHeader>ADVANCED</SubHeader>
-        <Button>
-          <Content>
-            <ContentHeader>
-              Allow people to follow you
-            </ContentHeader>
-            <ContentSubHeader>
-              Followers will be notified about posts you make to your profile and see them in their home feed.
-            </ContentSubHeader>
-          </Content>
-          <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, canbeFollowed: !oldPrefs.canbeFollowed })); settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed }); }}>
-            <Switch checked={prefs?.canbeFollowed || false} />
+    data === null ? (<div> error in fecting</div>)
+      : (
+        <SettingsPageConranier data-testid="settings-profile">
+          <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
+            <Header>Customize profile</Header>
+            <SubHeader>PROFILE INFORMATION</SubHeader>
+            <SettingsProvider prefs={prefs} setPrefs={setPrefs}>
+              <ProfileInoformation />
+            </SettingsProvider>
+            <SettingsProvider prefs={prefs} setPrefs={setPrefs}>
+              <ProfileImage />
+            </SettingsProvider>
+            <SubHeader>PROFILE CATEGORY</SubHeader>
+            <Button>
+              <Content>
+                <ContentHeader>
+                  NSFW
+                </ContentHeader>
+                <ContentSubHeader>
+                  This content is NSFW (may contain nudity, pornography, profanity or inappropriate content for those under 18)
+                </ContentSubHeader>
+              </Content>
+              <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, nsfw: !oldPrefs.nsfw })); settingsPost({ ...prefs, nsfw: !prefs?.nsfw }); }}>
+                <Switch checked={prefs?.nsfw || false} />
+              </AntSwitch>
+            </Button>
+            <SubHeader>ADVANCED</SubHeader>
+            <Button>
+              <Content>
+                <ContentHeader>
+                  Allow people to follow you
+                </ContentHeader>
+                <ContentSubHeader>
+                  Followers will be notified about posts you make to your profile and see them in their home feed.
+                </ContentSubHeader>
+              </Content>
+              <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, canbeFollowed: !oldPrefs.canbeFollowed })); settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed }); }}>
+                <Switch checked={prefs?.canbeFollowed || false} />
 
-          </AntSwitch>
-        </Button>
-      </Box>
-    </SettingsPageConranier>
+              </AntSwitch>
+            </Button>
+          </Box>
+        </SettingsPageConranier>
+      )
   );
 }
 

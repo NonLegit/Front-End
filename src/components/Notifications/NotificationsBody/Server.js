@@ -16,6 +16,9 @@ const NotificationsFetch = () => {
         setEarlier(actualData.data.filter((e) => !checkTimeNow(e.createdAt)));
       })
       .catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          alert('error fetrching');
+        }
         console.log(error);
       });
   }, [api]);

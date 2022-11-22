@@ -3,7 +3,11 @@ import {
 } from 'react';
 
 export const SettingsContext = createContext();
-
+/**
+ * Settings Provider
+ * provide data prefs
+ * @returns {React.Component} prefs Provider
+ */
 function SettingsProvider(props) {
   const {
     children, prefs, setPrefs,
