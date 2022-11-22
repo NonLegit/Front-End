@@ -58,18 +58,22 @@ function ResetPassword() {
 
   const resetPassword = () => {
     setLoading(true);
-
-    setLoading(true);
     if (password.error != null || repassword.error != null) {
+      setLoading(false);
+      return;
+    }
+    // check if Empty (case he didn't make any change in the input field)
+    if (password.input === '' || repassword.input === '') {
       setLoading(false);
       return;
     }
     // Check API with BE
     axios.post(`/users/reset_password/${token}`, {
-      //= >Logout paramter ??
+      // =>Logout paramter ??
       password: password.input,
       confirmPassword: repassword.input,
     }).then((response) => {
+      console.log(response);
       if (response.status === 200) {
         setTimeout(() => {
           setbuttonText(<DoneIcon />);
@@ -81,10 +85,11 @@ function ResetPassword() {
     }).catch((error) => {
       if (error.response.status === 400) {
         // =>Handle Rest Reponses
-        //= >mismatch between passwords
-        //= >invalid token
+        // =>mismatch between passwords
+        // =>invalid token
+        matchPassword(password, repassword, setRePassword);
       }
-      // invlaid Token
+      // invalid Token
       setLoading(false);
       console.log(error);
     });
@@ -111,6 +116,7 @@ function ResetPassword() {
               input: e.target.value.trim(),
             }));
             checkPassword(e.target.value.trim(), setPassword, undefined);
+            matchPassword(repassword, e.target.value.trim(), setRePassword);
           }}
           helperText={password.error}
         />
