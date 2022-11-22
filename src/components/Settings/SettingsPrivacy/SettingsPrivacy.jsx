@@ -4,7 +4,11 @@ import {
   SettingsPageConranier, SubHeader, ContentSubHeader, Text,
 } from '../styles';
 import { AddBlock, AddButton, RedditTextField } from './styles';
-
+/**
+ * - SettingsPrivacy
+ * - Edit block list in Settings page
+ *  @component
+ */
 function SettingsPrivacy() {
   return (
     <SettingsPageConranier>

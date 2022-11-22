@@ -1,16 +1,35 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/system';
+
 import {
   ContentSubHeader, ContentHeader, Content, Text,
 } from '../../styles';
 import {
   DisplayName, About, AddSocialLinks,
 } from './styles';
-
+import { SettingsContext } from '../../../../contexts/SettingsProvider';
+import settingsPost from '../../server';
+/**
+ * - ProfileInoformation
+ * - Edit Display name  and About people in Seetings Page
+ *  @param {Object} prefs - prefs of user
+ *  @property {function} setPrefs set prefs of user
+ *  @property {String} name name of user
+ *  @property {String} about description of user
+ *  @component
+ */
 function ProfileInoformation() {
+  const {
+    prefs, setPrefs,
+  } = useContext(SettingsContext);
+  useEffect(() => { console.log(prefs); }, [prefs]);
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
+  useEffect(() => {
+    setName(prefs?.displayName);
+    setAbout(prefs?.description);
+  }, [prefs]);
   return (
     <>
       <Text>
@@ -22,9 +41,14 @@ function ProfileInoformation() {
             Set a display name. This does not change your username.
           </ContentSubHeader>
         </Content>
-        <DisplayName value={name} maxLength={30} onChange={(e) => { setName(e.target.value); }} />
-        <ContentSubHeader sx={{ color: (30 - name.length === 0) ? 'red' : '#7c7c7c' }}>
-          {30 - name.length}
+        <DisplayName
+          onBlur={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name })); settingsPost({ ...prefs, displayName: name }); }}
+          value={name}
+          maxLength={30}
+          onChange={(e) => { setName(e.target.value); }}
+        />
+        <ContentSubHeader sx={{ color: (30 - ((name) ? name.length : 0) === 0) ? 'red' : '#7c7c7c' }}>
+          {30 - ((name) ? name.length : 0)}
           {' '}
           Character remaining
         </ContentSubHeader>
@@ -38,9 +62,14 @@ function ProfileInoformation() {
             A brief description of yourself shown on your profile.
           </ContentSubHeader>
         </Content>
-        <About value={about} maxLength={200} onChange={(e) => { setAbout(e.target.value); }} />
-        <ContentSubHeader sx={{ color: (200 - about.length === 0) ? 'red' : '#7c7c7c' }}>
-          {200 - about.length}
+        <About
+          onBlur={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, description: about })); settingsPost({ ...prefs, description: about }); }}
+          value={about}
+          maxLength={200}
+          onChange={(e) => { setAbout(e.target.value); }}
+        />
+        <ContentSubHeader sx={{ color: (200 - ((about) ? about.length : 0) === 0) ? 'red' : '#7c7c7c' }}>
+          {200 - ((about) ? about.length : 0) }
           {' '}
           Character remaining
         </ContentSubHeader>

@@ -3,16 +3,22 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {
   Divider, Box,
 } from '@mui/material';
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import {
   Button, ContentHeader, Content, ContentSubHeader, AntSwitch,
 } from '../../../styles';
 import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './styles';
+import { SettingsContext } from '../../../../../contexts/SettingsProvider';
+import settingsPost from '../../../server';
 
 function ChangeGender() {
-  const [gender, setgender] = useState('man');
+  const {
+    prefs, setPrefs,
+  } = useContext(SettingsContext);
+  useEffect(() => { console.log(prefs); }, [prefs]);
+
   const [open, setOpen] = useState(false);
   return (
     <Button>
@@ -32,7 +38,7 @@ function ChangeGender() {
               size="small"
               onClick={() => { setOpen(!open); }}
             >
-              {gender}
+              {prefs?.gender}
               <ArrowDropDownIcon sx={{ color: 'black' }} />
             </Fab>
           </ClickAwayListener>
@@ -47,15 +53,15 @@ function ChangeGender() {
             }}
             display={(open === false ? 'none' : 'block')}
           >
-            <ListItemButton onClick={() => { setgender('man'); setOpen(!open); }}>
-              <ShowMoreListItemText Condition={(gender === 'man').toString()}>
-                Man
+            <ListItemButton onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, gender: 'male' })); setOpen(!open); settingsPost({ ...prefs, gender: 'male' }); }}>
+              <ShowMoreListItemText Condition={(prefs?.gender === 'male').toString()}>
+                Mele
               </ShowMoreListItemText>
             </ListItemButton>
             <Divider />
-            <ListItemButton onClick={() => { setgender('woman'); setOpen(!open); }}>
-              <ShowMoreListItemText Condition={(gender === 'woman').toString()}>
-                Woman
+            <ListItemButton onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, gender: 'female' })); setOpen(!open); settingsPost({ ...prefs, gender: 'female' }); }}>
+              <ShowMoreListItemText Condition={(prefs?.gender === 'female').toString()}>
+                Female
               </ShowMoreListItemText>
             </ListItemButton>
           </ShowMoreList>

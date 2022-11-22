@@ -1,11 +1,22 @@
 import { Box } from '@mui/material';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
+import { useContext, useEffect } from 'react';
 import {
   ContentSubHeader, ContentHeader, Content, Text, SubHeader,
 } from '../../styles';
 import { ProfilePic, AddPhoto } from './styles';
+import { SettingsContext } from '../../../../contexts/SettingsProvider';
+/**
+ * - ProfileImage
+ * - Edit Image and Banner in Seetings Page
+ *  @component
+ */
 
 function ProfileImage() {
+  const {
+    prefs,
+  } = useContext(SettingsContext);
+  useEffect(() => { console.log(prefs); }, [prefs]);
   return (
     <>
       <SubHeader>
@@ -32,7 +43,7 @@ function ProfileImage() {
               position: 'relative',
             }}
             >
-              <ProfilePic width="120px" height="120px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXg_06hyVEIg2vPsEiAQ5M6c0DjU7vBYzovw&usqp=CAU" alt="user photo" />
+              <ProfilePic width="120px" height="120px" src={prefs?.profilePicture} alt="user photo" />
               <AddPhoto sx={{
                 border: (theme) => `thin solid ${theme.palette.primary.main}`,
                 position: 'absolute',
@@ -58,7 +69,7 @@ function ProfileImage() {
                 }}
                 width="412px"
                 height="120px"
-                src="https://flxt.tmsimg.com/assets/p14505262_i_v10_aa.jpg"
+                src={prefs?.profileBackground}
                 alt="user photo"
               />
               <AddPhoto sx={{

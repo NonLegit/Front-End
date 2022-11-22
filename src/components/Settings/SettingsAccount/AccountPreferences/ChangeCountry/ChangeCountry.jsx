@@ -3,7 +3,7 @@ import {
 } from '@mui/material';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import countryList from 'react-select-country-list';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {
   Button, ContentHeader, Content, ContentSubHeader, AntSwitch,
@@ -11,12 +11,19 @@ import {
 import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './styles';
-
+/**
+ * - ChangeCountry
+ * - Change Country of user in settings page
+ *  @component
+ *  @property {function} setValue set Coutry of user
+ *  @property {Object} value Coutry of user
+ *  @property {Boolean} open bool to open list or close
+ */
 function ChangeCountry() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('Egypt');
   const options = useMemo(() => countryList().getData(), []);
   const [open, setOpen] = useState(false);
-  useEffect(() => { console.log(value); }, [value]);
+  //   useEffect(() => { console.log(value); }, [value]);
   return (
     <Button sx={{ flexDirection: 'column' }}>
       <Content>

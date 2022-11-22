@@ -5,7 +5,12 @@ import {
 import ChangeCountry from './ChangeCountry/ChangeCountry';
 import ChangeGender from './ChangeGender/ChangeGender';
 import { ChangeButton } from './styles';
-
+/**
+ * - AccountPreferences
+ * - Change Email and password in settings page
+ *  @component
+ *
+ */
 function AccountPreferences() {
   return (
     <>

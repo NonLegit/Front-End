@@ -23,12 +23,11 @@ export const CategoriesContext = createContext();
  */
 
 function NotificationsBody() {
-  const baseURL = '/notifications';
   // earlier data
   const [earlier, setEarlier] = useState([]);
   // today data
   const [today, setToday] = useState([]);
-  const [dataToday, dataEarlier] = NotificationsFetch(baseURL);
+  const [dataToday, dataEarlier] = NotificationsFetch();
   //  anchor element
   const [anchorEl, setAnchorEl] = useState(null);
   // index selected element

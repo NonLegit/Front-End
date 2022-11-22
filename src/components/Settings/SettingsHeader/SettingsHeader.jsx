@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import {
   HeaderContiner, TabsContiner, Tab, TabText, Nav,
 } from './styles';
-
+/**
+ * - SettingsHeader
+ * - Head of Settings
+ *  @component
+ */
 function SettingsHeader() {
   const [navigate, setNavigate] = useState('/settings');
   const history = useNavigate();
