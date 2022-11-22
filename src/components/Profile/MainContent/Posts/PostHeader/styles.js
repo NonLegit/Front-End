@@ -17,6 +17,7 @@ export const ApprovedBox = styled(Box)(({ theme }) => ({
 
 export const HeaderPost = styled(Box)(() => ({
   display: 'flex',
+  alignItems: 'center',
   minHeight: 24,
   flexWrap: 'wrap',
 }));

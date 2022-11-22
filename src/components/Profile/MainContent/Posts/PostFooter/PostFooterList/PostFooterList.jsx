@@ -5,7 +5,7 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
-
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
@@ -16,10 +16,27 @@ import { SelectBox, SelectItem } from './styles';
  * @returns {React.Component} PostFooterList
  */
 function PostFooterList(props) {
-  const { isSaved } = props;
+  const {
+    isSaved,
+    nsfw,
+    spoiler,
+    sendReplies,
+  } = props;
   const [saved, setSaved] = useState(isSaved);
-  const handleClick = () => {
+  const [isNsfw, setIsNsfw] = useState(nsfw);
+  const [isSpoiler, setIsSpoiler] = useState(spoiler);
+  const [isSendReplies, setIsSendReplies] = useState(sendReplies);
+  const handleSave = () => {
     setSaved((prev) => !prev);
+  };
+  const handleNsfw = () => {
+    setIsNsfw((prev) => !prev);
+  };
+  const handleSpoiler = () => {
+    setIsSpoiler((prev) => !prev);
+  };
+  const handleSendReplies = () => {
+    setIsSendReplies((prev) => !prev);
   };
   return (
     <SelectBox>
@@ -29,13 +46,13 @@ function PostFooterList(props) {
       </SelectItem>
       <Divider />
       {!saved ? (
-        <SelectItem onClick={() => { handleClick(); }}>
+        <SelectItem onClick={() => { handleSave(); }}>
           <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
           Save
         </SelectItem>
       )
         : (
-          <SelectItem condition={true.toString()} onClick={() => { handleClick(); }}>
+          <SelectItem condition={true.toString()} onClick={() => { handleSave(); }}>
             <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
             Unsave
           </SelectItem>
@@ -56,25 +73,44 @@ function PostFooterList(props) {
         Delete
       </SelectItem>
       <Divider />
-      <SelectItem>
-        <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-        Mark As OC
-      </SelectItem>
+      {!isSpoiler ? (
+        <SelectItem onClick={() => { handleSpoiler(); }}>
+          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+          Mark As Spoiler
+        </SelectItem>
+      )
+        : (
+          <SelectItem onClick={() => { handleSpoiler(); }}>
+            <CheckBoxIcon sx={{ marginRight: 1 }} />
+            Mark As Spoiler
+          </SelectItem>
+        )}
       <Divider />
-      <SelectItem>
-        <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-        Mark As Spoiler
-      </SelectItem>
+      {!isNsfw ? (
+        <SelectItem onClick={() => { handleNsfw(); }}>
+          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+          Mark As NSFW
+        </SelectItem>
+      )
+        : (
+          <SelectItem onClick={() => { handleNsfw(); }}>
+            <CheckBoxIcon sx={{ marginRight: 1 }} />
+            Mark As NSFW
+          </SelectItem>
+        )}
+
       <Divider />
-      <SelectItem>
-        <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-        Mark As NSFW
-      </SelectItem>
-      <Divider />
-      <SelectItem>
-        <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-        Send Me Reply Notifications
-      </SelectItem>
+      {!isSendReplies ? (
+        <SelectItem onClick={() => { handleSendReplies(); }}>
+          <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+          Send Me Reply Notifications
+        </SelectItem>
+      ) : (
+        <SelectItem onClick={() => { handleSendReplies(); }}>
+          <CheckBoxIcon sx={{ marginRight: 1 }} />
+          Send Me Reply Notifications
+        </SelectItem>
+      )}
 
     </SelectBox>
   );

@@ -476,7 +476,9 @@ exports[`test snapshot 1`] = `
                 </svg>
                 <span
                   className="MuiTypography-root MuiTypography-caption css-15tzfi-MuiTypography-root"
-                />
+                >
+                  NaN
+                </span>
               </div>
             </div>
             <div
@@ -503,7 +505,9 @@ exports[`test snapshot 1`] = `
                 </svg>
                 <span
                   className="MuiTypography-root MuiTypography-caption css-15tzfi-MuiTypography-root"
-                />
+                >
+                  Invalid date
+                </span>
               </div>
             </div>
           </div>

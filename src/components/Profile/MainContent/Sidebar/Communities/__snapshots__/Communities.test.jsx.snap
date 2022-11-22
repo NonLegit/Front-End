@@ -5,7 +5,7 @@ exports[`test snapshot 1`] = `
   className="MuiBox-root css-0"
 >
   <div
-    className="MuiBox-root css-1020iqq"
+    className="MuiBox-root css-b9eube"
   >
     <div
       className="MuiBox-root css-su0a71"
@@ -518,7 +518,9 @@ exports[`test snapshot 1`] = `
                 </svg>
                 <span
                   className="MuiTypography-root MuiTypography-caption css-15tzfi-MuiTypography-root"
-                />
+                >
+                  NaN
+                </span>
               </div>
             </div>
             <div
@@ -545,7 +547,9 @@ exports[`test snapshot 1`] = `
                 </svg>
                 <span
                   className="MuiTypography-root MuiTypography-caption css-15tzfi-MuiTypography-root"
-                />
+                >
+                  Invalid date
+                </span>
               </div>
             </div>
             <div
