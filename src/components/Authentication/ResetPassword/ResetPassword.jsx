@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
@@ -17,7 +17,7 @@ import {
 } from '../styles';
 
 // server
-import { resetPassword } from './server';
+import { resetPassword, checkToken } from './server';
 
 // scripts
 import { checkPassword, matchPassword } from '../scripts';
@@ -52,7 +52,18 @@ function ResetPassword() {
     <>
       Choose a new password here, then log in to your account.
     </>
-  ); return (
+  );
+
+  // useEffect
+  useEffect(() => {
+    // check if valid
+    if (!checkToken(token)) {
+      // invalid Token Redirect to ForgetPassword
+      window.location.pathname = 'password';
+    }
+  }, []);
+
+  return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="resetpassword-test">
       <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
       {/* <h1>{token}</h1> */}

@@ -32,5 +32,6 @@
     "/users/top":"/top",
     "/users/best":"/best",
     "/users/username_available?userName=*":"/usernameAvailable",
-    "/users/logout":"/logout"
+    "/users/logout":"/logout",
+    "/users/check_reset_token/:token":"/token"
 }
