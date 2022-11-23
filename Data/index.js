@@ -32,6 +32,7 @@ const saved = require('./saved.json');
 const hidden = require('./hidden.json');
 const postsTap = require('./postsTap.json');
 const join = require('./join.json');
+const logout = require('./logout.json');
 
 // Something more
 
@@ -70,6 +71,7 @@ module.exports = () => ({
   top,
   best,
   hot,
+  logout,
   new: newPosts,
   // Something more
 });

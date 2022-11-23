@@ -1,5 +1,5 @@
 import {
-  Box, Button, TextField, Link,
+  Box, TextField, Link,
   InputAdornment,
 } from '@mui/material';
 
@@ -52,25 +52,25 @@ export const FirstPartyContainer = styled('form')(({ width, mnwidth }) => ({
   flexDirection: 'column',
 }));
 
-export const AuthenticationInput = styled(TextField)(({ color }) => ({
-  width: '95%',
-  marginBottom: '10px',
-  '& .MuiInputBase-root': { borderRadius: '2.5em' },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: `${color}`,
-    },
-    '&:hover fieldset': {
-      borderColor: `${color}`,
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: `${color}`,
-    },
-  },
-  '.MuiInputLabel-shrink': {
-    color: `${color}`,
-  },
-}));
+// export const AuthenticationInput = styled(TextField)(({ color }) => ({
+//   width: '95%',
+//   marginBottom: '10px',
+//   '& .MuiInputBase-root': { borderRadius: '2.5em' },
+//   '& .MuiOutlinedInput-root': {
+//     '& fieldset': {
+//       borderColor: `${color}`,
+//     },
+//     '&:hover fieldset': {
+//       borderColor: `${color}`,
+//     },
+//     '&.Mui-focused fieldset': {
+//       borderColor: `${color}`,
+//     },
+//   },
+//   '.MuiInputLabel-shrink': {
+//     color: `${color}`,
+//   },
+// }));
 
 export const RedditTextField = styled((props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
@@ -83,7 +83,6 @@ export const RedditTextField = styled((props) => (
     // input text
     '&.MuiInputBase-input': {
       fontSize: '12px',
-      borderRadius: '20px',
     },
 
     // Helper Text
@@ -98,6 +97,7 @@ export const RedditTextField = styled((props) => (
 
   '& .MuiFilledInput-root': {
     border: `1px solid ${clr}`,
+    borderRadius: '30px',
     overflow: 'hidden',
     backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#2b2b2b',
     // border: '10px solid black',
@@ -122,28 +122,28 @@ export const RedditTextField = styled((props) => (
   },
 }));
 
-export const AuthenticationButton = styled(Button)(({ width }) => ({
-  width: (width !== undefined) ? `${width}` : '100%',
-  height: 35,
-  margin: '15px 0px',
+// export const AuthenticationButton = styled(Button)(({ width }) => ({
+//   width: (width !== undefined) ? `${width}` : '100%',
+//   height: 35,
+//   margin: '15px 0px',
 
-  fontFamily: 'ibm-plex-sans,sans-serif',
-  fontWeight: '600',
-  fontSize: '14px',
-  letterSpacing: '0.5px',
+//   fontFamily: 'ibm-plex-sans,sans-serif',
+//   fontWeight: '600',
+//   fontSize: '14px',
+//   letterSpacing: '0.5px',
 
-  backgroundColor: theme.palette.secondary.main,
+//   backgroundColor: theme.palette.secondary.main,
 
-  '&:hover': {
-    backgroundColor: '#FF4500 !important',
-  },
+//   '&:hover': {
+//     backgroundColor: '#FF4500 !important',
+//   },
 
-  '&.MuiButton-root': {
-    fontWeight: '600',
-    fontSize: '14px',
-    letterSpacing: '0.5px',
-  },
-}));
+//   '&.MuiButton-root': {
+//     fontWeight: '600',
+//     fontSize: '14px',
+//     letterSpacing: '0.5px',
+//   },
+// }));
 
 export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) => ({
   width: (width !== undefined) ? `${width}` : '100%',
@@ -160,10 +160,11 @@ export const RedditLoadingButton = styled(LoadingButton)(({ width, ispopup }) =>
     backgroundColor: '#FF4500 !important',
   },
 
-  '& .MuiButtonBase-root': {
+  '&.MuiButtonBase-root': {
     fontWeight: '600',
     fontSize: '14px',
     letterSpacing: '0.5px',
+    color: '#fff !important',
   },
 
   '&>.MuiLoadingButton-loadingIndicator': {
