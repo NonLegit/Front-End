@@ -96,7 +96,6 @@ function HomeList() {
               )
                 : (items.label === 'create post')
                   ? (
-
                     <ListItemButton key={`${index + 0}`}>
                       <Link to="/submit" style={{ textDecoration: 'none', display: 'flex' }}>
                         <ListItemIcon>
@@ -105,18 +104,15 @@ function HomeList() {
                         <ListItemText primary={items.label} />
                       </Link>
                     </ListItemButton>
-
                   )
                   : (items.label === 'notifications')
                     ? (
                       <ListItemButton key={`${index + 0}`}>
                         <Link to="/notifications" style={{ textDecoration: 'none', display: 'flex' }}>
-
                           <ListItemIcon>
                             {items.icon}
                           </ListItemIcon>
                           <ListItemText primary={items.label} />
-
                         </Link>
                       </ListItemButton>
                     )

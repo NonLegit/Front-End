@@ -5,11 +5,11 @@ import DoneIcon from '@mui/icons-material/Done';
 import axios from '../../../services/instance';
 
 // styles
-import { wrongIcon, rightIcon } from '../styles';
+import { wrongIcon, rightIcon } from '../../Authentication/styles';
 import theme from '../../../styles/theme';
 
 // scripts
-import { checkEmail } from '../scripts';
+import { checkEmail } from '../../Authentication/scripts';
 
 /**
  *

@@ -2,18 +2,21 @@
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { ForgetPassContext } from '../SNavbar';
-import StyledDialog from '../SignUpPopUp/styles';
-import {
-  StyledLink, FirstPartyContainer, AuthenticationInput, AuthenticationButton,
-} from '../ِAuthentication/styles';
-import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
+import { ForgetPassContext } from '../SNavbar';
+import StyledDialog from '../SignUpPopUp/styles';
+import {
+  StyledLink, FirstPartyContainer,
+  RedditTextField, RedditLoadingButton,
+} from '../ِAuthentication/styles';
+import AuthenticationHeader from '../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import { checkUserName, recoverPassword } from './server';
-import { redditCookie, checkEmail } from '../scripts';
-import { RedditTextField, RedditLoadingButton } from '../Authentication/styles'; 
+import { redditCookie, checkEmail } from '../../Authentication/scripts';
+
+import theme, { fonts } from '../../../styles/theme';
+
 const { REACT_APP_ENV } = process.env;
 
 /**
@@ -23,7 +26,6 @@ const { REACT_APP_ENV } = process.env;
  * @returns {React.Component} main body of forget password popup
  */
 function ForgetPassword() {
-  const [remeberMe, setremeberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const [buttonText, setbuttonText] = useState('Reset Password');
   const [disabled, setDisabled] = useState(false);
@@ -49,14 +51,14 @@ function ForgetPassword() {
   useEffect(() => {
   // Check on Cookies
   // developememt
-  if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
-  // production
-  // Redirect to loading page
-  // check on Reddit cookie
-  if (cookies.redditUser === undefined) {
-    redditCookie(setCookies);
-  }
-  }
+    if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
+      // production
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
+      }
+    }
   }, []);
 
   const caption = (
@@ -99,9 +101,9 @@ function ForgetPassword() {
               );
             }}
           >
-            <AuthenticationInput label="Username" variant="outlined" />
-            <AuthenticationInput label="Email" variant="outlined" />
-            <AuthenticationButton type="submit" width="155px">Reset Password</AuthenticationButton>
+            <RedditTextField label="Username" variant="outlined" />
+            <RedditTextField label="Email" variant="outlined" />
+            <RedditLoadingButton type="submit" width="155px">Reset Password</RedditLoadingButton>
             <RedditTextField
               label="Username"
               variant="filled"
@@ -144,7 +146,11 @@ function ForgetPassword() {
               }}
               helperText={email.error}
             />
-            <RedditLoadingButton type="submit" width="155px" loading={loading} disabled={disabled}
+            <RedditLoadingButton
+              type="submit"
+              width="155px"
+              loading={loading}
+              disabled={disabled}
             >
               {buttonText}
             </RedditLoadingButton>

@@ -7,10 +7,10 @@ import { Typography } from '@mui/material';
 // styles
 import { FirstPartyContainer } from './styles';
 import { RedditLoadingButton, RedditTextField } from '../styles';
-import theme, { fonts } from '../../../styles/theme';
+import theme, { fonts } from '../../../../styles/theme';
 
 // servers
-import { checkUserName, logIn } from './server';
+import { checkUserName, logIn } from '../../../Authentication/FirstParty/server';
 
 /**
  * Form for Logging in by username and passsword

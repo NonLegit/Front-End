@@ -2,16 +2,19 @@
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { ForgetUserContext } from '../SNavbar';
-import StyledDialog from '../SignUpPopUp/styles';
-import { StyledLink } from '../ِAuthentication/styles';
-import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
-import Email from '../ِAuthentication/Email/Email';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
+import { ForgetUserContext } from '../SNavbar';
+import StyledDialog from '../SignUpPopUp/styles';
+import { StyledLink } from '../ِAuthentication/styles';
+import AuthenticationHeader from '../../Authentication/AuthenticationHeader/AuthenticationHeader';
+import Email from '../ِAuthentication/Email/Email';
 import { recoverUsername } from './server';
-import { redditCookie } from '../scripts';
+import { redditCookie } from '../../Authentication/scripts';
+import theme, { fonts } from '../../../styles/theme';
+// environment variables
+const { REACT_APP_ENV } = process.env;
 /**
  *  ForgetUsername popUp
  * @component
@@ -21,14 +24,13 @@ import { redditCookie } from '../scripts';
 function ForgetUsername() {
   // states
   const [email, setEmail] = useState({
-  input: '', color: theme.palette.neutral.main, icon: null, error: null,
-}); 
-  const [remeberMe, setremeberMe] = useState(false);
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
+  });
   const [loading, setLoading] = useState(false);
   const [verified, setVerified] = useState(false);
   const [buttonText, setbuttonText] = useState('Email Me');
   const [disabled, setDisabled] = useState(false);
-
+  const [redirectCaption, setRedirectCaption] = useState(false);
   // cookies
   const [cookies, setCookies] = useCookies(['redditUser']);
 
@@ -39,20 +41,19 @@ function ForgetUsername() {
     handleClickOpenLogIn,
   } = React.useContext(ForgetUserContext);
 
-    // useEffect
-    useEffect(() => {
-      // Check on Cookies
-      // developememt
-      if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
-        // production
-        // Redirect to loading page
-        // check on Reddit cookie
-        if (cookies.redditUser === undefined) {
-          redditCookie(setCookies);
-        }
+  // useEffect
+  useEffect(() => {
+    // Check on Cookies
+    // developememt
+    if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
+      // production
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
       }
-    }, []);
-    
+    }
+  }, []);
 
   const caption = (
     <>
@@ -60,16 +61,6 @@ function ForgetUsername() {
       send you an email with your username.
     </>
   );
-
-  const recoverUsername = () => {
-    // Check nonempty inputfileds
-    console.log('RecoverUsername');
-    setLoading(true);
-    /* BackAPI */
-    // 1.Validate Email format and username
-    // 2.Button becomes trick
-    // 3.message appears
-  };
 
   return (
     <StyledDialog
@@ -88,19 +79,21 @@ function ForgetUsername() {
         />
         <AuthenticationHeader reddit={false} title="Recover your username" caption={caption} fontSize="14px" />
         <Email
-            email={email}
-            setEmail={setEmail}
-            onSubmitFn={() => recoverUsername(setLoading, email, verified, setDisabled, setbuttonText, setRedirectCaption)}
-            loading={loading}
-            buttonText={buttonText}
-            btnWidth="155px"
-            fieldText="Email Address"
-            recaptcha
-            setVerified={setVerified}
-            disabled={disabled}
-            isPopUp = {false}
-          />
-
+          email={email}
+          setEmail={setEmail}
+          onSubmitFn={() => recoverUsername(setLoading, email, verified, setDisabled, setbuttonText, setRedirectCaption)}
+          loading={loading}
+          buttonText={buttonText}
+          btnWidth="155px"
+          fieldText="Email Address"
+          recaptcha
+          setVerified={setVerified}
+          disabled={disabled}
+          isPopUp={false}
+        />
+        {redirectCaption
+          ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there are any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
+          : null}
         <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
           Don
           {'\''}

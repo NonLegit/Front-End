@@ -10,9 +10,9 @@ import {
 import theme from '../../../styles/theme/index';
 
 import AuthenticationHeader from
-  '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
+  '../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import ThirdParty from '../ِAuthentication/ThirdParty/ThirdParty';
-import Divider from '../ِAuthentication/Divider/Divider';
+import Divider from '../../Authentication/Divider/Divider';
 import Email from '../ِAuthentication/Email/Email';
 /**
  * SignUp popUp

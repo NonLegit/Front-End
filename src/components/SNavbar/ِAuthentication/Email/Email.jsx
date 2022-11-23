@@ -9,10 +9,10 @@ import {
 } from '../styles';
 
 // scripts
-import { checkEmail } from '../scripts';
+import { checkEmail } from '../../../Authentication/scripts';
 
 function Email({
-  email, setEmail, onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, disabled,ispopup
+  email, setEmail, onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, disabled, ispopup,
 }) {
   const [defaultEmailValue, setdefaultEmailValue] = useState(email?.input);
   const [recaptchaState, setrecaptchaState] = useState(false);
@@ -20,7 +20,7 @@ function Email({
   return (
     // right value emailon submit in case that we have made any change in input field
     // in case no change the value there is wrong :) but the view here is true
-    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input, setEmail); onSubmitFn(); }} noValidate >
+    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input, setEmail); onSubmitFn(); }} noValidate>
       <RedditTextField
         label={fieldText}
         variant="filled"
@@ -44,7 +44,7 @@ function Email({
         }}
         helperText={email?.error}
         value={defaultEmailValue || ''}
-        ispopup = {ispopup}
+        ispopup={ispopup}
       />
       <RedditLoadingButton type="submit" loading={loading} width={btnWidth} disabled={disabled}>
         {buttonText}

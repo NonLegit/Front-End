@@ -8,14 +8,14 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 // server
 import {
   responseGoogleSuccess, responseGoogleFail, responseFacebook,
-} from './server';
+} from '../../../Authentication/ThirdParty/server';
 
 // styles
 import { ThirdPartyContainer } from './styles';
 import ThirdPartyButton from './ThirdPartyButton/ThirdPartyButton';
 
-import Google from '../../../assets/images/google.png';
-import Facebook from '../../../assets/images/facebook.png';
+import Google from '../../../../assets/images/google.png';
+import Facebook from '../../../../assets/images/facebook.png';
 
 // environment variables
 const { REACT_APP_GOOGLECLIENTID, REACT_APP_FACEBOOKCLIENTID } = process.env;
@@ -36,7 +36,7 @@ function ThirdParty({ circular }) {
 
   // Facebook
   const facebookAppId = REACT_APP_FACEBOOKCLIENTID;
-  
+
   return (
     <ThirdPartyContainer>
       <GoogleLogin

@@ -6,8 +6,8 @@ import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPriva
 import SettingsFeed from './components/Settings/SettingsFeed/SettingsFeed';
 import SettingsAccount from './components/Settings/SettingsAccount/SettingsAccount';
 import Settings from './pages/Settings';
-import Navbar from './components/Navbar/Navbar';
-// import SNavbar from './components/SNavbar/SNavbar';
+//import Navbar from './components/Navbar/Navbar';
+ import SNavbar from './components/SNavbar/SNavbar';
 
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
@@ -32,7 +32,7 @@ function App() {
       <CssBaseline />
       <PostTypeContextProvider>
         <Router className="App">
-          <Navbar />
+          <SNavbar />
           <Routes>
             <Route
               path="/"

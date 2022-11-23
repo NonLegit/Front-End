@@ -7,7 +7,7 @@ import UserList from './UserList/UserList';
 import SearchButton from './Search/Search';
 import NavIcons from './NavIcons/NavIcons';
 import LogoIcon from './Logo/logoIcon';
-
+import UserInfoProvider from '../../contexts/UserInfoProvider';
 /**
  * Navbar
  * @component
@@ -36,7 +36,9 @@ function Navbar() {
         }}
         >
           <NavIcons />
-          <UserList />
+          <UserInfoProvider>
+            <UserList />
+          </UserInfoProvider>
         </Box>
       </MuiToolbar>
     </StyledNavbar>

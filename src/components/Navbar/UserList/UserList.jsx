@@ -10,20 +10,33 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import { Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { useEffect, useContext, useState } from 'react';
 import FormDialog from '../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
-import Reddit from '../assests/Reddit.svg';
 import {
   StyledList,
 } from './styles';
 import karma from '../assests/karma.png';
 import { firstList, secondList, exploreList } from './Lists';
-
+import { UserInfoContext } from '../../../contexts/UserInfoProvider';
 /**
  * UserList
  * @component
  * @returns {React.Component} the User list which is the right lish in logged in navbar.
  */
+
 function UserList() {
+  const [postKarma, setPostKarma] = useState();
+  const [commentKarma, setCommentKarma] = useState();
+  const [imageProfile, setImageProfile] = useState();
+  const { info } = useContext(UserInfoContext);
+
+  useEffect(() => {
+    setPostKarma(info?.postKarma);
+    setCommentKarma(info?.commentKarma);
+    setImageProfile(info?.profilePicture);
+  }, [info]);
+  const [cookies] = useCookies(['redditUser']);
   const [openUserList, setOpenUserList] = React.useState(0);
   const handleClickUserList = () => {
     setOpenUserList(!openUserList);
@@ -50,14 +63,18 @@ function UserList() {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <ListItemIcon>
               <Box>
-                <Avatar src={Reddit} />
+                <Avatar src={imageProfile} />
               </Box>
             </ListItemIcon>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}>
-              <Typography sx={{ fontSize: '12px', color: '#1C1C1C' }}>username</Typography>
+              <Typography sx={{ fontSize: '12px', color: '#1C1C1C' }}>{cookies.redditUser?.userName}</Typography>
               <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img alt="" src={karma} width={12} height={12} />
-                <Typography sx={{ fontSize: '12px', color: '#A8AAAB', whiteSpace: 'nowrap' }}> 1 karma</Typography>
+                <Typography sx={{ fontSize: '12px', color: '#A8AAAB', whiteSpace: 'nowrap' }}>
+                  {postKarma + commentKarma }
+                  {' '}
+                  karma
+                </Typography>
               </Box>
             </Box>
           </Box>
@@ -74,19 +91,24 @@ function UserList() {
             </ListItemButton>
             {
             firstList.map((items, index) => (
-              (items === 'profile')
-                ? (
-                  <ListItemButton key={`${index + 0}`}>
-                    <Link to="/user/nour" style={{ textDecoration: 'none', display: 'flex', width: '100%' }}>
+              <ListItemButton key={`${index + 0}`}>
+                { (items === 'profile')
+                  ? (
+                    <Link to={`/user/${cookies.redditUser?.userName}`} style={{ textDecoration: 'none', display: 'flex', width: '100%' }}>
                       <ListItemText primary={items} />
                     </Link>
-                  </ListItemButton>
-                )
-                : (
-                  <ListItemButton key={`${index + 0}`}>
-                    <ListItemText primary={items} />
-                  </ListItemButton>
-                )
+                  )
+                  : (items === 'user settings')
+                    ? (
+                      <Link to="/settings" style={{ textDecoration: 'none', display: 'flex', width: '100%' }}>
+                        <ListItemText primary={items} />
+                      </Link>
+                    )
+                    : (
+                      <ListItemText primary={items} />
+
+                    )}
+              </ListItemButton>
             ))
           }
             <Divider sx={{ borderColor: '#cacbcd' }} />

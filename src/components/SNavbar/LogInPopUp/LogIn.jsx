@@ -4,9 +4,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import * as React from 'react';
 import StyledDialog from '../SignUpPopUp/styles';
 import { StyledLink } from '../ِAuthentication/styles';
-import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
+import AuthenticationHeader from '../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import ThirdParty from '../ِAuthentication/ThirdParty/ThirdParty';
-import Divider from '../ِAuthentication/Divider/Divider';
+import Divider from '../../Authentication/Divider/Divider';
 import FirstParty from '../ِAuthentication/FirstParty/FirstParty';
 import { LoginContext } from '../SNavbar';
 
