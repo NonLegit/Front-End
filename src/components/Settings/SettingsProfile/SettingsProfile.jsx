@@ -25,7 +25,7 @@ function SettingsProfile() {
   useEffect(() => {
     // console.log(data?.settings.prefs);
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     setPrefs(data?.prefs);
     console.log(dataError);
@@ -35,7 +35,7 @@ function SettingsProfile() {
     if (sataus === 304) {
       alert('OPeration failed');
     } else if (sataus === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     } else if (sataus === 200 || sataus === 201) {
       alert('operation done successfully');
     }

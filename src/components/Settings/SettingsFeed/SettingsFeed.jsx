@@ -31,7 +31,7 @@ function SettingsFeed() {
     if (sataus === 304) {
       alert('OPeration failed');
     } else if (sataus === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     } else if (sataus === 200 || sataus === 201) {
       alert('operation done successfully');
     }
