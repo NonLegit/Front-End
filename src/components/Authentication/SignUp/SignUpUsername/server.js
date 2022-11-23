@@ -160,7 +160,7 @@ export const signUp = (
         setTimeout(() => {
           console.log('1225245585254');
           handleClose();
-        }, 1000);
+        }, 10000);
       }
     } else {
       console.log('Error');

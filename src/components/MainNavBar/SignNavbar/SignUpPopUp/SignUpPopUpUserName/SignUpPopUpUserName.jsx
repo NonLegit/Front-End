@@ -1,8 +1,11 @@
 /* eslint-disable import/no-cycle */
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 // mui components
-import { Box, Typography } from '@mui/material';
+import {
+  Box, Typography, InputAdornment,
+} from '@mui/material';
+import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CloseIcon from '@mui/icons-material/Close';
@@ -15,7 +18,7 @@ import AuthenticationHeader from '../../../../Authentication/AuthenticationHeade
 import { SignupContext } from '../../SignNavbar';
 
 // server
-import { checkUserNameSignUp, signUp } from '../../../../Authentication/SignUp/SignUpUsername/server';
+import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from '../../../../Authentication/SignUp/SignUpUsername/server';
 
 // scripts
 import { checkPassword } from '../../../../Authentication/scripts';
@@ -23,7 +26,8 @@ import { checkPassword } from '../../../../Authentication/scripts';
 // styles
 import { StyledDialog } from '../../styles';
 import { RedditTextField, RedditLoadingButton } from '../../ِAuthentication/styles';
-import { fonts } from '../../../../../styles/theme';
+import theme, { fonts } from '../../../../../styles/theme';
+
 /**
  *  SignUp UseerName popUp
  * @component
@@ -41,7 +45,10 @@ function SignUpPopUpUserName({
   const [buttonTxt, setButtonText] = useState('Sign up');
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
-  // const [click, setClick] = useState(false);
+  const [click, setClick] = useState(false);
+
+  // server generate Random Names
+  const generatedUsernames = generateRandomUsernamesServer(1, click);
 
   // useContext
   const {
@@ -58,7 +65,41 @@ function SignUpPopUpUserName({
 
   );
 
+  const refreshIcon = (
+    <InputAdornment
+      position="end"
+    >
+      <PublishedWithChangesIcon onClick={() => {
+        setClick(!click);
+        setUserName((prevState) => ({
+          ...prevState,
+          color: theme.palette.primary.main,
+          error: null,
+          input: generatedUsernames[0],
+        }));
+        setdefaultUserNameValue(generatedUsernames[0]);
+      }}
+      />
+    </InputAdornment>
+  );
+
+  // useEffect
+  useEffect(() => {
+    console.log(generatedUsernames);
+    if (generatedUsernames === null) {
+      return;
+    }
+    setUserName((prevState) => ({
+      ...prevState,
+      color: theme.palette.primary.main,
+      error: null,
+      input: generatedUsernames[0],
+    }));
+    setdefaultUserNameValue(generatedUsernames[0]);
+  }, [generatedUsernames]);
+
   const signUpFunction = () => {
+    // console.log(userName);
     checkUserNameSignUp(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
     signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies, true, handleClose);
@@ -93,10 +134,19 @@ function SignUpPopUpUserName({
           required
           InputProps={{
             endAdornment: (
-              userName.icon
+              refreshIcon
             ),
             disableUnderline: true,
           }}
+          // endAdornment={(
+          //   <InputAdornment position="end">
+          //     <IconButton
+          //       onClick={handleClickShowPassword}
+          //     >
+          //       <PublishedWithChangesIcon />
+          //     </IconButton>
+          //   </InputAdornment>
+          // )}
           clr={userName?.color}
           onChange={(e) => {
             setUserName((prevState) => ({
