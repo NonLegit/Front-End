@@ -2,7 +2,7 @@
 import { Typography, Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import * as React from 'react';
-import StyledDialog from '../SignUpPopUp/styles';
+import { StyledDialog } from '../styles';
 import { StyledLink } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import ThirdParty from '../ِAuthentication/ThirdParty/ThirdParty';

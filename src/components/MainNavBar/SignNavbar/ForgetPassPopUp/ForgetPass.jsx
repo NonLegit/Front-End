@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
 import { ForgetPassContext } from '../SignNavbar';
-import StyledDialog from '../SignUpPopUp/styles';
+// import StyledDialog from '../styles';
 import {
   StyledLink, FirstPartyContainer,
   RedditTextField, RedditLoadingButton,
@@ -16,6 +16,7 @@ import { checkUserName, recoverPassword } from './server';
 import { redditCookie, checkEmail } from '../../../Authentication/scripts';
 
 import theme, { fonts } from '../../../../styles/theme';
+import { StyledDialog } from '../styles';
 
 const { REACT_APP_ENV } = process.env;
 

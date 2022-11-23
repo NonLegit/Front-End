@@ -104,9 +104,8 @@ export const logIn = (
         // PopUp window
         setTimeout(() => {
           handleClose();
-        }, 100);
+        }, 1000);
       }
-      redirectHome(1000);
     }
   }).catch((error) => {
     setLoading(false);
