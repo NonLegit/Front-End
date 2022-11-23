@@ -3,7 +3,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {
   Divider, Box,
 } from '@mui/material';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import {
   Button, ContentHeader, Content, ContentSubHeader, AntSwitch,
 } from '../../../styles';
@@ -18,7 +18,6 @@ function ChangeGender() {
     prefs, setPrefs,
   } = useContext(SettingsContext);
   const [open, setOpen] = useState(false);
-  useEffect(() => { console.log(prefs); }, [prefs]);
 
   const handleChange = async (gender) => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, gender }));

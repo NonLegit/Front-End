@@ -29,7 +29,28 @@ function SettingsProfile() {
     }
     setPrefs(data?.prefs);
     console.log(dataError);
-  }, [data, dataError]);
+  }, [data, dataError, statusCode]);
+
+  const Alert = (sataus) => {
+    if (sataus === 304) {
+      alert('OPeration failed');
+    } else if (sataus === 401) {
+      window.location.href = './login';
+    } else if (sataus === 200 || sataus === 201) {
+      alert('operation done successfully');
+    }
+  };
+
+  const handleNSFW = async () => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, nsfw: !oldPrefs.nsfw }));
+    const sataus = await settingsPost({ ...prefs, nsfw: !prefs?.nsfw });
+    Alert(sataus);
+  };
+  const handleCanbeFollowed = async () => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, canbeFollowed: !oldPrefs.canbeFollowed }));
+    const sataus = await settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed });
+    Alert(sataus);
+  };
   return (
     data === null ? (<div data-testid="settings-profile"> error in fecting</div>)
       : (
@@ -53,7 +74,7 @@ function SettingsProfile() {
                   This content is NSFW (may contain nudity, pornography, profanity or inappropriate content for those under 18)
                 </ContentSubHeader>
               </Content>
-              <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, nsfw: !oldPrefs.nsfw })); settingsPost({ ...prefs, nsfw: !prefs?.nsfw }); }}>
+              <AntSwitch onClick={() => { handleNSFW(); }}>
                 <Switch checked={prefs?.nsfw || false} />
               </AntSwitch>
             </Button>
@@ -67,7 +88,7 @@ function SettingsProfile() {
                   Followers will be notified about posts you make to your profile and see them in their home feed.
                 </ContentSubHeader>
               </Content>
-              <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, canbeFollowed: !oldPrefs.canbeFollowed })); settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed }); }}>
+              <AntSwitch onClick={() => { handleCanbeFollowed(); }}>
                 <Switch checked={prefs?.canbeFollowed || false} />
 
               </AntSwitch>

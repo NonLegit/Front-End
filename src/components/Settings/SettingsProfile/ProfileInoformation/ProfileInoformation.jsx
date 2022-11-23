@@ -30,6 +30,25 @@ function ProfileInoformation() {
     setName(prefs?.displayName);
     setAbout(prefs?.description);
   }, [prefs]);
+  const Alert = (sataus) => {
+    if (sataus === 304) {
+      alert('OPeration failed');
+    } else if (sataus === 401) {
+      window.location.href = './login';
+    } else if (sataus === 200 || sataus === 201) {
+      alert('operation done successfully');
+    }
+  };
+  const handleDisplayName = async () => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name }));
+    const sataus = await settingsPost({ ...prefs, displayName: name });
+    Alert(sataus);
+  };
+  const handleInfo = async () => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, description: about }));
+    const sataus = await settingsPost({ ...prefs, description: about });
+    Alert(sataus);
+  };
   return (
     <>
       <Text>
@@ -42,7 +61,7 @@ function ProfileInoformation() {
           </ContentSubHeader>
         </Content>
         <DisplayName
-          onBlur={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name })); settingsPost({ ...prefs, displayName: name }); }}
+          onBlur={() => { handleDisplayName(); }}
           value={name}
           maxLength={30}
           onChange={(e) => { setName(e.target.value); }}
@@ -63,7 +82,7 @@ function ProfileInoformation() {
           </ContentSubHeader>
         </Content>
         <About
-          onBlur={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, description: about })); settingsPost({ ...prefs, description: about }); }}
+          onBlur={() => { handleInfo(); }}
           value={about}
           maxLength={200}
           onChange={(e) => { setAbout(e.target.value); }}

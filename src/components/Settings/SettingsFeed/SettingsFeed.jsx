@@ -25,9 +25,27 @@ function SettingsFeed() {
     console.log(dataError);
   }, [data, dataError]);
 
-  const handleAdultContent = async (gender) => {
+  const handleAdultContent = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, adultContent: !oldPrefs.adultContent }));
-    settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
+    const sataus = await settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
+    if (sataus === 304) {
+      alert('OPeration failed');
+    } else if (sataus === 401) {
+      window.location.href = './login';
+    } else if (sataus === 200 || sataus === 201) {
+      alert('operation done successfully');
+    }
+  };
+  const handleAutoplayMedia = async () => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, autoplayMedia: !oldPrefs.autoplayMedia }));
+    const sataus = await settingsPost({ ...prefs, autoplayMedia: !prefs?.autoplayMedia });
+    if (sataus === 304) {
+      alert('OPeration failed');
+    } else if (sataus === 401) {
+      window.location.href = './login';
+    } else if (sataus === 200 || sataus === 201) {
+      alert('operation done successfully');
+    }
   };
   return (
     data === null ? (<div data-testid="settings-feed"> error in fecting</div>)
@@ -45,7 +63,7 @@ function SettingsFeed() {
                   Enable to view adult and NSFW (not safe for work) content in your feed and search results.
                 </ContentSubHeader>
               </Content>
-              <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, adultContent: !oldPrefs.adultContent })); settingsPost({ ...prefs, adultContent: !prefs?.adultContent }); }}>
+              <AntSwitch onClick={() => { handleAdultContent(); }}>
                 <Switch checked={prefs?.adultContent || false} />
               </AntSwitch>
             </Button>
@@ -58,7 +76,7 @@ function SettingsFeed() {
                   Play videos and gifs automatically when in the viewport.
                 </ContentSubHeader>
               </Content>
-              <AntSwitch onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, autoplayMedia: !oldPrefs.autoplayMedia })); settingsPost({ ...prefs, autoplayMedia: !prefs?.autoplayMedia }); }}>
+              <AntSwitch onClick={() => { handleAutoplayMedia(); }}>
                 <Switch checked={prefs?.autoplayMedia || false} inputProps={{ 'aria-label': 'controlled' }} />
 
               </AntSwitch>

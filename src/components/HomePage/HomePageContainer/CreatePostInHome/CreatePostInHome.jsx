@@ -1,6 +1,7 @@
 import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import {
   AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
 } from './styles';
@@ -13,6 +14,7 @@ import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
  */
 
 function CreatePostInHome() {
+  const [cookies] = useCookies(['redditUser']);
   const navigate = useNavigate();
   const { setInitialPostType } = usePostTypeContext();
   /**
@@ -26,7 +28,7 @@ function CreatePostInHome() {
     <CreatePostContainer>
       <AvatarContainer>
         <Link to="/">
-          <Avatar src="https://styles.redditmedia.com/t5_758ciw/styles/profileIcon_snoodd8b11a2-0e4a-4403-a861-a9fa7474b850-headshot.png?width=256&height=256&crop=256:256,smart&s=bc53006491e647452f185afa69775cd6a241598c" alt="avatar" />
+          <Avatar src={cookies.redditUser?.profilePicture} alt="avatar" />
         </Link>
       </AvatarContainer>
       <PostTitle
