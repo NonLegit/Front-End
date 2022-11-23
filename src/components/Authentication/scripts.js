@@ -29,6 +29,14 @@ export const redditCookie = (setCookie) => {
 };
 
 /**
+ * Remove Reddit Cookie
+ * @param {removecookiestate} removeCookie
+ */
+export const removeRedditCookie = (removeCookie) => {
+  removeCookie('redditUser');
+};
+
+/**
  * Fill array with 5 new random usernames
  * @param {function} setUserNames
  * @returns {void}

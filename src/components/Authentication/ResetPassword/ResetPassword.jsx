@@ -36,11 +36,10 @@ function ResetPassword() {
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
   // eslint-disable-next-line no-unused-vars
-  const [Logout, setLogOut] = useState(false);
+  // const [Logout, setLogOut] = useState(false);
   const [buttonText, setbuttonText] = useState('set Password');
   const [loading, setLoading] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [expiredToken, setExpiredToken] = useState(false);
 
   // useCookies
