@@ -37,6 +37,7 @@ function FirstParty({ handleClose }) {
   return (
 
     <FirstPartyContainer
+      data-testid="FirstParty-test"
       width="290px"
       noValidate
       onSubmit={(e) => {
@@ -58,6 +59,7 @@ function FirstParty({ handleClose }) {
     >
 
       <RedditTextField
+        data-testid="UserName-FirstParty-test"
         label="Username"
         variant="filled"
         type="text"
@@ -79,6 +81,7 @@ function FirstParty({ handleClose }) {
         helperText={userName.error}
       />
       <RedditTextField
+        data-testid="Password-FirstParty-test"
         label="Password"
         variant="filled"
         type="password"
@@ -96,7 +99,7 @@ function FirstParty({ handleClose }) {
         }))}
       />
 
-      <RedditLoadingButton type="submit" loading={loading} disabled={disabled}>
+      <RedditLoadingButton data-testid="login-btn-test" type="submit" loading={loading} disabled={disabled}>
         {buttonTxt}
       </RedditLoadingButton>
 

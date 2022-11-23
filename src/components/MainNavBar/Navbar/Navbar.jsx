@@ -19,6 +19,7 @@ function Navbar() {
     && window.location.pathname !== '/password'
     && window.location.pathname !== '/register'
     && window.location.pathname !== '/username'
+    && !window.location.pathname?.includes('/resetpassword')
     && (
     <StyledNavbar>
       <MuiToolbar>
