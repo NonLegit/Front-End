@@ -76,13 +76,14 @@ export const RedditTextField = styled((props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <TextField {...props} size="small" autoComplete="off" />
 ))(({ clr }) => ({
+
   '&.MuiTextField-root': {
     width: '100%',
     marginBottom: '10px',
     // input text
-    '.MuiInputBase-input': {
+    '&.MuiInputBase-input': {
       fontSize: '12px',
-      borderRadius: '2em',
+      borderRadius: '20px',
     },
 
     // Helper Text
