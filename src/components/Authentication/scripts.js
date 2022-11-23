@@ -16,8 +16,8 @@ import { EmailFormat } from '../../utils/checkEmail';
  * Must be Authorized user
  * @returns {void}
  */
-export const redditCookie = (setCookie) => {
-  axios.get('/users/me/').then((response) => {
+export const redditCookie = async (setCookie) => {
+  await axios.get('/users/me/').then((response) => {
     if (response.status === 200) {
     // set cookie
       const date = new Date();

@@ -10,9 +10,9 @@ import { wrongIcon, rightIcon } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
-// import { redditCookie } from '../scripts';
+import { redditCookie } from '../scripts';
 // scripts
-// import { redirectHome } from '../../../utils/Redirect';
+import { redirectHome } from '../../../utils/Redirect';
 
 /**
 *
@@ -47,7 +47,7 @@ export const checkUserName = (username, setUserName) => {
 * @param {event} event -Onsubmit of the form
 * @returns void
 */
-export const logIn = (
+export const logIn = async (
   event,
   setLoading,
   userName,
@@ -92,7 +92,7 @@ export const logIn = (
   console.log(userName.input);
   axios.post('/users/login', {
     userName: userName.input, password: password.input,
-  }).then((response) => {
+  }).then(async (response) => {
     console.log(response);
     if (response.status === 200 || response.status === 201) {
       setLoading(false);
@@ -100,12 +100,14 @@ export const logIn = (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      // redditCookie(setCookies);
-      if (popUp === false) { console.log('popup'); /* redirectHome(1000); */ } else {
+
+      if (popUp === false) { console.log('popup'); redditCookie(setCookies); redirectHome(1000); } else {
         console.log('nottt');
         // PopUp window
-        setTimeout(() => {
-          // handleClose();
+        const interval = setInterval(() => {
+          handleClose();
+          redditCookie(setCookies);
+          clearInterval(interval);
         }, 1000);
       }
     }

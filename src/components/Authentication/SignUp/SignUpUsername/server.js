@@ -154,13 +154,13 @@ export const signUp = (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      redditCookie(setCookies);
-      if (popUp === false) { redirectHome(1000); } else {
+
+      if (popUp === false) { redirectHome(1000); redditCookie(setCookies); } else {
         // PopUp window
         setTimeout(() => {
-          console.log('1225245585254');
+          redditCookie(setCookies);
           handleClose();
-        }, 10000);
+        }, 1000);
       }
     } else {
       console.log('Error');
