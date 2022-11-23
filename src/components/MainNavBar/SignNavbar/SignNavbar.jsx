@@ -82,12 +82,13 @@ function SignNavbar() {
     setOpenForgotpass(true);
   };
 
+  const pathArray = window.location.pathname.split('/');
   return (
     window.location.pathname !== '/login'
     && window.location.pathname !== '/password'
     && window.location.pathname !== '/register'
     && window.location.pathname !== '/username'
-    && !window.location.pathname?.includes('/resetpassword')
+    && pathArray[1] !== 'resetpassword'
     && (
     <>
       <StyledNavbar>
