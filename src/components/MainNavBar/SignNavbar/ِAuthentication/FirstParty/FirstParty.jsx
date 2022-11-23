@@ -36,7 +36,7 @@ function FirstParty({ handleClose }) {
   const [cookies, setCookies] = useCookies(['redditUser']);
   return (
 
-    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName, true, handleClose); }}>
+    <FirstPartyContainer width="290px" noValidate onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName, true, handleClose); }}>
 
       <RedditTextField
         label="Username"

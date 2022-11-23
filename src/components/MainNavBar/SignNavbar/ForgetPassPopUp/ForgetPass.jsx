@@ -102,9 +102,6 @@ function ForgetPassword() {
               );
             }}
           >
-            <RedditTextField label="Username" variant="outlined" />
-            <RedditTextField label="Email" variant="outlined" />
-            <RedditLoadingButton type="submit" width="155px">Reset Password</RedditLoadingButton>
             <RedditTextField
               label="Username"
               variant="filled"

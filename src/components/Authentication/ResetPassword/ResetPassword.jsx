@@ -35,7 +35,6 @@ function ResetPassword() {
   const [repassword, setRePassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  // eslint-disable-next-line no-unused-vars
   // const [Logout, setLogOut] = useState(false);
   const [buttonText, setbuttonText] = useState('set Password');
   const [loading, setLoading] = useState(false);

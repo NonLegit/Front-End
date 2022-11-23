@@ -10,9 +10,9 @@ import { wrongIcon, rightIcon } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
-import { redditCookie } from '../scripts';
+// import { redditCookie } from '../scripts';
 // scripts
-import { redirectHome } from '../../../utils/Redirect';
+// import { redirectHome } from '../../../utils/Redirect';
 
 /**
 *
@@ -59,6 +59,7 @@ export const logIn = (
   setCookies,
   setUserName,
   popUp = false,
+  // eslint-disable-next-line no-unused-vars
   handleClose = null,
 ) => {
   event.preventDefault();
@@ -99,11 +100,12 @@ export const logIn = (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      redditCookie(setCookies);
-      if (popUp === false) { redirectHome(1000); } else {
+      // redditCookie(setCookies);
+      if (popUp === false) { console.log('popup'); /* redirectHome(1000); */ } else {
+        console.log('nottt');
         // PopUp window
         setTimeout(() => {
-          handleClose();
+          // handleClose();
         }, 1000);
       }
     }
