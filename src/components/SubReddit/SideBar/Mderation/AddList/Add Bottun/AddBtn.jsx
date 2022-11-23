@@ -5,7 +5,7 @@ import {
   Action,
   Add, BOX, Count, Input, InputFooter, Text,
 } from './style';
-import CustomizedDialogs from '../ListAlert/Alert';
+import CustomizedDialogs from './ListAlert/Alert';
 
 const { ClickAwayListener, Box } = require('@mui/material');
 

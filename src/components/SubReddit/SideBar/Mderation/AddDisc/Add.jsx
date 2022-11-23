@@ -6,7 +6,7 @@ import patchData from '../../../server';
 import {
   AboutContent, Action, Add, Count, Input, InputFooter, Text,
 } from './style';
-import CustomizedDialogs from '../DiscAlerdt/DistAlert';
+import CustomizedDialogs from './DiscAlerdt/DistAlert';
 /**
  * Add discreption for the community
  * @component
