@@ -36,9 +36,9 @@ it('Empty Fields', () => {
   expect(screen.getByTestId('FirstParty-test')).toBeInTheDocument();
 });
 
-it('Valid Username length', () => {
+it('Valid Username', () => {
   render(<FirstParty />);
-  // Invalid username Format
+  // Valid username Format
   const field1 = screen.getByTestId('UserName-FirstParty-test').querySelector('input');
   expect(field1).toBeInTheDocument();
   fireEvent.change(field1, { target: { value: 'Basma_Elhoseny01' } });

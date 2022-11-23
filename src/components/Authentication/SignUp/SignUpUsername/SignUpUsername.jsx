@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // mui components
 import { IconButton, Typography } from '@mui/material';
@@ -15,9 +15,12 @@ import {
 import {
   FirstPartyContainer, RedditTextField, rightIcon, RedditLoadingButton,
 } from '../../styles';
-import {
-  refreshUsernames, checkUserName, checkPassword, signUp,
-} from '../../scripts';
+
+// server
+import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from './server';
+
+// scripts
+import { checkPassword } from '../../scripts';
 import theme, { fonts } from '../../../../styles/theme';
 
 /**
@@ -33,7 +36,7 @@ import theme, { fonts } from '../../../../styles/theme';
  * @returns {React.Component} UserName and Password Form
  */
 function SignUpUsername({
-  setUserNamePage, email, userName, setUserName, password, setPassword,
+  setUserNamePage, email, userName, setUserName, password, setPassword, setCookies,
 }) {
   // states
   const [defaultUserNameValue, setdefaultUserNameValue] = useState(userName?.input);
@@ -43,17 +46,15 @@ function SignUpUsername({
   const [buttonTxt, setButtonText] = useState('Sign up');
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
-  const [userNames, setUserNames] = useState([]);
+  const [click, setClick] = useState(false);
 
-  // useEffecct
-  useEffect(() => {
-    refreshUsernames(setUserNames);
-  }, []);
+  // server generate Random Names
+  const generatedUsernames = generateRandomUsernamesServer(5, click);
 
   const signUpFunction = () => {
-    checkUserName(userName?.input, setUserName);
+    checkUserNameSignUp(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
-    signUp(email, userName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption);
+    signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies);
   };
 
   return (
@@ -86,7 +87,7 @@ function SignUpUsername({
                 ...prevState,
                 input: e.target.value.trim(),
               }));
-              checkUserName(e.target.value.trim(), setUserName);
+              checkUserNameSignUp(e.target.value.trim(), setUserName);
               setdefaultUserNameValue(e.target.value.trim());
             }}
             value={defaultUserNameValue || ''}
@@ -106,6 +107,7 @@ function SignUpUsername({
           <RedditTextField
             label="password"
             variant="filled"
+            type="password"
             required
             InputProps={{
               endAdornment: (
@@ -139,11 +141,11 @@ function SignUpUsername({
             <Typography variant="p" fontSize={14}>
               Here are some username suggestions
             </Typography>
-            <IconButton aria-label="delete" color="primary" onClick={refreshUsernames}>
+            <IconButton aria-label="delete" color="primary" onClick={() => setClick(!click)}>
               <UpdateIcon />
             </IconButton>
           </TopBox>
-          {userNames ? (userNames.map((i) => (
+          {generatedUsernames ? (generatedUsernames.map((i) => (
             <SuggestLink
               key={i}
               onClick={() => {

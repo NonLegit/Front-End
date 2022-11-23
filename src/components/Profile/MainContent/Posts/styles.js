@@ -11,7 +11,14 @@ export const PostsQueueBox = styled(Box)(() => ({
     cursor: 'pointer',
   },
   position: 'relative',
+}));
 
+export const PostSidebaRes = styled(Box)(({ theme }) => ({
+  marginLeft: 15,
+  [theme.breakpoints.between('650', '3000')]: {
+    marginLeft: 48,
+  },
+  padding: '5px 0',
 }));
 
 export const EmptyImage = styled(Box)(() => ({
@@ -25,6 +32,11 @@ export const EmptyImage = styled(Box)(() => ({
   alignSelf: 'center',
 }));
 
+export const PostImage = styled('img')(() => ({
+  height: '100%',
+  width: '100%',
+}));
+
 export const PostContentBox = styled(Box)(() => ({
   height: '100%',
   width: '100%',
@@ -35,6 +47,16 @@ export const TitlePost = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[600],
 
 }));
+
+export const TagPost = styled(Typography)(({ color }) => ({
+  color,
+  border: `1px solid ${color}`,
+  padding: '0 5px',
+  height: 'fit-content',
+  borderRadius: 2,
+  margin: 5,
+}));
+
 export const ParagraphPost = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[500],
   height: 36,

@@ -1,27 +1,11 @@
 import { Typography } from '@mui/material';
-// import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+import LockIcon from '@mui/icons-material/Lock';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+import moment from 'moment/moment';
 import {
   HeaderPost,
 } from './styles';
-
-// calculate the time difference between the creation day and current day
-const calculateTime = (d, time) => {
-  const year = d.getFullYear() - time.split('T')[0].split('-')[0];
-  const month = d.getMonth() - time.split('T')[0].split('-')[1];
-  const day = d.getDate() - time.split('T')[0].split('-')[2];
-
-  if (year > 0) {
-    return (`${year} years ago`);
-  }
-  if (month > 0) {
-    return (`${month} months ago`);
-  }
-  if (day > 0) {
-    return (`${day} days ago`);
-  }
-  return ('today');
-};
 
 /**
  * Header of the post
@@ -34,8 +18,13 @@ const calculateTime = (d, time) => {
  */
 
 function PostHeader(props) {
-  const { nameUser, Time, subReddit } = props;
-  const d = new Date();
+  const {
+    nameUser,
+    Time,
+    subReddit,
+    nsfw,
+    locked,
+  } = props;
   return (
     <HeaderPost>
       <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
@@ -53,21 +42,12 @@ function PostHeader(props) {
       </Typography>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         {' '}
-        {calculateTime(d, Time)}
+        {(moment.utc(Time).local().startOf('seconds')
+          .fromNow())}
       </Typography>
-      {/* {((subTitle === 'Spam').toString() === 'true')
-      && (
-        <RemovalBox>
-          <BlockOutlinedIcon fontSize="string" />
-          <Typography variant="caption">Add a removal reason</Typography>
-        </RemovalBox>
-      )}
-      {((subTitle === 'Edited').toString() === 'true')
-      && (
-      <ApprovedBox>
-        <CheckCircleIcon fontSize="string" />
-      </ApprovedBox>
-      )} */}
+      {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
+      {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
+
     </HeaderPost>
   );
 }

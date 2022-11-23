@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-// mui compocnents
+import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
+// mui components
 import { Typography } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
 
 // componenents
 import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
@@ -13,6 +12,14 @@ import Email from '../Email/Email';
 // styles
 import { AuthenticationBody, StyledLink } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+
+// server
+import { recoverUsername } from './server';
+
+// scripts
+import { redditCookie } from '../scripts';
+// environment variables
+const { REACT_APP_ENV } = process.env;
 
 /**
  * Component for Forget Username Page
@@ -33,10 +40,29 @@ function ForgetUsername() {
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
 
+  // cookies
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  // useEffect
   useEffect(() => {
-    // check if already logged in Cokkies
-    // ==>Chceck for cookies
-    setremeberMe(false);
+    // Check on Cookies
+    // developememt
+    if (REACT_APP_ENV === 'development') {
+      if (cookies.redditUser === undefined) {
+        setremeberMe(false);
+      } else { setremeberMe(true); }
+    } else if (Cookies.get('jwt')) {
+      // production
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
+      }
+      setremeberMe(true);
+    } else {
+      // No Cookie by Back End
+      setremeberMe(false);
+    }
   }, []);
 
   const caption = (
@@ -46,55 +72,26 @@ function ForgetUsername() {
     </>
   );
 
-  const recoverUsername = () => {
-    console.log(email);
-    setLoading(true);
-
-    // if there is a problem with email
-    if (email.error != null) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-      return;
-    }
-
-    // not verified
-    if (!verified) {
-      setLoading(false);
-      return;
-    }
-
-    // Accepted Call API
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/forgot_username/204', { email: email.input }).then((response) => {
-      // console.log(response);
-      if (response.status === 204) {
-        // => check with Back this repsonse is empty
-        setTimeout(() => {
-          setLoading(false);
-          setDisabled(true);
-          setbuttonText(<DoneIcon />);
-          setRedirectCaption(true);
-        }, 1000);
-      }
-    }).catch((error) => {
-      setLoading(false);
-      if (error.response.status === 400) {
-        // =>check with back
-        // "status": "string",
-        // "errorMessage": "string"
-      }
-      console.log(error);
-    });
-  };
   return (
     <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="forgetusername-test">
       {remeberMe ? <LoadingPage /> : (
         <>
           <AuthenticationHeader reddit title="Recover your username" caption={caption} fontSize="14px" />
-          <Email email={email} setEmail={setEmail} onSubmitFn={recoverUsername} loading={loading} buttonText={buttonText} btnWidth="155px" fieldText="Email Address" recaptcha setVerified={setVerified} disabled={disabled} />
+          <Email
+            email={email}
+            setEmail={setEmail}
+            onSubmitFn={() => recoverUsername(setLoading, email, verified, setDisabled, setbuttonText, setRedirectCaption)}
+            loading={loading}
+            buttonText={buttonText}
+            btnWidth="155px"
+            fieldText="Email Address"
+            recaptcha
+            setVerified={setVerified}
+            disabled={disabled}
+          />
 
           {redirectCaption
-            ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there ara any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
+            ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px" data-testid="forgetusername-redirect-caption-test">Thanks! If there are any Reddit accounts associated with that email address, you’ll get an email with your usernames(s) shortly</Typography>
             : null}
           <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
             Don

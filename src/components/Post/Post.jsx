@@ -18,7 +18,7 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {string} title -Post title.
  * @property {string} image -Post owner icon.
  * @property {string} owner -Post subreddit(post owner).
- * @property {string} creator -Post creator.
+ * @property {string} author -Post author.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
@@ -32,7 +32,7 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    title, image, createdAt, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    title, image, createdAt, owner, author, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -60,7 +60,7 @@ function Post(props) {
           title={title}
           image={image}
           owner={owner}
-          creator={creator}
+          author={author}
           flair={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}

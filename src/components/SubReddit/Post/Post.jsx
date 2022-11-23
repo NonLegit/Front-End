@@ -17,7 +17,7 @@ import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
    * @property {string} title -Post title.
    * @property {string} image -Post owner icon.
    * @property {string} owner -Post subreddit(post owner).
-   * @property {string} creator -Post creator.
+   * @property {string} author -Post author.
    * @property {string} flairText -Post flair text.
    * @property {string} flairBackgroundColor -Post flair background color.
    * @property {string} flairColor -Post flair color.
@@ -31,9 +31,8 @@ import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
 
 function PostSubreddit(props) {
   const {
-    title, image, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    title, image, createdAt, owner, author, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
   } = props;
-
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
@@ -60,10 +59,11 @@ function PostSubreddit(props) {
           title={title}
           image={image}
           owner={owner}
-          creator={creator}
+          author={author}
           flair={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
+          createdAt={createdAt}
         />
         <PostMedia mt={1.5} kind={kind}>
           {/* eslint-disable jsx-a11y/media-has-caption */}

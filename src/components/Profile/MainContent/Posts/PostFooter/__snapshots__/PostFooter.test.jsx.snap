@@ -5,6 +5,37 @@ exports[`test snapshot 1`] = `
   className="MuiBox-root css-146v974"
 >
   <div
+    className="MuiBox-root css-xv0eud"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1m9p8mk-MuiSvgIcon-root"
+      data-testid="ForwardOutlinedIcon"
+      focusable="false"
+      onClick={[Function]}
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M14 8.83 17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"
+      />
+    </svg>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-gj0u27-MuiTypography-root"
+    />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-hshnfv-MuiSvgIcon-root"
+      data-testid="ForwardOutlinedIcon"
+      focusable="false"
+      onClick={[Function]}
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M14 8.83 17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"
+      />
+    </svg>
+  </div>
+  <div
     className="MuiBox-root css-orlaaz"
   >
     <svg
@@ -38,9 +69,11 @@ exports[`test snapshot 1`] = `
       />
     </svg>
     <span
-      className="MuiTypography-root MuiTypography-caption css-9pee2b-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-caption css-1w4fbeu-MuiTypography-root"
       responsiveshare="true"
-    />
+    >
+       Comments
+    </span>
   </div>
   <div
     className="MuiBox-root css-orlaaz"
@@ -57,47 +90,15 @@ exports[`test snapshot 1`] = `
       />
     </svg>
     <span
-      className="MuiTypography-root MuiTypography-caption css-9pee2b-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-caption css-1w4fbeu-MuiTypography-root"
       responsiveshare="true"
     >
       Share
     </span>
   </div>
   <div
-    className="MuiBox-root css-orlaaz"
-    onClick={[Function]}
-    onTouchEnd={[Function]}
-  >
-    <svg
-      aria-hidden={true}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-      data-testid="AdminPanelSettingsOutlinedIcon"
-      focusable="false"
-      onClick={[Function]}
-      viewBox="0 0 24 24"
-    >
-      <g
-        fillRule="evenodd"
-      >
-        <circle
-          cx="17"
-          cy="15.5"
-          r="1.12"
-        />
-        <path
-          d="M17 17.5c-.73 0-2.19.36-2.24 1.08.5.71 1.32 1.17 2.24 1.17s1.74-.46 2.24-1.17c-.05-.72-1.51-1.08-2.24-1.08z"
-        />
-        <path
-          d="M18 11.09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55C13.18 21.99 14.97 23 17 23c3.31 0 6-2.69 6-6 0-2.97-2.16-5.43-5-5.91zM11 17c0 .56.08 1.11.23 1.62-.24.11-.48.22-.73.3-3.17-1-5.5-4.24-5.5-7.74v-3.6l5.5-2.4 5.5 2.4v3.51c-2.84.48-5 2.94-5 5.91zm6 4c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"
-        />
-      </g>
-    </svg>
-  </div>
-  <div
-    className="MuiBox-root css-1x9pena"
-    condition="true"
-    data-testid={false}
-    onClick={[Function]}
+    awardedit="true"
+    className="MuiBox-root css-1bkcqq4"
   >
     <svg
       aria-hidden={true}
@@ -111,15 +112,14 @@ exports[`test snapshot 1`] = `
       />
     </svg>
     <span
-      className="MuiTypography-root MuiTypography-caption css-1a0mhoe-MuiTypography-root"
-      condition="true"
-      data-testid={false}
+      className="MuiTypography-root MuiTypography-caption css-1w4fbeu-MuiTypography-root"
+      responsiveshare="true"
     >
       Edit Post
     </span>
   </div>
   <div
-    className="MuiBox-root css-1x9pena"
+    className="MuiBox-root css-196x17m"
     condition="true"
     data-testid={false}
     onClick={[Function]}
@@ -144,7 +144,7 @@ exports[`test snapshot 1`] = `
     </span>
   </div>
   <div
-    className="MuiBox-root css-1x9pena"
+    className="MuiBox-root css-196x17m"
     condition="true"
     data-testid="hidden"
     onClick={[Function]}

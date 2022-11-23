@@ -1,0 +1,31 @@
+{
+      "removalReasons": {
+        "title": "string",
+        "description": "string"
+      },
+      "icon": "https://styles.redditmedia.com/t5_2vc9u/styles/communityIcon_3uguuy39jlf51.png?width=256&s=a4fd9b0f4dc41c878f7b5968edc7e74badd4fd58",
+      "rules": {
+        "title": "string",
+        "description": "string",
+        "defaultName": "string",
+        "appliesTo": "Posts and comments"
+      },
+      "name": "string",
+      "description": "AhmedHOSNY",
+      "fixedName":"string",
+      "topics": ["ahmed","nour","madbouly"],
+      "primaryTopic":"Add a Primary Topic",
+      "createdAt":"2017-07-21T17:32:28.000Z",
+      "moderators":["ahmed","ahmed","ahmed"],
+      "language": "string",
+      "region": "string",
+      "type": "Public",
+      "nsfw": true,
+      "postType": "Any",
+      "allowCrossposting": true,
+      "allowArchivePosts": true,
+      "allowSpoilerTag": true,
+      "allowGif": true,
+      "allowImageUploads": true,
+      "allowMultipleImage": true
+}

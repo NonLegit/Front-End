@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import ForwardOutlinedIcon from '@mui/icons-material/ForwardOutlined';
 import ForwardIcon from '@mui/icons-material/Forward';
 
-export const SidebarQueueBox = styled(Box)(() => ({
+export const SidebarQueueBox = styled(Box)(({ theme }) => ({
   height: '100%',
   width: 40,
   backgroundColor: '#f8f9fa',
@@ -12,6 +12,9 @@ export const SidebarQueueBox = styled(Box)(() => ({
   position: 'absolute',
   flexDirection: 'column',
   alignItems: 'center',
+  [theme.breakpoints.between('0', '650')]: {
+    display: 'none',
+  },
 }));
 
 export const UpArrow = styled(ForwardOutlinedIcon)(({ theme }) => ({

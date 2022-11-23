@@ -1,7 +1,6 @@
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
-import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined'; import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 
 import { Divider } from '@mui/material';
 import { useState } from 'react';
@@ -21,11 +20,7 @@ function PostFooterListResponsive(props) {
   };
   return (
     <SelectBox>
-      <SelectItem>
-        <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
-        Edit Post
-      </SelectItem>
-      <Divider />
+
       {!saved ? (
         <SelectItem onClick={() => { handleSave(); }}>
           <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
@@ -42,6 +37,11 @@ function PostFooterListResponsive(props) {
       <SelectItem>
         <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
         Hide
+      </SelectItem>
+      <Divider />
+      <SelectItem>
+        <FlagOutlinedIcon sx={{ marginRight: 1 }} />
+        Report
       </SelectItem>
     </SelectBox>
   );

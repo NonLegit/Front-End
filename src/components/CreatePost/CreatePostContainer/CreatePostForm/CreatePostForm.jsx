@@ -14,8 +14,8 @@ import PostSubmission from './PostSubmission/PostSubmission';
 import PostTypes from './PostTypes/PostTypes';
 import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 
-import axios from '../../../../services/instance';
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
+import submitPostServer from './submitPostServer';
 /**
  * This component is the main section off create post page which holds the form to submit posts
  *
@@ -66,14 +66,7 @@ function CreatePostForm() {
       nswf,
       sendReplies,
     };
-    axios.post('/posts', JSON.stringify(post)).then((response) => {
-      console.log(response.data);
-      console.log(response.status);
-      alert('posted successfully');
-    }).catch((e) => {
-      console.log(e);
-      alert('somethig went wrong');
-    });
+    submitPostServer(post);
   };
   /**
    * This function handles title change

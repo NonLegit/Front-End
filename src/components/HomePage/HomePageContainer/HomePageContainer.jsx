@@ -1,6 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import calculateTime from '../../../utils/calculateTime';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -11,8 +10,10 @@ import HomePageFooter from './HomePageFooter/HomePageFooter';
 import PostsClassification from './PostsClassification/PostsClassification';
 import CreatePostInHome from './CreatePostInHome/CreatePostInHome';
 import BackToTop from '../../BackToTop/BackToTop';
-import useFetch from '../../../hooks/useFetch';
 import PostList from './PostList/PostList';
+import communities from './CommunitiesStaticData';
+import homePageServer from './homePageServer';
+
 /**
  * This component works as a container for all home page components
  * and a repository the data fetched in
@@ -26,16 +27,11 @@ function HomePageContainer() {
   // variables
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
-  const communitiesUrl = 'subreddits/mine/subscriber';
-  const postsUrl = `/users/${postClass || 'best'}`;
 
+  // console.log(generatedUsernames);
   // states
-  const [posts, postsError] = useFetch(postsUrl);
-  const [communities, communitiesError] = useFetch(communitiesUrl);
+  const [posts, postsError] = homePageServer(postClass);
 
-  console.log(theme);
-  const createdAt = '2017-07-21T17:32:28Z';
-  console.log(calculateTime(createdAt));
   return (
     <OuterContainer>
       <MainContainer>
@@ -47,7 +43,7 @@ function HomePageContainer() {
         {match
         && (
         <SideBar>
-          {!communitiesError ? (communities && <Communities communities={communities} />) : 'error in fetching communities'}
+          <Communities communities={communities} />
           <RedditPremium />
           <PersonalReddit />
           <HomePageFooter />

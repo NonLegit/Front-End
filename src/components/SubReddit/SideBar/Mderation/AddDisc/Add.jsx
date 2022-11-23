@@ -1,16 +1,19 @@
 import { Box, ClickAwayListener } from '@mui/material';
 import { useState, useEffect } from 'react';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import EmptyStr from '../../../../../utils/EmptyStr';
+import patchData from '../../../Cover/server';
 import {
   AboutContent, Action, Add, Count, Input, InputFooter, Text,
 } from './style';
+import CustomizedDialogs from '../DiscAlerdt/DistAlert';
 /**
  * Add discreption for the community
  * @component
  * @return {React.Component} - Add discreption
  */
 function AddSector(props) {
-  const { disc2, Name, client } = props;
+  const { disc2, Name } = props;
   const [show, setShow] = useState(true);
   const [count, setCount] = useState(500);
   const [tempString, setTempString] = useState('');
@@ -18,10 +21,19 @@ function AddSector(props) {
   const [haveDisc, setHaveDisc] = useState(true);
   // return to defult mode when click away
   const handleClickAway1 = () => {
-    const btn = document.getElementById('save');
-    btn.click();
-    setShow(true);
-    setCount(500 - disc.length);
+    // const btn = document.getElementById('save');
+    // btn.click();
+    // setShow(false);
+    // setCount(500 - disc.length);
+    const ele = document.getElementById('discInput');
+    if (disc !== ele.value?.trim() && !show) {
+      const alert = document.getElementById('DiscAlert');
+      // setShow(true);
+      console.log(show);
+      alert.click();
+    } else {
+      setShow(true);
+    }
   };
   useEffect(() => {
     setTempString(disc2);
@@ -41,26 +53,51 @@ function AddSector(props) {
       setCount(500 - event.target.value.length);
     }
   };
+  const falseShow = () => {
+    setShow(false);
+  };
   const sendData = () => {
-    client.patch(`subreddit/${Name}`, { description: disc }); // fetch api
+    console.log(Name);
+    patchData(`subreddits/${Name}`, { description: tempString.trim() }); // fetch api
+  };
+  const SaveAction = async () => {
+    setShow(true);
+    await setDisc(tempString.trim());
+    setTempString(tempString.trim());
+    setCount(500 - disc.length);
+    if (EmptyStr(disc)) { setHaveDisc(false); } else {
+      setHaveDisc(true);
+    }
+    sendData();
+    // sendData();
+  };
+  const decord = () => {
+    setShow(true);
+    setTempString(disc);
+    setDisc(disc);
+    setCount(500 - disc.length);
+    if (!EmptyStr(disc)) {
+      setHaveDisc(true);
+    }
   };
   const c = disc?.length;
   return (
     <AboutContent>
+
       <ClickAwayListener onClickAway={handleClickAway1}>
         <Add>
-
-          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex' }}>
+          <CustomizedDialogs falseShow={falseShow} SaveAction={SaveAction} decord={decord} />
+          <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex', overflowWrap: 'anywhere' }}>
             {show && !haveDisc && <Text> Add description</Text>}
-            {haveDisc && show && (
-            <>
-              <Text>
+            {(haveDisc && show) && (
+              <>
+                <Text>
+                  {' '}
+                  {disc}
+                </Text>
                 {' '}
-                {disc}
-              </Text>
-              {' '}
-              <ModeEditOutlineOutlinedIcon color="primary" />
-            </>
+                <ModeEditOutlineOutlinedIcon color="primary" />
+              </>
             )}
           </Box>
           {!show
@@ -69,6 +106,7 @@ function AddSector(props) {
                 <Input
                   data-testid="input"
                   type="text"
+                  id="discInput"
                   value={tempString}
                   placeholder="Tell us About your community"
                   onChange={handleChange}
@@ -100,12 +138,7 @@ function AddSector(props) {
                       Cancel
                     </Action>
                     <Action
-                      onClick={() => {
-                        setShow(true); setDisc(tempString.trim()); setCount(500 - disc.length);
-                        if (disc === '' || disc.length === 0) { setHaveDisc(false); } else {
-                          setHaveDisc(true); sendData();
-                        }
-                      }}
+                      onClick={SaveAction}
                       color="#0079d3"
                       id="save"
 

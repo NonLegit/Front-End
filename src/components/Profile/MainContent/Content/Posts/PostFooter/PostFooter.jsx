@@ -32,6 +32,8 @@ function PostFooter(props) {
   const { subTitle, numComments, isSaved } = props;
 
   const [showList, setShowList] = useState(false);
+  const [saved, setSaved] = useState(isSaved);
+  const [moderatorList, setModeratorList] = useState(false);
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -42,11 +44,9 @@ function PostFooter(props) {
     setShowList(false);
   };
 
-  const [saved, setSaved] = useState(isSaved);
   const handleSave = () => {
     setSaved((prev) => !prev);
   };
-  const [moderatorList, setModeratorList] = useState(false);
 
   const handleModListClickAway = () => {
     setModeratorList(false);

@@ -1,67 +1,64 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Typography, Checkbox } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
+// mui components
+import { Typography } from '@mui/material';
+// import { Checkbox } from '@mui/material';
+
+// components
+import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
+
+// styles
+import { CheckBoxConatiner } from './styles';
+import theme, { fonts } from '../../../styles/theme';
 import {
   AuthenticationBody, FirstPartyContainer, StyledLink, RedditTextField, RedditLoadingButton,
 } from '../styles';
 
-import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
-import { CheckBoxConatiner } from './styles';
+// server
+import { resetPassword } from './server';
 
-import theme, { fonts } from '../../../styles/theme';
+// scripts
 import { checkPassword, matchPassword } from '../scripts';
-
+/**
+ * Component for Reset Password Page
+ *
+ * @component
+ * @returns {React.Component} --ResetPassword Page Component
+ */
 function ResetPassword() {
+  // states
   const [password, setPassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
   const [repassword, setRePassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
-  // const [Logout, setLogOut] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [Logout, setLogOut] = useState(false);
   const [buttonText, setbuttonText] = useState('set Password');
   const [loading, setLoading] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [expiredToken, setExpiredToken] = useState(false);
 
-  useEffect(() => {
-  }, []);
+  // useCookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  // useParams
+  const { token } = useParams();
 
   const caption = (
     <>
       Choose a new password here, then log in to your account.
     </>
-  );
-
-  const resetPassword = () => {
-    setLoading(true);
-    console.log('ResetPassword');
-    setLoading(true);
-    if (password.error != null || repassword.error != null) {
-      setLoading(false);
-      return;
-    }
-    // Check API with BE
-    axios.post('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/reset_password/200').then((response) => {
-      if (response.status === 200) {
-        setTimeout(() => {
-          setbuttonText(<DoneIcon />);
-          setRedirectCaption(true);
-          setTimeout(() => {
-            window.location.href = './';
-          }, 500);
-        }, 1000);
-      }
-    }).catch((error) => {
-      setLoading(false);
-      console.log(error);
-    });
-  };
-  return (
-    <AuthenticationBody mnwidth="280px" mxwidth="440px">
+  ); return (
+    <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="resetpassword-test">
       <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-      <FirstPartyContainer>
+      {/* <h1>{token}</h1> */}
+      <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, setPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken); }}>
         <RedditTextField
           label="New Password"
           variant="filled"
@@ -75,13 +72,15 @@ function ResetPassword() {
           }}
           clr={password.color}
           onChange={(e) => {
-            checkPassword(e.target.value.trim(), setPassword, undefined);
             setPassword((prevState) => ({
               ...prevState,
               input: e.target.value.trim(),
             }));
+            checkPassword(e.target.value.trim(), setPassword, undefined);
+            matchPassword(repassword, e.target.value.trim(), setRePassword);
           }}
           helperText={password.error}
+          data-testid="resetpassword-password-input"
         />
         <RedditTextField
           label="Verify Password"
@@ -103,20 +102,24 @@ function ResetPassword() {
             }));
           }}
           helperText={repassword.error}
+          data-testid="resetpassword-repassword-input"
         />
         <CheckBoxConatiner>
-          <Checkbox sx={{ padding: '0px 5px 0px 0px' }} />
+          {/* <Checkbox sx={{ padding: '0px 5px 0px 0px' }} onChange={(event) => setLogOut(event.target.checked)} /> */}
           <Typography fontSize="12px" fontWeight="400">
             Changing your password logs you out of all browsers on your device(s).
-            {' '}
-            Checking this box also logs you out of all apps you have authorized.
+            {/* {' '} */}
+            {/* Checking this box also logs you out of all apps you have authorized. */}
           </Typography>
         </CheckBoxConatiner>
-        <RedditLoadingButton type="submit" width="155px" loading={loading} onClick={resetPassword}>
+        <RedditLoadingButton type="submit" width="155px" loading={loading} data-testid="set-newpassword-btn-test">
           {buttonText}
         </RedditLoadingButton>
         {redirectCaption
-          ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</Typography>
+          ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">you’ve successfully changed your password.You can now log in using your new password</Typography>
+          : null}
+        {expiredToken
+          ? <Typography color="error" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="0px 0px">Token has expired</Typography>
           : null}
       </FirstPartyContainer>
       <Typography paragraph fontSize="12px" marginTop="10px" color="#3394DC">

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-
+import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 // mui components
 import { Typography } from '@mui/material';
 
@@ -13,6 +14,11 @@ import FirstParty from '../FirstParty/FirstParty';
 // styles
 import { AuthenticationBody, StyledLink } from '../styles';
 
+// scripts
+import { redditCookie } from '../scripts';
+// environment variables
+const { REACT_APP_ENV } = process.env;
+
 /**
  * Login Page Component
  * @returns {React.Component} - Main Body of Login Page
@@ -21,10 +27,29 @@ function LogIn() {
   // state
   const [remeberMe, setRemeberMe] = useState(false);
 
-  // effect
+  // cookies
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  // useEffect
   useEffect(() => {
-    //= =>Check on Cookies
-    setRemeberMe(false);
+    // Check on Cookies
+    // developememt
+    if (REACT_APP_ENV === 'development') {
+      if (cookies.redditUser === undefined) {
+        setRemeberMe(false);
+      } else { setRemeberMe(true); }
+    } else if (Cookies.get('jwt')) {
+      // production
+      // Redirect to loading page
+      // check on Reddit cookie
+      if (cookies.redditUser === undefined) {
+        redditCookie(setCookies);
+      }
+      setRemeberMe(true);
+    } else {
+      // No Cookie by Back End
+      setRemeberMe(false);
+    }
   }, []);
 
   const caption = (

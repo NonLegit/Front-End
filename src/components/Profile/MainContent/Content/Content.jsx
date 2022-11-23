@@ -24,7 +24,7 @@ function Content() {
   const { username } = useContext(UserContext);
 
   useEffect(() => {
-    if (posts.length > 0 || comments.length > 0) { setIsContent(true); }
+    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
   }, [username, posts, comments]);
 
   const emptyContent = `hmm... u/${username}

@@ -7,6 +7,8 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { useEffect, useState } from 'react';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
+import moment from 'moment/moment';
+import patchData from '../../Cover/server';
 import Sort from '../MoreIcon/More';
 import {
   AboutCountainer, AboutString, CreatedSpan,
@@ -46,8 +48,8 @@ function Moderation(props) {
     // setSelection('Add a Primary Topic');
   };
 
-  const sendData = () => {
-    client.patch(`subreddit/${Name}`, { primaryTopic: selection }); // fetch api
+  const sendData = (val) => {
+    patchData(`subreddits/${Name}`, { primaryTopic: val }); // fetch api
   };
 
   // handel on select item
@@ -55,7 +57,7 @@ function Moderation(props) {
     setMore(!more);
     setSelection(e.target.textContent);
     setListOfTopics(true);
-    sendData();
+    sendData(e.target.textContent);
   };
 
   // close the list in  click away
@@ -83,7 +85,7 @@ function Moderation(props) {
         <CreatedSpan>
           Created
           {' '}
-          {createdAt}
+          {moment(createdAt).add(1, 'days').utc().format('MMMM DD, YYYY')}
         </CreatedSpan>
       </Created>
       <Hr />
