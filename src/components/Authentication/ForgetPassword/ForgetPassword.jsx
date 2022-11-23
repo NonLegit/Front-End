@@ -46,9 +46,16 @@ function ForgetPassword() {
   // cookies
   const [cookies, setCookies] = useCookies(['redditUser']);
 
+  // useEffect
   useEffect(() => {
-    // check if already logged in Cokkies
-    if (Cookies.get('jwt') || REACT_APP_ENV === 'development') {
+    // Check on Cookies
+    // developememt
+    if (REACT_APP_ENV === 'development') {
+      if (cookies.redditUser === undefined) {
+        setremeberMe(false);
+      } else { setremeberMe(true); }
+    } else if (Cookies.get('jwt')) {
+      // production
       // Redirect to loading page
       // check on Reddit cookie
       if (cookies.redditUser === undefined) {
@@ -56,6 +63,7 @@ function ForgetPassword() {
       }
       setremeberMe(true);
     } else {
+      // No Cookie by Back End
       setremeberMe(false);
     }
   }, []);

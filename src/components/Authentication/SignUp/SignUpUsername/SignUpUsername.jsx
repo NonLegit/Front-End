@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // mui components
 import { IconButton, Typography } from '@mui/material';
@@ -17,9 +17,10 @@ import {
 } from '../../styles';
 
 // server
-import { checkUserNameSignUp, signUp } from './server';
+import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from './server';
+
 // scripts
-import { refreshUsernames, checkPassword } from '../../scripts';
+import { checkPassword } from '../../scripts';
 import theme, { fonts } from '../../../../styles/theme';
 
 /**
@@ -45,12 +46,10 @@ function SignUpUsername({
   const [buttonTxt, setButtonText] = useState('Sign up');
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
-  const [userNames, setUserNames] = useState([]);
+  const [click, setClick] = useState(false);
 
-  // useEffect
-  useEffect(() => {
-    refreshUsernames(setUserNames);
-  }, []);
+  // server generate Random Names
+  const generatedUsernames = generateRandomUsernamesServer(5, click);
 
   const signUpFunction = () => {
     checkUserNameSignUp(userName?.input, setUserName);
@@ -142,11 +141,11 @@ function SignUpUsername({
             <Typography variant="p" fontSize={14}>
               Here are some username suggestions
             </Typography>
-            <IconButton aria-label="delete" color="primary" onClick={refreshUsernames}>
+            <IconButton aria-label="delete" color="primary" onClick={() => setClick(!click)}>
               <UpdateIcon />
             </IconButton>
           </TopBox>
-          {userNames ? (userNames.map((i) => (
+          {generatedUsernames ? (generatedUsernames.map((i) => (
             <SuggestLink
               key={i}
               onClick={() => {

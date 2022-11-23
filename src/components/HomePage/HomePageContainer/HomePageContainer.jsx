@@ -1,7 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import generateRandomUsernamesServer from '../../../utils/generateRandomUsernamesServer';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -30,8 +28,6 @@ function HomePageContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
-  const [click, setClick] = useState(false);
-  const generatedUsernames = generateRandomUsernamesServer(5, click);
   // console.log(generatedUsernames);
   // states
   const [posts, postsError] = homePageServer(postClass);
@@ -43,17 +39,6 @@ function HomePageContainer() {
           <CreatePostInHome />
           <PostsClassification />
           {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
-          <div>{generatedUsernames?.map((e) => (<div key={e}>{e}</div>))}</div>
-          <button
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              setClick(!click);
-            }}
-          >
-            reload
-
-          </button>
         </MainContent>
         {match
         && (

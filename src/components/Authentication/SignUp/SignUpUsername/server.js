@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { generateUsername } from 'unique-username-generator';
+
 // mui components
 import DoneIcon from '@mui/icons-material/Done';
 
@@ -11,6 +14,9 @@ import theme from '../../../../styles/theme/index';
 // Scripts
 import { redditCookie } from '../../scripts';
 import { redirectHome } from '../../../../utils/Redirect';
+
+// utils
+import replaceDashWithUnderScore from '../../../../utils/replaceDashWithUnderScore';
 /**
  *
  * check if username length [3-20], if valid username syntax,if username is unique and change state object accordingly
@@ -175,3 +181,53 @@ export const signUp = (
     console.log(error);
   });
 };
+/**
+ * This function works as a server for generating random usernames
+ *
+ * @function generateRandomUsernamesServer
+ * @param {number} numberOfGeneratedUsernames - the maximum number of random usernames to be generated
+ * @param {React.State} deps - the dependencies on which random usernames generated
+ * @returns {Array.<string>} generated usernames
+ */
+export const generateRandomUsernamesServer = (numberOfGeneratedUsernames, deps) => {
+  const [generatedUsernames, setGeneratedUsernames] = useState(null);
+  useEffect(() => {
+    (async () => {
+      let counter = 0;
+      const temp = [];
+      do {
+        let error = '';
+        const username = replaceDashWithUnderScore(generateUsername());
+        const response = await axios.get('/users/username_available', {
+          params: {
+            userName: username,
+          },
+        }).catch((e) => {
+          error = e;
+        });
+        const { data, status: statusCode } = response;
+        if (error) {
+          setGeneratedUsernames(['something went wrong']);
+          return;
+        }
+
+        if (statusCode === 400) {
+          const { message } = data;
+          setGeneratedUsernames([message]);
+          return;
+        }
+
+        if (data.available === true) {
+          // unique
+          counter += 1;
+          temp.push(username);
+        }
+      } while (counter < numberOfGeneratedUsernames);
+      // console.log(temp);
+      setGeneratedUsernames(temp);
+    })();
+  }, [deps]);
+  return generatedUsernames;
+};
+
+export default generateRandomUsernamesServer;

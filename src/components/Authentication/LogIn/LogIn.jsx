@@ -30,10 +30,16 @@ function LogIn() {
   // cookies
   const [cookies, setCookies] = useCookies(['redditUser']);
 
-  // effect
+  // useEffect
   useEffect(() => {
     // Check on Cookies
-    if (Cookies.get('jwt') || REACT_APP_ENV === 'development') {
+    // developememt
+    if (REACT_APP_ENV === 'development') {
+      if (cookies.redditUser === undefined) {
+        setRemeberMe(false);
+      } else { setRemeberMe(true); }
+    } else if (Cookies.get('jwt')) {
+      // production
       // Redirect to loading page
       // check on Reddit cookie
       if (cookies.redditUser === undefined) {
@@ -41,6 +47,7 @@ function LogIn() {
       }
       setRemeberMe(true);
     } else {
+      // No Cookie by Back End
       setRemeberMe(false);
     }
   }, []);
