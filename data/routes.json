@@ -3,7 +3,7 @@
     "/subreddits":"/CreatSubreddit",
     "/subreddits/:subredditName/flairs":"/Flair",
     "/subreddits/:subredditName/:name/hot":"/Hot",
-    "/subreddits/:Name/subscribe":"/Join",
+    "/subreddits/:Name/subscribe":"/join",
     "/subreddits/:Name/best":"/Best",
     "/subreddits/:Name/Top":"/Top",
     "/subreddits/:Name/New":"/New",

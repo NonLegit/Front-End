@@ -12,11 +12,11 @@ import Moderation from './Mderation/Moderation';
  */
 function SideBar(props) {
   const {
-    client, disc, topics, Name, primaryTopic, createdAt, moderatoesName,
+    client, disc, topics, Name, primaryTopic, createdAt, moderatoesName, username,
   } = props;
   const [moderate, setModerate] = useState(false);
   useEffect(() => {
-    if (moderatoesName?.indexOf(Name) === -1) {
+    if (moderatoesName?.indexOf(username) === -1) {
       setModerate(false);
     } else {
       setModerate(true);

@@ -1,7 +1,7 @@
-import { generateUsername } from 'unique-username-generator';
+// import { generateUsername } from 'unique-username-generator';
 import { useEffect, useState } from 'react';
 import axios from '../services/instance';
-import replaceDashWithUnderScore from './replaceDashWithUnderScore';
+// import replaceDashWithUnderScore from './replaceDashWithUnderScore';
 
 /**
  * This function works as a server for generating random usernames
@@ -20,7 +20,7 @@ const generateRandomUsernamesServer = (numberOfGeneratedUsernames, deps) => {
       const temp = [];
       do {
         let error = '';
-        const username = replaceDashWithUnderScore(generateUsername());
+        const username = ''; // replaceDashWithUnderScore(generateUsername());
         const response = await axios.get('/users/username_available', {
           params: {
             userName: username,

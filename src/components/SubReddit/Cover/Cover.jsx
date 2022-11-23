@@ -3,6 +3,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useMemo, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import MainContent from '../../MainContent/MainContent';
 import PostSubreddit from '../Post/Post';
 import CreatePostInHome from '../../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
@@ -31,8 +32,10 @@ function Header() {
   const [topics, setTopics] = useState([]);
   const [moderatoesName, setModeratoesName] = useState([]);
   const [fixedName, setFixedName] = useState();
-  const username = 'Ahemd';
+  const [cookies] = useCookies(['redditUser']);
+  const [username, setUserName] = useState('');
 
+  useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
   const client = axios.create({
     baseURL: 'http://localhost:8000/',
   });
@@ -56,15 +59,15 @@ function Header() {
 
     setPosts(data3);
   }, [data, postClass, data3]);
-  const [communities, setCommunities] = useState();
+
   // fetch data of communities i am a moderator of
   const [data2, dataError2] = useFetch('/subreddit/mine/moderator');
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
   useEffect(() => {
-    setCommunities(data2?.subreddits?.filter((e) => e.subredditName === Name.toString()));
     console.log(dataError2);
-    if (communities?.length > 0) {
+
+    if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
       setJoin(true);
     } else {
       setJoin(false);
@@ -157,7 +160,7 @@ function Header() {
               />
             ))}
           </MainContent>
-          <SideBar Name={Name} client={client} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
+          <SideBar Name={Name} username={username} client={client} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
         </Box>
       </TotalHeader>
 

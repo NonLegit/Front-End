@@ -7,7 +7,6 @@ const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
 const Flair = require('./Flair.json');
 const Hot = require('./Hot.json');
-const Join = require('./join.json');
 const Best = require('./SubredditBestPosts.json');
 const New = require('./SubredditnewPosts.json');
 const Top = require('./SubredditnewPosts.json');
@@ -38,7 +37,6 @@ const join = require('./join.json');
 module.exports = () => ({
   Subreddit,
   Flair,
-  Join,
   Hot,
   Best,
   Top,
