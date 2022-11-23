@@ -16,12 +16,6 @@ export const PostContainer = styled(Box)(() => ({
   },
 }));
 
-export const Popularity = styled(Box)(() => ({
-  fontSize: '15px',
-  color: '#1c1c1c',
-  cursor: 'pointer',
-}));
-
 export const PostInfo = styled(Box)(() => ({
   display: 'flex',
   fontSize: '12px',

@@ -31,7 +31,7 @@ function PostHeader(props) {
   } = props;
   return (
     <>
-      <PostInfo py={1}>
+      <PostInfo pb={1}>
         <Avatar
           src={image}
           sx={{
