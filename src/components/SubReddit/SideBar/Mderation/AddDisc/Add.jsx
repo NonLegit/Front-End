@@ -19,6 +19,8 @@ function AddSector(props) {
   const [tempString, setTempString] = useState('');
   const [disc, setDisc] = useState(disc2);
   const [haveDisc, setHaveDisc] = useState(true);
+  const [statusCode, setStatusCode] = useState(null);
+
   // return to defult mode when click away
   const handleClickAway1 = () => {
     // const btn = document.getElementById('save');
@@ -46,6 +48,13 @@ function AddSector(props) {
       setHaveDisc(true);
     }
   }, [disc2]);
+
+  useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
+  }, [statusCode]);
+
   // count number of char in input feild to make sure not exeed the limit
   const handleChange = (event) => {
     if (event.target.value.length < 501) {
@@ -58,7 +67,7 @@ function AddSector(props) {
   };
   const sendData = () => {
     console.log(Name);
-    patchData(`subreddits/${Name}`, { description: tempString.trim() }); // fetch api
+    setStatusCode(patchData(`subreddits/${Name}`, { description: tempString.trim() })); // fetch api
   };
   const SaveAction = async () => {
     setShow(true);

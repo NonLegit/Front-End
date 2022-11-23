@@ -5,8 +5,10 @@ const useFetch = async (url) => {
   // const [data, setData] = useState(null);
   // const [error, setError] = useState(null);
   let data;
+  let statusCode;
   await axios.get(url).then((response) => {
     console.log(response);
+    statusCode = response.status;
     // setData(true);
     data = true;
   }).catch((error) => {
@@ -15,6 +17,6 @@ const useFetch = async (url) => {
     console.log(error);
     data = false;
   });
-  return data;
+  return { data, statusCode };
 };
 export default useFetch;

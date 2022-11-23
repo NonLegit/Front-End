@@ -17,13 +17,16 @@ import Post from '../Posts/Post';
 function PostsTap() {
   const { subTitle } = useParams();
   const { username } = useContext(UserContext);
-  const { posts } = useContext(PostsContext);
+  const { posts, statusCode } = useContext(PostsContext);
   const [isContent, setIsContent] = useState(false);
 
   // check if the page have any content posts to show
   useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
     if (posts?.length > 0) { setIsContent(true); }
-  }, [username, posts]);
+  }, [username, posts, statusCode]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;

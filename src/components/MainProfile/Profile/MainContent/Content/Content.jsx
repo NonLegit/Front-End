@@ -20,10 +20,13 @@ import Comments from './Comments/Comments';
  */
 function Content() {
   const [isContent, setIsContent] = useState(false);
-  const { posts, comments } = useContext(ContentContext);
+  const { posts, comments, statusCode } = useContext(ContentContext);
   const { username } = useContext(UserContext);
 
   useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
   }, [username, posts, comments]);
 

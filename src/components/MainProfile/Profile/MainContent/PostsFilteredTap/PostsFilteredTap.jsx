@@ -16,12 +16,15 @@ import Post from '../Posts/Post';
 function PostsFilteredTap(props) {
   const { type } = props;
   const { username } = useContext(UserContext);
-  const { posts } = useContext(FilteredPostsContext);
+  const { posts, statusCode } = useContext(FilteredPostsContext);
   const [isContent, setIsContent] = useState(false);
   // check if the page have any content posts to show
   useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
     if (posts?.length > 0) { setIsContent(true); }
-  }, [username, posts, type]);
+  }, [username, posts, type, statusCode]);
 
   const emptyContent = renderText(type);
   return (

@@ -30,6 +30,8 @@ function Moderation(props) {
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
   const [selection, setSelection] = useState(primaryTopic);
+  const [statusCode, setStatusCode] = useState(null);
+
   const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
     'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
     'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
@@ -49,8 +51,14 @@ function Moderation(props) {
   };
 
   const sendData = (val) => {
-    patchData(`subreddits/${Name}`, { primaryTopic: val }); // fetch api
+    setStatusCode(patchData(`subreddits/${Name}`, { primaryTopic: val })); // fetch api
   };
+
+  useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
+  }, [statusCode]);
 
   // handel on select item
   const ListSelected = (e) => {

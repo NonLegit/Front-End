@@ -14,7 +14,7 @@ const PostData = async (url, user, subRedditName, type, adult) => {
     }),
   ).then((response) => {
     console.log(response);
-    return true;
+    return response.status;
   }).catch((error) => {
     console.log(error);
     return false;

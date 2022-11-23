@@ -12,8 +12,8 @@ export const FilteredPostsContext = createContext();
 function FilteredPostsProvider(props) {
   const { param, children } = props;
 
-  const [data, dataError] = useFetch(`users/${param}`);
-  const value = useMemo(() => ({ posts: data?.posts, postsError: dataError }), [data, dataError]);
+  const [data, dataError, statusCode] = useFetch(`users/${param}`);
+  const value = useMemo(() => ({ posts: data?.posts, postsError: dataError, statusCode }), [data, dataError, statusCode]);
 
   return (
     <FilteredPostsContext.Provider value={value}>
