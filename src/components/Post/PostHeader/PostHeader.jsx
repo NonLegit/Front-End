@@ -40,7 +40,7 @@ function PostHeader(props) {
           }}
           alt="Profile Image"
         />
-        <PostInfoLink to="/" color="#000" fontWeight="bolder">
+        <PostInfoLink to={`/Subreddit/${owner}`} color="#000" fontWeight="bolder">
           r/
           {owner}
         </PostInfoLink>
@@ -49,7 +49,7 @@ function PostHeader(props) {
             •
           </span>
           <div>Posted By</div>
-          <PostInfoLink to="/" color="inherit" fontWeight="normal">
+          <PostInfoLink to={`/user/${author}`} color="inherit" fontWeight="normal">
             u/
             {author}
           </PostInfoLink>

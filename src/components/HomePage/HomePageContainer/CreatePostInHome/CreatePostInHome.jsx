@@ -27,7 +27,7 @@ function CreatePostInHome() {
   return (
     <CreatePostContainer>
       <AvatarContainer>
-        <Link to="/">
+        <Link to={`/user/${cookies.redditUser?.userName}`}>
           <Avatar src={cookies.redditUser?.profilePicture} alt="avatar" />
         </Link>
       </AvatarContainer>
