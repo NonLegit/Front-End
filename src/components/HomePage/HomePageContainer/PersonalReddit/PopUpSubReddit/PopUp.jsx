@@ -90,7 +90,7 @@ function FormDialog({ display }) {
 
   useEffect(() => {
     if (statusCode === 401 || statusCode2 === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
   }, [statusCode, statusCode2]);
 
@@ -122,7 +122,7 @@ function FormDialog({ display }) {
       const status = PostData('/subreddits', username, subRedditName, type, adult);
       setStatusCode2(status);
       if (status === 200) {
-        window.location.href = './';
+        window.location.pathname = '/';
       }
     }
   };

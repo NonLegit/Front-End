@@ -23,7 +23,7 @@ function OtherProfileContent() {
 
   useEffect(() => {
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
   }, [username, posts, comments, statusCode]);

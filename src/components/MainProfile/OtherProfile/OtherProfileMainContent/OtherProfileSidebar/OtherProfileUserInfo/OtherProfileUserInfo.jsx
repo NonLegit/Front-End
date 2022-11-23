@@ -31,7 +31,7 @@ function OtherProfileUserInfo() {
   // to be fetched here
   useEffect(() => {
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);

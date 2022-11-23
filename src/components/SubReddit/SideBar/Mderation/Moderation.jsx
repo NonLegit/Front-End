@@ -56,7 +56,7 @@ function Moderation(props) {
 
   useEffect(() => {
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
   }, [statusCode]);
 

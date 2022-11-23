@@ -21,7 +21,7 @@ function PostsFilteredTap(props) {
   // check if the page have any content posts to show
   useEffect(() => {
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     if (posts?.length > 0) { setIsContent(true); }
   }, [username, posts, type, statusCode]);

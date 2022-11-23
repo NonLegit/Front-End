@@ -17,7 +17,7 @@ function Communities() {
   const { communities, communitiesError, statusCode } = useContext(CommunitiesContext);
   useEffect(() => {
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
   }, [statusCode]);
   return (

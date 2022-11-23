@@ -47,7 +47,7 @@ function Header() {
   console.log(dataError3);
   useEffect(() => {
     if (statusCode === 401 || statusCode3 === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     setIcon(data?.icon);
     setDisc(data?.description);
@@ -66,7 +66,7 @@ function Header() {
   console.log(value2);
   useEffect(() => {
     if (statusCode2 === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     console.log(dataError2);
 

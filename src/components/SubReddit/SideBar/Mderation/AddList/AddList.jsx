@@ -36,7 +36,7 @@ function AddList(props) {
 
   useEffect(() => {
     if (statusCode === 401) {
-      window.location.href = './login';
+      window.location.pathname = 'login';
     }
     setTags(topics);
     setTempString(topics);
