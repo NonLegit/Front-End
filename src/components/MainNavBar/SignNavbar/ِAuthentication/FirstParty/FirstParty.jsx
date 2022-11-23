@@ -18,7 +18,7 @@ import { checkUserName, logIn } from '../../../../Authentication/FirstParty/serv
  * @component
  * @returns {React.Component} First Party Form
  */
-function FirstParty() {
+function FirstParty({ handleClose }) {
   // useState
   const [userName, setUserName] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
@@ -36,7 +36,7 @@ function FirstParty() {
   const [cookies, setCookies] = useCookies(['redditUser']);
   return (
 
-    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }}>
+    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName, true, handleClose); }}>
 
       <RedditTextField
         label="Username"

@@ -56,7 +56,7 @@ function LogIn() {
         <AuthenticationHeader reddit={false} title="Log in" caption={caption} />
         <ThirdParty circular={false} />
         <Divider />
-        <FirstParty />
+        <FirstParty handleClose={handleClose} />
         <Typography paragraph fontSize="12px" fontFamily="ibm-plex-sans,sans-serif">
           Forgot your
           {' '}

@@ -138,15 +138,6 @@ function SignUpPopUpUserName({
             ),
             disableUnderline: true,
           }}
-          // endAdornment={(
-          //   <InputAdornment position="end">
-          //     <IconButton
-          //       onClick={handleClickShowPassword}
-          //     >
-          //       <PublishedWithChangesIcon />
-          //     </IconButton>
-          //   </InputAdornment>
-          // )}
           clr={userName?.color}
           onChange={(e) => {
             setUserName((prevState) => ({

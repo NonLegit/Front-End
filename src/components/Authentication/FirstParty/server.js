@@ -47,7 +47,20 @@ export const checkUserName = (username, setUserName) => {
 * @param {event} event -Onsubmit of the form
 * @returns void
 */
-export const logIn = (event, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName) => {
+export const logIn = (
+  event,
+  setLoading,
+  userName,
+  password,
+  setPassword,
+  setButtonText,
+  setDisabled,
+  setRedirectCaption,
+  setCookies,
+  setUserName,
+  popUp = false,
+  handleClose = null,
+) => {
   event.preventDefault();
   // console.log(userName);// Not Late
   // console.log(password);// Not Late
@@ -87,6 +100,12 @@ export const logIn = (event, setLoading, userName, password, setPassword, setBut
       setRedirectCaption(true);
       // Add Reddit Cookie
       redditCookie(setCookies);
+      if (popUp === false) { redirectHome(1000); } else {
+        // PopUp window
+        setTimeout(() => {
+          handleClose();
+        }, 100);
+      }
       redirectHome(1000);
     }
   }).catch((error) => {
