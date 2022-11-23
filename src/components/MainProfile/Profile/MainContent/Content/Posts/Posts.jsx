@@ -25,7 +25,7 @@ function Posts(props) {
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
           <PostHeader
-            subReddit={post?.ownerType}
+            subReddit={post?.owner}
             nameUser={post?.author}
             Time={post?.createdAt}
           />

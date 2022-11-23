@@ -62,7 +62,7 @@ function Post(props) {
                 {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <PostHeader
-                subReddit={entity.ownerType}
+                subReddit={entity.owner}
                 nameUser={entity.author}
                 Time={entity.createdAt}
                 nsfw={entity.nsfw}

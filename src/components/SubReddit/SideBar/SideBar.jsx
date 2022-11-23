@@ -5,6 +5,7 @@ import About from './AboutSubReddit/About';
 import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
+import numFormatter from '../../../utils/MembersNum';
 /**
  * SideBar for subreddit
  * @component
@@ -12,9 +13,10 @@ import Moderation from './Mderation/Moderation';
  */
 function SideBar(props) {
   const {
-    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username,
+    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
   } = props;
   const [moderate, setModerate] = useState(false);
+  const num = numFormatter(members);
   useEffect(() => {
     if (moderatoesName?.indexOf(username) === -1) {
       setModerate(false);
@@ -27,12 +29,12 @@ function SideBar(props) {
       {!moderate
       && (
       <CommunityContainer>
-        <About disc={disc} createdAt={createdAt} />
+        <About disc={disc} createdAt={createdAt} num={num} />
       </CommunityContainer>
       )}
       {moderate && (
       <CommunityContainer>
-        <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} />
+        <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} />
       </CommunityContainer>
       )}
       <CommunityContainer>

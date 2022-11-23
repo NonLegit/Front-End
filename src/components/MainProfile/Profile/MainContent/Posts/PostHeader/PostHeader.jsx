@@ -4,7 +4,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import moment from 'moment/moment';
 import {
-  HeaderPost,
+  HeaderPost, LinkTo,
 } from './styles';
 
 /**
@@ -27,19 +27,23 @@ function PostHeader(props) {
   } = props;
   return (
     <HeaderPost>
-      <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-        r/
-        {subReddit}
-        {' '}
-        .
-      </Typography>
+      <LinkTo to={`/Subreddit/${subReddit}`}>
+        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+          r/
+          {subReddit}
+          {' '}
+          .
+        </Typography>
+      </LinkTo>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
       </Typography>
-      <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
-        u/
-        {nameUser}
-      </Typography>
+      <LinkTo to={`/user/${nameUser}`}>
+        <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
+          u/
+          {nameUser}
+        </Typography>
+      </LinkTo>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         {' '}
         {(moment.utc(Time).local().startOf('seconds')

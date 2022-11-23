@@ -26,7 +26,7 @@ function OtherProfilePosts(props) {
         <Box sx={{ marginLeft: 1 }}>
           <OtherProfilePostHeader
             subReddit={post?.owner}
-            isSubReddit={post?.ownerType}
+            isSubReddit={post?.ownerType === 'Subreddit'}
             nameUser={post?.author}
             Time={post?.createdAt}
 

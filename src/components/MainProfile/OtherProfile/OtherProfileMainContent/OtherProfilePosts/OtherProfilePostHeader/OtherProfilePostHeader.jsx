@@ -6,7 +6,7 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  HeaderPost, Joined,
+  HeaderPost, Joined, LinkTo,
 } from './styles';
 
 /**
@@ -39,12 +39,14 @@ function OtherProfilePostHeader(props) {
   };
   return (
     <HeaderPost>
-      <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-        r/
-        {subReddit}
-        {' '}
-        .
-      </Typography>
+      <LinkTo to={`/Subreddit/${subReddit}`}>
+        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+          r/
+          {subReddit}
+          {' '}
+          .
+        </Typography>
+      </LinkTo>
       {isSubReddit && (
       <Joined
         variant={(joined ? 'outlined' : 'contained')}
@@ -59,10 +61,12 @@ function OtherProfilePostHeader(props) {
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
       </Typography>
-      <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
-        u/
-        {nameUser}
-      </Typography>
+      <LinkTo to={`/user/${nameUser}`}>
+        <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
+          u/
+          {nameUser}
+        </Typography>
+      </LinkTo>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         {' '}
         {(moment.utc(Time).local().startOf('seconds')

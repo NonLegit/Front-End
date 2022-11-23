@@ -4,7 +4,7 @@ import { useState } from 'react';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  HeaderAvatar, HeaderAvatarText, HeaderPost, Joined,
+  HeaderAvatar, HeaderAvatarText, HeaderPost, Joined, LinkTo,
 } from './styles';
 
 /**
@@ -46,19 +46,23 @@ function OtherProfilePostHeader(props) {
           <HeaderAvatarText>r/</HeaderAvatarText>
         </HeaderAvatar>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', marginRight: '70px' }}>
-          <Typography variant="caption" sx={{ fontWeight: 700, marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
-            r/
-            {subReddit}
-            {' '}
-            .
-          </Typography>
+          <LinkTo to={`/Subreddit/${subReddit}`}>
+            <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+              r/
+              {subReddit}
+              {' '}
+              .
+            </Typography>
+          </LinkTo>
           <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
             Posted by
           </Typography>
-          <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
-            u/
-            {nameUser}
-          </Typography>
+          <LinkTo to={`/user/${nameUser}`}>
+            <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
+              u/
+              {nameUser}
+            </Typography>
+          </LinkTo>
           <Typography
             variant="caption"
             sx={{

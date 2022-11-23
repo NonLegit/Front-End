@@ -62,12 +62,12 @@ function OtherProfilePost(props) {
                 {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <OtherProfilePostHeader
-                subReddit={entity.ownerType}
+                subReddit={entity.owner}
                 nameUser={username}
                 Time={entity.createdAt}
                 nsfw={entity.nsfw}
                 locked={entity.locked}
-                isSubReddit={entity?.ownerType}
+                isSubReddit={entity?.ownerType === 'Subreddit'}
               />
               <OtherProfilePostFooter
                 handleExpand={handleExpand}

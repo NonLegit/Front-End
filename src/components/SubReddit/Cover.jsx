@@ -33,6 +33,7 @@ function Header() {
   const [fixedName, setFixedName] = useState();
   const [cookies] = useCookies(['redditUser']);
   const [username, setUserName] = useState('');
+  const [members, setMembers] = useState();
 
   useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
@@ -52,7 +53,7 @@ function Header() {
     setCreatedAt(data?.createdAt);
     setModeratoesName(data?.moderators);
     setFixedName(data?.fixedName);
-
+    setMembers(data?.members);
     setPosts(data3);
   }, [data, postClass, data3]);
 
@@ -156,7 +157,7 @@ function Header() {
               />
             ))}
           </MainContent>
-          <SideBar Name={Name} username={username} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
+          <SideBar members={members} Name={Name} username={username} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
         </Box>
       </TotalHeader>
 

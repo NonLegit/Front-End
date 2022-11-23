@@ -27,5 +27,6 @@
       "allowSpoilerTag": true,
       "allowGif": true,
       "allowImageUploads": true,
-      "allowMultipleImage": true
+      "allowMultipleImage": true,
+      "members": 100000
 }

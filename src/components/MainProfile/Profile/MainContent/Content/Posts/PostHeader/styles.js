@@ -1,5 +1,6 @@
 import { Avatar, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 export const RemovalBox = styled(Box)(({ theme }) => ({
   color: theme.palette.secondary.light,
@@ -21,6 +22,7 @@ export const HeaderPost = styled(Box)(() => ({
   minHeight: 24,
   marginBottom: 8,
   flexWrap: 'wrap',
+  alignItems: 'center',
 }));
 
 export const HeaderAvatar = styled(Avatar)(({ theme }) => ({
@@ -31,4 +33,12 @@ export const HeaderAvatar = styled(Avatar)(({ theme }) => ({
 
 export const HeaderAvatarText = styled('p')(() => ({
   fontSize: 15,
+}));
+
+export const LinkTo = styled(Link)(() => ({
+  textDecoration: 'none',
+  color: '#787c7e',
+  display: 'flex',
+  alignItems: 'center',
+  marginLeft: '8px',
 }));

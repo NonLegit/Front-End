@@ -25,7 +25,7 @@ import AddList from './AddList/AddList';
  */
 function Moderation(props) {
   const {
-    topics, disc, Name, primaryTopic, createdAt,
+    topics, disc, Name, primaryTopic, createdAt, num,
   } = props;
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
@@ -95,15 +95,15 @@ function Moderation(props) {
       >
         <span>
           <Bold>
-            1.4m
+            {num}
           </Bold>
           <Light>Members</Light>
         </span>
         <span>
           <SpecialBold>
-            1.0k
+            {/* 1.0k */}
           </SpecialBold>
-          <Light>Online</Light>
+          {/* <Light>Online</Light> */}
         </span>
         <span />
         <div />
