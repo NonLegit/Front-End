@@ -26,17 +26,20 @@ function OtherProfileUserInfo() {
   const [coverPic, setCoverPic] = useState();
 
   const { username } = useContext(UserContext);
-  const { info } = useContext(UserInfoContext);
+  const { info, statusCode } = useContext(UserInfoContext);
 
   // to be fetched here
   useEffect(() => {
+    if (statusCode === 401) {
+      window.location.href = './login';
+    }
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setCake(info?.createdAt);
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
     console.log(info?.profilePicture);
-  }, [info]);
+  }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {

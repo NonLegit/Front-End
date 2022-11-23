@@ -14,8 +14,8 @@ export const UserInfoContext = createContext();
 function UserInfoProvider(props) {
   const { children } = props;
 
-  const [data, dataError] = useFetch('users/me');
-  const value = useMemo(() => ({ info: data?.user, infoError: dataError }), [data, dataError]);
+  const [data, dataError, statusCode] = useFetch('users/me');
+  const value = useMemo(() => ({ info: data?.user, infoError: dataError, statusCode }), [data, dataError, statusCode]);
 
   return (
     <UserInfoContext.Provider value={value}>

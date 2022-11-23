@@ -15,8 +15,8 @@ export const PostsContext = createContext();
 function PostsProvider(props) {
   const { children, name } = props;
 
-  const [data, dataError] = useFetch(`user/${name}/post`);
-  const value = useMemo(() => ({ posts: data?.posts, dataError }), [data, dataError]);
+  const [data, dataError, statusCode] = useFetch(`user/${name}/post`);
+  const value = useMemo(() => ({ posts: data?.posts, dataError, statusCode }), [data, dataError, statusCode]);
 
   return (
     <PostsContext.Provider value={value}>

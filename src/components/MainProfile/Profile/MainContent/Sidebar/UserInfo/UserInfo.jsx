@@ -30,16 +30,19 @@ function UserInfo() {
   const [coverPic, setCoverPic] = useState();
 
   const { username } = useContext(UserContext);
-  const { info } = useContext(UserInfoContext);
+  const { info, statusCode } = useContext(UserInfoContext);
 
   useEffect(() => {
+    if (statusCode === 401) {
+      window.location.href = './login';
+    }
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setFollowers(info?.followersCount);
     setCake(info?.createdAt);
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
-  }, [info]);
+  }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {

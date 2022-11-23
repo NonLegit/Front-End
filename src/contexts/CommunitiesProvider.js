@@ -14,8 +14,8 @@ export const CommunitiesContext = createContext();
  */
 function CommunitiesProvider(props) {
   const { children } = props;
-  const [communities, communitiesError] = useFetch('subreddit/mine/moderator');
-  const value = useMemo(() => ({ communities: communities?.subreddits, communitiesError }), [communities, communitiesError]);
+  const [communities, communitiesError, statusCode] = useFetch('subreddit/mine/moderator');
+  const value = useMemo(() => ({ communities: communities?.subreddits, communitiesError, statusCode }), [communities, communitiesError, statusCode]);
 
   return (
     <CommunitiesContext.Provider value={value}>

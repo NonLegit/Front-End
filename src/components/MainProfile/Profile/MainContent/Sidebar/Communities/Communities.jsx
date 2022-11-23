@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { CommunitiesContext } from '../../../../../../contexts/CommunitiesProvider';
 import { InfoBox } from '../styles';
@@ -14,7 +14,12 @@ import EntityComment from './EntityCommunity/EntityCommunity';
 
 function Communities() {
   // will fetch the comminities here
-  const { communities, communitiesError } = useContext(CommunitiesContext);
+  const { communities, communitiesError, statusCode } = useContext(CommunitiesContext);
+  useEffect(() => {
+    if (statusCode === 401) {
+      window.location.href = './login';
+    }
+  }, [statusCode]);
   return (
     <InfoBox>
       <Typography variant="body2" sx={{ fontWeight: 700 }}>You&apos;re a moderator of these communities</Typography>

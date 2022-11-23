@@ -2,6 +2,8 @@ import * as React from 'react';
 import {
   Box, Checkbox, Dialog, FormControlLabel, FormGroup, Stack,
 } from '@mui/material';
+import { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import {
   Actions, Adult, AdultContent, Container, NSFWs, Warning, Btn,
 } from './style';
@@ -29,6 +31,13 @@ function FormDialog({ display }) {
   const [type, setType] = React.useState('public');
   const [adult, setAdult] = React.useState(false);
   const [errorMassage, setErrorMassage] = React.useState('');
+  const [statusCode, setStatusCode] = React.useState(null);
+  const [statusCode2, setStatusCode2] = React.useState(null);
+
+  const [cookies] = useCookies(['redditUser']);
+  const [username, setUserName] = React.useState('');
+  useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
+
   /**
    * this function to open the popup form on click the button
    */
@@ -71,14 +80,19 @@ function FormDialog({ display }) {
     // const [data, dataError] = await useFetch(`/subreddits/${subRedditName}`);
     // console.log(dataError);
     // console.log(data);
-    console.log(useFetch(`/subreddits/${subRedditName}`));
-    // if (useFetch(`/subreddits/${subRedditName}`)) {
-    //   setErrorMassage(`Sorry, r/${subRedditName} is taken. Try another.`);
-    // }
-    if (false) {
+    const { data, status } = useFetch(`/subreddits/${subRedditName}`);
+    setStatusCode(status);
+    if (data) {
+      // setErrorMassage(`Sorry, r/${subRedditName} is taken. Try another.`);
       setErrorMassage('');
     }
   };
+
+  useEffect(() => {
+    if (statusCode === 401 || statusCode2 === 401) {
+      window.location.href = './login';
+    }
+  }, [statusCode, statusCode2]);
 
   /**
    * this function to click checkbox on click the text next to it
@@ -105,10 +119,10 @@ function FormDialog({ display }) {
       //   type,
       //   NSFW: adult,
       // })
-      PostData('/subreddits', 'Hosny', subRedditName, type, adult);
-
-      if (PostData('/subreddits', 'Hosny', subRedditName, type, adult)) {
-        // document.location.href = 'https://localhost:3000/';
+      const status = PostData('/subreddits', username, subRedditName, type, adult);
+      setStatusCode2(status);
+      if (status === 200) {
+        window.location.href = './';
       }
     }
   };

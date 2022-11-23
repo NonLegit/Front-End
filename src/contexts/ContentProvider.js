@@ -11,8 +11,10 @@ export const ContentContext = createContext();
  */
 function ContentProvider(props) {
   const { children, name } = props;
-  const [data, dataError] = useFetch(`users/${name}/overview`);
-  const value = useMemo(() => ({ posts: data?.posts, comments: data?.comments, dataError }), [data, dataError]);
+  const [data, dataError, statusCode] = useFetch(`users/${name}/overview`);
+  const value = useMemo(() => ({
+    posts: data?.posts, comments: data?.comments, dataError, statusCode,
+  }), [data, dataError, statusCode]);
 
   return (
     <ContentContext.Provider value={value}>

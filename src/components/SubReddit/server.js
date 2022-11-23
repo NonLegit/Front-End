@@ -1,11 +1,7 @@
 import axios from '../../services/instance';
 
 const patchData = (api, prefs) => {
-  axios.patch(`${api}`, prefs).then(() => {
-
-    // console.log(response.data);
-
-  }).catch((error) => {
+  axios.patch(`${api}`, prefs).then((response) => response.status).catch((error) => {
     console.log(error);
   });
 };

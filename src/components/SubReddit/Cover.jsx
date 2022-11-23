@@ -38,14 +38,17 @@ function Header() {
   useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
   const { Name, postClass } = useParams();
-  const [data, dataError] = useFetch(`/subreddits/${Name}`);
+  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}`);
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
   const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
-  const [data3, dataError3] = useFetch(postsUrl);
+  const [data3, dataError3, statusCode3] = useFetch(postsUrl);
   console.log(dataError3);
   useEffect(() => {
+    if (statusCode === 401 || statusCode3 === 401) {
+      window.location.href = './login';
+    }
     setIcon(data?.icon);
     setDisc(data?.description);
     setTopics(data?.topics);
@@ -55,13 +58,16 @@ function Header() {
     setFixedName(data?.fixedName);
     setMembers(data?.members);
     setPosts(data3);
-  }, [data, postClass, data3]);
+  }, [data, postClass, data3, statusCode, statusCode3]);
 
   // fetch data of communities i am a moderator of
-  const [data2, dataError2] = useFetch('/subreddit/mine/moderator');
+  const [data2, dataError2, statusCode2] = useFetch('/subreddit/mine/moderator');
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
   useEffect(() => {
+    if (statusCode2 === 401) {
+      window.location.href = './login';
+    }
     console.log(dataError2);
 
     if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
@@ -69,7 +75,7 @@ function Header() {
     } else {
       setJoin(false);
     }
-  }, [data2, username]);
+  }, [data2, username, statusCode2]);
   // subscribr or unsubscribe
   const sendData = (b) => {
     PostJoin(`/subreddits/${Name}/subscribe`, b);
