@@ -19,7 +19,7 @@ function AddBtn(props) {
     setTag(tempString);
     setTemp(tempString);
     sendData();
-    console.log(tempString);
+    // console.log(tempString);
     // sendData();
     trueShaw();
   };

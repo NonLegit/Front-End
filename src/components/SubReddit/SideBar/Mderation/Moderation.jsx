@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
 import moment from 'moment/moment';
-import patchData from '../../Cover/server';
+import patchData from '../../server';
 import Sort from '../MoreIcon/More';
 import {
   AboutCountainer, AboutString, CreatedSpan,
@@ -25,7 +25,7 @@ import AddList from './AddList/AddList';
  */
 function Moderation(props) {
   const {
-    topics, disc, client, Name, primaryTopic, createdAt,
+    topics, disc, Name, primaryTopic, createdAt,
   } = props;
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
@@ -78,7 +78,7 @@ function Moderation(props) {
           <Sort margin={15} />
         </More>
       </AboutCountainer>
-      <AddSector disc2={disc} client={client} Name={Name} />
+      <AddSector disc2={disc} Name={Name} />
 
       <Created>
         <Icon><EmailOutlinedIcon /></Icon>
@@ -165,7 +165,7 @@ function Moderation(props) {
           </Lists>
         </ClickAwayListener>
       )}
-      {listOfTopics && <AddList topics={topics} client={client} Name={Name} listOfTopics={listOfTopics} />}
+      {listOfTopics && <AddList topics={topics} Name={Name} listOfTopics={listOfTopics} />}
       <Hr sx={{ marginBottom: 1, marginTop: 0 }} />
       <CustomLink>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">

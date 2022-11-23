@@ -5,7 +5,7 @@ const CommunitiesInCreatePostContext = createContext(null);
 
 function CommunitiesInCreatePostContextProvider({ children }) {
   const [communities, communitiesError] = createPostServer();
-  console.log(communities);
+  // console.log(communities);
   const value = useMemo(() => ({ communities, communitiesError }), [communities, communitiesError]);
   return (
     <CommunitiesInCreatePostContext.Provider

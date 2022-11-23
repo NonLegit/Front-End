@@ -12,7 +12,7 @@ import Moderation from './Mderation/Moderation';
  */
 function SideBar(props) {
   const {
-    client, disc, topics, Name, primaryTopic, createdAt, moderatoesName, username,
+    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username,
   } = props;
   const [moderate, setModerate] = useState(false);
   useEffect(() => {
@@ -32,11 +32,11 @@ function SideBar(props) {
       )}
       {moderate && (
       <CommunityContainer>
-        <Moderation topics={topics} disc={disc} client={client} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} />
+        <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} />
       </CommunityContainer>
       )}
       <CommunityContainer>
-        <Flirt client={client} />
+        <Flirt />
       </CommunityContainer>
       <CommunityContainer sx={{ padding: '0px 12px' }}>
         <Moderators moderatoesName={moderatoesName} />
