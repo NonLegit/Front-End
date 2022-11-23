@@ -7,7 +7,6 @@ const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
 const Flair = require('./Flair.json');
 const Hot = require('./Hot.json');
-const Join = require('./join.json');
 const Best = require('./SubredditBestPosts.json');
 const New = require('./SubredditnewPosts.json');
 const Top = require('./SubredditnewPosts.json');
@@ -25,7 +24,6 @@ const notifications = require('./Notifications.json');
 const settings = require('./Settings.json');
 const overview = require('./overview.json');
 const subreddits = require('./subreddits.json');
-const user = require('./user.json');
 const downvoted = require('./downvoted.json');
 const upvoted = require('./upvoted.json');
 const saved = require('./saved.json');
@@ -39,7 +37,6 @@ const logout = require('./logout.json');
 module.exports = () => ({
   Subreddit,
   Flair,
-  Join,
   Hot,
   Best,
   Top,
@@ -58,7 +55,6 @@ module.exports = () => ({
   settings,
   overview,
   subreddits,
-  user,
   downvoted,
   upvoted,
   saved,

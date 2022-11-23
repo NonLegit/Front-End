@@ -1,11 +1,11 @@
 // mui components
 import {
-  Box, Divider, useMediaQuery, useTheme,
+  Box, useMediaQuery, useTheme,
 } from '@mui/material';
 
 // styles
 import {
-  PostContainer, Popularity, PostMedia, CustomImage, PostText, PostTextContainer,
+  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer,
 } from './style';
 import Reactions from '../../Post/Reactions/Reactions';
 import PostReactions from '../../Post/PostReactions/PostReactions';
@@ -31,7 +31,7 @@ import PostHeaderSubreddit from './PostHeaderSubreddit/PostHeader';
 
 function PostSubreddit(props) {
   const {
-    title, image, createdAt, owner, author, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    title, image, createdAt, owner, author, flairText, flairBackgroundColor, flairColor, url, kind, votes, commentCount, text,
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -47,14 +47,14 @@ function PostSubreddit(props) {
         flexGrow={1}
         maxWidth={matchSm ? '94.5%' : '100%'}
       >
-        <Popularity pb={1}>
+        {/* <Popularity pb={1}>
           {popularity}
         </Popularity>
         <Divider
           sx={{
             borderColor: 'rgb(0 0 0 / 9%)',
           }}
-        />
+        /> */}
         <PostHeaderSubreddit
           title={title}
           image={image}

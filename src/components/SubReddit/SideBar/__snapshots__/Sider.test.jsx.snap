@@ -72,7 +72,7 @@ exports[`test snapshot 1`] = `
       >
         Created
          
-        November 23, 2022
+        November 24, 2022
       </h2>
     </div>
     <hr
@@ -84,9 +84,7 @@ exports[`test snapshot 1`] = `
       <span>
         <div
           className="css-p1puod"
-        >
-          1.4m
-        </div>
+        />
         <p
           className="css-1cgnkz"
         >

@@ -5,6 +5,7 @@ import About from './AboutSubReddit/About';
 import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
+import numFormatter from '../../../utils/MembersNum';
 /**
  * SideBar for subreddit
  * @component
@@ -12,11 +13,12 @@ import Moderation from './Mderation/Moderation';
  */
 function SideBar(props) {
   const {
-    client, disc, topics, Name, primaryTopic, createdAt, moderatoesName,
+    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
   } = props;
   const [moderate, setModerate] = useState(false);
+  const num = numFormatter(members);
   useEffect(() => {
-    if (moderatoesName?.indexOf(Name) === -1) {
+    if (moderatoesName?.indexOf(username) === -1) {
       setModerate(false);
     } else {
       setModerate(true);
@@ -27,16 +29,16 @@ function SideBar(props) {
       {!moderate
       && (
       <CommunityContainer>
-        <About disc={disc} createdAt={createdAt} />
+        <About disc={disc} createdAt={createdAt} num={num} />
       </CommunityContainer>
       )}
       {moderate && (
       <CommunityContainer>
-        <Moderation topics={topics} disc={disc} client={client} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} />
+        <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} />
       </CommunityContainer>
       )}
       <CommunityContainer>
-        <Flirt client={client} />
+        <Flirt />
       </CommunityContainer>
       <CommunityContainer sx={{ padding: '0px 12px' }}>
         <Moderators moderatoesName={moderatoesName} />

@@ -1,12 +1,13 @@
 // mui components
 import {
-  Avatar, Box, Typography,
+  Box, Typography,
 } from '@mui/material';
+import moment from 'moment/moment';
 
 // styles
 import {
   Flair,
-  PostInfo, PostInfoLink, PostTitle,
+  PostInfo, PostInfoLink, PostTitle, CreatedAt,
 } from './style';
 /**
    * This component is the upper section of post
@@ -15,7 +16,7 @@ import {
    * @property {string} title -Post title.
    * @property {string} image -Post owner icon.
    * @property {string} owner -Post subreddit(post owner).
-   * @property {string} author -Post author.
+   * @property {string} creator -Post creator.
    * @property {string} flairText -Post flair text.
    * @property {string} flairBackgroundColor -Post flair background color.
    * @property {string} flairColor -Post flair color.
@@ -24,32 +25,29 @@ import {
 
 function PostHeaderSubreddit(props) {
   const {
-    title, image, owner, author, flair, flairBackgroundColor, flairColor,
+    title, author, flair, flairBackgroundColor, flairColor, createdAt,
   } = props;
   return (
     <>
       <PostInfo py={1}>
-        <Avatar
+        {/* <Avatar
           src={image}
           sx={{
             width: 20,
             height: 20,
           }}
           alt="Profile Image"
-        />
-        <PostInfoLink to="/" color="#000" fontWeight="bolder">
-          r/
-          {owner}
-        </PostInfoLink>
+        /> */}
         <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
-          <span>
-            •
-          </span>
           <div>Posted By</div>
-          <PostInfoLink to="/" color="inherit" fontWeight="normal">
+          <PostInfoLink to={`/user/${author}`} color="inherit" fontWeight="normal">
             u/
             {author}
           </PostInfoLink>
+          <CreatedAt color="inherit" fontWeight="normal">
+            {(moment.utc(createdAt).local().startOf('seconds')
+              .fromNow())}
+          </CreatedAt>
         </Box>
       </PostInfo>
       <PostTitle to="/">

@@ -109,6 +109,13 @@ Array [
         <div
           className="css-1i4l6gc"
         />
+        <div />
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          reload
+        </button>
       </div>
     </div>
   </div>,

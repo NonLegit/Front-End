@@ -2,7 +2,7 @@ import { Box, ClickAwayListener } from '@mui/material';
 import { useState, useEffect } from 'react';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import EmptyStr from '../../../../../utils/EmptyStr';
-import patchData from '../../../Cover/server';
+import patchData from '../../../server';
 import {
   AboutContent, Action, Add, Count, Input, InputFooter, Text,
 } from './style';

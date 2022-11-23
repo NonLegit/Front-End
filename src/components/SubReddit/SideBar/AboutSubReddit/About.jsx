@@ -13,7 +13,7 @@ import {
  * @return {React.Component} - About Section for normal user
  */
 function About(props) {
-  const { disc, createdAt } = props;
+  const { disc, createdAt, num } = props;
   return (
     <>
       <AboutCountainer>
@@ -41,7 +41,7 @@ function About(props) {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
         <span>
           <Bold>
-            1.4m
+            {num}
           </Bold>
           <Light>Members</Light>
         </span>

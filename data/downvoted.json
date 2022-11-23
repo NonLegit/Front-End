@@ -3,7 +3,7 @@
     {
       "author": "nour",
       "owner": "basma",
-      "ownerType": "hello_nour",
+      "ownerType": "Subreddit",
       "title": "downvoted post 1",
       "kind": "link",
       "text": "text of down voted post 1",
@@ -32,7 +32,7 @@
     {
       "author": "nour2",
       "owner": "basma2",
-      "ownerType": "hello_basma",
+      "ownerType": "Subreddit",
       "title": "downvoted post 2",
       "kind": "link",
       "text": "text of down voted post 2",
