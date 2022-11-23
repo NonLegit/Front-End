@@ -5,6 +5,7 @@ import {
   render, screen,
 } from '@testing-library/react';
 import AddSector from './Add';
+import EmptyStr from '../../../../../utils/EmptyStr';
 
 it('open input to add disc', async () => {
   // window.history.pushState({}, '', '/Login');
@@ -19,4 +20,24 @@ it('open input to add disc', async () => {
 test('test snapshot', async () => {
   const tree = renderer.create(<AddSector />).toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+// test string empty or not
+describe(' test string empty or not', () => {
+  const tests = [{
+    str: 'aaaa',
+    output: false,
+  }, {
+    str: ' ',
+    output: true,
+  }, {
+    str: '',
+    output: true,
+  }];
+  tests.forEach((item, index) => {
+    it(`test case ${index}`, () => {
+      const result = EmptyStr(item.str?.trim());
+      expect(result).toBe(item.output);
+    });
+  });
 });

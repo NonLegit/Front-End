@@ -4,6 +4,8 @@ import {
   fireEvent,
   render, screen,
 } from '@testing-library/react';
+import FilterArray from '../../../../../utils/FilterArray';
+import KeyDown from '../../../../../utils/KeyDown';
 import AddList from './AddList';
 
 it('open input to add disc', async () => {
@@ -19,4 +21,37 @@ it('open input to add disc', async () => {
 test('test snapshot', async () => {
   const tree = renderer.create(<AddList />).toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+// test KeyDown
+describe(' test KeyDown', () => {
+  const tests = [{
+    arr: ['a', 'b', 'c'],
+    output: false,
+  },
+  {
+    arr: ['a', 'b'],
+    output: true,
+  }];
+  tests.forEach((item, index) => {
+    it(`test case ${index}`, () => {
+      const result = KeyDown(item.arr, 'c');
+      expect(result).toBe(item.output);
+    });
+  });
+});
+
+// test filter arry
+describe(' test filter array', () => {
+  const tests = [{
+    arr: ['a', 'b', 'c'],
+    output: ['a', 'b'],
+  }];
+  tests.forEach((item, index) => {
+    it(`test case ${index}`, () => {
+      const result = FilterArray(item.arr, 2);
+      // console.log('nour basma eslam madbouly ', result);
+      expect(result).toEqual(item.output);
+    });
+  });
 });

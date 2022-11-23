@@ -1,5 +1,5 @@
 import MailOutlineIcon from '@mui/icons-material/MailOutline'; import {
-  AboutCountainer, AboutString, CustomLink, Button, Container, Name, Data, ViewAll, ViewAllContainer,
+  AboutCountainer, AboutString, CustomLink, Button, Container, Name, ViewAll, ViewAllContainer,
 } from './style';
 /**
  * Moderators section in sidebar
@@ -24,15 +24,10 @@ function Moderators(props) {
       </CustomLink>
       { moderatoesName?.map((entity, index) => (
         <Container key={`${index + 0}`}>
-          <Name>
+          <Name to={`/user/${entity}`}>
             u/
-            {entity.name}
+            {entity}
           </Name>
-          <Data>
-            {entity.browsIt}
-            {' '}
-            browse it
-          </Data>
         </Container>
       ))}
       <ViewAllContainer>

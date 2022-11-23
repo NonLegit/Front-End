@@ -11,7 +11,7 @@ describe(Post, () => {
     const testCase = {
       commentCount:
         12,
-      creator:
+      author:
         'righteous_boldness07',
       flairBackgroundColor:
         '#0079D3',
@@ -44,7 +44,7 @@ describe(Post, () => {
               title={testCase.title}
               image={testCase.image}
               owner={testCase.owner}
-              creator={testCase.creator}
+              author={testCase.author}
               flairText={testCase.flairText}
               flairBackgroundColor={testCase.flairBackgroundColor}
               popularity={testCase.popularity}

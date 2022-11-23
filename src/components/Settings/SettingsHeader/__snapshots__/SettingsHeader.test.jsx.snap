@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<section
+  data-testid="settings-header"
+>
+  <h3
+    className="css-5g9ivt"
+  >
+    User settings
+  </h3>
+  <nav
+    className="css-1ja20oy"
+  >
+    <div
+      className="css-1vgr6oh"
+    >
+      <a
+        active={true}
+        className="css-1xyom3n"
+        href="/settings/account"
+        onClick={[Function]}
+      >
+        <div
+          className="css-0"
+        >
+          Account
+        </div>
+      </a>
+      <a
+        active={false}
+        className="css-y3du23"
+        href="/settings/profile"
+        onClick={[Function]}
+      >
+        <div
+          className="css-0"
+        >
+          Profile
+        </div>
+      </a>
+      <a
+        active={false}
+        className="css-y3du23"
+        href="/settings/privacy"
+        onClick={[Function]}
+      >
+        <div
+          className="css-0"
+        >
+          Safety & privacy
+        </div>
+      </a>
+      <a
+        active={false}
+        className="css-y3du23"
+        href="/settings/feed"
+        onClick={[Function]}
+      >
+        <div
+          className="css-0"
+        >
+           Feed Settings
+        </div>
+      </a>
+    </div>
+  </nav>
+</section>
+`;

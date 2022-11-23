@@ -1,27 +1,22 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { createContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { useMemo, createContext } from 'react';
+import useFetch from '../hooks/useFetch';
 
 export const FilteredPostsContext = createContext();
-
+/**
+ * content of the filtered page in profile
+ *
+ * @property {string} param - subPage name of profile
+ * @returns {React.Context} provider of the posts of subPage
+ */
 function FilteredPostsProvider(props) {
-  const { param, children, name } = props;
-  const [posts, setPosts] = useState([]);
-  const client = axios.create({
-    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io/',
-  });
-  useEffect(() => {
-    client.get(`users/${name}/${param}/200`) // fetch api
-      .then((actualData) => {
-        setPosts(actualData.data.posts);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [param, name]);
+  const { param, children } = props;
+
+  const [data, dataError, statusCode] = useFetch(`users/${param}`);
+  const value = useMemo(() => ({ posts: data?.posts, postsError: dataError, statusCode }), [data, dataError, statusCode]);
 
   return (
-    <FilteredPostsContext.Provider value={{ posts }}>
+    <FilteredPostsContext.Provider value={value}>
       {children}
     </FilteredPostsContext.Provider>
 

@@ -87,22 +87,16 @@ export const CommunityCategory = styled(Box)(({ theme }) => ({
 
 export const AvatarContainer = styled('div')(() => ({
   position: 'relative',
-  width: 33,
-  height: 33,
+  width: 30,
+  height: 30,
   backgroundColor: '#edeff1',
-  borderRadius: '50%',
+  borderRadius: 1,
+  overflow: 'hidden',
 }));
 
 export const CustomAvatar = styled('img')(() => ({
-  width: 42,
-  height: 42,
-  position: 'absolute',
-  bottom: 0,
-  left: '50%',
-  transform: 'translateX(-50%)',
-  borderRadius: 20,
-  WebkitBorderRadius: 20,
-  MozBorderRadius: 20,
+  width: 30,
+  height: 30,
 }));
 
 export const CommunityName = styled(Box)(() => ({

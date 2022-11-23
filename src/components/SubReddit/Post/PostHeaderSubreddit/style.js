@@ -39,3 +39,9 @@ export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => (
     backgroundColor,
   },
 }));
+
+export const CreatedAt = styled(Box)(({ color, fontWeight }) => ({
+  fontWeight,
+  color,
+  cursor: 'pointer',
+}));

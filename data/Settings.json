@@ -1,0 +1,14 @@
+{
+    "status": "success",
+    "prefs": {
+        "canbeFollowed": true,
+        "displayName": "firstname secondname",
+        "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXg_06hyVEIg2vPsEiAQ5M6c0DjU7vBYzovw&usqp=CAU",
+        "profileBackground": "https://flxt.tmsimg.com/assets/p14505262_i_v10_aa.jpg",
+        "nsfw": true,
+        "adultContent": true,
+        "autoplayMedia": true,
+        "gender": "male",
+        "description": " info"
+    }
+}

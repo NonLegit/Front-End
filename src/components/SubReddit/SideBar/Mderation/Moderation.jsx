@@ -7,6 +7,8 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { useEffect, useState } from 'react';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
+import moment from 'moment/moment';
+import patchData from '../../server';
 import Sort from '../MoreIcon/More';
 import {
   AboutCountainer, AboutString, CreatedSpan,
@@ -23,11 +25,13 @@ import AddList from './AddList/AddList';
  */
 function Moderation(props) {
   const {
-    topics, disc, client, Name, primaryTopic, createdAt,
+    topics, disc, Name, primaryTopic, createdAt, num,
   } = props;
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
   const [selection, setSelection] = useState(primaryTopic);
+  const [statusCode, setStatusCode] = useState(null);
+
   const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
     'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
     'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
@@ -46,16 +50,22 @@ function Moderation(props) {
     // setSelection('Add a Primary Topic');
   };
 
-  const sendData = () => {
-    client.patch(`subreddit/${Name}`, { primaryTopic: selection }); // fetch api
+  const sendData = (val) => {
+    setStatusCode(patchData(`subreddits/${Name}`, { primaryTopic: val })); // fetch api
   };
+
+  useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
+  }, [statusCode]);
 
   // handel on select item
   const ListSelected = (e) => {
     setMore(!more);
     setSelection(e.target.textContent);
     setListOfTopics(true);
-    sendData();
+    sendData(e.target.textContent);
   };
 
   // close the list in  click away
@@ -76,14 +86,14 @@ function Moderation(props) {
           <Sort margin={15} />
         </More>
       </AboutCountainer>
-      <AddSector disc2={disc} client={client} Name={Name} />
+      <AddSector disc2={disc} Name={Name} />
 
       <Created>
         <Icon><EmailOutlinedIcon /></Icon>
         <CreatedSpan>
           Created
           {' '}
-          {createdAt}
+          {moment(createdAt).add(1, 'days').utc().format('MMMM DD, YYYY')}
         </CreatedSpan>
       </Created>
       <Hr />
@@ -93,15 +103,15 @@ function Moderation(props) {
       >
         <span>
           <Bold>
-            1.4m
+            {num}
           </Bold>
           <Light>Members</Light>
         </span>
         <span>
           <SpecialBold>
-            1.0k
+            {/* 1.0k */}
           </SpecialBold>
-          <Light>Online</Light>
+          {/* <Light>Online</Light> */}
         </span>
         <span />
         <div />
@@ -163,7 +173,7 @@ function Moderation(props) {
           </Lists>
         </ClickAwayListener>
       )}
-      {listOfTopics && <AddList topics={topics} client={client} Name={Name} listOfTopics={listOfTopics} />}
+      {listOfTopics && <AddList topics={topics} Name={Name} listOfTopics={listOfTopics} />}
       <Hr sx={{ marginBottom: 1, marginTop: 0 }} />
       <CustomLink>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">

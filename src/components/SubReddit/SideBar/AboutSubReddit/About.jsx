@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import moment from 'moment/moment';
 import Sort from '../MoreIcon/More';
 
 import {
@@ -12,7 +13,7 @@ import {
  * @return {React.Component} - About Section for normal user
  */
 function About(props) {
-  const { disc, createdAt } = props;
+  const { disc, createdAt, num } = props;
   return (
     <>
       <AboutCountainer>
@@ -33,14 +34,14 @@ function About(props) {
         <CreatedSpan>
           Created
           {' '}
-          {createdAt}
+          {moment(createdAt).add(1, 'days').utc().format('MMMM DD, YYYY')}
         </CreatedSpan>
       </Created>
       <Hr />
       <Box sx={{ display: 'flex', justifyContent: 'space-between', margin: 1 }}>
         <span>
           <Bold>
-            1.4m
+            {num}
           </Bold>
           <Light>Members</Light>
         </span>

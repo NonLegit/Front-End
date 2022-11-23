@@ -1,11 +1,11 @@
 // mui components
 import {
-  Box, Divider, useMediaQuery, useTheme,
+  Box, useMediaQuery, useTheme,
 } from '@mui/material';
 
 // styles
 import {
-  PostContainer, Popularity, PostMedia, CustomImage, PostText, PostTextContainer,
+  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer,
 } from './styles';
 
 import Reactions from './Reactions/Reactions';
@@ -18,7 +18,7 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {string} title -Post title.
  * @property {string} image -Post owner icon.
  * @property {string} owner -Post subreddit(post owner).
- * @property {string} creator -Post creator.
+ * @property {string} author -Post author.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
@@ -32,7 +32,7 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    title, image, createdAt, owner, creator, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    title, image, createdAt, owner, author, flairText, flairBackgroundColor, flairColor, url, kind, votes, commentCount, text,
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -48,19 +48,11 @@ function Post(props) {
         flexGrow={1}
         maxWidth={matchSm ? '94.5%' : '100%'}
       >
-        <Popularity pb={1}>
-          {popularity}
-        </Popularity>
-        <Divider
-          sx={{
-            borderColor: 'rgb(0 0 0 / 9%)',
-          }}
-        />
         <PostHeader
           title={title}
           image={image}
           owner={owner}
-          creator={creator}
+          author={author}
           flair={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}

@@ -3,7 +3,7 @@
 exports[`PostHeader PostHeader renders correctly 1`] = `
 Array [
   <div
-    className="MuiBox-root css-11kldd9"
+    className="MuiBox-root css-1eogohz"
   >
     <div
       className="MuiAvatar-root MuiAvatar-circular css-2is7ki-MuiAvatar-root"
@@ -18,7 +18,7 @@ Array [
       className="css-kqg5s"
       color="#000"
       fontWeight="bolder"
-      href="/"
+      href="/Subreddit/owner"
       onClick={[Function]}
     >
       r/
@@ -37,18 +37,16 @@ Array [
         className="css-1fa4cpj"
         color="inherit"
         fontWeight="normal"
-        href="/"
+        href="/user/author"
         onClick={[Function]}
       >
         u/
-        creator
+        author
       </a>
       <div
         className="MuiBox-root css-5ah3mn"
       >
-        NaN years
-         
-        ago
+        a few seconds ago
       </div>
     </div>
     <div

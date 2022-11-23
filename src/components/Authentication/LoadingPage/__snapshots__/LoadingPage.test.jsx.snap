@@ -1,46 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading Page SnapShot 1`] = `
-Array [
-  <div
-    className="MuiBox-root css-1i4eqyw"
-  />,
-  <div
-    className="MuiBox-root css-1rv97zb"
-    mnwidth="280px"
-    mxwidth="440px"
-  />,
-  <div
-    className="MuiBox-root css-eyuwdo"
+<div
+  className="MuiBox-root css-eyuwdo"
+>
+  <img
+    alt="Reddit"
+    src="https://www.redditstatic.com/accountmanager/18e257d5fdea817c0f12cccf8867d930.svg"
+    width="40px"
+  />
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-1sg842v-MuiTypography-root"
   >
-    <img
-      alt="Reddit"
-      src="https://www.redditstatic.com/accountmanager/18e257d5fdea817c0f12cccf8867d930.svg"
-      width="40px"
-    />
+    Welcome back!
+  </p>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-g041yz-MuiTypography-root"
+  >
     <p
-      className="MuiTypography-root MuiTypography-body1 css-1sg842v-MuiTypography-root"
-    >
-      Welcome back!
-    </p>
-    <p
-      className="MuiTypography-root MuiTypography-body1 css-g041yz-MuiTypography-root"
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-aeviwr-MuiTypography-root"
     >
       You are already logged in and will be redirected back to Reddit shortly.
-      <br />
-      <br />
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-aeviwr-MuiTypography-root"
+    >
       If you are not redirected automatically, follow
        
       <a
-        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jbmv31-MuiTypography-root-MuiLink-root"
-        href="google.com"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rfhsen-MuiTypography-root-MuiLink-root"
+        href="#"
         onBlur={[Function]}
+        onClick={[Function]}
         onFocus={[Function]}
       >
         this link
       </a>
       .
     </p>
-  </div>,
-]
+  </p>
+</div>
 `;

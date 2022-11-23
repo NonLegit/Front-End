@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 // mui components
 import { Typography } from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
 
 // styles
 import { FirstPartyContainer } from './styles';
-import {
-  RedditLoadingButton, RedditTextField, wrongIcon, rightIcon,
-} from '../styles';
+import { RedditLoadingButton, RedditTextField } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
+
+// servers
+import { checkUserName, logIn } from './server';
 
 /**
  * Form for Logging in by username and passsword
@@ -31,101 +31,12 @@ function FirstParty() {
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
 
-  /**
-   *
-   * Function to check if length of provided string 3-20 accordingly change color and mesaages of username input field
-   * @param {string} username  -username to check on
-   * @returns void
-   */
-  const checkUserName = (username) => {
-    // console.log(userName); // late
-    // Check Username bwteen 3-20 characters
-    if (username.length < 3 || username.length > 20) {
-      setUserName((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Username must be between 3 and 20 characters',
-      }));
-      return;
-    }
-    // else Valid
-    setUserName((prevState) => ({
-      ...prevState,
-      color: theme.palette.primary.main,
-      icon: rightIcon,
-      error: null,
-    }));
-  };
-
-  /**
-   *
-   * Function Calls /users/login endpoint to Redirect to Home Page or Invalid so Error Messages Appear
-   * @param {event} event -Onsubmit of the form
-   * @returns void
-   */
-  const logIn = (event) => {
-    event.preventDefault();
-    // console.log(userName);// Not Late
-    setLoading(true);
-    if (userName.error != null) {
-      setLoading(false);
-      return;
-    }
-
-    // Case of previous trial was error
-    setPassword((prevState) => ({
-      ...prevState,
-      color: theme.palette.neutral.main,
-      icon: null,
-      error: null,
-    }));
-
-    // API Call
-    const x = userName.input === 'basma' ? 3 : 1;
-    axios.post(`https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/users/login/${x}`, { userName: userName.input, password: password.input }).then((response) => {
-      if (response.status === 200) {
-        setLoading(false);
-        // sucess
-        // ==>response.data.token
-        // ==>response.data.expiresin
-        // ==>Cokies Point
-        setButtonText(<DoneIcon />);
-        setDisabled(true);
-        setRedirectCaption(true);
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 1000);
-      }
-    }).catch((error) => {
-      setLoading(false);
-      console.log(error);
-      if (error.response.status === 404) {
-        // Invlaid Username or password
-        // update username and password states
-        setUserName((prevState) => ({
-          ...prevState,
-          color: theme.palette.error.main,
-          icon: wrongIcon,
-          error: 'Incorrect username or password',
-        }));
-        setPassword((prevState) => ({
-          ...prevState,
-          color: theme.palette.error.main,
-          icon: wrongIcon,
-          error: null,
-        }));
-      } else if (error.response.status === 400) {
-        // Provide username or password
-        // ==> errorMessage [Check with BE]
-        console.log('status 400 is returned');
-      }
-    });
-  };
-
+  // useCookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
   return (
 
-    <FirstPartyContainer width="290px" onSubmit={logIn} data-testid="FirstParty-test">
+    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }} data-testid="FirstParty-test">
 
       <RedditTextField
         label="Username"
@@ -144,7 +55,7 @@ function FirstParty() {
             ...prevState,
             input: e.target.value.trim(),
           }));
-          checkUserName(e.target.value.trim());
+          checkUserName(e.target.value.trim(), setUserName);
         }}
         helperText={userName.error}
         data-testid="UserName-FirstParty-test"

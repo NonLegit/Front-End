@@ -76,7 +76,7 @@ exports[`test snapshot 1`] = `
         />
       </svg>
       <a
-        href="/"
+        href="/settings"
         onClick={[Function]}
       >
         <div

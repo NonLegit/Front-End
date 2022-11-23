@@ -73,8 +73,35 @@ Array [
       onClick={[Function]}
       onTouchEnd={[Function]}
     >
+      <div>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1f5eo08-MuiButtonBase-root-MuiButton-root"
+          disabled={false}
+          id="DiscAlert"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          openForm dialog
+          <span
+            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
       <div
-        className="MuiBox-root css-k008qs"
+        className="MuiBox-root css-mu305i"
         data-testid="add"
         onClick={[Function]}
       >
@@ -121,6 +148,7 @@ Array [
     >
       Created
        
+      November 24, 2022
     </h2>
   </div>,
   <hr
@@ -132,9 +160,7 @@ Array [
     <span>
       <div
         className="css-p1puod"
-      >
-        1.4m
-      </div>
+      />
       <p
         className="css-k7lqej"
       >
@@ -144,14 +170,7 @@ Array [
     <span>
       <div
         className="css-1o97w51"
-      >
-        1.0k
-      </div>
-      <p
-        className="css-k7lqej"
-      >
-        Online
-      </p>
+      />
     </span>
     <span />
     <div />

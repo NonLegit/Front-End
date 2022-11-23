@@ -5,7 +5,7 @@ export const CreatePostContainer = styled('div')(() => ({
   width: '100%',
   margin: '16px 0',
   backgroundColor: '#fff',
-  padding: '14px 12px',
+  padding: '12px 12px',
   borderRadius: 4,
   display: 'flex',
   gap: 8,
@@ -41,20 +41,17 @@ export const PostTitle = styled('input')(({ theme }) => ({
 
 export const AvatarContainer = styled('div')(() => ({
   position: 'relative',
-  width: 38,
-  height: 38,
+  width: 40,
+  height: 40,
   backgroundColor: '#f6f7f8',
   borderRadius: '50%',
 }));
 
 export const Avatar = styled('img')(() => ({
-  width: 50,
-  height: 50,
-  position: 'absolute',
-  bottom: 0,
-  left: '50%',
-  transform: 'translateX(-50%)',
-  borderRadius: 20,
-  WebkitBorderRadius: 20,
-  MozBorderRadius: 20,
+  width: 43,
+  height: 43,
+  borderRadius: '50%',
+  WebkitBorderRadius: '50%',
+  MozBorderRadius: '50%',
+  border: '2px solid #eeeeee',
 }));

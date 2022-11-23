@@ -31,7 +31,7 @@ function Input(props) {
           onChange={handleChange}
           startAdornment={<InputAdornment position="start">r/</InputAdornment>}
           maxLength={21}
-          onBlur={() => check()}
+          onBlur={check}
         />
       </FormControl>
       <Count

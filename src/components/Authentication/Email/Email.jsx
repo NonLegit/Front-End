@@ -5,9 +5,14 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 // styles
 import {
-  FirstPartyContainer, RedditTextField, wrongIcon, rightIcon, RedditLoadingButton,
+  FirstPartyContainer, RedditTextField, RedditLoadingButton,
 } from '../styles';
-import theme from '../../../styles/theme';
+
+// scripts
+import { checkEmail } from '../scripts';
+
+// env Variables
+const { REACT_APP_SITEKEY } = process.env;
 
 /**
  * Email Compoenet with ReCAPTCHA if required
@@ -32,43 +37,10 @@ function Email({
   const [defaultEmailValue, setdefaultEmailValue] = useState(email?.input);
   const [recaptchaState, setrecaptchaState] = useState(false);
 
-  const checkEmail = (emailInput) => {
-    // console.log('checkEmail');
-    // console.log(emailInput);
-    // console.log(email);// Old Value
-
-    // check if empty field
-    if (emailInput === '') {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please enter an email address to continue',
-      }));
-    }
-
-    // check Syntax
-    if (!/\S+@\S+\.\S+/.test(emailInput)) {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please fix your email to continue',
-      }));
-    } else {
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.primary.main,
-        icon: rightIcon,
-        error: null,
-      }));
-    }
-  };
-
   return (
     // right value emailon submit in case that we have made any change in input field
     // in case no change the value there is wrong :) but the view here is true
-    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input); onSubmitFn(); }} noValidate data-testid="SignUpEmail-test">
+    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input, setEmail); onSubmitFn(); }} noValidate data-testid="SignUpEmail-test">
       <RedditTextField
         label={fieldText}
         variant="filled"
@@ -82,11 +54,12 @@ function Email({
         clr={email?.color}
         onBlur={() => { if (recaptcha) setrecaptchaState(true); }}
         onChange={(e) => {
+          if (recaptcha) setrecaptchaState(true);
           setEmail((prevState) => ({
             ...prevState,
             input: e.target.value.trim(),
           }));
-          checkEmail(e.target.value.trim());
+          checkEmail(e.target.value.trim(), setEmail);
           setdefaultEmailValue(e.target.value.trim());
         }}
         helperText={email?.error}
@@ -97,7 +70,7 @@ function Email({
       </RedditLoadingButton>
       {recaptchaState ? (
         <ReCAPTCHA
-          sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
+          sitekey={REACT_APP_SITEKEY}
           onExpired={() => setVerified(false)}
           onChange={() => setVerified(true)}
           size="normal"
