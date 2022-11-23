@@ -84,9 +84,7 @@ exports[`test snapshot 1`] = `
       <span>
         <div
           className="css-p1puod"
-        >
-          1.4m
-        </div>
+        />
         <p
           className="css-1cgnkz"
         >

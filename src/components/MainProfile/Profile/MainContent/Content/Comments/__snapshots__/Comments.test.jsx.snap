@@ -390,7 +390,6 @@ exports[`test snapshot 1`] = `
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
           data-testid="cover-photo"
           height="94"
-          src="https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&height=384&crop=1280:384,smart&s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c"
         />
         <div
           className="MuiBox-root css-x4iih0"
@@ -420,7 +419,6 @@ exports[`test snapshot 1`] = `
               <img
                 alt="user photo"
                 className="css-1kfbsc2"
-                src="https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21"
               />
               <div
                 className="MuiBox-root css-1kmk8kw"
