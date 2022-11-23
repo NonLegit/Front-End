@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { ClickAwayListener, Divider } from '@mui/material';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import {
@@ -48,12 +47,6 @@ function OtherProfilePostFooter(props) {
           Comments
         </FooterText>
       </ElementBox>
-
-      <ElementBox>
-        <CardGiftcardIcon />
-        <FooterText variant="caption" responsiveshare={true.toString()}>Award</FooterText>
-      </ElementBox>
-
       <ElementBox>
         <ShortcutOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>Share</FooterText>

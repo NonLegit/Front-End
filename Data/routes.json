@@ -18,7 +18,6 @@
     "/users/reset_password/:token":"/resetpassword",
     "/user/notifications": "/notifications",
     "/users/me/prefs": "/settings",
-    "/users/me": "/user",
     "/subreddit/mine/moderator": "/subreddits",
     "/users/:name/overview": "/overview",
     "/user/:name/post": "/postsTap",

@@ -22,6 +22,8 @@ function OtherProfileUserInfo() {
   const [postKarma, setPostKarma] = useState();
   const [commentKarma, setCommentKarma] = useState();
   const [cake, setCake] = useState();
+  const [profilePic, setProfilePic] = useState();
+  const [coverPic, setCoverPic] = useState();
 
   const { username } = useContext(UserContext);
   const { info } = useContext(UserInfoContext);
@@ -31,6 +33,9 @@ function OtherProfileUserInfo() {
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setCake(info?.createdAt);
+    setProfilePic(info?.profilePicture);
+    setCoverPic(info?.profileBackground);
+    console.log(info?.profilePicture);
   }, [info]);
 
   const [showList, setShowList] = useState(false);
@@ -48,7 +53,7 @@ function OtherProfileUserInfo() {
       <CardMedia
         component="img"
         height="94"
-        image="https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&height=384&crop=1280:384,smart&s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c"
+        image={coverPic}
         alt="cover image"
         data-testid="cover-photo"
       />
@@ -56,7 +61,7 @@ function OtherProfileUserInfo() {
       <ProfileBox>
         <Box sx={{ display: 'flex' }}>
           <Box>
-            <ProfilePic src="https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21" alt="user photo" />
+            <ProfilePic src={profilePic} alt="user photo" />
           </Box>
         </Box>
         <UserName variant="caption">

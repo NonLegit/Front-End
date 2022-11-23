@@ -2,7 +2,6 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 
 import { Divider } from '@mui/material';
 import { useState } from 'react';
@@ -22,11 +21,6 @@ function OtherProfilePostFooterListResponsive(props) {
   };
   return (
     <SelectBox>
-      <SelectItem>
-        <CardGiftcardIcon sx={{ marginRight: 1 }} />
-        Give Award
-      </SelectItem>
-      <Divider />
       {!saved ? (
         <SelectItem onClick={() => { handleClick(); }}>
           <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />

@@ -31,7 +31,7 @@ function Posts(props) {
           />
           <TitlePost variant="h6">{post?.title}</TitlePost>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
-          <PostFooter isSaved={post.isSaved} subTitle={post?.ownerType} numComments={post?.commentCount} />
+          <PostFooter isSaved={post?.isSaved} subTitle={post?.ownerType} numComments={post?.commentCount} />
         </Box>
       </PostContentBox>
     </PostsQueueBox>

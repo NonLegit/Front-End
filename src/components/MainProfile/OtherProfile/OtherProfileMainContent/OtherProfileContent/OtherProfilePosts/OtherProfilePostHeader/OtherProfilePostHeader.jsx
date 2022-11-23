@@ -1,28 +1,11 @@
 import { Box, Typography } from '@mui/material';
+import moment from 'moment/moment';
 import { useState } from 'react';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
   HeaderAvatar, HeaderAvatarText, HeaderPost, Joined,
 } from './styles';
-
-// calculate the time difference between post creation and current date
-const calculateTime = (d, time) => {
-  const year = d.getFullYear() - time.split('T')[0].split('-')[0];
-  const month = d.getMonth() - time.split('T')[0].split('-')[1];
-  const day = d.getDate() - time.split('T')[0].split('-')[2];
-
-  if (year > 0) {
-    return (`${year} years ago`);
-  }
-  if (month > 0) {
-    return (`${month} months ago`);
-  }
-  if (day > 0) {
-    return (`${day} days ago`);
-  }
-  return ('today');
-};
 
 /**
  * Header for a post
@@ -36,9 +19,8 @@ const calculateTime = (d, time) => {
 
 function OtherProfilePostHeader(props) {
   const {
-    subReddit, nameUser, Time,
+    subReddit, nameUser, Time, isSubReddit,
   } = props;
-  const d = new Date();
   const [joined, setJoined] = useState(false);
 
   const handleJoin = () => {
@@ -60,11 +42,9 @@ function OtherProfilePostHeader(props) {
         flexWrap: 'wrap',
       }}
       >
-        {/* OR PHOTO */}
         <HeaderAvatar>
           <HeaderAvatarText>r/</HeaderAvatarText>
         </HeaderAvatar>
-        {/* OR PHOTO */}
         <Box sx={{ display: 'flex', flexWrap: 'wrap', marginRight: '70px' }}>
           <Typography variant="caption" sx={{ fontWeight: 700, marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
             r/
@@ -86,10 +66,12 @@ function OtherProfilePostHeader(props) {
             }}
           >
             {' '}
-            {calculateTime(d, Time)}
+            {(moment.utc(Time).local().startOf('seconds')
+              .fromNow())}
           </Typography>
 
         </Box>
+        {isSubReddit && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
           onClick={handleJoin}
@@ -99,6 +81,7 @@ function OtherProfilePostHeader(props) {
         >
           {(joined ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
+        )}
       </Box>
 
       {/* {((subTitle === 'Spam').toString() === 'true')

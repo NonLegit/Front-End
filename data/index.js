@@ -24,7 +24,6 @@ const notifications = require('./Notifications.json');
 const settings = require('./Settings.json');
 const overview = require('./overview.json');
 const subreddits = require('./subreddits.json');
-const user = require('./user.json');
 const downvoted = require('./downvoted.json');
 const upvoted = require('./upvoted.json');
 const saved = require('./saved.json');
@@ -55,7 +54,6 @@ module.exports = () => ({
   settings,
   overview,
   subreddits,
-  user,
   downvoted,
   upvoted,
   saved,

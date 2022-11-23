@@ -4,7 +4,6 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 
 import { useEffect, useState } from 'react';
 import { Divider } from '@mui/material';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import UnfoldLessOutlinedIcon from '@mui/icons-material/UnfoldLessOutlined';
@@ -16,6 +15,7 @@ import {
   ElementBox, FooterBox, FooterText,
 } from './styles';
 import OtherProfilePostFooterListResponsive from './OtherProfilePostFooterListResponsive/OtherProfilePostFooterListResponsive';
+import OtherProfileArrowList from './OtherProfileArrowList/OtherProfileArrowList';
 /**
  * Footer of the post that contain all icons
  *
@@ -27,16 +27,11 @@ import OtherProfilePostFooterListResponsive from './OtherProfilePostFooterListRe
  */
 function OtherProfilePostFooter(props) {
   const {
-    numComments,
-    handleExpand,
-    expand,
-    saved,
-    hidden,
-    submitted,
+    numComments, handleExpand, expand, saved, hidden, submitted,
+    points, postVoteStatus,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
-  // const [showList, setShowList] = useState(false);
   const [showList2, setShowList2] = useState(false);
 
   // handle disable the list when click away
@@ -61,19 +56,20 @@ function OtherProfilePostFooter(props) {
 
   const publisher = [
     isSaved ? {
-      id: 2, text: 'Unsave', icon: <BookmarksOutlinedIcon />, func: handleClickSave,
+      id: 1, text: 'Unsave', icon: <BookmarksOutlinedIcon />, func: handleClickSave,
     } : {
-      id: 2, text: 'Save', icon: <BookmarkBorderOutlinedIcon />, func: handleClickSave,
+      id: 1, text: 'Save', icon: <BookmarkBorderOutlinedIcon />, func: handleClickSave,
     },
     isHidden ? {
-      id: 3, text: 'Unhide', icon: <VisibilityOffIcon />, func: handleClickHide,
+      id: 2, text: 'Unhide', icon: <VisibilityOffIcon />, func: handleClickHide,
     } : {
-      id: 3, text: 'Hide', icon: <VisibilityOffOutlinedIcon />, func: handleClickHide,
+      id: 2, text: 'Hide', icon: <VisibilityOffOutlinedIcon />, func: handleClickHide,
     },
   ];
 
   return (
     <FooterBox>
+      <OtherProfileArrowList points={points} postVoteStatus={postVoteStatus} />
       <ElementBox>
         {expand ? <UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
@@ -84,13 +80,8 @@ function OtherProfilePostFooter(props) {
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}
-          {' '}
-          Comments
+          {!submitted && ' Comments'}
         </FooterText>
-      </ElementBox>
-      <ElementBox condition={true.toString()}>
-        <CardGiftcardIcon />
-        <FooterText variant="caption" responsiveshare={true.toString()}>Award</FooterText>
       </ElementBox>
       <ElementBox>
         <ShortcutOutlinedIcon />
@@ -103,11 +94,11 @@ function OtherProfilePostFooter(props) {
         <ElementBox
           key={entity.id}
           onClick={() => { entity.func(); }}
-          data-testid={(entity.id === 3) && 'hidden'}
+          data-testid={(entity.id === 2) && 'hidden'}
           condition={true.toString()}
         >
           {entity.icon}
-          <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 3) && 'text-hide'}>{entity.text}</FooterText>
+          <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
         </ElementBox>
       ))}
 

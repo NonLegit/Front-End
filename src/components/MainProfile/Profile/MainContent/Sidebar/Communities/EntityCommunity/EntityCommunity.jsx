@@ -11,7 +11,7 @@ function EntityComment(props) {
   // check if current logged in user is joined or not
   const [joined, setJoined] = useState(true);
 
-  joinPost(!joined, community.subredditName);
+  joinPost(joined, community.subredditName);
 
   // sharing their state currently
   const handleJoin = () => {

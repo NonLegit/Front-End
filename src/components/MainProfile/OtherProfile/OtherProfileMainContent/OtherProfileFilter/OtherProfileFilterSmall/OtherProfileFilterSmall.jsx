@@ -73,7 +73,7 @@ const renderSwitch = (
                 <SelectItem
                   color="inherit"
                   onClick={() => { handleClick2(); }}
-                  condition={(sort === 'new=top&d=day').toString()}
+                  condition={(sort === 'sort=top&t=day').toString()}
                 >
                   Today
 
@@ -86,7 +86,7 @@ const renderSwitch = (
     );
   }
   return (
-    <>no</>
+    <div />
   );
 };
 

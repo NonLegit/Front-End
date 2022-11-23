@@ -86,7 +86,7 @@ const renderSwitch = (
     );
   }
   return (
-    <>no</>
+    <div />
   );
 };
 

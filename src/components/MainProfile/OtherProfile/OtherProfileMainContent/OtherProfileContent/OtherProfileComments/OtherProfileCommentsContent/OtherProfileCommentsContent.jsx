@@ -1,28 +1,11 @@
 import { Box, IconButton } from '@mui/material';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { useContext } from 'react';
+import moment from 'moment/moment';
 import { UserContext } from '../../../../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
 import { CommentsBoxBlue, CommentsBoxContent } from './styles';
-
-// calculate the time difference between post creation and current date
-const calculateTime = (d, time) => {
-  const year = d.getFullYear() - time.split('T')[0].split('-')[0];
-  const month = d.getMonth() - time.split('T')[0].split('-')[1];
-  const day = d.getDate() - time.split('T')[0].split('-')[2];
-
-  if (year > 0) {
-    return (`${year} years ago`);
-  }
-  if (month > 0) {
-    return (`${month} months ago`);
-  }
-  if (day > 0) {
-    return (`${day} days ago`);
-  }
-  return ('today');
-};
 
 /**
  * the Body of an comment
@@ -41,7 +24,6 @@ function OtherProfileCommentsContent(props) {
     body,
   } = props;
   const { username } = useContext(UserContext);
-  const d = new Date();
   return (
     <CommentsBoxContent>
       <CommentsBoxBlue>
@@ -54,7 +36,8 @@ function OtherProfileCommentsContent(props) {
             {' '}
             point .
             {' '}
-            {calculateTime(d, time)}
+            {(moment.utc(time).local().startOf('seconds')
+              .fromNow())}
           </CommentText>
         </Box>
         <Box><CommentText variant="body2" coloring="black">{body}</CommentText></Box>

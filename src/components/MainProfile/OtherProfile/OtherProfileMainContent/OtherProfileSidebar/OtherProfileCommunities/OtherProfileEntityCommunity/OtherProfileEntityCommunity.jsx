@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
+import joinPost from './server';
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
 } from './styles';
@@ -8,6 +9,8 @@ function OtherProfileEntityComment(props) {
   const { community } = props;
   // check if current logged in user is joined or not
   const [joined, setJoined] = useState(false);
+
+  joinPost(joined, community.subredditName);
 
   // sharing their state currently
   const handleJoin = () => {

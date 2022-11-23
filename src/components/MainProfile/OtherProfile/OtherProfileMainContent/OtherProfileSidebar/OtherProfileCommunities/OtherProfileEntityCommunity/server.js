@@ -12,6 +12,7 @@ import axios from '../../../../../../../services/instance';
 
 const joinPost = (sub, subredditName) => {
   const [data, setData] = useState(null);
+
   const isFirstRun = useRef(true);
   useEffect(() => {
     if (isFirstRun.current) {
