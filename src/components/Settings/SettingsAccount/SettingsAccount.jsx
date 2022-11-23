@@ -10,6 +10,7 @@ import {
 import AccountPreferences from './AccountPreferences/AccountPreferences';
 import { DeleteAccount } from './styles';
 import useFetch from '../../../hooks/useFetch';
+import UserInfoProvider from '../../../contexts/UserInfoProvider';
 /**
  * - SettingsAccount
  * - Change Email and password in settings page
@@ -34,9 +35,11 @@ const SettingsAccount = () => {
         <SettingsPageConranier data-testid="settings-account">
           <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
             <Header>Account settings</Header>
-            <SettingsProvider prefs={prefs} setPrefs={setPrefs}>
-              <AccountPreferences />
-            </SettingsProvider>
+            <UserInfoProvider>
+              <SettingsProvider prefs={prefs} setPrefs={setPrefs}>
+                <AccountPreferences />
+              </SettingsProvider>
+            </UserInfoProvider>
             <SubHeader>  CONNECTED ACCOUNTS  </SubHeader>
             <Button>
               <Content>
