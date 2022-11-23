@@ -11,6 +11,9 @@ import {
 // scripts
 import { checkEmail } from '../../../../Authentication/scripts';
 
+// env Variables
+const { REACT_APP_SITEKEY } = process.env;
+
 function Email({
   email, setEmail, onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, disabled,
 }) {
@@ -50,7 +53,7 @@ function Email({
       </RedditLoadingButton>
       {recaptchaState ? (
         <ReCAPTCHA
-          sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
+          sitekey={REACT_APP_SITEKEY}
           onExpired={() => setVerified(false)}
           onChange={() => setVerified(true)}
           size="normal"

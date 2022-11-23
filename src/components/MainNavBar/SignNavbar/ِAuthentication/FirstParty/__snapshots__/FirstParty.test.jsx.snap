@@ -3,11 +3,12 @@
 exports[`test snapshot 1`] = `
 <form
   className="css-bs3vrj"
+  noValidate={true}
   onSubmit={[Function]}
   width="290px"
 >
   <div
-    className="MuiFormControl-root MuiTextField-root css-1hpqeme-MuiFormControl-root-MuiTextField-root"
+    className="MuiFormControl-root MuiTextField-root css-frw5z3-MuiFormControl-root-MuiTextField-root"
     clr="#978A8C"
   >
     <label
@@ -46,7 +47,7 @@ exports[`test snapshot 1`] = `
     </div>
   </div>
   <div
-    className="MuiFormControl-root MuiTextField-root css-1hpqeme-MuiFormControl-root-MuiTextField-root"
+    className="MuiFormControl-root MuiTextField-root css-frw5z3-MuiFormControl-root-MuiTextField-root"
     clr="#978A8C"
   >
     <label
@@ -85,7 +86,7 @@ exports[`test snapshot 1`] = `
     </div>
   </div>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-ut38f7-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+    className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1ogaqic-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
     disabled={false}
     id=":r2:"
     onBlur={[Function]}

@@ -58,9 +58,7 @@ exports[`Post Reactions renders correctly 1`] = `
         <div
           className="MuiBox-root css-5ah3mn"
         >
-          NaN years
-           
-          ago
+          a few seconds ago
         </div>
       </div>
       <div

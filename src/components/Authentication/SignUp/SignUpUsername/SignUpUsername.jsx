@@ -23,6 +23,9 @@ import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from './se
 import { checkPassword } from '../../scripts';
 import theme, { fonts } from '../../../../styles/theme';
 
+// env Variables
+const { REACT_APP_SITEKEY } = process.env;
+
 /**
  * SignUp Username and Password Page View
  *
@@ -129,7 +132,7 @@ function SignUpUsername({
             data-testid="password-signup-field-test"
           />
           <ReCAPTCHA
-            sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
+            sitekey={REACT_APP_SITEKEY}
             onExpired={() => setVerified(false)}
             onChange={() => setVerified(true)}
             size="normal"

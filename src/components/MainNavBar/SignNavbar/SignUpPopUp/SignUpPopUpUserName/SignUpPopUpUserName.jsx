@@ -28,6 +28,9 @@ import { StyledDialog } from '../../styles';
 import { RedditTextField, RedditLoadingButton } from '../../ِAuthentication/styles';
 import theme, { fonts } from '../../../../../styles/theme';
 
+// env Variables
+const { REACT_APP_SITEKEY } = process.env;
+
 /**
  *  SignUp UseerName popUp
  * @component
@@ -184,7 +187,7 @@ function SignUpPopUpUserName({
           helperText={password?.error}
         />
         <ReCAPTCHA
-          sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
+          sitekey={REACT_APP_SITEKEY}
           onExpired={() => setVerified(false)}
           onChange={() => setVerified(true)}
           size="normal"
