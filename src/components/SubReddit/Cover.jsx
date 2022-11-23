@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import MainContent from '../MainContent/MainContent';
-import PostSubreddit from '../Post/Post';
+import PostSubreddit from './Post/Post';
 import CreatePostInHome from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
