@@ -11,7 +11,6 @@ import theme from '../../../styles/theme';
 
 // scripts
 import { redditCookie } from '../scripts';
-// scripts
 import { redirectHome } from '../../../utils/Redirect';
 
 /**
@@ -100,9 +99,7 @@ export const logIn = async (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-
       if (popUp === false) { console.log('popup'); redditCookie(setCookies); redirectHome(1000); } else {
-        console.log('nottt');
         // PopUp window
         const interval = setInterval(() => {
           handleClose();
