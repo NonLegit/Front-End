@@ -20,7 +20,7 @@ function Email({
   return (
     // right value emailon submit in case that we have made any change in input field
     // in case no change the value there is wrong :) but the view here is true
-    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input, setEmail); onSubmitFn(); }} noValidate data-testid="SignUpEmail-test">
+    <FirstPartyContainer width={width} onSubmit={(e) => { e.preventDefault(); checkEmail(email.input, setEmail); onSubmitFn(); }} noValidate >
       <RedditTextField
         label={fieldText}
         variant="filled"
@@ -46,7 +46,7 @@ function Email({
         value={defaultEmailValue || ''}
         ispopup = {ispopup}
       />
-      <RedditLoadingButton type="submit" loading={loading} data-testid="email-btn-test" width={btnWidth} disabled={disabled}>
+      <RedditLoadingButton type="submit" loading={loading} width={btnWidth} disabled={disabled}>
         {buttonText}
       </RedditLoadingButton>
       {recaptchaState ? (

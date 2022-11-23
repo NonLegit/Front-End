@@ -80,7 +80,7 @@ export const RedditTextField = styled((props) => (
     width: '100%',
     marginBottom: '10px',
     // input text
-    '& .MuiInputBase-root': {
+    '.MuiInputBase-input': {
       fontSize: '12px',
       borderRadius: '2em',
     },
@@ -105,7 +105,7 @@ export const RedditTextField = styled((props) => (
     },
     '&.Mui-focused': {
       backgroundColor: 'transparent',
-      boxShadow: `${alpha(clr, 0.25)} 0 0 0 2px`,
+      boxShadow: clr ? `${alpha(clr, 0.25)} 0 0 0 2px` : 'none',
       borderColor: `${clr}`,
     },
   },

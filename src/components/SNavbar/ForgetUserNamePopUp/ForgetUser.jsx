@@ -7,7 +7,11 @@ import StyledDialog from '../SignUpPopUp/styles';
 import { StyledLink } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../ِAuthentication/AuthenticationHeader/AuthenticationHeader';
 import Email from '../ِAuthentication/Email/Email';
-
+import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
+import { recoverUsername } from './server';
+import { redditCookie } from '../scripts';
 /**
  *  ForgetUsername popUp
  * @component
@@ -15,13 +19,40 @@ import Email from '../ِAuthentication/Email/Email';
  * @returns {React.Component} main body of forget username popup
  */
 function ForgetUsername() {
-  const [loading, setLoading] = React.useState(false);
+  // states
+  const [email, setEmail] = useState({
+  input: '', color: theme.palette.neutral.main, icon: null, error: null,
+}); 
+  const [remeberMe, setremeberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [verified, setVerified] = useState(false);
+  const [buttonText, setbuttonText] = useState('Email Me');
+  const [disabled, setDisabled] = useState(false);
+
+  // cookies
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
   const {
     openForgotUser,
     handleClose,
     handleClickOpenSignUp,
     handleClickOpenLogIn,
   } = React.useContext(ForgetUserContext);
+
+    // useEffect
+    useEffect(() => {
+      // Check on Cookies
+      // developememt
+      if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
+        // production
+        // Redirect to loading page
+        // check on Reddit cookie
+        if (cookies.redditUser === undefined) {
+          redditCookie(setCookies);
+        }
+      }
+    }, []);
+    
 
   const caption = (
     <>
@@ -39,6 +70,7 @@ function ForgetUsername() {
     // 2.Button becomes trick
     // 3.message appears
   };
+
   return (
     <StyledDialog
       data-testid="forgetuser-popup"
@@ -55,7 +87,19 @@ function ForgetUsername() {
           onClick={handleClose}
         />
         <AuthenticationHeader reddit={false} title="Recover your username" caption={caption} fontSize="14px" />
-        <Email onSubmitFn={recoverUsername} loading={loading} isPopUp={false} buttonText="Email Me" btnWidth="155px" />
+        <Email
+            email={email}
+            setEmail={setEmail}
+            onSubmitFn={() => recoverUsername(setLoading, email, verified, setDisabled, setbuttonText, setRedirectCaption)}
+            loading={loading}
+            buttonText={buttonText}
+            btnWidth="155px"
+            fieldText="Email Address"
+            recaptcha
+            setVerified={setVerified}
+            disabled={disabled}
+            isPopUp = {false}
+          />
 
         <Typography paragraph fontSize="12px" margin="0px 0px 10px 0px">
           Don

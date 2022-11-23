@@ -36,7 +36,7 @@ function FirstParty() {
   const [cookies, setCookies] = useCookies(['redditUser']);
   return (
 
-    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }} data-testid="FirstParty-test">
+    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }}>
 
       <RedditTextField
         label="Username"
@@ -58,7 +58,6 @@ function FirstParty() {
           checkUserName(e.target.value.trim(), setUserName);
         }}
         helperText={userName.error}
-        data-testid="UserName-FirstParty-test"
       />
       <RedditTextField
         label="Password"
@@ -76,10 +75,9 @@ function FirstParty() {
           ...prevState,
           input: e.target.value.trim(),
         }))}
-        data-testid="Password-FirstParty-test"
       />
 
-      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test" disabled={disabled}>
+      <RedditLoadingButton type="submit" loading={loading} disabled={disabled}>
         {buttonTxt}
       </RedditLoadingButton>
 
