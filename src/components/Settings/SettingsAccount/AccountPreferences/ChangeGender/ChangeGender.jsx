@@ -17,9 +17,24 @@ function ChangeGender() {
   const {
     prefs, setPrefs,
   } = useContext(SettingsContext);
+  const [open, setOpen] = useState(false);
   useEffect(() => { console.log(prefs); }, [prefs]);
 
-  const [open, setOpen] = useState(false);
+  const handleChange = async (gender) => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, gender }));
+    setOpen(!open);
+    console.log('ssc');
+    const sataus = await settingsPost({ ...prefs, gender });
+    console.log(sataus);
+    if (sataus === 304) {
+      alert('OPeration failed');
+    } else if (sataus === 401) {
+      window.location.href = './login';
+    } else if (sataus === 200 || sataus === 201) {
+      alert('operation done successfully');
+    }
+  };
+
   return (
     <Button data-testid="settings-cahnge-gender">
       <Content>
@@ -53,13 +68,16 @@ function ChangeGender() {
             }}
             display={(open === false ? 'none' : 'block')}
           >
-            <ListItemButton onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, gender: 'male' })); setOpen(!open); settingsPost({ ...prefs, gender: 'male' }); }}>
+            <ListItemButton onClick={() => {
+              handleChange('male');
+            }}
+            >
               <ShowMoreListItemText Condition={(prefs?.gender === 'male').toString()}>
                 Mele
               </ShowMoreListItemText>
             </ListItemButton>
             <Divider />
-            <ListItemButton onClick={() => { setPrefs((oldPrefs) => ({ ...oldPrefs, gender: 'female' })); setOpen(!open); settingsPost({ ...prefs, gender: 'female' }); }}>
+            <ListItemButton onClick={() => { handleChange('female'); }}>
               <ShowMoreListItemText Condition={(prefs?.gender === 'female').toString()}>
                 Female
               </ShowMoreListItemText>

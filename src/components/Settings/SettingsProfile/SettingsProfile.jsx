@@ -19,11 +19,14 @@ import settingsPost from '../server';
  */
 function SettingsProfile() {
   const api = '/users/me/prefs';
-  const [data, dataError] = useFetch(api);
+  const [data, dataError, statusCode] = useFetch(api);
   const [prefs, setPrefs] = useState();
 
   useEffect(() => {
     // console.log(data?.settings.prefs);
+    if (statusCode === 401) {
+      window.location.href = './login';
+    }
     setPrefs(data?.prefs);
     console.log(dataError);
   }, [data, dataError]);

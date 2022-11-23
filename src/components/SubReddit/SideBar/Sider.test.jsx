@@ -13,12 +13,12 @@ test('test snapshot', async () => {
 // test Number Formatter
 describe(' test Number Formatter', () => {
   const tests = [{
-    num: 1000000,
-    output: '100K',
+    num: 100000,
+    output: '100.0K',
   },
   {
     num: 10000000,
-    output: '1M',
+    output: '10.0M',
   }, {
     num: 10,
     output: 10,
@@ -27,7 +27,7 @@ describe(' test Number Formatter', () => {
     it(`test case ${index}`, () => {
       const result = numFormatter(item.num);
       // console.log('nour basma eslam madbouly ', result);
-      expect(result).toBe(item.output);
+      expect(result).toEqual(item.output);
     });
   });
 });

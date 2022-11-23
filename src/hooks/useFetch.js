@@ -16,6 +16,7 @@ const useFetch = (url) => {
       setError(null);
     }).catch((error) => {
       setError(error);
+      setStatusCode(error.response.status);
       console.log(error);
     });
   }, [url]);

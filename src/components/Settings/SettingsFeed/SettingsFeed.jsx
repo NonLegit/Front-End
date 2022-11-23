@@ -25,6 +25,10 @@ function SettingsFeed() {
     console.log(dataError);
   }, [data, dataError]);
 
+  const handleAdultContent = async (gender) => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, adultContent: !oldPrefs.adultContent }));
+    settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
+  };
   return (
     data === null ? (<div data-testid="settings-feed"> error in fecting</div>)
       : (
