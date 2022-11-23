@@ -47,7 +47,21 @@ export const checkUserName = (username, setUserName) => {
 * @param {event} event -Onsubmit of the form
 * @returns void
 */
-export const logIn = (event, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName) => {
+export const logIn = async (
+  event,
+  setLoading,
+  userName,
+  password,
+  setPassword,
+  setButtonText,
+  setDisabled,
+  setRedirectCaption,
+  setCookies,
+  setUserName,
+  popUp = false,
+  // eslint-disable-next-line no-unused-vars
+  handleClose = null,
+) => {
   event.preventDefault();
   // console.log(userName);// Not Late
   // console.log(password);// Not Late
@@ -78,7 +92,7 @@ export const logIn = (event, setLoading, userName, password, setPassword, setBut
   console.log(userName.input);
   axios.post('/users/login', {
     userName: userName.input, password: password.input,
-  }).then((response) => {
+  }).then(async (response) => {
     console.log(response);
     if (response.status === 200 || response.status === 201) {
       setLoading(false);
@@ -86,8 +100,16 @@ export const logIn = (event, setLoading, userName, password, setPassword, setBut
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      redditCookie(setCookies);
-      redirectHome(1000);
+
+      if (popUp === false) { console.log('popup'); redditCookie(setCookies); redirectHome(1000); } else {
+        console.log('nottt');
+        // PopUp window
+        const interval = setInterval(() => {
+          handleClose();
+          redditCookie(setCookies);
+          clearInterval(interval);
+        }, 1000);
+      }
     }
   }).catch((error) => {
     setLoading(false);

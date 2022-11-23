@@ -104,6 +104,8 @@ export const signUp = (
   setDisabled,
   setRedirectCaption,
   setCookies,
+  popUp = false,
+  handleClose = null,
 ) => {
   // console.log(email);
   // console.log(userName);// true value but case no change wrong value
@@ -152,8 +154,14 @@ export const signUp = (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      redditCookie(setCookies);
-      redirectHome(1000);
+
+      if (popUp === false) { redirectHome(1000); redditCookie(setCookies); } else {
+        // PopUp window
+        setTimeout(() => {
+          redditCookie(setCookies);
+          handleClose();
+        }, 1000);
+      }
     } else {
       console.log('Error');
     }

@@ -30,6 +30,7 @@
     "/users/hot":"/hot",
     "/users/top":"/top",
     "/users/best":"/best",
-   "/users/username_available?userName=*":"/usernameAvailable",
-    "/users/logout":"/logout"
+    "/users/username_available?userName=*":"/usernameAvailable",
+    "/users/logout":"/logout",
+    "/users/check_reset_token/:token":"/token"
 }

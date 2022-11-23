@@ -12,7 +12,7 @@ import {
 import { checkEmail } from '../../../../Authentication/scripts';
 
 function Email({
-  email, setEmail, onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, disabled, ispopup,
+  email, setEmail, onSubmitFn, loading, width, buttonText, fieldText, btnWidth, recaptcha, setVerified, disabled,
 }) {
   const [defaultEmailValue, setdefaultEmailValue] = useState(email?.input);
   const [recaptchaState, setrecaptchaState] = useState(false);
@@ -44,7 +44,6 @@ function Email({
         }}
         helperText={email?.error}
         value={defaultEmailValue || ''}
-        ispopup={ispopup}
       />
       <RedditLoadingButton type="submit" loading={loading} width={btnWidth} disabled={disabled}>
         {buttonText}

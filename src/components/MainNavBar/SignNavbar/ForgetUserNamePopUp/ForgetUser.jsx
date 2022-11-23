@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Cookies from 'js-cookie';
 import { ForgetUserContext } from '../SignNavbar';
-import StyledDialog from '../SignUpPopUp/styles';
+import { StyledDialog } from '../styles';
 import { StyledLink } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import Email from '../ِAuthentication/Email/Email';

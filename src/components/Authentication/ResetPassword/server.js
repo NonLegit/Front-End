@@ -72,3 +72,23 @@ export const resetPassword = (setLoading, password, setPassword, repassword, tok
     console.log(error);
   });
 };
+
+/**
+ *
+ * @param {string} token
+ * @returns bool if valid is true else false
+ */
+export const checkToken = async (token) => {
+  let x = false;
+  // Check Token Endpoint
+  const response = await axios.get(`/users/check_reset_token/${token}`).catch((error) => {
+    // Invalid Token
+    console.log(error);
+  });
+
+  // console.log(response.status);
+  if (response.status === 204 || response.status === 200) {
+    x = true;
+  }
+  return x;
+};
