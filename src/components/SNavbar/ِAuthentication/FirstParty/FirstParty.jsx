@@ -1,23 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useCookies } from 'react-cookie';
+
+// mui components
 import { Typography } from '@mui/material';
-import axios from '../../../services/instance';
-import DoneIcon from '@mui/icons-material/Done';
+
+// styles
 import { FirstPartyContainer } from './styles';
-import theme, { fonts } from '../../../../styles/theme';
-import {
-  RedditLoadingButton, RedditTextField, wrongIcon, rightIcon,
-} from '../styles';
-import { redirectHome } from '../../../scripts';
+import { RedditLoadingButton, RedditTextField } from '../styles';
+import theme, { fonts } from '../../../styles/theme';
+
+// servers
+import { checkUserName, logIn } from './server';
 
 /**
- * Component for Logiing in by username and passsword
+ * Form for Logging in by username and passsword
  *
  * @component
- * @returns {React.Component}
+ * @returns {React.Component} First Party Form
  */
-
-function UserNamePasswordForm() {
+function FirstParty() {
   // useState
   const [userName, setUserName] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
@@ -33,98 +34,9 @@ function UserNamePasswordForm() {
   // useCookies
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies] = useCookies(['redditUser']);
-
-
-  useEffect(() => {
-    setButtonText('Log in');
-  }, []);
-
-  /**
-   * Check if Valid username from length and format
-   * @returns {null}
-   */
-  const checkUserName = (username) => {
-    console.log(userName);
-
-    // Check Username bwteen 3-20 characters
-    if (username.length < 3 || username.length > 20) {
-      console.log('length problem');
-      setUserName((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Username must be between 3 and 20 characters',
-      }));
-      return;
-    }
-    // else Valid
-    setUserName((prevState) => ({
-      ...prevState,
-      color: theme.palette.primary.main,
-      icon: rightIcon,
-      error: null,
-    }));
-  };
-  /**
-   *
-   * @param {event} event
-   * @returns Either logging in and redirecting to the homepage or Error flags on the inputfields
-   */
-  const logIn = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    if (userName.error != null) {
-      console.log("Couldn't login");
-      setLoading(false);
-      return;
-    }
-    // Case of previous trial was error
-    setPassword((prevState) => ({
-      ...prevState,
-      color: theme.palette.neutral.main,
-      icon: null,
-      error: null,
-    }));
-
-    // API Call
-    console.log(userName.input);
-    axios.post('/users/login', { userName: userName.input, password: password.input }).then((response) => {
-      console.log(response);
-      if (response.status === 200) {
-        setLoading(false);
-        setButtonText(<DoneIcon />);
-        setDisabled(true);
-        setRedirectCaption(true);
-        // Add Reddit Cookie
-        redditCookie(setCookies);
-        redirectHome(1000);
-      }
-    }).catch((error) => {
-      setLoading(false);
-      console.log(error);
-      if (error.response.status === 404 || error.response.status === 400) {
-        // Invlaid Username or password
-        // update username and password states
-        setUserName((prevState) => ({
-          ...prevState,
-          color: theme.palette.error.main,
-          icon: wrongIcon,
-          error: 'Incorrect username or password',
-        }));
-        setPassword((prevState) => ({
-          ...prevState,
-          color: theme.palette.error.main,
-          icon: wrongIcon,
-          error: null,
-        }));
-      } else {
-        console.log(error.response.data.errorMessage);
-      }
-    });
-  };
-
   return (
-    <FirstPartyContainer width="290px" onSubmit={logIn} data-testid="FirstParty-test">
+
+    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }} data-testid="FirstParty-test">
 
       <RedditTextField
         label="Username"
@@ -138,13 +50,12 @@ function UserNamePasswordForm() {
           disableUnderline: true,
         }}
         clr={userName.color}
-        onBlur={() => checkUserName()}
         onChange={(e) => {
           setUserName((prevState) => ({
             ...prevState,
             input: e.target.value.trim(),
           }));
-          checkUserName(e.target.value.trim());
+          checkUserName(e.target.value.trim(), setUserName);
         }}
         helperText={userName.error}
         data-testid="UserName-FirstParty-test"
@@ -165,20 +76,19 @@ function UserNamePasswordForm() {
           ...prevState,
           input: e.target.value.trim(),
         }))}
-
         data-testid="Password-FirstParty-test"
       />
 
-      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test" ispopup={false}>
+      <RedditLoadingButton type="submit" loading={loading} data-testid="login-btn-test" disabled={disabled}>
         {buttonTxt}
       </RedditLoadingButton>
 
       {redirectCaption
         ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="10px 0px">You are now logged in. You will soon be redirected</Typography>
         : null}
-
     </FirstPartyContainer>
+
   );
 }
 
-export default UserNamePasswordForm;
+export default FirstParty;

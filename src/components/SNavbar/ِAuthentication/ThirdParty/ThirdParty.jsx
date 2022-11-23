@@ -1,18 +1,31 @@
-import GoogleLogin from 'react-google-login';
-import { gapi } from 'gapi-script';
+import { useCookies } from 'react-cookie';
 
+// Google and Facebook Service components
+import { gapi } from 'gapi-script';
+import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+
+// server
+import {
+  responseGoogleSuccess, responseGoogleFail, responseFacebook,
+} from './server';
+
+// styles
 import { ThirdPartyContainer } from './styles';
 import ThirdPartyButton from './ThirdPartyButton/ThirdPartyButton';
 
-import {
-  responseGoogleSuccess, responseGoogleFail, responseFacebook,
-} from './scripts';
-import Google from '../images/google.png';
-import Facebook from '../images/facebook.png';
+import Google from '../../../assets/images/google.png';
+import Facebook from '../../../assets/images/facebook.png';
+
+// environment variables
+const { REACT_APP_GOOGLECLIENTID, REACT_APP_FACEBOOKCLIENTID } = process.env;
 
 function ThirdParty({ circular }) {
-  const googleClientId = '374002806091-7pces2dv4vr0vb8lchmputreqnlalqes.apps.googleusercontent.com';
+  // cookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  const googleClientId = REACT_APP_GOOGLECLIENTID;
   const initClient = () => {
     gapi.auth2.init({
       clientId: googleClientId,
@@ -22,24 +35,24 @@ function ThirdParty({ circular }) {
   gapi.load('client:auth2', initClient);
 
   // Facebook
-  const facebookAppId = '1217433968834337';
+  const facebookAppId = REACT_APP_FACEBOOKCLIENTID;
   
   return (
     <ThirdPartyContainer>
       <GoogleLogin
-        clientId={clientId}
+        clientId={googleClientId}
         render={(renderProps) => (
           circular ? <h1>Helo</h1>
             : <ThirdPartyButton onClick={renderProps.onClick} img={Google} alt="Google" txt="continue with google" />
         )}
-        onSuccess={responseGoogleSuccess}
+        onSuccess={(googleResponse) => responseGoogleSuccess(googleResponse, setCookies)}
         onFailure={responseGoogleFail}
         cookiePolicy="single_host_origin"
-        testid="google-btn-test"
+        testid="google-btn--popup"
       />
       <FacebookLogin
-        appId="1217433968834337"
-        callback={responseFacebook}
+        appId={facebookAppId}
+        callback={(facebookResponse) => responseFacebook(facebookResponse, setCookies)}
         render={(renderProps) => (
           circular ? <h1>Helo</h1>
             : <ThirdPartyButton onClick={renderProps.onClick} img={Facebook} alt="Facebook" txt="continue with facebook" />

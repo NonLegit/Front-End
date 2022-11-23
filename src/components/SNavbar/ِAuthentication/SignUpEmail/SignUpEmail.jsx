@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Typography } from '@mui/material';
-import {
-  StyledLink, wrongIcon,
-} from '../styles';
-import theme from '../../../../styles/theme';
+import { useState } from 'react';
 
-import AuthenticationHeader from '../AuthenticationHeader/AuthenticationHeader';
-import ThirdParty from '../ThirdParty/ThirdParty';
-import Divider from '../Divider/Divider';
-import Email from '../Email/Email';
+// mui compoenets
+import { Typography } from '@mui/material';
+
+// components
+import AuthenticationHeader from '../../AuthenticationHeader/AuthenticationHeader';
+import ThirdParty from '../../ThirdParty/ThirdParty';
+import Divider from '../../Divider/Divider';
+import Email from '../../Email/Email';
+
+// styles
+import { AuthenticationBG, AuthenticationBody, StyledLink } from '../../styles';
 
 /**
  * SignUp Email Componenet
@@ -16,34 +18,25 @@ import Email from '../Email/Email';
  */
 function SignUpEmail({ setUserNamePage, setEmail }) {
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    console.log('rerender');
-  }, []);
 
-  const continueEmail = (event, email) => {
+  const continueEmail = () => {
+    // console.log(email);// true value but case no change wrong value
     setLoading(true);
-    event.preventDefault();
-    console.log(email);
+    // Has error (syntax error Email or empty Email)
     if (email.error !== null) {
       setLoading(false);
       return;
     }
-
+    // check if Empty (case he didn't make any change in the input field)
     if (email.input === '') {
-      // Empty Field
-      setEmail((prevState) => ({
-        ...prevState,
-        color: theme.palette.error.main,
-        icon: wrongIcon,
-        error: 'Please enter your email to continue',
-      }));
       setLoading(false);
       return;
     }
+
+    // Email is Accepted
     setTimeout(() => {
       setLoading(false);
       setUserNamePage(true);
-      console.log(email);
     }, 500);
   };
 
@@ -67,7 +60,7 @@ function SignUpEmail({ setUserNamePage, setEmail }) {
 
       <Divider />
 
-      <Email onSubmitFn={continueEmail} loading={loading} ispopup="false" width="280px" buttonText="continue" />
+      <Email email={email} setEmail={setEmail} ispopup="false" onSubmitFn={continueEmail} loading={loading} width="280px" buttonText="continue" fieldText="Email" recaptcha={false} setVerified={null} disabled={false} />
 
       <Typography paragraph fontSize={12}>
         Already a redditor?
