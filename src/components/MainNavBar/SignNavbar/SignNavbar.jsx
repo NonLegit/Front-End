@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { Box } from '@mui/material';
-import MuiToolbar from '@mui/material/toolbar';
+import MuiToolbar from '@mui/material/Toolbar';
 
 import HomeIcon from '@mui/icons-material/Home';
 import * as React from 'react';
