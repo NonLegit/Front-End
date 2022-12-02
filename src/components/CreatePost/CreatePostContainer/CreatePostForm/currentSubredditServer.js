@@ -7,10 +7,15 @@
 import getSubredditAllData from '../../../SubReddit/SubrridetDataServer';
 
 const currentSubredditServer = (subredditName) => {
+  if (!subredditName) {
+    return [null, null, ''];
+  }
   const [data] = getSubredditAllData(subredditName);
+  console.log(data);
   const subredditId = data?.id;
   const subredditIcon = data?.icon;
-  return [subredditId, subredditIcon, subredditName];
+  console.log('server', subredditId, subredditIcon, subredditName);
+  return [subredditId, subredditIcon];
 };
 
 export default currentSubredditServer;

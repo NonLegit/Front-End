@@ -129,7 +129,7 @@ function App() {
             }
             />
             <Route
-              path="/submit/:subredditId"
+              path="/submit/:subredditName"
               element={
                 <CreatePost />
             }

@@ -23,7 +23,7 @@ const getSubredditAllData = (Name) => {
       window.location.pathname = 'login';
     }
   }, []);
-
+  // console.log('hosny', data);
   return [data, error];
 };
 export default getSubredditAllData;
