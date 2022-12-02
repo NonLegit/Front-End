@@ -33,7 +33,7 @@ pipeline {
                     rm -f README* .gitignore
 
                     # Creating the necessary files.
-                    cat <<EOF > .env
+                    cat <<XD > .env
                     HTTP=false
                     PORT=443
                     HOST=0.0.0.0
@@ -44,7 +44,7 @@ pipeline {
                     REACT_APP_PROXY_DEVELOPMENT="http://localhost:8000"
                     REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"
 
-                    EOF
+                    XD
 
                     # Build the docker image
                     docker build -t cynic0/reddit-frontend:latest . 
@@ -58,9 +58,9 @@ pipeline {
                 '''
             }
         }
-        stage('Deploying backend') {
+        stage('Deploying frontend') {
             when {
-                branch "development"
+                branch "main"
             }
             steps {
                 sh '''
