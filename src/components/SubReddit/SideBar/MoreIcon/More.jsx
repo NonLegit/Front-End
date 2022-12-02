@@ -13,6 +13,8 @@ export default function Sort(props) {
   const { margin } = props;
   const { marginLeft } = props;
   const [showList1, setShowList1] = useState(false);
+  const [favourit, setFavourit] = useState('Add to Favorites');
+
   // toggle the list when click
   const handleClick1 = () => {
     setShowList1((prev) => !prev);
@@ -22,7 +24,13 @@ export default function Sort(props) {
   const handleClickAway1 = () => {
     setShowList1(false);
   };
-
+  const changeFavourit = () => {
+    if (favourit === 'Add to Favorites') {
+      setFavourit('Remove From Favorites');
+    } else {
+      setFavourit('Add to Favorites');
+    }
+  };
   return (
     <>
       <Select>
@@ -35,7 +43,9 @@ export default function Sort(props) {
       {showList1 && (
       <SelectBox data-testid="items" sx={{ marginTop: margin, marginLeft }}>
         <SelectItem>Add to Custom Feed</SelectItem>
-        <SelectItem>Add to Favorites</SelectItem>
+        <SelectItem onClick={changeFavourit}>
+          {favourit}
+        </SelectItem>
       </SelectBox>
       )}
     </>

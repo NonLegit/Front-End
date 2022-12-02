@@ -6,6 +6,7 @@ import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
 import numFormatter from '../../../utils/MembersNum';
+import UserLogin from '../../../authentication';
 /**
  * SideBar for subreddit
  * @component
@@ -17,13 +18,15 @@ function SideBar(props) {
   } = props;
   const [moderate, setModerate] = useState(false);
   const num = numFormatter(members);
+  const mode = UserLogin(moderatoesName);
+  console.log(mode);
   useEffect(() => {
-    if (moderatoesName?.indexOf(username) === -1) {
-      setModerate(false);
-    } else {
+    if (mode) {
       setModerate(true);
+    } else {
+      setModerate(false);
     }
-  }, [moderatoesName, username]);
+  }, [moderatoesName, username, mode]);
   return (
     <SideBarContainer>
       {!moderate

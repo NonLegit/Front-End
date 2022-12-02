@@ -1,5 +1,4 @@
 import { Box, ThemeProvider } from '@mui/material';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -8,7 +7,7 @@ import PostSubreddit from '../Post/Post';
 import CreatePostInHome from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
-  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, Notification, PostHeader, TotalHeader, JoinCommunity,
+  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
 import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
 // import PostsClassificationSubreddit from '../HomePage/HomePageContainer/PostsClassification/PostsClassification';
@@ -16,9 +15,9 @@ import theme2 from '../../styles/theme/layout';
 import SubredditData from './SubrridetDataServer';
 import ModeratorData from './subriddetDataModeratorServer';
 import PostsData from './subredditPostsServer';
-
 import PostJoin from './PostJoin';
 
+import SubredditNotification from './Notifications/SubriddetNotifications';
 /**
  * Subreddit page
  * @component
@@ -102,21 +101,8 @@ function Header() {
                 && (
                 <>
                   <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
-                  <Notification sx={{
-                    '@media screen and (max-width: 435px)': {
-                      display: 'none',
-                    },
-                  }}
-                  >
-                    <NotificationsIcon
-                      color="primary"
-                      sx={{
-                        lineHeight: 0,
-                        cursor: 'pointer',
 
-                      }}
-                    />
-                  </Notification>
+                  <SubredditNotification />
                 </>
                 )}
               </Box>
