@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import CreatePostInSubredditContextProvider from './contexts/CreatePostInSubredditContext';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
 import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPrivacy';
@@ -30,172 +29,170 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <CreatePostInSubredditContextProvider>
-        <PostTypeContextProvider>
-          <Router className="App">
-            <MainNavBar />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <HomePage data-testid="home page" />
+      <PostTypeContextProvider>
+        <Router className="App">
+          <MainNavBar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage data-testid="home page" />
           }
-              />
-              <Route
-                path="/:postClass"
-                element={
-                  <HomePage />
+            />
+            <Route
+              path="/:postClass"
+              element={
+                <HomePage />
           }
-              />
-              <Route
-                path="/user"
-                element={
-                  <Profile />
+            />
+            <Route
+              path="/user"
+              element={
+                <Profile />
               }
-              />
-              <Route
-                path="/register"
-                element={
-                  <SignUpPage />
+            />
+            <Route
+              path="/register"
+              element={
+                <SignUpPage />
 }
-              />
+            />
+            <Route
+              path="/user/:username/"
+              element={
+                <Profile />
+          }
+            >
               <Route
-                path="/user/:username/"
+                path=":subTitle"
                 element={
                   <Profile />
           }
               >
                 <Route
-                  path=":subTitle"
+                  path=":sort"
                   element={
                     <Profile />
           }
-                >
-                  <Route
-                    path=":sort"
-                    element={
-                      <Profile />
-          }
-                  />
+                />
 
-                </Route>
               </Route>
+            </Route>
 
-              <Route
-                path="/login"
-                element={
-                  <LogInPage />
+            <Route
+              path="/login"
+              element={
+                <LogInPage />
           }
-              />
-              <Route
-                path="/password"
-                element={
-                  <ForgetPasswordPage />
+            />
+            <Route
+              path="/password"
+              element={
+                <ForgetPasswordPage />
           }
-              />
-              <Route
-                path="/resetpassword/:token"
-                element={
-                  <ResetPasswordPage />
+            />
+            <Route
+              path="/resetpassword/:token"
+              element={
+                <ResetPasswordPage />
           }
-              />
+            />
 
-              <Route
-                path="/username"
-                element={
-                  <ForgetUsernamePage />
+            <Route
+              path="/username"
+              element={
+                <ForgetUsernamePage />
           }
-              />
-              <Route
-                path="/search"
-                element={
-                  <Search />
+            />
+            <Route
+              path="/search"
+              element={
+                <Search />
           }
-              />
-              <Route
-                path="/messages"
-                element={
-                  <Messages />
+            />
+            <Route
+              path="/messages"
+              element={
+                <Messages />
           }
-              />
-              <Route
-                path="/moderation"
-                element={
-                  <Moderation />
+            />
+            <Route
+              path="/moderation"
+              element={
+                <Moderation />
           }
-              />
-              <Route
-                path="/submit"
-                element={
-                  <CreatePost />
+            />
+            <Route
+              path="/submit"
+              element={
+                <CreatePost />
             }
-              />
-              <Route
-                path="/submit/:subredditId"
-                element={
-                  <CreatePost />
+            />
+            <Route
+              path="/submit/:subredditId"
+              element={
+                <CreatePost />
             }
-              />
-              <Route
-                path="/notifications"
-                element={
-                  <Notifications />
+            />
+            <Route
+              path="/notifications"
+              element={
+                <Notifications />
           }
-              />
+            />
+            <Route
+              path="/SubReddit/:Name"
+              element={
+                <SubReddit />
+          }
+            >
               <Route
-                path="/SubReddit/:Name"
+                path=":postClass"
                 element={
                   <SubReddit />
           }
-              >
-                <Route
-                  path=":postClass"
-                  element={
-                    <SubReddit />
+              />
+            </Route>
+            <Route
+              path="/settings"
+              element={
+                <Settings />
           }
-                />
-              </Route>
+            >
               <Route
-                path="/settings"
+                path=""
                 element={
-                  <Settings />
+                  <SettingsAccount />
           }
-              >
-                <Route
-                  path=""
-                  element={
-                    <SettingsAccount />
+              />
+              <Route
+                path="account"
+                element={
+                  <SettingsAccount />
           }
-                />
-                <Route
-                  path="account"
-                  element={
-                    <SettingsAccount />
+              />
+              <Route
+                path="profile"
+                element={
+                  <SettingsProfile />
           }
-                />
-                <Route
-                  path="profile"
-                  element={
-                    <SettingsProfile />
+              />
+              <Route
+                path="privacy"
+                element={
+                  <SettingsPrivacy />
           }
-                />
-                <Route
-                  path="privacy"
-                  element={
-                    <SettingsPrivacy />
+              />
+              <Route
+                path="feed"
+                element={
+                  <SettingsFeed />
           }
-                />
-                <Route
-                  path="feed"
-                  element={
-                    <SettingsFeed />
-          }
-                />
-              </Route>
-            </Routes>
-          </Router>
-        </PostTypeContextProvider>
-      </CreatePostInSubredditContextProvider>
+              />
+            </Route>
+          </Routes>
+        </Router>
+      </PostTypeContextProvider>
     </ThemeProvider>
   );
 }

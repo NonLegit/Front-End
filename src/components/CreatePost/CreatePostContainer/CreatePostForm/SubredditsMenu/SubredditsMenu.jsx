@@ -13,7 +13,6 @@ import RedditButton from '../../../../RedditButton/RedditButton';
 import {
   AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon, ClickAwayContainer,
 } from './styles';
-import { useCreatePostInSubredditContext } from '../../../../../contexts/CreatePostInSubredditContext';
 /**
  * This component contains the menu of subreddit that the use can post in
  *
@@ -29,14 +28,13 @@ function SubredditsMenu(props) {
 
   // contexts
   const { communities } = useCommunitiesInCreatePostContext();
-  const { subredditName, subredditIcon } = useCreatePostInSubredditContext();
 
   // states
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [communityName, setCommunityName] = useState(subredditName || '');
-  const [chosenCommunityIcon, setChosenCommunityIcon] = useState(subredditIcon);
-  const [showIcon, setShowIcon] = useState(!!subredditIcon);
+  const [communityName, setCommunityName] = useState('');
+  const [chosenCommunityIcon, setChosenCommunityIcon] = useState(null);
+  const [showIcon, setShowIcon] = useState(false);
 
   // cookies
   const [cookies] = useCookies(['redditUser']);

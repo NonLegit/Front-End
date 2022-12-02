@@ -15,7 +15,6 @@ import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 import submitPostServer from './submitPostServer';
-import { useCreatePostInSubredditContext } from '../../../../contexts/CreatePostInSubredditContext';
 /**
  * This component is the main section off create post page which holds the form to submit posts
  *
@@ -26,7 +25,6 @@ import { useCreatePostInSubredditContext } from '../../../../contexts/CreatePost
 function CreatePostForm() {
   // contexts
   const { initialPostType } = usePostTypeContext();
-  const { subredditId } = useCreatePostInSubredditContext();
 
   // variables
   const postTypes = ['text', 'media', 'url'];
@@ -38,7 +36,7 @@ function CreatePostForm() {
   const [postText, setPostTitle] = useState();
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
-  const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
+  const [communityToPostIn, setCommunityToPostIn] = useState(null);
   const [ownerType, setOwnerType] = useState(null);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
