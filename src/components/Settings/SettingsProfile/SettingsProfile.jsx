@@ -1,6 +1,7 @@
 import { Box } from '@mui/system';
 import { Switch } from '@mui/material';
 import { useEffect, useState } from 'react';
+import SnackBar from '../../Snackbar/Snackbar';
 import {
   AntSwitch, ContentSubHeader, ContentHeader, Content, Button, Header,
   SettingsPageConranier, SubHeader,
@@ -37,7 +38,8 @@ function SettingsProfile() {
     } else if (sataus === 401) {
       window.location.pathname = 'login';
     } else if (sataus === 200 || sataus === 201) {
-      alert('operation done successfully');
+      <SnackBar />;
+      // alert('operation done successfully');
     }
   };
 

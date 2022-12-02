@@ -1,9 +1,11 @@
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {
+import
+{
   Divider, Box,
 } from '@mui/material';
 import { useState, useContext } from 'react';
+import SnackBar from '../../../../Snackbar/Snackbar';
 import {
   Button, ContentHeader, Content, ContentSubHeader, AntSwitch,
 } from '../../../styles';
@@ -30,6 +32,7 @@ function ChangeGender() {
     } else if (sataus === 401) {
       window.location.pathname = 'login';
     } else if (sataus === 200 || sataus === 201) {
+      SnackBar();
       alert('operation done successfully');
     }
   };
