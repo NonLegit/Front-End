@@ -4,7 +4,7 @@ import axios from '../../../services/instance';
 /**
  * - Notifications Fetch
  */
-const NotificationsFetch = () => {
+const notificationsFetch = () => {
   // earlier data
   const [earlier, setEarlier] = useState([]);
   // today data
@@ -27,4 +27,4 @@ const NotificationsFetch = () => {
   }, [api]);
   return [today, earlier];
 };
-export default NotificationsFetch;
+export default notificationsFetch;

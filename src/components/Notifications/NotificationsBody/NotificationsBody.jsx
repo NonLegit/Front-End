@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import { createContext, useState, useEffect } from 'react';
-import NotificationsFetch from './Server';
+import notificationsFetch from './server';
 import NotificationCategories from './NotificationCategories/NotificationCategories';
 import
 {
@@ -25,7 +25,7 @@ function NotificationsBody() {
   const [earlier, setEarlier] = useState([]);
   // today data
   const [today, setToday] = useState([]);
-  const [dataToday, dataEarlier] = NotificationsFetch();
+  const [dataToday, dataEarlier] = notificationsFetch();
   //  anchor element
   const [anchorEl, setAnchorEl] = useState(null);
   // index selected element
