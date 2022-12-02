@@ -8,7 +8,7 @@ const useFetch = (url) => {
 
   useEffect(() => {
     axios.get(url).then((response) => {
-      // console.log(response);
+      console.log(response);
 
       setData(response.data);
       setStatusCode(response.status);
