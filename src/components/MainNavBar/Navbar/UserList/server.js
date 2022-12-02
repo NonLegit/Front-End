@@ -2,7 +2,7 @@
 import axios from '../../../../services/instance';
 
 // Scripts
-import { removeRedditCookie } from '../../../Authentication/scripts';
+import { removeRedditCookie } from '../../../Authentication/authenticationServer';
 
 export const logOut = (removeCookie) => {
   axios.post('/users/logout').then((response) => {

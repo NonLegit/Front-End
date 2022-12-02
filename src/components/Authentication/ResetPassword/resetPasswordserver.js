@@ -8,7 +8,7 @@ import theme from '../../../styles/theme';
 
 // scripts
 // eslint-disable-next-line no-unused-vars
-import { redditCookie, matchPassword } from '../scripts';
+import { redditCookie, matchPassword } from '../authenticationServer';
 import { redirectLogin } from '../../../utils/Redirect';
 
 /**
@@ -19,7 +19,6 @@ import { redirectLogin } from '../../../utils/Redirect';
 */
 // eslint-disable-next-line no-unused-vars
 export const resetPassword = (setLoading, password, setPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken) => {
-  console.log('Basdsdf');
   setExpiredToken(false);
   setLoading(true);
   if (password.error !== 'Weak Password must contain Capital letter and numbers' && (password.error != null || repassword.error != null)) {

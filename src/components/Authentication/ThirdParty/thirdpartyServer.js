@@ -1,6 +1,6 @@
 import { redirectHome } from '../../../utils/Redirect';
 import axios from '../../../services/instance';
-import { redditCookie } from '../scripts';
+import { redditCookie } from '../authenticationServer';
 /**
  * If Valid Token Then user is Logged in and redirected to the homepage
  * @param {JsonResponse} googleResponse --Google Response

@@ -12,7 +12,7 @@ import { AuthenticationConatiner, AuthenticationBG, AuthenticationBody } from '.
 import theme from '../../../styles/theme';
 
 // scripts
-import { redditCookie } from '../scripts';
+import { redditCookie } from '../authenticationServer';
 
 // environment variables
 const { REACT_APP_ENV } = process.env;

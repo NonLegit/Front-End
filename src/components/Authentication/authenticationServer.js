@@ -37,23 +37,6 @@ export const removeRedditCookie = (removeCookie) => {
 };
 
 /**
- * Fill array with 5 new random usernames
- * @param {function} setUserNames
- * @returns {void}
- *
- */
-export const refreshUsernames = (setUserNames) => {
-  setUserNames(['Basma', 'Eslam', 'Ali', 'Youssef', 'Aya']);
-  // NOT AN ENDPOIT:(
-  // axios.get('https://abf8b3a8-af00-46a9-ba71-d2c4eac785ce.mock.pstmn.io/username/random').then((response) => {
-  //   // ==>This API isn't in the documentation check with the back
-  //   setUserNames(response.data.usernames);
-  // }).catch((error) => {
-  //   console.log(error);
-  // });
-};
-
-/**
  *
  * Check on Email Format
  * @param {Srting} emailInput  --email input string

@@ -19,7 +19,7 @@ import theme, { fonts } from '../../../styles/theme';
 import { checkUserName, recoverPassword } from './server';
 
 // scripts
-import { redditCookie, checkEmail } from '../scripts';
+import { redditCookie, checkEmail } from '../authenticationServer';
 // environment variables
 const { REACT_APP_ENV } = process.env;
 
