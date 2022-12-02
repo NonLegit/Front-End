@@ -33,8 +33,7 @@ pipeline {
                     rm -f README* .gitignore
 
                     # Creating the necessary files.
-                    echo '
-HTTP=false
+                    echo 'HTTP=false
 PORT=443
 HOST=0.0.0.0
 REACT_APP_GOOGLECLIENTID="$GOOGLE_APP_ID"
@@ -42,15 +41,14 @@ REACT_APP_FACEBOOKCLIENTID="$FACEBOOK_APP_ID"
 REACT_APP_SITEKEY="$REACT_APP_SITEKEY"
 REACT_APP_ENV='development'
 REACT_APP_PROXY_DEVELOPMENT="http://localhost:8000"
-REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"
-' > .env
+REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"' > .env
 
                     # Build the docker image
                     docker build -t cynic0/reddit-frontend:latest . 
 
                     # Push the docker image.
-                    docker login --username $DOCKER_CREDS_USR --password $DOCKER_CREDS_PSW
-                    docker push cynic0/reddit-frontend:latest
+                    # docker login --username $DOCKER_CREDS_USR --password $DOCKER_CREDS_PSW
+                    # docker push cynic0/reddit-frontend:latest
 
                     # Deleting credentials file from filesystem.
                     rm /var/jenkins_home/.docker/config.json                  
