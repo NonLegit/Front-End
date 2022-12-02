@@ -4,6 +4,9 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import NotificationsOffOutlinedIcon from '@mui/icons-material/NotificationsOffOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import NotificationsOffIcon from '@mui/icons-material/NotificationsOff';
 import {
   Notification,
   Select, SelectBox, SelectItem,
@@ -40,9 +43,9 @@ export default function Notifications() {
               {noti === 'Low'
             && <NotificationsIcon color="primary" sx={{ marginTop: '-1px' }} />}
               {noti === 'Frequently'
-            && <NotificationsActiveOutlinedIcon color="primary" sx={{ marginTop: '-1px' }} />}
+            && <NotificationsActiveIcon color="primary" sx={{ marginTop: '-1px' }} />}
               {noti === 'Off'
-            && <NotificationsOffOutlinedIcon color="primary" sx={{ marginTop: '-1px' }} />}
+            && <NotificationsOffIcon color="primary" sx={{ marginTop: '-1px' }} />}
             </Notification>
           </Box>
         </ClickAwayListener>
@@ -50,7 +53,7 @@ export default function Notifications() {
       {showList1 && (
       <SelectBox data-testid="items">
         <SelectItem onClick={() => setNoti('Low')}>
-          <NotificationsIcon
+          <NotificationsNoneOutlinedIcon
             color="black"
             sx={{
               marginTop: '-1px',

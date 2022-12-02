@@ -28,5 +28,6 @@
       "allowGif": true,
       "allowImageUploads": true,
       "allowMultipleImage": true,
-      "members": 100000
+      "members": 100000,
+      "id":0
 }

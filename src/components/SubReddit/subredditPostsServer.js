@@ -19,7 +19,7 @@ const PostsData = (Name, postClass) => {
       setError(error);
       console.log(error);
     });
-  }, []);
+  }, [postClass, Name]);
   return [data, error];
 };
 export default PostsData;

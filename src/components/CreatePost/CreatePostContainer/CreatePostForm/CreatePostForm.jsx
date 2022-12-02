@@ -4,10 +4,10 @@ import {
 
 import { useState } from 'react';
 
+import { useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl, WordCounter,
 } from './styles';
-
 import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
 import PostSubmission from './PostSubmission/PostSubmission';
@@ -24,6 +24,9 @@ import submitPostServer from './submitPostServer';
  */
 
 function CreatePostForm() {
+  // routes
+  const { subredditId } = useParams();
+
   // contexts
   const { initialPostType } = usePostTypeContext();
 
@@ -37,7 +40,7 @@ function CreatePostForm() {
   const [postText, setPostTitle] = useState();
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
-  const [communityToPostIn, setCommunityToPostIn] = useState(null);
+  const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
   const [ownerType, setOwnerType] = useState(null);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);

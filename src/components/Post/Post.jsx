@@ -28,6 +28,7 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {number} votes -Number of post votes.
  * @property {number} commentCount -Number of post comments.
  * @property {string} text -Post text in case of "self" kind.
+ * @property {boolean} subredit -to identify if post in home page or subreddit.
  * @returns {React.Component} Post
  */
 

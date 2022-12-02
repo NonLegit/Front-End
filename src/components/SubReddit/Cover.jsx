@@ -4,13 +4,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import MainContent from '../MainContent/MainContent';
 import PostSubreddit from '../Post/Post';
-import CreatePostInHome from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
+import CreatePostInSubreddit from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
   Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
-import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
-// import PostsClassificationSubreddit from '../HomePage/HomePageContainer/PostsClassification/PostsClassification';
+// import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
+import PostsClassificationSubreddit from '../HomePage/HomePageContainer/PostsClassification/PostsClassification';
 import theme2 from '../../styles/theme/layout';
 import SubredditData from './SubrridetDataServer';
 import ModeratorData from './subriddetDataModeratorServer';
@@ -37,6 +37,7 @@ function Header() {
   const [cookies] = useCookies(['redditUser']);
   const [username, setUserName] = useState('');
   const [members, setMembers] = useState();
+  const [subredditId, setSubredditId] = useState();
 
   useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
@@ -56,6 +57,8 @@ function Header() {
     setModeratoesName(data?.moderators);
     setFixedName(data?.fixedName);
     setMembers(data?.members);
+    setSubredditId(data?.id);
+    console.log(data?.id);
     setPosts(data3);
   }, [data, postClass, data3]);
 
@@ -123,7 +126,7 @@ function Header() {
         >
           <MainContent width={640}>
             <ThemeProvider theme={theme2}>
-              <CreatePostInHome />
+              <CreatePostInSubreddit subredditId={subredditId} />
             </ThemeProvider>
             <PostsClassificationSubreddit subredditName={Name} />
             { posts?.map((posts) => (

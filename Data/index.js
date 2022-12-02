@@ -6,10 +6,6 @@ const { posts } = require('./submitPost.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
 const Flair = require('./Flair.json');
-const Hot = require('./Hot.json');
-const Best = require('./SubredditBestPosts.json');
-const New = require('./SubredditnewPosts.json');
-const Top = require('./SubredditnewPosts.json');
 const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
 const unique = require('./UniqueUserName.json');
@@ -38,10 +34,7 @@ const token = require('./token.json');
 module.exports = () => ({
   Subreddit,
   Flair,
-  Hot,
-  Best,
-  Top,
-  New,
+
   CreatSubreddit,
   signup,
   unique,

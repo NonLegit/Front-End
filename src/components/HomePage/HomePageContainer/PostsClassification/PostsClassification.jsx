@@ -21,7 +21,8 @@ import {
  * @returns {React.Component} Tabs (each tab indicate the type of posts that will be fetched)
  */
 
-function PostsClassification() {
+function PostsClassification(props) {
+  const { subredditName } = props;
   const { postClass } = useParams();
   const [activeClass, setActiveClass] = useState(null);
   const [open, setOpen] = useState(false);
@@ -84,7 +85,7 @@ function PostsClassification() {
             && (
             <CustomClassLink
               onClick={handleClick}
-              to={`/${name}/`}
+              to={(subredditName) ? `/Subreddit/${subredditName}/${name}/` : `/${name}/`}
               key={name}
             >
               <ClassButton
@@ -105,7 +106,7 @@ function PostsClassification() {
                       const { name, nonActiveIcon } = innerEle;
                       return (
                         <PostClassSmButton
-                          to={`/${name}/`}
+                          to={(subredditName) ? `/Subreddit/${subredditName}/${name}/` : `/${name}/`}
                           key={name}
                           active={activeClass === name}
                           onClick={handleChangeClass}

@@ -2,7 +2,6 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
-import moment from 'moment/moment';
 import calculateTime from '../../../utils/calculateTime';
 import JoinButton from '../../JoinButton/JoinButton';
 
@@ -23,15 +22,14 @@ import {
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
+ * @property {boolean} subredit -to identify if post in home page or subreddit.
  * @returns {React.Component} Post header
  */
 
 function PostHeader(props) {
   const {
     title, image, owner, author, flair, flairBackgroundColor, flairColor, createdAt,
-    // at merge
     subredit,
-    //
   } = props;
   return (
     <>
@@ -65,17 +63,11 @@ function PostHeader(props) {
             u/
             {author}
           </PostInfoLink>
-          {!subredit && (
+
           <CreatedAt color="inherit" fontWeight="normal">
             {calculateTime(createdAt)}
           </CreatedAt>
-          )}
-          {subredit && (
-          <CreatedAt color="inherit" fontWeight="normal">
-            {(moment.utc(createdAt).local().startOf('seconds')
-              .fromNow())}
-          </CreatedAt>
-          )}
+
         </Box>
         {!subredit && (
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
