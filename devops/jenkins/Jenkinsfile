@@ -33,18 +33,17 @@ pipeline {
                     rm -f README* .gitignore
 
                     # Creating the necessary files.
-                    cat <<XD > .env
-                    HTTP=false
-                    PORT=443
-                    HOST=0.0.0.0
-                    REACT_APP_GOOGLECLIENTID="$GOOGLE_APP_ID"
-                    REACT_APP_FACEBOOKCLIENTID="$FACEBOOK_APP_ID"
-                    REACT_APP_SITEKEY="$REACT_APP_SITEKEY"
-                    REACT_APP_ENV='development'
-                    REACT_APP_PROXY_DEVELOPMENT="http://localhost:8000"
-                    REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"
-
-                    XD
+                    echo '
+HTTP=false
+PORT=443
+HOST=0.0.0.0
+REACT_APP_GOOGLECLIENTID="$GOOGLE_APP_ID"
+REACT_APP_FACEBOOKCLIENTID="$FACEBOOK_APP_ID"
+REACT_APP_SITEKEY="$REACT_APP_SITEKEY"
+REACT_APP_ENV='development'
+REACT_APP_PROXY_DEVELOPMENT="http://localhost:8000"
+REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"
+' > .env
 
                     # Build the docker image
                     docker build -t cynic0/reddit-frontend:latest . 
