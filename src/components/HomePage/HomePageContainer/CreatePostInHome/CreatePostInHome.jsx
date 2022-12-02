@@ -25,7 +25,7 @@ function CreatePostInHome(props) {
    * this function to redirect user to create post page
    */
   const handleClick = (postType) => {
-    navigate(subredditName ? `/submit/${subredditName}` : '/submit');
+    navigate(subredditName ? `/submit/r/${subredditName}` : '/submit');
     setInitialPostType(postType);
   };
   return (

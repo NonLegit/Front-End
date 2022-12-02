@@ -45,7 +45,7 @@ function SubredditsMenu(props) {
 
   useEffect(() => {
     setChosenCommunityIcon(subredditIcon);
-    setCommunityName(subredditName);
+    setCommunityName(subredditName && `r/${subredditName}`);
   }, [subredditIcon, subredditName]);
 
   // cookies
