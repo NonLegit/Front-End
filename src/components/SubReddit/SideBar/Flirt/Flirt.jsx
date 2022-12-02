@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useFetch from '../../../../hooks/useFetch';
+import useFetch from './flirtServer';
 import {
   Button,
   Container, See, Span, String,
@@ -14,18 +14,15 @@ import {
 function Flirt() {
   const [flair, setFalir] = useState([]);
   const { Name } = useParams();
-  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}/flairs`);
+  const [data, dataError] = useFetch(Name);
   console.log(data);
 
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     setFalir(data);
     console.log(dataError);
-  }, [flair, data, statusCode]);
+  }, [flair, data]);
 
   return (
     <>

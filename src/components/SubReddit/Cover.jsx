@@ -13,7 +13,10 @@ import {
 import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
 // import PostsClassificationSubreddit from '../HomePage/HomePageContainer/PostsClassification/PostsClassification';
 import theme2 from '../../styles/theme/layout';
-import useFetch from '../../hooks/useFetch';
+import SubredditData from './SubrridetDataServer';
+import ModeratorData from './subriddetDataModeratorServer';
+import PostsData from './subredditPostsServer';
+
 import PostJoin from './PostJoin';
 
 /**
@@ -39,17 +42,13 @@ function Header() {
   useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
   const { Name, postClass } = useParams();
-  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}`);
+  const [data, dataError] = SubredditData(Name);
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
-  const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
-  const [data3, dataError3, statusCode3] = useFetch(postsUrl);
+  const [data3, dataError3] = PostsData(Name, postClass);
   console.log(dataError3);
   useEffect(() => {
-    if (statusCode === 401 || statusCode3 === 401) {
-      window.location.pathname = 'login';
-    }
     setIcon(data?.icon);
     setDisc(data?.description);
     setTopics(data?.topics);
@@ -59,16 +58,13 @@ function Header() {
     setFixedName(data?.fixedName);
     setMembers(data?.members);
     setPosts(data3);
-  }, [data, postClass, data3, statusCode, statusCode3]);
+  }, [data, postClass, data3]);
 
   // fetch data of communities i am a moderator of
-  const [data2, dataError2, statusCode2] = useFetch('/subreddit/mine/moderator');
+  const [data2, dataError2] = ModeratorData();
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
   useEffect(() => {
-    if (statusCode2 === 401) {
-      window.location.pathname = 'login';
-    }
     console.log(dataError2);
 
     if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
@@ -76,7 +72,7 @@ function Header() {
     } else {
       setJoin(false);
     }
-  }, [data2, username, statusCode2]);
+  }, [data2, username]);
   // subscribr or unsubscribe
   const sendData = (b) => {
     PostJoin(`/subreddits/${Name}/subscribe`, b);

@@ -5,7 +5,7 @@ import {
 import { useState, useEffect } from 'react';
 import KeyDown from '../../../../../utils/KeyDown';
 import FilterArray from '../../../../../utils/FilterArray';
-import patchData from '../../../server';
+import patchData from '../ModerationServer';
 import AddBtn from './Add Bottun/AddBtn';
 import {
   AboutContent,
@@ -32,15 +32,11 @@ function AddList(props) {
   const [tags, setTags] = useState(topics);
   const [tempString, setTempString] = useState(tags);
   const [count, setCount] = useState(tags?.length);
-  const [statusCode, setStatusCode] = useState(null);
 
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     setTags(topics);
     setTempString(topics);
-  }, [topics, statusCode]);
+  }, [topics]);
   // save the change in input field to get count if char
   const handleChange = (event) => {
     console.log((event.target > 'Text').length);
@@ -90,7 +86,7 @@ function AddList(props) {
     setTags(t);
   };
   const sendData = () => {
-    setStatusCode(patchData(`subreddits/${Name}`, { topics: tempString })); // fetch api
+    patchData(Name, { topics: tempString }); // fetch api
   };
     // return to default view of add list
   const handleClickAway1 = () => {

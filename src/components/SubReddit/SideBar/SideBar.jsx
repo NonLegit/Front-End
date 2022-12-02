@@ -23,7 +23,7 @@ function SideBar(props) {
     } else {
       setModerate(true);
     }
-  }, [moderatoesName]);
+  }, [moderatoesName, username]);
   return (
     <SideBarContainer>
       {!moderate

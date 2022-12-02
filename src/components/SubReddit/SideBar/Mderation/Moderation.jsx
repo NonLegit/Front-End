@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
 import moment from 'moment/moment';
-import patchData from '../../server';
+import patchData from './ModerationServer';
 import Sort from '../MoreIcon/More';
 import {
   AboutCountainer, AboutString, CreatedSpan,
@@ -30,7 +30,6 @@ function Moderation(props) {
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
   const [selection, setSelection] = useState(primaryTopic);
-  const [statusCode, setStatusCode] = useState(null);
 
   const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
     'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
@@ -51,14 +50,8 @@ function Moderation(props) {
   };
 
   const sendData = (val) => {
-    setStatusCode(patchData(`subreddits/${Name}`, { primaryTopic: val })); // fetch api
+    patchData(Name, { primaryTopic: val }); // fetch api
   };
-
-  useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
-  }, [statusCode]);
 
   // handel on select item
   const ListSelected = (e) => {
