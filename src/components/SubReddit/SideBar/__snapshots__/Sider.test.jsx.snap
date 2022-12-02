@@ -181,9 +181,9 @@ exports[`test snapshot 1`] = `
       </h2>
     </div>
     <a
-      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
-      onBlur={[Function]}
-      onFocus={[Function]}
+      className="css-vgri8"
+      href="/"
+      onClick={[Function]}
     >
       <button
         className="MuiButtonBase-root css-azyh4b-MuiButtonBase-root"

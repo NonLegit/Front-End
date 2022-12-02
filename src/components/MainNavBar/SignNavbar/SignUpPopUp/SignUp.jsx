@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useContext, useState, useEffect } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { SignupContext } from '../SignNavbar';
-import StyledDialog from './styles';
+import StyledDialog from '../styles';
 import {
   StyledLink, wrongIcon,
 } from '../ِAuthentication/styles';

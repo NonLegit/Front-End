@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/no-array-index-key */
 import {
   List, ListItemButton, ListItemIcon, Collapse, Box, Typography, Divider, ListItemText, ClickAwayListener,
@@ -11,14 +12,12 @@ import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { useEffect, useContext, useState } from 'react';
 import FormDialog from '../../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import {
   StyledList,
 } from './styles';
 import karma from '../assests/karma.png';
 import { firstList, secondList, exploreList } from './Lists';
-import { UserInfoContext } from '../../../../contexts/UserInfoProvider';
 import { logOut } from './server';
 /**
  * UserList
@@ -27,17 +26,6 @@ import { logOut } from './server';
  */
 
 function UserList() {
-  const [postKarma, setPostKarma] = useState();
-  const [commentKarma, setCommentKarma] = useState();
-  const [imageProfile, setImageProfile] = useState();
-  const { info } = useContext(UserInfoContext);
-
-  useEffect(() => {
-    setPostKarma(info?.postKarma);
-    setCommentKarma(info?.commentKarma);
-    setImageProfile(info?.profilePicture);
-  }, [info]);
-
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie, removeCookie] = useCookies(['redditUser']);
   const [openUserList, setOpenUserList] = React.useState(0);
@@ -66,7 +54,7 @@ function UserList() {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <ListItemIcon>
               <Box>
-                <Avatar src={imageProfile} />
+                <Avatar src={cookies.redditUser?.profilePicture} />
               </Box>
             </ListItemIcon>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}>
@@ -74,7 +62,7 @@ function UserList() {
               <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img alt="" src={karma} width={12} height={12} />
                 <Typography sx={{ fontSize: '12px', color: '#A8AAAB', whiteSpace: 'nowrap' }}>
-                  {postKarma + commentKarma }
+                  { cookies.redditUser?.postKarma + cookies.redditUser?.commentKarma }
                   {' '}
                   karma
                 </Typography>

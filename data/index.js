@@ -31,6 +31,7 @@ const hidden = require('./hidden.json');
 const postsTap = require('./postsTap.json');
 const join = require('./join.json');
 const logout = require('./logout.json');
+const token = require('./token.json');
 
 // Something more
 
@@ -68,6 +69,7 @@ module.exports = () => ({
   best,
   hot,
   logout,
+  token,
   new: newPosts,
   // Something more
 });

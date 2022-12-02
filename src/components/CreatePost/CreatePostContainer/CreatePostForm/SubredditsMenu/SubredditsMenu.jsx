@@ -13,7 +13,6 @@ import RedditButton from '../../../../RedditButton/RedditButton';
 import {
   AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon, ClickAwayContainer,
 } from './styles';
-
 /**
  * This component contains the menu of subreddit that the use can post in
  *
@@ -79,7 +78,7 @@ function SubredditsMenu(props) {
   const filteredCommunities = filteredArray?.length === 0 ? null : filteredArray;
   const username = cookies.redditUser?.userName;
   const profileMatching = iMatcher(`u/${username}`, communityName);
-  const userIcon = 'https://styles.redditmedia.com/t5_758ciw/styles/profileIcon_snoodd8b11a2-0e4a-4403-a861-a9fa7474b850-headshot.png?width=256&height=256&crop=256:256,smart&s=bc53006491e647452f185afa69775cd6a241598c';
+  const userIcon = cookies.redditUser?.profilePicture;
 
   return (
     <MenuOuterContainer>

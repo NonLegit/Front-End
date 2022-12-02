@@ -1,19 +1,20 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { Box } from '@mui/material';
-import MuiToolbar from '@mui/material/toolbar';
+import MuiToolbar from '@mui/material/Toolbar';
 
 import HomeIcon from '@mui/icons-material/Home';
 import * as React from 'react';
 
 import { createContext } from 'react';
+// import { Sign } from 'crypto-browserify';
 import RedditButton from './RedditButton/RedditButton';
 import {
   StyledNavbar, HomeButton,
 } from './styles';
 import SearchButton from './Search/Search';
 import LogoIcon from '../Navbar/Logo/logoIcon';
-import SignUp from './SignUpPopUp/SignUp';
+// import SignUp from './SignUpPopUp/SignUp';
 import LogIn from './LogInPopUp/LogIn';
 import ForgetUsername from './ForgetUserNamePopUp/ForgetUser';
 import ForgetPassword from './ForgetPassPopUp/ForgetPass';
@@ -21,11 +22,13 @@ import UserList from './UserList/UserList';
 import PermanentDrawerLeft from './Drawer/Drawer';
 import DrawerBottom from './DrawerBottom/DrawerBottom';
 import HomeList from './HomeList/HomeList';
+import SignUpPopUp from './SignUpPopUp/SignUpPopUp';
 
 export const SignupContext = createContext();
 export const LoginContext = createContext();
 export const ForgetUserContext = createContext();
 export const ForgetPassContext = createContext();
+export const SignUpUsernameContext = createContext();
 
 /**
  * SNavbar
@@ -42,16 +45,26 @@ function SignNavbar() {
 
   const [openForgotpass, setOpenForgotpass] = React.useState(false);
 
+  const [openSignUpUsername, setOpenSignUpUsername] = React.useState(false);
+
   const handleClose = () => {
+    console.log('ClosedAll');
     setOpenForgotpass(false);
     setOpenForgotUser(false);
     setOpenLogIn(false);
     setOpenSignUp(false);
+    setOpenSignUpUsername(false);
   };
 
   const handleClickOpenSignUp = () => {
     handleClose();
     setOpenSignUp(true);
+  };
+
+  const handleClickOpenSignUpUsername = () => {
+    console.log('Opened');
+    handleClose();
+    setOpenSignUpUsername(true);
   };
 
   const handleClickOpenLogIn = () => {
@@ -69,12 +82,13 @@ function SignNavbar() {
     setOpenForgotpass(true);
   };
 
+  const pathArray = window.location.pathname.split('/');
   return (
     window.location.pathname !== '/login'
     && window.location.pathname !== '/password'
     && window.location.pathname !== '/register'
     && window.location.pathname !== '/username'
-    && !window.location.pathname?.includes('/resetpassword')
+    && pathArray[1] !== 'resetpassword'
     && (
     <>
       <StyledNavbar>
@@ -129,10 +143,15 @@ function SignNavbar() {
             </Box>
 
             <SignupContext.Provider value={{
-              openSignUp, handleClose, handleClickOpenLogIn,
+              openSignUp,
+              handleClose,
+              handleClickOpenLogIn,
+              handleClickOpenSignUp,
+              openSignUpUsername,
+              handleClickOpenSignUpUsername,
             }}
             >
-              <SignUp />
+              <SignUpPopUp />
             </SignupContext.Provider>
 
             <LoginContext.Provider value={{

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import {
   Button, ContentHeader, Content, ContentSubHeader,
   SubHeader, AntSwitch,
@@ -6,7 +6,6 @@ import {
 import ChangeCountry from './ChangeCountry/ChangeCountry';
 import ChangeGender from './ChangeGender/ChangeGender';
 import { ChangeButton } from './styles';
-import { UserInfoContext } from '../../../../contexts/UserInfoProvider';
 /**
  * - AccountPreferences
  * - Change Email and password in settings page
@@ -14,11 +13,7 @@ import { UserInfoContext } from '../../../../contexts/UserInfoProvider';
  *
  */
 function AccountPreferences() {
-  const { info } = useContext(UserInfoContext);
-  const [email, setEmail] = useState('');
-  useEffect(() => {
-    setEmail(info?.email);
-  }, [info]);
+  const [cookies] = useCookies(['redditUser']);
   return (
     <>
       <SubHeader data-testid="account-preferances">ACCOUNT PREFERENCES</SubHeader>
@@ -28,7 +23,7 @@ function AccountPreferences() {
             Email address
           </ContentHeader>
           <ContentSubHeader>
-            {email}
+            {cookies.redditUser?.email}
           </ContentSubHeader>
         </Content>
         <AntSwitch>

@@ -18,9 +18,10 @@ const NotificationsFetch = () => {
         setEarlier(actualData.data.filter((e) => !checkTimeNow(e.createdAt)));
       })
       .catch((error) => {
-        if (error.code === 'ERR_NETWORK') {
-          alert('error fetrching');
+        if (error.response.status === 401) {
+          window.location.href = './login';
         }
+
         console.log(error);
       });
   }, [api]);
