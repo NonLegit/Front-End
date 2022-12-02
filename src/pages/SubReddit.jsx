@@ -1,8 +1,11 @@
-import Header from '../components/SubReddit/Cover';
+import CreatePostInSubredditContextProvider from '../contexts/CreatePostInSubredditContext';
+import Subreddit from '../components/SubReddit/Cover';
 
 function SubReddit() {
   return (
-    <Header />
+    <CreatePostInSubredditContextProvider>
+      <Subreddit />
+    </CreatePostInSubredditContextProvider>
   );
 }
 

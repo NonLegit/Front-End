@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from '../../services/instance';
 
-const useFetch = (Name) => {
+const getSubredditAllData = (Name) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [statusCode, setStatusCode] = useState(null);
@@ -26,4 +26,4 @@ const useFetch = (Name) => {
 
   return [data, error];
 };
-export default useFetch;
+export default getSubredditAllData;
