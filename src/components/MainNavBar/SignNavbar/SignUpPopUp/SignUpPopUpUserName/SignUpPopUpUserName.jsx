@@ -18,10 +18,10 @@ import AuthenticationHeader from '../../../../Authentication/AuthenticationHeade
 import { SignupContext } from '../../SignNavbar';
 
 // server
-import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from '../../../../Authentication/SignUp/SignUpUsername/server';
+import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from '../../../../Authentication/SignUp/SignUpUsername/signupUsernameServer';
 
 // scripts
-import { checkPassword } from '../../../../Authentication/scripts';
+import { checkPassword } from '../../../../Authentication/authenticationServer';
 
 // styles
 import { StyledDialog } from '../../styles';

@@ -12,7 +12,7 @@ import { wrongIcon, rightIcon } from '../../styles';
 import theme from '../../../../styles/theme/index';
 
 // Scripts
-import { redditCookie } from '../../scripts';
+import { redditCookie } from '../../authenticationServer';
 import { redirectHome } from '../../../../utils/Redirect';
 
 // utils

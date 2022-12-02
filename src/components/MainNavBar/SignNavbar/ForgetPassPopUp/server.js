@@ -9,7 +9,7 @@ import { wrongIcon, rightIcon } from '../../../Authentication/styles';
 import theme from '../../../../styles/theme';
 
 // scripts
-import { checkEmail } from '../../../Authentication/scripts';
+import { checkEmail } from '../../../Authentication/authenticationServer';
 
 /**
  *
