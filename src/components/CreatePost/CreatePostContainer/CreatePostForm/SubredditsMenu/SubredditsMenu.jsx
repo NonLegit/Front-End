@@ -13,6 +13,7 @@ import RedditButton from '../../../../RedditButton/RedditButton';
 import {
   AvatarContainer, CommunityCategory, CustomList, DashedCircle, DropIcon, MenuContainer, MenuOuterContainer, SubredditsContainer, SubredditSearchField, CustomAvatar, CommunityName, CommunityAvatar, Members, CommunityContainer, SearchIcon, NoCommunitiesFound, ChosenCommunityIcon, ClickAwayContainer,
 } from './styles';
+import { useCreatePostInSubredditContext } from '../../../../../contexts/CreatePostInSubredditContext';
 /**
  * This component contains the menu of subreddit that the use can post in
  *
@@ -26,15 +27,16 @@ function SubredditsMenu(props) {
   // props
   const { setCommunityToPostIn, setOwnerType } = props;
 
+  // contexts
+  const { communities } = useCommunitiesInCreatePostContext();
+  const { subredditName, subredditIcon } = useCreatePostInSubredditContext();
+
   // states
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [communityName, setCommunityName] = useState('');
-  const [chosenCommunityIcon, setChosenCommunityIcon] = useState(null);
-  const [showIcon, setShowIcon] = useState(false);
-
-  // contexts
-  const { communities } = useCommunitiesInCreatePostContext();
+  const [communityName, setCommunityName] = useState(subredditName || '');
+  const [chosenCommunityIcon, setChosenCommunityIcon] = useState(subredditIcon);
+  const [showIcon, setShowIcon] = useState(!!subredditIcon);
 
   // cookies
   const [cookies] = useCookies(['redditUser']);
@@ -72,6 +74,7 @@ function SubredditsMenu(props) {
     setChosenCommunityIcon(null);
   };
   const handleFilter = (community) => iMatcher(`r/${community.subredditName}`, communityName);
+  console.log(communityName);
 
   // variables
   const filteredArray = communities?.filter(handleFilter);

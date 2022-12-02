@@ -18,6 +18,7 @@ import PostsData from './subredditPostsServer';
 import PostJoin from './PostJoin';
 
 import SubredditNotification from './Notifications/SubriddetNotifications';
+import { useCreatePostInSubredditContext } from '../../contexts/CreatePostInSubredditContext';
 /**
  * Subreddit page
  * @component
@@ -37,12 +38,12 @@ function Header() {
   const [cookies] = useCookies(['redditUser']);
   const [username, setUserName] = useState('');
   const [members, setMembers] = useState();
-  const [subredditId, setSubredditId] = useState();
 
   useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
   const { Name, postClass } = useParams();
   const [data, dataError] = SubredditData(Name);
+  const { setSubredditId, setSubredditName, setSubredditIcon } = useCreatePostInSubredditContext();
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
@@ -58,6 +59,8 @@ function Header() {
     setFixedName(data?.fixedName);
     setMembers(data?.members);
     setSubredditId(data?.id);
+    setSubredditName(Name);
+    setSubredditIcon(data?.icon);
     console.log(data?.id);
     setPosts(data3);
   }, [data, postClass, data3]);
@@ -126,7 +129,7 @@ function Header() {
         >
           <MainContent width={640}>
             <ThemeProvider theme={theme2}>
-              <CreatePostInSubreddit subredditId={subredditId} />
+              <CreatePostInSubreddit subredditName={Name} />
             </ThemeProvider>
             <PostsClassificationSubreddit subredditName={Name} />
             { posts?.map((posts) => (
