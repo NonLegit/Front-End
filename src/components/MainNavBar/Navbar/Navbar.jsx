@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Box } from '@mui/material';
-import MuiToolbar from '@mui/material/toolbar';
+import MuiToolbar from '@mui/material/Toolbar';
 import StyledNavbar from './styles';
 import HomeList from './HomeList/HomeList';
 import UserList from './UserList/UserList';
