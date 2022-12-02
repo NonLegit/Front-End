@@ -16,9 +16,9 @@ export const settingsPost = async (prefs) => {
         message = 'operation done successfully';
       }
     }).catch((error) => {
-      if (error?.response.status === 401) {
-        redirectLogin();
-      }
+      // if (error?.response.status === 401) {
+      //   redirectLogin();
+      // }
       console.log(error);
     });
   return message;
