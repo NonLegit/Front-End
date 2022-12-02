@@ -51,7 +51,7 @@ REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"' > .env
                     # docker push cynic0/reddit-frontend:latest
 
                     # Deleting credentials file from filesystem.
-                    rm /var/jenkins_home/.docker/config.json                  
+                    rm -f /var/jenkins_home/.docker/config.json                  
                 '''
             }
         }
