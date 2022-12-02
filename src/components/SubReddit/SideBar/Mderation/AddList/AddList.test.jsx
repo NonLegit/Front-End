@@ -50,7 +50,7 @@ describe(' test filter array', () => {
   tests.forEach((item, index) => {
     it(`test case ${index}`, () => {
       const result = FilterArray(item.arr, 2);
-      console.log('nour basma eslam madbouly ', result);
+      // console.log('nour basma eslam madbouly ', result);
       expect(result).toEqual(item.output);
     });
   });

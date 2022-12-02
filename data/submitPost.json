@@ -1,0 +1,28 @@
+{
+    "posts": [
+        {
+          "{\"title\":\"jxbhjx\",\"text\":\"jxbjh\",\"kind\":\"text\",\"owner\":0,\"ownerType\":\"Subreddit\",\"spoiler\":false,\"nswf\":false,\"sendReplies\":true}": "",
+          "id": 1
+        },
+        {
+          "{\"title\":\"Wa2fet nasyet zaman\",\"text\":\"\\n\",\"kind\":\"text\",\"owner\":0,\"ownerType\":\"Subreddit\",\"spoiler\":false,\"nswf\":false,\"sendReplies\":true}": "",
+          "id": 2
+        },
+        {
+          "{\"title\":\"Oh ya\",\"text\":\"\\n\",\"kind\":\"text\",\"owner\":0,\"ownerType\":\"Subreddit\",\"spoiler\":true,\"nswf\":true,\"sendReplies\":true}": "",
+          "id": 3
+        },
+        {
+          "{\"title\":\"Oh ya\",\"text\":\"lorem\\n\",\"kind\":\"text\",\"owner\":0,\"ownerType\":\"Subreddit\",\"spoiler\":true,\"nswf\":true,\"sendReplies\":false}": "",
+          "id": 4
+        },
+        {
+          "{\"title\":\"hd\",\"kind\":\"text\",\"owner\":2,\"ownerType\":\"Subreddit\",\"spoiler\":false,\"nswf\":false,\"sendReplies\":true}": "",
+          "id": 5
+        },
+        {
+          "{\"title\":\"hd\",\"kind\":\"text\",\"owner\":3,\"ownerType\":\"Subreddit\",\"spoiler\":false,\"nswf\":false,\"sendReplies\":true}": "",
+          "id": 6
+        }
+      ]
+}

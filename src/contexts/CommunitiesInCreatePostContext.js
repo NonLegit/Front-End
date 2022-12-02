@@ -1,13 +1,12 @@
 import { useContext, createContext, useMemo } from 'react';
-
-import useFetch from '../hooks/useFetch';
+import createPostServer from '../components/CreatePost/CreatePostContainer/createPostServer';
 
 const CommunitiesInCreatePostContext = createContext(null);
 
 function CommunitiesInCreatePostContextProvider({ children }) {
-  const communitiesUrl = '/subreddits/mine/subscriber';
-  const [communities, communitiesError] = useFetch(communitiesUrl);
-  const value = useMemo(() => ({ communities: communities?.communitiesList, communitiesError }), [communities, communitiesError]);
+  const [communities, communitiesError] = createPostServer();
+  // console.log(communities);
+  const value = useMemo(() => ({ communities, communitiesError }), [communities, communitiesError]);
   return (
     <CommunitiesInCreatePostContext.Provider
       value={value}

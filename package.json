@@ -17,13 +17,16 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.1.3",
     "better-docs": "^2.7.2",
+    "crypto-browserify": "^3.12.0",
     "gapi-script": "^1.2.0",
     "history": "^5.3.0",
+    "js-cookie": "^3.0.1",
     "jsdoc-react": "^1.0.0",
     "json-server": "^0.17.1",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
@@ -35,17 +38,20 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-select-country-list": "^2.2.3",
     "react-test-renderer": "^18.2.0",
     "router": "^1.3.7",
     "styled-components": "^5.3.6",
+    "unique-username-generator": "^1.1.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --coverage --watchAll --json --outputFile=output.json",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" ",
     "eject": "react-scripts eject",
-    "docs": "jsdoc -c jsdoc.json"
+    "docs": "jsdoc -c jsdoc.json",
+    "server-json": "json-server --watch data/index.js --port 8000 --routes data/routes.json"
   },
   "eslintConfig": {
     "extends": [

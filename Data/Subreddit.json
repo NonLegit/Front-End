@@ -16,7 +16,7 @@
       "topics": ["ahmed","nour","madbouly"],
       "primaryTopic":"Add a Primary Topic",
       "createdAt":"2017-07-21T17:32:28.000Z",
-      "moderators":["ahmed","ahmed","ahmed"],
+      "moderators":["ahmed","ahmed","nour"],
       "language": "string",
       "region": "string",
       "type": "Public",
@@ -27,5 +27,6 @@
       "allowSpoilerTag": true,
       "allowGif": true,
       "allowImageUploads": true,
-      "allowMultipleImage": true
+      "allowMultipleImage": true,
+      "members": 100000
 }

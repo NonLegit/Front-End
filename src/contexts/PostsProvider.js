@@ -1,27 +1,25 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { createContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import {
+  useMemo, createContext,
+} from 'react';
+import useFetch from '../hooks/useFetch';
 
 export const PostsContext = createContext();
 
+/**
+ * content of posts tap in profile page
+ *
+ * @property {string} name - username of profile
+ * @returns {React.Context} provider of posts in postsTap
+ */
 function PostsProvider(props) {
   const { children, name } = props;
-  const [posts, setPosts] = useState([]);
-  const client = axios.create({
-    baseURL: 'https://93a83f85-dafb-4dad-8743-4cffb7fd7b80.mock.pstmn.io/',
-  });
-  useEffect(() => {
-    client.get(`user/${name}/post/200`) // fetch api
-      .then((actualData) => {
-        setPosts(actualData.data.posts);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [name]);
+
+  const [data, dataError, statusCode] = useFetch(`user/${name}/post`);
+  const value = useMemo(() => ({ posts: data?.posts, dataError, statusCode }), [data, dataError, statusCode]);
 
   return (
-    <PostsContext.Provider value={{ posts }}>
+    <PostsContext.Provider value={value}>
       {children}
     </PostsContext.Provider>
 

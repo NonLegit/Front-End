@@ -1,0 +1,28 @@
+{
+  "subreddits": [
+    {
+      "id": 10,
+      "subredditName": "kalba222",
+      "rank": 1,
+      "isJoined": false,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    },
+    {
+      "id": 10,
+      "subredditName": "basma",
+      "rank": 1,
+      "isJoined": false,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    },
+    {
+      "id": 10,
+      "subredditName": "nour22",
+      "rank": 1,
+      "isJoined": false,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import {
   Action,
   Add, BOX, Count, Input, InputFooter, Text,
 } from './style';
-import CustomizedDialogs from '../ListAlert/Alert';
+import CustomizedDialogs from './ListAlert/Alert';
 
 const { ClickAwayListener, Box } = require('@mui/material');
 
@@ -19,7 +19,7 @@ function AddBtn(props) {
     setTag(tempString);
     setTemp(tempString);
     sendData();
-    console.log(tempString);
+    // console.log(tempString);
     // sendData();
     trueShaw();
   };

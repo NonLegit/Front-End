@@ -14,15 +14,18 @@ import {
 function Flirt() {
   const [flair, setFalir] = useState([]);
   const { Name } = useParams();
-  const [data, dataError] = useFetch(`/subreddits/${Name}/flairs`);
+  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}/flairs`);
   console.log(data);
 
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
   useEffect(() => {
+    if (statusCode === 401) {
+      window.location.pathname = 'login';
+    }
     setFalir(data);
     console.log(dataError);
-  }, [flair, data]);
+  }, [flair, data, statusCode]);
 
   return (
     <>

@@ -2,6 +2,7 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
+import moment from 'moment/moment';
 import calculateTime from '../../../utils/calculateTime';
 import JoinButton from '../../JoinButton/JoinButton';
 
@@ -18,7 +19,7 @@ import {
  * @property {string} title -Post title.
  * @property {string} image -Post owner icon.
  * @property {string} owner -Post subreddit(post owner).
- * @property {string} creator -Post creator.
+ * @property {string} author -Post author.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
@@ -27,41 +28,60 @@ import {
 
 function PostHeader(props) {
   const {
-    title, image, owner, creator, flair, flairBackgroundColor, flairColor, createdAt,
+    title, image, owner, author, flair, flairBackgroundColor, flairColor, createdAt,
+    // at merge
+    subredit,
+    //
   } = props;
   return (
     <>
-      <PostInfo py={1}>
-        <Avatar
-          src={image}
-          sx={{
-            width: 20,
-            height: 20,
-          }}
-          alt="Profile Image"
-        />
-        <PostInfoLink to="/" color="#000" fontWeight="bolder">
-          r/
-          {owner}
-        </PostInfoLink>
+      <PostInfo pb={1}>
+        {!subredit
+        && (
+          <>
+            <Avatar
+              src={image}
+              sx={{
+                width: 20,
+                height: 20,
+              }}
+              alt="Profile Image"
+            />
+
+            <PostInfoLink to={`/Subreddit/${owner}`} color="#000" fontWeight="bolder">
+              r/
+              {owner}
+            </PostInfoLink>
+          </>
+        )}
         <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
+          {!subredit && (
           <span>
             •
           </span>
+          )}
           <div>Posted By</div>
-          <PostInfoLink to="/" color="inherit" fontWeight="normal">
+          <PostInfoLink to={`/user/${author}`} color="inherit" fontWeight="normal">
             u/
-            {creator}
+            {author}
           </PostInfoLink>
+          {!subredit && (
           <CreatedAt color="inherit" fontWeight="normal">
             {calculateTime(createdAt)}
-            {' '}
-            ago
           </CreatedAt>
+          )}
+          {subredit && (
+          <CreatedAt color="inherit" fontWeight="normal">
+            {(moment.utc(createdAt).local().startOf('seconds')
+              .fromNow())}
+          </CreatedAt>
+          )}
         </Box>
+        {!subredit && (
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
           <JoinButton />
         </Box>
+        )}
       </PostInfo>
       <PostTitle to="/">
         <Typography

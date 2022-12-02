@@ -40,5 +40,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     // disabling no shadow
     'no-shadow': 'off',
+    // disabling no await in loop
+    'no-await-in-loop': 'off',
   },
 };

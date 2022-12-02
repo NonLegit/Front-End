@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
-import { ButtonBase, Link } from '@mui/material';
+import { ButtonBase } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export const AboutCountainer = styled('div')({
   fontSize: 10,
@@ -23,10 +24,14 @@ export const AboutString = styled('h2')({
   textTransform: 'none',
 });
 
-export const CustomLink = styled(Link)(() => ({
+export const CustomLink = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   display: 'flex',
   flexDirection: 'column',
+  color: theme.palette.primary.main,
+  '&:hover': {
+    textDecoration: 'none',
+  },
 }));
 
 export const Button = styled(ButtonBase)(({
@@ -57,10 +62,14 @@ export const Container = styled('div')(() => ({
   width: '100%',
 
 }));
-export const Name = styled('div')(() => ({
+export const Name = styled(Link)(() => ({
   cursor: 'pointer',
   color: '#0079d3',
   display: 'inline-block',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+  },
 }));
 export const Data = styled('div')(() => ({
   backgroundColor: '#EDEFF1',
