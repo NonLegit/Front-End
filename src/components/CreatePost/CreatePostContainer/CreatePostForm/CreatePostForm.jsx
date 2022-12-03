@@ -38,7 +38,7 @@ function CreatePostForm() {
   const { initialPostType } = usePostTypeContext();
 
   // variables
-  const postTypes = ['text', 'media', 'url'];
+  const postTypes = ['self', 'media', 'url'];
 
   // states
   const [postMedia, setPostMedia] = useState([]);
