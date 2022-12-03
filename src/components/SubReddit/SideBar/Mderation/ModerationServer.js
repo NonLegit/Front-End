@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import axios from '../../../../services/instance';
 
-const patchData = (Name, prefs) => {
-  const [statusCode, setStatusCode] = useState(null);
-
-  axios.patch(`subreddits/${Name}`, prefs).then((response) => {
-    setStatusCode(response.status);
+const patchData = async (Name, prefs) => {
+  let statusCode = '';
+  await axios.patch(`subreddits/${Name}`, prefs).then((response) => {
+    statusCode = response.status;
   }).catch((error) => {
+    statusCode = error.response.status;
     console.log(error);
   });
   if (statusCode === 401) {
