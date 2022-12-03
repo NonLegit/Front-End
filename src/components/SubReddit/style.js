@@ -79,6 +79,7 @@ export const Namee = styled('h1')({
   margin: 0,
   marginBlockStart: 0,
   marginBlockEnd: 0,
+  whiteSpace: 'nowrap',
 });
 
 export const Com = styled('h2')({
@@ -87,7 +88,7 @@ export const Com = styled('h2')({
   color: '#7c7c7c',
   margin: 0,
   lineHeight: 0,
-
+  whiteSpace: 'nowrap',
 });
 
 export const Join = styled('button')({

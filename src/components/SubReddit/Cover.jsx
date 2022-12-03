@@ -75,12 +75,14 @@ function Header() {
     setCreatedAt(data?.createdAt);
     setModeratoesName(data?.moderators);
     setFixedName(data?.fixedName);
-    setMembers(data?.members);
+    setMembers(data?.membersCount);
     setSubredditId(data?.id);
     setSubredditName(Name);
     setSubredditIcon(data?.icon);
-    console.log(data?.id);
+    console.log(data?._id);
     setPosts(data3?.data);
+    // join and comment another endpoint line 95
+    setJoin(data?.isJoined);
   }, [data, postClass, data3]);
 
   // fetch data of communities i am a moderator of
@@ -89,15 +91,17 @@ function Header() {
 
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
-  useEffect(() => {
-    console.log(dataError2);
 
-    if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
-      setJoin(true);
-    } else {
-      setJoin(false);
-    }
-  }, [data2, username]);
+  // useEffect(() => {
+  //   console.log(dataError2);
+
+  //   if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
+  //     setJoin(true);
+  //   } else {
+  //     setJoin(false);
+  //   }
+  // }, [data2, username]);
+
   // subscribr or unsubscribe
   const sendData = (b) => {
     PostJoin(`/subreddits/${Name}/subscribe`, b);
