@@ -36,7 +36,7 @@ HOST=0.0.0.0
 REACT_APP_GOOGLECLIENTID=\'"$GOOGLE_APP_ID"\'
 REACT_APP_FACEBOOKCLIENTID=\'"$FACEBOOK_APP_ID"\'
 REACT_APP_SITEKEY="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
-REACT_APP_ENV='production'
+REACT_APP_ENV='development'
 REACT_APP_PROXY_DEVELOPMENT="http://localhost:8000"
 REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"' > .env
                     # Build the docker image

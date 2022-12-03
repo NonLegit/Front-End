@@ -16,6 +16,7 @@ import {
  *
  * @component PostHeader
  * @property {string} title -Post title.
+ * @property {string} ownerType -Post owner type user or subreddit.
  * @property {string} ownerIcon -Post ownerName icon.
  * @property {string} ownerName -Post subreddit(post ownerName).
  * @property {string} authorName -Post authorName.
@@ -28,7 +29,7 @@ import {
 
 function PostHeader(props) {
   const {
-    title, ownerIcon, ownerName, authorName, flair, flairBackgroundColor, flairColor, createdAt,
+    title, ownerIcon, ownerType, ownerName, authorName, flairText, flairBackgroundColor, flairColor, createdAt,
     subredit,
 
   } = props;
@@ -48,27 +49,30 @@ function PostHeader(props) {
             />
 
             <PostInfoLink to={`/Subreddit/${ownerName}`} color="#000" fontWeight="bolder">
-              r/
+              {ownerType === 'Subreddit' ? 'r/' : 'u/'}
               {ownerName}
             </PostInfoLink>
           </>
         )}
         <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
-          {!subredit && (
-          <span>
-            •
-          </span>
+          {ownerType === 'Subreddit' && (
+          <>
+            {!subredit && (
+            <span>
+              •
+            </span>
+            )}
+            <div>Posted By</div>
+            <PostInfoLink to={`/user/${authorName}`} color="inherit" fontWeight="normal">
+              u/
+              {authorName}
+            </PostInfoLink>
+          </>
           )}
-          <div>Posted By</div>
-          <PostInfoLink to={`/user/${authorName}`} color="inherit" fontWeight="normal">
-            u/
-            {authorName}
-          </PostInfoLink>
 
           <CreatedAt color="inherit" fontWeight="normal">
             {calculateTime(createdAt)}
           </CreatedAt>
-
         </Box>
         {!subredit && (
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
@@ -84,13 +88,18 @@ function PostHeader(props) {
         >
           {title}
           {' '}
-          <Flair
-            disableRipple
-            backgroundColor={flairBackgroundColor}
-            flairColor={flairColor}
-          >
-            {flair}
-          </Flair>
+          {
+            flairText
+            && (
+            <Flair
+              disableRipple
+              backgroundColor={flairBackgroundColor}
+              flairColor={flairColor}
+            >
+              {flairText}
+            </Flair>
+            )
+          }
         </Typography>
       </PostTitle>
     </>
