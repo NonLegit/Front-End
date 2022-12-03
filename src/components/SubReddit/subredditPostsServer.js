@@ -8,7 +8,7 @@ const PostsData = (Name, postClass) => {
   useEffect(() => {
     console.log(postClass);
 
-    axios.get(`/subreddits/${Name}/${postClass || 'best'}`).then((response) => {
+    axios.get(`/subreddits/${Name}/${postClass || 'hot'}`).then((response) => {
       console.log(response);
       if (response?.status === 401) {
         window.location.pathname = 'login';
