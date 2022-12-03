@@ -8,7 +8,7 @@ const getSubredditAllData = (Name) => {
 
   useEffect(() => {
     axios.get(`/subreddits/${Name}`).then((response) => {
-      // console.log(response);
+      console.log(response);
 
       setData(response.data);
       setStatusCode(response.status);

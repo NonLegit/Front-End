@@ -17,8 +17,9 @@ function SideBar(props) {
     disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
   } = props;
   const [moderate, setModerate] = useState(false);
+  const finalArray = moderatoesName.map((obj) => obj.userName);
   const num = numFormatter(members);
-  const mode = UserLogin(moderatoesName);
+  const mode = UserLogin(finalArray);
   console.log(mode);
   useEffect(() => {
     if (mode) {
@@ -44,7 +45,7 @@ function SideBar(props) {
         <Flirt />
       </CommunityContainer>
       <CommunityContainer sx={{ padding: '0px 12px' }}>
-        <Moderators moderatoesName={moderatoesName} />
+        <Moderators moderatoesName={finalArray} />
       </CommunityContainer>
       <BackHome sx={{ marginTop: -5 }} />
     </SideBarContainer>
