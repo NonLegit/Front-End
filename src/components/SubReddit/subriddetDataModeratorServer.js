@@ -24,6 +24,6 @@ const useFetch = () => {
     }
   }, []);
 
-  return [data, error, statusCode];
+  return [data.data, error, statusCode];
 };
 export default useFetch;
