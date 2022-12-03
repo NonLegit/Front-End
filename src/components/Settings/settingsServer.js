@@ -7,7 +7,8 @@ import useFetch from '../../hooks/useFetch';
 export const settingsPost = async (prefs) => {
   const api = '/users/me/prefs';
   let message = '';
-  await axios.patch(`${api}`, { prefs })
+  console.log(prefs);
+  await axios.patch(`${api}`, { gender: 'female' })
     .then((response) => {
       console.log(response);
       if (response.status === 304) {
@@ -26,6 +27,7 @@ export const settingsPost = async (prefs) => {
 export const settingsFetch = () => {
   const api = '/users/me/prefs';
   const [data, dataError, statusCode] = useFetch(api);
+  console.log('www', data);
   if (statusCode === 401) {
     redirectLogin();
   }
