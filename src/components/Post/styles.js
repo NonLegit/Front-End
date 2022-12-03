@@ -42,7 +42,7 @@ export const PostTitle = styled(Link)(() => ({
 
 export const PostMedia = styled(Box)(({ kind }) => ({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: (kind === 'self') ? 'flex-start' : 'center',
   alignItems: 'center',
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
 }));
