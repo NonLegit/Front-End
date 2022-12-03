@@ -4,7 +4,6 @@ import {
   Divider, ListItem,
 } from '@mui/material';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { useCommunitiesInCreatePostContext } from '../../../../../contexts/CommunitiesInCreatePostContext';
 import iMatcher from '../../../../../utils/iMatcher';
@@ -125,11 +124,13 @@ function SubredditsMenu(props) {
                   onClick={() => chooseCommunity(0, `u/${username}`, userIcon, 'User')}
                 >
                   <AvatarContainer>
-                    <Link to="/">
-                      <CustomAvatar src={userIcon} alt="avatar">
-                        u/
-                      </CustomAvatar>
-                    </Link>
+                    <CustomAvatar
+                      src={userIcon}
+                      alt="avatar"
+                      variant="square"
+                    >
+                      u/
+                    </CustomAvatar>
                   </AvatarContainer>
                   <CommunityContainer>
                     <CommunityName>
