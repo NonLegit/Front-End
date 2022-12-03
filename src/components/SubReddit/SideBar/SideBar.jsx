@@ -17,7 +17,7 @@ function SideBar(props) {
     disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
   } = props;
   const [moderate, setModerate] = useState(false);
-  const finalArray = moderatoesName.map((obj) => obj.userName);
+  const finalArray = moderatoesName?.map((obj) => obj.userName);
   const num = numFormatter(members);
   const mode = UserLogin(finalArray);
   console.log(mode);
