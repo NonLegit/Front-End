@@ -138,10 +138,10 @@ function Header() {
                 title={posts.title}
                 ownerIcon={icon}
                 ownerName={Name}
-                authorName={posts.author}
-                flairText={posts.flairText}
-                flairBackgroundColor={posts.flairBackgroundColor}
-                flairColor={posts.flairColor}
+                authorName={posts.author.name}
+                flairText={posts.flairId.flairText}
+                flairBackgroundColor={posts.flairId.flairBackgroundColor}
+                flairColor={posts.flairId.flairColor}
                 images={posts.images}
                 videos={posts.videos}
                 kind={posts.kind}
