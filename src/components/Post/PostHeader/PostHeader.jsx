@@ -47,8 +47,7 @@ function PostHeader(props) {
               }}
               alt="Profile ownerIcon"
             />
-
-            <PostInfoLink to={`/Subreddit/${ownerName}`} color="#000" fontWeight="bolder">
+            <PostInfoLink to={ownerType === 'Subreddit' ? `/Subreddit/${ownerName}` : `/user/${ownerName}`} color="#000" fontWeight="bolder">
               {ownerType === 'Subreddit' ? 'r/' : 'u/'}
               {ownerName}
             </PostInfoLink>

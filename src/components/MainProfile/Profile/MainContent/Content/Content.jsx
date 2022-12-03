@@ -24,7 +24,9 @@ function Content() {
   const [posts, comments] = overviewServer(username);
 
   useEffect(() => {
-    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
+    console.log(posts);
+    console.log(comments);
+    if (posts?.length > 0 || comments?.length > 0) { console.log(true); setIsContent(true); }
   }, [username, posts, comments]);
 
   const emptyContent = `hmm... u/${username}

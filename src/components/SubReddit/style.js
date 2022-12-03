@@ -54,14 +54,14 @@ export const Content = styled('div')(({ theme }) => ({
   marginTop: 24,
   justifyContent: 'space-between',
   position: 'relative',
-  // width: 'calc(100% - 80px)',
+  width: 'calc(100% - 80px)',
   [theme.breakpoints.between('0', '435')]: {
     justifyContent: 'flex-start',
   },
 }));
 export const Desc = styled('div')({
   display: 'inline-block',
-  maxWidth: 'calc(100% - 96px)',
+  // maxWidth: 'calc(100% - 96px)',
   paddingRight: 24,
   boxSizing: 'border-box',
 });
