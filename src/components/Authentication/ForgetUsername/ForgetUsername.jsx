@@ -14,10 +14,12 @@ import { AuthenticationBody, StyledLink } from '../styles';
 import theme, { fonts } from '../../../styles/theme';
 
 // server
+
 import { recoverUsername } from './forgetUsernameServer';
 
 // scripts
 import { redditCookie } from '../authenticationServer';
+
 // environment variables
 const { REACT_APP_ENV } = process.env;
 

@@ -16,50 +16,65 @@ import {
  *
  * @component PostHeader
  * @property {string} title -Post title.
- * @property {string} image -Post owner icon.
- * @property {string} owner -Post subreddit(post owner).
- * @property {string} author -Post author.
+ * @property {string} ownerIcon -Post ownerName icon.
+ * @property {string} ownerName -Post subreddit(post ownerName).
+ * @property {string} authorName -Post authorName.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
+ * @property {boolean} subredit -to identify if post in home page or subreddit.
  * @returns {React.Component} Post header
  */
 
 function PostHeader(props) {
   const {
-    title, image, owner, author, flair, flairBackgroundColor, flairColor, createdAt,
+    title, ownerIcon, ownerName, authorName, flair, flairBackgroundColor, flairColor, createdAt,
+    subredit,
+
   } = props;
   return (
     <>
       <PostInfo pb={1}>
-        <Avatar
-          src={image}
-          sx={{
-            width: 20,
-            height: 20,
-          }}
-          alt="Profile Image"
-        />
-        <PostInfoLink to={`/Subreddit/${owner}`} color="#000" fontWeight="bolder">
-          r/
-          {owner}
-        </PostInfoLink>
+        {!subredit
+        && (
+          <>
+            <Avatar
+              src={ownerIcon}
+              sx={{
+                width: 20,
+                height: 20,
+              }}
+              alt="Profile ownerIcon"
+            />
+
+            <PostInfoLink to={`/Subreddit/${ownerName}`} color="#000" fontWeight="bolder">
+              r/
+              {ownerName}
+            </PostInfoLink>
+          </>
+        )}
         <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
+          {!subredit && (
           <span>
             •
           </span>
+          )}
           <div>Posted By</div>
-          <PostInfoLink to={`/user/${author}`} color="inherit" fontWeight="normal">
+          <PostInfoLink to={`/user/${authorName}`} color="inherit" fontWeight="normal">
             u/
-            {author}
+            {authorName}
           </PostInfoLink>
+
           <CreatedAt color="inherit" fontWeight="normal">
             {calculateTime(createdAt)}
           </CreatedAt>
+
         </Box>
+        {!subredit && (
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
           <JoinButton />
         </Box>
+        )}
       </PostInfo>
       <PostTitle to="/">
         <Typography

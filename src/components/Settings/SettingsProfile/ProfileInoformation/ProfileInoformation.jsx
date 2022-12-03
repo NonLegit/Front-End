@@ -9,7 +9,9 @@ import {
   DisplayName, About, AddSocialLinks,
 } from './styles';
 import { SettingsContext } from '../../../../contexts/SettingsProvider';
-import settingsPost from '../../server';
+
+import { settingsPost } from '../../settingsServer';
+
 /**
  * - ProfileInoformation
  * - Edit Display name  and About people in Seetings Page
@@ -30,24 +32,16 @@ function ProfileInoformation() {
     setName(prefs?.displayName);
     setAbout(prefs?.description);
   }, [prefs]);
-  const Alert = (sataus) => {
-    if (sataus === 304) {
-      alert('OPeration failed');
-    } else if (sataus === 401) {
-      window.location.href = './login';
-    } else if (sataus === 200 || sataus === 201) {
-      alert('operation done successfully');
-    }
-  };
+
   const handleDisplayName = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name }));
-    const sataus = await settingsPost({ ...prefs, displayName: name });
-    Alert(sataus);
+    const message = await settingsPost({ ...prefs, displayName: name });
+    if (message !== '') { alert(message); }
   };
   const handleInfo = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, description: about }));
-    const sataus = await settingsPost({ ...prefs, description: about });
-    Alert(sataus);
+    const message = await settingsPost({ ...prefs, description: about });
+    if (message !== '') { alert(message); }
   };
   return (
     <>

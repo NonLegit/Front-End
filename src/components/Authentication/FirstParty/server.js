@@ -10,7 +10,7 @@ import { wrongIcon, rightIcon } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
-import { redditCookie } from '../authenticationServer';
+import { redditCookie } from '../scripts';
 import { redirectHome } from '../../../utils/Redirect';
 
 /**
@@ -88,7 +88,7 @@ export const logIn = async (
   }));
 
   // API Call
-  // console.log(userName.input);
+  console.log(userName.input);
   axios.post('/users/login', {
     userName: userName.input, password: password.input,
   }).then(async (response) => {

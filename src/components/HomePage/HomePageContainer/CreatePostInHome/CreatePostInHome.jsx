@@ -9,11 +9,15 @@ import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 /**
  * This component is the link between home page and create post page
  * @component CreatePostInHome
+ *
+ * @property {number} subredditName - creat post from a spacific subreddit or not
+ *
  * @returns {React.Component} User avatar
  * @returns {React.Component} Inputs redirect user to create post page
  */
 
-function CreatePostInHome() {
+function CreatePostInHome(props) {
+  const { subredditName } = props;
   const [cookies] = useCookies(['redditUser']);
   const navigate = useNavigate();
   const { setInitialPostType } = usePostTypeContext();
@@ -21,7 +25,7 @@ function CreatePostInHome() {
    * this function to redirect user to create post page
    */
   const handleClick = (postType) => {
-    navigate('/submit');
+    navigate(subredditName ? `/submit/r/${subredditName}` : '/submit');
     setInitialPostType(postType);
   };
   return (

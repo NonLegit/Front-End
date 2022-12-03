@@ -2,13 +2,16 @@
 import axios from '../../../../services/instance';
 
 // Scripts
+
 import { removeRedditCookie } from '../../../Authentication/authenticationServer';
 
 export const logOut = (removeCookie) => {
+  console.log('Logout clicked');
   axios.post('/users/logout').then((response) => {
     // jwt Cookie is sucessfully removed
     if (response.status === 200 || response.status === 201) {
-      // emove Reddit Cookie
+      // remove Reddit Cookie
+
       removeRedditCookie(removeCookie);
     }
   }).catch((error) => {

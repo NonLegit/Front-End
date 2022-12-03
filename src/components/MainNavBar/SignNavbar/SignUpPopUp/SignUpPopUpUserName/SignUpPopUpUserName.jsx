@@ -18,6 +18,7 @@ import AuthenticationHeader from '../../../../Authentication/AuthenticationHeade
 import { SignupContext } from '../../SignNavbar';
 
 // server
+
 import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from '../../../../Authentication/SignUp/SignUpUsername/signupUsernameServer';
 
 // scripts

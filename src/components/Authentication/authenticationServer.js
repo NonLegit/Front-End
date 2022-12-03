@@ -34,6 +34,7 @@ export const redditCookie = async (setCookie) => {
  */
 export const removeRedditCookie = (removeCookie) => {
   removeCookie('redditUser');
+  redirectLogin(0);
 };
 
 /**

@@ -21,6 +21,7 @@ import { resetPassword, checkToken } from './resetPasswordserver';
 
 // scripts
 import { checkPassword, matchPassword } from '../authenticationServer';
+
 /**
  * Component for Reset Password Page
  *
