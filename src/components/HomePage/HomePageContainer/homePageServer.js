@@ -7,11 +7,18 @@ const homePageServer = (postClass) => {
   console.log('from home', statusCode);
 
   const posts = dbPosts?.map((post) => {
+    // for backend bugs
+    const temp = {
+      _id: 1,
+      text: 'اي كلام/r/all',
+      backgroundColor: '#ea0027',
+      textColor: '#fff',
+    };
     const {
       text: flairText,
       backgroundColor: flairBackgroundColor,
       textColor: flairColor,
-    } = post.flairId;
+    } = (post.flairId) || temp;
     const { name: ownerName, icon: ownerIcon } = post.owner;
     const { name: authorName } = post.author;
     return ({
