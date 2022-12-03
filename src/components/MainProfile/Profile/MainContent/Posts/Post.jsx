@@ -68,9 +68,9 @@ function Post(props) {
                 Time={entity.createdAt}
                 nsfw={entity.nsfw}
                 locked={entity.locked}
-                flairBackgroundColor={entity?.flairId.backgroundColor}
-                flairColor={entity?.flairId.textColor}
-                flair={entity?.flairId.text}
+                flairBackgroundColor={entity?.flairId?.backgroundColor}
+                flairColor={entity?.flairId?.textColor}
+                flair={entity?.flairId?.text}
               />
               <PostFooter
                 handleExpand={handleExpand}

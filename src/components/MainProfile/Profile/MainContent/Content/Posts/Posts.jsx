@@ -29,9 +29,9 @@ function Posts(props) {
             subReddit={post?.name}
             nameUser={post?.author}
             Time={post?.createdAt}
-            flairBackgroundColor={post?.flairId.backgroundColor}
-            flairColor={post?.flairId.textColor}
-            flair={post?.flairId.text}
+            flairBackgroundColor={post?.flairId?.backgroundColor}
+            flairColor={post?.flairId?.textColor}
+            flair={post?.flairId?.text}
           />
           <TitlePost variant="h6">{post?.title}</TitlePost>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>

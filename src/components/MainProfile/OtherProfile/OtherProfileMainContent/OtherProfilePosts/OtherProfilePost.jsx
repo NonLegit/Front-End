@@ -69,9 +69,9 @@ function OtherProfilePost(props) {
                 nsfw={entity.nsfw}
                 locked={entity.locked}
                 isSubReddit={entity?.ownerType === 'Subreddit'}
-                flairBackgroundColor={entity?.flairId.backgroundColor}
-                flairColor={entity?.flairId.textColor}
-                flair={entity?.flairId.text}
+                flairBackgroundColor={entity?.flairId?.backgroundColor}
+                flairColor={entity?.flairId?.textColor}
+                flair={entity?.flairId?.text}
               />
               <OtherProfilePostFooter
                 handleExpand={handleExpand}
