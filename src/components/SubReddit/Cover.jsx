@@ -62,7 +62,7 @@ function Header() {
     setSubredditName(Name);
     setSubredditIcon(data?.icon);
     console.log(data?.id);
-    setPosts(data3);
+    setPosts(data3?.data);
   }, [data, postClass, data3]);
 
   // fetch data of communities i am a moderator of
@@ -136,14 +136,14 @@ function Header() {
               <PostSubreddit
                 createdAt={createdAt}
                 title={posts.title}
-                image={posts.image}
-                owner={Name}
-                author={posts.author}
-                flairText={posts.flairText}
-                flairBackgroundColor={posts.flairBackgroundColor}
-                popularity={posts.popularity}
-                flairColor={posts.flairColor}
-                url={posts.url}
+                ownerIcon={icon}
+                ownerName={Name}
+                authorName={posts.author.name}
+                flairText={posts.flairId.flairText}
+                flairBackgroundColor={posts.flairId.flairBackgroundColor}
+                flairColor={posts.flairId.flairColor}
+                images={posts.images}
+                videos={posts.videos}
                 kind={posts.kind}
                 votes={posts.votes}
                 commentCount={posts.commentCount}
