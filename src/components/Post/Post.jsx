@@ -6,6 +6,7 @@ import {
 // styles
 import {
   PostContainer, PostMedia, CustomImage, PostText, PostTextContainer,
+
 } from './styles';
 
 import Reactions from './Reactions/Reactions';
@@ -27,12 +28,14 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {number} votes -Number of post votes.
  * @property {number} commentCount -Number of post comments.
  * @property {string} text -Post text in case of "self" kind.
+ * @property {boolean} subredit -to identify if post in home page or subreddit.
  * @returns {React.Component} Post
  */
 
 function Post(props) {
   const {
     title, image, createdAt, owner, author, flairText, flairBackgroundColor, flairColor, url, kind, votes, commentCount, text,
+    subredit,
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -57,6 +60,7 @@ function Post(props) {
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
           createdAt={createdAt}
+          subredit={subredit}
         />
         <PostMedia mt={1.5} kind={kind}>
           {/* eslint-disable jsx-a11y/media-has-caption */}

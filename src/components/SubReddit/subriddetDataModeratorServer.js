@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import axios from '../services/instance';
+import axios from '../../services/instance';
 
-const useFetch = (url) => {
+const useFetch = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [statusCode, setStatusCode] = useState(null);
 
   useEffect(() => {
-    axios.get(url).then((response) => {
+    axios.get('/subreddits/mine/moderator').then((response) => {
       // console.log(response);
 
       setData(response.data);
@@ -19,7 +19,10 @@ const useFetch = (url) => {
       setStatusCode(error.response.status);
       console.log(error);
     });
-  }, [url]);
+    if (statusCode === 401 || statusCode === 401) {
+      window.location.pathname = 'login';
+    }
+  }, []);
 
   return [data, error, statusCode];
 };

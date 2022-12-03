@@ -1,20 +1,24 @@
 import { Box, ThemeProvider } from '@mui/material';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import MainContent from '../MainContent/MainContent';
-import PostSubreddit from './Post/Post';
-import CreatePostInHome from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
+import PostSubreddit from '../Post/Post';
+import CreatePostInSubreddit from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
-  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, Notification, PostHeader, TotalHeader, JoinCommunity,
+  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, PostHeader, TotalHeader, JoinCommunity,
 } from './style';
-import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
+// import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
+import PostsClassificationSubreddit from '../HomePage/HomePageContainer/PostsClassification/PostsClassification';
 import theme2 from '../../styles/theme/layout';
-import useFetch from '../../hooks/useFetch';
+import SubredditData from './SubrridetDataServer';
+import ModeratorData from './subriddetDataModeratorServer';
+import PostsData from './subredditPostsServer';
 import PostJoin from './PostJoin';
 
+import SubredditNotification from './Notifications/SubriddetNotifications';
+import { useCreatePostInSubredditContext } from '../../contexts/CreatePostInSubredditContext';
 /**
  * Subreddit page
  * @component
@@ -38,17 +42,14 @@ function Header() {
   useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
   const { Name, postClass } = useParams();
-  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}`);
+  const [data, dataError] = SubredditData(Name);
+  const { setSubredditId, setSubredditName, setSubredditIcon } = useCreatePostInSubredditContext();
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
-  const postsUrl = `/subreddits/${Name}/${postClass || 'hot'}`;
-  const [data3, dataError3, statusCode3] = useFetch(postsUrl);
+  const [data3, dataError3] = PostsData(Name, postClass);
   console.log(dataError3);
   useEffect(() => {
-    if (statusCode === 401 || statusCode3 === 401) {
-      window.location.pathname = 'login';
-    }
     setIcon(data?.icon);
     setDisc(data?.description);
     setTopics(data?.topics);
@@ -57,17 +58,18 @@ function Header() {
     setModeratoesName(data?.moderators);
     setFixedName(data?.fixedName);
     setMembers(data?.members);
+    setSubredditId(data?.id);
+    setSubredditName(Name);
+    setSubredditIcon(data?.icon);
+    console.log(data?.id);
     setPosts(data3);
-  }, [data, postClass, data3, statusCode, statusCode3]);
+  }, [data, postClass, data3]);
 
   // fetch data of communities i am a moderator of
-  const [data2, dataError2, statusCode2] = useFetch('/subreddits/mine/moderator');
+  const [data2, dataError2] = ModeratorData();
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
   useEffect(() => {
-    if (statusCode2 === 401) {
-      window.location.pathname = 'login';
-    }
     console.log(dataError2);
 
     if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
@@ -75,7 +77,7 @@ function Header() {
     } else {
       setJoin(false);
     }
-  }, [data2, username, statusCode2]);
+  }, [data2, username]);
   // subscribr or unsubscribe
   const sendData = (b) => {
     PostJoin(`/subreddits/${Name}/subscribe`, b);
@@ -105,21 +107,8 @@ function Header() {
                 && (
                 <>
                   <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
-                  <Notification sx={{
-                    '@media screen and (max-width: 435px)': {
-                      display: 'none',
-                    },
-                  }}
-                  >
-                    <NotificationsIcon
-                      color="primary"
-                      sx={{
-                        lineHeight: 0,
-                        cursor: 'pointer',
 
-                      }}
-                    />
-                  </Notification>
+                  <SubredditNotification />
                 </>
                 )}
               </Box>
@@ -140,7 +129,7 @@ function Header() {
         >
           <MainContent width={640}>
             <ThemeProvider theme={theme2}>
-              <CreatePostInHome />
+              <CreatePostInSubreddit subredditName={Name} />
             </ThemeProvider>
             <PostsClassificationSubreddit subredditName={Name} />
             { posts?.map((posts) => (
@@ -160,6 +149,7 @@ function Header() {
                 commentCount={posts.commentCount}
                 text={posts.text}
                 key={posts.id}
+                subredit
               />
             ))}
           </MainContent>

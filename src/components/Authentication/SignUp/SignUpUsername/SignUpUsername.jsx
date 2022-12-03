@@ -17,10 +17,12 @@ import {
 } from '../../styles';
 
 // server
+
 import { checkUserNameSignUp, signUp, generateRandomUsernamesServer } from './signupUsernameServer';
 
 // scripts
 import { checkPassword } from '../../authenticationServer';
+
 import theme, { fonts } from '../../../../styles/theme';
 
 // env Variables

@@ -2,12 +2,12 @@ import {
   Box, Divider,
 } from '@mui/material';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+import { useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl, WordCounter,
 } from './styles';
-
 import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
 import PostSubmission from './PostSubmission/PostSubmission';
@@ -16,6 +16,8 @@ import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 import submitPostServer from './submitPostServer';
+import currentSubredditServer from './currentSubredditServer';
+
 /**
  * This component is the main section off create post page which holds the form to submit posts
  *
@@ -24,6 +26,14 @@ import submitPostServer from './submitPostServer';
  */
 
 function CreatePostForm() {
+  // routes
+  const { subredditName } = useParams();
+  console.log(subredditName);
+
+  // server
+  const [subredditId, subredditIcon] = currentSubredditServer(subredditName);
+  console.log('component', subredditId, subredditIcon, subredditName);
+
   // contexts
   const { initialPostType } = usePostTypeContext();
 
@@ -37,11 +47,15 @@ function CreatePostForm() {
   const [postText, setPostTitle] = useState();
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
-  const [communityToPostIn, setCommunityToPostIn] = useState(null);
+  const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
   const [ownerType, setOwnerType] = useState(null);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
+
+  useEffect(() => {
+    setCommunityToPostIn(subredditId);
+  }, [subredditId]);
 
   /**
    * This function check if server should send email to user as a reply to the post
@@ -138,6 +152,8 @@ function CreatePostForm() {
       <SubredditsMenu
         setCommunityToPostIn={setCommunityToPostIn}
         setOwnerType={setOwnerType}
+        subredditIcon={subredditIcon}
+        subredditName={subredditName}
       />
       <PostFormContainer>
         <PostTypes

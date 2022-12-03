@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import axios from '../services/instance';
+import axios from '../../../../services/instance';
 
-const useFetch = (url) => {
+const useFetch = (Name) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [statusCode, setStatusCode] = useState(null);
 
   useEffect(() => {
-    axios.get(url).then((response) => {
+    axios.get(`/subreddits/${Name}/flairs`).then((response) => {
       // console.log(response);
-
       setData(response.data);
       setStatusCode(response.status);
       // console.log(response.data);
@@ -19,8 +18,10 @@ const useFetch = (url) => {
       setStatusCode(error.response.status);
       console.log(error);
     });
-  }, [url]);
-
-  return [data, error, statusCode];
+  }, []);
+  if (statusCode === 401) {
+    window.location.pathname = 'login';
+  }
+  return [data, error];
 };
 export default useFetch;

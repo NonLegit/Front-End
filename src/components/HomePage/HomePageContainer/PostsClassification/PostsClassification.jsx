@@ -21,7 +21,8 @@ import {
  * @returns {React.Component} Tabs (each tab indicate the type of posts that will be fetched)
  */
 
-function PostsClassification() {
+function PostsClassification(props) {
+  const { subredditName } = props;
   const { postClass } = useParams();
   const [activeClass, setActiveClass] = useState(null);
   const [open, setOpen] = useState(false);
@@ -33,6 +34,7 @@ function PostsClassification() {
       activeIcon: <RocketIcon />,
       nonActiveIcon: <RocketOutlinedIcon />,
     },
+
     {
       name: 'hot',
       activeIcon: <LocalFireDepartmentIcon />,
@@ -49,6 +51,7 @@ function PostsClassification() {
       nonActiveIcon: <UploadOutlinedIcon />,
     },
   ];
+
   /**
    * this function handles change in post class
    */
@@ -64,6 +67,9 @@ function PostsClassification() {
   };
   useEffect(() => {
     setActiveClass(postClass || 'best');
+    if (subredditName) {
+      setActiveClass(postClass || 'hot');
+    }
   }, [postClass]);
 
   /**
@@ -79,12 +85,14 @@ function PostsClassification() {
     <PostsClassContainer>
       {postClasses.map((ele) => {
         const { name, activeIcon, nonActiveIcon } = ele;
+
         return (
-          (matchSm || activeClass === name)
+          !(name === 'best' && subredditName)
+            && (matchSm || activeClass === name)
             && (
             <CustomClassLink
               onClick={handleClick}
-              to={`/${name}/`}
+              to={(subredditName) ? `/Subreddit/${subredditName}/${name}/` : `/${name}/`}
               key={name}
             >
               <ClassButton
@@ -105,7 +113,7 @@ function PostsClassification() {
                       const { name, nonActiveIcon } = innerEle;
                       return (
                         <PostClassSmButton
-                          to={`/${name}/`}
+                          to={(subredditName) ? `/Subreddit/${subredditName}/${name}/` : `/${name}/`}
                           key={name}
                           active={activeClass === name}
                           onClick={handleChangeClass}
@@ -124,6 +132,7 @@ function PostsClassification() {
             )
         );
       })}
+
     </PostsClassContainer>
   );
 }

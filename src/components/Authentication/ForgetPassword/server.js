@@ -9,6 +9,7 @@ import { wrongIcon, rightIcon } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
+
 import { checkEmail } from '../authenticationServer';
 
 /**

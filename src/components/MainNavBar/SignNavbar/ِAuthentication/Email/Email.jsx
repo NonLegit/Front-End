@@ -9,6 +9,7 @@ import {
 } from '../styles';
 
 // scripts
+
 import { checkEmail } from '../../../../Authentication/authenticationServer';
 
 // env Variables

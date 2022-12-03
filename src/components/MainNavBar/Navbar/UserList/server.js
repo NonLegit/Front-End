@@ -2,6 +2,7 @@
 import axios from '../../../../services/instance';
 
 // Scripts
+
 import { removeRedditCookie } from '../../../Authentication/authenticationServer';
 
 export const logOut = (removeCookie) => {
@@ -10,6 +11,7 @@ export const logOut = (removeCookie) => {
     // jwt Cookie is sucessfully removed
     if (response.status === 200 || response.status === 201) {
       // remove Reddit Cookie
+
       removeRedditCookie(removeCookie);
     }
   }).catch((error) => {
