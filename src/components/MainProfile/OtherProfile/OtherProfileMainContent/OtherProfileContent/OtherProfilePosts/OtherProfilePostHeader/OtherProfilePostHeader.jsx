@@ -4,6 +4,7 @@ import { useState } from 'react';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
+  Flair,
   HeaderAvatar, HeaderAvatarText, HeaderPost, Joined, LinkTo,
 } from './styles';
 
@@ -19,7 +20,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    subReddit, nameUser, Time, isSubReddit,
+    subReddit, nameUser, Time, isSubReddit, type, flair, flairBackgroundColor, flairColor,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -47,12 +48,21 @@ function OtherProfilePostHeader(props) {
         </HeaderAvatar>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', marginRight: '70px' }}>
           <LinkTo to={`/Subreddit/${subReddit}`}>
-            <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-              r/
-              {subReddit}
-              {' '}
-              .
-            </Typography>
+            {type === 'Subreddit' ? (
+              <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+                r/
+                {subReddit}
+                {' '}
+                .
+              </Typography>
+            ) : (
+              <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+                u/
+                {subReddit}
+                {' '}
+                .
+              </Typography>
+            )}
           </LinkTo>
           <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
             Posted by
@@ -73,8 +83,15 @@ function OtherProfilePostHeader(props) {
             {(moment.utc(Time).local().startOf('seconds')
               .fromNow())}
           </Typography>
-
+          <Flair
+            disableRipple
+            backgroundColor={flairBackgroundColor}
+            flairColor={flairColor}
+          >
+            {flair}
+          </Flair>
         </Box>
+
         {isSubReddit && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
@@ -86,6 +103,7 @@ function OtherProfilePostHeader(props) {
           {(joined ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
         )}
+
       </Box>
 
       {/* {((subTitle === 'Spam').toString() === 'true')

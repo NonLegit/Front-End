@@ -12,9 +12,10 @@ import {
  * @returns {React.Component} PostSide
  */
 function PostSide(props) {
-  const { points, postVoteStatus } = props;
+  const { points, postVoteStatus, spam } = props;
   const [postPoints, setPostPoints] = useState(points);
 
+  console.log(spam);
   const handleClickUp = () => {
     setPostPoints(postPoints + 1);
   };
@@ -22,7 +23,7 @@ function PostSide(props) {
     setPostPoints(postPoints - 1);
   };
   return (
-    <SidebarQueueBox>
+    <SidebarQueueBox condition={spam.toString()}>
       {
         (postVoteStatus === '1') ? <UpArrowFilled onClick={() => { handleClickDown(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
       }

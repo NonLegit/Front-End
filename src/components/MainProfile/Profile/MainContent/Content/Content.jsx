@@ -1,13 +1,13 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../../../contexts/UserProvider';
-import { ContentContext } from '../../../../../contexts/ContentProvider';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox } from '../styles';
 import ContentBox from './styles';
 import Posts from './Posts/Posts';
 import Comments from './Comments/Comments';
+import { overviewServer } from '../../../profileServer';
 
 /**
  * Content component display the comments and posts in the profile page
@@ -19,14 +19,11 @@ import Comments from './Comments/Comments';
  * @returns {React.Component} Content
  */
 function Content() {
-  const [isContent, setIsContent] = useState(false);
-  const { posts, comments, statusCode } = useContext(ContentContext);
   const { username } = useContext(UserContext);
+  const [isContent, setIsContent] = useState(false);
+  const [posts, comments] = overviewServer(username);
 
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
   }, [username, posts, comments]);
 

@@ -1,38 +1,26 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import CommunitiesProvider from '../../../../contexts/CommunitiesProvider';
-import FilteredPostsProvider from '../../../../contexts/FilteredPostsProvider';
-import ContentProvider from '../../../../contexts/ContentProvider';
-import PostsProvider from '../../../../contexts/PostsProvider';
-import UserProvider from '../../../../contexts/UserProvider';
-import UserInfoProvider from '../../../../contexts/UserInfoProvider';
 import Content from './Content/Content';
 import PostsFilteredTap from './PostsFilteredTap/PostsFilteredTap';
 import PostsTap from './PostsTap/PostsTap';
 import Sidebar from './Sidebar/Sidebar';
 import { ProfilePage } from './styles';
 
-const renderSwitch = (param, username) => {
+const renderSwitch = (param) => {
   if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&t=day') {
     return (
-      <ContentProvider name={username}>
-        <Content />
-      </ContentProvider>
+      <Content />
     );
   }
 
   if (param === 'submitted' || param === 'submitted/sort=new') {
     return (
-      <PostsProvider name={username}>
-        <PostsTap />
-      </PostsProvider>
+      <PostsTap />
     );
   }
   if (param === 'upvoted' || param === 'downvoted' || param === 'saved' || param === 'hidden') {
     return (
-      <FilteredPostsProvider param={param}>
-        <PostsFilteredTap type={param} />
-      </FilteredPostsProvider>
+      <PostsFilteredTap />
     );
   }
   return (
@@ -49,19 +37,13 @@ const renderSwitch = (param, username) => {
  */
 
 function ProfileMainContent() {
-  const { subTitle, username } = useParams();
+  const { subTitle } = useParams();
   return (
     <Box>
-      <UserProvider name={username}>
-        <ProfilePage>
-          {renderSwitch(subTitle, username)}
-          <UserInfoProvider>
-            <CommunitiesProvider>
-              <Sidebar />
-            </CommunitiesProvider>
-          </UserInfoProvider>
-        </ProfilePage>
-      </UserProvider>
+      <ProfilePage>
+        {renderSwitch(subTitle)}
+        <Sidebar />
+      </ProfilePage>
     </Box>
   );
 }

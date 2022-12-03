@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import renderText from '../../../../../utils/renderText';
 import { WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import { UserContext } from '../../../../../contexts/UserProvider';
-import { FilteredPostsContext } from '../../../../../contexts/FilteredPostsProvider';
 import Post from '../Posts/Post';
+import postsFilteredTapServer from './postsFilteredTapServer';
 
 /**
  * filtered taps (saved - hidden - upvoted - downvoted)
@@ -13,24 +14,21 @@ import Post from '../Posts/Post';
  * @property {string} type - conatins the subtitle of the page to render correctly
  * @returns {React.Component} PostsFilteredTap
  */
-function PostsFilteredTap(props) {
-  const { type } = props;
+function PostsFilteredTap() {
+  const { subTitle } = useParams();
   const { username } = useContext(UserContext);
-  const { posts, statusCode } = useContext(FilteredPostsContext);
+  const [posts] = postsFilteredTapServer(subTitle);
   const [isContent, setIsContent] = useState(false);
   // check if the page have any content posts to show
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     if (posts?.length > 0) { setIsContent(true); }
-  }, [username, posts, type, statusCode]);
+  }, [username, posts, subTitle]);
 
-  const emptyContent = renderText(type);
+  const emptyContent = renderText(subTitle);
   return (
     <WideBox>
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
-      {isContent && posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} type={type} />))}
+      {isContent && posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} type={subTitle} />))}
     </WideBox>
   );
 }

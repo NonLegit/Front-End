@@ -4,6 +4,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import moment from 'moment/moment';
 import {
+  Flair,
   HeaderPost, LinkTo,
 } from './styles';
 
@@ -22,18 +23,31 @@ function PostHeader(props) {
     nameUser,
     Time,
     subReddit,
+    type,
     nsfw,
     locked,
+    flairBackgroundColor,
+    flairColor,
+    flair,
   } = props;
   return (
     <HeaderPost>
       <LinkTo to={`/Subreddit/${subReddit}`}>
-        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-          r/
-          {subReddit}
-          {' '}
-          .
-        </Typography>
+        {type === 'Subreddit' ? (
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            r/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        ) : (
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            u/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        )}
       </LinkTo>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
@@ -49,6 +63,13 @@ function PostHeader(props) {
         {(moment.utc(Time).local().startOf('seconds')
           .fromNow())}
       </Typography>
+      <Flair
+        disableRipple
+        backgroundColor={flairBackgroundColor}
+        flairColor={flairColor}
+      >
+        {flair}
+      </Flair>
       {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
       {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
 

@@ -1,6 +1,7 @@
 import { Avatar, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import RedditButton from '../../../../../../RedditButton/RedditButton';
 
 export const RemovalBox = styled(Box)(({ theme }) => ({
   color: theme.palette.secondary.light,
@@ -41,4 +42,15 @@ export const LinkTo = styled(Link)(() => ({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '8px',
+}));
+
+export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => ({
+  fontSize: 10,
+  padding: '2px 10px',
+  fontWeight: 'normal',
+  backgroundColor,
+  color: flairColor,
+  '&:hover': {
+    backgroundColor,
+  },
 }));
