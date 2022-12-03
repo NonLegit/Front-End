@@ -18,7 +18,7 @@ import {
 } from './styles';
 import karma from '../assests/karma.png';
 import { firstList, secondList, exploreList } from './Lists';
-import { logOut } from './server';
+import { logOut } from './LogoutServer';
 /**
  * UserList
  * @component

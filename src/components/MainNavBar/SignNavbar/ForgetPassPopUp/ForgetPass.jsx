@@ -12,7 +12,7 @@ import {
   RedditTextField, RedditLoadingButton,
 } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../../../Authentication/AuthenticationHeader/AuthenticationHeader';
-import { checkUserName, recoverPassword } from './server';
+import { checkUserName, recoverPassword } from './ForgetPasswordServer';
 
 import { redditCookie, checkEmail } from '../../../Authentication/authenticationServer';
 

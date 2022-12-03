@@ -10,7 +10,7 @@ import { StyledDialog } from '../styles';
 import { StyledLink } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import Email from '../ِAuthentication/Email/Email';
-import { recoverUsername } from './server';
+import { recoverUsername } from './ForgetUsernameServer';
 
 import { redditCookie } from '../../../Authentication/authenticationServer';
 
