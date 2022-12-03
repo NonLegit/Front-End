@@ -52,9 +52,9 @@ export default function Notifications() {
       </Select>
       {showList1 && (
       <SelectBox data-testid="items">
-        <SelectItem onClick={() => setNoti('Low')}>
+        <SelectItem onClick={() => setNoti('Low')} condition={(noti === 'Low').toString()}>
           <NotificationsNoneOutlinedIcon
-            color="black"
+            color={(noti === 'Low') ? 'primary' : 'black'}
             sx={{
               marginTop: '-1px',
               lineHeight: 0,
@@ -63,10 +63,9 @@ export default function Notifications() {
           />
           Low
         </SelectItem>
-        <SelectItem onClick={() => setNoti('Frequently')}>
+        <SelectItem onClick={() => setNoti('Frequently')} condition={(noti === 'Frequently').toString()}>
           <NotificationsActiveOutlinedIcon
-            // color={mainColor}
-            color="black"
+            color={(noti === 'Frequently') ? 'primary' : 'black'}
             sx={{
               marginTop: '-1px',
               lineHeight: 0,
@@ -75,9 +74,9 @@ export default function Notifications() {
           />
           Frequently
         </SelectItem>
-        <SelectItem onClick={() => setNoti('Off')}>
+        <SelectItem onClick={() => setNoti('Off')} condition={(noti === 'Off').toString()}>
           <NotificationsOffOutlinedIcon
-            color="black"
+            color={(noti === 'Off') ? 'primary' : 'black'}
             sx={{
               marginTop: '-1px',
               lineHeight: 0,

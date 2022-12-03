@@ -20,7 +20,7 @@ export const SelectBox = styled(Box)(() => ({
   marginLeft: 64,
 }));
 
-export const SelectItem = styled(Button)(() => ({
+export const SelectItem = styled(Button)(({ condition }) => ({
   padding: 5,
   color: '#878a8c',
   fontSize: 14,
@@ -37,6 +37,12 @@ export const SelectItem = styled(Button)(() => ({
     color: '#1a1a1b',
     backgroundColor: '#e9f5fd',
   },
+  ...((condition === 'true') && {
+    color: 'primary',
+    '&:hover': {
+      color: 'primary',
+    },
+  }),
 }));
 export const Notification = styled('button')({
   fontSize: 14,
