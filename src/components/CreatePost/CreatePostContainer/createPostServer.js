@@ -8,7 +8,10 @@ import useFetch from '../../../hooks/useFetch';
 
 const createPostServer = () => {
   const communitiesUrl = '/subreddits/mine/subscriber';
-  const [communities, communitiesError, statusCode] = useFetch(communitiesUrl);
+  const [data, communitiesError, statusCode] = useFetch(communitiesUrl);
+  const communities = data?.data.map((community) => ({
+    ...community, subredditName: community.fixedName,
+  }));
   console.log('communities', communities);
   console.log(statusCode);
   if (statusCode === 200) {

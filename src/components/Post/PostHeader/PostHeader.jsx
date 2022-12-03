@@ -16,9 +16,9 @@ import {
  *
  * @component PostHeader
  * @property {string} title -Post title.
- * @property {string} image -Post owner icon.
- * @property {string} owner -Post subreddit(post owner).
- * @property {string} author -Post author.
+ * @property {string} ownerIcon -Post ownerName icon.
+ * @property {string} ownerName -Post subreddit(post ownerName).
+ * @property {string} authorName -Post authorName.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
@@ -28,7 +28,7 @@ import {
 
 function PostHeader(props) {
   const {
-    title, image, owner, author, flair, flairBackgroundColor, flairColor, createdAt,
+    title, ownerIcon, ownerName, authorName, flair, flairBackgroundColor, flairColor, createdAt,
     subredit,
 
   } = props;
@@ -39,17 +39,17 @@ function PostHeader(props) {
         && (
           <>
             <Avatar
-              src={image}
+              src={ownerIcon}
               sx={{
                 width: 20,
                 height: 20,
               }}
-              alt="Profile Image"
+              alt="Profile ownerIcon"
             />
 
-            <PostInfoLink to={`/Subreddit/${owner}`} color="#000" fontWeight="bolder">
+            <PostInfoLink to={`/Subreddit/${ownerName}`} color="#000" fontWeight="bolder">
               r/
-              {owner}
+              {ownerName}
             </PostInfoLink>
           </>
         )}
@@ -60,9 +60,9 @@ function PostHeader(props) {
           </span>
           )}
           <div>Posted By</div>
-          <PostInfoLink to={`/user/${author}`} color="inherit" fontWeight="normal">
+          <PostInfoLink to={`/user/${authorName}`} color="inherit" fontWeight="normal">
             u/
-            {author}
+            {authorName}
           </PostInfoLink>
 
           <CreatedAt color="inherit" fontWeight="normal">
