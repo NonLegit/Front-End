@@ -34,6 +34,7 @@ function PostsClassification(props) {
       activeIcon: <RocketIcon />,
       nonActiveIcon: <RocketOutlinedIcon />,
     },
+
     {
       name: 'hot',
       activeIcon: <LocalFireDepartmentIcon />,
@@ -50,6 +51,7 @@ function PostsClassification(props) {
       nonActiveIcon: <UploadOutlinedIcon />,
     },
   ];
+
   /**
    * this function handles change in post class
    */
@@ -65,6 +67,9 @@ function PostsClassification(props) {
   };
   useEffect(() => {
     setActiveClass(postClass || 'best');
+    if (subredditName) {
+      setActiveClass(postClass || 'hot');
+    }
   }, [postClass]);
 
   /**
@@ -80,8 +85,10 @@ function PostsClassification(props) {
     <PostsClassContainer>
       {postClasses.map((ele) => {
         const { name, activeIcon, nonActiveIcon } = ele;
+
         return (
-          (matchSm || activeClass === name)
+          !(name === 'best' && subredditName)
+            && (matchSm || activeClass === name)
             && (
             <CustomClassLink
               onClick={handleClick}
@@ -125,6 +132,7 @@ function PostsClassification(props) {
             )
         );
       })}
+
     </PostsClassContainer>
   );
 }

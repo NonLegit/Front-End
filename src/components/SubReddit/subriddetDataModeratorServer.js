@@ -7,7 +7,7 @@ const useFetch = () => {
   const [statusCode, setStatusCode] = useState(null);
 
   useEffect(() => {
-    axios.get('/subreddit/mine/moderator').then((response) => {
+    axios.get('/subreddits/mine/moderator').then((response) => {
       // console.log(response);
 
       setData(response.data);

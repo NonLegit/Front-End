@@ -54,7 +54,7 @@ export const Content = styled('div')(({ theme }) => ({
   marginTop: 24,
   justifyContent: 'space-between',
   position: 'relative',
-  width: 'calc(100% - 80px)',
+  // width: 'calc(100% - 80px)',
   [theme.breakpoints.between('0', '435')]: {
     justifyContent: 'flex-start',
   },
