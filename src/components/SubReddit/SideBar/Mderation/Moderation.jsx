@@ -102,9 +102,9 @@ function Moderation(props) {
         </span>
         <span>
           <SpecialBold>
-            {/* 1.0k */}
+            1.0k
           </SpecialBold>
-          {/* <Light>Online</Light> */}
+          <Light>Online</Light>
         </span>
         <span />
         <div />

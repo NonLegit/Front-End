@@ -5,7 +5,7 @@ export const UserContext = createContext();
 
 function UserProvider(props) {
   const { children, name } = props;
-  const [username, setUsername] = useState();
+  const [username, setUsername] = useState(' ');
   useEffect(() => {
     setUsername(name);
   }, [name]);
@@ -14,7 +14,6 @@ function UserProvider(props) {
     <UserContext.Provider value={{ username }}>
       {children}
     </UserContext.Provider>
-
   );
 }
 

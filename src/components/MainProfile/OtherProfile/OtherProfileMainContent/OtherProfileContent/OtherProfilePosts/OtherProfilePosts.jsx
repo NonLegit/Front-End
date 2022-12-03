@@ -25,11 +25,14 @@ function OtherProfilePosts(props) {
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
           <OtherProfilePostHeader
-            subReddit={post?.owner}
+            type={post?.ownerType}
+            subReddit={post?.name}
             isSubReddit={post?.ownerType === 'Subreddit'}
             nameUser={post?.author}
             Time={post?.createdAt}
-
+            flairBackgroundColor={post?.flairId.backgroundColor}
+            flairColor={post?.flairId.textColor}
+            flair={post?.flairId.text}
           />
           <TitlePost variant="h6">{post?.title}</TitlePost>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>

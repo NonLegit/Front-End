@@ -6,6 +6,7 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
+  Flair,
   HeaderPost, Joined, LinkTo,
 } from './styles';
 
@@ -21,7 +22,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    nameUser, Time, subReddit, nsfw, locked, isSubReddit,
+    nameUser, Time, subReddit, nsfw, locked, isSubReddit, type, flair, flairBackgroundColor, flairColor,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -40,12 +41,21 @@ function OtherProfilePostHeader(props) {
   return (
     <HeaderPost>
       <LinkTo to={`/Subreddit/${subReddit}`}>
-        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-          r/
-          {subReddit}
-          {' '}
-          .
-        </Typography>
+        {type === 'Subreddit' ? (
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            r/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        ) : (
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            u/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        )}
       </LinkTo>
       {isSubReddit && (
       <Joined
@@ -72,6 +82,13 @@ function OtherProfilePostHeader(props) {
         {(moment.utc(Time).local().startOf('seconds')
           .fromNow())}
       </Typography>
+      <Flair
+        disableRipple
+        backgroundColor={flairBackgroundColor}
+        flairColor={flairColor}
+      >
+        {flair}
+      </Flair>
       {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
       {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
 

@@ -3,6 +3,7 @@ import moment from 'moment/moment';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
+  Flair,
   HeaderAvatar, HeaderAvatarText, HeaderPost, LinkTo,
 } from './styles';
 
@@ -18,7 +19,7 @@ import {
 
 function PostHeader(props) {
   const {
-    subReddit, nameUser, Time,
+    subReddit, nameUser, Time, type, flair, flairBackgroundColor, flairColor,
   } = props;
   return (
     <HeaderPost>
@@ -26,12 +27,21 @@ function PostHeader(props) {
         <HeaderAvatarText>r/</HeaderAvatarText>
       </HeaderAvatar>
       <LinkTo to={`/Subreddit/${subReddit}`}>
-        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-          r/
-          {subReddit}
-          {' '}
-          .
-        </Typography>
+        {type === 'Subreddit' ? (
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            r/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        ) : (
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            u/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        )}
       </LinkTo>
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
@@ -47,6 +57,13 @@ function PostHeader(props) {
         {(moment.utc(Time).local().startOf('seconds')
           .fromNow())}
       </Typography>
+      <Flair
+        disableRipple
+        backgroundColor={flairBackgroundColor}
+        flairColor={flairColor}
+      >
+        {flair}
+      </Flair>
       {/* {((subTitle === 'Spam').toString() === 'true')
       && (
         <RemovalBox>
