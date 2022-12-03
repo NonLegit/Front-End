@@ -22,7 +22,7 @@ function OtherProfilePostSide(props) {
     setPostPoints(postPoints - 1);
   };
   return (
-    <SidebarQueueBox condition={spam.toString()}>
+    <SidebarQueueBox condition={spam?.toString()}>
       {
         (postVoteStatus === '1') ? <UpArrowFilled onClick={() => { handleClickDown(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
       }
