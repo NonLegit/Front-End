@@ -14,8 +14,6 @@ import {
 function PostSide(props) {
   const { points, postVoteStatus, spam } = props;
   const [postPoints, setPostPoints] = useState(points);
-
-  console.log(spam);
   const handleClickUp = () => {
     setPostPoints(postPoints + 1);
   };
