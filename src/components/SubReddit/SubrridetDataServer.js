@@ -24,6 +24,6 @@ const getSubredditAllData = (Name) => {
     }
   }, []);
   // console.log('hosny', data);
-  return [data.data, error];
+  return [data?.data, error];
 };
 export default getSubredditAllData;
