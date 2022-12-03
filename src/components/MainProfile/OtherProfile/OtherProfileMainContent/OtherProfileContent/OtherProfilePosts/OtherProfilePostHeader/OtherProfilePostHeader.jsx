@@ -4,7 +4,6 @@ import { useState } from 'react';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  Flair,
   HeaderAvatar, HeaderAvatarText, HeaderPost, Joined, LinkTo,
 } from './styles';
 
@@ -20,7 +19,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    subReddit, nameUser, Time, isSubReddit, type, flair, flairBackgroundColor, flairColor,
+    subReddit, nameUser, Time, isSubReddit, type,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -83,13 +82,6 @@ function OtherProfilePostHeader(props) {
             {(moment.utc(Time).local().startOf('seconds')
               .fromNow())}
           </Typography>
-          <Flair
-            disableRipple
-            backgroundColor={flairBackgroundColor}
-            flairColor={flairColor}
-          >
-            {flair}
-          </Flair>
         </Box>
 
         {isSubReddit && (
