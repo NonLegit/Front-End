@@ -1,6 +1,7 @@
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {
+import
+{
   Divider, Box,
 } from '@mui/material';
 import { useState, useContext } from 'react';
@@ -11,7 +12,7 @@ import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './styles';
 import { SettingsContext } from '../../../../../contexts/SettingsProvider';
-import settingsPost from '../../../server';
+import { settingsPost } from '../../../settingsServer';
 
 function ChangeGender() {
   const {
@@ -22,16 +23,8 @@ function ChangeGender() {
   const handleChange = async (gender) => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, gender }));
     setOpen(!open);
-    console.log('ssc');
-    const sataus = await settingsPost({ ...prefs, gender });
-    console.log(sataus);
-    if (sataus === 304) {
-      alert('OPeration failed');
-    } else if (sataus === 401) {
-      window.location.pathname = 'login';
-    } else if (sataus === 200 || sataus === 201) {
-      alert('operation done successfully');
-    }
+    const message = await settingsPost({ ...prefs, gender });
+    if (message !== '') { alert(message); }
   };
 
   return (

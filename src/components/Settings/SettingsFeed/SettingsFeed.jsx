@@ -1,12 +1,11 @@
 import { Box } from '@mui/system';
 import { Switch } from '@mui/material';
 import { useState, useEffect } from 'react';
-import useFetch from '../../../hooks/useFetch';
 import {
   AntSwitch, ContentSubHeader, ContentHeader, Content, Button, Header,
   SettingsPageConranier, SubHeader,
 } from '../styles';
-import settingsPost from '../server';
+import { settingsPost, settingsFetch } from '../settingsServer';
 /**
  * - SettingsFeed
  * - Change Adult content and  Autoplay media in settings page
@@ -16,36 +15,21 @@ import settingsPost from '../server';
  *  @property {Object} data data from fetch
  */
 function SettingsFeed() {
-  const api = '/users/me/prefs';
-  const [data, dataError] = useFetch(api);
   const [prefs, setPrefs] = useState();
+  const [data] = settingsFetch();
   useEffect(() => {
-    // console.log(data?.settings.prefs);
     setPrefs(data?.prefs);
-    console.log(dataError);
-  }, [data, dataError]);
+  }, [data]);
 
   const handleAdultContent = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, adultContent: !oldPrefs.adultContent }));
-    const sataus = await settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
-    if (sataus === 304) {
-      alert('OPeration failed');
-    } else if (sataus === 401) {
-      window.location.pathname = 'login';
-    } else if (sataus === 200 || sataus === 201) {
-      alert('operation done successfully');
-    }
+    const message = await settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
+    if (message !== '') { alert(message); }
   };
   const handleAutoplayMedia = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, autoplayMedia: !oldPrefs.autoplayMedia }));
-    const sataus = await settingsPost({ ...prefs, autoplayMedia: !prefs?.autoplayMedia });
-    if (sataus === 304) {
-      alert('OPeration failed');
-    } else if (sataus === 401) {
-      window.location.href = './login';
-    } else if (sataus === 200 || sataus === 201) {
-      alert('operation done successfully');
-    }
+    const message = await settingsPost({ ...prefs, autoplayMedia: !prefs?.autoplayMedia });
+    if (message !== '') { alert(message); }
   };
   return (
     data === null ? (<div data-testid="settings-feed"> error in fecting</div>)
