@@ -26,7 +26,7 @@ function Moderators(props) {
         <Container key={`${index + 0}`}>
           <Name to={`/user/${entity}`}>
             u/
-            {entity}
+            {entity.userName}
           </Name>
         </Container>
       ))}

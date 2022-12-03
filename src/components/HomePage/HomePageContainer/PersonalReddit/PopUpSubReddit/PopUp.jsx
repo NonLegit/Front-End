@@ -78,8 +78,7 @@ function FormDialog({ display }) {
     const { data, status } = useFetch(`/subreddits/${subRedditName}`);
     setStatusCode(status);
     if (data) {
-      // setErrorMassage(`Sorry, r/${subRedditName} is taken. Try another.`);
-      setErrorMassage('');
+      setErrorMassage(`Sorry, r/${subRedditName} is taken. Try another.`);
     }
   };
 
