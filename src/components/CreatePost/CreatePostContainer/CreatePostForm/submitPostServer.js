@@ -18,7 +18,9 @@ const submitPostServer = (post) => {
     }
     alert('posted successfully');
   }).catch((e) => {
-    console.log(e);
+    console.log(e.response);
+    console.log(e.response.status);
+    console.log(e.response.message);
     alert('somethig went wrong');
   });
 };
