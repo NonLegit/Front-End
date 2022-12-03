@@ -136,14 +136,14 @@ function Header() {
               <PostSubreddit
                 createdAt={createdAt}
                 title={posts.title}
-                image={posts.image}
-                owner={Name}
-                author={posts.author}
+                ownerIcon={icon}
+                ownerName={Name}
+                authorName={posts.author}
                 flairText={posts.flairText}
                 flairBackgroundColor={posts.flairBackgroundColor}
-                popularity={posts.popularity}
                 flairColor={posts.flairColor}
-                url={posts.url}
+                images={posts.images}
+                videos={posts.videos}
                 kind={posts.kind}
                 votes={posts.votes}
                 commentCount={posts.commentCount}
