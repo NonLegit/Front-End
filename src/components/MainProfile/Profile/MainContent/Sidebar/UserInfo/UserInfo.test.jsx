@@ -5,10 +5,10 @@ import {
 } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import UserInfo from './UserInfo';
-import MainContent from '../../ProfileMainContent';
+import MainProfile from '../../../../MainProfile';
 
 it('open posts tap', async () => {
-  render(<Router><MainContent><UserInfo /></MainContent></Router>);
+  render(<Router><MainProfile><UserInfo /></MainProfile></Router>);
   const btn = screen.getByTestId('show-more');
   fireEvent.click(btn);
   const cancelHidden = screen.getByTestId('option');

@@ -6,10 +6,11 @@ import {
 } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import MainContent from './ProfileMainContent';
+import MainProfile from '../../MainProfile';
 
 it('open posts tap', async () => {
   // window.history.pushState({}, '', '/Login');
-  render(<Router><MainContent /></Router>);
+  render(<Router><MainProfile><MainContent /></MainProfile></Router>);
   //   const btn = screen.getByTestId('postsTap');
   //   fireEvent.click(btn);
   const photo = screen.getByTestId('cover-photo');
