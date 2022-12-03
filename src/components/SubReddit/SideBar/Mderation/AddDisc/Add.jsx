@@ -28,7 +28,7 @@ function AddSector(props) {
     // setShow(false);
     // setCount(500 - disc.length);
     const ele = document.getElementById('discInput');
-    if (disc !== ele.value?.trim() && !show) {
+    if (disc !== ele?.value?.trim() && !show) {
       const alert = document.getElementById('DiscAlert');
       // setShow(true);
       console.log(show);

@@ -1,16 +1,15 @@
 import axios from '../../../../../services/instance';
 
-const PostData = async (url, user, subRedditName, type, adult) => {
+const PostData = async (url, subRedditName, type, adult) => {
   // const [data, setData] = useState(null);
   // const [error, setError] = useState(null);
 
   await axios.post(
     url,
     JSON.stringify({
-      owner: user,
-      name: subRedditName,
+      fixedName: subRedditName,
       type,
-      NSFW: adult,
+      nsfw: adult,
     }),
   ).then((response) => {
     console.log(response);
