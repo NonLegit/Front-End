@@ -20,6 +20,6 @@ export const overviewServer = (name) => {
     if (statusCode === 401) {
       window.location.pathname = 'login';
     }
-  }, [data?.posts, dataError, statusCode]);
-  return [data?.posts, data?.comments];
+  }, [data, dataError, statusCode]);
+  return [data];
 };
