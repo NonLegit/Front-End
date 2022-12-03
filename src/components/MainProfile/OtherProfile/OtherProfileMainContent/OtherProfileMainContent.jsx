@@ -1,29 +1,21 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import ContentProvider from '../../../../contexts/ContentProvider';
-import PostsProvider from '../../../../contexts/PostsProvider';
 import UserProvider from '../../../../contexts/UserProvider';
-import UserInfoProvider from '../../../../contexts/UserInfoProvider';
 import OtherProfileContent from './OtherProfileContent/OtherProfileContent';
 import OtherProfilePostsTap from './OtherProfilePostsTap/OtherProfilePostsTap';
 import OtherProfileSidebar from './OtherProfileSidebar/OtherProfileSidebar';
 import { ProfilePage } from './styles';
-import CommunitiesProvider from '../../../../contexts/CommunitiesProvider';
 
-const renderSwitch = (param, username) => {
+const renderSwitch = (param) => {
   if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&t=day') {
     return (
-      <ContentProvider name={username}>
-        <OtherProfileContent />
-      </ContentProvider>
+      <OtherProfileContent />
     );
   }
 
   if (param === 'submitted') {
     return (
-      <PostsProvider name={username}>
-        <OtherProfilePostsTap />
-      </PostsProvider>
+      <OtherProfilePostsTap />
     );
   }
   return (
@@ -41,16 +33,13 @@ const renderSwitch = (param, username) => {
 
 function OtherProfileMainContent() {
   const { subTitle, username } = useParams();
+
   return (
     <Box>
       <UserProvider name={username}>
         <ProfilePage>
-          {renderSwitch(subTitle, username)}
-          <UserInfoProvider>
-            <CommunitiesProvider>
-              <OtherProfileSidebar />
-            </CommunitiesProvider>
-          </UserInfoProvider>
+          {renderSwitch(subTitle)}
+          <OtherProfileSidebar />
         </ProfilePage>
       </UserProvider>
     </Box>

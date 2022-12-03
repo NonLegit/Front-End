@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../../../contexts/UserProvider';
-import { ContentContext } from '../../../../../contexts/ContentProvider';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { overviewServer } from '../../../profileServer';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import ContentBox from './styles';
@@ -17,16 +17,13 @@ import Comments from './OtherProfileComments/OtherProfileComments';
  * @returns {React.Component} OtherProfileContent
  */
 function OtherProfileContent() {
+  const { username } = useParams();
   const [isContent, setIsContent] = useState(false);
-  const { posts, comments, statusCode } = useContext(ContentContext);
-  const { username } = useContext(UserContext);
+  const [posts, comments] = overviewServer(username);
 
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
-  }, [username, posts, comments, statusCode]);
+  }, [username, posts, comments]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;

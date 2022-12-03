@@ -2,15 +2,15 @@ import { Box, CardMedia, Typography } from '@mui/material';
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import CakeIcon from '@mui/icons-material/Cake';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import moment from 'moment/moment';
+import { useParams } from 'react-router-dom';
+import UserInfoServer from '../../../../mainProfileServer';
 import {
   WideButton, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, MoreOptions, OptionsButtons, UserInfoButton,
 } from './styles';
-import { UserContext } from '../../../../../../contexts/UserProvider';
-import { UserInfoContext } from '../../../../../../contexts/UserInfoProvider';
 
 /**
  * UserInfo Box in sidebar containing all info of a user
@@ -25,14 +25,10 @@ function OtherProfileUserInfo() {
   const [profilePic, setProfilePic] = useState();
   const [coverPic, setCoverPic] = useState();
 
-  const { username } = useContext(UserContext);
-  const { info, statusCode } = useContext(UserInfoContext);
+  const { username } = useParams();
+  const [info, statusCode] = UserInfoServer(username);
 
-  // to be fetched here
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setCake(info?.createdAt);

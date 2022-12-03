@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const Cover = styled('div')({
@@ -195,4 +195,33 @@ export const TotalHeader = styled('div')(({ theme }) => ({
   [theme.breakpoints.between('0', '435')]: {
     padding: '0px',
   },
+}));
+export const NotFoundBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'absolute',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '80%',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+}));
+
+export const NotFountImage = styled(Box)(() => ({
+  backgroundColor: '#a8a8a8',
+  borderRadius: '100%',
+  height: 100,
+  width: 100,
+  marginBottom: 40,
+}));
+
+export const BackHomeButton = styled(Button)(() => ({
+  width: 200,
+  borderRadius: 30,
+  height: 30,
+  boxShadow: 'none',
+  marginLeft: 10,
+  marginRight: 10,
+  '&:hover': { boxShadow: 'none' },
 }));

@@ -32,7 +32,7 @@ function OtherProfileEntityComment(props) {
       </HeaderAvatar>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <SubReddit to={`/r/${community.subredditName}`}>
+        <SubReddit to={`/Subreddit/${community.subredditName}`}>
           r/
           {community.subredditName}
         </SubReddit>

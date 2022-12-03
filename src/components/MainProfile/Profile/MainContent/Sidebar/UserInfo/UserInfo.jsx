@@ -14,7 +14,7 @@ import {
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
 import { UserContext } from '../../../../../../contexts/UserProvider';
-import { UserInfoContext } from '../../../../../../contexts/UserInfoProvider';
+import userInfoServer from './userInfoServer';
 /**
  * UserInfo Box in sidebar containing all info of a user
  *
@@ -30,19 +30,16 @@ function UserInfo() {
   const [coverPic, setCoverPic] = useState();
 
   const { username } = useContext(UserContext);
-  const { info, statusCode } = useContext(UserInfoContext);
+  const [info] = userInfoServer();
 
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setFollowers(info?.followersCount);
     setCake(info?.createdAt);
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
-  }, [info, statusCode]);
+  }, [info]);
 
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {

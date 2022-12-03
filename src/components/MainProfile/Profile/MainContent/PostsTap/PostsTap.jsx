@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useContext, useEffect, useState } from 'react';
+import { postsTapServer } from '../../../profileServer';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox, WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
-import { PostsContext } from '../../../../../contexts/PostsProvider';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import Post from '../Posts/Post';
 
@@ -17,16 +17,13 @@ import Post from '../Posts/Post';
 function PostsTap() {
   const { subTitle } = useParams();
   const { username } = useContext(UserContext);
-  const { posts, statusCode } = useContext(PostsContext);
+  const [posts] = postsTapServer(username);
   const [isContent, setIsContent] = useState(false);
 
   // check if the page have any content posts to show
   useEffect(() => {
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     if (posts?.length > 0) { setIsContent(true); }
-  }, [username, posts, statusCode]);
+  }, [username, posts]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
