@@ -27,7 +27,7 @@ function FormDialog({ display }) {
   const [subRedditName, setsubRedditName] = React.useState('');
   const [count, setcount] = React.useState(21);
   const [checked, setchecked] = React.useState('');
-  const [type, setType] = React.useState('public');
+  const [type, setType] = React.useState('Public');
   const [adult, setAdult] = React.useState(false);
   const [errorMassage, setErrorMassage] = React.useState('');
   const [statusCode, setStatusCode] = React.useState(null);
