@@ -3,7 +3,6 @@ import {
   Box, Checkbox, Dialog, FormControlLabel, FormGroup, Stack,
 } from '@mui/material';
 import { useEffect } from 'react';
-import { useCookies } from 'react-cookie';
 import {
   Actions, Adult, AdultContent, Container, NSFWs, Warning, Btn,
 } from './style';
@@ -33,10 +32,6 @@ function FormDialog({ display }) {
   const [errorMassage, setErrorMassage] = React.useState('');
   const [statusCode, setStatusCode] = React.useState(null);
   const [statusCode2, setStatusCode2] = React.useState(null);
-
-  const [cookies] = useCookies(['redditUser']);
-  const [username, setUserName] = React.useState('');
-  useEffect(() => { setUserName(cookies.redditUser?.userName); }, [cookies]);
 
   /**
    * this function to open the popup form on click the button
@@ -119,7 +114,7 @@ function FormDialog({ display }) {
       //   type,
       //   NSFW: adult,
       // })
-      const status = PostData('/subreddits', username, subRedditName, type, adult);
+      const status = PostData('/subreddits', subRedditName, type, adult);
       setStatusCode2(status);
       if (status === 200) {
         window.location.pathname = '/';
