@@ -2,7 +2,8 @@ import useFetch from '../../../hooks/useFetch';
 
 const homePageServer = (postClass) => {
   const postsUrl = `/users/${postClass || 'best'}`;
-  const [dbPosts, postsError, statusCode] = useFetch(postsUrl);
+  const [data, postsError, statusCode] = useFetch(postsUrl);
+  const dbPosts = data?.data;
   console.log('from home', statusCode);
 
   const posts = dbPosts?.map((post) => {
@@ -11,11 +12,16 @@ const homePageServer = (postClass) => {
       backgroundColor: flairBackgroundColor,
       textColor: flairColor,
     } = post.flairId;
+    const { name: ownerName, icon: ownerIcon } = post.owner;
+    const { name: authorName } = post.author;
     return ({
       ...post,
       flairText,
       flairBackgroundColor,
       flairColor,
+      ownerName,
+      ownerIcon,
+      authorName,
     });
   });
   return [posts, postsError];
