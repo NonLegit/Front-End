@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import { Avatar, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export const CreatePostContainer = styled('div')(() => ({
   width: '100%',
@@ -54,4 +55,8 @@ export const CustomAvatar = styled(Avatar)(() => ({
   WebkitBorderRadius: '50%',
   MozBorderRadius: '50%',
   border: '2px solid #eeeeee',
+}));
+
+export const CustomLink = styled(Link)(() => ({
+  textDecoration: 'none',
 }));
