@@ -35,7 +35,7 @@ function OtherProfileContent() {
       {isContent
           && (
           <>
-            {posts.map((post, index) => (
+            {posts?.map((post, index) => (
               <Posts key={`${index + 0}`} post={post} />
             ))}
             {comments.map((comment, index) => (
