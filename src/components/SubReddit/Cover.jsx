@@ -62,7 +62,7 @@ function Header() {
     setSubredditName(Name);
     setSubredditIcon(data?.icon);
     console.log(data?.id);
-    setPosts(data3);
+    setPosts(data3?.data);
   }, [data, postClass, data3]);
 
   // fetch data of communities i am a moderator of
