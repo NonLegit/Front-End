@@ -14,7 +14,7 @@ import {
 function Flirt() {
   const [flair, setFalir] = useState([]);
   const { Name } = useParams();
-  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}/flairs`);
+  const [data, dataError, statusCode] = useFetch(`/subreddits/${Name}/flair`);
   console.log(data);
 
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
