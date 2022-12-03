@@ -42,7 +42,7 @@ function Header() {
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
-  const postsUrl = `/subreddits/${Name}/${postClass || 'best'}`;
+  const postsUrl = `/subreddits/${Name}/${postClass || 'hot'}`;
   const [data3, dataError3, statusCode3] = useFetch(postsUrl);
   console.log(dataError3);
   useEffect(() => {
