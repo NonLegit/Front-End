@@ -41,6 +41,8 @@ function Moderation(props) {
     setSelection(primaryTopic);
     if (selection === 'Add a Primary Topic') {
       setListOfTopics(false);
+    } else {
+      setListOfTopics(true);
     }
   }, [primaryTopic]);
   // show select list or not
