@@ -61,7 +61,7 @@ function Header() {
   }, [data, postClass, data3, statusCode, statusCode3]);
 
   // fetch data of communities i am a moderator of
-  const [data2, dataError2, statusCode2] = useFetch('/subreddit/mine/moderator');
+  const [data2, dataError2, statusCode2] = useFetch('/subreddits/mine/moderator');
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
   useEffect(() => {
