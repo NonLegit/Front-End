@@ -25,7 +25,8 @@ function Content() {
 
   useEffect(() => {
     console.log(posts);
-    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
+    console.log(comments);
+    if (posts?.length > 0 || comments?.length > 0) { console.log(true); setIsContent(true); }
   }, [username, posts, comments]);
 
   const emptyContent = `hmm... u/${username}
