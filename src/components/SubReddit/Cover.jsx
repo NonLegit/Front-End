@@ -92,7 +92,7 @@ function Header() {
   useEffect(() => {
     console.log(dataError2);
 
-    if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
+    if ((data2?.filter((e) => e.fixedName === fixedName.toString()))?.length > 0) {
       setJoin(true);
     } else {
       setJoin(false);
