@@ -51,6 +51,9 @@ function SubredditsMenu(props) {
   // cookies
   const [cookies] = useCookies(['redditUser']);
 
+  // cookies
+  const [cookies] = useCookies(['redditUser']);
+
   // handlers
   const handleClickOnChoose = () => {
     setOpen(true);

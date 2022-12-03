@@ -8,7 +8,8 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 // server
 import {
   responseGoogleSuccess, responseGoogleFail, responseFacebook,
-} from '../../../../Authentication/ThirdParty/server';
+
+} from '../../../../Authentication/ThirdParty/thirdpartyServer';
 
 // styles
 import { ThirdPartyContainer } from './styles';

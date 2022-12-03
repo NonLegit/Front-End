@@ -10,7 +10,7 @@ import { RedditLoadingButton, RedditTextField } from '../styles';
 import theme, { fonts } from '../../../../../styles/theme';
 
 // servers
-import { checkUserName, logIn } from '../../../../Authentication/FirstParty/server';
+import { checkUserName, logIn } from '../../../../Authentication/FirstParty/firstpartyServer';
 
 /**
  * Form for Logging in by username and passsword

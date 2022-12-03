@@ -9,7 +9,7 @@ import {
 } from '../styles';
 
 // scripts
-import { checkEmail } from '../scripts';
+import { checkEmail } from '../authenticationServer';
 
 // env Variables
 const { REACT_APP_SITEKEY } = process.env;

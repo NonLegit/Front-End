@@ -15,7 +15,9 @@ import FirstParty from '../FirstParty/FirstParty';
 import { AuthenticationBody, StyledLink } from '../styles';
 
 // scripts
-import { redditCookie } from '../scripts';
+
+import { redditCookie } from '../authenticationServer';
+
 // environment variables
 const { REACT_APP_ENV } = process.env;
 

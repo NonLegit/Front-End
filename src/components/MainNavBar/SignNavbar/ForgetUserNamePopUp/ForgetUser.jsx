@@ -11,7 +11,9 @@ import { StyledLink } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import Email from '../ِAuthentication/Email/Email';
 import { recoverUsername } from './server';
-import { redditCookie } from '../../../Authentication/scripts';
+
+import { redditCookie } from '../../../Authentication/authenticationServer';
+
 import theme, { fonts } from '../../../../styles/theme';
 // environment variables
 const { REACT_APP_ENV } = process.env;

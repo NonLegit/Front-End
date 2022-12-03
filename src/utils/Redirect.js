@@ -7,7 +7,7 @@
 export const redirectHome = (time) => {
   setTimeout(() => {
     // Redirect to home page
-    window.location.href = './';
+    window.location.pathname = '';
   }, time);
 };
 
@@ -20,6 +20,6 @@ export const redirectHome = (time) => {
 export const redirectLogin = (time) => {
   setTimeout(() => {
     // Redirect to login page
-    window.location.href = './login';
+    window.location.pathname = 'login';
   }, time);
 };

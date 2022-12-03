@@ -2,7 +2,9 @@ import { Box, ClickAwayListener } from '@mui/material';
 import { useState, useEffect } from 'react';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import EmptyStr from '../../../../../utils/EmptyStr';
+
 import patchData from '../ModerationServer';
+
 import {
   AboutContent, Action, Add, Count, Input, InputFooter, Text,
 } from './style';
@@ -19,7 +21,6 @@ function AddSector(props) {
   const [tempString, setTempString] = useState('');
   const [disc, setDisc] = useState(disc2);
   const [haveDisc, setHaveDisc] = useState(true);
-
   // return to defult mode when click away
   const handleClickAway1 = () => {
     // const btn = document.getElementById('save');
@@ -60,6 +61,7 @@ function AddSector(props) {
   };
   const sendData = () => {
     console.log(Name);
+
     patchData(Name, { description: tempString.trim() }); // fetch api
   };
   const SaveAction = async () => {

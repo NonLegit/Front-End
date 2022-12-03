@@ -30,6 +30,7 @@ function PostHeader(props) {
   const {
     title, image, owner, author, flair, flairBackgroundColor, flairColor, createdAt,
     subredit,
+
   } = props;
   return (
     <>

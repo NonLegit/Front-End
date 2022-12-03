@@ -9,7 +9,7 @@ import {
 } from '../styles';
 import AccountPreferences from './AccountPreferences/AccountPreferences';
 import { DeleteAccount } from './styles';
-import useFetch from '../../../hooks/useFetch';
+import { settingsFetch } from '../settingsServer';
 /**
  * - SettingsAccount
  * - Change Email and password in settings page
@@ -19,15 +19,11 @@ import useFetch from '../../../hooks/useFetch';
  *  @property {Object} data data from fetch
  */
 const SettingsAccount = () => {
-  const api = '/users/me/prefs';
-  const [data, dataError] = useFetch(api);
   const [prefs, setPrefs] = useState();
-
+  const [data] = settingsFetch();
   useEffect(() => {
-    // console.log(data?.settings.prefs);
     setPrefs(data?.prefs);
-    console.log(dataError);
-  }, [data, dataError]);
+  }, [data]);
   return (
     data === null ? (<div data-testid="settings-account"> error in fecting</div>)
       : (

@@ -13,7 +13,8 @@ import {
 } from '../ِAuthentication/styles';
 import AuthenticationHeader from '../../../Authentication/AuthenticationHeader/AuthenticationHeader';
 import { checkUserName, recoverPassword } from './server';
-import { redditCookie, checkEmail } from '../../../Authentication/scripts';
+
+import { redditCookie, checkEmail } from '../../../Authentication/authenticationServer';
 
 import theme, { fonts } from '../../../../styles/theme';
 import { StyledDialog } from '../styles';

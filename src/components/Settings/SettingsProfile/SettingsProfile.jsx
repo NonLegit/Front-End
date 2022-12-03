@@ -7,9 +7,10 @@ import {
 } from '../styles';
 import ProfileInoformation from './ProfileInoformation/ProfileInoformation';
 import ProfileImage from './ProfileImage/ProfileImage';
-import useFetch from '../../../hooks/useFetch';
+
 import SettingsProvider from '../../../contexts/SettingsProvider';
-import settingsPost from '../server';
+import { settingsPost, settingsFetch } from '../settingsServer';
+
 /**
  * - SettingsProfile
  * - Edit NSFW and Allow people to follow you in Seetings Page
@@ -18,38 +19,20 @@ import settingsPost from '../server';
  *  @component
  */
 function SettingsProfile() {
-  const api = '/users/me/prefs';
-  const [data, dataError, statusCode] = useFetch(api);
   const [prefs, setPrefs] = useState();
-
+  const [data] = settingsFetch();
   useEffect(() => {
-    // console.log(data?.settings.prefs);
-    if (statusCode === 401) {
-      window.location.pathname = 'login';
-    }
     setPrefs(data?.prefs);
-    console.log(dataError);
-  }, [data, dataError, statusCode]);
-
-  const Alert = (sataus) => {
-    if (sataus === 304) {
-      alert('OPeration failed');
-    } else if (sataus === 401) {
-      window.location.pathname = 'login';
-    } else if (sataus === 200 || sataus === 201) {
-      alert('operation done successfully');
-    }
-  };
-
+  }, [data]);
   const handleNSFW = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, nsfw: !oldPrefs.nsfw }));
-    const sataus = await settingsPost({ ...prefs, nsfw: !prefs?.nsfw });
-    Alert(sataus);
+    const message = await settingsPost({ ...prefs, nsfw: !prefs?.nsfw });
+    if (message !== '') { alert(message); }
   };
   const handleCanbeFollowed = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, canbeFollowed: !oldPrefs.canbeFollowed }));
-    const sataus = await settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed });
-    Alert(sataus);
+    const message = await settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed });
+    if (message !== '') { alert(message); }
   };
   return (
     data === null ? (<div data-testid="settings-profile"> error in fecting</div>)
