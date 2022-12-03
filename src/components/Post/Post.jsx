@@ -17,14 +17,15 @@ import PostHeader from './PostHeader/PostHeader';
  *
  * @component Post
  * @property {string} title -Post title.
- * @property {string} image -Post owner icon.
- * @property {string} owner -Post subreddit(post owner).
- * @property {string} author -Post author.
+ * @property {string} ownerIcon -Post owner icon.
+ * @property {string} ownerName -Post subreddit(post owner).
+ * @property {string} authorName -Post author.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
  * @property {string} kind -Post kind (link, self, image, video).
- * @property {string} url -Source of media file in case of image/video kinds or url in case of url kind.
+ * @property {Array.<string>} images -Array of sources of images
+ * @property {Array.<string>} videos -Array of sources of vidoes
  * @property {number} votes -Number of post votes.
  * @property {number} commentCount -Number of post comments.
  * @property {string} text -Post text in case of "self" kind.
@@ -34,7 +35,7 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    title, image, createdAt, owner, author, flairText, flairBackgroundColor, flairColor, url, kind, votes, commentCount, text,
+    createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
     subredit,
   } = props;
   const theme = useTheme();
@@ -53,9 +54,9 @@ function Post(props) {
       >
         <PostHeader
           title={title}
-          image={image}
-          owner={owner}
-          author={author}
+          ownerIcon={ownerIcon}
+          ownerName={ownerName}
+          authorName={authorName}
           flair={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
@@ -67,13 +68,13 @@ function Post(props) {
           {/* */}
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={url} type="video/mp4" />
+              <source src={videos[0]} type="video/mp4" />
             </video>
           ) : (
             (kind === 'image')
               ? (
                 <CustomImage
-                  src={url}
+                  src={images[0]}
                   alt="post image"
                 />
               ) : (
