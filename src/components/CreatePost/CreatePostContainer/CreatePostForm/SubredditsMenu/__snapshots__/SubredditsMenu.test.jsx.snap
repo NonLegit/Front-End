@@ -21,7 +21,6 @@ exports[`SubredditsMenu SubredditsMenu renders correctly 1`] = `
         onClick={[Function]}
         placeholder="Choose a community"
         type="text"
-        value=""
       />
       <svg
         className="css-1fyzswu"

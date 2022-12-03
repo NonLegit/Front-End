@@ -9,13 +9,15 @@ Array [
       className="css-kjf35x"
     >
       <a
+        className="css-ytumd6"
         href="/user/undefined"
         onClick={[Function]}
       >
-        <img
-          alt="avatar"
-          className="css-rgj1tb"
-        />
+        <div
+          className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1sw2cye-MuiAvatar-root"
+        >
+          u/
+        </div>
       </a>
     </div>
     <input
