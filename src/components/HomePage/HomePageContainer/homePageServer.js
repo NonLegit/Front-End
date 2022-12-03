@@ -5,6 +5,7 @@ const homePageServer = (postClass) => {
   const [data, postsError, statusCode] = useFetch(postsUrl);
   const dbPosts = data?.data;
   console.log('from home', statusCode);
+  console.log('posts', dbPosts);
 
   const posts = dbPosts?.map((post) => {
     // for backend bugs
@@ -31,6 +32,7 @@ const homePageServer = (postClass) => {
       authorName,
     });
   });
+  console.log('posts final', posts);
   return [posts, postsError];
 };
 
