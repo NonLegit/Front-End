@@ -3,7 +3,6 @@ import moment from 'moment/moment';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  Flair,
   HeaderAvatar, HeaderAvatarText, HeaderPost, LinkTo,
 } from './styles';
 
@@ -19,7 +18,7 @@ import {
 
 function PostHeader(props) {
   const {
-    subReddit, nameUser, Time, type, flair, flairBackgroundColor, flairColor,
+    subReddit, nameUser, Time, type,
   } = props;
   return (
     <HeaderPost>
@@ -57,13 +56,6 @@ function PostHeader(props) {
         {(moment.utc(Time).local().startOf('seconds')
           .fromNow())}
       </Typography>
-      <Flair
-        disableRipple
-        backgroundColor={flairBackgroundColor}
-        flairColor={flairColor}
-      >
-        {flair}
-      </Flair>
       {/* {((subTitle === 'Spam').toString() === 'true')
       && (
         <RemovalBox>

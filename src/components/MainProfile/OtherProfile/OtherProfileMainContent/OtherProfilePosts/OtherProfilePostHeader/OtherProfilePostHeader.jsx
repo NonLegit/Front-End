@@ -6,7 +6,6 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  Flair,
   HeaderPost, Joined, LinkTo,
 } from './styles';
 
@@ -22,7 +21,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    nameUser, Time, subReddit, nsfw, locked, isSubReddit, type, flair, flairBackgroundColor, flairColor,
+    nameUser, Time, subReddit, nsfw, locked, isSubReddit, type,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -82,13 +81,6 @@ function OtherProfilePostHeader(props) {
         {(moment.utc(Time).local().startOf('seconds')
           .fromNow())}
       </Typography>
-      <Flair
-        disableRipple
-        backgroundColor={flairBackgroundColor}
-        flairColor={flairColor}
-      >
-        {flair}
-      </Flair>
       {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
       {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
 

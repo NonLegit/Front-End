@@ -62,21 +62,18 @@ function Post(props) {
                 {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <PostHeader
-                subReddit={entity.name}
+                subReddit={entity.owner.name}
                 type={entity.ownerType}
-                nameUser={entity.author}
+                nameUser={entity.author.name}
                 Time={entity.createdAt}
                 nsfw={entity.nsfw}
                 locked={entity.locked}
-                flairBackgroundColor={entity?.flairId?.backgroundColor}
-                flairColor={entity?.flairId?.textColor}
-                flair={entity?.flairId?.text}
               />
               <PostFooter
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}
-                postedByOthers={!(entity.author === username)}
+                postedByOthers={!(entity.author.name === username)}
                 saved={entity.isSaved}
                 hidden={entity.isHidden}
                 approved={entity.approved}
