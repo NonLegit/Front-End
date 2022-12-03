@@ -22,6 +22,6 @@ const useFetch = (Name) => {
   if (statusCode === 401) {
     window.location.pathname = 'login';
   }
-  return [data, error];
+  return [data.data, error];
 };
 export default useFetch;
