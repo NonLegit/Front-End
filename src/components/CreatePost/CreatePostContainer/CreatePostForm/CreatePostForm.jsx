@@ -4,7 +4,7 @@ import {
 
 import { useState, useEffect } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl, WordCounter,
 } from './styles';
@@ -28,6 +28,7 @@ import currentSubredditServer from './currentSubredditServer';
 function CreatePostForm() {
   // routes
   const { subredditName } = useParams();
+  const navigate = useNavigate();
   console.log(subredditName);
 
   // server
@@ -52,6 +53,8 @@ function CreatePostForm() {
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
+  console.log('title', title);
+  console.log('community to post in', communityToPostIn);
 
   useEffect(() => {
     setCommunityToPostIn(subredditId);
@@ -81,7 +84,7 @@ function CreatePostForm() {
       sendReplies,
     };
     console.log(post);
-    submitPostServer(post);
+    submitPostServer(post, navigate);
   };
   /**
    * This function handles title change

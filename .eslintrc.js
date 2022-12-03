@@ -42,5 +42,7 @@ module.exports = {
     'no-shadow': 'off',
     // disabling no await in loop
     'no-await-in-loop': 'off',
+    // disabling no-underscore-dangle
+    'no-underscore-dangle': 'off',
   },
 };

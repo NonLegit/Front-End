@@ -11,9 +11,9 @@ const homePageServer = (postClass) => {
     // for backend bugs
     const temp = {
       _id: 1,
-      text: 'اي كلام/r/all',
-      backgroundColor: '#ea0027',
-      textColor: '#fff',
+      text: '',
+      backgroundColor: '',
+      textColor: '',
     };
     const {
       text: flairText,

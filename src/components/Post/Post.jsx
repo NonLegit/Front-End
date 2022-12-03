@@ -17,6 +17,7 @@ import PostHeader from './PostHeader/PostHeader';
  *
  * @component Post
  * @property {string} title -Post title.
+ * @property {string} ownerType -Post owner type user or subreddit.
  * @property {string} ownerIcon -Post owner icon.
  * @property {string} ownerName -Post subreddit(post owner).
  * @property {string} authorName -Post author.
@@ -35,7 +36,7 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
+    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
     subredit,
   } = props;
   const theme = useTheme();
@@ -57,11 +58,12 @@ function Post(props) {
           ownerIcon={ownerIcon}
           ownerName={ownerName}
           authorName={authorName}
-          flair={flairText}
+          flairText={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
           createdAt={createdAt}
           subredit={subredit}
+          ownerType={ownerType}
         />
         <PostMedia mt={1.5} kind={kind}>
           {/* eslint-disable jsx-a11y/media-has-caption */}
