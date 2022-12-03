@@ -7,6 +7,7 @@ import axios from '../../../../services/instance';
  */
 const submitPostServer = (post) => {
   axios.post('/posts', JSON.stringify(post)).then((response) => {
+    console.log(JSON.stringify(post));
     console.log(response.data);
     console.log(response.status);
     if (response.status !== 201) {
