@@ -8,18 +8,17 @@ import OtherProfileMainContent from './OtherProfile/OtherProfileMainContent/Othe
 import ProfileHeader from './Profile/Header/ProfileHeader';
 import ProfileMainContent from './Profile/MainContent/ProfileMainContent';
 import ProfileNotFound from './ProfileNotFound/ProfileNotFound';
+import UserLogin from '../../authentication';
 
 function MainProfile() {
   const [cookies] = useCookies(['redditUser']);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isExist, setIsExist] = useState(true);
   const [userLoggedIn, setUserLoggedIn] = useState('');
   const { username } = useParams();
 
   const [info, statusCode] = UserInfoServer(username);
-
+  const isLoggedIn = UserLogin([username]);
   useEffect(() => {
-    setIsLoggedIn(cookies.redditUser?.userName === username);
     setUserLoggedIn(cookies.redditUser?.userName);
   }, [cookies]);
 
