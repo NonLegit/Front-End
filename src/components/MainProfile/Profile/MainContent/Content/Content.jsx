@@ -25,7 +25,7 @@ function Content() {
 
   useEffect(() => {
     console.log(posts);
-    if (posts?.posts.length > 0) { setIsContent(true); }
+    if (posts?.length > 0) { setIsContent(true); }
     // if (posts?.posts.length > 0 || comments?.length > 0) { console.log(true); setIsContent(true); }
   }, [username, posts]);
 
@@ -45,7 +45,7 @@ function Content() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            { posts?.posts.map((post, index) => (
+            { posts.map((post, index) => (
               <Posts key={`${index + 0}`} post={post} />
             ))}
             {/* {comments.map((comment, index) => (
