@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { IconButton } from '@mui/material';
+import { Avatar, IconButton } from '@mui/material';
 
 export const CreatePostContainer = styled('div')(() => ({
   width: '100%',
@@ -47,7 +47,7 @@ export const AvatarContainer = styled('div')(() => ({
   borderRadius: '50%',
 }));
 
-export const Avatar = styled('img')(() => ({
+export const CustomAvatar = styled(Avatar)(() => ({
   width: 43,
   height: 43,
   borderRadius: '50%',

@@ -3,7 +3,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import {
-  AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
+  AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, CustomAvatar,
 } from './styles';
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 /**
@@ -32,12 +32,12 @@ function CreatePostInHome(props) {
     <CreatePostContainer>
       <AvatarContainer>
         <Link to={`/user/${cookies.redditUser?.userName}`}>
-          <Avatar
+          <CustomAvatar
             src={cookies.redditUser?.profilePicture}
             alt="avatar"
           >
             u/
-          </Avatar>
+          </CustomAvatar>
         </Link>
       </AvatarContainer>
       <PostTitle

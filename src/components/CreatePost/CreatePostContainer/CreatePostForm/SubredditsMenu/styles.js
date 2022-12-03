@@ -94,7 +94,7 @@ export const AvatarContainer = styled('div')(() => ({
   overflow: 'hidden',
 }));
 
-export const CustomAvatar = styled('img')(() => ({
+export const CustomAvatar = styled(Avatar)(() => ({
   width: 30,
   height: 30,
 }));
