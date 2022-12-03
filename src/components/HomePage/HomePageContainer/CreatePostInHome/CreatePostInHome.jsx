@@ -32,7 +32,12 @@ function CreatePostInHome(props) {
     <CreatePostContainer>
       <AvatarContainer>
         <Link to={`/user/${cookies.redditUser?.userName}`}>
-          <Avatar src={cookies.redditUser?.profilePicture} alt="avatar" />
+          <Avatar
+            src={cookies.redditUser?.profilePicture}
+            alt="avatar"
+          >
+            u/
+          </Avatar>
         </Link>
       </AvatarContainer>
       <PostTitle

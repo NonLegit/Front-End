@@ -104,9 +104,10 @@ export const CommunityName = styled(Box)(() => ({
   fontWeight: 500,
 }));
 
-export const CommunityAvatar = styled(Avatar)(() => ({
+export const CommunityAvatar = styled(Avatar)(({ theme }) => ({
   width: 33,
   height: 33,
+  backgroundColor: theme.palette.primary.main,
 }));
 
 export const Members = styled(Box)(({ theme }) => ({

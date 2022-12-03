@@ -1,3 +1,4 @@
+import { redirectLogin } from '../../../utils/Redirect';
 import useFetch from '../../../hooks/useFetch';
 
 /**
@@ -16,7 +17,7 @@ const createPostServer = () => {
   console.log(statusCode);
   if (statusCode === 200) {
     if (statusCode === 401) {
-      // redirection code
+      redirectLogin();
     } else {
       console.log('errorMessage');
     }

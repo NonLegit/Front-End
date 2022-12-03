@@ -126,7 +126,9 @@ function SubredditsMenu(props) {
                 >
                   <AvatarContainer>
                     <Link to="/">
-                      <CustomAvatar src={userIcon} alt="avatar" />
+                      <CustomAvatar src={userIcon} alt="avatar">
+                        u/
+                      </CustomAvatar>
                     </Link>
                   </AvatarContainer>
                   <CommunityContainer>
@@ -176,7 +178,9 @@ function SubredditsMenu(props) {
                     sx={{ cursor: 'pointer' }}
                     onClick={() => chooseCommunity(id, `r/${subredditName}`, icon, 'Subreddit')}
                   >
-                    <CommunityAvatar src={icon} />
+                    <CommunityAvatar src={icon}>
+                      r/
+                    </CommunityAvatar>
                     <CommunityContainer>
                       <CommunityName>
                         r/
