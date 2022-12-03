@@ -80,6 +80,7 @@ function CreatePostForm() {
       nswf,
       sendReplies,
     };
+    console.log(post);
     submitPostServer(post);
   };
   /**
