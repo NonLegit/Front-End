@@ -17,7 +17,7 @@ import SubredditData from './SubrridetDataServer';
 import ModeratorData from './subriddetDataModeratorServer';
 import PostsData from './subredditPostsServer';
 import PostJoin from './PostJoin';
-
+import leave from './leaveServer';
 import SubredditNotification from './Notifications/SubriddetNotifications';
 import { useCreatePostInSubredditContext } from '../../contexts/CreatePostInSubredditContext';
 /**
@@ -105,6 +105,10 @@ function Header() {
   // subscribr or unsubscribe
   const sendData = (b) => {
     PostJoin(`/subreddits/${Name}/subscribe`, b);
+    leave(Name, { isJoined: b });
+  };
+  const leaveCommunity = (b) => {
+    leave(Name, { isJoined: b });
   };
   return (
     exist ? (
@@ -131,7 +135,7 @@ function Header() {
                   {join
                 && (
                 <>
-                  <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
+                  <Join onClick={() => { setJoin(false); leaveCommunity(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
 
                   <SubredditNotification />
                 </>
