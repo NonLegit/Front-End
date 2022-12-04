@@ -5,7 +5,6 @@ export const postsTapServer = (name) => {
   const [data, dataError, statusCode] = useFetch(`user/${name}/post`);
 
   useEffect(() => {
-    console.log(data);
     if (statusCode === 401) {
       window.location.pathname = 'login';
     }
