@@ -26,7 +26,7 @@ export const TitlePost = styled(Typography)(({ theme }) => ({
 }));
 export const ParagraphPost = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[500],
-  height: 36,
+  minHeight: 36,
   display: 'flex',
   // justifyContent: 'center',
   alignItems: 'center',

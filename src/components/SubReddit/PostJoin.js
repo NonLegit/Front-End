@@ -1,11 +1,11 @@
 import axios from '../../services/instance';
 
-const PostJoin = async (url, sub) => {
+const PostJoin = async (url, action) => {
   // const [data, setData] = useState(null);
   // const [error, setError] = useState(null);
 
   await axios.post(url, {
-    sub,
+    action,
   }).then((response) => {
     console.log(response);
     return true;
