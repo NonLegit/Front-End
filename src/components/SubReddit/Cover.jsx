@@ -131,11 +131,11 @@ function Header() {
                 </Desc>
                 <Box sx={{ display: 'flex' }}>
                   {!join
-                && <JoinCommunity onClick={() => { setJoin(true); sendData(true); }}>Join</JoinCommunity>}
+                && <JoinCommunity onClick={() => { setJoin(true); sendData('sub'); }}>Join</JoinCommunity>}
                   {join
                 && (
                 <>
-                  <Join onClick={() => { setJoin(false); sendData(false); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
+                  <Join onClick={() => { setJoin(false); sendData('unsub'); }} onMouseEnter={(e) => { e.target.innerHTML = 'Leave'; }} onMouseLeave={(e) => { e.target.innerHTML = 'Joined'; }}>Joined</Join>
 
                   <SubredditNotification />
                 </>
