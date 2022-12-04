@@ -83,7 +83,7 @@ function Header() {
     setPosts(data3?.data);
     // join and comment another endpoint line 95
     setJoin(data?.isJoined);
-  }, [data, postClass, data3]);
+  }, [data, postClass, data3, statusCode]);
 
   // fetch data of communities i am a moderator of
 

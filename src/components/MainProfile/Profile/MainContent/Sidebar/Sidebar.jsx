@@ -1,5 +1,4 @@
-import BackToTop from '../../../../BackToTop/BackToTop';
-// import BackHomeBottun from './BackHomeBottun/BackHome';
+import BackHomeBottun from './BackHomeBottun/BackHome';
 import Communities from './Communities/Communities';
 import { SidebarBox } from './styles';
 import UserInfo from './UserInfo/UserInfo';
@@ -15,7 +14,7 @@ function Sidebar() {
     <SidebarBox>
       <UserInfo />
       <Communities />
-      <BackToTop />
+      <BackHomeBottun />
     </SidebarBox>
 
   );
