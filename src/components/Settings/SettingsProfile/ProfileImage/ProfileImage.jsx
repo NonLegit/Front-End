@@ -43,7 +43,7 @@ function ProfileImage() {
               position: 'relative',
             }}
             >
-              <ProfilePic width="120px" height="120px" src={prefs?.profilePicture || ' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4WYr1pgUClZPWwR1HABYGXw34armKi07qvbZ_B4&s'} alt="user photo" />
+              <ProfilePic width="120px" height="120px" src={prefs?.profilePicture} alt="user photo" />
               <AddPhoto sx={{
                 border: (theme) => `thin solid ${theme.palette.primary?.main}`,
                 position: 'absolute',
@@ -69,7 +69,7 @@ function ProfileImage() {
                 }}
                 width="412px"
                 height="120px"
-                src={prefs?.profileBackground || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4WYr1pgUClZPWwR1HABYGXw34armKi07qvbZ_B4&s'}
+                src={prefs?.profileBackground}
                 alt="user photo"
               />
               <AddPhoto sx={{
