@@ -68,7 +68,7 @@ function AddSector(props) {
     setShow(true);
     await setDisc(tempString.trim());
     setTempString(tempString.trim());
-    setCount(500 - disc.length);
+    setCount(500 - disc.toString().length);
     if (EmptyStr(disc)) { setHaveDisc(false); } else {
       setHaveDisc(true);
     }
