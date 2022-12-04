@@ -5,12 +5,13 @@ const otherProfileCommunitiesServer = () => {
   const [communities, communitiesError, statusCode] = useFetch('subreddits/mine/moderator');
 
   useEffect(() => {
+    console.log(communities);
     if (statusCode === 401) {
       window.location.pathname = 'login';
     }
   }, [communities, communitiesError, statusCode]);
 
-  return [communities?.subreddits];
+  return [communities?.data];
 };
 
 export default otherProfileCommunitiesServer;
