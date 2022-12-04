@@ -34,7 +34,6 @@ function OtherProfileUserInfo() {
     setCake(info?.createdAt);
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
-    console.log(info?.profilePicture);
   }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);

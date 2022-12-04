@@ -7,7 +7,8 @@ export const BackHome = styled(RedditButton)({
   transform: 'translateY(-100%)',
   justifyContent: 'center',
   textAlign: 'center',
-  position: 'sticky',
-  margin: 90,
+  position: 'fixed',
+  marginLeft: '9%',
+  marginTop: 47,
 });
 export default BackHome;

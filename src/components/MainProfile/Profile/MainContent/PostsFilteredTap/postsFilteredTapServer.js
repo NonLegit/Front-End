@@ -5,7 +5,6 @@ const postsFilteredTapServer = (param) => {
   const [data, dataError, statusCode] = useFetch(`users/${param}`);
 
   useEffect(() => {
-    console.log(data);
     if (statusCode === 401) {
       window.location.pathname = 'login';
     }
