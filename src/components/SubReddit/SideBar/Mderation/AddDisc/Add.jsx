@@ -38,14 +38,14 @@ function AddSector(props) {
     }
   };
   useEffect(() => {
-    setTempString(disc2);
-    setDisc(disc2);
+    setTempString(disc2?.trim());
+    setDisc(disc2?.trim());
     const a = disc2?.length;
     setCount(500 - a);
     if (disc?.length > 0) {
-      setHaveDisc(false);
-    } else {
       setHaveDisc(true);
+    } else {
+      setHaveDisc(false);
     }
   }, [disc2]);
 
@@ -80,7 +80,9 @@ function AddSector(props) {
     setTempString(disc);
     setDisc(disc);
     setCount(500 - disc.length);
-    if (!EmptyStr(disc)) {
+    if (EmptyStr(disc)) {
+      setHaveDisc(false);
+    } else {
       setHaveDisc(true);
     }
   };
