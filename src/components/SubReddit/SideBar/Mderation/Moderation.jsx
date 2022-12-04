@@ -39,7 +39,7 @@ function Moderation(props) {
 
   useEffect(() => {
     setSelection(primaryTopic);
-    if (selection === 'Add a Primary Topic') {
+    if (primaryTopic === 'Add a Primary Topic' || selection === 'Add a Primary Topic') {
       setListOfTopics(false);
     } else {
       setListOfTopics(true);
