@@ -46,23 +46,26 @@ function OtherProfilePostHeader(props) {
           <HeaderAvatarText>r/</HeaderAvatarText>
         </HeaderAvatar>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', marginRight: '70px' }}>
-          <LinkTo to={`/Subreddit/${subReddit}`}>
-            {type === 'Subreddit' ? (
+
+          {type === 'Subreddit' ? (
+            <LinkTo to={`/Subreddit/${subReddit}`}>
               <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
                 r/
                 {subReddit}
                 {' '}
                 .
               </Typography>
-            ) : (
+            </LinkTo>
+          ) : (
+            <LinkTo to={`/user/${subReddit}`}>
               <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
                 u/
                 {subReddit}
                 {' '}
                 .
               </Typography>
-            )}
-          </LinkTo>
+            </LinkTo>
+          )}
           <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
             Posted by
           </Typography>

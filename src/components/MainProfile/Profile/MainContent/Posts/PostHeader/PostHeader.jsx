@@ -28,23 +28,26 @@ function PostHeader(props) {
   } = props;
   return (
     <HeaderPost>
-      <LinkTo to={`/Subreddit/${subReddit}`}>
-        {type === 'Subreddit' ? (
+
+      {type === 'Subreddit' ? (
+        <LinkTo to={`/Subreddit/${subReddit}`}>
           <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
             r/
             {subReddit}
             {' '}
             .
           </Typography>
-        ) : (
+        </LinkTo>
+      ) : (
+        <LinkTo to={`/user/${subReddit}`}>
           <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
             u/
             {subReddit}
             {' '}
             .
           </Typography>
-        )}
-      </LinkTo>
+        </LinkTo>
+      )}
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
       </Typography>
