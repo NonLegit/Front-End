@@ -92,8 +92,8 @@ function AddSector(props) {
         <Add>
           <CustomizedDialogs falseShow={falseShow} SaveAction={SaveAction} decord={decord} />
           <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex', overflowWrap: 'anywhere' }}>
-            {show && !haveDisc && <Text> Add description</Text>}
-            {(haveDisc && show) && (
+            {show && disc?.trim()?.length === 0 && !haveDisc && <Text> Add description</Text>}
+            {(disc?.trim()?.length > 0 && haveDisc && show) && (
               <>
                 <Text>
                   {' '}
