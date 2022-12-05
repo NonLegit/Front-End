@@ -22,10 +22,9 @@ export const redditCookie = async (setCookie) => {
     // set cookie
       const date = new Date();
       date.setDate(date.getDate() + 90);
-
       setCookie('redditUser', response.data.user, { path: '/', expires: date });
     }
-    // unauthorized =>Redirect to login page
+    // unauthorized(invalid JWT) =>Redirect to login page
   }).catch(() => redirectLogin(20));
 };
 
