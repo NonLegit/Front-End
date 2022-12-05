@@ -62,7 +62,7 @@ function AddSector(props) {
   const sendData = () => {
     console.log(Name);
 
-    patchData(Name, { description: disc2 }); // fetch api
+    patchData(Name, { description: tempString?.trim() }); // fetch api
   };
   const SaveAction = async () => {
     setShow(true);
