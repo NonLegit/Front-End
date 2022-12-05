@@ -41,6 +41,7 @@ function Header() {
   const [members, setMembers] = useState();
   const [exist, setExist] = useState(true);
   const [showPopUp, setShowPopUp] = useState(false);
+  const [name, setName] = useState();
 
   const redirect = () => {
     window.location.pathname = '/';
@@ -61,13 +62,13 @@ function Header() {
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
-  const [data3, dataError3] = PostsData(Name, postClass);
+  const [data3, dataError3] = PostsData(name, postClass);
   console.log(dataError3);
   useEffect(() => {
     if (statusCode === 404) {
       setExist(false);
     }
-
+    setName(data?.name);
     setIcon(data?.icon);
     setDisc(data?.description);
     setTopics(data?.topics);
@@ -82,7 +83,7 @@ function Header() {
     console.log(data?._id);
     setPosts(data3?.data);
     // join and comment another endpoint line 95
-    setJoin(data?.isJoined);
+    // setJoin(data?.isJoined);
   }, [data, postClass, data3, statusCode]);
 
   // fetch data of communities i am a moderator of
@@ -92,19 +93,19 @@ function Header() {
   const value2 = useMemo(() => ({ data2, dataError2 }), [data2, dataError2]);
   console.log(value2);
 
-  // useEffect(() => {
-  //   console.log(dataError2);
+  useEffect(() => {
+    console.log(dataError2);
 
-  //   if ((data2?.subreddits?.filter((e) => e.subredditName === Name.toString()))?.length > 0) {
-  //     setJoin(true);
-  //   } else {
-  //     setJoin(false);
-  //   }
-  // }, [data2, username]);
+    if ((data2?.filter((e) => e?.fixedName === Name?.toString()))?.length > 0) {
+      setJoin(true);
+    } else {
+      setJoin(false);
+    }
+  }, [data2, username]);
 
   // subscribr or unsubscribe
   const sendData = (b) => {
-    PostJoin(`/subreddits/${Name}/subscribe`, b);
+    PostJoin(`/subreddits/${name}/subscribe`, b);
     // leave(Name, { isJoined: b });
   };
   // const leaveCommunity = (b) => {
@@ -122,7 +123,7 @@ function Header() {
                 <Desc>
                   <Namee>
                     r/
-                    { Name }
+                    { name }
                   </Namee>
                   <Com>
                     r/
@@ -165,20 +166,20 @@ function Header() {
               { posts?.map((posts) => (
                 <PostSubreddit
                   createdAt={createdAt}
-                  title={posts.title}
+                  title={posts?.title}
                   ownerIcon={icon}
                   ownerName={Name}
-                  authorName={posts.author.name}
-                  flairText={posts.flairId.flairText}
-                  flairBackgroundColor={posts.flairId.flairBackgroundColor}
-                  flairColor={posts.flairId.flairColor}
-                  images={posts.images}
-                  videos={posts.videos}
-                  kind={posts.kind}
-                  votes={posts.votes}
-                  commentCount={posts.commentCount}
-                  text={posts.text}
-                  key={posts.id}
+                  authorName={posts?.author?.name}
+                  flairText={posts?.flairId?.flairText}
+                  flairBackgroundColor={posts?.flairId?.flairBackgroundColor}
+                  flairColor={posts?.flairId?.flairColor}
+                  images={posts?.images}
+                  videos={posts?.videos}
+                  kind={posts?.kind}
+                  votes={posts?.votes}
+                  commentCount={posts?.commentCount}
+                  text={posts?.text}
+                  key={posts?.id}
                   subredit
                 />
               ))}

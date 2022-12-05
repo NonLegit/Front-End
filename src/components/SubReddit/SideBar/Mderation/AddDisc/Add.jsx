@@ -38,21 +38,21 @@ function AddSector(props) {
     }
   };
   useEffect(() => {
-    setTempString(disc2);
-    setDisc(disc2);
-    const a = disc2?.length;
+    setTempString(disc2?.trim());
+    setDisc(disc2?.trim());
+    const a = disc2?.trim()?.length;
     setCount(500 - a);
-    if (disc?.length > 0) {
-      setHaveDisc(false);
-    } else {
+    if (disc2?.trim()?.length > 0) {
       setHaveDisc(true);
+    } else {
+      setHaveDisc(false);
     }
   }, [disc2]);
 
   // count number of char in input feild to make sure not exeed the limit
   const handleChange = (event) => {
     if (event.target.value.length < 501) {
-      setTempString(event.target.value);
+      setTempString(event?.target?.value);
       setCount(500 - event.target.value.length);
     }
   };
@@ -69,7 +69,7 @@ function AddSector(props) {
     await setDisc(tempString.trim());
     setTempString(tempString.trim());
     setCount(500 - disc.toString().length);
-    if (EmptyStr(disc)) { setHaveDisc(false); } else {
+    if (EmptyStr(disc?.trim())) { setHaveDisc(false); } else {
       setHaveDisc(true);
     }
     sendData();
@@ -85,6 +85,11 @@ function AddSector(props) {
     }
   };
   const c = disc?.length;
+
+  useEffect(() => {
+    console.log(show, disc2?.trim()?.length, haveDisc);
+  }, [show, disc2, haveDisc]);
+
   return (
     <AboutContent>
 
@@ -92,8 +97,8 @@ function AddSector(props) {
         <Add>
           <CustomizedDialogs falseShow={falseShow} SaveAction={SaveAction} decord={decord} />
           <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex', overflowWrap: 'anywhere' }}>
-            {show && disc?.trim()?.length === 0 && !haveDisc && <Text> Add description</Text>}
-            {(disc?.trim()?.length > 0 && haveDisc && show) && (
+            {show && !haveDisc && <Text> Add description</Text>}
+            {(haveDisc && show) && (
               <>
                 <Text>
                   {' '}
