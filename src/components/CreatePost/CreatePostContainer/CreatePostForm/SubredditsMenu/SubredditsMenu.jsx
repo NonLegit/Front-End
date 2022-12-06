@@ -21,13 +21,14 @@ import {
  * @property {function} setOwnerType -Hanlding post owner type (subreddit or user).
  * @property {string} subredditIcon -Subreddit icon.
  * @property {string} subredditName -Subreddit name.
+ * @property {string} ownerType -to know if the type of the owner is User or Subreddit
  * @returns {React.Component} Container of subreddit menu
  */
 
 function SubredditsMenu(props) {
   // props
   const {
-    setCommunityToPostIn, setOwnerType, subredditIcon, subredditName,
+    setCommunityToPostIn, setOwnerType, subredditIcon, subredditName, ownerType,
   } = props;
 
   // contexts
@@ -98,7 +99,15 @@ function SubredditsMenu(props) {
         <ClickAwayContainer>
           <MenuContainer>
             {searching ? <SearchIcon />
-              : (showIcon && chosenCommunityIcon ? <ChosenCommunityIcon src={chosenCommunityIcon} /> : <DashedCircle />)}
+              : (showIcon && chosenCommunityIcon
+                ? (
+                  <ChosenCommunityIcon
+                    src={chosenCommunityIcon}
+                    ownerType={ownerType}
+                  >
+                    {ownerType === 'Subreddit' ? 'r/' : (ownerType === 'User' ? 'u/' : '')}
+                  </ChosenCommunityIcon>
+                ) : <DashedCircle />)}
             <SubredditSearchField
               type="text"
               placeholder={searching ? 'Search communities' : 'Choose a community'}

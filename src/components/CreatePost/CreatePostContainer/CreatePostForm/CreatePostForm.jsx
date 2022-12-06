@@ -158,6 +158,7 @@ function CreatePostForm() {
         setOwnerType={setOwnerType}
         subredditIcon={subredditIcon}
         subredditName={subredditName}
+        ownerType={ownerType}
       />
       <PostFormContainer>
         <PostTypes
