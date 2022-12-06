@@ -2,7 +2,9 @@ import { Box, ClickAwayListener } from '@mui/material';
 import { useState, useEffect } from 'react';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import EmptyStr from '../../../../../utils/EmptyStr';
-import patchData from '../../../server';
+
+import patchData from '../ModerationServer';
+
 import {
   AboutContent, Action, Add, Count, Input, InputFooter, Text,
 } from './style';
@@ -26,7 +28,7 @@ function AddSector(props) {
     // setShow(false);
     // setCount(500 - disc.length);
     const ele = document.getElementById('discInput');
-    if (disc !== ele.value?.trim() && !show) {
+    if (disc !== ele?.value?.trim() && !show) {
       const alert = document.getElementById('DiscAlert');
       // setShow(true);
       console.log(show);
@@ -46,6 +48,7 @@ function AddSector(props) {
       setHaveDisc(true);
     }
   }, [disc2]);
+
   // count number of char in input feild to make sure not exeed the limit
   const handleChange = (event) => {
     if (event.target.value.length < 501) {
@@ -58,13 +61,14 @@ function AddSector(props) {
   };
   const sendData = () => {
     console.log(Name);
-    patchData(`subreddits/${Name}`, { description: tempString.trim() }); // fetch api
+
+    patchData(Name, { description: tempString?.trim() }); // fetch api
   };
   const SaveAction = async () => {
     setShow(true);
     await setDisc(tempString.trim());
     setTempString(tempString.trim());
-    setCount(500 - disc.length);
+    setCount(500 - disc.toString().length);
     if (EmptyStr(disc)) { setHaveDisc(false); } else {
       setHaveDisc(true);
     }
@@ -88,8 +92,8 @@ function AddSector(props) {
         <Add>
           <CustomizedDialogs falseShow={falseShow} SaveAction={SaveAction} decord={decord} />
           <Box data-testid="add" onClick={() => { setShow(false); setCount(500 - c); }} sx={{ display: 'flex', overflowWrap: 'anywhere' }}>
-            {show && !haveDisc && <Text> Add description</Text>}
-            {(haveDisc && show) && (
+            {show && disc?.trim()?.length === 0 && !haveDisc && <Text> Add description</Text>}
+            {(disc?.trim()?.length > 0 && haveDisc && show) && (
               <>
                 <Text>
                   {' '}

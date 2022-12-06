@@ -104,6 +104,8 @@ export const signUp = (
   setDisabled,
   setRedirectCaption,
   setCookies,
+  popUp = false,
+  handleClose = null,
 ) => {
   // console.log(email);
   // console.log(userName);// true value but case no change wrong value
@@ -152,8 +154,14 @@ export const signUp = (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      redditCookie(setCookies);
-      redirectHome(1000);
+
+      if (popUp === false) { redirectHome(1000); redditCookie(setCookies); } else {
+        // PopUp window
+        setTimeout(() => {
+          redditCookie(setCookies);
+          handleClose();
+        }, 1000);
+      }
     } else {
       console.log('Error');
     }
@@ -181,6 +189,7 @@ export const signUp = (
     console.log(error);
   });
 };
+
 /**
  * This function works as a server for generating random usernames
  *
@@ -197,7 +206,13 @@ export const generateRandomUsernamesServer = (numberOfGeneratedUsernames, deps) 
       const temp = [];
       do {
         let error = '';
-        const username = replaceDashWithUnderScore(generateUsername());
+        let newUserName;
+        do {
+          newUserName = generateUsername();
+          newUserName = newUserName.slice(0, 20);
+        }
+        while (newUserName.length < 3);
+        const username = replaceDashWithUnderScore(newUserName);
         const response = await axios.get('/users/username_available', {
           params: {
             userName: username,

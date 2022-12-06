@@ -1,540 +1,1193 @@
 {
-    "newPosts": [
-        {
-          "id": 5,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4",
-          "votes": 245,
-          "commentCount": 56,
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
+  "newPosts": {
+    "data": [
+      {
+        "_id": "638a424bba1380c745d9691c00",
+        "owner": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
         },
-        {
-          "id": 4,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "righteous_boldness07"
         },
-        {
-          "id": 0,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Popular videos",
-          "url": "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 1,
-          "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
-          "image": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png",
-          "owner": "stream",
-          "author": "skylinestar1986",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you've shown interest in this community",
-          "url": "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 2,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "votes": 145,
-          "commentCount": 12,
-          "url": "/assets/videos/mov_bbb.mp4",
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 3,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 225,
-          "commentCount": 123,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 6,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#000"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "text",
-          "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
-          "createdAt": "2022-11-12T12:29:28Z"
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 56,
+        "shareCount": 15,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
         }
-      ],
-      "top": [
-        {
-          "id": 5,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4",
-          "votes": 245,
-          "commentCount": 56,
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
+      },
+      {
+        "_id": "638a424bba1380c745d9691c11",
+        "owner": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
         },
-        {
-          "id": 4,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "righteous_boldness07"
         },
-        {
-          "id": 0,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Popular videos",
-          "url": "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 1,
-          "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
-          "image": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png",
-          "owner": "stream",
-          "author": "skylinestar1986",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you've shown interest in this community",
-          "url": "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 2,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "votes": 145,
-          "commentCount": 12,
-          "url": "/assets/videos/mov_bbb.mp4",
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 3,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 225,
-          "commentCount": 123,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 6,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "text",
-          "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
-          "createdAt": "2022-11-12T12:29:28Z"
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 16,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
         }
-      ],
-      "hot": [
-        {
-          "id": 5,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "sports/r/all",
-            "backgroundColor": "#0079D3",
-            "textColor": "#fff"
-          },
-          "flairText": "dummy",
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "text",
-          "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
-          "createdAt": "2022-11-12T12:29:28Z"
+      },
+      {
+        "_id": "638a424bba1380c745d9691c22",
+        "owner": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
         },
-        {
-          "id": 0,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Popular videos",
-          "url": "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "john_snow"
         },
-        {
-          "id": 1,
-          "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
-          "image": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png",
-          "owner": "stream",
-          "author": "skylinestar1986",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you've shown interest in this community",
-          "url": "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 2,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "votes": 145,
-          "commentCount": 12,
-          "url": "/assets/videos/mov_bbb.mp4",
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 3,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 225,
-          "commentCount": 123,
-          "kind": "image",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 6,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "url": "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4",
-          "votes": 245,
-          "commentCount": 56,
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 17,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
         }
-      ],
-      "best": [
-        {
-          "id": 0,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Popular videos",
-          "url": "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2017-07-21T17:32:28Z"
+      },
+      {
+        "_id": "638a424bba1380c745d9691c33",
+        "owner": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "stream",
+          "icon": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png"
         },
-        {
-          "id": 1,
-          "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
-          "image": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png",
-          "owner": "stream",
-          "author": "skylinestar1986",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you've shown interest in this community",
-          "url": "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4",
-          "votes": 245,
-          "commentCount": 12,
-          "kind": "image",
-          "createdAt": "2022-09-21T20:32:28Z"
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "skylinestar1986"
         },
-        {
-          "id": 2,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "votes": 145,
-          "commentCount": 12,
-          "url": "/assets/videos/mov_bbb.mp4",
-          "kind": "video",
-          "createdAt": "2022-11-12T12:29:28Z"
-        },
-        {
-          "id": 3,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 225,
-          "commentCount": 123,
-          "kind": "image",
-          "createdAt": "2022-11-10T14:29:28Z"
-        },
-        {
-          "id": 5,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "url": "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4",
-          "votes": 245,
-          "commentCount": 56,
-          "kind": "video",
-          "createdAt": "2022-11-07T14:29:28Z"
-        },
-        {
-          "id": 4,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "image",
-          "createdAt": "2022-10-07T14:29:28Z"
-        },
-        {
-          "id": 6,
-          "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
-          "image": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png",
-          "owner": "toptalent",
-          "author": "righteous_boldness07",
-          "flairId": {
-            "id": 1,
-            "text": "اي كلام/r/all",
-            "backgroundColor": "#ea0027",
-            "textColor": "#fff"
-          },
-          "popularity": "Because you visited this community before",
-          "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
-          "votes": 245,
-          "commentCount": 30,
-          "kind": "text",
-          "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
-          "createdAt": "2022-11-04T14:29:28Z"
+        "replies": [],
+        "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 18,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
         }
-      ]
+      },
+      {
+        "_id": "638a424bba1380c745d9691c44",
+        "owner": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 145,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 19,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c55",
+        "owner": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 225,
+        "views": 0,
+        "commentCount": 123,
+        "shareCount": 20,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c66",
+        "owner": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "self",
+        "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 21,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#000"
+        }
+      }
+    ]
+  },
+  "top": {
+    "data": [
+      {
+        "_id": "638a424bba1380c745d9691c00",
+        "owner": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 56,
+        "shareCount": 15,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c11",
+        "owner": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 16,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c22",
+        "owner": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 17,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c33",
+        "owner": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "stream",
+          "icon": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "skylinestar1986"
+        },
+        "replies": [],
+        "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 18,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c44",
+        "owner": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 145,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 19,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c55",
+        "owner": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 225,
+        "views": 0,
+        "commentCount": 123,
+        "shareCount": 20,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c66",
+        "owner": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "self",
+        "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 21,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      }
+    ]
+  },
+  "hot": {
+    "data": [
+      {
+        "_id": "638a424bba1380c745d9691c00",
+        "owner": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "self",
+        "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 15,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "sports/r/all",
+          "backgroundColor": "#0079D3",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c11",
+        "owner": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 16,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c22",
+        "owner": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "stream",
+          "icon": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "skylinestar1986"
+        },
+        "replies": [],
+        "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 17,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c33",
+        "owner": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 145,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 18,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c44",
+        "owner": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 225,
+        "views": 0,
+        "commentCount": 123,
+        "shareCount": 19,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c55",
+        "owner": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 56,
+        "shareCount": 20,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      }
+    ]
+  },
+  "best": {
+    "data": [
+      {
+        "_id": "638a424bba1380c745d9691c00",
+        "owner": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "User",
+        "author": {
+          "_id": "638a4248ba1380c745d969060",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "createdAt": "2017-07-21T17:32:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 15,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c11",
+        "owner": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "stream",
+          "icon": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969061",
+          "name": "skylinestar1986"
+        },
+        "replies": [],
+        "title": "Steam removed my old game that was purchased not direct from Steam. Should I avoid similar stores in the future?",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "createdAt": "2022-09-21T20:32:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 16,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/fvqw3ckksyx91.jpg?width=640&crop=smart&auto=webp&s=51ff5a35ac5cf489beeb0cb3eb5887d666d11aa4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c22",
+        "owner": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969062",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "createdAt": "2022-11-12T12:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 145,
+        "views": 0,
+        "commentCount": 12,
+        "shareCount": 17,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/mov_bbb.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c33",
+        "owner": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969063",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-10T14:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 225,
+        "views": 0,
+        "commentCount": 123,
+        "shareCount": 18,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ]
+      },
+      {
+        "_id": "638a424bba1380c745d9691c44",
+        "owner": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969064",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "video",
+        "images": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "createdAt": "2022-11-07T14:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 56,
+        "shareCount": 19,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "/assets/videos/These girls win Halloween with their Karens costume - TikTokCringe.mp4"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c55",
+        "owner": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969065",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "image",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-10-07T14:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 20,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c66",
+        "owner": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "self",
+        "text": "Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.Welcome to r/Egypt. The Nile River, the birthplace of civilization, and the home of the ancient Pharaohs. We're a country-themed subreddit dedicated to posting on events that affect Egypt and Egyptians. We're a multilingual subreddit, therefore submissions made in either English or Arabic are welcome.",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-04T14:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 21,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "اي كلام/r/all",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      },
+      {
+        "_id": "638a424bba1380c745d9691c66",
+        "owner": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "toptalent",
+          "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+        },
+        "ownerType": "Subreddit",
+        "author": {
+          "_id": "638a4248ba1380c745d969066",
+          "name": "righteous_boldness07"
+        },
+        "replies": [],
+        "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+        "kind": "self",
+        "text": "Welcome to r/Egypt.",
+        "images": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "createdAt": "2022-11-04T14:29:28Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 245,
+        "views": 0,
+        "commentCount": 30,
+        "shareCount": 21,
+        "suggestedSort": "top",
+        "scheduled": false,
+        "isHidden": false,
+        "isSaved": true,
+        "videos": [
+          "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+        ],
+        "flairId": {
+          "_id": 1,
+          "text": "wac",
+          "backgroundColor": "#ea0027",
+          "textColor": "#fff"
+        }
+      }
+    ]
+  }
 }

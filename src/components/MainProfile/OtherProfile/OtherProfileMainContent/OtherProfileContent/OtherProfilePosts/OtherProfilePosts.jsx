@@ -25,11 +25,11 @@ function OtherProfilePosts(props) {
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
           <OtherProfilePostHeader
-            subReddit={post?.owner}
+            type={post?.ownerType}
+            subReddit={post?.owner?.name}
             isSubReddit={post?.ownerType === 'Subreddit'}
-            nameUser={post?.author}
+            nameUser={post?.author?.name}
             Time={post?.createdAt}
-
           />
           <TitlePost variant="h6">{post?.title}</TitlePost>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>

@@ -6,6 +6,7 @@ import Moderators from './Moderators/Moderators';
 import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
 import numFormatter from '../../../utils/MembersNum';
+import UserLogin from '../../../authentication';
 /**
  * SideBar for subreddit
  * @component
@@ -16,14 +17,17 @@ function SideBar(props) {
     disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
   } = props;
   const [moderate, setModerate] = useState(false);
+  const finalArray = moderatoesName?.map((obj) => obj.userName);
   const num = numFormatter(members);
+  const mode = UserLogin(finalArray);
+  console.log(mode);
   useEffect(() => {
-    if (moderatoesName?.indexOf(username) === -1) {
-      setModerate(false);
-    } else {
+    if (mode) {
       setModerate(true);
+    } else {
+      setModerate(false);
     }
-  }, [moderatoesName]);
+  }, [moderatoesName, username, mode]);
   return (
     <SideBarContainer>
       {!moderate
@@ -41,7 +45,7 @@ function SideBar(props) {
         <Flirt />
       </CommunityContainer>
       <CommunityContainer sx={{ padding: '0px 12px' }}>
-        <Moderators moderatoesName={moderatoesName} />
+        <Moderators moderatoesName={finalArray} />
       </CommunityContainer>
       <BackHome sx={{ marginTop: -5 }} />
     </SideBarContainer>

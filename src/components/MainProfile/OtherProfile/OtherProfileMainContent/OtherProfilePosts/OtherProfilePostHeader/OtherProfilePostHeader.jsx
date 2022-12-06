@@ -21,7 +21,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    nameUser, Time, subReddit, nsfw, locked, isSubReddit,
+    nameUser, Time, subReddit, nsfw, locked, isSubReddit, type,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -39,14 +39,27 @@ function OtherProfilePostHeader(props) {
   };
   return (
     <HeaderPost>
-      <LinkTo to={`/Subreddit/${subReddit}`}>
-        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-          r/
-          {subReddit}
-          {' '}
-          .
-        </Typography>
-      </LinkTo>
+
+      {type === 'Subreddit' ? (
+        <LinkTo to={`/Subreddit/${subReddit}`}>
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            r/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        </LinkTo>
+      ) : (
+        <LinkTo to={`/user/${subReddit}`}>
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            u/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+
+        </LinkTo>
+      )}
       {isSubReddit && (
       <Joined
         variant={(joined ? 'outlined' : 'contained')}

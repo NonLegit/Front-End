@@ -9,7 +9,9 @@ import {
   DisplayName, About, AddSocialLinks,
 } from './styles';
 import { SettingsContext } from '../../../../contexts/SettingsProvider';
+
 import { settingsPost } from '../../settingsServer';
+
 /**
  * - ProfileInoformation
  * - Edit Display name  and About people in Seetings Page
@@ -30,6 +32,7 @@ function ProfileInoformation() {
     setName(prefs?.displayName);
     setAbout(prefs?.description);
   }, [prefs]);
+
   const handleDisplayName = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name }));
     const message = await settingsPost({ ...prefs, displayName: name });

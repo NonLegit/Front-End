@@ -9,7 +9,10 @@ import {
 } from '../styles';
 
 // scripts
-import { checkEmail } from '../scripts';
+import { checkEmail } from '../authenticationServer';
+
+// env Variables
+const { REACT_APP_SITEKEY } = process.env;
 
 /**
  * Email Compoenet with ReCAPTCHA if required
@@ -67,7 +70,7 @@ function Email({
       </RedditLoadingButton>
       {recaptchaState ? (
         <ReCAPTCHA
-          sitekey="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
+          sitekey={REACT_APP_SITEKEY}
           onExpired={() => setVerified(false)}
           onChange={() => setVerified(true)}
           size="normal"

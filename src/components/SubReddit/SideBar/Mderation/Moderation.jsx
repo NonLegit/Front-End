@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandLessOutlinedIcon from '@mui/icons-material/ExpandLessOutlined';
 import moment from 'moment/moment';
-import patchData from '../../server';
+import patchData from './ModerationServer';
 import Sort from '../MoreIcon/More';
 import {
   AboutCountainer, AboutString, CreatedSpan,
@@ -30,6 +30,7 @@ function Moderation(props) {
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
   const [selection, setSelection] = useState(primaryTopic);
+
   const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
     'Celebrity', 'Crafts and DIY', 'Crypto', 'Culture, Race, and Ethnicity', 'Ethics and Philosophy', 'Family and Relationships', 'Fashion', 'Fitness and Nutrition',
     'Food and Drink', 'Funny/Humor', 'Gamming', 'Gender', 'History', 'Hobbies', 'Home and Garden', 'Home and Garden', 'Learning and Education', 'Law', 'Marketplace and Deals',
@@ -38,8 +39,10 @@ function Moderation(props) {
 
   useEffect(() => {
     setSelection(primaryTopic);
-    if (selection === 'Add a Primary Topic') {
+    if (primaryTopic === 'Add a Primary Topic' || selection === 'Add a Primary Topic') {
       setListOfTopics(false);
+    } else {
+      setListOfTopics(true);
     }
   }, [primaryTopic]);
   // show select list or not
@@ -49,7 +52,7 @@ function Moderation(props) {
   };
 
   const sendData = (val) => {
-    patchData(`subreddits/${Name}`, { primaryTopic: val }); // fetch api
+    patchData(Name, { primaryTopic: val }); // fetch api
   };
 
   // handel on select item
@@ -101,9 +104,9 @@ function Moderation(props) {
         </span>
         <span>
           <SpecialBold>
-            {/* 1.0k */}
+            1.0k
           </SpecialBold>
-          {/* <Light>Online</Light> */}
+          <Light>Online</Light>
         </span>
         <span />
         <div />

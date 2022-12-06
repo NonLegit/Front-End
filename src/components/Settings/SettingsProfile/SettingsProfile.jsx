@@ -7,8 +7,10 @@ import {
 } from '../styles';
 import ProfileInoformation from './ProfileInoformation/ProfileInoformation';
 import ProfileImage from './ProfileImage/ProfileImage';
+
 import SettingsProvider from '../../../contexts/SettingsProvider';
 import { settingsPost, settingsFetch } from '../settingsServer';
+
 /**
  * - SettingsProfile
  * - Edit NSFW and Allow people to follow you in Seetings Page

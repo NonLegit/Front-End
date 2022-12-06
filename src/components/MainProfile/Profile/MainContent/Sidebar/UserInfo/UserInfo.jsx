@@ -14,7 +14,7 @@ import {
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
 } from './styles';
 import { UserContext } from '../../../../../../contexts/UserProvider';
-import { UserInfoContext } from '../../../../../../contexts/UserInfoProvider';
+import userInfoServer from './userInfoServer';
 /**
  * UserInfo Box in sidebar containing all info of a user
  *
@@ -30,7 +30,7 @@ function UserInfo() {
   const [coverPic, setCoverPic] = useState();
 
   const { username } = useContext(UserContext);
-  const { info } = useContext(UserInfoContext);
+  const [info] = userInfoServer();
 
   useEffect(() => {
     setPostKarma(info?.postKarma);

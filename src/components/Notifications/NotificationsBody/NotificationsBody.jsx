@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import { createContext, useState, useEffect } from 'react';
-import notificationsFetch from './notificationServer';
+import notificationsFetch from './notificationsServer';
 import NotificationCategories from './NotificationCategories/NotificationCategories';
 import
 {

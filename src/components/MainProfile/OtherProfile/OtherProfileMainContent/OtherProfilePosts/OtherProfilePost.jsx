@@ -40,7 +40,7 @@ function OtherProfilePost(props) {
   }, [type]);
   return (
     <PostsQueueBox>
-      <OtherProfilePostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} />
+      <OtherProfilePostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.isSpam} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
@@ -62,7 +62,8 @@ function OtherProfilePost(props) {
                 {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <OtherProfilePostHeader
-                subReddit={entity.owner}
+                type={entity.ownerType}
+                subReddit={entity.name}
                 nameUser={username}
                 Time={entity.createdAt}
                 nsfw={entity.nsfw}

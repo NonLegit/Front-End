@@ -10,7 +10,7 @@ import { RedditLoadingButton, RedditTextField } from '../styles';
 import theme, { fonts } from '../../../../../styles/theme';
 
 // servers
-import { checkUserName, logIn } from '../../../../Authentication/FirstParty/server';
+import { checkUserName, logIn } from '../../../../Authentication/FirstParty/firstpartyServer';
 
 /**
  * Form for Logging in by username and passsword
@@ -18,7 +18,7 @@ import { checkUserName, logIn } from '../../../../Authentication/FirstParty/serv
  * @component
  * @returns {React.Component} First Party Form
  */
-function FirstParty() {
+function FirstParty({ handleClose }) {
   // useState
   const [userName, setUserName] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
@@ -36,9 +36,30 @@ function FirstParty() {
   const [cookies, setCookies] = useCookies(['redditUser']);
   return (
 
-    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }}>
+    <FirstPartyContainer
+      data-testid="FirstParty-test"
+      width="290px"
+      noValidate
+      onSubmit={(e) => {
+        logIn(
+          e,
+          setLoading,
+          userName,
+          password,
+          setPassword,
+          setButtonText,
+          setDisabled,
+          setRedirectCaption,
+          setCookies,
+          setUserName,
+          true,
+          handleClose,
+        );
+      }}
+    >
 
       <RedditTextField
+        data-testid="UserName-FirstParty-test"
         label="Username"
         variant="filled"
         type="text"
@@ -60,6 +81,7 @@ function FirstParty() {
         helperText={userName.error}
       />
       <RedditTextField
+        data-testid="Password-FirstParty-test"
         label="Password"
         variant="filled"
         type="password"
@@ -77,7 +99,7 @@ function FirstParty() {
         }))}
       />
 
-      <RedditLoadingButton type="submit" loading={loading} disabled={disabled}>
+      <RedditLoadingButton data-testid="login-btn-test" type="submit" loading={loading} disabled={disabled}>
         {buttonTxt}
       </RedditLoadingButton>
 

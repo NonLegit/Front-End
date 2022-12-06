@@ -40,7 +40,7 @@ function Post(props) {
   }, [type]);
   return (
     <PostsQueueBox>
-      <PostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} />
+      <PostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.isSpam} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
@@ -62,8 +62,9 @@ function Post(props) {
                 {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <PostHeader
-                subReddit={entity.owner}
-                nameUser={entity.author}
+                subReddit={entity.owner.name}
+                type={entity.ownerType}
+                nameUser={entity.author.name}
                 Time={entity.createdAt}
                 nsfw={entity.nsfw}
                 locked={entity.locked}
@@ -72,12 +73,12 @@ function Post(props) {
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}
-                postedByOthers={!(entity.author === username)}
+                postedByOthers={!(entity.author.name === username)}
                 saved={entity.isSaved}
                 hidden={entity.isHidden}
                 approved={entity.approved}
                 removed={entity.removed}
-                spam={entity.spam}
+                spam={entity.isSpam}
                 numComments={entity.commentCount}
                 points={entity.votes}
                 postVoteStatus={entity.postVoteStatus}

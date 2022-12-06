@@ -3,17 +3,21 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import {
-  AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, Avatar,
+  AvatarContainer, CreatePostContainer, CustomIconButton, PostTitle, CustomAvatar, CustomLink,
 } from './styles';
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 /**
  * This component is the link between home page and create post page
  * @component CreatePostInHome
+ *
+ * @property {number} subredditName - creat post from a spacific subreddit or not
+ *
  * @returns {React.Component} User avatar
  * @returns {React.Component} Inputs redirect user to create post page
  */
 
-function CreatePostInHome() {
+function CreatePostInHome(props) {
+  const { subredditName } = props;
   const [cookies] = useCookies(['redditUser']);
   const navigate = useNavigate();
   const { setInitialPostType } = usePostTypeContext();
@@ -21,15 +25,20 @@ function CreatePostInHome() {
    * this function to redirect user to create post page
    */
   const handleClick = (postType) => {
-    navigate('/submit');
+    navigate(subredditName ? `/submit/r/${subredditName}` : '/submit');
     setInitialPostType(postType);
   };
   return (
     <CreatePostContainer>
       <AvatarContainer>
-        <Link to="/">
-          <Avatar src={cookies.redditUser?.profilePicture} alt="avatar" />
-        </Link>
+        <CustomLink to={`/user/${cookies.redditUser?.userName}`}>
+          <CustomAvatar
+            src={cookies.redditUser?.profilePicture}
+            alt="avatar"
+          >
+            u/
+          </CustomAvatar>
+        </CustomLink>
       </AvatarContainer>
       <PostTitle
         type="text"

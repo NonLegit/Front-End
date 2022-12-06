@@ -1,8 +1,6 @@
 import { Typography } from '@mui/material';
-import { useContext } from 'react';
-import { CommunitiesContext } from '../../../../../../contexts/CommunitiesProvider';
-
 import { InfoBox } from '../styles';
+import otherProfileCommunitiesServer from './otherProfileCommunitiesServer';
 import OtherProfileEntityComment from './OtherProfileEntityCommunity/OtherProfileEntityCommunity';
 
 /**
@@ -14,12 +12,12 @@ import OtherProfileEntityComment from './OtherProfileEntityCommunity/OtherProfil
 
 function OtherProfileCommunities() {
   // will fetch the comminities here
-  const { communities, communitiesError } = useContext(CommunitiesContext);
+  const [communities] = otherProfileCommunitiesServer();
 
   return (
     <InfoBox>
       <Typography variant="body2" sx={{ fontWeight: 700 }}>Moderator of these communities</Typography>
-      {!communitiesError && communities?.map((community, index) => (
+      {communities?.map((community, index) => (
         <OtherProfileEntityComment key={`${index + 0}`} community={community} />
       ))}
     </InfoBox>

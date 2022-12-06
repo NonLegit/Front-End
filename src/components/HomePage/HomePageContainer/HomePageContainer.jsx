@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -28,15 +29,15 @@ function HomePageContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
-  // console.log(generatedUsernames);
   // states
   const [posts, postsError] = homePageServer(postClass);
 
+  const [cookies] = useCookies(['redditUser']);
   return (
     <OuterContainer>
       <MainContainer>
         <MainContent width={640}>
-          <CreatePostInHome />
+          {cookies.redditUser ? <CreatePostInHome /> : null}
           <PostsClassification />
           {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
         </MainContent>

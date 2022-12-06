@@ -3,46 +3,35 @@
 exports[`PostHeader PostHeader renders correctly 1`] = `
 Array [
   <div
-    className="MuiBox-root css-11kldd9"
+    className="MuiBox-root css-1eogohz"
   >
     <div
-      className="MuiAvatar-root MuiAvatar-circular css-2is7ki-MuiAvatar-root"
+      className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-x9hid5-MuiAvatar-root"
     >
-      <img
-        alt="Profile Image"
-        className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
-        src="image"
-      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+        data-testid="PersonIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+        />
+      </svg>
     </div>
     <a
       className="css-kqg5s"
       color="#000"
       fontWeight="bolder"
-      href="/"
+      href="/Subreddit/undefined"
       onClick={[Function]}
     >
-      r/
-      owner
+      u/
     </a>
     <div
       className="MuiBox-root css-1clzuz0"
     >
-      <span>
-        •
-      </span>
-      <div>
-        Posted By
-      </div>
-      <a
-        className="css-1fa4cpj"
-        color="inherit"
-        fontWeight="normal"
-        href="/"
-        onClick={[Function]}
-      >
-        u/
-        author
-      </a>
       <div
         className="MuiBox-root css-5ah3mn"
       >
@@ -87,26 +76,6 @@ Array [
     >
       title
        
-      <button
-        backgroundColor="flairBackgroundColor"
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-748rc4-MuiButtonBase-root-MuiButton-root"
-        disabled={false}
-        flairColor="flairColor"
-        onBlur={[Function]}
-        onContextMenu={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      />
     </h3>
   </a>,
 ]

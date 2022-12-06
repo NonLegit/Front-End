@@ -1,3 +1,4 @@
+import { redirectLogin } from '../../../utils/Redirect';
 import useFetch from '../../../hooks/useFetch';
 
 /**
@@ -8,12 +9,15 @@ import useFetch from '../../../hooks/useFetch';
 
 const createPostServer = () => {
   const communitiesUrl = '/subreddits/mine/subscriber';
-  const [communities, communitiesError, statusCode] = useFetch(communitiesUrl);
+  const [data, communitiesError, statusCode] = useFetch(communitiesUrl);
+  const communities = data?.data.map((community) => ({
+    ...community, subredditName: community.fixedName, id: community._id,
+  }));
   console.log('communities', communities);
   console.log(statusCode);
   if (statusCode === 200) {
     if (statusCode === 401) {
-      // redirection code
+      redirectLogin();
     } else {
       console.log('errorMessage');
     }

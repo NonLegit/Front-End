@@ -16,12 +16,6 @@ export const PostContainer = styled(Box)(() => ({
   },
 }));
 
-export const Popularity = styled(Box)(() => ({
-  fontSize: '15px',
-  color: '#1c1c1c',
-  cursor: 'pointer',
-}));
-
 export const PostInfo = styled(Box)(() => ({
   display: 'flex',
   fontSize: '12px',
@@ -48,7 +42,7 @@ export const PostTitle = styled(Link)(() => ({
 
 export const PostMedia = styled(Box)(({ kind }) => ({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: (kind === 'self') ? 'flex-start' : 'center',
   alignItems: 'center',
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
 }));

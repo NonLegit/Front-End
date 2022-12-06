@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const Cover = styled('div')({
@@ -61,7 +61,7 @@ export const Content = styled('div')(({ theme }) => ({
 }));
 export const Desc = styled('div')({
   display: 'inline-block',
-  maxWidth: 'calc(100% - 96px)',
+  // maxWidth: 'calc(100% - 96px)',
   paddingRight: 24,
   boxSizing: 'border-box',
 });
@@ -79,6 +79,7 @@ export const Namee = styled('h1')({
   margin: 0,
   marginBlockStart: 0,
   marginBlockEnd: 0,
+  whiteSpace: 'nowrap',
 });
 
 export const Com = styled('h2')({
@@ -87,7 +88,7 @@ export const Com = styled('h2')({
   color: '#7c7c7c',
   margin: 0,
   lineHeight: 0,
-
+  whiteSpace: 'nowrap',
 });
 
 export const Join = styled('button')({
@@ -195,4 +196,33 @@ export const TotalHeader = styled('div')(({ theme }) => ({
   [theme.breakpoints.between('0', '435')]: {
     padding: '0px',
   },
+}));
+export const NotFoundBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'absolute',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '80%',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+}));
+
+export const NotFountImage = styled(Box)(() => ({
+  backgroundColor: '#a8a8a8',
+  borderRadius: '100%',
+  height: 100,
+  width: 100,
+  marginBottom: 40,
+}));
+
+export const BackHomeButton = styled(Button)(() => ({
+  width: 200,
+  borderRadius: 30,
+  height: 30,
+  boxShadow: 'none',
+  marginLeft: 10,
+  marginRight: 10,
+  '&:hover': { boxShadow: 'none' },
 }));

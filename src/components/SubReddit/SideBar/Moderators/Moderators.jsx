@@ -24,7 +24,7 @@ function Moderators(props) {
       </CustomLink>
       { moderatoesName?.map((entity, index) => (
         <Container key={`${index + 0}`}>
-          <Name>
+          <Name to={`/user/${entity}`}>
             u/
             {entity}
           </Name>

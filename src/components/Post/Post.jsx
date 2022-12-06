@@ -1,11 +1,12 @@
 // mui components
 import {
-  Box, Divider, useMediaQuery, useTheme,
+  Box, useMediaQuery, useTheme,
 } from '@mui/material';
 
 // styles
 import {
-  PostContainer, Popularity, PostMedia, CustomImage, PostText, PostTextContainer,
+  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer,
+
 } from './styles';
 
 import Reactions from './Reactions/Reactions';
@@ -16,23 +17,27 @@ import PostHeader from './PostHeader/PostHeader';
  *
  * @component Post
  * @property {string} title -Post title.
- * @property {string} image -Post owner icon.
- * @property {string} owner -Post subreddit(post owner).
- * @property {string} author -Post author.
+ * @property {string} ownerType -Post owner type user or subreddit.
+ * @property {string} ownerIcon -Post owner icon.
+ * @property {string} ownerName -Post subreddit(post owner).
+ * @property {string} authorName -Post author.
  * @property {string} flairText -Post flair text.
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
  * @property {string} kind -Post kind (link, self, image, video).
- * @property {string} url -Source of media file in case of image/video kinds or url in case of url kind.
+ * @property {Array.<string>} images -Array of sources of images
+ * @property {Array.<string>} videos -Array of sources of vidoes
  * @property {number} votes -Number of post votes.
  * @property {number} commentCount -Number of post comments.
  * @property {string} text -Post text in case of "self" kind.
+ * @property {boolean} subredit -to identify if post in home page or subreddit.
  * @returns {React.Component} Post
  */
 
 function Post(props) {
   const {
-    title, image, createdAt, owner, author, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
+    subredit,
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -48,36 +53,30 @@ function Post(props) {
         flexGrow={1}
         maxWidth={matchSm ? '94.5%' : '100%'}
       >
-        <Popularity pb={1}>
-          {popularity}
-        </Popularity>
-        <Divider
-          sx={{
-            borderColor: 'rgb(0 0 0 / 9%)',
-          }}
-        />
         <PostHeader
           title={title}
-          image={image}
-          owner={owner}
-          author={author}
-          flair={flairText}
+          ownerIcon={ownerIcon}
+          ownerName={ownerName}
+          authorName={authorName}
+          flairText={flairText}
           flairBackgroundColor={flairBackgroundColor}
           flairColor={flairColor}
           createdAt={createdAt}
+          subredit={subredit}
+          ownerType={ownerType}
         />
         <PostMedia mt={1.5} kind={kind}>
           {/* eslint-disable jsx-a11y/media-has-caption */}
           {/* */}
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={url} type="video/mp4" />
+              <source src={videos[0]} type="video/mp4" />
             </video>
           ) : (
             (kind === 'image')
               ? (
                 <CustomImage
-                  src={url}
+                  src={images[0]}
                   alt="post image"
                 />
               ) : (

@@ -13,25 +13,26 @@ function PostList(props) {
     <>
       {posts.map((post) => {
         const {
-          id, createdAt, title, image, owner, author, flairText, flairBackgroundColor, popularity, flairColor, url, kind, votes, commentCount, text,
+          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType,
         } = post;
         return (
           <Post
             createdAt={createdAt}
             title={title}
-            image={image}
-            owner={owner}
-            author={author}
+            ownerIcon={ownerIcon}
+            ownerName={ownerName}
+            authorName={authorName}
             flairText={flairText}
             flairBackgroundColor={flairBackgroundColor}
-            popularity={popularity}
             flairColor={flairColor}
-            url={url}
+            images={images}
+            videos={videos}
             kind={kind}
             votes={votes}
             commentCount={commentCount}
             text={text}
             key={id}
+            ownerType={ownerType}
           />
         );
       })}

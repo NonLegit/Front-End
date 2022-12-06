@@ -16,10 +16,12 @@ import {
 import theme, { fonts } from '../../../styles/theme';
 
 // server
-import { checkUserName, recoverPassword } from './server';
+import { checkUserName, recoverPassword } from './ForgetPasswordServer';
 
 // scripts
-import { redditCookie, checkEmail } from '../scripts';
+
+import { redditCookie, checkEmail } from '../authenticationServer';
+
 // environment variables
 const { REACT_APP_ENV } = process.env;
 
@@ -56,11 +58,13 @@ function ForgetPassword() {
       } else { setremeberMe(true); }
     } else if (Cookies.get('jwt')) {
       // production
-      // Redirect to loading page
+      // Update Cookie
+      redditCookie(setCookies);
       // check on Reddit cookie
-      if (cookies.redditUser === undefined) {
-        redditCookie(setCookies);
-      }
+      // if (cookies.redditUser === undefined) {
+      //   redditCookie(setCookies);
+      // }
+      // Redirect to loading page
       setremeberMe(true);
     } else {
       // No Cookie by Back End

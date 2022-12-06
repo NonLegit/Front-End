@@ -19,7 +19,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    subReddit, nameUser, Time, isSubReddit,
+    subReddit, nameUser, Time, isSubReddit, type,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -46,14 +46,26 @@ function OtherProfilePostHeader(props) {
           <HeaderAvatarText>r/</HeaderAvatarText>
         </HeaderAvatar>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', marginRight: '70px' }}>
-          <LinkTo to={`/Subreddit/${subReddit}`}>
-            <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-              r/
-              {subReddit}
-              {' '}
-              .
-            </Typography>
-          </LinkTo>
+
+          {type === 'Subreddit' ? (
+            <LinkTo to={`/Subreddit/${subReddit}`}>
+              <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+                r/
+                {subReddit}
+                {' '}
+                .
+              </Typography>
+            </LinkTo>
+          ) : (
+            <LinkTo to={`/user/${subReddit}`}>
+              <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+                u/
+                {subReddit}
+                {' '}
+                .
+              </Typography>
+            </LinkTo>
+          )}
           <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
             Posted by
           </Typography>
@@ -73,8 +85,8 @@ function OtherProfilePostHeader(props) {
             {(moment.utc(Time).local().startOf('seconds')
               .fromNow())}
           </Typography>
-
         </Box>
+
         {isSubReddit && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
@@ -86,6 +98,7 @@ function OtherProfilePostHeader(props) {
           {(joined ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
         )}
+
       </Box>
 
       {/* {((subTitle === 'Spam').toString() === 'true')

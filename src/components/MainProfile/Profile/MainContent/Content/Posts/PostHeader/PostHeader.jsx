@@ -18,21 +18,34 @@ import {
 
 function PostHeader(props) {
   const {
-    subReddit, nameUser, Time,
+    subReddit, nameUser, Time, type,
   } = props;
   return (
     <HeaderPost>
       <HeaderAvatar>
         <HeaderAvatarText>r/</HeaderAvatarText>
       </HeaderAvatar>
-      <LinkTo to={`/Subreddit/${subReddit}`}>
-        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-          r/
-          {subReddit}
-          {' '}
-          .
-        </Typography>
-      </LinkTo>
+
+      {type === 'Subreddit' ? (
+        <LinkTo to={`/Subreddit/${subReddit}`}>
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            r/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        </LinkTo>
+      ) : (
+        <LinkTo to={`/user/${subReddit}`}>
+          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+            u/
+            {subReddit}
+            {' '}
+            .
+          </Typography>
+        </LinkTo>
+      )}
+
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
       </Typography>

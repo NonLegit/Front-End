@@ -5,7 +5,9 @@ import {
 import { useState, useEffect } from 'react';
 import KeyDown from '../../../../../utils/KeyDown';
 import FilterArray from '../../../../../utils/FilterArray';
-import patchData from '../../../server';
+
+import patchData from '../ModerationServer';
+
 import AddBtn from './Add Bottun/AddBtn';
 import {
   AboutContent,
@@ -32,6 +34,7 @@ function AddList(props) {
   const [tags, setTags] = useState(topics);
   const [tempString, setTempString] = useState(tags);
   const [count, setCount] = useState(tags?.length);
+
   useEffect(() => {
     setTags(topics);
     setTempString(topics);
@@ -85,7 +88,7 @@ function AddList(props) {
     setTags(t);
   };
   const sendData = () => {
-    patchData(`subreddits/${Name}`, { topics: tempString }); // fetch api
+    patchData(Name, { topics: tempString }); // fetch api
   };
     // return to default view of add list
   const handleClickAway1 = () => {

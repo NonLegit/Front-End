@@ -12,7 +12,8 @@ import { AuthenticationConatiner, AuthenticationBG, AuthenticationBody } from '.
 import theme from '../../../styles/theme';
 
 // scripts
-import { redditCookie } from '../scripts';
+
+import { redditCookie } from '../authenticationServer';
 
 // environment variables
 const { REACT_APP_ENV } = process.env;
@@ -50,11 +51,13 @@ function SignUp() {
       } else { setremeberMe(true); }
     } else if (Cookies.get('jwt')) {
       // production
-      // Redirect to loading page
+      // Update Cookie
+      redditCookie(setCookies);
       // check on Reddit cookie
-      if (cookies.redditUser === undefined) {
-        redditCookie(setCookies);
-      }
+      // if (cookies.redditUser === undefined) {
+      //   redditCookie(setCookies);
+      // }
+      // Redirect to loading page
       setremeberMe(true);
     } else {
       // No Cookie by Back End
