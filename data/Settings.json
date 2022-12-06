@@ -9,6 +9,7 @@
         "adultContent": true,
         "autoplayMedia": true,
         "gender": "male",
-        "description": " info"
+        "description": " info",
+        "country": "egypt"
     }
 }

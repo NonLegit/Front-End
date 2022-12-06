@@ -32,42 +32,41 @@ function SettingsFeed() {
     if (message !== '') { alert(message); }
   };
   return (
-    data === null ? (<div data-testid="settings-feed"> error in fecting</div>)
-      : (
-        <SettingsPageConranier data-testid="settings-feed">
-          <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
-            <Header>Feed settings</Header>
-            <SubHeader>CONTENT PREFERENCES</SubHeader>
-            <Button>
-              <Content>
-                <ContentHeader>
-                  Adult content
-                </ContentHeader>
-                <ContentSubHeader>
-                  Enable to view adult and NSFW (not safe for work) content in your feed and search results.
-                </ContentSubHeader>
-              </Content>
-              <AntSwitch onClick={() => { handleAdultContent(); }}>
-                <Switch checked={prefs?.adultContent || false} />
-              </AntSwitch>
-            </Button>
-            <Button>
-              <Content>
-                <ContentHeader>
-                  Autoplay media
-                </ContentHeader>
-                <ContentSubHeader>
-                  Play videos and gifs automatically when in the viewport.
-                </ContentSubHeader>
-              </Content>
-              <AntSwitch onClick={() => { handleAutoplayMedia(); }}>
-                <Switch checked={prefs?.autoplayMedia || false} inputProps={{ 'aria-label': 'controlled' }} />
 
-              </AntSwitch>
-            </Button>
-          </Box>
-        </SettingsPageConranier>
-      )
+    <SettingsPageConranier data-testid="settings-feed">
+      <Box sx={{ maxWidth: '688px', flex: '1 1 auto' }}>
+        <Header>Feed settings</Header>
+        <SubHeader>CONTENT PREFERENCES</SubHeader>
+        <Button>
+          <Content>
+            <ContentHeader>
+              Adult content
+            </ContentHeader>
+            <ContentSubHeader>
+              Enable to view adult and NSFW (not safe for work) content in your feed and search results.
+            </ContentSubHeader>
+          </Content>
+          <AntSwitch onClick={() => { handleAdultContent(); }}>
+            <Switch checked={prefs?.adultContent || false} />
+          </AntSwitch>
+        </Button>
+        <Button>
+          <Content>
+            <ContentHeader>
+              Autoplay media
+            </ContentHeader>
+            <ContentSubHeader>
+              Play videos and gifs automatically when in the viewport.
+            </ContentSubHeader>
+          </Content>
+          <AntSwitch onClick={() => { handleAutoplayMedia(); }}>
+            <Switch checked={prefs?.autoplayMedia || false} inputProps={{ 'aria-label': 'controlled' }} />
+
+          </AntSwitch>
+        </Button>
+      </Box>
+    </SettingsPageConranier>
+
   );
 }
 
