@@ -5,7 +5,9 @@ import OtherProfilePostSide from './OtherProfilePostSide/OtherProfilePostSide';
 
 import {
   Flair,
+  ParagraphBox,
   ParagraphPost,
+  ParagraphWhite,
   PostContentBox,
   PostsQueueBox,
   TitlePost,
@@ -49,7 +51,10 @@ function OtherProfilePosts(props) {
           }
 
           </Box>
-          <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
+          <ParagraphBox>
+            <ParagraphWhite />
+            <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
+          </ParagraphBox>
           <OtherProfilePostFooter subTitle={post?.ownerType} numComments={post?.commentCount} />
         </Box>
       </PostContentBox>

@@ -5,7 +5,9 @@ import PostSide from './PostSide/PostSide';
 
 import {
   Flair,
+  ParagraphBox,
   ParagraphPost,
+  ParagraphWhite,
   PostContentBox,
   PostsQueueBox,
   TitlePost,
@@ -48,7 +50,11 @@ function Posts(props) {
           }
 
           </Box>
-          <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
+          <ParagraphBox>
+            <ParagraphWhite />
+            <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
+          </ParagraphBox>
+
           <PostFooter isSaved={post?.isSaved} subTitle={post?.ownerType} numComments={post?.commentCount} />
         </Box>
       </PostContentBox>
