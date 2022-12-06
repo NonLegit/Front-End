@@ -1,4 +1,6 @@
 import { styled } from '@mui/system';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {
   Typography, Box, Divider, TextareaAutosize,
 } from '@mui/material';
@@ -105,3 +107,31 @@ export const PostUrl = styled(TextareaAutosize)(({ theme }) => ({
   resize: 'none',
   minHeight: 66,
 }));
+
+export const CustomTextEditor = styled(Editor)(() => ({
+  '& .rdw-editor-toolbar': {
+    backgroundColor: '#f6f7f8',
+  },
+}));
+export const Temp = ({ theme }) => ({
+  resize: 'vertical',
+  overflowY: 'auto',
+  padding: 10,
+  border: '1px solid #edeff1',
+  '&:focus-visible': {
+    outline: '1px solid #1a1a1b',
+  },
+  borderRadius: 4,
+  fontSize: 14,
+  caretColor: theme?.palette?.primary?.main,
+  fontWeight: 400,
+  fontFamily: 'inherit',
+  minHeight: 182,
+});
+
+export const ToolbarStyleObject = {
+  backgroundColor: '#f6f7f8',
+  '& .rdw-option-wrapper': {
+    backgroundColor: '#f6f7f8',
+  },
+};
