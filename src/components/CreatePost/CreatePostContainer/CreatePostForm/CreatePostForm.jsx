@@ -1,16 +1,17 @@
 import {
-  Box, Divider,
+  Box, Divider, useTheme,
 } from '@mui/material';
-
-import TitleIcon from '@mui/icons-material/Title';
+import '../../../../styles/theme/textEditor.css';
 import { useState, useEffect } from 'react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 
 import draftToHtml from 'draftjs-to-html';
 import { convertToRaw, EditorState } from 'draft-js';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-  CustomTextEditor, FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter, ToolbarStyleObject,
+  CustomTextEditor, FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter, ToolbarStyleObject, TextEditorWrapper, TextEditorField,
 } from './styles';
 import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
@@ -30,6 +31,9 @@ import currentSubredditServer from './currentSubredditServer';
  */
 
 function CreatePostForm() {
+  // theme
+  const theme = useTheme();
+
   // routes
   const { subredditName } = useParams();
   const navigate = useNavigate();
@@ -63,7 +67,6 @@ function CreatePostForm() {
   useEffect(() => {
     setCommunityToPostIn(subredditId);
   }, [subredditId]);
-
   /**
    * This function check if server should send email to user as a reply to the post
    */
@@ -144,7 +147,7 @@ function CreatePostForm() {
   const hanldeNsfw = () => {
     setNswf(!nswf);
   };
-
+  console.log(<CKEditor editor={ClassicEditor} />);
   return (
     <FormContainer>
       <TitleContainer my={2}>
@@ -196,6 +199,12 @@ function CreatePostForm() {
               toolbarStyle={ToolbarStyleObject}
               placeholder="Text(optional)"
               onEditorStateChange={handlePostTextChange}
+              styles={{
+                '& .rdw-option-wrapper': {
+                  backgroundColor: '#f6f7f8',
+                  width: '200px',
+                },
+              }}
               toolbar={{
                 options: ['inline', 'blockType', 'list', 'image'],
                 inline: {
@@ -206,7 +215,6 @@ function CreatePostForm() {
                   options: ['bold', 'italic', 'strikethrough', 'superscript', 'monospace'],
                 },
                 blockType: {
-                  icon: <TitleIcon />,
                   inDropdown: false,
                   options: ['H1'],
                   className: undefined,
@@ -221,6 +229,8 @@ function CreatePostForm() {
                   options: ['unordered', 'ordered'],
                 },
               }}
+              wrapperStyle={TextEditorWrapper}
+              editorStyle={TextEditorField(theme)}
             />
           ) : null}
           {postType === 1 ? (

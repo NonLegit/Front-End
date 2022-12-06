@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 // icons
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
@@ -16,6 +16,7 @@ import {
 
 // styles
 import { useTheme } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
 } from './styles';
@@ -47,6 +48,8 @@ function PostReactions(props) {
   };
   const handleSave = () => setSave(!save);
   const handleClickAway = () => setShowMore(false);
+
+  const navigate = useNavigate();
   return (
     <PostActions mt={0.5}>
       {!matchSm && (
@@ -135,6 +138,15 @@ function PostReactions(props) {
               <Divider />
             </>
             )}
+            <ListItemButton onClick={() => navigate('/submit')}>
+              <ListItemIcon>
+                <ModeEditOutlineOutlinedIcon />
+              </ListItemIcon>
+              <ShowMoreListItemText>
+                edit post
+              </ShowMoreListItemText>
+            </ListItemButton>
+            <Divider />
             <ListItemButton>
               <ListItemIcon>
                 <VisibilityOffOutlinedIcon />
