@@ -1,0 +1,61 @@
+{
+  "status": "success",
+  "socialLinks": [
+    {
+      "baseLink": "httpss://facebook.com",
+      "placeholderLink": "httpss://facebook.com",
+      "_id": "string",
+      "type": "facebook",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+    },
+    {
+      "baseLink": "httpss://instagram.com",
+      "placeholderLink": "httpss://instagram.com",
+      "_id": "string",
+      "type": "instagram",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+    },
+    {
+      "baseLink": "httpss://facebook.com",
+      "placeholderLink": "httpss://facebook.com",
+      "_id": "string",
+      "type": "facebook",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+    },
+    {
+      "baseLink": "httpss://instagram.com",
+      "placeholderLink": "httpss://instagram.com",
+      "_id": "string",
+      "type": "instagram",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+    },
+    {
+      "baseLink": "httpss://facebook.com",
+      "placeholderLink": "httpss://facebook.com",
+      "_id": "string",
+      "type": "facebook",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+    },
+    {
+      "baseLink": "httpss://instagram.com",
+      "placeholderLink": "httpss://instagram.com",
+      "_id": "string",
+      "type": "instagram",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+    },
+    {
+      "baseLink": "httpss://facebook.com",
+      "placeholderLink": "httpss://facebook.com",
+      "_id": "string",
+      "type": "facebook",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+    },
+    {
+      "baseLink": "httpss://instagram.com",
+      "placeholderLink": "httpss://instagram.com",
+      "_id": "string",
+      "type": "instagram",
+      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+    }
+  ]
+}

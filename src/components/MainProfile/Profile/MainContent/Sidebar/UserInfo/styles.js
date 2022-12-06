@@ -1,5 +1,5 @@
 import {
-  Box, Button, Card, styled, Typography,
+  Box, Button, Card, Dialog, styled, Typography,
 } from '@mui/material';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -151,4 +151,18 @@ export const OptionsButtons = styled(Button)(({ theme }) => ({
   '&:hover': {
     backgroundColor: '#ededed',
   },
+}));
+
+export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+  '& .MuiPaper-root': {
+    minWidth: 410,
+    maxWidth: 538,
+  },
+
 }));

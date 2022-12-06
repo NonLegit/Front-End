@@ -4,6 +4,7 @@ import OtherProfilePostHeader from './OtherProfilePostHeader/OtherProfilePostHea
 import OtherProfilePostSide from './OtherProfilePostSide/OtherProfilePostSide';
 
 import {
+  Flair,
   ParagraphPost,
   PostContentBox,
   PostsQueueBox,
@@ -27,11 +28,27 @@ function OtherProfilePosts(props) {
           <OtherProfilePostHeader
             type={post?.ownerType}
             subReddit={post?.owner?.name}
+            icon={post?.owner?.icon}
             isSubReddit={post?.ownerType === 'Subreddit'}
             nameUser={post?.author?.name}
             Time={post?.createdAt}
           />
-          <TitlePost variant="h6">{post?.title}</TitlePost>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <TitlePost variant="h6">{post?.title}</TitlePost>
+            {
+            post?.flairId?.text
+            && (
+            <Flair
+              disableRipple
+              backgroundcolor={post?.flairId?.backgroundColor}
+              flaircolor={post?.flairId?.textColor}
+            >
+              {post?.flairId?.text}
+            </Flair>
+            )
+          }
+
+          </Box>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
           <OtherProfilePostFooter subTitle={post?.ownerType} numComments={post?.commentCount} />
         </Box>

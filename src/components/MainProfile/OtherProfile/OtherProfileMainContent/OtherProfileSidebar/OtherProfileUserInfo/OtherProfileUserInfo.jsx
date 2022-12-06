@@ -1,13 +1,12 @@
 import { Box, CardMedia, Typography } from '@mui/material';
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
-import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import CakeIcon from '@mui/icons-material/Cake';
 import { useEffect, useState } from 'react';
 import moment from 'moment/moment';
 import { useParams } from 'react-router-dom';
 import UserInfoServer from '../../../../mainProfileServer';
 import {
-  WideButton, ProfilePic, ProfileBox,
+  ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, MoreOptions, OptionsButtons, UserInfoButton,
 } from './styles';
@@ -24,6 +23,7 @@ function OtherProfileUserInfo() {
   const [cake, setCake] = useState();
   const [profilePic, setProfilePic] = useState();
   const [coverPic, setCoverPic] = useState();
+  const [follow, setFollow] = useState(true);
 
   const { username } = useParams();
   const [info, statusCode] = UserInfoServer(username);
@@ -34,6 +34,7 @@ function OtherProfileUserInfo() {
     setCake(info?.createdAt);
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
+    setFollow(info?.isFollowed);
   }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);
@@ -41,7 +42,6 @@ function OtherProfileUserInfo() {
     setShowList((prev) => !prev);
   };
 
-  const [follow, setFollow] = useState(true);
   const handleClickFollow = () => {
     setFollow((prev) => !prev);
   };
@@ -67,9 +67,6 @@ function OtherProfileUserInfo() {
           {username}
         </UserName>
         <br />
-        <WideButton variant="contained" color="primary" endIcon={<ArrowForwardIosOutlinedIcon />}>
-          Create Your Own Avatar
-        </WideButton>
         <InfoBox>
           <EntityBox>
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Karma</Typography>

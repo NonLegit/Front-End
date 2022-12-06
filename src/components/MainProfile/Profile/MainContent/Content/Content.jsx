@@ -33,7 +33,7 @@ function Content() {
 
   return (
     <ContentBox>
-      <Filter subTitle2="" />
+      <Filter subTitle2="./" />
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
           && (

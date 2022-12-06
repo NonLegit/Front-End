@@ -8,7 +8,6 @@ const communitiesServer = () => {
       window.location.pathname = 'login';
     }
   }, [communities, communitiesError, statusCode]);
-
   return [communities?.data];
 };
 

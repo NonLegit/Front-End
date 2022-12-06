@@ -4,7 +4,7 @@ import { useState } from 'react';
 // import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 // import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
-  HeaderAvatar, HeaderAvatarText, HeaderPost, Joined, LinkTo,
+  HeaderAvatar, HeaderAvatarImage, HeaderPost, Joined, LinkTo,
 } from './styles';
 
 /**
@@ -19,7 +19,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    subReddit, nameUser, Time, isSubReddit, type,
+    subReddit, nameUser, Time, isSubReddit, type, icon,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -43,29 +43,18 @@ function OtherProfilePostHeader(props) {
       }}
       >
         <HeaderAvatar>
-          <HeaderAvatarText>r/</HeaderAvatarText>
+          <HeaderAvatarImage src={icon} />
         </HeaderAvatar>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', marginRight: '70px' }}>
 
-          {type === 'Subreddit' ? (
-            <LinkTo to={`/Subreddit/${subReddit}`}>
-              <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-                r/
-                {subReddit}
-                {' '}
-                .
-              </Typography>
-            </LinkTo>
-          ) : (
-            <LinkTo to={`/user/${subReddit}`}>
-              <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-                u/
-                {subReddit}
-                {' '}
-                .
-              </Typography>
-            </LinkTo>
-          )}
+          <LinkTo to={(type === 'Subreddit') ? `/Subreddit/${subReddit}` : `/user/${subReddit}`}>
+            <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+              {type === 'Subreddit' ? 'r/' : 'u/'}
+              {subReddit}
+              {' '}
+              .
+            </Typography>
+          </LinkTo>
           <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
             Posted by
           </Typography>
@@ -85,8 +74,8 @@ function OtherProfilePostHeader(props) {
             {(moment.utc(Time).local().startOf('seconds')
               .fromNow())}
           </Typography>
-        </Box>
 
+        </Box>
         {isSubReddit && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}

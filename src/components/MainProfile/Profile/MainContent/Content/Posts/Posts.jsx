@@ -4,6 +4,7 @@ import PostHeader from './PostHeader/PostHeader';
 import PostSide from './PostSide/PostSide';
 
 import {
+  Flair,
   ParagraphPost,
   PostContentBox,
   PostsQueueBox,
@@ -27,10 +28,26 @@ function Posts(props) {
           <PostHeader
             type={post?.ownerType}
             subReddit={post?.owner?.name}
+            icon={post?.owner?.icon}
             nameUser={post?.author?.name}
             Time={post?.createdAt}
           />
-          <TitlePost variant="h6">{post?.title}</TitlePost>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <TitlePost variant="h6">{post?.title}</TitlePost>
+            {
+            post?.flairId?.text
+            && (
+            <Flair
+              disableripple
+              backgroundcolor={post?.flairId?.backgroundColor}
+              flaircolor={post?.flairId?.textColor}
+            >
+              {post?.flairId?.text}
+            </Flair>
+            )
+          }
+
+          </Box>
           <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
           <PostFooter isSaved={post?.isSaved} subTitle={post?.ownerType} numComments={post?.commentCount} />
         </Box>

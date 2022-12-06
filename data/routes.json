@@ -18,6 +18,7 @@
     "/user/notifications": "/notifications",
     "/users/me/prefs": "/settings",
     "/subreddits/mine/moderator": "/subreddits",
+    "/subreddits/moderator/:name": "/userSubreddits",
     "/users/:name/overview": "/overview",
     "/user/:name/post": "/postsTap",
     "/users/upvoted": "/upvoted",
@@ -32,5 +33,6 @@
     "/users/username_available?userName=*":"/usernameAvailable",
     "/users/logout":"/logout",
     "/users/check_reset_token/:token":"/token",
-    "/users/:Name/about/": "/userInfo"
+    "/users/:Name/about/": "/userInfo",
+    "/users/social_links": "/socialLinks"
 }

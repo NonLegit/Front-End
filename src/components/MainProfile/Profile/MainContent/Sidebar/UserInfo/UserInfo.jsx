@@ -11,10 +11,11 @@ import { Link } from 'react-router-dom';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
-  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
+  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog,
 } from './styles';
 import { UserContext } from '../../../../../../contexts/UserProvider';
 import userInfoServer from './userInfoServer';
+import SocialLinks from './SocialLinks/SocialLinks';
 /**
  * UserInfo Box in sidebar containing all info of a user
  *
@@ -44,6 +45,15 @@ function UserInfo() {
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {
     setShowList((prev) => !prev);
+  };
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -115,9 +125,17 @@ function UserInfo() {
             </Box>
           </EntityBox>
         </InfoBox>
-        <AddSocialLink startIcon={<AddIcon />} variant="contained">Add social link</AddSocialLink>
+        <AddSocialLink startIcon={<AddIcon />} variant="contained" onClick={handleClickOpen}>Add social link</AddSocialLink>
         <br />
         <AddPost variant="contained">Add Post</AddPost>
+        <BootstrapDialog
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+          keepMounted
+        >
+          <SocialLinks onClose={handleClose} />
+        </BootstrapDialog>
         {showList
           ? (
             <>

@@ -7,7 +7,7 @@ import OtherProfileSidebar from './OtherProfileSidebar/OtherProfileSidebar';
 import { ProfilePage } from './styles';
 
 const renderSwitch = (param) => {
-  if (param === undefined || param === 'sort=new' || param === 'sort=hot' || param === 'sort=top' || param === 'sort=top&t=day') {
+  if (param === undefined || param === '?sort=new' || param === '?sort=hot' || param === '?sort=top' || param === '?sort=top&t=day') {
     return (
       <OtherProfileContent />
     );
