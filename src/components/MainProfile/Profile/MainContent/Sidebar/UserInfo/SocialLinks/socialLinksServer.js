@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useFetch from '../../../../../../../hooks/useFetch';
 
 const allSocialLinks = () => {
-  const [data, dataError, statusCode] = useFetch('users/social_links');
+  const [data, dataError, statusCode] = useFetch('/users/social_links');
 
   useEffect(() => {
     if (statusCode === 401) {
