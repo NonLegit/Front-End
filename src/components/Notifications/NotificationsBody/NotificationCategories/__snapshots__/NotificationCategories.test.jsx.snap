@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check snap shot 1`] = `
+<section
+  className="css-an41os"
+  data-testid="notifications-body"
+>
+  <div
+    className="css-1otkajc"
+  />
+</section>
+`;
