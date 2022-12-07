@@ -2,8 +2,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-// import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Typography } from '@mui/material';
 import { allSocialLinks, postSocialLink } from './socialLinksServer';
@@ -11,58 +10,88 @@ import {
   InputBox, SaveBtn, Text, PlatformIcon,
 } from './styles';
 
-function SocialLinks({ onClose }) {
+function SocialLinks({
+  onClose, settings, link,
+}) {
   const [links] = allSocialLinks();
   const [openDialog2, setDialog2] = useState(false);
   const [platform, setPlatform] = useState(null);
   const [condition, setCondition] = useState(false);
-  const [link, setLink] = useState('');
   const [text, setText] = useState('');
   const [error, setError] = useState(false);
   const [msg, setMsg] = useState('');
+  const [url, setUrl] = useState(false);
+  const [edit, setEdit] = useState(true);
+  const [title, setTitle] = useState('');
   const [dataToSend, setDataToSend] = useState([]);
 
   postSocialLink(dataToSend);
+  useEffect(() => {
+    if (settings) {
+      setDialog2(true);
+      setPlatform(link?.social);
+      if (link?.social.placeholderLink.includes('https://')) {
+        setText(link?.userLink);
+        setTitle(link?.displayText);
+      }
+      setUrl(link?.social.placeholderLink.includes('https://'));
+    }
+  }, [settings]);
 
   const handleOpenPlatform = (link) => {
     setDialog2(true);
     setPlatform(link);
+    setEdit(true);
+    setUrl(link?.placeholderLink.includes('https://'));
   };
 
   const handleClose = () => {
-    setDialog2(false);
     setError(false);
-  };
-
-  const handleCheck = (e) => {
-    if (platform?.placeholderLink[0] === '@' && e.target.value.trim().length >= 1 && e.target.value.trim().indexOf('@') !== 0) {
-      e.target.value = `@${e.target.value.trim()}`;
-    } else if (platform?.placeholderLink[0] === 'h' && e.target.value.trim().length >= 1 && !'https://'.includes(e.target.value.trim().substring(0, 6))) {
-      e.target.value = `https://${e.target.value.trim()}`;
-    }
-    if (e.target.value.trim().length > 0) setCondition(true);
-    else setCondition(false);
-    setLink(e.target.value.trim());
-  };
-
-  const checkSubmission = () => {
-    if (platform?.placeholderLink[0] === '@' && (link.includes(' ') || link.length <= 1)) {
-      setError(true);
-      setMsg('Username is not valid');
-    } else if (platform?.placeholderLink[0] === 'r' && (link.includes(' ') || (!link.startsWith('r/') && !link.startsWith('u/')) || link.length <= 2)) {
-      setError(true);
-      setMsg('This community or user doesn’t exist. Double-check your spelling.');
-    } else if (platform?.placeholderLink[0] === 'h' && (!link.includes(platform?.baseLink) || link === platform?.baseLink)) {
-      setError(true);
-      setMsg('Invalid URL');
-    } else {
-      setError(false);
-      setDataToSend([link, text, platform?.type]);
+    setText('');
+    setTitle('');
+    if (settings) {
       onClose();
+    } else {
       setDialog2(false);
     }
   };
 
+  // const handleCheck = (e) => {
+  //   if (platform?.placeholderLink[0] === '@' && e.target.value.trim().length >= 1 && e.target.value.trim().indexOf('@') !== 0) {
+  //     e.target.value = `@${e.target.value.trim()}`;
+  //   } else if (platform?.placeholderLink[0] === 'h' && e.target.value.trim().length >= 1 && !'https://'.includes(e.target.value.trim().substring(0, 6))) {
+  //     e.target.value = `https://${e.target.value.trim()}`;
+  //   }
+  //   if (e.target.value.trim().length > 0) setCondition(true);
+  //   else setCondition(false);
+  //   setLink(e.target.value.trim());
+  // };
+
+  const checkSubmission = () => {
+    if (url && (text.includes(' ') || text.length <= 1)) {
+      setError(true);
+      setMsg('Username is not valid');
+    } else if (url && (!text.includes(platform?.baseLink) || text === platform?.baseLink)) {
+      setError(true);
+      setMsg('Invalid URL');
+    } else {
+      setError(false);
+      setDataToSend([text, title, platform?.type]);
+      onClose();
+      setDialog2(false);
+      setText('');
+      setTitle('');
+    }
+  };
+  const handelchange = (e) => {
+    if (!settings && edit) {
+      setText(platform.placeholderLink + e.target.value.trim());
+      setEdit(false);
+    } else {
+      setText(e.target.value.trim());
+    }
+    if (e.target.value.trim().length > 0) { setCondition(true); } else { setCondition(false); }
+  };
   return (
     !openDialog2 ? (
       <>
@@ -131,8 +160,9 @@ function SocialLinks({ onClose }) {
             <PlatformIcon src={platform?.icon} />
             {platform?.type}
           </Text>
-          {platform?.placeholderLink[0] === 'h' ? <InputBox type="text" placeholder="Display text" onChange={(e) => { setText(e.target.value.trim()); }} /> : null}
-          <InputBox type="text" placeholder={platform?.placeholderLink} onChange={(e) => { handleCheck(e); }} />
+          { url
+              && <InputBox type="text" value={title} placeholder="Display Text" onChange={(e) => { setTitle(e.target.value); }} />}
+          <InputBox type="text" value={text} placeholder={platform?.placeholderLink} onChange={(e) => { handelchange(e); }} />
           {error ? <Typography sx={{ color: 'red', marginLeft: 1 }} variant="caption">{msg}</Typography> : null}
         </DialogContent>
       </>

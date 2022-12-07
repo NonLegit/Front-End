@@ -31,7 +31,7 @@ function UserInfo() {
   const [profilePic, setProfilePic] = useState();
   const [coverPic, setCoverPic] = useState();
   const [socialLinks, setSocialLinks] = useState([]);
-
+  const [open, setOpen] = useState(false);
   const { username } = useContext(UserContext);
   const [info] = userInfoServer();
 
@@ -49,8 +49,6 @@ function UserInfo() {
   const handleClickList = () => {
     setShowList((prev) => !prev);
   };
-
-  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
