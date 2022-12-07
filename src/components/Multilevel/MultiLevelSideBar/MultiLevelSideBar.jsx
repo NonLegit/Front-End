@@ -1,6 +1,9 @@
+// Components
+import SideBar from '../../SideBar/SideBar';
+
 function MultiLevelSideBar() {
   return (
-    <div>MultiLevelSideBar</div>
+    <SideBar />
   );
 }
 
