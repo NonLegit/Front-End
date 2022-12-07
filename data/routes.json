@@ -35,5 +35,6 @@
     "/users/check_reset_token/:token":"/token",
     "/users/:Name/about/": "/userInfo",
     "/users/social_links": "/socialLinks",
-    "/users/social_links/sabry": "/postSocialLinks"
+    "/users/social_links/sabry": "/postSocialLinks",
+    "/users/image":"/userImage"
 }

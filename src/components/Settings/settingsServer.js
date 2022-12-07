@@ -8,7 +8,7 @@ export const settingsPost = async (prefs) => {
   const api = '/users/me/prefs';
   let message = '';
   console.log(prefs);
-  await axios.patch(`${api}`, prefs)
+  await axios.patch(`${api}`, { prefs })
     .then((response) => {
       console.log(response);
       if (response.status === 304) {
