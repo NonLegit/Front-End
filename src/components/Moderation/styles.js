@@ -26,3 +26,14 @@ export const SelectItem = styled(Button)(() => ({
     backgroundColor: '#d7d7d7',
   },
 }));
+
+export const RedditButton = styled(Button)(({
+  fontSize, padding, fontWeight,
+}) => ({
+  fontSize,
+  padding,
+  borderRadius: 20,
+  textTransform: 'capitalize',
+  fontWeight,
+  height: '30px',
+}));

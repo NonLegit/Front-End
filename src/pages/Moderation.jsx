@@ -6,6 +6,7 @@ import ModerationDrawer from '../components/Moderation/ModerationDrawer/Moderati
 import ModerationHeader from '../components/Moderation/ModerationHeader/ModerationHeader';
 import ModerationMainPage from '../components/Moderation/ModerationMainPage/ModerationMainPage';
 import Queue from '../components/Moderation/ModQueues/Queue';
+import BanUser from '../components/Moderation/ModUserMng/Banned/BanUser';
 
 const renderSwitch = (param) => {
   switch (param) {
@@ -13,6 +14,8 @@ const renderSwitch = (param) => {
     case 'Edited':
     case 'Unmoderated':
       return <Queue subTitle={param} />;
+    case 'Banned':
+      return <BanUser />;
     default:
       return <ModerationMainPage />;
   }

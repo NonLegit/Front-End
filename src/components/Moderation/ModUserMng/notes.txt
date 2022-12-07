@@ -1,0 +1,20 @@
+if (subTitle === 'Approved') {
+    return (
+      <EmptyBox>
+        <CreateOutlinedIcon sx={{ color: '#7c7c7c' }} fonstSize="large" />
+        <Typography variant="h6" sx={{ color: '#7c7c7c' }}>No approved users in r/softlol</Typography>
+      </EmptyBox>
+    );
+  }
+  if (subTitle === 'Muted') {
+    return (
+      <EmptyBox>
+        <VolumeOffOutlinedIcon sx={{ color: '#7c7c7c' }} fonstSize="large" />
+        <Typography variant="h6" sx={{ color: '#7c7c7c' }}>No muted users in r/softlol</Typography>
+      </EmptyBox>
+    );
+  }
+
+  import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import VolumeOffOutlinedIcon from '@mui/icons-material/VolumeOffOutlined';
+  
