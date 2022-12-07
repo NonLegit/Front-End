@@ -9,10 +9,12 @@ import ProfileHeader from './Profile/Header/ProfileHeader';
 import ProfileMainContent from './Profile/MainContent/ProfileMainContent';
 import ProfileNotFound from './ProfileNotFound/ProfileNotFound';
 import UserLogin from '../../authentication';
+import ProfileBlocked from './ProfileBlocked/ProfileBlocked';
 
 function MainProfile() {
   const [cookies] = useCookies(['redditUser']);
   const [isExist, setIsExist] = useState(true);
+  const [isBlocked, setIsBlocked] = useState(true);
   const [userLoggedIn, setUserLoggedIn] = useState('');
   const { username } = useParams();
 
@@ -20,6 +22,7 @@ function MainProfile() {
   const isLoggedIn = UserLogin([username]);
   useEffect(() => {
     setUserLoggedIn(cookies.redditUser?.userName);
+    setIsBlocked(true);
   }, [cookies]);
 
   useEffect(() => {
@@ -32,11 +35,13 @@ function MainProfile() {
         <ProfileHeader />
         <ProfileMainContent username={userLoggedIn} />
       </UserProvider>
-    ) : isExist ? (
+    ) : isExist && !isBlocked ? (
       <>
         <OtherProfileHeader />
         <OtherProfileMainContent username={userLoggedIn} />
       </>
+    ) : isExist && isBlocked ? (
+      <ProfileBlocked username={username} handleCont={() => { setIsBlocked(false); }} />
     ) : <ProfileNotFound />
   );
 }
