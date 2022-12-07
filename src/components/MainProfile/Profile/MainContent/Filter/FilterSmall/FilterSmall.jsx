@@ -3,9 +3,9 @@ import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
 import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ClickAwayListener } from '@mui/material';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {
   FilteButton, FilterSmallBox, SelectBox, SelectItem,
 } from '../styles';
@@ -73,7 +73,7 @@ const renderSwitch = (
                 <SelectItem
                   color="inherit"
                   onClick={() => { handleClick2(); }}
-                  condition={(sort === 'sort=top&t=day').toString()}
+                  condition={(sort === 'top&t=day').toString()}
                 >
                   Today
 
@@ -90,6 +90,12 @@ const renderSwitch = (
   );
 };
 
+function useQuery() {
+  const { search } = useLocation();
+
+  return useMemo(() => new URLSearchParams(search), [search]);
+}
+
 /**
  * Filter the posts by type for small screens
  *
@@ -100,11 +106,12 @@ const renderSwitch = (
 
 function FilterSmall(props) {
   const { subTitle2 } = props;
-  const { sort, subTitle } = useParams();
+  const query = useQuery();
+  const sort = query.get('sort');
   const navigate = useNavigate();
   // check the url of the page i m currently in
-  const hotCondition = (sort === 'sort=hot' || subTitle === 'sort=hot');
-  const topCondition = (sort === 'sort=top' || sort === 'sort=top&t=day' || subTitle === 'sort=top' || subTitle === 'sort=top&t=day');
+  const hotCondition = (sort === 'hot');
+  const topCondition = (sort === 'top' || sort === 'top&t=day');
   // new by default
   const newCondition = !hotCondition && !topCondition;
   const [showList, setShowList] = useState(false);
@@ -113,11 +120,11 @@ function FilterSmall(props) {
 
   const handleClick = (subPage) => {
     setAllTime('All Time');
-    navigate(`${subTitle2}sort=${subPage}`);
+    navigate(`${subTitle2}?sort=${subPage}`);
   };
   const handleClick2 = () => {
     setAllTime('Today');
-    navigate(`${subTitle2}sort=top&t=day`);
+    navigate(`${subTitle2}?sort=top&t=day`);
   };
 
   // show list of new - hot - top

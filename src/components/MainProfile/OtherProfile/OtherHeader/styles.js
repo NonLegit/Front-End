@@ -8,10 +8,10 @@ export const HeaderBox = styled(Box)(({ theme, subtitle }) => ({
   // justifyContent: 'center',
   marginLeft: 24,
   ...((subtitle === undefined
-|| subtitle === 'sort=new'
-|| subtitle === 'sort=hot'
-|| subtitle === 'sort=top'
-|| subtitle === 'sort=top&t=day'
+|| subtitle === '?sort=new'
+|| subtitle === '?sort=hot'
+|| subtitle === '?sort=top'
+|| subtitle === '?sort=top&t=day'
   ) && {
     marginLeft: 'calc((100% - 976px) / 2);',
   }),

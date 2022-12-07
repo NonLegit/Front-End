@@ -10,6 +10,68 @@
         "autoplayMedia": true,
         "gender": "male",
         "description": " info",
-        "country": "egypt"
+        "country": "egypt",
+        "socialLinks": [
+            {
+                "social": {
+                    "baseLink": "https://facebook.com",
+                    "placeholderLink": "httpss://facebook.com",
+                    "_id": "string",
+                    "type": "facebook",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+                },
+                "_id": "1",
+                "displayText": "Eslam",
+                "userLink": "https://www.facebook.com/profile.php?id=100008920246590"
+            },
+            {
+                "social": {
+                    "baseLink": "https://facebook.com",
+                    "placeholderLink": "httpss://facebook.com",
+                    "_id": "string",
+                    "type": "facebook",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+                },
+                "_id": "2",
+                "displayText": "Nour",
+                "userLink": "https://www.facebook.com/nouralmulhem"
+            },
+            {
+                "social": {
+                    "baseLink": "https://instagram.com/",
+                    "placeholderLink": "@",
+                    "_id": "string",
+                    "type": "instagram",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+                },
+                "_id": "5",
+                "displayText": "Messi",
+                "userLink": "https://www.instagram.com/leomessi/"
+            },
+            {
+                "social": {
+                    "baseLink": "https://www.youtube.com/",
+                    "placeholderLink": "https://www.youtube.com/",
+                    "_id": "string",
+                    "type": "youtube",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/youtube.png"
+                },
+                "_id": "3",
+                "displayText": "CMP 2024",
+                "userLink": "https://www.youtube.com/@user-tz7qw2kl8d"
+            },
+            {
+                "social": {
+                    "baseLink": "https://www.youtube.com/",
+                    "placeholderLink": "https://www.youtube.com/",
+                    "_id": "string",
+                    "type": "youtube",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/youtube.png"
+                },
+                "_id": "4",
+                "displayText": "CMP 2024",
+                "userLink": "https://www.youtube.com/@user-tz7qw2kl8d"
+            }
+        ]
     }
 }

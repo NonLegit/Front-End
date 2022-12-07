@@ -18,6 +18,52 @@
     "postKarma": 1,
     "commentKarma": 1,
     "createdAt": "2022-10-22-06-12",
-    "description": " info"
+    "description": " info",
+    "socialLinks": [
+      {
+        "social": {
+          "baseLink": "httpss://facebook.com",
+          "placeholderLink": "httpss://facebook.com",
+          "_id": "string",
+          "type": "facebook",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+        },
+        "displayText": "facebookiii",
+        "userLink": "https://facebook.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://instagram.com",
+          "placeholderLink": "@username",
+          "_id": "string",
+          "type": "instagram",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+        },
+        "displayText": "instaggram nour",
+        "userLink": "https://instagram.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://facebook.com",
+          "placeholderLink": "httpss://facebook.com",
+          "_id": "string",
+          "type": "facebookii",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+        },
+        "displayText": "facebookiii",
+        "userLink": "https://facebook.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://instagram.com",
+          "placeholderLink": "@username",
+          "_id": "string",
+          "type": "instagram",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+        },
+        "displayText": "insta",
+        "userLink": "https://instagram.com/nour"
+      }
+    ]
   }
 }

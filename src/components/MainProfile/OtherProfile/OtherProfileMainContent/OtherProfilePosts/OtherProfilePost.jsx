@@ -4,6 +4,7 @@ import { useState, useContext, useEffect } from 'react';
 
 import {
   EmptyImage,
+  Flair,
   PostContentBox,
   PostImage,
   PostSidebaRes,
@@ -58,6 +59,18 @@ function OtherProfilePost(props) {
             <Box sx={{ marginLeft: 1 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
                 <TitlePost variant="h6">{entity.title}</TitlePost>
+                {
+              entity?.flairId?.text
+                    && (
+                    <Flair
+                      disableRipple
+                      backgroundcolor={entity?.flairId?.backgroundColor}
+                      flaircolor={entity?.flairId?.textColor}
+                    >
+                      {entity?.flairId?.text}
+                    </Flair>
+                    )
+                  }
                 {entity.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
                 {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>

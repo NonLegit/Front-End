@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useMemo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 // filled
@@ -16,6 +16,12 @@ import {
   FilteButton, FilterFullBox, SelectBox, SelectItem,
 } from '../styles';
 
+function useQuery() {
+  const { search } = useLocation();
+
+  return useMemo(() => new URLSearchParams(search), [search]);
+}
+
 /**
  * filter posts by their type for large screens
  *
@@ -25,22 +31,23 @@ import {
  */
 function OtherProfileFilterFull(props) {
   const { subTitle2 } = props;
-  const { sort, subTitle } = useParams();
+  const query = useQuery();
+  const sort = query.get('sort');
   const navigate = useNavigate();
-  const newCondition = (sort === 'sort=new' || subTitle === 'sort=new');
-  const hotCondition = (sort === 'sort=hot' || subTitle === 'sort=hot');
-  const topCondition = (sort === 'sort=top' || sort === 'sort=top&t=day' || subTitle === 'sort=top' || subTitle === 'sort=top&t=day');
+  const newCondition = (sort === 'new');
+  const hotCondition = (sort === 'hot');
+  const topCondition = (sort === 'top' || sort === 'top&t=day');
   const [showList, setShowList] = useState(false);
   const [allTime, setAllTime] = useState('All Time');
 
   // navigate
   const handleClick = (subPage) => {
     setAllTime('All Time');
-    navigate(`${subTitle2}sort=${subPage}`);
+    navigate(`${subTitle2}?sort=${subPage}`);
   };
   const handleClick2 = () => {
     setAllTime('Today');
-    navigate(`${subTitle2}sort=top&t=day`);
+    navigate(`${subTitle2}?sort=top&t=day`);
   };
   const handleClickList = () => {
     setShowList((prev) => !prev);
@@ -88,7 +95,7 @@ function OtherProfileFilterFull(props) {
                     <SelectItem
                       color="inherit"
                       onClick={() => { handleClick2(); }}
-                      condition={(sort === 'sort=top&t=day' || subTitle === 'sort=top&t=day').toString()}
+                      condition={(sort === 'top&t=day').toString()}
                     >
                       Today
 
