@@ -6,11 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Typography } from '@mui/material';
-import { allSocialLinks, postSocialLink } from './server';
+import { allSocialLinks, postSocialLink } from './socialLinksServer';
 import {
-  InputBox, SaveBtn,
+  InputBox, SaveBtn, Text, PlatformIcon,
 } from './styles';
-import { Text, PlatformIcon } from '../MainProfile/Profile/MainContent/Sidebar/UserInfo/styles';
 
 function SocialLinks({ onClose }) {
   const [links] = allSocialLinks();

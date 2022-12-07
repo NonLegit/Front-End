@@ -11,11 +11,12 @@ import { Link } from 'react-router-dom';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
-  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog, Text, PlatformIcon, LinkTo,
+  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog, LinkTo,
 } from './styles';
 import { UserContext } from '../../../../../../contexts/UserProvider';
 import userInfoServer from './userInfoServer';
 import SocialLinks from '../../../../../SocialLinks/SocialLinks';
+import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
 /**
  * UserInfo Box in sidebar containing all info of a user
  *
