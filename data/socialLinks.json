@@ -1,47 +1,61 @@
 {
   "status": "success",
-  "socialLinks": [
-    {
-      "baseLink": "https://facebook.com/",
-      "placeholderLink": "https://facebook.com/",
-      "_id": "string",
-      "type": "facebook",
-      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
-    },
-    {
-      "baseLink": "https://instagram.com/",
-      "placeholderLink": "@",
-      "_id": "string",
-      "type": "instagram",
-      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
-    },
-    {
-      "baseLink": "https://twitter.com/",
-      "placeholderLink": "@",
-      "_id": "string",
-      "type": "twitter",
-      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/twitter.png"
-    },
-    {
-      "baseLink": "https://tiktok.com/@",
-      "placeholderLink": "@",
-      "_id": "string",
-      "type": "tiktok",
-      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/tiktok.png"
-    },
-    {
-      "baseLink": "https://www.youtube.com/",
-      "placeholderLink": "https://www.youtube.com/",
-      "_id": "string",
-      "type": "youtube",
-      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/youtube.png"
-    },
-    {
-      "baseLink": "https://www.reddit.com/",
-      "placeholderLink": "u/",
-      "_id": "string",
-      "type": "reddit",
-      "icon": "https://www.redditstatic.com/desktop2x/img/social-links/reddit.png"
-    }
-  ]
+    "socialLinks": [
+        {
+            "_id": "639069fbac336a154b3b84e2",
+            "type": "Facebook",
+            "baseLink": "https://facebook.com/",
+            "placeholderLink": "https://facebook.com",
+            "check": "https://facebook.com/",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+        },
+        {
+            "_id": "639069fbac336a154b3b84e9",
+            "type": "Twitter",
+            "baseLink": "https://twitter.com/",
+            "placeholderLink": "@username",
+            "check": "@",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/twitter.png"
+        },
+        {
+            "_id": "639069fbac336a154b3b84eb",
+            "type": "Tiktok",
+            "baseLink": "https://tiktok.com/@",
+            "placeholderLink": "@username",
+            "check": "@",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/tiktok.png"
+        },
+        {
+            "_id": "639069fbac336a154b3b84ed",
+            "type": "Instagram",
+            "baseLink": "https://instagram.com/",
+            "placeholderLink": "@username",
+            "check": "@",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+        },
+        {
+            "_id": "639069fbac336a154b3b84ef",
+            "type": "Discord",
+            "baseLink": "https://discord.com/",
+            "placeholderLink": "https://discord.com",
+            "check": "https://discord.com/",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/discord.png"
+        },
+        {
+            "_id": "639069fbac336a154b3b84f1",
+            "type": "Reddit",
+            "baseLink": "https://reddit.com/user/",
+            "placeholderLink": "u/user",
+            "check": "u/",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/reddit.png"
+        },
+        {
+            "_id": "639069fbac336a154b3b84f3",
+            "type": "Youtube",
+            "baseLink": "https://youtube.com/",
+            "placeholderLink": "https://youtube.com",
+            "check": "https://youtube.com/",
+            "icon": "https://www.redditstatic.com/desktop2x/img/social-links/youtube.png"
+        }
+    ]
 }

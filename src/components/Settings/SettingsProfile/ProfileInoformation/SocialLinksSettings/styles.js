@@ -28,7 +28,7 @@ export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
   '& .MuiPaper-root': {
-    minWidth: 410,
+    minWidth: 360,
     maxWidth: 538,
   },
 

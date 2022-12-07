@@ -39,7 +39,8 @@ function ProfileImage() {
         });
       }
     };
-    if (file && (file.type.match('image/png') || file.type.match('image/jpg'))) {
+
+    if (file && (file.type.match('image/png') || file.type.match('image/jpg') || file.type.match('image/jpeg'))) {
       reader.readAsDataURL(event.target.files[0]);
       const message = await settingsPost({ ...prefs, type: reader.result });
       if (message !== '') { alert(message); }
@@ -83,7 +84,7 @@ function ProfileImage() {
                 }}
               >
                 <label type="file" htmlFor="profilePicture">
-                  <input style={{ display: 'none' }} type="file" name="image-upload" accept=".png, .jpg" id="profilePicture" onChange={(e) => { onFileChange(e, 'profilePicture'); }} />
+                  <input style={{ display: 'none' }} type="file" name="image-upload" accept=".png, .jpg, .jpeg" id="profilePicture" onChange={(e) => { onFileChange(e, 'profilePicture'); }} />
                   <AddAPhotoOutlinedIcon sx={{ cursor: 'pointer', marginTop: '5px' }} color="primary" fontSize="small" />
                 </label>
               </AddPhoto>
@@ -114,7 +115,7 @@ function ProfileImage() {
               }}
               >
                 <label type="file" htmlFor="profileBackground">
-                  <input style={{ display: 'none' }} type="file" name="image-upload" accept="image/png, image/jpg" id="profileBackground" onChange={(e) => { onFileChange(e, 'profileBackground'); }} />
+                  <input style={{ display: 'none' }} type="file" name="image-upload" accept=".png, .jpg, .jpeg" id="profileBackground" onChange={(e) => { onFileChange(e, 'profileBackground'); }} />
                   <AddAPhotoOutlinedIcon sx={{ cursor: 'pointer', marginTop: '5px' }} color="primary" fontSize="small" />
                 </label>
               </AddPhoto>

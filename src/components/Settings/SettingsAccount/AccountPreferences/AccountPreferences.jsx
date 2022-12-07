@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import {
   Button, ContentHeader, Content, ContentSubHeader,
@@ -16,8 +17,10 @@ import { redditCookie } from '../../../Authentication/authenticationServer';
  */
 function AccountPreferences() {
   const [cookies, setCookies] = useCookies(['redditUser']);
+  useEffect(() => {
+    redditCookie(setCookies);
+  }, []);
 
-  redditCookie(setCookies);
   return (
     <>
       <SubHeader data-testid="account-preferances">ACCOUNT PREFERENCES</SubHeader>

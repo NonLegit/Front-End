@@ -9,7 +9,26 @@ import { allSocialLinks, postSocialLink } from './socialLinksServer';
 import {
   InputBox, SaveBtn, Text, PlatformIcon,
 } from './styles';
-
+/**
+ *@component
+ * @property {Array} links - Array of links
+ * @property {Boolean} openDialog2 - bool to choose which window open
+ * @property {Object} platform - data of plateform choose
+ * @property {Boolean} condition - condition if valid we submit or not
+ * @property {string} text - url or  user name
+ * @property {Boolean} error - true if we have invalid domin or username
+ * @property {string} msg - massage if we have error
+ * @property {Boolean} url - true if plate form have link and display name
+ * @property {Boolean} edit - true if it's first time to edit text
+ * @property {string} title - title of link
+ * @property {Function} handleOpenPlatform - function to open window to edit data platedform
+ * @property {Function} handleClose -  function to close window to edit data platedform
+ * @property {Function} checkSubmission - function to check data before submit
+ * @property {Function} handelchange - function to handle input from user
+ *  @param {Function} onClose - function when close window
+ *  @param {Boolean} settings - bool too know if we in settings page or not
+ *  @param {Object} link - data of plateform we choose in settings
+ */
 function SocialLinks({
   onClose, settings, link,
 }) {
@@ -23,9 +42,7 @@ function SocialLinks({
   const [url, setUrl] = useState(false);
   const [edit, setEdit] = useState(true);
   const [title, setTitle] = useState('');
-  const [dataToSend, setDataToSend] = useState([]);
 
-  postSocialLink(dataToSend);
   useEffect(() => {
     if (settings) {
       setDialog2(true);
@@ -33,10 +50,25 @@ function SocialLinks({
       if (link?.social.placeholderLink.includes('https://')) {
         setText(link?.userLink);
         setTitle(link?.displayText);
+      } else {
+        let textlink = link?.userLink.replace(link?.social.baseLink, '');
+        textlink = textlink.replace(/^/, link?.social.check);
+        console.log(textlink);
+        console.log(link?.userLink);
+        setText(textlink);
+        setTitle(link?.displayText);
       }
       setUrl(link?.social.placeholderLink.includes('https://'));
     }
   }, [settings]);
+
+  useEffect(() => {
+    if (url) {
+      if (text.length >= 1 && title.length > 0) {
+        setCondition(true);
+      } else { setCondition(false); }
+    } else if (text.length >= 1) { setCondition(true); } else { setCondition(false); }
+  }, [title, text]);
 
   const handleOpenPlatform = (link) => {
     setDialog2(true);
@@ -49,48 +81,36 @@ function SocialLinks({
     setError(false);
     setText('');
     setTitle('');
+    setDialog2(false);
     if (settings) {
       onClose();
-    } else {
-      setDialog2(false);
     }
   };
 
-  // const handleCheck = (e) => {
-  //   if (platform?.placeholderLink[0] === '@' && e.target.value.trim().length >= 1 && e.target.value.trim().indexOf('@') !== 0) {
-  //     e.target.value = `@${e.target.value.trim()}`;
-  //   } else if (platform?.placeholderLink[0] === 'h' && e.target.value.trim().length >= 1 && !'https://'.includes(e.target.value.trim().substring(0, 6))) {
-  //     e.target.value = `https://${e.target.value.trim()}`;
-  //   }
-  //   if (e.target.value.trim().length > 0) setCondition(true);
-  //   else setCondition(false);
-  //   setLink(e.target.value.trim());
-  // };
-
   const checkSubmission = () => {
-    if (url && (text.includes(' ') || text.length <= 1)) {
+    if (!(text.includes(platform?.check) && text.length > 1)) {
       setError(true);
-      setMsg('Username is not valid');
-    } else if (url && (!text.includes(platform?.baseLink) || text === platform?.baseLink)) {
-      setError(true);
-      setMsg('Invalid URL');
+      if (url) {
+        setMsg('Invalid domin');
+      } else {
+        setMsg('Username is not valid');
+      }
     } else {
       setError(false);
-      setDataToSend([text, title, platform?.type]);
-      onClose();
-      setDialog2(false);
-      setText('');
-      setTitle('');
+      if (url) {
+        postSocialLink([text, title, platform?._id], settings, link);
+      } else {
+        postSocialLink([platform.baseLink + text.replace(platform?.check, ''), text.replace(platform?.check, ''), platform?._id], settings, link);
+      }
     }
   };
   const handelchange = (e) => {
     if (!settings && edit) {
-      setText(platform.placeholderLink + e.target.value.trim());
+      setText(platform.check + e.target.value.trim());
       setEdit(false);
     } else {
       setText(e.target.value.trim());
     }
-    if (e.target.value.trim().length > 0) { setCondition(true); } else { setCondition(false); }
   };
   return (
     !openDialog2 ? (
@@ -167,7 +187,6 @@ function SocialLinks({
         </DialogContent>
       </>
     )
-
   );
 }
 
