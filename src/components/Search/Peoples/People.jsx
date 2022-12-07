@@ -1,10 +1,11 @@
+import { Box, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { useState } from 'react';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
 
-function Suggestions() {
+function Peoples() {
   const [follow, setFollow] = useState(true);
   const handleJoin = () => {
     setFollow((prev) => !prev);
@@ -19,16 +20,21 @@ function Suggestions() {
     setHover(false);
   };
   return (
-    <OneSuggeest>
-      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-      <TextContainer>
-        <Text>
-          U/hi
-        </Text>
-        <TextP>
-          100 karma
-        </TextP>
-      </TextContainer>
+    <OneSuggeest sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Box sx={{ display: 'flex' }}>
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <TextContainer>
+          <Text>
+            U/hi
+          </Text>
+          <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
+            •
+          </Typography>
+          <TextP>
+            100 karma
+          </TextP>
+        </TextContainer>
+      </Box>
       <Joined
         variant="outlined"
         onClick={handleJoin}
@@ -40,4 +46,4 @@ function Suggestions() {
     </OneSuggeest>
   );
 }
-export default Suggestions;
+export default Peoples;

@@ -16,17 +16,20 @@ export const Paragraph = styled(Box)(() => ({
   fontSize: 14,
   fontWeight: '400',
   lineHeight: '21px',
-  marginTop: 12,
+  marginTop: 70,
 }));
 
 export const MiddleBox = styled(Box)(() => ({
   position: 'relative',
 }));
 export const RedditImage = styled('img')(() => ({
-  width: 40,
-  height: 68,
+  width: 70,
+  height: 126,
   position: 'absolute',
-  bottom: 0,
+  bottom: -67,
+  transform: 'translateX(-50%)',
+  left: '50%',
+
 }));
 export const UpperImage = styled('img')(() => ({
   margin: '-12px -12px 0 -12px',

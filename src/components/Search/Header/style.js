@@ -1,13 +1,14 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const MyCategory = styled('Button')({
+export const MyCategory = styled('Button')(({ condition }) => ({
   height: 41,
+  fontSize: 'inherit',
   borderRadius: 9999,
   borderColor: 'transparent',
   backgroundColor: 'transparent',
   fontWeight: 700,
-  paddingTop: 12,
+  paddingTop: 11,
   paddingBottom: 12,
   paddingRight: 20,
   paddingLeft: 20,
@@ -18,8 +19,10 @@ export const MyCategory = styled('Button')({
   '&:active': {
     backgroundColor: '#f6f7f8',
   },
-});
-
+  ...((condition === 'true') && {
+    backgroundColor: '#f6f7f8',
+  }),
+}));
 export const Header = styled('div')({
   display: 'flex',
   position: 'relative',

@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import {
-  Box, Divider,
+  Box,
 } from '@mui/material';
 import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
@@ -62,31 +62,26 @@ export default function TimeType() {
             All Time
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setTimeName('Past Year'); setTime(!Time); }}>
           <ShowMoreListItemText Condition={(TimeName === 'Past Year').toString()}>
             Past Year
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setTimeName('Past Month'); setTime(!Time); }}>
           <ShowMoreListItemText Condition={(TimeName === 'Past Month').toString()}>
             Past Month
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setTimeName('Past Week'); setTime(!Time); }}>
           <ShowMoreListItemText Condition={(TimeName === 'Past Week').toString()}>
             Past Week
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setTimeName('Past 24 Hours'); setTime(!Time); }}>
           <ShowMoreListItemText Condition={(TimeName === 'Past 24 Hours').toString()}>
             Past 24 Hours
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setTimeName('Past Hour'); setTime(!Time); }}>
           <ShowMoreListItemText Condition={(TimeName === 'Past Hour').toString()}>
             Past Hour

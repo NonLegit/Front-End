@@ -32,6 +32,7 @@ export const OneSuggeest = styled('a')({
   flexDirection: 'row',
   padding: 13,
   marginTop: -1,
+  cursor: 'pointer',
 });
 export const TextContainer = styled('div')({
   flexGrow: 1,
@@ -96,5 +97,21 @@ export const ShowMore = styled('p')({
   height: 50,
   fontWeight: 500,
   margin: 0,
-
+  cursor: 'pointer',
 });
+export const Joined = styled(Button)(() => ({
+  flexShrink: 0,
+  width: 86,
+  height: 30,
+  color: '#1383d6',
+  backgroundColor: '#f6f7f8',
+  borderRadius: 9999,
+  '&:hover': {
+    backgroundColor: '#e3edf6',
+    border: 'none',
+    outline: 0,
+  },
+  border: 'none',
+  outline: 0,
+  textTransform: 'initial',
+}));

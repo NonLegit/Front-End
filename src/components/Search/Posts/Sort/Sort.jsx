@@ -5,7 +5,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 import {
-  Box, Divider,
+  Box,
 } from '@mui/material';
 import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
@@ -63,25 +63,21 @@ export default function SortType() {
             Relevance
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setSortName('Hot'); setSort(!Sort); }}>
           <ShowMoreListItemText Condition={(SortName === 'Hot').toString()}>
             Hot
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setSortName('Top'); setSort(!Sort); }}>
           <ShowMoreListItemText Condition={(SortName === 'Top').toString()}>
             Top
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setSortName('New'); setSort(!Sort); }}>
           <ShowMoreListItemText Condition={(SortName === 'New').toString()}>
             New
           </ShowMoreListItemText>
         </ListItemButton>
-        <Divider />
         <ListItemButton onClick={() => { setSortName('Most Comments'); setSort(!Sort); }}>
           <ShowMoreListItemText Condition={(SortName === 'Most Comments').toString()}>
             Most Comments

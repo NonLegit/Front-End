@@ -1,29 +1,21 @@
-import { Divider } from '@mui/material';
+import FormDialog from '../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import {
-  RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink, Home,
+  RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
 } from './styles';
-import RedditButton from '../RedditButton/RedditButton';
 
 function PersonalReddit() {
   return (
     <RedditPersonal>
-      <UpperImage src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" />
+      <UpperImage src="https://www.redditstatic.com/desktop2x/img/search-results-community-banner.png" />
       <MiddleBox>
-        <RedditImage src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" />
-        <Home
-          component="p"
-        >
-          home
-        </Home>
+        <RedditImage src="https://www.redditstatic.com/desktop2x/img/snoo-thinking.png" />
       </MiddleBox>
       <Paragraph>
-        Your personal Reddit frontpage. Come here to check in with your favorite communities.
+        Have an idea for a new community?
+        {' '}
       </Paragraph>
-      <Divider sx={{ mt: 1.5 }} />
       <CustomLink>
-        <RedditButton variant="outlined" padding="4px" fontSize={15} fontWeight="bold" sx={{ mt: 1.8 }}>
-          create community
-        </RedditButton>
+        <FormDialog />
       </CustomLink>
     </RedditPersonal>
   );

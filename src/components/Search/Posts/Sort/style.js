@@ -95,7 +95,7 @@ export const Fab = styled(Fa)(() => ({
   textAlign: 'left',
   height: 24,
   outline: 'none',
-  color: '#878a8c',
+  color: '#1a1a1b',
   lineHeight: 18,
   fontWeight: 400,
   alignItems: 'center',

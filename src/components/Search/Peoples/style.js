@@ -22,6 +22,7 @@ export const Suggestion = styled('div')({
   font: 'inherit',
   verticalAlign: 'baseline',
   cursor: 'pointer',
+
 });
 export const OneSuggeest = styled('a')({
   marginBottom: 0,
@@ -33,16 +34,19 @@ export const OneSuggeest = styled('a')({
   flexDirection: 'row',
   padding: 13,
   marginTop: -1,
+  backgroundColor: '#fff',
+  border: 'thin solid #ccc',
+
 });
 export const TextContainer = styled('div')({
   flexGrow: 1,
   padding: '0 8px',
   overflow: 'hidden',
   overflowWrap: 'break-word',
-  flexDirection: 'column',
+  flexDirection: 'row',
   display: 'flex',
-  alignItems: 'baseline',
   height: 32,
+  alignItems: 'center',
 });
 export const Text = styled('h6')({
   maxWidth: '100%',
@@ -105,4 +109,5 @@ export const Joined = styled(Button)(() => ({
   border: 'none',
   outline: 0,
   textTransform: 'initial',
+  fontWeight: 700,
 }));
