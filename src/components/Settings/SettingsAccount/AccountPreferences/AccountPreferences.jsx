@@ -6,6 +6,8 @@ import {
 import ChangeCountry from './ChangeCountry/ChangeCountry';
 import ChangeGender from './ChangeGender/ChangeGender';
 import { ChangeButton } from './styles';
+import { redditCookie } from '../../../Authentication/authenticationServer';
+
 /**
  * - AccountPreferences
  * - Change Email and password in settings page
@@ -13,7 +15,9 @@ import { ChangeButton } from './styles';
  *
  */
 function AccountPreferences() {
-  const [cookies] = useCookies(['redditUser']);
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  redditCookie(setCookies);
   return (
     <>
       <SubHeader data-testid="account-preferances">ACCOUNT PREFERENCES</SubHeader>
