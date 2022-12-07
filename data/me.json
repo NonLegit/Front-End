@@ -28,7 +28,29 @@
           "type": "facebook",
           "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
         },
-        "displayText": "facebook",
+        "displayText": "facebookiii",
+        "userLink": "https://facebook.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://instagram.com",
+          "placeholderLink": "@username",
+          "_id": "string",
+          "type": "instagram",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+        },
+        "displayText": "insta",
+        "userLink": "https://instagram.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://facebook.com",
+          "placeholderLink": "httpss://facebook.com",
+          "_id": "string",
+          "type": "facebook",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+        },
+        "displayText": "facebookiii",
         "userLink": "https://facebook.com/nour"
       },
       {

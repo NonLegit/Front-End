@@ -95,7 +95,6 @@ export const AddSocialLink = styled(Button)(() => ({
   fontSize: 12,
   fontWeight: 700,
   boxShadow: 'none',
-  marginTop: 5,
   height: 40,
   textTransform: 'none',
   backgroundColor: '#edeff1',
@@ -165,4 +164,32 @@ export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     maxWidth: 538,
   },
 
+}));
+
+export const Text = styled('span')(() => ({
+  height: 40,
+  width: 'fit-content',
+  fontSize: 12,
+  fontWeight: 700,
+  backgroundColor: '#edeff1',
+  padding: '10px 12px',
+  borderRadius: 9999,
+  color: 'black',
+  cursor: 'pointer',
+  marginBottom: 8,
+  marginRight: 4,
+  textAlign: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+export const PlatformIcon = styled('img')(() => ({
+  height: 16,
+  width: 16,
+  marginRight: 5,
+}));
+
+export const LinkTo = styled('a')(() => ({
+  textDecoration: 'none',
 }));

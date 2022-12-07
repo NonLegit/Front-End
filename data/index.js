@@ -31,6 +31,7 @@ const logout = require('./logout.json');
 const token = require('./token.json');
 const userInfo = require('./userInfo.json');
 const socialLinks = require('./socialLinks.json');
+const postSocialLinks = require('./postSocialLinks.json');
 // Something more
 
 module.exports = () => ({
@@ -69,5 +70,6 @@ module.exports = () => ({
   token,
   new: newPosts,
   socialLinks,
+  postSocialLinks,
   // Something more
 });

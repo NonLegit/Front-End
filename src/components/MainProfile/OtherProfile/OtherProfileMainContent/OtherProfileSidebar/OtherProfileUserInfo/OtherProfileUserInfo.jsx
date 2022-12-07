@@ -8,7 +8,7 @@ import UserInfoServer from '../../../../mainProfileServer';
 import {
   ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
-  EntityBox, MoreOptions, OptionsButtons, UserInfoButton,
+  EntityBox, MoreOptions, OptionsButtons, UserInfoButton, LinkTo, Text, PlatformIcon,
 } from './styles';
 
 /**
@@ -24,6 +24,7 @@ function OtherProfileUserInfo() {
   const [profilePic, setProfilePic] = useState();
   const [coverPic, setCoverPic] = useState();
   const [follow, setFollow] = useState(true);
+  const [socialLinks, setSocialLinks] = useState([]);
 
   const { username } = useParams();
   const [info, statusCode] = UserInfoServer(username);
@@ -35,6 +36,7 @@ function OtherProfileUserInfo() {
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
     setFollow(info?.isFollowed);
+    setSocialLinks(info?.socialLinks);
   }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);
@@ -83,6 +85,20 @@ function OtherProfileUserInfo() {
             </Box>
           </EntityBox>
         </InfoBox>
+
+        {/* social link part */}
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          {socialLinks?.map((link, index) => (
+            <LinkTo href={`${link?.userLink}`} target="_blank">
+              <Text key={`${index + 0}`}>
+                <PlatformIcon src={link?.social?.icon} />
+                {link?.displayText}
+              </Text>
+            </LinkTo>
+          ))}
+        </Box>
+        {/* social link part */}
+
         <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
           {follow ? <UserInfoButton variant="outlined" onClick={() => { handleClickFollow(); }}>Unfollow</UserInfoButton> : <UserInfoButton variant="contained" onClick={() => { handleClickFollow(); }}>Follow</UserInfoButton>}
           <UserInfoButton variant="contained">Chat</UserInfoButton>
