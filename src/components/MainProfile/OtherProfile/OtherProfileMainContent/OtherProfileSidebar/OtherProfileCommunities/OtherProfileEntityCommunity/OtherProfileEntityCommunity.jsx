@@ -1,14 +1,25 @@
 import { Box, Typography } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { subscribedUser } from '../otherProfileCommunitiesServer';
 import joinPost from './server';
 import {
-  ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
+  ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
 } from './styles';
 
 function OtherProfileEntityComment(props) {
   const { community } = props;
+  const [communities] = subscribedUser();
+
   // check if current logged in user is joined or not
   const [joined, setJoined] = useState(false);
+
+  useEffect(() => {
+    if ((communities?.filter((e) => e?.fixedName === community?.fixedName))?.length > 0) {
+      console.log(communities, community.fixedName);
+      setJoined(true);
+    }
+  }, [communities, community]);
 
   joinPost(joined, community.subredditName);
 
@@ -28,7 +39,7 @@ function OtherProfileEntityComment(props) {
   return (
     <ComminityBox>
       <HeaderAvatar>
-        <HeaderAvatarText>r/</HeaderAvatarText>
+        <HeaderAvatarImage src={community.icon} />
       </HeaderAvatar>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
