@@ -12,7 +12,7 @@ const currentSubredditServer = (subredditName) => {
   }
   const [data] = getSubredditAllData(subredditName);
   console.log(data);
-  const subredditId = data?.id;
+  const subredditId = data?._id;
   const subredditIcon = data?.icon;
   console.log('server', subredditId, subredditIcon, subredditName);
   return [subredditId, subredditIcon];
