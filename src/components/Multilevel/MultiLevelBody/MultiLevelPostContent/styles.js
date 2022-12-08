@@ -9,5 +9,5 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexDirection: 'column',
   flexWrap: 'nowrap',
 
-  backgroundColor: '#abcabc',
+  // backgroundColor: '#abcabc',
 }));
