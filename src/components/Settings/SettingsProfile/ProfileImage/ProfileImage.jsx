@@ -6,7 +6,7 @@ import {
 } from '../../styles';
 import { ProfilePic, AddPhoto } from './styles';
 import { SettingsContext } from '../../../../contexts/SettingsProvider';
-import { settingsPost } from '../../settingsServer';
+import { image } from '../../settingsServer';
 
 /**
  * - ProfileImage
@@ -42,8 +42,7 @@ function ProfileImage() {
 
     if (file && (file.type.match('image/png') || file.type.match('image/jpg') || file.type.match('image/jpeg'))) {
       reader.readAsDataURL(event.target.files[0]);
-      const message = await settingsPost({ ...prefs, type: reader.result });
-      if (message !== '') { alert(message); }
+      image(reader.result, type);
     }
   };
 

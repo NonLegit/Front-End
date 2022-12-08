@@ -146,8 +146,10 @@ function UserInfo() {
         {/* popup component to add social link */}
         <BootstrapDialog
           onClose={(event, reason) => {
+            console.log('out');
             if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
               setOpen(false);
+              console.log('to');
             }
           }}
           aria-labelledby="customized-dialog-title"
@@ -155,8 +157,10 @@ function UserInfo() {
           keepMounted
         >
           <SocialLinks onClose={(event, reason) => {
+            console.log('out');
             if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
               setOpen(false);
+              console.log('bo');
             }
           }}
           />
