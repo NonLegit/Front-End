@@ -152,6 +152,7 @@ function UserInfo() {
             if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
               setOpen(false);
               console.log('to');
+              forceUpdate();
             }
           }}
           aria-labelledby="customized-dialog-title"
@@ -160,12 +161,11 @@ function UserInfo() {
         >
           <SocialLinks onClose={(event, reason) => {
             console.log('out');
-            forceUpdate();
             if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
               setOpen(false);
 
-              forceUpdate();
               console.log('bo');
+              forceUpdate();
             }
           }}
           />
