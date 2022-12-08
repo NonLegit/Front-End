@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import NotInterestedIcon from '@mui/icons-material/NotInterested';
 import { EmptyBox } from './styles';
 
-function EmptyUserMng() {
+function EmptyBanned() {
   return (
     <EmptyBox>
       <NotInterestedIcon sx={{ color: '#7c7c7c' }} fonstSize="large" />
@@ -11,4 +11,4 @@ function EmptyUserMng() {
     </EmptyBox>
   );
 }
-export default EmptyUserMng;
+export default EmptyBanned;

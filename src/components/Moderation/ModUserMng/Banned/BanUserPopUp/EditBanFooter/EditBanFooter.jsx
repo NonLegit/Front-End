@@ -1,22 +1,24 @@
 import { Box } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
+import { UserMngButton } from '../../../styles';
 
 function EditBanFooter(props) {
   const { handleClickCloseBan } = props;
   return (
     <StyledBox>
-      <RedditButton
+      <UserMngButton
         fontSize="15px"
         padding="0px 24px 0px 24px"
         fontWeight="bold"
-        variant="outlined"
-        onClick={handleClickCloseBan}
         disableRipple
         disableFocusRipple
+        sx={{ color: 'red' }}
+        startIcon={<CheckCircleIcon sx={{ color: 'Red' }} />}
       >
-        Cancel
-      </RedditButton>
+        Unban
+      </UserMngButton>
       <Box>
         <RedditButton
           fontSize="15px"
