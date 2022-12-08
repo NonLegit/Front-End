@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
+import Comments from '../components/Search/Comments/Comments';
 import Peoples from '../components/Search/Peoples/People';
 import { SearchByCommunitiesHeader } from '../components/Search/Subreddits/style';
 import Subreddits from '../components/Search/Subreddits/Subreddits';
@@ -61,6 +62,16 @@ function Search() {
             <Peoples />
             <Peoples />
             <Peoples />
+          </SearchByCommunitiesHeader>
+        )}
+        { type === 'Comments'
+        && (
+          <SearchByCommunitiesHeader>
+            <Comments />
+            <Comments />
+            <Comments />
+            <Comments />
+            <Comments />
           </SearchByCommunitiesHeader>
         )}
       </SearchContainer>
