@@ -13,6 +13,7 @@ export const postsTapServer = (name) => {
 };
 
 export const overviewServer = (name) => {
+  if (name === ' ') { return null; }
   const [data, dataError, statusCode] = useFetch(`users/${name}/overview`);
   useEffect(() => {
     if (statusCode === 401) {

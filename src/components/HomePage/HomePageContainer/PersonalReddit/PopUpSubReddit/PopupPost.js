@@ -12,7 +12,7 @@ const PostData = async (url, subRedditName, type, adult) => {
       nsfw: adult,
     }),
   ).then((response) => {
-    console.log(response);
+    console.log(response.status);
     return response.status;
   }).catch((error) => {
     console.log(error);
