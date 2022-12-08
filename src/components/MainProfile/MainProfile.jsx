@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useParams } from 'react-router-dom';
+import Nsfw from '../NSFW/Nsfw';
 import UserProvider from '../../contexts/UserProvider';
 import UserInfoServer from './mainProfileServer';
 import OtherProfileHeader from './OtherProfile/OtherHeader/OtherProfileHeader';
@@ -20,29 +21,47 @@ function MainProfile() {
 
   const [info, statusCode] = UserInfoServer(username);
   const isLoggedIn = UserLogin([username]);
+
+  const [nsfw, setNsfw] = useState();
+  const [userNsfw, setUserNsfw] = useState();
+  const [warning, setWarning] = useState(false);
+
   useEffect(() => {
     setUserLoggedIn(cookies.redditUser?.userName);
     setIsBlocked(true);
+    setUserNsfw(cookies.redditUser?.adultContent);
   }, [cookies]);
 
   useEffect(() => {
     if (statusCode === 404) setIsExist(false); // 404
-  }, [info, statusCode]);
+
+    setNsfw(info?.adultContent);
+    if (userNsfw === false && nsfw === true) {
+      setWarning(true);
+    } else {
+      setWarning(false);
+    }
+    // console.log(warning);
+  }, [info, statusCode, userNsfw, nsfw]);
 
   return (
+
     isLoggedIn ? (
       <UserProvider name={username}>
         <ProfileHeader />
         <ProfileMainContent username={userLoggedIn} />
       </UserProvider>
-    ) : isExist && !isBlocked ? (
+    ) : isExist && !isBlocked && !warning ? (
       <>
         <OtherProfileHeader />
         <OtherProfileMainContent username={userLoggedIn} />
       </>
-    ) : isExist && isBlocked ? (
+    ) : isExist && isBlocked && !warning ? (
       <ProfileBlocked username={username} handleCont={() => { setIsBlocked(false); }} />
+    ) : isExist && warning && !isBlocked ? (
+      <Nsfw handleWarning={() => { setWarning(false); }} />
     ) : <ProfileNotFound />
+
   );
 }
 

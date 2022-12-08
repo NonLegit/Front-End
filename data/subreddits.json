@@ -26,6 +26,14 @@
       "isJoined": false,
       "membersCount": 10000,
       "description": "welcome to subreddit"
+    },
+    {
+      "id": 10,
+      "subredditName": "selm alsodan",
+      "rank": 1,
+      "isJoined": true,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
     }
   ]
 }
