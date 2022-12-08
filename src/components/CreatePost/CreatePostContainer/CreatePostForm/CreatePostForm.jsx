@@ -1,17 +1,15 @@
 import {
-  Box, Divider, useTheme,
+  Box, Divider,
 } from '@mui/material';
 import '../../../../styles/theme/textEditor.css';
 import { useState, useEffect } from 'react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
 
 import draftToHtml from 'draftjs-to-html';
 import { convertToRaw, EditorState } from 'draft-js';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-  CustomTextEditor, FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter, ToolbarStyleObject, TextEditorWrapper, TextEditorField,
+  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter,
 } from './styles';
 import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
@@ -22,6 +20,7 @@ import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 import submitPostServer from './submitPostServer';
 import currentSubredditServer from './currentSubredditServer';
+import TextEditor from './TextEditor/TextEditor';
 
 /**
  * This component is the main section off create post page which holds the form to submit posts
@@ -31,9 +30,6 @@ import currentSubredditServer from './currentSubredditServer';
  */
 
 function CreatePostForm() {
-  // theme
-  const theme = useTheme();
-
   // routes
   const { subredditName } = useParams();
   const navigate = useNavigate();
@@ -147,7 +143,6 @@ function CreatePostForm() {
   const hanldeNsfw = () => {
     setNswf(!nswf);
   };
-  console.log(<CKEditor editor={ClassicEditor} />);
   return (
     <FormContainer>
       <TitleContainer my={2}>
@@ -194,43 +189,9 @@ function CreatePostForm() {
             </WordCounter>
           </Box>
           {postType === 0 ? (
-            <CustomTextEditor
-              editorState={postText}
-              toolbarStyle={ToolbarStyleObject}
-              placeholder="Text(optional)"
-              onEditorStateChange={handlePostTextChange}
-              styles={{
-                '& .rdw-option-wrapper': {
-                  backgroundColor: '#f6f7f8',
-                  width: '200px',
-                },
-              }}
-              toolbar={{
-                options: ['inline', 'blockType', 'list', 'image'],
-                inline: {
-                  inDropdown: false,
-                  className: undefined,
-                  component: undefined,
-                  dropdownClassName: undefined,
-                  options: ['bold', 'italic', 'strikethrough', 'superscript', 'monospace'],
-                },
-                blockType: {
-                  inDropdown: false,
-                  options: ['H1'],
-                  className: undefined,
-                  component: undefined,
-                  dropdownClassName: undefined,
-                },
-                list: {
-                  inDropdown: false,
-                  className: undefined,
-                  component: undefined,
-                  dropdownClassName: undefined,
-                  options: ['unordered', 'ordered'],
-                },
-              }}
-              wrapperStyle={TextEditorWrapper}
-              editorStyle={TextEditorField(theme)}
+            <TextEditor
+              handlePostTextChange={handlePostTextChange}
+              postText={postText}
             />
           ) : null}
           {postType === 1 ? (
