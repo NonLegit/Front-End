@@ -28,10 +28,15 @@ function ProfileImage() {
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
-        if (type === 'profileBackground') {
-          setPrefs((oldPrefs) => ({ ...oldPrefs, profileBackground: reader.result }));
-        } else {
-          setPrefs((oldPrefs) => ({ ...oldPrefs, profilePicture: reader.result }));
+        if (file && (file.type.match('image/png') || file.type.match('image/jpg') || file.type.match('image/jpeg'))) {
+          reader.readAsDataURL(event.target.files[0]);
+          image(reader.result, type);
+
+          if (type === 'profileBackground') {
+            setPrefs((oldPrefs) => ({ ...oldPrefs, profileBackground: reader.result }));
+          } else {
+            setPrefs((oldPrefs) => ({ ...oldPrefs, profilePicture: reader.result }));
+          }
         }
         setFormData({
           type,
@@ -39,11 +44,6 @@ function ProfileImage() {
         });
       }
     };
-
-    if (file && (file.type.match('image/png') || file.type.match('image/jpg') || file.type.match('image/jpeg'))) {
-      reader.readAsDataURL(event.target.files[0]);
-      image(reader.result, type);
-    }
   };
 
   return (
