@@ -73,7 +73,7 @@ function Header() {
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value);
 
-  const [data3, dataError3] = PostsData(name, postClass);
+  const [data3, dataError3] = PostsData(Name, postClass);
   console.log(dataError3);
   useEffect(() => {
     if (statusCode === 404) {
