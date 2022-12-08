@@ -10,6 +10,7 @@ const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
 const unique = require('./UniqueUserName.json');
 const me = require('./me.json');
+const userImage = require('./me.json');
 const google = require('./google.json');
 const facebook = require('./facebook.json');
 const login = require('./login.json');
@@ -71,5 +72,6 @@ module.exports = () => ({
   new: newPosts,
   socialLinks,
   postSocialLinks,
+  userImage,
   // Something more
 });

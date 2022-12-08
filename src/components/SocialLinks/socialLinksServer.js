@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import useFetch from '../../hooks/useFetch';
 import axios from '../../services/instance';
@@ -15,29 +15,39 @@ export const allSocialLinks = () => {
   return [data?.socialLinks];
 };
 
-export const postSocialLink = (dataToSend) => {
+export const postSocialLink = (dataToSend, settings, link) => {
   const [userLink, displayText, socialId] = dataToSend;
-  const [data, setData] = useState(null);
-  const isFirstRun = useRef(true);
+  console.log({
+    userLink,
+    displayText,
+    socialId,
+  });
 
-  useEffect(() => {
-    if (isFirstRun.current) {
-      isFirstRun.current = false;
-      return;
-    }
-    axios.post('users/social_links/sabry', {
+  if (settings) {
+    console.log('settings');
+    axios.patch(`users/social_links/${link?._id}`, {
+      userLink,
+      displayText,
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      if (error.response.status === 401) {
+        window.location.pathname = 'login';
+      }
+      console.log(error);
+    });
+  } else {
+    axios.post('users/social_links', {
       userLink,
       displayText,
       socialId,
     }).then((response) => {
-      if (response.status === 401) {
+      console.log(response);
+    }).catch((error) => {
+      if (error.response.status === 401) {
         window.location.pathname = 'login';
       }
-      console.log(response);
-      setData(response);
-    }).catch((error) => {
       console.log(error);
     });
-  }, [dataToSend]);
-  return data;
+  }
 };

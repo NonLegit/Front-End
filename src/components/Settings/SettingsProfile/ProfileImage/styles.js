@@ -20,3 +20,7 @@ export const AddPhoto = styled(Box)(() => ({
   cursor: 'pointer',
 
 }));
+export const InputPhoto = styled('input')(() => ({
+  display: 'none',
+
+}));

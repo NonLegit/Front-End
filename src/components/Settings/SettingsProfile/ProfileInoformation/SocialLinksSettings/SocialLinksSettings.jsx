@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CreateSocail from '../../../../SocialLinks/SocialLinks';
 import { SettingsContext } from '../../../../../contexts/SettingsProvider';
-
+import { socialDelete } from './SocialLinksSettingsServer';
 import {
   ContentSubHeader, ContentHeader, Content, Text,
 } from '../../../styles';
@@ -16,8 +16,9 @@ import {
  * - ProfileInoformation
  * - Edit Display name  and About people in Seetings Page
  *  @param {Object} prefs - prefs of user
- *  @property {function} setPrefs set prefs of user
+ *  @param {function} setPrefs set prefs of user
  *  @property {Boolean} open Boolean to open or close popup
+ *  @property {function} handleDelete function to delete social link
  *  @component
  */
 function SocialLinksSettings() {
@@ -30,9 +31,11 @@ function SocialLinksSettings() {
   const openSocial = () => {
     if (prefs?.socialLinks.length < 5) { setOpen(true); }
   };
-  const handleDelete = (link) => {
+  const handleDelete = (e, link) => {
     const newSocial = prefs?.socialLinks.filter((e) => e._id !== link._id);
     setPrefs((oldPrefs) => ({ ...oldPrefs, socialLinks: newSocial }));
+    socialDelete(link._id);
+    e.stopPropagation();
   };
   return (
     <>
@@ -57,7 +60,7 @@ function SocialLinksSettings() {
             >
               <PlatformIcon src={link?.social?.icon} />
               { link?.displayText }
-              <CancelOutlinedIcon onClick={() => { handleDelete(link); }} />
+              <CancelOutlinedIcon onClick={(e) => { handleDelete(e, link); }} />
             </Social>
           )) }
         </Box>
