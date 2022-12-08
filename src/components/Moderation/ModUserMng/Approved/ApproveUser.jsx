@@ -7,45 +7,45 @@ import {
   QueueBox, QueueText, ControlBar,
 } from './styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
-import BanPopUp from './BanUserPopUp/BanPopUp/BanPopUp';
+import BanPopUp from './ApproveUserPopUp/ApprovePopUp/ApprovePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyBanned from './NonEmptyBanned/NonEmptyBanned';
+import NonEmptyApproved from './NonEmptyApproved/NonEmptyApproved';
 
-export const BanContext = React.createContext();
+export const ApproveContext = React.createContext();
 
-function Ban() {
-  const [openBan, setOpenBan] = React.useState(false);
+function Aprrove() {
+  const [openApprove, setOpenApprove] = React.useState(false);
 
-  const handleClickOpenBan = () => { setOpenBan(true); };
-  const handleClickCloseBan = () => { setOpenBan(false); };
+  const handleClickOpenApprove = () => { setOpenApprove(true); };
+  const handleClickCloseApprove = () => { setOpenApprove(false); };
   return (
     <ModMainPage>
-      <BanContext.Provider value={{
-        openBan, handleClickCloseBan,
+      <ApproveContext.Provider value={{
+        openApprove, handleClickCloseApprove,
       }}
       >
         <BanPopUp />
-      </BanContext.Provider>
+      </ApproveContext.Provider>
       <ControlBar>
         <RedditButton
           fontSize="14px"
           padding="0px 24px 0px 24px"
           fontWeight="bold"
           variant="contained"
-          onClick={handleClickOpenBan}
+          onClick={handleClickOpenApprove}
         >
-          Ban user
+          Approve user
         </RedditButton>
       </ControlBar>
       <QueueBox>
         <QueueText>
-          <Typography variant="h6">Banned users</Typography>
+          <Typography variant="h6">Approved users</Typography>
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyBanned />
+      <NonEmptyApproved />
     </ModMainPage>
   );
 }
 
-export default Ban;
+export default Aprrove;
