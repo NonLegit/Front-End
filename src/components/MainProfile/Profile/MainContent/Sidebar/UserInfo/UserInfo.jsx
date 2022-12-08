@@ -160,6 +160,7 @@ function UserInfo() {
         >
           <SocialLinks onClose={(event, reason) => {
             console.log('out');
+            forceUpdate();
             if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
               setOpen(false);
 
