@@ -12,7 +12,7 @@ function PostContextProvider(props) {
 
   // UseEffect
   useEffect(() => {
-    setPost({ votes: 10, title: 'Basma Post' });
+    setPost({ votes: 10, title: 'Basma Post', text: 'To be edited' });
     console.log('hello');
   });
 
