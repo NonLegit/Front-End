@@ -102,6 +102,7 @@ function SocialLinks({
       } else {
         postSocialLink([platform.baseLink + text.replace(platform?.check, ''), text.replace(platform?.check, ''), platform?._id], settings, link);
       }
+      onClose();
     }
   };
   const handelchange = (e) => {
