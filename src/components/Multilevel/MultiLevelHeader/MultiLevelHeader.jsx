@@ -1,16 +1,26 @@
 // MUI components
-import { Divider, Typography, IconButton } from '@mui/material';
+import {
+  Divider, Typography, Button, IconButton,
+} from '@mui/material';
+
+// Icons
+import CloseIcon from '@mui/icons-material/Close';
 import ArticleIcon from '@mui/icons-material/Article';
 
 // Compoenets
 import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 // import VotedIcon from '../../VoteIcons/VotedIcon/VotedIcon';
+
+// Contexts
+import { usePostContext } from '../../../contexts/PostContext';
+
 // Styles
-import { CloseButton, MultiLevelHeaderBox, MultiLevelHeaderVotes } from './Styles';
+import { MultiLevelHeaderBox, MultiLevelHeaderVotes } from './Styles';
 import theme from '../../../styles/theme';
 
-function MultiLevelHeader(props) {
-  const { votes, Title } = props;
+function MultiLevelHeader() {
+  // Context
+  const { post } = usePostContext();
 
   const close = () => {
     // Back to previous Page [Windows History]
@@ -28,28 +38,29 @@ function MultiLevelHeader(props) {
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>
         <Divider orientation="vertical" flexItem />
-        <VoteIcon
-          color={theme.palette.secondary?.main}
-          direction="up"
-          onClick={upVote}
-        />
-        <Typography variant="p">{votes}</Typography>
+        <IconButton onClick={upVote}>
+          <VoteIcon
+            color={theme.palette.secondary?.main}
+            direction="up"
+          />
+        </IconButton>
+        <Typography variant="p">{post?.votes}</Typography>
         <IconButton onClick={downVote}>
           <VoteIcon
             color={theme.palette.secondary?.main}
             direction="down"
           />
         </IconButton>
-
         <Divider orientation="vertical" flexItem light />
         {/* <VotedIcon
           color={theme.palette.secondary?.main}
           direction="down"
         /> */}
         <ArticleIcon />
-        <Typography variant="p" fontSize="14px">{Title}</Typography>
+        <Typography variant="p" fontSize="14px">{post?.title}</Typography>
       </MultiLevelHeaderVotes>
-      <CloseButton onClick={close} />
+      <Button variant="text" startIcon={<CloseIcon fontSize="small" />} color="third" onClick={close}>Close</Button>
+
     </MultiLevelHeaderBox>
   );
 }

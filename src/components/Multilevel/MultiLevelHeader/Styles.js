@@ -1,11 +1,13 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import CloseIcon from '@mui/icons-material/Close';
 import theme from '../../../styles/theme';
 // MultiLevel Container
 export const MultiLevelHeaderBox = styled(Box)(() => ({
+  height: '50px',
   flexBasis: '100%',
   backgroundColor: 'black',
+
+  padding: '0px 5px',
 
   display: 'flex',
   flexDirection: 'row',
@@ -15,13 +17,11 @@ export const MultiLevelHeaderBox = styled(Box)(() => ({
   // Postion To be fixed
 }));
 
-export const CloseButton = styled((close) => (
-  <Button variant="text" startIcon={<CloseIcon fontSize="small" />} color="third" onClick={close}>Close</Button>
-))(() => ({
-//   '&.MuiButton-text': {
-//     textTransform: 'capitalize',
-//     backgroundColor: 'red',
-//   },
+export const CloseButton = styled(Box)(() => ({
+  '&.MuiButton-text': {
+    textTransform: 'capitalize',
+    backgroundColor: 'red',
+  },
 }));
 
 export const MultiLevelHeaderVotes = styled(Box)(() => ({

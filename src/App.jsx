@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+import PostPage from './pages/PostPage';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
 import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPrivacy';
@@ -13,11 +14,12 @@ import LogInPage from './pages/LogInPage';
 import ForgetUsernamePage from './pages/ForgetUsernamePage';
 import ForgetPasswordPage from './pages/ForgetPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
-
+import Cover from './components/SubReddit/Cover';
 import HomePage from './pages/HomePage';
 import Messages from './pages/Messages';
 import Moderation from './pages/Moderation';
 import Profile from './pages/Profile';
+import MainProfile from './components/MainProfile/MainProfile';
 import Search from './pages/Search';
 import theme from './styles/theme';
 import CreatePost from './pages/CreatePost';
@@ -46,11 +48,25 @@ function App() {
           }
             />
             <Route
-              path="/user"
+              path="/user/:Name"
               element={
                 <Profile />
               }
-            />
+            >
+              <Route
+                path=""
+                element={
+                  <MainProfile />
+          }
+              />
+
+              <Route
+                path="comments/:ID"
+                element={
+                  <PostPage />
+              }
+              />
+            </Route>
             <Route
               path="/register"
               element={
@@ -147,10 +163,23 @@ function App() {
           }
             >
               <Route
+                path=""
+                element={
+                  <Cover />
+          }
+              />
+              <Route
                 path=":postClass"
                 element={
-                  <SubReddit />
+                  <Cover />
           }
+              />
+
+              <Route
+                path="comments/:ID"
+                element={
+                  <PostPage />
+              }
               />
             </Route>
             <Route
@@ -190,6 +219,7 @@ function App() {
           }
               />
             </Route>
+
           </Routes>
         </Router>
       </PostTypeContextProvider>
