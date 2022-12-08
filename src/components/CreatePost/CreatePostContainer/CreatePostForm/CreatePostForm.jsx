@@ -40,7 +40,7 @@ function CreatePostForm() {
   // console.log(subredditName);
 
   // server
-  const [subredditId, subredditIcon] = currentSubredditServer(subredditName);
+  const [subredditId, subredditIcon, initialOwnerType] = currentSubredditServer(subredditName);
   // console.log('component', subredditId, subredditIcon, subredditName);
 
   // contexts
@@ -57,7 +57,7 @@ function CreatePostForm() {
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
   const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
-  const [ownerType, setOwnerType] = useState(null);
+  const [ownerType, setOwnerType] = useState(initialOwnerType);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
