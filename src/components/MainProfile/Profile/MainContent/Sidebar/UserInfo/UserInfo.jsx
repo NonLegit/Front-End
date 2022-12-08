@@ -152,7 +152,7 @@ function UserInfo() {
             if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
               setOpen(false);
               console.log('to');
-              forceUpdate();
+              window.location.reload(false);
             }
           }}
           aria-labelledby="customized-dialog-title"
@@ -165,7 +165,7 @@ function UserInfo() {
               setOpen(false);
 
               console.log('bo');
-              forceUpdate();
+              window.location.reload(false);
             }
           }}
           />
