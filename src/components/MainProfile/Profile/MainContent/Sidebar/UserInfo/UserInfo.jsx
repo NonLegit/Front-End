@@ -6,7 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
 import {
-  useContext, useEffect, useState, useCallback, updateState,
+  useContext, useEffect, useState,
 } from 'react';
 import moment from 'moment/moment';
 import { Link } from 'react-router-dom';
@@ -36,7 +36,6 @@ function UserInfo() {
   const [open, setOpen] = useState(false);
   const { username } = useContext(UserContext);
   const [info] = userInfoServer();
-  const forceUpdate = useCallback(() => updateState({}), []);
   useEffect(() => {
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
