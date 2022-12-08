@@ -41,8 +41,9 @@ function Post(props) {
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
+  // const doc = new DOMParser().parseFromString(text, 'text/xml');
+  // console.log(doc);
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
-
   return (
     <PostContainer my={2}>
       {matchSm && (
@@ -82,7 +83,7 @@ function Post(props) {
               ) : (
                 <PostText>
                   <PostTextContainer />
-                  {text}
+                  <div dangerouslySetInnerHTML={{ __html: text }} />
                 </PostText>
               )
           )}

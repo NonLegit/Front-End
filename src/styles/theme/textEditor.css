@@ -1,0 +1,16 @@
+.rdw-option-wrapper {
+    background-color: #f6f7f8 !important;
+    padding: 5px 3px !important;
+    border-radius: 7px !important;
+    border-width: 0 !important;
+    margin: 0 3px !important;
+  }
+  .rdw-option-wrapper:hover,.rdw-option-active{
+    background-color: #1a1a1b1a !important;
+    box-shadow: none !important;
+  }
+
+.public-DraftStyleDefault-block{
+    margin: 0 !important;
+    margin-top: 5px !important;
+}

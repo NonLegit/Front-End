@@ -1,12 +1,17 @@
 import {
-  Box, Divider,
+  Box, Divider, useTheme,
 } from '@mui/material';
-
+import '../../../../styles/theme/textEditor.css';
 import { useState, useEffect } from 'react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+
+import draftToHtml from 'draftjs-to-html';
+import { convertToRaw, EditorState } from 'draft-js';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-  FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostText, PostUrl, WordCounter,
+  CustomTextEditor, FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter, ToolbarStyleObject, TextEditorWrapper, TextEditorField,
 } from './styles';
 import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
@@ -26,14 +31,17 @@ import currentSubredditServer from './currentSubredditServer';
  */
 
 function CreatePostForm() {
+  // theme
+  const theme = useTheme();
+
   // routes
   const { subredditName } = useParams();
   const navigate = useNavigate();
-  console.log(subredditName);
+  // console.log(subredditName);
 
   // server
   const [subredditId, subredditIcon] = currentSubredditServer(subredditName);
-  console.log('component', subredditId, subredditIcon, subredditName);
+  // console.log('component', subredditId, subredditIcon, subredditName);
 
   // contexts
   const { initialPostType } = usePostTypeContext();
@@ -45,7 +53,7 @@ function CreatePostForm() {
   const [postMedia, setPostMedia] = useState([]);
   const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [title, setTitle] = useState('');
-  const [postText, setPostTitle] = useState();
+  const [postText, setPostText] = useState(EditorState.createEmpty());
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
   const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
@@ -53,13 +61,12 @@ function CreatePostForm() {
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
-  console.log('title', title);
-  console.log('community to post in', communityToPostIn);
+  // console.log('title', title);
+  // console.log('community to post in', communityToPostIn);
 
   useEffect(() => {
     setCommunityToPostIn(subredditId);
   }, [subredditId]);
-
   /**
    * This function check if server should send email to user as a reply to the post
    */
@@ -75,7 +82,7 @@ function CreatePostForm() {
     e.preventDefault();
     const post = {
       title,
-      text: postText,
+      text: draftToHtml(convertToRaw(postText.getCurrentContent())),
       kind: postTypes[postType],
       owner: communityToPostIn,
       ownerType,
@@ -83,7 +90,7 @@ function CreatePostForm() {
       nswf,
       sendReplies,
     };
-    console.log(post);
+    // console.log(post);
     submitPostServer(post, navigate);
   };
   /**
@@ -95,8 +102,10 @@ function CreatePostForm() {
   /**
    * This function handles post text change
    */
-  const handlePostTextChange = (e) => {
-    setPostTitle(e.target.value);
+  if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
+
+  const handlePostTextChange = (editorState) => {
+    setPostText(editorState);
   };
   const handleSaveDraft = (e) => {
     e.preventDefault();
@@ -138,7 +147,7 @@ function CreatePostForm() {
   const hanldeNsfw = () => {
     setNswf(!nswf);
   };
-
+  console.log(<CKEditor editor={ClassicEditor} />);
   return (
     <FormContainer>
       <TitleContainer my={2}>
@@ -158,6 +167,7 @@ function CreatePostForm() {
         setOwnerType={setOwnerType}
         subredditIcon={subredditIcon}
         subredditName={subredditName}
+        ownerType={ownerType}
       />
       <PostFormContainer>
         <PostTypes
@@ -184,10 +194,43 @@ function CreatePostForm() {
             </WordCounter>
           </Box>
           {postType === 0 ? (
-            <PostText
+            <CustomTextEditor
+              editorState={postText}
+              toolbarStyle={ToolbarStyleObject}
               placeholder="Text(optional)"
-              value={postText}
-              onChange={handlePostTextChange}
+              onEditorStateChange={handlePostTextChange}
+              styles={{
+                '& .rdw-option-wrapper': {
+                  backgroundColor: '#f6f7f8',
+                  width: '200px',
+                },
+              }}
+              toolbar={{
+                options: ['inline', 'blockType', 'list', 'image'],
+                inline: {
+                  inDropdown: false,
+                  className: undefined,
+                  component: undefined,
+                  dropdownClassName: undefined,
+                  options: ['bold', 'italic', 'strikethrough', 'superscript', 'monospace'],
+                },
+                blockType: {
+                  inDropdown: false,
+                  options: ['H1'],
+                  className: undefined,
+                  component: undefined,
+                  dropdownClassName: undefined,
+                },
+                list: {
+                  inDropdown: false,
+                  className: undefined,
+                  component: undefined,
+                  dropdownClassName: undefined,
+                  options: ['unordered', 'ordered'],
+                },
+              }}
+              wrapperStyle={TextEditorWrapper}
+              editorStyle={TextEditorField(theme)}
             />
           ) : null}
           {postType === 1 ? (
