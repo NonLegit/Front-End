@@ -219,7 +219,7 @@ export const NotFountImage = styled(Box)(() => ({
 }));
 
 export const BackHomeButton = styled(Button)(() => ({
-  width: 150,
+  width: 200,
   borderRadius: 30,
   height: 30,
   boxShadow: 'none',
