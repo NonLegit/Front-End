@@ -10,6 +10,7 @@ const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
 const unique = require('./UniqueUserName.json');
 const me = require('./me.json');
+const userImage = require('./me.json');
 const google = require('./google.json');
 const facebook = require('./facebook.json');
 const login = require('./login.json');
@@ -20,6 +21,7 @@ const notifications = require('./Notifications.json');
 const settings = require('./Settings.json');
 const overview = require('./overview.json');
 const subreddits = require('./subreddits.json');
+const userSubreddits = require('./userSubreddits.json');
 const downvoted = require('./downvoted.json');
 const upvoted = require('./upvoted.json');
 const saved = require('./saved.json');
@@ -29,6 +31,8 @@ const join = require('./join.json');
 const logout = require('./logout.json');
 const token = require('./token.json');
 const userInfo = require('./userInfo.json');
+const socialLinks = require('./socialLinks.json');
+const postSocialLinks = require('./postSocialLinks.json');
 // Something more
 
 module.exports = () => ({
@@ -50,6 +54,7 @@ module.exports = () => ({
   settings,
   overview,
   subreddits,
+  userSubreddits,
   downvoted,
   upvoted,
   saved,
@@ -65,5 +70,8 @@ module.exports = () => ({
   logout,
   token,
   new: newPosts,
+  socialLinks,
+  postSocialLinks,
+  userImage,
   // Something more
 });

@@ -11,10 +11,12 @@ import { Link } from 'react-router-dom';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
-  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons,
+  EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog, LinkTo,
 } from './styles';
 import { UserContext } from '../../../../../../contexts/UserProvider';
 import userInfoServer from './userInfoServer';
+import SocialLinks from '../../../../../SocialLinks/SocialLinks';
+import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
 /**
  * UserInfo Box in sidebar containing all info of a user
  *
@@ -28,7 +30,8 @@ function UserInfo() {
   const [followers, setFollowers] = useState();
   const [profilePic, setProfilePic] = useState();
   const [coverPic, setCoverPic] = useState();
-
+  const [socialLinks, setSocialLinks] = useState([]);
+  const [open, setOpen] = useState(false);
   const { username } = useContext(UserContext);
   const [info] = userInfoServer();
 
@@ -39,11 +42,16 @@ function UserInfo() {
     setCake(info?.createdAt);
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
+    setSocialLinks(info?.socialLinks);
   }, [info]);
 
   const [showList, setShowList] = useState(false);
   const handleClickList = () => {
     setShowList((prev) => !prev);
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
   return (
@@ -115,9 +123,46 @@ function UserInfo() {
             </Box>
           </EntityBox>
         </InfoBox>
-        <AddSocialLink startIcon={<AddIcon />} variant="contained">Add social link</AddSocialLink>
-        <br />
+
+        {/* social link part */}
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          {socialLinks?.map((link, index) => (
+            <LinkTo href={`${link?.userLink}`} target="_blank">
+              <Text key={`${index + 0}`}>
+                <PlatformIcon src={link?.social?.icon} />
+                {link?.displayText}
+              </Text>
+            </LinkTo>
+          ))}
+
+          {socialLinks?.length < 5
+            ? <AddSocialLink startIcon={<AddIcon />} variant="contained" onClick={handleClickOpen}>Add social link</AddSocialLink>
+            : <AddSocialLink variant="contained" sx={{ minWidth: '50px', padding: 0 }} onClick={() => { window.location.pathname = 'settings/profile'; }}>Edit</AddSocialLink>}
+        </Box>
+        {/* social link part */}
+
         <AddPost variant="contained">Add Post</AddPost>
+
+        {/* popup component to add social link */}
+        <BootstrapDialog
+          onClose={(event, reason) => {
+            if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+              setOpen(false);
+            }
+          }}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+          keepMounted
+        >
+          <SocialLinks onClose={(event, reason) => {
+            if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+              setOpen(false);
+            }
+          }}
+          />
+        </BootstrapDialog>
+        {/* popup component to add social link */}
+
         {showList
           ? (
             <>

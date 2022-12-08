@@ -15,19 +15,3 @@ export const About = styled('textarea')(() => ({
   border: '1px solid #EDEFF1',
   marginTop: '12px',
 }));
-export const AddSocialLinks = styled('div')(() => ({
-  marginTop: '12px',
-  fontSize: '12px',
-  fontWeight: '700',
-  lineHeight: '16px',
-  alignItems: 'center',
-  backgroundColor: '#EDEFF1',
-  borderRadius: '9999px',
-  color: '#1c1c1c',
-  cursor: 'pointer',
-  display: 'flex',
-  height: '47px',
-  marginRight: '8px',
-  padding: ' 10px 12px',
-  width: 'fit-content',
-}));

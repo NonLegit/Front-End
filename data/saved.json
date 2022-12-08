@@ -1,8 +1,15 @@
 {
   "posts": [
     {
-      "author": "string",
-      "owner": "string",
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
       "ownerType": "Subreddit",
       "title": "saved",
       "kind": "link",
@@ -18,8 +25,12 @@
       "spoiler": true,
       "sendReplies": true,
       "locked": true,
-      "flairId": "string",
-      "flairText": "string",
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
       "postVoteStatus": "1",
       "isSaved": true,
       "isHidden": true,
@@ -30,8 +41,15 @@
       "video": "string"
     },
     {
-      "author": "string",
-      "owner": "string",
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
       "ownerType": "Subreddit",
       "title": "saved",
       "kind": "link",
@@ -47,8 +65,12 @@
       "spoiler": true,
       "sendReplies": true,
       "locked": true,
-      "flairId": "string",
-      "flairText": "string",
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
       "postVoteStatus": "1",
       "isSaved": true,
       "isHidden": true,

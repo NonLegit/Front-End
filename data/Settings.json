@@ -9,6 +9,74 @@
         "adultContent": true,
         "autoplayMedia": true,
         "gender": "male",
-        "description": " info"
+        "description": " info",
+        "country": "egypt",
+        "socialLinks": [
+            {
+                "social": {
+                    "_id": "639069fbac336a154b3b84e2",
+                    "type": "Facebook",
+                    "baseLink": "https://facebook.com/",
+                    "placeholderLink": "https://facebook.com",
+                    "check": "https://facebook.com/",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+                },
+                "_id": "1",
+                "displayText": "Eslam",
+                "userLink": "https://facebook.com/profile.php?id=100008920246590"
+            },
+            {
+                "social": {
+                    "_id": "639069fbac336a154b3b84e2",
+                    "type": "Facebook",
+                    "baseLink": "https://facebook.com/",
+                    "placeholderLink": "https://facebook.com",
+                    "check": "https://facebook.com/",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+                },
+                "_id": "2",
+                "displayText": "Nour",
+                "userLink": "https://facebook.com/nouralmulhem"
+            },
+            {
+                "social": {
+                    "_id": "639069fbac336a154b3b84ed",
+                    "type": "Instagram",
+                    "baseLink": "https://instagram.com/",
+                    "placeholderLink": "@username",
+                    "check": "@",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+                },
+                "_id": "5",
+                "displayText": "leomessi",
+                "userLink": "https://instagram.com/leomessi"
+            },
+            {
+                "social": {
+                    "_id": "639069fbac336a154b3b84f3",
+                    "type": "Youtube",
+                    "baseLink": "https://youtube.com/",
+                    "placeholderLink": "https://youtube.com",
+                    "check": "https://youtube.com/",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/youtube.png"
+                },
+                "_id": "3",
+                "displayText": "CMP 2024",
+                "userLink": "https://youtube.com/@user-tz7qw2kl8d"
+            },
+            {
+                "social": {
+                    "_id": "639069fbac336a154b3b84f3",
+                    "type": "Youtube",
+                    "baseLink": "https://youtube.com/",
+                    "placeholderLink": "https://youtube.com",
+                    "check": "https://youtube.com/",
+                    "icon": "https://www.redditstatic.com/desktop2x/img/social-links/youtube.png"
+                },
+                "_id": "4",
+                "displayText": "CMP 2024",
+                "userLink": "https://youtube.com/@user-tz7qw2kl8d"
+            }
+        ]
     }
 }

@@ -7,8 +7,6 @@ import { wrongIcon } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
-// eslint-disable-next-line no-unused-vars
-import { redditCookie, matchPassword } from '../authenticationServer';
 import { redirectLogin } from '../../../utils/Redirect';
 
 /**

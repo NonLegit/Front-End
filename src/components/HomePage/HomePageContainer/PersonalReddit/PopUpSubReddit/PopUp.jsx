@@ -103,7 +103,7 @@ function FormDialog({ display }) {
    * make post action
    * @param {object} e -sbmit button
    */
-  const Submit = (e) => {
+  const Submit = async (e) => {
     e.preventDefault();
     if (subRedditName !== '' && errorMassage === '') {
       console.log(subRedditName, ' ', type, ' ', adult);
@@ -113,10 +113,10 @@ function FormDialog({ display }) {
       //   type,
       //   NSFW: adult,
       // })
-      const status = PostData('/subreddits', subRedditName, type, adult);
+      const status = await PostData('/subreddits', subRedditName, type, adult);
       setStatusCode2(status);
-      if (status === 200) {
-        window.location.pathname = '/';
+      if (statusCode2 === 200 || statusCode2 === 204) {
+        window.location.pathname = `Subreddit/${subRedditName}`;
       }
     }
   };
