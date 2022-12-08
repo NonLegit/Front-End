@@ -49,6 +49,7 @@ export const ShowMoreListItemText = styled(ListItemText)(({ theme }) => ({
   textTransform: 'capitalize',
   whiteSpace: 'nowrap',
   color: theme.palette.third.main,
+  marginRight: 10,
 }));
 
 export const PostActions = styled(Box)(() => ({
