@@ -2,13 +2,15 @@ import { Box, ThemeProvider, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { redditCookie } from '../Authentication/authenticationServer';
+import Nsfw from '../NSFW/Nsfw';
 import FormDialog from '../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import MainContent from '../MainContent/MainContent';
 import PostSubreddit from '../Post/Post';
 import CreatePostInSubreddit from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
-  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, PostHeader, TotalHeader, JoinCommunity, NotFountImage, NotFoundBox, BackHomeButton, ImageWarning,
+  Com, Content, Cover, Data, Desc, IconContainer, Image, Join, Logo, Namee, PostHeader, TotalHeader, JoinCommunity, NotFountImage, NotFoundBox, BackHomeButton,
 } from './style';
 // import PostsClassificationSubreddit from './PostClassificationSubreddit/PostClassification';
 import PostsClassificationSubreddit from '../HomePage/HomePageContainer/PostsClassification/PostsClassification';
@@ -36,7 +38,7 @@ function Header() {
   const [topics, setTopics] = useState([]);
   const [moderatoesName, setModeratoesName] = useState([]);
   const [fixedName, setFixedName] = useState();
-  const [cookies] = useCookies(['redditUser']);
+  const [cookies, setCookies] = useCookies(['redditUser']);
   const [username, setUserName] = useState('');
   const [members, setMembers] = useState();
   const [exist, setExist] = useState(true);
@@ -55,8 +57,14 @@ function Header() {
     const ele = document.getElementById('popup-form-button');
     ele.click();
   };
+  useEffect(() => {
+    redditCookie(setCookies);
+  }, []);
 
-  useEffect(() => { setUserName(cookies.redditUser?.userName); setUserNsfw(cookies.redditUser?.adultContent); }, [cookies]);
+  useEffect(() => {
+    setUserName(cookies.redditUser?.userName);
+    setUserNsfw(cookies.redditUser?.adultContent);
+  }, [cookies]);
 
   const { Name, postClass } = useParams();
 
@@ -83,18 +91,21 @@ function Header() {
     setSubredditId(data?.id);
     setSubredditName(Name);
     setSubredditIcon(data?.icon);
-    setNsfw(data?.nsfw);
     console.log(data?._id);
     setPosts(data3?.data);
     // join and comment another endpoint line 95
     // setJoin(data?.isJoined);
+  }, [data, postClass, data3, statusCode]);
+
+  useEffect(() => {
+    setNsfw(data?.nsfw);
     if (userNsfw === false && nsfw === true) {
       setWarning(true);
     } else {
       setWarning(false);
     }
     console.log(warning);
-  }, [data, postClass, data3, statusCode, cookies]);
+  }, [data, nsfw, userNsfw]);
 
   // fetch data of communities i am a moderator of
 
@@ -124,17 +135,7 @@ function Header() {
   return (
     exist ? (
       warning ? (
-        <NotFoundBox>
-          <ImageWarning src="https://www.redditstatic.com/desktop2x/img/content-gate-icons/nsfw.png" />
-          <Typography sx={{ fontWeight: 700, marginBottom: 2, fontSize: '18px' }}>You must be 18+ to view this community</Typography>
-          <Typography sx={{ marginBottom: 4, fontSize: '14px' }}>
-            You must be at least eighteen years old to view this content. Are you over eighteen and willing to see adult content?
-          </Typography>
-          <Box>
-            <BackHomeButton variant="contained" onClick={redirect}>No</BackHomeButton>
-            <BackHomeButton variant="outlined" onClick={() => setWarning(false)} sx={{ textTransform: 'unset' }}>Yes</BackHomeButton>
-          </Box>
-        </NotFoundBox>
+        <Nsfw handleWarning={() => { setWarning(false); }} />
       )
         : (
           <>

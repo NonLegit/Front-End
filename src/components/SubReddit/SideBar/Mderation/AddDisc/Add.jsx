@@ -66,10 +66,10 @@ function AddSector(props) {
   };
   const SaveAction = async () => {
     setShow(true);
-    await setDisc(tempString.trim());
+    setDisc(tempString.trim());
     setTempString(tempString.trim());
-    setCount(500 - disc.toString().length);
-    if (EmptyStr(disc?.trim())) { setHaveDisc(false); } else {
+    await setCount(500 - tempString.trim().toString().length);
+    if (EmptyStr(tempString.trim()?.trim())) { setHaveDisc(false); } else {
       setHaveDisc(true);
     }
     sendData();

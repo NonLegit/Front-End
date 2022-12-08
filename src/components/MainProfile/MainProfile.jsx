@@ -15,7 +15,8 @@ import ProfileBlocked from './ProfileBlocked/ProfileBlocked';
 function MainProfile() {
   const [cookies] = useCookies(['redditUser']);
   const [isExist, setIsExist] = useState(true);
-  const [isBlocked, setIsBlocked] = useState(true);
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [warning, setWarning] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState('');
   const { username } = useParams();
 
@@ -24,11 +25,10 @@ function MainProfile() {
 
   const [nsfw, setNsfw] = useState();
   const [userNsfw, setUserNsfw] = useState();
-  const [warning, setWarning] = useState(false);
 
   useEffect(() => {
     setUserLoggedIn(cookies.redditUser?.userName);
-    setIsBlocked(true);
+    setIsBlocked(false);
     setUserNsfw(cookies.redditUser?.adultContent);
   }, [cookies]);
 
