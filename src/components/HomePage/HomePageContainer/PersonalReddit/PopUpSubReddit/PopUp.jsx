@@ -116,9 +116,9 @@ function FormDialog({ display }) {
       const status = await PostData('/subreddits', subRedditName, type, adult);
       console.log(status);
       setStatusCode2(status);
-      if (status === 200 || status === 204) {
-        window.location.pathname = `Subreddit/${subRedditName}`;
-      }
+      // if (status === 200 || status === 204) {
+      //   window.location.pathname = `Subreddit/${subRedditName}`;
+      // }
     }
   };
   return (
