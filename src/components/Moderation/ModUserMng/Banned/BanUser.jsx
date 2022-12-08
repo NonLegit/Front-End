@@ -7,7 +7,7 @@ import {
   QueueBox, QueueText, ControlBar,
 } from './styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
-import BanPopUp from './BanUserPopUp/BanUserPopUp';
+import BanPopUp from './BanUserPopUp/BanPopUp/BanPopUp';
 import { RedditButton } from '../../styles';
 import NonEmptyBanned from './NonEmptyBanned/NonEmptyBanned';
 
@@ -16,7 +16,7 @@ export const BanContext = React.createContext();
 function UserMng() {
   const [openBan, setOpenBan] = React.useState(false);
 
-  const handleClockOpenBan = () => { setOpenBan(true); };
+  const handleClickOpenBan = () => { setOpenBan(true); };
   const handleClickCloseBan = () => { setOpenBan(false); };
   return (
     <ModMainPage>
@@ -32,7 +32,7 @@ function UserMng() {
           padding="0px 24px 0px 24px"
           fontWeight="bold"
           variant="contained"
-          onClick={handleClockOpenBan}
+          onClick={handleClickOpenBan}
         >
           Ban user
         </RedditButton>

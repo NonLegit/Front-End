@@ -11,6 +11,7 @@ export const StyledBox = styled(Box)(() => ({
 }));
 
 export const StyledFont = styled(Typography)(() => ({
+  paddingTop: '16px',
   color: '#878A8C',
   fontSize: '12px',
   marginBottom: '8px',

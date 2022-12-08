@@ -1,7 +1,7 @@
 import { Box, Typography, styled } from '@mui/material';
 
 export const StyledBox = styled(Box)(() => ({
-  padding: '16px',
+  padding: '0px 16px',
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',
@@ -9,6 +9,7 @@ export const StyledBox = styled(Box)(() => ({
 }));
 
 export const StyledFont = styled(Typography)(() => ({
+  paddingTop: '16px',
   color: '#878A8C',
   fontSize: '10px',
   marginBottom: '8px',

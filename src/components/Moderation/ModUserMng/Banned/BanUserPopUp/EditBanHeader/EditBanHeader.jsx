@@ -2,11 +2,14 @@ import { Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import StyledBox from './styles';
 
-function Header(props) {
-  const { handleClickCloseBan } = props;
+function EditBanHaeder(props) {
+  const { handleClickCloseBan, userName } = props;
   return (
     <StyledBox>
-      <Typography>Ban a user:</Typography>
+      <Typography>
+        Edit ban for: u/
+        {userName}
+      </Typography>
       <CloseIcon
         sx={{ cursor: 'pointer' }}
         onClick={handleClickCloseBan}
@@ -15,4 +18,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+export default EditBanHaeder;

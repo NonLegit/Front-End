@@ -1,14 +1,22 @@
-import { Typography, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
 
-function Footer(props) {
+function EditBanFooter(props) {
   const { handleClickCloseBan } = props;
   return (
     <StyledBox>
-      <Typography>
-        • Visible to banned user
-      </Typography>
+      <RedditButton
+        fontSize="15px"
+        padding="0px 24px 0px 24px"
+        fontWeight="bold"
+        variant="outlined"
+        onClick={handleClickCloseBan}
+        disableRipple
+        disableFocusRipple
+      >
+        Cancel
+      </RedditButton>
       <Box>
         <RedditButton
           fontSize="15px"
@@ -37,4 +45,4 @@ function Footer(props) {
   );
 }
 
-export default Footer;
+export default EditBanFooter;
