@@ -25,21 +25,26 @@ function Flirt() {
   }, [flair, data]);
 
   return (
-    <>
-      <Container>
-        <String>
-          Filter by flair
-        </String>
-      </Container>
-      <Box sx={{ padding: '12px' }}>
-        { flair?.map((entity, index) => (
-          <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
-            <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
+    <div>
+      { flair
+        && (
+        <>
+          <Container>
+            <String>
+              Filter by flair
+            </String>
+          </Container>
+          <Box sx={{ padding: '12px' }}>
+            { flair?.map((entity, index) => (
+              <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+                <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
+              </Box>
+            ))}
           </Box>
-        ))}
-      </Box>
-      <See>See more</See>
-    </>
+          <See>See more</See>
+        </>
+        )}
+    </div>
   );
 }
 

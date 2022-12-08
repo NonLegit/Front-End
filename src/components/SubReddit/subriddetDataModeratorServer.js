@@ -8,7 +8,7 @@ const useFetch = () => {
 
   useEffect(() => {
     axios.get('/subreddits/mine/subscriber').then((response) => {
-      // console.log(response);
+      console.log(response);
 
       setData(response.data);
       setStatusCode(response.status);
@@ -23,7 +23,7 @@ const useFetch = () => {
       window.location.pathname = 'login';
     }
   }, []);
-
+  console.log(data?.data);
   return [data?.data, error, statusCode];
 };
 export default useFetch;

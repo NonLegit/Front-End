@@ -84,15 +84,7 @@ function App() {
                 element={
                   <Profile />
           }
-              >
-                <Route
-                  path=":sort"
-                  element={
-                    <Profile />
-          }
-                />
-
-              </Route>
+              />
             </Route>
 
             <Route

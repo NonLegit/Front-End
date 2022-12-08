@@ -77,20 +77,6 @@ export const WordCounter = styled(Box)(({ theme }) => ({
   bottom: 8,
 }));
 
-export const PostText = styled(TextareaAutosize)(({ theme }) => ({
-  padding: 10,
-  border: '1px solid #edeff1',
-  '&:focus-visible': {
-    outline: '1px solid #1a1a1b',
-  },
-  borderRadius: 4,
-  fontSize: 14,
-  caretColor: theme?.palette?.primary?.main,
-  fontWeight: 400,
-  fontFamily: 'inherit',
-  minHeight: 182,
-}));
-
 export const PostUrl = styled(TextareaAutosize)(({ theme }) => ({
   padding: 10,
   border: '1px solid #edeff1',

@@ -7,7 +7,7 @@ const useFetch = (Name) => {
   const [statusCode, setStatusCode] = useState(null);
 
   useEffect(() => {
-    axios.get(`/subreddits/${Name}/flairs`).then((response) => {
+    axios.get(`/subreddits/${Name}/flair`).then((response) => {
       // console.log(response);
       setData(response.data);
       setStatusCode(response.status);

@@ -1,6 +1,7 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
-import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../../../contexts/UserProvider';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+// import { UserContext } from '../../../../../contexts/UserProvider';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox } from '../styles';
@@ -19,7 +20,7 @@ import { overviewServer } from '../../../profileServer';
  * @returns {React.Component} Content
  */
 function Content() {
-  const { username } = useContext(UserContext);
+  const { username } = useParams();
   const [isContent, setIsContent] = useState(false);
   const [posts] = overviewServer(username);
 
@@ -33,7 +34,7 @@ function Content() {
 
   return (
     <ContentBox>
-      <Filter subTitle2="" />
+      <Filter subTitle2="./" />
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
           && (

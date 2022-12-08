@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import RedditButton from '../../../../RedditButton/RedditButton';
 
 export const PostsQueueBox = styled(Box)(() => ({
   display: 'flex',
@@ -63,4 +64,17 @@ export const ParagraphPost = styled(Typography)(({ theme }) => ({
   display: 'flex',
   // justifyContent: 'center',
   alignItems: 'center',
+}));
+
+export const Flair = styled(RedditButton)(({ backgroundcolor, flaircolor }) => ({
+  fontSize: 10,
+  padding: '2px 10px',
+  fontWeight: 'normal',
+  backgroundColor: backgroundcolor,
+  marginLeft: 5,
+  color: flaircolor,
+  '&:hover': {
+    backgroundColor: backgroundcolor,
+  },
+
 }));

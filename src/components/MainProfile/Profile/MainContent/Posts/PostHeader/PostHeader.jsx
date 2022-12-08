@@ -29,25 +29,15 @@ function PostHeader(props) {
   return (
     <HeaderPost>
 
-      {type === 'Subreddit' ? (
-        <LinkTo to={`/Subreddit/${subReddit}`}>
-          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-            r/
-            {subReddit}
-            {' '}
-            .
-          </Typography>
-        </LinkTo>
-      ) : (
-        <LinkTo to={`/user/${subReddit}`}>
-          <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
-            u/
-            {subReddit}
-            {' '}
-            .
-          </Typography>
-        </LinkTo>
-      )}
+      <LinkTo to={(type === 'Subreddit') ? `/Subreddit/${subReddit}` : `/user/${subReddit}`}>
+        <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
+          {type === 'Subreddit' ? 'r/' : 'u/'}
+          {subReddit}
+          {' '}
+          .
+        </Typography>
+      </LinkTo>
+
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
       </Typography>
@@ -62,6 +52,7 @@ function PostHeader(props) {
         {(moment.utc(Time).local().startOf('seconds')
           .fromNow())}
       </Typography>
+
       {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
       {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
 
