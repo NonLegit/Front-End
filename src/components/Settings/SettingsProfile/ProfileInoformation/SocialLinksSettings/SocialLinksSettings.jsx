@@ -29,6 +29,7 @@ function SocialLinksSettings() {
   const [settings, setSettings] = useState(false);
   const [link, setLink] = useState();
   const openSocial = () => {
+    console.log(prefs?.socialLinks.length);
     if (prefs?.socialLinks.length < 5) { setOpen(true); }
   };
   const handleDelete = (e, link) => {
