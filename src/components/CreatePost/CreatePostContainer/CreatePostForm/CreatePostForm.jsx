@@ -57,6 +57,7 @@ function CreatePostForm() {
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
+  const [flair, setFlair] = useState(null);
   // console.log('title', title);
   // console.log('community to post in', communityToPostIn);
 
@@ -85,6 +86,7 @@ function CreatePostForm() {
       spoiler,
       nswf,
       sendReplies,
+      flairId: flair,
     };
     // console.log(post);
     submitPostServer(post, navigate);
@@ -217,6 +219,8 @@ function CreatePostForm() {
           hanldeSpoiler={hanldeSpoiler}
           nswf={nswf}
           hanldeNsfw={hanldeNsfw}
+          setFlair={setFlair}
+          subreddit={communityToPostIn}
         />
         <Divider />
         <PostSubmission

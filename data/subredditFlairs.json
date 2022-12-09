@@ -1,0 +1,47 @@
+{
+    "status": "string",
+    "data": [
+      {
+        "_id": "112ygyfgcfcygyjybd",
+        "text": "humor ضحك",
+        "backgroundColor": "#cc5289",
+        "textColor": "white",
+        "permissions": "modOnly"
+      },
+      {
+        "_id": "112ygyfgcfcygyvejferhjybd",
+        "text": "culture ثقافة",
+        "backgroundColor": "#73ad34",
+        "textColor": "white",
+        "permissions": "modOnly"
+      },
+      {
+        "_id": "112ygyfgcfcygyjybd",
+        "text": "shit خرا",
+        "backgroundColor": "brown",
+        "textColor": "white",
+        "permissions": "modOnly"
+      },
+      {
+        "_id": "112ygy7834fgcfcygyjybd",
+        "text": "history أيام جدي",
+        "backgroundColor": "#ddbd37",
+        "textColor": "white",
+        "permissions": "modOnly"
+      },
+      {
+        "_id": "112ygyfgcfcy87738gyjybd",
+        "text": "food/cuisine هم يا جمل",
+        "backgroundColor": "#ffd635",
+        "textColor": "black",
+        "permissions": "modOnly"
+      },
+      {
+        "_id": "112ygyfgcf7838cygyjybd",
+        "text": "economy اقتصاد",
+        "backgroundColor": "#0266b3",
+        "textColor": "white",
+        "permissions": "modOnly"
+      }
+    ]
+  }

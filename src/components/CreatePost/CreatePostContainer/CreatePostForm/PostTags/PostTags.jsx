@@ -4,9 +4,12 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import {
   Box, useMediaQuery, useTheme,
 } from '@mui/material';
+import { useState } from 'react';
 import {
   CustomTooltip, NsfwButton, OptionButton, SpoilerButton,
 } from './styles';
+import Flairs from './Flairs/Flairs';
+import flairsServer from './flairsServer';
 /**
  * This component is post tags
  *
@@ -20,10 +23,21 @@ import {
 
 function PostTags(props) {
   const {
-    spoiler, hanldeSpoiler, nswf, hanldeNsfw,
+    spoiler, hanldeSpoiler, nswf, hanldeNsfw, setFlair, subreddit,
   } = props;
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down('sm'));
+
+  // states
+  const [openFlairs, setOpenFlairs] = useState(false);
+
+  // services
+  const [flairs, flairsError] = flairsServer(subreddit);
+
+  // handlers
+  const handleOpenFlairs = () => {
+    setOpenFlairs(false);
+  };
   return (
     <Box
       display="flex"
@@ -101,7 +115,8 @@ function PostTags(props) {
           <OptionButton
             color="third"
             variant="outlined"
-            disabled
+            onClick={handleOpenFlairs}
+            disabled={!subreddit || flairsError}
           >
             <LocalOfferOutlinedIcon
               sx={{
@@ -111,6 +126,7 @@ function PostTags(props) {
             />
             flair
             <KeyboardArrowDownOutlinedIcon />
+            <Flairs open={openFlairs} setOpen={setOpenFlairs} setFlair={setFlair} flairs={flairs} />
           </OptionButton>
         </Box>
       </CustomTooltip>
