@@ -129,14 +129,14 @@ function PostTags(props) {
             flair
             <KeyboardArrowDownOutlinedIcon />
           </OptionButton>
-          <Flairs
-            open={openFlairs}
-            handleOpenFlairs={handleOpenFlairs}
-            setFlair={setFlair}
-            flairs={flairs}
-          />
         </Box>
       </CustomTooltip>
+      <Flairs
+        open={openFlairs}
+        handleOpenFlairs={handleOpenFlairs}
+        setFlair={setFlair}
+        flairs={flairs}
+      />
     </Box>
   );
 }
