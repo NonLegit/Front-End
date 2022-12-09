@@ -12,7 +12,6 @@ export const MultiLevelBodyConatiner = styled(Box)(() => ({
 
   display: 'flex',
   flexDirection: 'row',
-  // flexWrap: 'wrap',
   backgroundColor: theme.palette.white.main,
   borderRadius: '5px',
 
@@ -21,6 +20,7 @@ export const MultiLevelBodyConatiner = styled(Box)(() => ({
 // MultiLevelRightSideContentConatiner [Beside the Reactions Bar]
 export const MultiLevelRightSideContentConatiner = styled(Box)(() => ({
   width: '100%',
+  padding: '5px 15px',
   display: 'flex',
   flexDirection: 'column',
 }));

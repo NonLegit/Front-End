@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Typography } from '@mui/material';
 
 // Components
-import EditPost from '../../EditPost/EditPost';
+import EditPost from './EditPost/EditPost';
 
 // Context
 import { usePostContext } from '../../../../contexts/PostContext';

@@ -33,6 +33,9 @@ const token = require('./token.json');
 const userInfo = require('./userInfo.json');
 const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
+const getPost = require('./getpost.json');
+const editPost = require('./editpost.json');
+
 // Something more
 
 module.exports = () => ({
@@ -73,5 +76,7 @@ module.exports = () => ({
   socialLinks,
   postSocialLinks,
   userImage,
+  getPost,
+  editPost,
   // Something more
 });

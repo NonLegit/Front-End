@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 // Components
 import MultiLevelBody from './MultiLevelBody/MultiLevelBody';
@@ -11,14 +13,18 @@ import { MultiLevelContentConatiner, MultiLevelConatiner } from './Styles';
 // Context
 import PostContextProvider from '../../contexts/PostContext';
 
+// Server
+
 function MultiLevel({ Edit }) {
+  // useParams
+  const { postID } = useParams();
+
   useEffect(() => {
-    // Fetch Post
   }, []);
   return (
-    <PostContextProvider>
+    <PostContextProvider postID={postID}>
       <MultiLevelConatiner>
-        <MultiLevelHeader votes={2} Title="Title" />
+        <MultiLevelHeader />
         <MultiLevelContentConatiner>
           <MultiLevelBody Edit={Edit} />
           <MultiLevelSideBar />

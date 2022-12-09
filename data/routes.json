@@ -36,5 +36,8 @@
     "/users/:Name/about/": "/userInfo",
     "/users/social_links": "/socialLinks",
     "/users/social_links/:id": "/postSocialLinks",
-    "/users/image":"/userImage"
+    "/users/image":"/userImage",
+    "/getpost/:postID":"/getpost",
+    "/posts/:postID":"/editpost"
+
 }

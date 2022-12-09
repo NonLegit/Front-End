@@ -5,29 +5,51 @@ import {
   // eslint-disable-next-line no-unused-vars
   convertToRaw, EditorState, ContentState, convertFromHTML,
 } from 'draft-js';
+// draftToHtml(convertToRaw(postText.getCurrentContent()))
 
 // MUI Components
 import { Box } from '@mui/material';
 
 // Components
-import TextEditor from '../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
-import RedditButton from '../../RedditButton/RedditButton';
+import draftToHtml from 'draftjs-to-html';
+import TextEditor from '../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
+import RedditButton from '../../../../RedditButton/RedditButton';
+
+// Contexts
+import { usePostContext } from '../../../../../contexts/PostContext';
 
 // Styles
 import { SaveButton } from './styles';
+import { editPost } from './editPostServer';
 
-// draftToHtml(convertToRaw(postText.getCurrentContent()))
 function EditPost() {
+  // Context
+  const { post, setPost } = usePostContext();
+
+  // States
   const [text, setText] = useState(EditorState.createWithContent(ContentState.createFromBlockArray(
-    convertFromHTML('<p>Basma.</p>'),
+    convertFromHTML('EditPost.jsx to be modified  :) '),
   )));
+  const [readyToSave, setReadyToSave] = useState(false);
 
   const handlePostTextChange = (text) => {
+    setReadyToSave(true);
     setText(text);
+    console.log(draftToHtml(convertToRaw(text.getCurrentContent())));
   };
+
+  const cancel = () => {
+    console.log('cancel');
+  };
+
+  const save = () => {
+    // console.log('save');
+    // console.log(post);
+    editPost(post?._id, text, setPost);
+  };
+
   return (
     <div>
-      EditPost
       <TextEditor handlePostTextChange={handlePostTextChange} postText={text} Edit />
       <Box m={2} gap={1} display="flex" justifyContent="flex-end">
         <RedditButton
@@ -35,12 +57,16 @@ function EditPost() {
           fontSize={14}
           fontWeight="bold"
           type="submit"
+          onClick={cancel}
         >
           Cancel
         </RedditButton>
+
         <SaveButton
           variant="contained"
           type="submit"
+          onClick={save}
+          disabled={!readyToSave}
         >
           Save
         </SaveButton>

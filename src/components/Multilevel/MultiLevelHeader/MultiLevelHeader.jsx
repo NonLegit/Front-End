@@ -15,7 +15,7 @@ import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 import { usePostContext } from '../../../contexts/PostContext';
 
 // Styles
-import { MultiLevelHeaderBox, MultiLevelHeaderVotes } from './Styles';
+import { MultiLevelHeaderBox, MultiLevelHeaderVotes } from './styles';
 import theme from '../../../styles/theme';
 
 function MultiLevelHeader() {

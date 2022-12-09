@@ -2,19 +2,21 @@ import {
   useEffect, useState, createContext, useContext, useMemo,
 } from 'react';
 
+// Server
+import { getPost } from '../components/Multilevel/multiLevelServer';
+
 export const PostContext = createContext();
 
 function PostContextProvider(props) {
-  const { children } = props;
+  const { postID, children } = props;
 
   // State
   const [post, setPost] = useState(null);
 
   // UseEffect
   useEffect(() => {
-    setPost({ votes: 10, title: 'Basma Post', text: 'To be edited' });
-    console.log('hello');
-  });
+    getPost(postID, setPost);
+  }, []);
 
   const value = useMemo(() => ({ post, setPost }), [post, setPost]);
 
