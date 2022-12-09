@@ -35,7 +35,7 @@ function MainProfile() {
   useEffect(() => {
     if (statusCode === 404) setIsExist(false); // 404
 
-    setNsfw(info?.adultContent);
+    setNsfw(info?.nsfw);
     if (userNsfw === false && nsfw === true) {
       setWarning(true);
     } else {
