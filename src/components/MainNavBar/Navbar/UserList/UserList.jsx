@@ -12,6 +12,7 @@ import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import { redditCookie } from '../../../Authentication/authenticationServer';
 import FormDialog from '../../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import {
   StyledList,
@@ -28,6 +29,9 @@ import { logOut } from './server';
 function UserList() {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie, removeCookie] = useCookies(['redditUser']);
+  React.useEffect(() => {
+    redditCookie(setCookie);
+  }, []);
   const [openUserList, setOpenUserList] = React.useState(0);
   const handleClickUserList = () => {
     setOpenUserList(!openUserList);
