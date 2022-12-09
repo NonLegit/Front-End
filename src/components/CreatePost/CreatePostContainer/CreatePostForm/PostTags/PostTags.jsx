@@ -33,10 +33,12 @@ function PostTags(props) {
 
   // services
   const [flairs, flairsError] = flairsServer(subreddit);
+  console.log('flairs', flairs);
 
   // handlers
-  const handleOpenFlairs = () => {
-    setOpenFlairs(false);
+  const handleOpenFlairs = (value) => {
+    setOpenFlairs(value);
+    console.log('value', value);
   };
   return (
     <Box
@@ -115,8 +117,8 @@ function PostTags(props) {
           <OptionButton
             color="third"
             variant="outlined"
-            onClick={handleOpenFlairs}
-            disabled={!subreddit || flairsError}
+            onClick={() => handleOpenFlairs(true)}
+            disabled={!subreddit || flairsError || !flairs}
           >
             <LocalOfferOutlinedIcon
               sx={{
@@ -126,8 +128,13 @@ function PostTags(props) {
             />
             flair
             <KeyboardArrowDownOutlinedIcon />
-            <Flairs open={openFlairs} setOpen={setOpenFlairs} setFlair={setFlair} flairs={flairs} />
           </OptionButton>
+          <Flairs
+            open={openFlairs}
+            handleOpenFlairs={handleOpenFlairs}
+            setFlair={setFlair}
+            flairs={flairs}
+          />
         </Box>
       </CustomTooltip>
     </Box>

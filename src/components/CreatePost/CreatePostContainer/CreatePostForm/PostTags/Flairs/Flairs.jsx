@@ -6,13 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 function Flairs(props) {
   // props
   const {
-    open, setOpen, setFlair, flairs,
+    open, handleOpenFlairs, setFlair, flairs,
   } = props;
 
   // handlers
-  const handleClose = () => {
-    setOpen(false);
-  };
   const handleChangeFlair = (event) => {
     setFlair(event.target.value);
   };
@@ -23,13 +20,17 @@ function Flairs(props) {
         Subscribe
         <IconButton
           color="primary"
-          onClick={handleClose}
+          onClick={() => {
+            handleOpenFlairs(false);
+            console.log('hiiiiii');
+          }}
         >
           <CloseIcon />
         </IconButton>
 
       </DialogTitle>
       <DialogContent>
+        {flairs && (
         <RadioGroup
           onChange={handleChangeFlair}
         >
@@ -38,9 +39,17 @@ function Flairs(props) {
               _id: id, text, backgroundColor, textColor,
             } = flair;
             console.log(backgroundColor, textColor);
-            return (<FormControlLabel value={id} control={<Radio />} label={text} />);
+            return (
+              <FormControlLabel
+                value={id}
+                control={<Radio />}
+                label={text}
+                key={id}
+              />
+            );
           })}
         </RadioGroup>
+        )}
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>

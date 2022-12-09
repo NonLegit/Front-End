@@ -1,9 +1,11 @@
 import useFetch from '../../../../../hooks/useFetch';
 
-const flairsServer = async (subreddit) => {
+const flairsServer = (subreddit) => {
   const [data, error, statusCode] = useFetch(`/subreddits/${subreddit}/flairs`);
-  console.log(statusCode);
-  return [data, error];
+  const flairs = data?.data;
+  console.log(data);
+  console.log('el gommaaaaa', flairs, statusCode, error);
+  return [flairs, error];
 };
 
 export default flairsServer;

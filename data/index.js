@@ -5,6 +5,7 @@ const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { posts } = require('./submitPost.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
+const subredditFlairs = require('./subredditFlairs.json');
 const Flair = require('./Flair.json');
 const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
@@ -73,5 +74,6 @@ module.exports = () => ({
   socialLinks,
   postSocialLinks,
   userImage,
+  subredditFlairs,
   // Something more
 });

@@ -40,8 +40,8 @@ function SubredditsMenu(props) {
   const [communityName, setCommunityName] = useState(subredditName);
   const [chosenCommunityIcon, setChosenCommunityIcon] = useState(subredditIcon);
   const [showIcon, setShowIcon] = useState(!!subredditName);
-  console.log('show icon', showIcon);
-  console.log(chosenCommunityIcon);
+  // console.log('show icon', showIcon);
+  // console.log(chosenCommunityIcon);
 
   useEffect(() => {
     setChosenCommunityIcon(subredditIcon);
@@ -84,7 +84,7 @@ function SubredditsMenu(props) {
     setChosenCommunityIcon(null);
   };
   const handleFilter = (community) => iMatcher(`r/${community.subredditName}`, communityName);
-  console.log(communityName);
+  // console.log(communityName);
 
   // variables
   const filteredArray = communities?.filter(handleFilter);

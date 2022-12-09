@@ -100,7 +100,7 @@ function CreatePostForm() {
   /**
    * This function handles post text change
    */
-  if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
+  // if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
 
   const handlePostTextChange = (editorState) => {
     setPostText(editorState);
