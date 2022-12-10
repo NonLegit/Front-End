@@ -8,6 +8,7 @@ import ModerationMainPage from '../components/Moderation/ModerationMainPage/Mode
 import Queue from '../components/Moderation/ModQueues/Queue';
 import Ban from '../components/Moderation/ModUserMng/Banned/BanUser';
 import Approve from '../components/Moderation/ModUserMng/Approved/ApproveUser';
+import Mute from '../components/Moderation/ModUserMng/Muted/MuteUser';
 
 const renderSwitch = (param) => {
   switch (param) {
@@ -19,6 +20,8 @@ const renderSwitch = (param) => {
       return <Ban />;
     case 'Approved':
       return <Approve />;
+    case 'Muted':
+      return <Mute />;
     default:
       return <ModerationMainPage />;
   }
