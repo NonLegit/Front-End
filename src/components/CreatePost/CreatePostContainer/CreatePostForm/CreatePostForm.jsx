@@ -88,6 +88,7 @@ function CreatePostForm() {
       nswf,
       sendReplies,
       flairId: flair?.id,
+      flairText: flair?.text,
     };
     // console.log(post);
     submitPostServer(post, navigate);
