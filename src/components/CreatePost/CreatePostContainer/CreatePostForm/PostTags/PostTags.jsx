@@ -23,7 +23,7 @@ import flairsServer from './flairsServer';
 
 function PostTags(props) {
   const {
-    spoiler, hanldeSpoiler, nswf, hanldeNsfw, setFlair, subreddit, flair,
+    spoiler, hanldeSpoiler, nswf, hanldeNsfw, setFlair, subreddit, flair, communityName,
   } = props;
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down('sm'));
@@ -101,7 +101,7 @@ function PostTags(props) {
         </NsfwButton>
       </CustomTooltip>
       <CustomTooltip
-        title="Not available for this community"
+        title={flairs ? (flair ? 'Change or remove flair' : 'Add flair') : 'Not available for this community'}
         placement="top"
         arrow
         disableInteractive
@@ -116,10 +116,11 @@ function PostTags(props) {
           }}
         >
           <OptionButton
-            color="third"
-            variant="outlined"
+            color={!flair ? 'third' : ''}
+            variant={!flair ? 'outlined' : ''}
             onClick={() => handleOpenFlairs(true)}
             disabled={!subreddit || flairsError || !flairs}
+            flair={flair}
           >
             <LocalOfferOutlinedIcon
               sx={{
@@ -127,7 +128,15 @@ function PostTags(props) {
                 transform: 'scalex(-1)',
               }}
             />
-            flair
+            <Box sx={{
+              maxWidth: 130,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
+            >
+              {flair ? flair.text : 'flair' }
+            </Box>
             <KeyboardArrowDownOutlinedIcon />
           </OptionButton>
         </Box>
@@ -138,6 +147,7 @@ function PostTags(props) {
         setFlair={setFlair}
         flairs={flairs}
         flair={flair}
+        communityName={communityName}
       />
     </Box>
   );

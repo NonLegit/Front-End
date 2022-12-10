@@ -58,6 +58,7 @@ function CreatePostForm() {
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
   const [flair, setFlair] = useState(null);
+  const [communityName, setCommunityName] = useState(subredditName);
   // console.log('title', title);
   // console.log('community to post in', communityToPostIn);
 
@@ -165,6 +166,9 @@ function CreatePostForm() {
         subredditIcon={subredditIcon}
         subredditName={subredditName}
         ownerType={ownerType}
+        communityName={communityName}
+        setCommunityName={setCommunityName}
+        setFlair={setFlair}
       />
       <PostFormContainer>
         <PostTypes
@@ -222,6 +226,7 @@ function CreatePostForm() {
           setFlair={setFlair}
           subreddit={communityToPostIn}
           flair={flair}
+          communityName={communityName}
         />
         <Divider />
         <PostSubmission

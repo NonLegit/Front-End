@@ -13,7 +13,7 @@ import RedditButton from '../../../../../RedditButton/RedditButton';
 function Flairs(props) {
   // props
   const {
-    open, handleOpenFlairs, setFlair, flairs, flair,
+    open, handleOpenFlairs, setFlair, flairs, flair, communityName,
   } = props;
 
   console.log(flair);
@@ -40,7 +40,11 @@ function Flairs(props) {
     <CustomDialog open={open}>
       <DialogTitle>
         <Title>
-          Select r/Egypt flair
+          Select
+          {' '}
+          {communityName}
+          {' '}
+          flair
         </Title>
         <CloseButton
           disableRipple

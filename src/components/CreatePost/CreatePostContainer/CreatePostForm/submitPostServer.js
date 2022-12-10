@@ -5,6 +5,7 @@ import axios from '../../../../services/instance';
  * @function submitPostServer
  * @param {Object} post - post to be posted
  */
+// eslint-disable-next-line no-unused-vars
 const submitPostServer = (post, navigate) => {
   console.log(JSON.stringify(post));
   axios.post('/posts', JSON.stringify(post)).then((response) => {
@@ -14,7 +15,7 @@ const submitPostServer = (post, navigate) => {
       const { message } = response.data;
       console.log(message);
     } else {
-      navigate('/');
+      // navigate('/');
     }
     alert('posted successfully');
   }).catch((e) => {

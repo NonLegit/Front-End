@@ -28,7 +28,7 @@ import {
 function SubredditsMenu(props) {
   // props
   const {
-    setCommunityToPostIn, setOwnerType, subredditIcon, subredditName, ownerType,
+    setCommunityToPostIn, setOwnerType, subredditIcon, subredditName, ownerType, communityName, setCommunityName, setFlair,
   } = props;
 
   // contexts
@@ -37,7 +37,6 @@ function SubredditsMenu(props) {
   // states
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [communityName, setCommunityName] = useState(subredditName);
   const [chosenCommunityIcon, setChosenCommunityIcon] = useState(subredditIcon);
   const [showIcon, setShowIcon] = useState(!!subredditName);
   // console.log('show icon', showIcon);
@@ -57,6 +56,7 @@ function SubredditsMenu(props) {
     setSearching(true);
     setChosenCommunityIcon(null);
     setCommunityToPostIn(null);
+    setFlair(null);
   };
   const handleClickAway = () => {
     setOpen(false);
