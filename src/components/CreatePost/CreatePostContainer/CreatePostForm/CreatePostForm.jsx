@@ -86,7 +86,7 @@ function CreatePostForm() {
       spoiler,
       nswf,
       sendReplies,
-      flairId: flair,
+      flairId: flair?.id,
     };
     // console.log(post);
     submitPostServer(post, navigate);
@@ -221,6 +221,7 @@ function CreatePostForm() {
           hanldeNsfw={hanldeNsfw}
           setFlair={setFlair}
           subreddit={communityToPostIn}
+          flair={flair}
         />
         <Divider />
         <PostSubmission

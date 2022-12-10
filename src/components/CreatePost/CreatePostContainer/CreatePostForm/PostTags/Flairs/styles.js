@@ -1,5 +1,5 @@
 import {
-  Dialog, FormControlLabel, IconButton, Radio,
+  Dialog, DialogActions, FormControlLabel, IconButton, Radio,
 } from '@mui/material';
 import { styled } from '@mui/system';
 import RedditButton from '../../../../../RedditButton/RedditButton';
@@ -25,6 +25,7 @@ export const CustomDialog = styled(Dialog)(({ theme }) => ({
   },
   '& .MuiDialogContent-root': {
     padding: 0,
+    height: '10px',
   },
 }));
 
@@ -46,7 +47,7 @@ export const SelectedFlair = styled('div')(() => ({
 export const FlairsContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
-  height: 348,
+  height: 374,
   overflowY: 'auto',
   padding: '0 2px',
   backgroundColor: '#f6f7f8',
@@ -77,7 +78,7 @@ export const FlairFormControlLabel = styled(FormControlLabel)(({ selected }) => 
 }));
 
 export const ApplyFlairButton = styled(RedditButton)(() => ({
-  padding: '3px 16px',
+  padding: '3px 20px',
   fontSize: 14,
   fontWeight: 'bold',
   '&.Mui-disabled': {
@@ -86,4 +87,8 @@ export const ApplyFlairButton = styled(RedditButton)(() => ({
     backgroundColor: '#8D8D8D',
     color: '#ffffff80',
   },
+}));
+
+export const FlairDialogActions = styled(DialogActions)(() => ({
+  padding: 16,
 }));

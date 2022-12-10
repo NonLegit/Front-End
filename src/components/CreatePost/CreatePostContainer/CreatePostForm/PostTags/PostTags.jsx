@@ -23,7 +23,7 @@ import flairsServer from './flairsServer';
 
 function PostTags(props) {
   const {
-    spoiler, hanldeSpoiler, nswf, hanldeNsfw, setFlair, subreddit,
+    spoiler, hanldeSpoiler, nswf, hanldeNsfw, setFlair, subreddit, flair,
   } = props;
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down('sm'));
@@ -33,13 +33,14 @@ function PostTags(props) {
 
   // services
   const [flairs, flairsError] = flairsServer(subreddit);
-  console.log('flairs', flairs);
+  // console.log('flairs', flairs);
 
   // handlers
   const handleOpenFlairs = (value) => {
     setOpenFlairs(value);
     console.log('value', value);
   };
+  console.log(flair);
   return (
     <Box
       display="flex"
@@ -136,6 +137,7 @@ function PostTags(props) {
         handleOpenFlairs={handleOpenFlairs}
         setFlair={setFlair}
         flairs={flairs}
+        flair={flair}
       />
     </Box>
   );

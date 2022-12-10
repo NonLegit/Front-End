@@ -1,34 +1,41 @@
 import {
-  DialogActions, DialogContent, DialogTitle, RadioGroup,
+  Box,
+  DialogContent, DialogTitle, RadioGroup,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import {
   ApplyFlairButton,
-  CloseButton, CustomDialog, Flair, FlairFormControlLabel, FlairRadio, FlairsContainer, SelectedFlair, Title,
+  CloseButton, CustomDialog, Flair, FlairDialogActions, FlairFormControlLabel, FlairRadio, FlairsContainer, SelectedFlair, Title,
 } from './styles';
 import RedditButton from '../../../../../RedditButton/RedditButton';
 
 function Flairs(props) {
   // props
   const {
-    open, handleOpenFlairs, setFlair, flairs,
+    open, handleOpenFlairs, setFlair, flairs, flair,
   } = props;
 
-  // refs
+  console.log(flair);
+  // states
   const [currentFlair, setCurrentFlair] = useState(null);
 
   // handlers
   const handleChangeFlair = (event) => {
     setCurrentFlair(event.target.value);
+    console.log(event.target.value);
   };
   const handleClearFlairs = () => {
     setFlair(null);
+    setCurrentFlair(null);
   };
   const handleApplyFlair = () => {
-    setFlair(currentFlair);
+    setFlair(JSON.parse(currentFlair));
     handleOpenFlairs(false);
   };
+
+  // variables
+  const { text: currentFlairText, textColor: currentFlairColor, backgroundColor: currentFlairBackgroundColor } = JSON.parse(currentFlair || '{}');
   return (
     <CustomDialog open={open}>
       <DialogTitle>
@@ -40,7 +47,7 @@ function Flairs(props) {
           color="third"
           onClick={() => {
             handleOpenFlairs(false);
-            console.log('hiiiiii');
+            setCurrentFlair(null);
           }}
         >
           <CloseIcon />
@@ -49,12 +56,29 @@ function Flairs(props) {
       </DialogTitle>
       <DialogContent dividers>
         <SelectedFlair>
-          No flair selected
+          {currentFlair ? (
+            <Box
+              display="flex"
+              alignItems="center"
+              gap={0.25}
+              height={16}
+            >
+              Post Title
+              <Flair
+                backgroundColor={currentFlairBackgroundColor}
+                color={currentFlairColor}
+              >
+                {currentFlairText}
+              </Flair>
+            </Box>
+          )
+            : 'No flair selected'}
         </SelectedFlair>
         <FlairsContainer>
           {flairs && (
           <RadioGroup
             onChange={handleChangeFlair}
+            value={currentFlair}
           >
             {flairs.map((flair) => {
               const {
@@ -64,7 +88,9 @@ function Flairs(props) {
               // console.log(flairsRef?.current?.value);
               return (
                 <FlairFormControlLabel
-                  value={id}
+                  value={JSON.stringify({
+                    id, text, textColor, backgroundColor,
+                  })}
                   selected={currentFlair === id}
                   control={(
                     <FlairRadio
@@ -88,16 +114,17 @@ function Flairs(props) {
           )}
         </FlairsContainer>
       </DialogContent>
-      <DialogActions>
+      <FlairDialogActions>
         <RedditButton
           variant="outlined"
-          padding="3px 16px"
+          padding="2px 16px"
           fontSize={14}
           fontWeight="bold"
           type="submit"
+          color="third"
           onClick={handleClearFlairs}
         >
-          clear
+          clear flair
         </RedditButton>
         <ApplyFlairButton
           variant="contained"
@@ -108,7 +135,7 @@ function Flairs(props) {
         >
           apply
         </ApplyFlairButton>
-      </DialogActions>
+      </FlairDialogActions>
     </CustomDialog>
   );
 }
