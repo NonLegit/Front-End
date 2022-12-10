@@ -46,7 +46,7 @@ function CreatePostInHome(props) {
         onClick={() => handleClick(0)}
       />
       <Link
-        to="/submit"
+        to={subredditName ? `/submit/r/${subredditName}` : '/submit'}
         onClick={() => handleClick(1)}
       >
         <CustomIconButton color="third">
@@ -54,7 +54,7 @@ function CreatePostInHome(props) {
         </CustomIconButton>
       </Link>
       <Link
-        to="/submit"
+        to={subredditName ? `/submit/r/${subredditName}` : '/submit'}
         onClick={() => handleClick(2)}
       >
         <CustomIconButton color="third">
