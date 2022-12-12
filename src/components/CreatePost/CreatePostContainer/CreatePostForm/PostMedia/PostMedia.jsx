@@ -114,7 +114,7 @@ function PostMedia(props) {
                 >
                   <input
                     hidden
-                    accept="video/*,image/*"
+                    accept="image/*"
                     multiple
                     type="file"
                     onChange={handlePostMedia}

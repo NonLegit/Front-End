@@ -39,6 +39,7 @@ const unsave = require('./unsave.json');
 const hide = require('./hide.json');
 const unhide = require('./unhide.json');
 const vote = require('./vote.json');
+const addImagesToPost = require('./addImagesToPost.json');
 
 // Something more
 
@@ -86,5 +87,6 @@ module.exports = () => ({
   hide,
   unhide,
   vote,
+  addImagesToPost,
   // Something more
 });

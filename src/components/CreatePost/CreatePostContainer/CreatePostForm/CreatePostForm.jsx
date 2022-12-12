@@ -43,7 +43,7 @@ function CreatePostForm() {
   const { initialPostType } = usePostTypeContext();
 
   // variables
-  const postTypes = ['self', 'media', 'url'];
+  const postTypes = ['self', 'image', 'url'];
 
   // states
   const [postMedia, setPostMedia] = useState([]);
@@ -91,7 +91,7 @@ function CreatePostForm() {
       flairText: flair?.text,
     };
     // console.log(post);
-    submitPostServer(post, navigate);
+    submitPostServer(post, navigate, postType, postMedia);
   };
   /**
    * This function handles title change

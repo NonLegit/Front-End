@@ -41,6 +41,7 @@
     "/posts/:postId/unsave":"/unsave",
     "/posts/:postId/hide":"/hide",
     "/posts/:postId/unhide":"/hide",
-    "/posts/:postId/vote":"/vote"
+    "/posts/:postId/vote":"/vote",
+    "/posts/:postId/images":"/addImagesToPost"
 
 }
