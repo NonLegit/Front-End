@@ -38,6 +38,6 @@
     "/users/social_links/:id": "/postSocialLinks",
     "/users/image":"/userImage",
     "/getpost/:postID":"/getpost",
-    "/posts/:postID":"/editpost"
-
+    "/posts/:postID":"/editpost",
+    "/comments/:postID":"/postcomments"
 }

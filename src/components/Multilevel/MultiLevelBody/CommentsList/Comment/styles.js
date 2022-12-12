@@ -11,10 +11,66 @@ import theme from '../../../../../styles/theme/index';
 export const CommentContainer = styled(Box)(() => ({
   width: '100%',
   display: 'flex',
-  flexDirection: 'column',
-  //   flexWrap: 'nowrap',
-
+  flexDirection: 'row',
   padding: '5px',
+
+  border: '2px solid black',
+}));
+
+// CommentLeftSideBar
+export const CommentLeftSideBar = styled(Box)(() => ({
+  // height: '100%',
+  // width: '10px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // flexWrap: 'nowrap',
+
+  border: '1px solid green',
+}));
+
+// Image Avatar for comment
+export const ImgAvatar = styled(Avatar)(() => ({
+  width: '30px',
+  height: '30px',
+}));
+
+// Vertical Align of comment
+export const CommentAlign = styled(Divider)(() => ({
+  '&.MuiDivider-vertical': {
+    width: '2px',
+    flex: 1, // Extend on the main axis of the flex box
+    margin: '5px auto',
+    border: 'none',
+    color: theme.palette.offwhite.main,
+    backgroundColor: theme.palette.offwhite.main,
+  },
+  '&:hover': {
+    color: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.main,
+  },
+}
+));
+
+// CommentBody
+export const CommentBody = styled(Box)(() => ({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  margin: '1px 2px',
+  // alignItems: 'center',
+  // justifyContent: 'center',
+  //   flexWrap: 'nowrap',
+  // backgroundColor: 'green',
+  // padding: '5px 2px',
+
+  // Children Margin
+  // '& > * ': {
+  //   margin: '0px 3px',
+  // },
+
+  border: '2px solid blue',
 }));
 
 // CommentHeader
@@ -26,19 +82,14 @@ export const CommentHeader = styled(Box)(() => ({
   // justifyContent: 'center',
   //   flexWrap: 'nowrap',
   // backgroundColor: 'green',
-  padding: '5px 2px',
+  // padding: '5px 2px',
 
   // Children Margin
   '& > * ': {
     margin: '0px 3px',
   },
 
-}));
-
-// Image Avatar for comment
-export const ImgAvatar = styled(Avatar)(() => ({
-  width: '30px',
-  height: '30px',
+  border: '2px solid red',
 }));
 
 // Link to Author of the Comment
@@ -60,35 +111,27 @@ export const Duration = styled(Typography)(() => ({
   fontWeight: '500',
 }));
 
-// CommentBody
-export const CommentBody = styled(Box)(() => ({
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'row',
-  padding: '2px 2px',
-  //   flexWrap: 'nowrap',
-  backgroundColor: 'blue',
-
+// Link to Author of the Comment
+export const CommentText = styled(Typography)(() => ({
+  fontSize: '12px',
 }));
 
-// Vertical Align of comment
-export const CommentAlign = styled(Divider)(() => ({
-  width: '100px',
-  height: '10px',
-  margin: '5px',
-  border: 'none',
-  color: theme.palette.third.main,
-  backgroundColor: theme.palette.third.main,
+// // CommentBody
+// export const CommentBody = styled(Box)(() => ({
+//   width: '100%',
+//   display: 'flex',
+//   flexDirection: 'row',
+//   padding: '2px 12px',
+//   //   flexWrap: 'nowrap',
+//   // backgroundColor: 'blue',
 
-  // transform: rotate(90),
-}
-));
+// }));
 
-// CommentContent
-export const CommentContent = styled(Box)(() => ({
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  //   flexWrap: 'nowrap',
-  backgroundColor: 'aqua',
-}));
+// // CommentContent
+// export const CommentContent = styled(Box)(() => ({
+//   width: '100%',
+//   // display: 'flex',
+//   // flexDirection: 'column',
+//   //   flexWrap: 'nowrap',
+//   // backgroundColor: 'aqua',
+// }));

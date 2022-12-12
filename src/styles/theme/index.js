@@ -30,6 +30,10 @@ const theme = createTheme({
       light: '#ffffff',
       dark: '#898989',
     },
+    offwhite: {
+      main: '#DAE0E6',
+      dark: '#2E2F30',
+    },
   },
 });
 

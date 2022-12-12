@@ -8,7 +8,7 @@ import MultiLevelHeader from './MultiLevelHeader/MultiLevelHeader';
 import MultiLevelSideBar from './MultiLevelSideBar/MultiLevelSideBar';
 
 // Styles
-import { MultiLevelContentConatiner, MultiLevelConatiner } from './Styles';
+import { MultiLevelContentConatiner, MultiLevelConatiner } from './styles';
 
 // Context
 import PostContextProvider from '../../contexts/PostContext';

@@ -1,50 +1,52 @@
 {
-    "_id": "string",
-    "author": {
+    "status": "sucess",
+    "post": {
         "_id": "string",
-        "name": "string"
-    },
-    "ownerType": "Subreddit",
-    "owner": {
-        "_id": "string",
-        "name": "string",
-        "icon": "string"
-    },
-    "replies": [
-        "string"
-    ],
-    "flairId": {
-        "_id": "string",
+        "author": {
+            "_id": "string",
+            "name": "string"
+        },
+        "ownerType": "Subreddit",
+        "owner": {
+            "_id": "string",
+            "name": "string",
+            "icon": "string"
+        },
+        "replies": [
+            "string"
+        ],
+        "flairId": {
+            "_id": "string",
+            "text": "string",
+            "backgroundColor": "string",
+            "textColor": "string"
+        },
+        "flairText": "string",
+        "sharedFrom": "string",
+        "title": "string",
+        "kind": "link",
         "text": "string",
-        "backgroundColor": "string",
-        "textColor": "string",
-        "permissions": "modOnly"
-    },
-    "flairText": "string",
-    "sharedFrom": "string",
-    "title": "Post Title",
-    "kind": "link",
-    "text": "Basma's post",
-    "images": [
-        "string"
-    ],
-    "video": "string",
-    "createdAt": "2017-07-21T17:32:28Z",
-    "locked": true,
-    "isDeleted": true,
-    "sendReplies": true,
-    "nsfw": true,
-    "spoiler": true,
-    "votes": 12,
-    "views": 0,
-    "commentCount": 0,
-    "shareCount": 0,
-    "suggestedSort": "top",
-    "scheduled": true,
-    "sortOnHot": 0,
-    "sortOnBest": 0,
-    "isSpam": true,
-    "url": "string",
-    "isSaved": true,
-    "postVoteStatus": 0
+        "images": [
+            "string"
+        ],
+        "video": "string",
+        "createdAt": "2017-07-21T17:32:28Z",
+        "locked": true,
+        "isDeleted": true,
+        "sendReplies": true,
+        "nsfw": true,
+        "spoiler": true,
+        "votes": 0,
+        "views": 0,
+        "commentCount": 0,
+        "shareCount": 0,
+        "suggestedSort": "top",
+        "scheduled": true,
+        "sortOnHot": 0,
+        "sortOnBest": 0,
+        "isSpam": true,
+        "url": "string",
+        "isSaved": true,
+        "postVoteStatus": 0
+    }
 }

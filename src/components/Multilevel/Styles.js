@@ -2,9 +2,12 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+// theme
+import theme from '../../styles/theme/index';
+
 // MultiLevel Container
 export const MultiLevelConatiner = styled(Box)(() => ({
-  backgroundColor: '#2E2F30',
+  backgroundColor: theme.palette.offwhite.dark,
 
   padding: '0px 60px',
   display: 'flex',
@@ -17,7 +20,7 @@ export const MultiLevelConatiner = styled(Box)(() => ({
 // MultiLevelBody Left Container
 export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexBasis: '100%',
-  backgroundColor: '#DAE0E6',
+  backgroundColor: theme.palette.offwhite.main,
 
   padding: '20px',
   display: 'flex',

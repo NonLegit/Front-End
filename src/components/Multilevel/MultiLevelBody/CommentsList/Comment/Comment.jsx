@@ -1,5 +1,5 @@
-// MUI Components
-import { Divider } from '@mui/material';
+// Components
+import CommentActions from './CommentActions/CommentActions';
 
 // Utlis
 import calculateTime from '../../../../../utils/calculateTime';
@@ -8,35 +8,37 @@ import calculateTime from '../../../../../utils/calculateTime';
 import {
   AuthorLink,
   CommentAlign,
-  CommentBody, CommentContainer, CommentContent, CommentHeader, Duration, ImgAvatar,
+  CommentBody,
+  CommentContainer, CommentHeader, CommentLeftSideBar, Duration, ImgAvatar,
+  CommentText,
 } from './styles';
 
 function Comment(props) {
   const { comment, src } = props;
 
   // Constants
-  const authorProfilelink = `../../../../../user/${comment?.author}`;
+  const authorProfilelink = `./user/${comment?.author}`;
+
+  // Functions
+  const collapseComment = () => {
+    console.log('Comment', comment?.id, 'Collpased');
+  };
 
   return (
     <CommentContainer>
-      {/* {comment?.id} */}
-      {/* {comment?.author} */}
-      {/* Comment Header = row = Avatar + Author +Time */}
-      <CommentHeader>
+      <CommentLeftSideBar>
         <ImgAvatar alt={comment?.author} src={src} />
-        <AuthorLink href={authorProfilelink}>{comment?.author}</AuthorLink>
-        <Duration>{comment ? calculateTime(comment?.createdAt) : null}</Duration>
-      </CommentHeader>
-      {/* Comment Body = row = divider + comment Content */ }
+        <CommentAlign orientation="vertical" flexItem onClick={collapseComment} />
+      </CommentLeftSideBar>
       <CommentBody>
-        <CommentAlign />
-        <CommentContent>
-          {comment?.post}
-        </CommentContent>
-        <Divider orientation="vertical" flexItem />
-
+        <CommentHeader>
+          <AuthorLink href={authorProfilelink}>{comment?.author}</AuthorLink>
+          <Duration>{comment ? calculateTime(comment?.createdAt) : null}</Duration>
+        </CommentHeader>
+        <CommentText>{comment?.post}</CommentText>
+        <CommentActions />
+        {/* Children */}
       </CommentBody>
-
     </CommentContainer>
   );
 }
