@@ -9,9 +9,8 @@ import theme from '../../../../../styles/theme/index';
 
 // CommentContainer
 export const CommentContainer = styled(Box)(() => ({
-  width: '100%',
   // padding: '5px',
-  margin: '5px -12px !important',
+  margin: '5px 0px 5px -12px !important',
 
   display: 'flex',
   flexDirection: 'row',
