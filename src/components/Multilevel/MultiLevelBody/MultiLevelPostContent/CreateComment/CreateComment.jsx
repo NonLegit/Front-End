@@ -42,10 +42,9 @@ function CreateComment() {
 
   const comment = () => {
     if (saveComment(post?._id, 'parent', draftToHtml(convertToRaw(text.getCurrentContent())))) {
-      // Delete Text Box after comment
+      setText(EditorState.createEmpty());
       // Need refresh post Component =>to pop comment
     }
-    console.log('Comment Saved');
   };
 
   return (

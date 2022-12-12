@@ -1,8 +1,8 @@
 // services
 import axios from '../../../../../services/instance';
 
-export const saveComment = (parentID, parentType, comment) => {
-  axios.post(
+export const saveComment = async (parentID, parentType, comment) => {
+  await axios.post(
     '/comments',
     {
       parent: `${parentID}`,
