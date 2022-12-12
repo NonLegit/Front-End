@@ -40,5 +40,5 @@
     "/getpost/:postID":"/getpost",
     "/posts/:postID":"/editpost",
     "/comments":"/createcomment",
-    "/comments/:postID":"/postcomments"
+    "/comments/comment_tree/:postID":"/postcomments"
 }

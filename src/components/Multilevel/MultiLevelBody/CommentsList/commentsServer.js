@@ -9,7 +9,7 @@ export const getComments = (postID) => {
 
   useEffect(() => {
     axios.get(
-      `/comments/${postID}`,
+      `/comments/comment_tree/${postID}`,
       {
         params: {
           limit: 10, // The maximum number of comments to return
