@@ -43,7 +43,7 @@ function CreatePostForm() {
   const { initialPostType } = usePostTypeContext();
 
   // variables
-  const postTypes = ['self', 'image', 'url'];
+  const postTypes = ['self', 'image', 'video', 'url'];
 
   // states
   const [postMedia, setPostMedia] = useState([]);
@@ -132,6 +132,7 @@ function CreatePostForm() {
   };
   const handlePostMedia = (e) => {
     console.log('ahmed sayed zizo', e.target.files);
+    setPostType(e.target.files[0].type.substr(0, 5) === 'video' ? 2 : 1);
     const files = Array.from(e.target.files).map((file) => ({
       src: URL.createObjectURL(file),
       caption: '',
@@ -209,16 +210,17 @@ function CreatePostForm() {
               postText={postText}
             />
           ) : null}
-          {postType === 1 ? (
+          {(postType === 1 || postType === 2) ? (
             <PostMedia
               handlePostMedia={handlePostMedia}
               postMedia={postMedia}
               setPostMedia={setPostMedia}
               activeMediaFile={activeMediaFile}
               setActiveMediaFile={setActiveMediaFile}
+              availableType={postType === 1 ? 'image' : 'video'}
             />
           ) : null}
-          {postType === 2 ? (
+          {postType === 3 ? (
             <PostUrl
               placeholder="Url"
               value={postUrl}
