@@ -34,6 +34,12 @@ const token = require('./token.json');
 const userInfo = require('./userInfo.json');
 const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
+const save = require('./save.json');
+const unsave = require('./unsave.json');
+const hide = require('./hide.json');
+const unhide = require('./unhide.json');
+const vote = require('./vote.json');
+
 // Something more
 
 module.exports = () => ({
@@ -75,5 +81,10 @@ module.exports = () => ({
   postSocialLinks,
   userImage,
   subredditFlairs,
+  save,
+  unsave,
+  hide,
+  unhide,
+  vote,
   // Something more
 });

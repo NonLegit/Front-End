@@ -37,7 +37,7 @@ import PostHeader from './PostHeader/PostHeader';
 function Post(props) {
   const {
     createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
-    subredit,
+    subredit, postVoteStatus, isSaved, postId,
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -47,7 +47,12 @@ function Post(props) {
   return (
     <PostContainer my={2}>
       {matchSm && (
-      <Reactions flexDirection="column" votes={votes} />
+      <Reactions
+        flexDirection="column"
+        votes={votes}
+        postVoteStatus={postVoteStatus}
+        postId={postId}
+      />
       )}
       <Box
         p={1}
@@ -94,6 +99,9 @@ function Post(props) {
           matchSm={matchSm}
           matchMd={matchMd}
           comments={commentCount}
+          postVoteStatus={postVoteStatus}
+          isSaved={isSaved}
+          postId={postId}
         />
       </Box>
     </PostContainer>

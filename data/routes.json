@@ -36,6 +36,11 @@
     "/users/social_links": "/socialLinks",
     "/users/social_links/:id": "/postSocialLinks",
     "/users/image":"/userImage",
-    "/subreddits/:subreddit/flairs":"/subredditFlairs"
+    "/subreddits/:subreddit/flairs":"/subredditFlairs",
+    "/posts/:postId/save":"/save",
+    "/posts/:postId/unsave":"/unsave",
+    "/posts/:postId/hide":"/hide",
+    "/posts/:postId/unhide":"/hide",
+    "/posts/:postId/vote":"/vote"
 
 }
