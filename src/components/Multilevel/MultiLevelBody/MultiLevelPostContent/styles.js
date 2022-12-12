@@ -9,5 +9,12 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexDirection: 'column',
   flexWrap: 'nowrap',
 
-  // backgroundColor: '#abcabc',
+  padding: '0px 10px',
+  marginTop: '5px',
+
+  '& > *': {
+    margin: '10px 0px',
+  },
+
+  // border: '5px solid #abcabc',
 }));

@@ -15,6 +15,8 @@ export const MultiLevelConatiner = styled(Box)(() => ({
   flexWrap: 'wrap',
   // alignItems: 'space-around',
   // justifyContent: 'flex-start',
+
+  border: '10px solid black',
 }));
 
 // MultiLevelBody Left Container
@@ -27,4 +29,7 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexDirection: 'row',
   justifyContent: 'space-around',
   flexWrap: 'nowrap',
+
+  border: '10px solid green',
+
 }));

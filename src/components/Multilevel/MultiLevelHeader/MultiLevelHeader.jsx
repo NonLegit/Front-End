@@ -1,6 +1,6 @@
 // MUI components
 import {
-  Divider, Typography, Button, IconButton,
+  Typography, Button, IconButton,
 } from '@mui/material';
 
 // Icons
@@ -15,7 +15,7 @@ import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 import { usePostContext } from '../../../contexts/PostContext';
 
 // Styles
-import { MultiLevelHeaderBox, MultiLevelHeaderVotes } from './styles';
+import { HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes } from './styles';
 import theme from '../../../styles/theme';
 
 function MultiLevelHeader() {
@@ -37,7 +37,8 @@ function MultiLevelHeader() {
   return (
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>
-        <Divider orientation="vertical" flexItem />
+        {/* <Divider orientation="vertical" flexItem /> */}
+        <HeaderVerticalDivider orientation="vertical" flexItem />
         <IconButton onClick={upVote}>
           <VoteIcon
             color={theme.palette.secondary?.main}
@@ -51,7 +52,7 @@ function MultiLevelHeader() {
             direction="down"
           />
         </IconButton>
-        <Divider orientation="vertical" flexItem light />
+        <HeaderVerticalDivider orientation="vertical" flexItem />
         {/* <VotedIcon
           color={theme.palette.secondary?.main}
           direction="down"
