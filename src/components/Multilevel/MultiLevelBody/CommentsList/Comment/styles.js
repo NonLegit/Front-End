@@ -14,7 +14,7 @@ export const CommentContainer = styled(Box)(() => ({
   flexDirection: 'row',
   padding: '5px',
 
-  border: '2px solid black',
+  // border: '2px solid black',
 }));
 
 // CommentLeftSideBar
@@ -115,23 +115,3 @@ export const Duration = styled(Typography)(() => ({
 export const CommentText = styled(Typography)(() => ({
   fontSize: '12px',
 }));
-
-// // CommentBody
-// export const CommentBody = styled(Box)(() => ({
-//   width: '100%',
-//   display: 'flex',
-//   flexDirection: 'row',
-//   padding: '2px 12px',
-//   //   flexWrap: 'nowrap',
-//   // backgroundColor: 'blue',
-
-// }));
-
-// // CommentContent
-// export const CommentContent = styled(Box)(() => ({
-//   width: '100%',
-//   // display: 'flex',
-//   // flexDirection: 'column',
-//   //   flexWrap: 'nowrap',
-//   // backgroundColor: 'aqua',
-// }));

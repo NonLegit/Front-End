@@ -1,9 +1,18 @@
-// import React from 'react';
+// MUI Components
+import { Typography } from '@mui/material';
+import ForumIcon from '@mui/icons-material/Forum';
 
-// function NoComments() {
-//   return (
-//     <div>NoComments</div>
-//   );
-// }
+// styles
+import { NoCommentsConatiner } from './styles';
 
-// export default NoComments;
+function NoComments() {
+  return (
+    <NoCommentsConatiner>
+      <ForumIcon color="primary" fontSize="large" />
+      <Typography paragraph>No Comments Yet</Typography>
+      <Typography paragraph>Be the first to share what you think!</Typography>
+    </NoCommentsConatiner>
+  );
+}
+
+export default NoComments;

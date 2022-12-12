@@ -38,6 +38,8 @@ function Comment(props) {
         <CommentText>{comment?.post}</CommentText>
         <CommentActions />
         {/* Children */}
+        {/* map children */}
+        {/* <Comment /> */}
       </CommentBody>
     </CommentContainer>
   );
