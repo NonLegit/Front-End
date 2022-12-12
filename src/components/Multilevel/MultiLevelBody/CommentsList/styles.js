@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 export const MultilevelPostCommentsConatiner = styled(Box)(() => ({
   width: '100%',
   minHeight: '340px',
-  padding: '5px 10px',
+  padding: '5px 0px 5px 25px',
   //   display: 'flex',
   //   flexDirection: 'row',
   //   flexWrap: 'nowrap',

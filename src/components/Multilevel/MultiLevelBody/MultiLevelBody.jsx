@@ -16,7 +16,7 @@ function MultiLevelBody({ Edit }) {
     <MultiLevelBodyConatiner>
       <PostContainer>
         {/* Reactions */}
-        <Reactions flexDirection="column" votes={post?.votes} />
+        <Reactions whitebg flexDirection="column" votes={post?.votes} />
         <MultiLevelPostContent Edit={Edit} />
       </PostContainer>
       <CommentsList />

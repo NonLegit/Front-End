@@ -25,6 +25,174 @@
                   "string"
                 ],
                 "replies": [
+                  {
+                    "_id":6,
+                    "author": "Eslam",
+                    "post": "Reply 1 on Reply 1 on comment 1",
+                    "mentions": [
+                      "string"
+                    ],
+                    "replies": [
+                      {
+                        "_id":7,
+                        "author": "Eslam",
+                        "post": "Reply 1 on Reply 1 on comment 1",
+                        "mentions": [
+                          "string"
+                        ],
+                        "replies": [
+                          {
+                            "_id":8,
+                            "author": "Eslam",
+                            "post": "Reply 1 on Reply 1 on comment 1",
+                            "mentions": [
+                              "string"
+                            ],
+                            "replies": [
+                              {
+                                "_id":10,
+                                "author": "Eslam",
+                                "post": "Reply 1 on Reply 1 on comment 1",
+                                "mentions": [
+                                  "string"
+                                ],
+                                "replies": [
+                                  {
+                                    "_id":11,
+                                    "author": "Eslam",
+                                    "post": "Reply 1 on Reply 1 on comment 1",
+                                    "mentions": [
+                                      "string"
+                                    ],
+                                    "replies": [
+                                      {
+                                        "_id":12,
+                                        "author": "Eslam",
+                                        "post": "Reply 1 on Reply 1 on comment 1",
+                                        "mentions": [
+                                          "string"
+                                        ],
+                                        "replies": [
+                                          {
+                                            "_id":13,
+                                            "author": "Eslam",
+                                            "post": "Reply 1 on Reply 1 on comment 1",
+                                            "mentions": [
+                                              "string"
+                                            ],
+                                            "replies": [
+                                            ],
+                                            "moreReplies": {
+                                              "count": 0,
+                                              "children": [
+                                                "string"
+                                              ],
+                                              "parentID": "string",
+                                              "depth": 0
+                                            },
+                                            "parent": "string",
+                                            "parentType": "string",
+                                            "text": "string",
+                                            "createdAt": "2011-12-12T10:32:28Z",
+                                            "votes": 0,
+                                            "repliesCount": 0
+                                          }
+                                        ],
+                                        "moreReplies": {
+                                          "count": 0,
+                                          "children": [
+                                            "string"
+                                          ],
+                                          "parentID": "string",
+                                          "depth": 0
+                                        },
+                                        "parent": "string",
+                                        "parentType": "string",
+                                        "text": "string",
+                                        "createdAt": "2011-12-12T10:32:28Z",
+                                        "votes": 0,
+                                        "repliesCount": 0
+                                      }
+                                    ],
+                                    "moreReplies": {
+                                      "count": 0,
+                                      "children": [
+                                        "string"
+                                      ],
+                                      "parentID": "string",
+                                      "depth": 0
+                                    },
+                                    "parent": "string",
+                                    "parentType": "string",
+                                    "text": "string",
+                                    "createdAt": "2011-12-12T10:32:28Z",
+                                    "votes": 0,
+                                    "repliesCount": 0
+                                  }
+                                ],
+                                "moreReplies": {
+                                  "count": 0,
+                                  "children": [
+                                    "string"
+                                  ],
+                                  "parentID": "string",
+                                  "depth": 0
+                                },
+                                "parent": "string",
+                                "parentType": "string",
+                                "text": "string",
+                                "createdAt": "2011-12-12T10:32:28Z",
+                                "votes": 0,
+                                "repliesCount": 0
+                              }
+                            ],
+                            "moreReplies": {
+                              "count": 0,
+                              "children": [
+                                "string"
+                              ],
+                              "parentID": "string",
+                              "depth": 0
+                            },
+                            "parent": "string",
+                            "parentType": "string",
+                            "text": "string",
+                            "createdAt": "2011-12-12T10:32:28Z",
+                            "votes": 0,
+                            "repliesCount": 0
+                          }
+                        ],
+                        "moreReplies": {
+                          "count": 0,
+                          "children": [
+                            "string"
+                          ],
+                          "parentID": "string",
+                          "depth": 0
+                        },
+                        "parent": "string",
+                        "parentType": "string",
+                        "text": "string",
+                        "createdAt": "2011-12-12T10:32:28Z",
+                        "votes": 0,
+                        "repliesCount": 0
+                      }
+                    ],
+                    "moreReplies": {
+                      "count": 0,
+                      "children": [
+                        "string"
+                      ],
+                      "parentID": "string",
+                      "depth": 0
+                    },
+                    "parent": "string",
+                    "parentType": "string",
+                    "text": "string",
+                    "createdAt": "2011-12-12T10:32:28Z",
+                    "votes": 0,
+                    "repliesCount": 0
+                  }
                 ],
                 "moreReplies": {
                   "count": 0,
