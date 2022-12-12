@@ -131,10 +131,18 @@ function CreatePostForm() {
     }
   };
   const handlePostMedia = (e) => {
-    const files = Array.from(e.target.files).map((file) => ({ src: URL.createObjectURL(file), caption: '', link: '' }));
+    console.log('ahmed sayed zizo', e.target.files);
+    const files = Array.from(e.target.files).map((file) => ({
+      src: URL.createObjectURL(file),
+      caption: '',
+      link: '',
+      file,
+      fileName: file.name,
+    }));
     setActiveMediaFile(postMedia.length + files.length - 1);
     setPostMedia([...postMedia, ...files]);
   };
+  console.log(postMedia);
   /**
    * This function handles if post is spoiler or not
    */

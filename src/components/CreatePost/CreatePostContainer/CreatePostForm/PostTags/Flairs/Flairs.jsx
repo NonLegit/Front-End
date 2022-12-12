@@ -13,17 +13,17 @@ import RedditButton from '../../../../../RedditButton/RedditButton';
 function Flairs(props) {
   // props
   const {
-    open, handleOpenFlairs, setFlair, flairs, flair, communityName,
+    open, handleOpenFlairs, setFlair, flairs, communityName,
   } = props;
 
-  console.log(flair);
+  // console.log(flair);
   // states
   const [currentFlair, setCurrentFlair] = useState(null);
 
   // handlers
   const handleChangeFlair = (event) => {
     setCurrentFlair(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
   const handleClearFlairs = () => {
     setFlair(null);

@@ -1,7 +1,7 @@
 import conditionalUseFetch from '../../../../../hooks/conditionalUseFetch';
 
 const flairsServer = (subreddit) => {
-  console.log('subreddit', subreddit);
+  // console.log('subreddit', subreddit);
   const [data, error, statusCode] = conditionalUseFetch(`/subreddits/${subreddit}/flairs`, subreddit);
   const flairs = data?.data;
   // console.log(data);

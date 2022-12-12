@@ -38,9 +38,9 @@ function PostTags(props) {
   // handlers
   const handleOpenFlairs = (value) => {
     setOpenFlairs(value);
-    console.log('value', value);
+    // console.log('value', value);
   };
-  console.log(flair);
+  // console.log(flair);
   return (
     <Box
       display="flex"
