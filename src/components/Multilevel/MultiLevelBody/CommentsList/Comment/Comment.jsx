@@ -22,7 +22,7 @@ function Comment(props) {
 
   // Functions
   const collapseComment = () => {
-    console.log('Comment', comment?.id, 'Collpased');
+    console.log('Comment', comment?._id, 'Collpased');
   };
 
   return (

@@ -1,5 +1,4 @@
 // styles
-
 import { CommentActionsContainer } from './styles';
 
 function CommentActions() {

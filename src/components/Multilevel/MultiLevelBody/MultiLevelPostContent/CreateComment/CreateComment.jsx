@@ -50,7 +50,6 @@ function CreateComment() {
   return (
     <div>
       <TextEditor handlePostTextChange={handleCommentTextChange} postText={text} />
-
       <Box m={2} gap={1} display="flex" justifyContent="flex-end">
         <SaveButton
           variant="contained"
