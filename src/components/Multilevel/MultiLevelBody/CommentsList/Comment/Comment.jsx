@@ -18,6 +18,7 @@ function Comment(props) {
 
   // Constants
   const authorProfilelink = `./user/${comment?.author}`;
+  const replies = (comment) ? comment.replies : [];
 
   // Functions
   const collapseComment = () => {
@@ -37,9 +38,10 @@ function Comment(props) {
         </CommentHeader>
         <CommentText>{comment?.post}</CommentText>
         <CommentActions />
-        {/* Children */}
+        {/* Replies */}
         {/* map children */}
         {/* <Comment /> */}
+        {replies?.map((reply) => <Comment key={reply?._id} comment={reply} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" />)}
       </CommentBody>
     </CommentContainer>
   );

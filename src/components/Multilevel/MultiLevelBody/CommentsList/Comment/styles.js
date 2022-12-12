@@ -10,9 +10,11 @@ import theme from '../../../../../styles/theme/index';
 // CommentContainer
 export const CommentContainer = styled(Box)(() => ({
   width: '100%',
+  padding: '5px',
+  margin: '5px 0px',
+
   display: 'flex',
   flexDirection: 'row',
-  padding: '5px',
 
   // border: '2px solid black',
 }));
@@ -27,7 +29,7 @@ export const CommentLeftSideBar = styled(Box)(() => ({
   justifyContent: 'center',
   // flexWrap: 'nowrap',
 
-  border: '1px solid green',
+  // border: '1px solid green',
 }));
 
 // Image Avatar for comment
@@ -66,11 +68,11 @@ export const CommentBody = styled(Box)(() => ({
   // padding: '5px 2px',
 
   // Children Margin
-  // '& > * ': {
-  //   margin: '0px 3px',
-  // },
+  '& > * ': {
+    margin: '2px 0px',
+  },
 
-  border: '2px solid blue',
+  // border: '2px solid blue',
 }));
 
 // CommentHeader
@@ -89,7 +91,7 @@ export const CommentHeader = styled(Box)(() => ({
     margin: '0px 3px',
   },
 
-  border: '2px solid red',
+  // border: '2px solid red',
 }));
 
 // Link to Author of the Comment

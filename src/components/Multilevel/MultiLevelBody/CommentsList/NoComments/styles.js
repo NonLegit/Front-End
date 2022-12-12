@@ -25,5 +25,5 @@ export const NoCommentsConatiner = styled(Box)(() => ({
     opacity: '0.6',
   },
 
-  backgroundColor: '#abcabc',
+  // backgroundColor: '#abcabc',
 }));
