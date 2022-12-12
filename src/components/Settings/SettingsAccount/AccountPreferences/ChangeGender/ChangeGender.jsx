@@ -65,7 +65,7 @@ function ChangeGender() {
             }}
             >
               <ShowMoreListItemText Condition={(prefs?.gender === 'male').toString()}>
-                Mele
+                Male
               </ShowMoreListItemText>
             </ListItemButton>
             <Divider />

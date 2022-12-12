@@ -100,12 +100,22 @@ export const Fab = styled(Fa)(() => ({
   lineHeight: 18,
   fontWeight: 400,
   alignItems: 'center',
-  position: 'relative',
-  '&:hover': {
 
-    backgroundColor: 'none',
-    outline: 'none',
+  '& .MuiFab-root.MuiButtonBase-root': {
+    width: 'fit-content',
   },
+
+  position: 'relative',
+
+  '& .MuiBox-root': {
+    '& .MuiButtonBase-root': {
+      '& :hover': {
+        backgroundColor: 'none !important',
+        outline: 'none',
+      },
+    },
+  },
+
   '&:active': {
     backgroundColor: '#edeeef',
   },
