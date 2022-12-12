@@ -39,5 +39,6 @@
     "/users/image":"/userImage",
     "/getpost/:postID":"/getpost",
     "/posts/:postID":"/editpost",
+    "/comments":"/createcomment",
     "/comments/:postID":"/postcomments"
 }

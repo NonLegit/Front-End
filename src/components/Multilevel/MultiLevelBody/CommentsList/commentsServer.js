@@ -24,6 +24,8 @@ export const getComments = (postID) => {
       // 200
       if (response.status === 200 || response.status === 304) {
         console.log('Commnets for post ', postID, 'are got :)');
+        console.log(postID);
+
         setComments(response.data.comments);
       }
     }).catch((error) => {

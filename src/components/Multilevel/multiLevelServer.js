@@ -6,7 +6,7 @@ export const getPost = (postID, setPost) => {
     console.log(response);
     // 200
     if (response.status === 200 || response.status === 200) {
-      console.log('Post is get :)');
+      console.log('Post is get :)', postID);
       setPost(response.data.post);
     }
     return {};

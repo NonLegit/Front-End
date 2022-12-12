@@ -7,7 +7,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import ArticleIcon from '@mui/icons-material/Article';
 
-// Compoenets
+// Components
 import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 // import VotedIcon from '../../VoteIcons/VotedIcon/VotedIcon';
 
@@ -16,6 +16,8 @@ import { usePostContext } from '../../../contexts/PostContext';
 
 // Styles
 import { HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes } from './styles';
+
+// Theme
 import theme from '../../../styles/theme';
 
 function MultiLevelHeader() {
@@ -34,6 +36,7 @@ function MultiLevelHeader() {
   const downVote = () => {
     console.log('DownVote');
   };
+
   return (
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>

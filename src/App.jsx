@@ -61,7 +61,7 @@ function App() {
               />
 
               <Route
-                path="comments/:ID"
+                path="comments/:postID"
                 element={
                   <PostPage />
               }
@@ -168,7 +168,7 @@ function App() {
               />
 
               <Route
-                path="comments/:ID"
+                path="comments/:postID"
                 element={
                   <PostPage />
               }

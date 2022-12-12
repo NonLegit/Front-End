@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 
 // Components
 import EditPost from './EditPost/EditPost';
+import CreateComment from './CreateComment/CreateComment';
 
 // Context
 import { usePostContext } from '../../../../contexts/PostContext';
@@ -19,7 +20,7 @@ function MultiLevelPostContent(props) {
   // Context
   const { post } = usePostContext();
 
-  useEffect(() => console.log(Edit), []);
+  useEffect(() => console.log('Edit', Edit), []);
 
   return (
     <MultiLevelContentConatiner>
@@ -35,6 +36,8 @@ function MultiLevelPostContent(props) {
       {/* Post Actions Bar */}
       {/* Post Insights */}
       {/* Post Statistics */}
+      {/* Create Comment */}
+      <CreateComment />
     </MultiLevelContentConatiner>
   );
 }

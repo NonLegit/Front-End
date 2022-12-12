@@ -1,7 +1,7 @@
 {
     "status": "sucess",
     "post": {
-        "_id": "string",
+        "_id": "12525555",
         "author": {
             "_id": "string",
             "name": "string"
@@ -36,7 +36,7 @@
         "sendReplies": true,
         "nsfw": true,
         "spoiler": true,
-        "votes": 0,
+        "votes": 100,
         "views": 0,
         "commentCount": 2,
         "shareCount": 0,

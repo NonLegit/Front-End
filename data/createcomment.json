@@ -1,0 +1,29 @@
+{
+    "status": "success",
+    "data": {
+      "comment": {
+        "_id": "12520",
+        "author": "string",
+        "post": "string",
+        "mentions": [
+          "string"
+        ],
+        "replies": [
+        ],
+        "moreReplies": {
+          "count": 0,
+          "children": [
+            "string"
+          ],
+          "parentID": "string",
+          "depth": 0
+        },
+        "parent": "string",
+        "parentType": "string",
+        "text": "string",
+        "createdAt": "2022-07-21T17:32:28Z",
+        "votes": 0,
+        "repliesCount": 0
+      }
+    }
+  }

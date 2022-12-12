@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
@@ -19,8 +17,6 @@ function MultiLevel({ Edit }) {
   // useParams
   const { postID } = useParams();
 
-  useEffect(() => {
-  }, []);
   return (
     <PostContextProvider postID={postID}>
       <MultiLevelConatiner>

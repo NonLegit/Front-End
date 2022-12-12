@@ -14,7 +14,7 @@ import NoComments from './NoComments/NoComments';
 function CommentsList() {
   // Context
   const { post } = usePostContext();
-  const [comments] = getComments(post?.id);
+  const [comments] = getComments(post?._id);
   const commentsCount = (post?.commentCount <= 0);
 
   return (

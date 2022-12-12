@@ -35,6 +35,7 @@ const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
 const getPost = require('./getpost.json');
 const editPost = require('./editpost.json');
+const createcomment = require('./createcomment.json');
 const postComments = require('./postcomments.json');
 
 // Something more
@@ -79,6 +80,7 @@ module.exports = () => ({
   userImage,
   getPost,
   editPost,
+  createcomment,
   postComments,
   // Something more
 });

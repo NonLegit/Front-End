@@ -5,13 +5,13 @@ import {
   // eslint-disable-next-line no-unused-vars
   convertToRaw, EditorState, ContentState, convertFromHTML,
 } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 // draftToHtml(convertToRaw(postText.getCurrentContent()))
 
 // MUI Components
 import { Box } from '@mui/material';
 
 // Components
-import draftToHtml from 'draftjs-to-html';
 import TextEditor from '../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
 import RedditButton from '../../../../RedditButton/RedditButton';
 
@@ -19,7 +19,9 @@ import RedditButton from '../../../../RedditButton/RedditButton';
 import { usePostContext } from '../../../../../contexts/PostContext';
 
 // Styles
-import { SaveButton } from './styles';
+import { SaveButton } from '../styles';
+
+// Server
 import { editPost } from './editPostServer';
 
 function EditPost() {
@@ -35,7 +37,7 @@ function EditPost() {
   const handlePostTextChange = (text) => {
     setReadyToSave(true);
     setText(text);
-    console.log(draftToHtml(convertToRaw(text.getCurrentContent())));
+    // console.log(draftToHtml(convertToRaw(text.getCurrentContent())));
   };
 
   const cancel = () => {
@@ -45,7 +47,7 @@ function EditPost() {
   const save = () => {
     // console.log('save');
     // console.log(post);
-    editPost(post?._id, text, setPost);
+    editPost(post?._id, draftToHtml(convertToRaw(text.getCurrentContent())), setPost);
   };
 
   return (
