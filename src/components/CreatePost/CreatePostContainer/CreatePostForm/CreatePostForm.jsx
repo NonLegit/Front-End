@@ -11,7 +11,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter,
 } from './styles';
-import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
 import PostSubmission from './PostSubmission/PostSubmission';
 import PostTypes from './PostTypes/PostTypes';
@@ -21,6 +20,7 @@ import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 import submitPostServer from './submitPostServer';
 import currentSubredditServer from './currentSubredditServer';
 import TextEditor from './TextEditor/TextEditor';
+import PostMedia from './PostMedia/PostMedia';
 
 /**
  * This component is the main section off create post page which holds the form to submit posts

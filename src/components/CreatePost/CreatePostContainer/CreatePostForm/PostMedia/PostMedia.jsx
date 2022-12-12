@@ -7,6 +7,7 @@ import {
 } from './styles';
 import DraggableMedia from './DraggableMedia/DraggableMedia';
 import PostMediaDetails from './PostMediaDetails/PostMediaDetails';
+import PostVideo from './PostVideo/PostVideo';
 
 function PostMedia(props) {
   // props
@@ -84,7 +85,12 @@ function PostMedia(props) {
             />
           </UploadButton>
         </PostEmptyMediaContainer>
-      ) : (availableType === 'video' ? <div>adham</div>
+      ) : (availableType === 'video' ? (
+        <PostVideo
+          src={postMedia[0].src}
+          setPostMedia={setPostMedia}
+        />
+      )
         : (mediaCount >= 1
           ? (
             <PostMediaOuterContainer>
