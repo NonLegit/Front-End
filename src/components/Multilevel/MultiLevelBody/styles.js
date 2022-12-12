@@ -11,16 +11,25 @@ export const MultiLevelBodyConatiner = styled(Box)(() => ({
   minWidth: '720px',
 
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   backgroundColor: theme.palette.white.main,
   borderRadius: '5px',
 
 }));
 
-// MultiLevelRightSideContentConatiner [Beside the Reactions Bar]
-export const MultiLevelRightSideContentConatiner = styled(Box)(() => ({
+// Post
+export const PostContainer = styled(Box)(() => ({
   width: '100%',
-  padding: '5px 15px',
+
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
+
 }));
+
+// // MultiLevelRightSideContentConatiner [Beside the Reactions Bar]
+// export const MultiLevelRightSideContentConatiner = styled(Box)(() => ({
+//   width: '100%',
+//   padding: '5px 15px',
+//   display: 'flex',
+//   flexDirection: 'column',
+// }));
