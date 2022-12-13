@@ -40,5 +40,10 @@
     "/users/:name/follow":"/follow",
     "/users/:name/unfollow":"/follow",
     "/users/:name/block_user":"/block",
-    "/users/:name/unblock_user":"/block"
+    "/users/:name/unblock_user":"/block",
+    "/users/followers":"/followers",
+    "/posts/:postId/hide":"/postAction",
+    "/posts/:postId/unhide":"/postAction",
+    "/posts/:postId/save":"/postAction",
+    "/posts/:postId/unsave":"/postAction"
 }

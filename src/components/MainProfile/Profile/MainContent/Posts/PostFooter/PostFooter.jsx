@@ -24,6 +24,7 @@ import PostFooterList from './PostFooterList/PostFooterList';
 import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListResponsive';
 import ModeratorList from './ModeratorList/ModeratorList';
 import ArrowList from './ArrowList/ArrowList';
+import { postReactionsServer } from '../../../../profileServer';
 
 /**
  * Footer of the post that contain all icons
@@ -36,7 +37,7 @@ import ArrowList from './ArrowList/ArrowList';
  */
 function PostFooter(props) {
   const {
-    numComments, approved, removed, spam, handleExpand, expand, postedByOthers,
+    postid, numComments, approved, removed, spam, handleExpand, expand, postedByOthers,
     saved, hidden, submitted, points, postVoteStatus, nsfw, spoiler, sendReplies,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
@@ -72,11 +73,13 @@ function PostFooter(props) {
 
   // switch icon to hidden post and vice verse
   const handleClickHide = () => {
+    postReactionsServer(postid, isHidden ? 'unhide' : 'hide', isHidden);
     setIsHidden((prev) => !prev);
   };
 
   // switch icon to saved post and vice versa
   const handleClickSave = () => {
+    postReactionsServer(postid, isSaved ? 'unsave' : 'save', isSaved);
     setIsSaved((prev) => !prev);
   };
 
@@ -190,6 +193,7 @@ function PostFooter(props) {
             <MoreHorizOutlinedIcon onClick={handleClick} />
             {showList && (
               <PostFooterList
+                postid={postid}
                 isSaved={saved}
                 nsfw={nsfw}
                 spoiler={spoiler}
@@ -205,7 +209,7 @@ function PostFooter(props) {
         <ElementBox show={true.toString()}>
           <MoreHorizOutlinedIcon onClick={handleClick2} />
           {showList2 && (
-          <PostFooterListResponsive isSaved={isSaved} />
+          <PostFooterListResponsive postid={postid} isSaved={isSaved} />
           )}
         </ElementBox>
       </ClickAwayListener>

@@ -40,3 +40,9 @@ export const SearchIconButton = styled(IconButton)(() => ({
     backgroundColor: '#878a8c',
   },
 }));
+
+export const FollowersBox = styled(Box)(() => ({
+  backgroundColor: 'white',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+}));

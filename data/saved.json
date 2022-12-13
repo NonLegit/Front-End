@@ -1,6 +1,7 @@
 {
   "posts": [
     {
+      "_id": "string",
       "author": {
         "_id": "string",
         "name": "NourZiad122"

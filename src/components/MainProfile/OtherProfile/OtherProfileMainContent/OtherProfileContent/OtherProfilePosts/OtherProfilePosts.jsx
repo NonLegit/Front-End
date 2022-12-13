@@ -55,7 +55,11 @@ function OtherProfilePosts(props) {
             <ParagraphWhite />
             <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
           </ParagraphBox>
-          <OtherProfilePostFooter subTitle={post?.ownerType} numComments={post?.commentCount} />
+          <OtherProfilePostFooter
+            postid={post?._id}
+            subTitle={post?.ownerType}
+            numComments={post?.commentCount}
+          />
         </Box>
       </PostContentBox>
     </PostsQueueBox>

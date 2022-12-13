@@ -55,7 +55,12 @@ function Posts(props) {
             <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
           </ParagraphBox>
 
-          <PostFooter isSaved={post?.isSaved} subTitle={post?.ownerType} numComments={post?.commentCount} />
+          <PostFooter
+            postid={post?._id}
+            isSaved={post?.isSaved}
+            subTitle={post?.ownerType}
+            numComments={post?.commentCount}
+          />
         </Box>
       </PostContentBox>
     </PostsQueueBox>

@@ -9,6 +9,8 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
+import { postReactionsServer } from '../../../../../profileServer';
+
 /**
  * List items of post footer
  *
@@ -17,6 +19,7 @@ import { SelectBox, SelectItem } from './styles';
  */
 function PostFooterList(props) {
   const {
+    postid,
     isSaved,
     nsfw,
     spoiler,
@@ -26,8 +29,13 @@ function PostFooterList(props) {
   const [isNsfw, setIsNsfw] = useState(nsfw);
   const [isSpoiler, setIsSpoiler] = useState(spoiler);
   const [isSendReplies, setIsSendReplies] = useState(sendReplies);
+
   const handleSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
+  };
+  const handleHide = () => {
+    postReactionsServer(postid, 'hide', 1);
   };
   const handleNsfw = () => {
     setIsNsfw((prev) => !prev);
@@ -63,7 +71,7 @@ function PostFooterList(props) {
         Pin Post To Profile
       </SelectItem>
       <Divider />
-      <SelectItem>
+      <SelectItem onClick={() => { handleHide(); }}>
         <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
         Hide
       </SelectItem>

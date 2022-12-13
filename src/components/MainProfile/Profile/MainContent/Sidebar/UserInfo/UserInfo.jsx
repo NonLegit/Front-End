@@ -148,7 +148,7 @@ function UserInfo() {
         {/* social link part */}
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
           {socialLinks?.map((link, index) => (
-            <LinkTo href={`${link?.userLink}`} target="_blank">
+            <LinkTo href={`${link?.userLink}`} key={`${index + 0}`} target="_blank">
               <Text key={`${index + 0}`}>
                 <PlatformIcon src={link?.social?.icon} />
                 {link?.displayText}

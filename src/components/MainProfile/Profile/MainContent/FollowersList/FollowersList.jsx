@@ -1,15 +1,16 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-// import { followersServer } from './followersServer';
 
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { followersServer } from './followersServer';
 import {
-  ContentBox, Search, SearchBox, SearchIconButton,
+  ContentBox, FollowersBox, Search, SearchBox, SearchIconButton,
 } from './styles';
+import Follower from './Follower/Follower';
 
 function FollowersList() {
-//   const [data] = followersServer();
+  const [data] = followersServer();
 
   return (
     <ContentBox>
@@ -39,7 +40,11 @@ function FollowersList() {
           </Search>
         </Box>
       </SearchBox>
-
+      <FollowersBox>
+        { data?.map((following, index) => (
+          <Follower key={`${index + 0}`} follower={following} />
+        ))}
+      </FollowersBox>
     </ContentBox>
   );
 }

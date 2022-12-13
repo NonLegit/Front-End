@@ -84,6 +84,7 @@ function OtherProfilePost(props) {
                 isSubReddit={entity?.ownerType === 'Subreddit'}
               />
               <OtherProfilePostFooter
+                postid={entity?._id}
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}

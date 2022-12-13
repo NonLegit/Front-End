@@ -10,6 +10,8 @@ import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
+import { postReactionsServer } from '../../../../../profileServer';
+
 /**
  * footer for a post conatining all icons
  *
@@ -19,7 +21,7 @@ import {
  * @returns {React.Component} OtherProfilePostFooter
  */
 function OtherProfilePostFooter(props) {
-  const { numComments } = props;
+  const { postid, numComments } = props;
 
   const [showList, setShowList] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -30,6 +32,11 @@ function OtherProfilePostFooter(props) {
   };
 
   const handleSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
+    setSaved((prev) => !prev);
+  };
+  const handleHide = () => {
+    postReactionsServer(postid, 'hide', 1);
     setSaved((prev) => !prev);
   };
 
@@ -83,7 +90,7 @@ function OtherProfilePostFooter(props) {
                 </SelectItem>
               )}
             <Divider />
-            <SelectItem>
+            <SelectItem onClick={() => { handleHide(); }}>
               <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
               Hide
             </SelectItem>

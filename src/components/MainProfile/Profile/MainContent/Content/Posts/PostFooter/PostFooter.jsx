@@ -19,6 +19,7 @@ import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
 import ModeratorList from './ModeratorList/ModeratorList';
+import { postReactionsServer } from '../../../../../profileServer';
 
 /**
  * footer for a post conatining all icons
@@ -29,7 +30,9 @@ import ModeratorList from './ModeratorList/ModeratorList';
  * @returns {React.Component} PostFooter
  */
 function PostFooter(props) {
-  const { subTitle, numComments, isSaved } = props;
+  const {
+    postid, subTitle, numComments, isSaved,
+  } = props;
 
   const [showList, setShowList] = useState(false);
   const [saved, setSaved] = useState(isSaved);
@@ -44,7 +47,14 @@ function PostFooter(props) {
     setShowList(false);
   };
 
+  // switch icon to hidden post and vice verse
+  const handleClickHide = () => {
+    postReactionsServer(postid, 'hide', 1);
+  };
+
+  // switch icon to saved post and vice versa
   const handleSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
   };
 
@@ -120,7 +130,7 @@ function PostFooter(props) {
               Pin Post To Profile
             </SelectItem>
             <Divider />
-            <SelectItem>
+            <SelectItem onClick={() => { handleClickHide(); }}>
               <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
               Hide
             </SelectItem>

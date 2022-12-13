@@ -35,6 +35,8 @@ const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
 const follow = require('./follow.json');
 const block = require('./block.json');
+const followers = require('./followers.json');
+const postAction = require('./postAction.json');
 // Something more
 
 module.exports = () => ({
@@ -77,5 +79,7 @@ module.exports = () => ({
   userImage,
   follow,
   block,
+  followers,
+  postAction,
   // Something more
 });

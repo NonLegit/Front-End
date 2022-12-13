@@ -83,6 +83,7 @@ function Post(props) {
                 locked={entity?.locked}
               />
               <PostFooter
+                postid={entity?._id}
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}
