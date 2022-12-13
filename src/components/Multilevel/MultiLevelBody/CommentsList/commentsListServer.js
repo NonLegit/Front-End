@@ -5,7 +5,7 @@ import axios from '../../../../services/instance';
 
 export const getComments = (props) => {
   // props
-  const { postID, depth } = props;
+  const { postID, depth, limit } = props;
   // states
   const [comments, setComments] = useState([]);
 
@@ -16,7 +16,7 @@ export const getComments = (props) => {
       `/comments/comment_tree/${postID}`,
       {
         params: {
-          limit: 10, // The maximum number of comments to return
+          limit, // The maximum number of comments to return
           depth, // the maximum depth of the comment subtrees
           // sort: // string Enum: "top" "new" "best" "old"
           // commentId: //string If supplied, this comment will be the (highlighted) focal point of the returned view
