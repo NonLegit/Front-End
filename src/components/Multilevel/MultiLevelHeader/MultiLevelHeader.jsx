@@ -36,7 +36,6 @@ function MultiLevelHeader() {
   const downVote = () => {
     console.log('DownVote');
   };
-
   return (
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>

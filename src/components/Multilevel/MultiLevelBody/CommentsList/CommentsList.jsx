@@ -1,3 +1,5 @@
+import { useParams } from 'react-router-dom';
+
 // Components
 import Comment from './Comment/Comment';
 
@@ -5,16 +7,17 @@ import Comment from './Comment/Comment';
 import { usePostContext } from '../../../../contexts/PostContext';
 
 // Server
+import { getComments } from './commentsListServer';
 
 // Styles
 import { MultilevelPostCommentsConatiner } from './styles';
-import { getComments } from './commentsServer';
 import NoComments from './NoComments/NoComments';
 
 function CommentsList() {
+  const { postID } = useParams();
   // Context
   const { post } = usePostContext();
-  const [comments] = getComments(post?._id);
+  const [comments] = getComments({ postID, depth: 9 });// 9=depth
   const commentsCount = (post?.commentCount <= 0);
 
   return (
