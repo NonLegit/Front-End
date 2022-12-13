@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
 import StyledDialog from './styles';
 import { MuteContext } from '../../MuteUser';
-import MuteHeader from '../MuteHeader/MuteHeader';
-import Username from '../Username/Username';
+import Username from '../../../Username/Username';
 import MuteMessage from '../MuteMessage/MuteMessage';
-import MuteFooter from '../MuteFooter/MuteFooter';
+import Header from '../../../Header/Header';
+import Footer from '../../../Footer/Footer';
 
 function MutePopUp() {
   const {
@@ -18,9 +18,9 @@ function MutePopUp() {
       open={openMute}
     >
       <Box>
-        <MuteHeader handleClickCloseMute={handleClickCloseMute} />
+        <Header buttonFunction={handleClickCloseMute} headerText="Mute user" />
         <Divider />
-        <Username />
+        <Username placeholder="Username to mute" />
         <Typography fontSize="14px" fontWeight={400} color="#1C1C1C" paddingLeft="16px">Note about why they are muted</Typography>
         <Typography fontSize="12px" fontWeight={400} color="#878A8C" paddingLeft="16px">Only visible to other moderators. Not visible to user</Typography>
       </Box>
@@ -29,7 +29,7 @@ function MutePopUp() {
         display: 'flex', backgroundColor: '#edeff1 ', height: '100%',
       }}
       >
-        <MuteFooter handleClickCloseMute={handleClickCloseMute} />
+        <Footer buttonFunction={handleClickCloseMute} firstButtonText="Cancel" secondButtonText="Mute user" />
       </Box>
     </StyledDialog>
   );

@@ -1,8 +1,8 @@
 import { StyledBox } from './styles';
-import { RedditButton } from '../../../../styles';
+import { RedditButton } from '../../styles';
 
-function RemoveFooter(props) {
-  const { handleClickCloseRemove } = props;
+function Footer(props) {
+  const { buttonFunction, firstButtonText, secondButtonText } = props;
   return (
     <StyledBox>
       <RedditButton
@@ -10,11 +10,11 @@ function RemoveFooter(props) {
         padding="0px 24px 0px 24px"
         fontWeight="bold"
         variant="outlined"
-        onClick={handleClickCloseRemove}
+        onClick={buttonFunction}
         disableRipple
         disableFocusRipple
       >
-        Cancel
+        {firstButtonText}
       </RedditButton>
       <RedditButton
         sx={{ marginLeft: 1 }}
@@ -25,10 +25,10 @@ function RemoveFooter(props) {
         disableRipple
         disableFocusRipple
       >
-        Remove
+        {secondButtonText}
       </RedditButton>
     </StyledBox>
   );
 }
 
-export default RemoveFooter;
+export default Footer;

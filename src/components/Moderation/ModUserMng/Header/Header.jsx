@@ -2,17 +2,17 @@ import { Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import StyledBox from './styles';
 
-function MuteHeader(props) {
-  const { handleClickCloseMute } = props;
+function Header(props) {
+  const { buttonFunction, headerText } = props;
   return (
     <StyledBox>
-      <Typography>Mute user</Typography>
+      <Typography>{headerText}</Typography>
       <CloseIcon
         sx={{ cursor: 'pointer' }}
-        onClick={handleClickCloseMute}
+        onClick={buttonFunction}
       />
     </StyledBox>
   );
 }
 
-export default MuteHeader;
+export default Header;

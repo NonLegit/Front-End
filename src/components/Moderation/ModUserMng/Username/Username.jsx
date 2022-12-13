@@ -1,11 +1,12 @@
 import { TextField } from '@mui/material';
 import { StyledBox } from './styles';
 
-function Username() {
+function Username(props) {
+  const { placeholder } = props;
   return (
     <StyledBox>
       <TextField
-        placeholder="Username to mute"
+        placeholder={placeholder}
         size="small"
         fullWidth
       />

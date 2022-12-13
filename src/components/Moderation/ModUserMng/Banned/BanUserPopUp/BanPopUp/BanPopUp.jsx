@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Divider, Box } from '@mui/material';
 import StyledDialog from './styles';
 import { BanContext } from '../../BanUser';
-import BanHeader from '../BanHeader/BanHeader';
-import Username from '../Username/Username';
+import Header from '../../../Header/Header';
+import Username from '../../../Username/Username';
 import BanReason from '../BanReason/BanReason';
 import BanNote from '../BanNote/BanNote';
 import BanPeriod from '../BanPeriod/BanPeriod';
@@ -21,9 +21,9 @@ function BanPopUp() {
       open={openBan}
     >
       <Box>
-        <BanHeader handleClickCloseBan={handleClickCloseBan} />
+        <Header buttonFunction={handleClickCloseBan} headerText="Ban a user:" />
         <Divider />
-        <Username />
+        <Username placeholder="u/username" />
         <BanReason />
         <BanNote />
         <BanPeriod />

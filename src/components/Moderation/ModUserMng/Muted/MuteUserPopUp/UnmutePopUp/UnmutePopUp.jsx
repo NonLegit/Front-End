@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
 import StyledDialog from './styles';
 import { UnmuteContext } from '../../NonEmptyMuted/MutedUser/MutedUser';
-import UnmuteHeader from '../UnmuteHeader/UnmuteHeader';
-import UnmuteFooter from '../UnmuteFooter/UnmuteFooter';
+import Header from '../../../Header/Header';
+import Footer from '../../../Footer/Footer';
 
 function UnmutePopUp(props) {
   const { userName } = props;
@@ -17,7 +17,7 @@ function UnmutePopUp(props) {
       open={openUnmute}
     >
       <Box>
-        <UnmuteHeader handleClickCloseUnmute={handleClickCloseUnmute} />
+        <Header buttonFunction={handleClickCloseUnmute} headerText="Confirm" />
         <Divider />
       </Box>
       <Box sx={{ padding: '16px' }}>
@@ -28,7 +28,7 @@ function UnmutePopUp(props) {
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
-        <UnmuteFooter handleClickCloseUnmute={handleClickCloseUnmute} />
+        <Footer buttonFunction={handleClickCloseUnmute} firstButtonText="Cancel" secondButtonText="Remove" />
       </Box>
     </StyledDialog>
   );

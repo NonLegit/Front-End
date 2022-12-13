@@ -3,9 +3,9 @@ import * as React from 'react';
 import { Divider, Box } from '@mui/material';
 import StyledDialog from './styles';
 import { ApproveContext } from '../../Moderators';
-import ModeratorHeader from '../ModeratorHeader/ModeratorHeader';
-import Username from '../Username/Username';
-import ModeratorFoooter from '../ModeratorFooter/ModeratorFooter';
+import Header from '../../../Header/Header';
+import Username from '../../../Username/Username';
+import Foooter from '../../../Footer/Footer';
 
 function ModeratorPopUp() {
   const {
@@ -17,12 +17,12 @@ function ModeratorPopUp() {
       open={openApprove}
     >
       <Box>
-        <ModeratorHeader handleClickCloseApproved={handleClickCloseApprove} />
+        <Header buttonFunction={handleClickCloseApprove} headerText="Invite moderators" />
         <Divider />
-        <Username />
+        <Username placeholder="Enter username" />
       </Box>
       <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
-        <ModeratorFoooter handleClickCloseApproved={handleClickCloseApprove} />
+        <Foooter buttonFunction={handleClickCloseApprove} firstButtonText="Cancel" secondButtonText="Invite" />
       </Box>
     </StyledDialog>
   );

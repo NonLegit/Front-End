@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
 import StyledDialog from './styles';
 import { RemoveContext } from '../../NonEmptyApproved/ApprovedUser/ApprovedUser';
-import RemoveHeader from '../RemoveHeader/RemoveHeader';
-import RemoveFooter from '../RemoveFooter/RemoveFooter';
+import Header from '../../../Header/Header';
+import Footer from '../../../Footer/Footer';
 
 function RemovePopUp(props) {
   const { userName } = props;
@@ -17,7 +17,7 @@ function RemovePopUp(props) {
       open={openRemove}
     >
       <Box>
-        <RemoveHeader handleClickCloseRemove={handleClickCloseRemove} />
+        <Header buttonFunction={handleClickCloseRemove} headerText="Confirm" />
         <Divider />
       </Box>
       <Box sx={{ padding: '16px' }}>
@@ -30,7 +30,7 @@ function RemovePopUp(props) {
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
-        <RemoveFooter handleClickCloseRemove={handleClickCloseRemove} />
+        <Footer buttonFunction={handleClickCloseRemove} firstButtonText="Cancel" secondButtonText="Remove" />
       </Box>
     </StyledDialog>
   );

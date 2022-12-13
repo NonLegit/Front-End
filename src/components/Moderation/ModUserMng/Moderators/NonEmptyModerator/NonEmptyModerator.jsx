@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from '../../SearchBar/SearchBar';
 import Moderator from './Moderator/Moderator';
 
 function NonEmptyApproved() {

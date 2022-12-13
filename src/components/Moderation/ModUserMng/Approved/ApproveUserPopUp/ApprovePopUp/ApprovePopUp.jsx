@@ -3,9 +3,9 @@ import * as React from 'react';
 import { Divider, Box } from '@mui/material';
 import StyledDialog from './styles';
 import { ApproveContext } from '../../ApproveUser';
-import ApproveHeader from '../ApproveHeader/ApproveHeader';
-import Username from '../Username/Username';
-import ApproveFooter from '../ApproveFooter/ApproveFooter';
+import Username from '../../../Username/Username';
+import Header from '../../../Header/Header';
+import Footer from '../../../Footer/Footer';
 
 function ApprovePopUp() {
   const {
@@ -17,12 +17,12 @@ function ApprovePopUp() {
       open={openApprove}
     >
       <Box>
-        <ApproveHeader handleClickCloseApproved={handleClickCloseApprove} />
+        <Header buttonFunction={handleClickCloseApprove} headerText="Add approved user" />
         <Divider />
-        <Username />
+        <Username placeholder="Enter username" />
       </Box>
       <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
-        <ApproveFooter handleClickCloseApproved={handleClickCloseApprove} />
+        <Footer buttonFunction={handleClickCloseApprove} firstButtonText="Cancel" secondButtonText="Add user" />
       </Box>
     </StyledDialog>
   );
