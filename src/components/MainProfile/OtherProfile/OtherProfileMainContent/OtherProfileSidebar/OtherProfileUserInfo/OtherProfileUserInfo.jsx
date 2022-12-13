@@ -8,8 +8,10 @@ import UserInfoServer from '../../../../mainProfileServer';
 import {
   ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
-  EntityBox, MoreOptions, OptionsButtons, UserInfoButton, LinkTo, Text, PlatformIcon,
+  EntityBox, MoreOptions, OptionsButtons, UserInfoButton, LinkTo, Text, PlatformIcon, BlockButton, BootstrapDialog,
 } from './styles';
+import { blockRequest, followRequest } from './userActionServer';
+import Block from './Block/Block';
 
 /**
  * UserInfo Box in sidebar containing all info of a user
@@ -18,18 +20,30 @@ import {
  * @returns {React.Component} OtherProfileUserInfo
  */
 function OtherProfileUserInfo() {
+  const [displayName, setDisplayName] = useState();
+  const [about, setAbout] = useState();
   const [postKarma, setPostKarma] = useState();
   const [commentKarma, setCommentKarma] = useState();
   const [cake, setCake] = useState();
   const [profilePic, setProfilePic] = useState();
   const [coverPic, setCoverPic] = useState();
-  const [follow, setFollow] = useState(true);
+  const [follow, setFollow] = useState(undefined);
+  const [isFollowedUi, setIsFollowedUi] = useState(undefined);
   const [socialLinks, setSocialLinks] = useState([]);
+  const [block, setBlock] = useState(undefined);
+
+  const [hover, setHover] = useState(false);
+
+  const [open, setOpen] = useState(false);
 
   const { username } = useParams();
   const [info, statusCode] = UserInfoServer(username);
+  followRequest(username, follow, () => { setIsFollowedUi((prev) => !prev); });
+  blockRequest(username, block);
 
   useEffect(() => {
+    setDisplayName(info?.displayName);
+    setAbout(info?.description);
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setCake(info?.createdAt);
@@ -37,6 +51,7 @@ function OtherProfileUserInfo() {
     setCoverPic(info?.profileBackground);
     setFollow(info?.isFollowed);
     setSocialLinks(info?.socialLinks);
+    setBlock(info?.isBlocked);
   }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);
@@ -46,6 +61,22 @@ function OtherProfileUserInfo() {
 
   const handleClickFollow = () => {
     setFollow((prev) => !prev);
+  };
+
+  const handleBlock = () => {
+    setOpen(true);
+  };
+
+  const handleBlockApprove = () => {
+    setOpen(false);
+    setBlock((prev) => !prev);
+  };
+
+  const handleMouseIn = () => {
+    setHover(true);
+  };
+  const handleMouseOut = () => {
+    setHover(false);
   };
 
   return (
@@ -64,11 +95,17 @@ function OtherProfileUserInfo() {
             <ProfilePic src={profilePic} alt="user photo" />
           </Box>
         </Box>
+        <UserName variant="string">
+          {displayName}
+        </UserName>
+        <br />
         <UserName variant="caption">
           u/
           {username}
         </UserName>
-        <br />
+        <UserName variant="body2" sx={{ marginTop: '5px' }}>
+          {about}
+        </UserName>
         <InfoBox>
           <EntityBox>
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Karma</Typography>
@@ -99,23 +136,57 @@ function OtherProfileUserInfo() {
         </Box>
         {/* social link part */}
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
-          {follow ? <UserInfoButton variant="outlined" onClick={() => { handleClickFollow(); }}>Unfollow</UserInfoButton> : <UserInfoButton variant="contained" onClick={() => { handleClickFollow(); }}>Follow</UserInfoButton>}
-          <UserInfoButton variant="contained">Chat</UserInfoButton>
-        </Box>
-        {showList
+        {!block ? (
+          <>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              {isFollowedUi ? <UserInfoButton variant="outlined" onClick={() => { handleClickFollow(); }}>Unfollow</UserInfoButton> : <UserInfoButton variant="contained" onClick={() => { handleClickFollow(); }}>Follow</UserInfoButton>}
+              <UserInfoButton variant="contained">Chat</UserInfoButton>
+            </Box>
+            {showList
             && (
             <>
               <OptionsButtons data-testid="option">Send Message</OptionsButtons>
-              <OptionsButtons>Block User</OptionsButtons>
+              <OptionsButtons onClick={() => { handleBlockApprove(); }}>Block User</OptionsButtons>
               <OptionsButtons>Get Them Help and Support</OptionsButtons>
               <OptionsButtons>Report User</OptionsButtons>
               <OptionsButtons>Add to Custom Feed</OptionsButtons>
               <MoreOptions onClick={() => { handleClickList(); }}>Fewer options</MoreOptions>
             </>
             )}
-        {!showList
+            {!showList
             && <MoreOptions data-testid="show-more" onClick={() => { handleClickList(); }}>More options</MoreOptions>}
+          </>
+        )
+          : (
+            <BlockButton
+              variant="contained"
+              onClick={handleBlock}
+              onMouseEnter={handleMouseIn}
+              onMouseLeave={handleMouseOut}
+            >
+              {(block ? (hover ? 'Unblock' : 'Blocked') : 'Blocked')}
+            </BlockButton>
+          )}
+        <BootstrapDialog
+          onClose={(event, reason) => {
+            if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+              setOpen(false);
+            }
+          }}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+          keepMounted
+        >
+          <Block
+            onClose={(event, reason) => {
+              if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+                setOpen(false);
+              }
+            }}
+            username={username}
+            handleBlock={handleBlockApprove}
+          />
+        </BootstrapDialog>
       </ProfileBox>
 
     </UserInfoBox>

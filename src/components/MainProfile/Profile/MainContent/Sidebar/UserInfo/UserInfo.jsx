@@ -9,7 +9,7 @@ import {
   useContext, useEffect, useState,
 } from 'react';
 import moment from 'moment/moment';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
@@ -26,6 +26,8 @@ import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
  * @returns {React.Component} UserInfo
  */
 function UserInfo() {
+  const [displayName, setDisplayName] = useState();
+  const [about, setAbout] = useState();
   const [postKarma, setPostKarma] = useState();
   const [commentKarma, setCommentKarma] = useState();
   const [cake, setCake] = useState();
@@ -34,9 +36,14 @@ function UserInfo() {
   const [coverPic, setCoverPic] = useState();
   const [socialLinks, setSocialLinks] = useState([]);
   const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
+
   const { username } = useContext(UserContext);
   const [info] = userInfoServer();
   useEffect(() => {
+    setDisplayName(info?.displayName);
+    setAbout(info?.description);
     setPostKarma(info?.postKarma);
     setCommentKarma(info?.commentKarma);
     setFollowers(info?.followersCount);
@@ -53,6 +60,10 @@ function UserInfo() {
 
   const handleClickOpen = () => {
     setOpen(true);
+  };
+
+  const handleFollowes = () => {
+    navigate('followers');
   };
 
   return (
@@ -90,6 +101,10 @@ function UserInfo() {
             <EngineIcon color="primary" />
           </Link>
         </Box>
+        <UserName variant="string">
+          {displayName}
+        </UserName>
+        <br />
         <UserName variant="caption">
           u/
           {username}
@@ -98,6 +113,9 @@ function UserInfo() {
         <WideButton variant="contained" color="primary" endIcon={<ArrowForwardIosOutlinedIcon />}>
           Create Avatar
         </WideButton>
+        <UserName variant="body2">
+          {about}
+        </UserName>
         <InfoBox>
           <EntityBox>
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Karma</Typography>
@@ -115,7 +133,8 @@ function UserInfo() {
               </Typography>
             </Box>
           </EntityBox>
-          <EntityBox>
+          {followers > 0 && (
+          <EntityBox sx={{ cursor: 'pointer', maxWidth: 100 }} onClick={handleFollowes}>
             <Typography variant="body2" sx={{ marginBottom: '5px' }}>Followers</Typography>
             <Box sx={{ display: 'flex' }}>
               <PersonIcon fontSize="string" color="primary" sx={{ marginRight: '4px' }} />
@@ -123,6 +142,7 @@ function UserInfo() {
               <FollowersArrow fontSize="string" color="disabled" />
             </Box>
           </EntityBox>
+          )}
         </InfoBox>
 
         {/* social link part */}
