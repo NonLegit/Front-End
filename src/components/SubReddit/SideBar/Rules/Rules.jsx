@@ -1,42 +1,58 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  AboutContent, AboutCountainer, AboutDisc, AboutString, Hr,
+  AboutContent, AboutCountainer, AboutCountainerRule, AboutDisc, AboutString, AboutStringRule, Hr,
 } from './style';
+
 /**
  * About Section for normal user
  * @component
  * @return {React.Component} - About Section for normal user
  */
 function Rules(props) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState([]);
+  const { Name, rules } = props;
 
-  const { name, rules } = props;
+  const handleClick = (index) => {
+    const arr = new Array(rules?.length).fill(false);
+    if (show[index] === true) {
+      setShow(arr);
+    } else {
+      arr[index] = true;
+      setShow(arr);
+    }
+  };
+
+  useEffect(() => {
+    const arr = new Array(rules?.length).fill(false);
+    console.log(arr);
+    setShow(false);
+    console.log(show);
+    // setShow([false]);
+    // console.log(rules.length);
+  }, [rules]);
   return (
-    <>
-      <AboutCountainer>
-        <AboutString>
-          r/
-          {name}
-        </AboutString>
-      </AboutCountainer>
+    <AboutCountainer>
+
+      <AboutString>
+        r/
+        {Name}
+      </AboutString>
 
       { rules?.map((entity, index) => (
         <>
-          <AboutCountainer key={`${index + 0}`}>
-            <AboutString onClick={() => setShow(!show)}>
-              {index}
+          <AboutCountainerRule key={`${index + 0}`}>
+            <AboutStringRule onClick={() => handleClick(index)}>
+              {index + 1}
               .
               {entity.title}
-              show ?
-              {' '}
-              <ExpandLessIcon />
-              :
-              <ExpandMoreIcon />
-            </AboutString>
-          </AboutCountainer>
-          {show
+              {show[index]
+                ? <ExpandLessIcon />
+                : <ExpandMoreIcon />}
+            </AboutStringRule>
+          </AboutCountainerRule>
+          {show[index]
           && (
           <AboutContent>
             <AboutDisc>
@@ -47,11 +63,9 @@ function Rules(props) {
           <Hr />
         </>
       ))}
-      {/* <AboutString>
-        1.Posts must be 3D-printing-related
-      </AboutString> */}
 
-    </>
+    </AboutCountainer>
+
   );
 }
 

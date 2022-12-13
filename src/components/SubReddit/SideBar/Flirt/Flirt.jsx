@@ -41,17 +41,17 @@ function Flirt() {
                 <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
               </Box>
             ))}
-            show &&
-            { (flair.slice(8))?.map((entity, index) => (
+            {show
+            && (flair.slice(8))?.map((entity, index) => (
               <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
                 <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
               </Box>
             ))}
           </Box>
           {show
-          && <See onClick={() => { setShow(true); }}> See more </See>}
-          {!show
           && <See onClick={() => { setShow(false); }}> See Less </See>}
+          {!show
+          && <See onClick={() => { setShow(true); }}> See more </See>}
         </>
         )}
     </div>
