@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 
 // styles
+import { useRef, useEffect, useState } from 'react';
 import {
   PostContainer, PostMedia, CustomImage, PostText, PostTextContainer,
 
@@ -30,7 +31,10 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {number} votes -Number of post votes.
  * @property {number} commentCount -Number of post comments.
  * @property {string} text -Post text in case of "self" kind.
- * @property {boolean} subredit -to identify if post in home page or subreddit.
+ * @property {boolean} subreddit -to identify if post in home page or subreddit.
+ * @property {number} postVoteStatus -The last vote of the current user in this post.
+ * @property {boolean} isSaved -Is this post saved by the current user or not.
+ * @property {number} postId -The Id of the current post.
  * @returns {React.Component} Post
  */
 
@@ -41,9 +45,17 @@ function Post(props) {
   } = props;
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const postTextRef = useRef();
+  const [displayShadow, setDisplayShadow] = useState(false);
+  const maxTextHeight = 180;
   // const doc = new DOMParser().parseFromString(text, 'text/xml');
   // console.log(doc);
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
+
+  useEffect(() => {
+    console.log('height', postTextRef?.current?.offsetHeight);
+    setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
+  }, [text]);
   return (
     <PostContainer my={2}>
       {matchSm && (
@@ -86,8 +98,11 @@ function Post(props) {
                   alt="post image"
                 />
               ) : (
-                <PostText>
-                  <PostTextContainer />
+                <PostText
+                  ref={postTextRef}
+                  maxHeight={displayShadow ? maxTextHeight : 'none'}
+                >
+                  {displayShadow && <PostTextContainer />}
                   <div dangerouslySetInnerHTML={{ __html: text }} />
                 </PostText>
               )

@@ -13,33 +13,31 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
     console.log(response.data);
     console.log(response.status);
     console.log('env variable', process.env.REACT_APP_ENV);
-    if (process.env.REACT_APP_ENV === 'development') {
-      if (response.status !== 201) {
-        if (response.status === 401) {
-          redirectLogin();
-        }
-        const { message } = response.data;
-        console.log(message);
-      } else {
-        const post = response?.data;
-        const postId = post?._id;
-        if (postType === 1) {
-          postMedia.forEach((media) => {
-            const { fileName, file } = media;
-            axios.post(`/posts/${postId}/images`, {
-              filename: fileName,
-              file,
-            }).then((response) => {
-              console.log(response);
-            }).catch((error) => {
-              console.log(error.response);
-              console.log(error.response.status);
-              console.log(error.response.message);
-              alert('somethig went wrong with creating images');
-            });
+    if (response.status !== 201) {
+      if (response.status === 401) {
+        redirectLogin();
+      }
+      const { message } = response.data;
+      console.log(message);
+    } else {
+      const post = response?.data;
+      const postId = post?._id;
+      if (postType === 1) {
+        postMedia.forEach((media) => {
+          const { fileName, file } = media;
+          axios.post(`/posts/${postId}/images`, {
+            filename: fileName,
+            file,
+          }).then((response) => {
+            console.log(response);
+          }).catch((error) => {
+            console.log(error.response);
+            console.log(error.response.status);
+            console.log(error.response.message);
+            alert('somethig went wrong with creating images');
           });
-          // navigate('/');
-        }
+        });
+        // navigate('/');
       }
       alert('posted successfully');
     }

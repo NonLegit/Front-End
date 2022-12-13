@@ -52,7 +52,7 @@ export const CustomImage = styled('img')(() => ({
   maxHeight: '512px',
 }));
 
-export const PostText = styled('p')(() => ({
+export const PostText = styled('p')(({ maxHeight }) => ({
   fontSize: 14,
   fontWeight: 400,
   lineHeight: '21px',
@@ -61,7 +61,7 @@ export const PostText = styled('p')(() => ({
   marginTop: 0,
   position: 'relative',
   cursor: 'pointer',
-  maxHeight: 250,
+  maxHeight,
   overflow: 'hidden',
 }));
 
