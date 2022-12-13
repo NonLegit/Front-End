@@ -8,6 +8,7 @@ import {
   HeaderText,
   HeaderToolbar,
 } from './styles';
+import ModerationList from '../ModerationList/ModerationList';
 
 function ModerationHeader() {
   const { subReddit, subTitle } = useParams();
@@ -17,6 +18,7 @@ function ModerationHeader() {
         <HeaderAvatar>
           <HeaderAvatarText>r/</HeaderAvatarText>
         </HeaderAvatar>
+        <ModerationList />
         <HeaderText>
           <HeaderLink href="/" underline="none">
             r/

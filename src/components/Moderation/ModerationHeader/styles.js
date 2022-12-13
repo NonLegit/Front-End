@@ -10,18 +10,30 @@ export const Header = styled(AppBar)(() => ({
   boxShadow: 'none',
 }));
 
-export const HeaderText = styled('div')(() => ({
+export const HeaderText = styled('div')(({ theme }) => ({
   marginLeft: 3,
   fontSize: 12,
   fontWeight: 600,
   display: 'flex',
+  [theme.breakpoints.up('lg')]: {
+    display: 'flex',
+  },
+  [theme.breakpoints.down('lg')]: {
+    display: 'none',
+  },
 }));
 
-export const HeaderLink = styled(Link)(() => ({
+export const HeaderLink = styled(Link)(({ theme }) => ({
   marginLeft: 3,
   fontWeight: 'bolder',
   letterSpacing: 0.7,
   textTransform: 'uppercase',
+  [theme.breakpoints.up('lg')]: {
+    display: 'flex',
+  },
+  [theme.breakpoints.down('lg')]: {
+    display: 'none',
+  },
 }));
 
 export const HeaderToolbar = styled(Toolbar)(() => ({
