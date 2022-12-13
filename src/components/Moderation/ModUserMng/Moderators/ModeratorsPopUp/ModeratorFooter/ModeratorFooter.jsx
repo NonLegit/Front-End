@@ -1,7 +1,7 @@
 import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
 
-function ApproveFooter(props) {
+function ModeratorFooter(props) {
   const { handleClickCloseApproved } = props;
   return (
     <StyledBox>
@@ -31,4 +31,4 @@ function ApproveFooter(props) {
   );
 }
 
-export default ApproveFooter;
+export default ModeratorFooter;

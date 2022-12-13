@@ -7,9 +7,9 @@ import {
   QueueBox, QueueText, ControlBar,
 } from './styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
-import ApprovePopUp from './ApproveUserPopUp/ApprovePopUp/ApprovePopUp';
+import ModeratorPopUp from './ModeratorsPopUp/ModeratorPopUp/ModeratorPopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyApproved from './NonEmptyApproved/NonEmptyApproved';
+import NonEmptyModerator from './NonEmptyModerator/NonEmptyModerator';
 
 export const ApproveContext = React.createContext();
 
@@ -24,9 +24,19 @@ function Aprrove() {
         openApprove, handleClickCloseApprove,
       }}
       >
-        <ApprovePopUp />
+        <ModeratorPopUp />
       </ApproveContext.Provider>
       <ControlBar>
+        <RedditButton
+          fontSize="14px"
+          padding="0px 24px 0px 24px"
+          fontWeight="bold"
+          variant="outlined"
+          sx={{ marginRight: '12px' }}
+          onClick={handleClickOpenApprove}
+        >
+          Leave as mod
+        </RedditButton>
         <RedditButton
           fontSize="14px"
           padding="0px 24px 0px 24px"
@@ -34,7 +44,7 @@ function Aprrove() {
           variant="contained"
           onClick={handleClickOpenApprove}
         >
-          Approve user
+          Invite user as mode
         </RedditButton>
       </ControlBar>
       <QueueBox>
@@ -43,7 +53,7 @@ function Aprrove() {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyApproved />
+      <NonEmptyModerator />
     </ModMainPage>
   );
 }

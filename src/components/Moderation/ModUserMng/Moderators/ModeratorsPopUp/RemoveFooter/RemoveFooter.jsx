@@ -1,8 +1,8 @@
 import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
 
-function ApproveFooter(props) {
-  const { handleClickCloseApproved } = props;
+function RemoveFooter(props) {
+  const { handleClickCloseRemove } = props;
   return (
     <StyledBox>
       <RedditButton
@@ -10,7 +10,7 @@ function ApproveFooter(props) {
         padding="0px 24px 0px 24px"
         fontWeight="bold"
         variant="outlined"
-        onClick={handleClickCloseApproved}
+        onClick={handleClickCloseRemove}
         disableRipple
         disableFocusRipple
       >
@@ -25,10 +25,10 @@ function ApproveFooter(props) {
         disableRipple
         disableFocusRipple
       >
-        Add user
+        Remove
       </RedditButton>
     </StyledBox>
   );
 }
 
-export default ApproveFooter;
+export default RemoveFooter;
