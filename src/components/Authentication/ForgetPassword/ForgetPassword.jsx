@@ -19,7 +19,6 @@ import theme, { fonts } from '../../../styles/theme';
 import { checkUserName, recoverPassword } from './ForgetPasswordServer';
 
 // scripts
-
 import { redditCookie, checkEmail } from '../authenticationServer';
 
 // environment variables

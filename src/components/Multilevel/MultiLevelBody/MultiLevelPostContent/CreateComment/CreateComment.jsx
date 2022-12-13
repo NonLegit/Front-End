@@ -11,6 +11,7 @@ import {
 import draftToHtml from 'draftjs-to-html';
 
 // components
+import { Typography } from '@mui/material';
 import TextEditor from '../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
 
 // Context
@@ -41,7 +42,7 @@ function CreateComment() {
   };
 
   const comment = () => {
-    if (saveComment(post?._id, 'parent', draftToHtml(convertToRaw(text.getCurrentContent())))) {
+    if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
       setText(EditorState.createEmpty());
       // Need refresh post Component =>to pop comment
     }
@@ -49,6 +50,7 @@ function CreateComment() {
 
   return (
     <div>
+      <Typography>Comment as BasmaElhoseny01</Typography>
       <TextEditor handlePostTextChange={handleCommentTextChange} postText={text} />
       <Box m={2} gap={1} display="flex" justifyContent="flex-end">
         <SaveButton

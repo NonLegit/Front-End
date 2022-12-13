@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 // MUI components
 import {
   Typography, Button, IconButton,
@@ -23,6 +25,58 @@ import theme from '../../../styles/theme';
 function MultiLevelHeader() {
   // Context
   const { post } = usePostContext();
+
+  // useEffect
+  useEffect(() => {
+    // Add This post to the History
+    if (post) {
+      // isHidden
+      const savedPost = (({
+        _id, author, owner, ownerType,
+        title, kind,
+        text, url, votes, commentCount, views, createdAt, suggestedSort, nsfw, spoiler,
+        sendReplies, locked, flairId, flairText, postVoteStatus, isSaved, isHidden, modState, sharedFrom, shareCount, images, video, sortOnHot,
+      }) => ({
+        _id,
+        author,
+        owner,
+        ownerType,
+        title,
+        kind,
+        text,
+        url,
+        votes,
+        commentCount,
+        views,
+        createdAt,
+        suggestedSort,
+        nsfw,
+        spoiler,
+        sendReplies,
+        locked,
+        flairId,
+        flairText,
+        postVoteStatus,
+        isSaved,
+        isHidden,
+        modState,
+        sharedFrom,
+        shareCount,
+        images,
+        video,
+        sortOnHot,
+      }))(post);
+      savedPost.isHidden = false;
+      console.log('Saved Post');
+      console.log(savedPost);
+
+      // Push This post to Hiistory in the local storage
+      // const history = [];
+      // history.push(JSON.parse(localStorage.getItem('RedditHistory')));
+      // history.push(savedPost);
+      localStorage.setItem('RedditHistory', JSON.stringify(savedPost));
+    }
+  }, [post]);
 
   const close = () => {
     // Back to previous Page [Windows History]
