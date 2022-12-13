@@ -1,6 +1,6 @@
+/* eslint-disable react/no-unstable-nested-components */
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
 import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPrivacy';
@@ -27,7 +27,9 @@ import SubReddit from './pages/SubReddit';
 
 function App() {
   return (
+
     <ThemeProvider theme={theme}>
+
       <CssBaseline />
       <PostTypeContextProvider>
         <Router className="App">
@@ -185,6 +187,7 @@ function App() {
           </Routes>
         </Router>
       </PostTypeContextProvider>
+
     </ThemeProvider>
   );
 }

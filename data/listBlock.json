@@ -1,0 +1,35 @@
+{
+    "status": "success",
+    "blocked": [
+        {
+            "_id": "Ramos",
+            "userName": "Ramos",
+            "profilePicture": "https://www.realmadrid.com/img/vertical_380px/ramos_ficha_550x650_20210630115027.jpg"
+        },
+        {
+            "_id": "CR7",
+            "userName": "CR7",
+            "profilePicture": "https://img.a.transfermarkt.technology/portrait/big/8198-1668503200.jpg?lm=1"
+        },
+        {
+            "_id": "moderitch",
+            "userName": "moderitch",
+            "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeJGx3FHoHjexOLXuzjfUM-HHC5ooDyVxJWQ&usqp=CAU"
+        },
+        {
+            "_id": "neymar",
+            "userName": "neymar",
+            "profilePicture": "https://www.realmadrid.com/img/vertical_380px/ramos_ficha_550x650_20210630115027.jpg"
+        },
+        {
+            "_id": "walterWhite",
+            "userName": "WalterWhite",
+            "profilePicture": "https://media-cldnry.s-nbcnews.com/image/upload/streams/2013/August/130808/6C8558749-130808-walter-white-tease.jpg"
+        },
+        {
+            "_id": "Rick",
+            "userName": "Rick",
+            "profilePicture": "https://media.vanityfair.com/photos/58b9e521a50ee02e65e431ab/master/pass/rick-grimes-amc-the-walking-dead.jpg"
+        }
+    ]
+}

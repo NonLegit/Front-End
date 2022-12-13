@@ -23,6 +23,7 @@ function ProfileImage() {
   useEffect(() => {
     console.log('ss', formData);
   }, [formData]);
+
   const onFileChange = async (event, type) => {
     const file = event.target.files[0];
     const reader = new FileReader();

@@ -1,13 +1,13 @@
 import { Box } from '@mui/system';
 import { Switch } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useAlert } from 'react-alert';
 import {
   AntSwitch, ContentSubHeader, ContentHeader, Content, Button, Header,
   SettingsPageConranier, SubHeader,
 } from '../styles';
 import ProfileInoformation from './ProfileInoformation/ProfileInoformation';
 import ProfileImage from './ProfileImage/ProfileImage';
-
 import SettingsProvider from '../../../contexts/SettingsProvider';
 import { settingsPost, settingsFetch } from '../settingsServer';
 
@@ -19,6 +19,7 @@ import { settingsPost, settingsFetch } from '../settingsServer';
  *  @component
  */
 function SettingsProfile() {
+  const alert = useAlert();
   const [prefs, setPrefs] = useState();
   const [data] = settingsFetch();
   useEffect(() => {
@@ -26,13 +27,17 @@ function SettingsProfile() {
   }, [data]);
   const handleNSFW = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, nsfw: !oldPrefs.nsfw }));
-    const message = await settingsPost({ ...prefs, nsfw: !prefs?.nsfw });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, nsfw: !prefs?.nsfw });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
   const handleCanbeFollowed = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, canbeFollowed: !oldPrefs.canbeFollowed }));
-    const message = await settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, canbeFollowed: !prefs?.canbeFollowed });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
   return (
 

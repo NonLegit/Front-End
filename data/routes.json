@@ -36,5 +36,8 @@
     "/users/:Name/about/": "/userInfo",
     "/users/social_links": "/socialLinks",
     "/users/social_links/:id": "/postSocialLinks",
-    "/users/image":"/userImage"
+    "/users/image":"/userImage",
+    "/users/blocked":"/listBlock",
+    "/users/:userName/block_user":"/blockUser",
+    "/users/:userName/unblock_user":"/blockUser"
 }

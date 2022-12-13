@@ -7,6 +7,7 @@ import useFetch from '../../hooks/useFetch';
 export const settingsPost = async (prefs) => {
   const api = '/users/me/prefs';
   let message = '';
+  let flag = 'error';
   console.log(prefs);
   await axios.patch(`${api}`, prefs)
     .then((response) => {
@@ -14,15 +15,18 @@ export const settingsPost = async (prefs) => {
       if (response.status === 304) {
         message = 'Operation failed';
       } else {
+        flag = 'success';
         message = 'operation done successfully';
       }
     }).catch((error) => {
-      // if (error?.response.status === 401) {
-      //   redirectLogin();
-      // }
       console.log(error);
+      if (error.message !== 'Network Error') {
+        if (error?.response.status === 401) {
+          redirectLogin();
+        }
+      }
     });
-  return message;
+  return [message, flag];
 };
 export const image = async (file, type) => {
   const api = '/users/images';
@@ -36,9 +40,9 @@ export const image = async (file, type) => {
     .then((response) => {
       console.log(response);
     }).catch((error) => {
-      // if (error?.response.status === 401) {
-      //   redirectLogin();
-      // }
+      if (error?.response.status === 401) {
+        redirectLogin();
+      }
       console.log(error);
     });
   return message;
@@ -55,4 +59,20 @@ export const settingsFetch = () => {
   }
   const prefs = data;
   return [prefs];
+};
+
+export const imagePost = async (data) => {
+  const api = '/users/images';
+  console.log(data);
+  await axios.post(`${api}`, data)
+    .then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.log(error);
+      if (error.message !== 'Network Error') {
+        if (error?.response.status === 401) {
+          redirectLogin();
+        }
+      }
+    });
 };
