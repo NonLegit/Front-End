@@ -73,7 +73,7 @@ function OtherProfilePostFooter(props) {
 
   return (
     <FooterBox>
-      <OtherProfileArrowList points={points} postVoteStatus={postVoteStatus} />
+      <OtherProfileArrowList postid={postid} points={points} postVoteStatus={postVoteStatus} />
       <ElementBox>
         {expand ? <UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}

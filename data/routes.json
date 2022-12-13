@@ -45,5 +45,6 @@
     "/posts/:postId/hide":"/postAction",
     "/posts/:postId/unhide":"/postAction",
     "/posts/:postId/save":"/postAction",
-    "/posts/:postId/unsave":"/postAction"
+    "/posts/:postId/unsave":"/postAction",
+    "/posts/:postId/vote":"/postAction"
 }

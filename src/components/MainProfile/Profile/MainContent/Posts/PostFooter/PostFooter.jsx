@@ -114,7 +114,7 @@ function PostFooter(props) {
 
   return (
     <FooterBox>
-      <ArrowList points={points} postVoteStatus={postVoteStatus} />
+      <ArrowList postid={postid} points={points} postVoteStatus={postVoteStatus} />
       <ElementBox>
         {expand ? <UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}

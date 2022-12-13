@@ -26,7 +26,7 @@ export const overviewServer = (name) => {
 
 export const postReactionsServer = (postId, action, dir) => {
   axios.post(`/posts/${postId}/${action}`, { dir }).then((response) => {
-    console.log('action response', response, action);
+    console.log('action response', response, action, dir);
   }).catch((error) => {
     console.log(error.response.status);
   });

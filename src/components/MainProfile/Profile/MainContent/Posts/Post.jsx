@@ -41,7 +41,7 @@ function Post(props) {
   }, [type]);
   return (
     <PostsQueueBox>
-      <PostSide points={entity?.votes} postVoteStatus={entity?.postVoteStatus} spam={entity?.isSpam} />
+      <PostSide postid={entity?._id} points={entity?.votes} postVoteStatus={entity?.postVoteStatus} spam={entity?.isSpam} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>

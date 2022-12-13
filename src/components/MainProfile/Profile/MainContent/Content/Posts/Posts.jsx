@@ -24,7 +24,7 @@ function Posts(props) {
   const { post } = props;
   return (
     <PostsQueueBox>
-      <PostSide points={post?.votes} postVoteStatus={post?.postVoteStatus} />
+      <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
           <PostHeader

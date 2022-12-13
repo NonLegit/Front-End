@@ -41,7 +41,7 @@ function OtherProfilePost(props) {
   }, [type]);
   return (
     <PostsQueueBox>
-      <OtherProfilePostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.isSpam} />
+      <OtherProfilePostSide postid={entity?._id} points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.isSpam} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>

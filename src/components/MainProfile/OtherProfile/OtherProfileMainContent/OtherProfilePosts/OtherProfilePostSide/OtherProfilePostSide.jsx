@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   UpArrow, DownArrow, SidebarQueueBox, UpArrowFilled, DownArrowFilled, Number,
 } from './styles';
+import { postReactionsServer } from '../../../../profileServer';
 
 /**
  * Sidebar of the post conatining arrow up and down
@@ -12,23 +13,42 @@ import {
  * @returns {React.Component} OtherProfilePostSide
  */
 function OtherProfilePostSide(props) {
-  const { points, postVoteStatus, spam } = props;
+  const {
+    postid, points, postVoteStatus, spam,
+  } = props;
   const [postPoints, setPostPoints] = useState(points);
+  const [status, setStatus] = useState(postVoteStatus);
 
   const handleClickUp = () => {
-    setPostPoints(postPoints + 1);
+    postReactionsServer(postid, 'vote', 1);
+    if (status === '-1') setPostPoints(postPoints + 2);
+    else setPostPoints(postPoints + 1);
+    setStatus('1');
   };
   const handleClickDown = () => {
+    postReactionsServer(postid, 'vote', -1);
+    if (status === '1') setPostPoints(postPoints - 2);
+    else setPostPoints(postPoints - 1);
+    setStatus('-1');
+  };
+  const handleNoUpvote = () => {
+    postReactionsServer(postid, 'vote', 0);
     setPostPoints(postPoints - 1);
+    setStatus('0');
+  };
+  const handleNoDownvote = () => {
+    postReactionsServer(postid, 'vote', 0);
+    setPostPoints(postPoints + 1);
+    setStatus('0');
   };
   return (
     <SidebarQueueBox condition={spam?.toString()}>
       {
-        (postVoteStatus === '1') ? <UpArrowFilled onClick={() => { handleClickDown(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
+        (status === '1') ? <UpArrowFilled onClick={() => { handleNoUpvote(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
       }
       <Number variant="caption" sx={{ fontWeight: 700 }}>{postPoints}</Number>
       {
-        (postVoteStatus === '-1') ? <DownArrowFilled onClick={() => { handleClickUp(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
+        (status === '-1') ? <DownArrowFilled onClick={() => { handleNoDownvote(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
       }
     </SidebarQueueBox>
   );

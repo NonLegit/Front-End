@@ -24,7 +24,7 @@ function OtherProfilePosts(props) {
   const { post } = props;
   return (
     <PostsQueueBox>
-      <OtherProfilePostSide points={post?.votes} postVoteStatus={post?.postVoteStatus} />
+      <OtherProfilePostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
       <PostContentBox>
         <Box sx={{ marginLeft: 1 }}>
           <OtherProfilePostHeader
