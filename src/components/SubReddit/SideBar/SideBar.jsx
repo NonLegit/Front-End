@@ -7,6 +7,7 @@ import Flirt from './Flirt/Flirt';
 import Moderation from './Mderation/Moderation';
 import numFormatter from '../../../utils/MembersNum';
 import UserLogin from '../../../authentication';
+import Rules from './Rules/Rules';
 /**
  * SideBar for subreddit
  * @component
@@ -14,7 +15,7 @@ import UserLogin from '../../../authentication';
  */
 function SideBar(props) {
   const {
-    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
+    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members, rules,
   } = props;
   const [moderate, setModerate] = useState(false);
   const finalArray = moderatoesName?.map((obj) => obj.userName);
@@ -41,6 +42,9 @@ function SideBar(props) {
         <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} />
       </CommunityContainer>
       )}
+      <CommunityContainer>
+        <Rules Name={Name} rules={rules} />
+      </CommunityContainer>
       <CommunityContainer>
         <Flirt />
       </CommunityContainer>

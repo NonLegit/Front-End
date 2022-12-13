@@ -92,7 +92,7 @@ export const ViewAllContainer = styled('div')(() => ({
   overflow: 'hidden',
   padding: '0 12px 12px',
 }));
-export const ViewAll = styled('div')(() => ({
+export const ViewAll = styled(Link)(() => ({
   fontSize: 12,
   fontWeight: 700,
   letterSpacing: '.5px',

@@ -13,6 +13,7 @@ import {
  */
 function Flirt() {
   const [flair, setFalir] = useState([]);
+  const [show, setShow] = useState(false);
   const { Name } = useParams();
   const [data, dataError] = useFetch(Name);
   console.log(data);
@@ -35,13 +36,22 @@ function Flirt() {
             </String>
           </Container>
           <Box sx={{ padding: '12px' }}>
-            { flair?.map((entity, index) => (
+            { (flair.slice(0, 8))?.map((entity, index) => (
+              <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
+                <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
+              </Box>
+            ))}
+            show &&
+            { (flair.slice(8))?.map((entity, index) => (
               <Box sx={{ paddingBottom: 1, display: 'inline-block' }}>
                 <Button key={`${index + 0}`} backgroundColor={entity.backgroundColor}><Span color={entity.textColor}>{entity.text}</Span></Button>
               </Box>
             ))}
           </Box>
-          <See>See more</See>
+          {show
+          && <See onClick={() => { setShow(true); }}> See more </See>}
+          {!show
+          && <See onClick={() => { setShow(false); }}> See Less </See>}
         </>
         )}
     </div>

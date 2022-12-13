@@ -7,7 +7,26 @@
       "fixedName": "selm alsodan",
       "name": "selm alsodan",
       "isJoined": true,
-      "rules": [],
+      "rules": [
+        {
+        "title": "rule 1",
+        "description": "test1",
+        "defaultName": "string",
+        "appliesTo": "Posts and comments"
+        },
+        {
+        "title": "rule 2",
+        "description": "string",
+        "defaultName": "string",
+        "appliesTo": "Posts and comments"
+        },
+        {
+          "title": "rule 3",
+          "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "defaultName": "string",
+          "appliesTo": "Posts and comments"
+        }
+        ],
       "type": "Public",
       "nsfw": true,
       "postType": "Text",
