@@ -1,7 +1,8 @@
 import {
-  Box,
+  Box, IconButton,
 } from '@mui/material';
 import { styled } from '@mui/system';
+import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const PostContainer = styled(Box)(() => ({
@@ -47,9 +48,9 @@ export const PostMedia = styled(Box)(({ kind }) => ({
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
 }));
 
-export const CustomImage = styled('img')(() => ({
+export const CustomImage = styled('img')(({ maxHeight }) => ({
   maxWidth: '100%',
-  maxHeight: '512px',
+  maxHeight,
 }));
 
 export const PostText = styled('p')(({ maxHeight }) => ({
@@ -71,4 +72,22 @@ export const PostTextContainer = styled(Box)(() => ({
   width: '100%',
   height: '100%',
   backgroundImage: 'linear-gradient(to bottom, transparent 70%, white)',
+}));
+
+export const CustomCarousel = styled(Carousel)(({ activeIndex: index, length }) => ({
+  '& .carousel-control-next': {
+    opacity: 1,
+    display: index !== length ? 'flex' : 'none',
+  },
+  '& .carousel-control-prev': {
+    opacity: 1,
+    display: index !== 0 ? 'flex' : 'none',
+  },
+}));
+
+export const ControlsIcon = styled(IconButton)(() => ({
+  backgroundColor: '#fff',
+  '&:hover': {
+    backgroundColor: '#fff',
+  },
 }));

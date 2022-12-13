@@ -2,11 +2,15 @@
 import {
   Box, useMediaQuery, useTheme,
 } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 // styles
 import { useRef, useEffect, useState } from 'react';
+import { CarouselItem } from 'react-bootstrap';
+
 import {
-  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer,
+  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, CustomCarousel, ControlsIcon,
 
 } from './styles';
 
@@ -46,25 +50,45 @@ function Post(props) {
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
   const postTextRef = useRef();
-  const [displayShadow, setDisplayShadow] = useState(false);
   const maxTextHeight = 180;
   // const doc = new DOMParser().parseFromString(text, 'text/xml');
   // console.log(doc);
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
 
+  const [displayShadow, setDisplayShadow] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [maxImagesHeight, setMaxImagesHeight] = useState(450);
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+
   useEffect(() => {
-    console.log('height', postTextRef?.current?.offsetHeight);
+    // console.log('height', postTextRef?.current?.offsetHeight);
     setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
   }, [text]);
+
+  useEffect(() => {
+    let minHeight = 450;
+    images?.forEach((image) => {
+      const img = new Image();
+      // console.log(img);
+      img.src = image;
+      minHeight = Math.min(minHeight, img.height);
+      console.log('my img height', img.height);
+    });
+    setMaxImagesHeight(minHeight);
+  }, [images]);
+  console.log('for post ', postId, maxImagesHeight);
   return (
     <PostContainer my={2}>
       {matchSm && (
-      <Reactions
-        flexDirection="column"
-        votes={votes}
-        postVoteStatus={postVoteStatus}
-        postId={postId}
-      />
+        <Reactions
+          flexDirection="column"
+          votes={votes}
+          postVoteStatus={postVoteStatus}
+          postId={postId}
+        />
       )}
       <Box
         p={1}
@@ -83,21 +107,60 @@ function Post(props) {
           subredit={subredit}
           ownerType={ownerType}
         />
-        <PostMedia mt={1.5} kind={kind}>
-          {/* eslint-disable jsx-a11y/media-has-caption */}
-          {/* */}
-          {kind === 'video' ? (
+        {/* eslint-disable jsx-a11y/media-has-caption */}
+        {/* */}
+        {kind === 'video' ? (
+          <PostMedia mt={1.5} kind={kind}>
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
               <source src={videos[0]} type="video/mp4" />
             </video>
-          ) : (
-            (kind === 'image')
-              ? (
-                <CustomImage
-                  src={images[0]}
-                  alt="post image"
-                />
-              ) : (
+          </PostMedia>
+        ) : (
+          (kind === 'image')
+            ? (
+              <CustomCarousel
+                interval={null}
+                indicators={false}
+                activeIndex={index}
+                length={images.length - 1}
+                onSelect={handleSelect}
+                prevIcon={(
+                  <ControlsIcon
+                    sx={{
+                      boxShadow: 10,
+                    }}
+                    color="third"
+                  >
+                    <ArrowBackIosNewIcon />
+                  </ControlsIcon>
+)}
+                nextIcon={(
+                  <ControlsIcon
+                    sx={{
+                      boxShadow: 10,
+                    }}
+                    color="third"
+                  >
+                    <ArrowForwardIosIcon />
+                  </ControlsIcon>
+)}
+              >
+                {images.map((image) => (
+                  <CarouselItem key={image}>
+                    <PostMedia mt={1.5} kind={kind}>
+                      <CustomImage
+                        src={image}
+                        alt="post image"
+                        maxHeight={maxImagesHeight}
+                      />
+                    </PostMedia>
+                  </CarouselItem>
+                ))}
+
+              </CustomCarousel>
+
+            ) : (
+              <PostMedia mt={1.5} kind={kind}>
                 <PostText
                   ref={postTextRef}
                   maxHeight={displayShadow ? maxTextHeight : 'none'}
@@ -105,10 +168,10 @@ function Post(props) {
                   {displayShadow && <PostTextContainer />}
                   <div dangerouslySetInnerHTML={{ __html: text }} />
                 </PostText>
-              )
-          )}
-          {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
-        </PostMedia>
+              </PostMedia>
+            )
+        )}
+        {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
         <PostReactions
           votes={votes}
           matchSm={matchSm}
