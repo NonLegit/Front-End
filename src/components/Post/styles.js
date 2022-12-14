@@ -2,8 +2,8 @@ import {
   Box, IconButton,
 } from '@mui/material';
 import { styled } from '@mui/system';
-import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 export const PostContainer = styled(Box)(() => ({
   width: '100%',
@@ -43,7 +43,7 @@ export const PostTitle = styled(Link)(() => ({
 
 export const PostMedia = styled(Box)(({ kind }) => ({
   display: 'flex',
-  justifyContent: (kind === 'self') ? 'flex-start' : 'center',
+  justifyContent: (kind === 'self' || kind === 'url') ? 'flex-start' : 'center',
   alignItems: 'center',
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
   position: 'relative',
@@ -75,17 +75,6 @@ export const PostTextContainer = styled(Box)(() => ({
   backgroundImage: 'linear-gradient(to bottom, transparent 70%, white)',
 }));
 
-export const CustomCarousel = styled(Carousel)(({ activeIndex: index, length }) => ({
-  '& .carousel-control-next': {
-    opacity: 1,
-    display: index !== length ? 'flex' : 'none',
-  },
-  '& .carousel-control-prev': {
-    opacity: 1,
-    display: index !== 0 ? 'flex' : 'none',
-  },
-}));
-
 export const ControlsIcon = styled(IconButton)(({ left, right, display }) => ({
   backgroundColor: '#fff',
   '&:hover': {
@@ -97,4 +86,34 @@ export const ControlsIcon = styled(IconButton)(({ left, right, display }) => ({
   top: '50%',
   transform: 'translate(0, -50%);',
   display,
+}));
+
+export const PostUrlLink = styled(Box)(() => ({
+  width: 135,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: 'inherit',
+}));
+
+export const PostUrl = styled('a')(({ theme }) => ({
+  fontSize: 13,
+  color: theme?.palette?.primary?.light,
+  height: 22,
+  display: 'flex',
+  alignItems: 'center',
+  '&:visited ': {
+    color: theme?.palette?.primary?.light,
+  },
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+  marginBottom: 10,
+}));
+
+export const LinkIcon = styled(LaunchIcon)(() => ({
+  width: 13,
+  height: 13,
+  color: 'inherit',
 }));

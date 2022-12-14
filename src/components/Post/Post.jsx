@@ -9,7 +9,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useRef, useEffect, useState } from 'react';
 
 import {
-  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, ControlsIcon,
+  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, ControlsIcon, PostUrl, PostUrlLink, LinkIcon,
 
 } from './styles';
 
@@ -38,13 +38,17 @@ import PostHeader from './PostHeader/PostHeader';
  * @property {number} postVoteStatus -The last vote of the current user in this post.
  * @property {boolean} isSaved -Is this post saved by the current user or not.
  * @property {number} postId -The Id of the current post.
+ * @property {string} url -The post url.
+ * @property {boolean} nsfw -Whether the post is not safe for work or not.
+ * @property {boolean} spoiler -Whether the post is spoiler or not.
  * @returns {React.Component} Post
  */
 
 function Post(props) {
   const {
     createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
-    subredit, postVoteStatus, isSaved, postId,
+    // eslint-disable-next-line no-unused-vars
+    subredit, postVoteStatus, isSaved, postId, url, nsfw, spoiler,
   } = props;
 
   // styles
@@ -130,7 +134,6 @@ function Post(props) {
           ref={postMediaRef}
         >
           {kind === 'video' ? (
-
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
               <source src={videos[0]} type="video/mp4" />
             </video>
@@ -176,8 +179,7 @@ function Post(props) {
                     </ControlsIcon>
                   </>
                 </>
-              ) : (
-
+              ) : ((kind === 'self') ? (
                 <PostText
                   ref={postTextRef}
                   maxHeight={displayShadow ? maxTextHeight : 'none'}
@@ -186,9 +188,16 @@ function Post(props) {
                   <div dangerouslySetInnerHTML={{ __html: text }} />
                 </PostText>
               )
+                : (
+                  <PostUrl href={url}>
+                    <PostUrlLink>
+                      {url}
+                    </PostUrlLink>
+                    <LinkIcon />
+                  </PostUrl>
+                ))
           )}
         </PostMedia>
-        {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
         <PostReactions
           votes={votes}
           matchSm={matchSm}

@@ -18,7 +18,7 @@ function PostList(props) {
         return !hiddenPosts.includes(id);
       }).map((post) => {
         const {
-          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved,
+          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
         return (
           <Post
@@ -41,6 +41,9 @@ function PostList(props) {
             ownerType={ownerType}
             isSaved={isSaved}
             postId={id}
+            url={url}
+            nsfw={nsfw}
+            spoiler={spoiler}
           />
         );
       })}
