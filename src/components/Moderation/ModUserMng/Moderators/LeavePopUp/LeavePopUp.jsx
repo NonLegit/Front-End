@@ -2,21 +2,21 @@
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
 import StyledDialog from './styles';
-import { RemoveContext } from '../../NonEmptyModerator/Moderator/Moderator';
-import RemoveHeader from '../RemoveHeader/RemoveHeader';
-import RemoveFooter from '../RemoveFooter/RemoveFooter';
+import { LeaveContext } from '../Moderators';
+import Header from '../../Header/Header';
+import Footer from '../../Footer/Footer';
 
-function RemovePopUp() {
+function LeavePopUp() {
   const {
-    openRemove, handleClickCloseRemove,
-  } = React.useContext(RemoveContext);
+    openLeave, handleClickCloseLeave,
+  } = React.useContext(LeaveContext);
   return (
     <StyledDialog
       fullScreen
-      open={openRemove}
+      open={openLeave}
     >
       <Box>
-        <RemoveHeader handleClickCloseRemove={handleClickCloseRemove} />
+        <Header buttonFunction={handleClickCloseLeave} headerText="Leave as mod" />
         <Divider />
       </Box>
       <Box sx={{ padding: '16px' }}>
@@ -27,10 +27,10 @@ function RemovePopUp() {
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
-        <RemoveFooter handleClickCloseRemove={handleClickCloseRemove} />
+        <Footer buttonFunction={handleClickCloseLeave} firstButtonText="Cancel" secondButtonText="Leave" />
       </Box>
     </StyledDialog>
   );
 }
 
-export default RemovePopUp;
+export default LeavePopUp;

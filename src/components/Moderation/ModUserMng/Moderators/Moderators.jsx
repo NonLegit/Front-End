@@ -4,28 +4,43 @@ import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
-  QueueBox, QueueText, ControlBar,
+  QueueBox, QueueText, ControlBar, UserContainer,
 } from './styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
-import ModeratorPopUp from './ModeratorsPopUp/ModeratorPopUp/ModeratorPopUp';
+import LeavePopUp from './LeavePopUp/LeavePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyModerator from './NonEmptyModerator/NonEmptyModerator';
+import NonEmptyModerator from './NonEmptyModerator/Moderator/Moderator';
+import Invitation from './InvitationPopUp/InvitationPopUp';
+import SearchBar from '../SearchBar/SearchBar';
 
-export const ApproveContext = React.createContext();
+export const LeaveContext = React.createContext();
+export const InvitationContext = React.createContext();
 
-function Aprrove() {
-  const [openApprove, setOpenApprove] = React.useState(false);
+function Moderator(props) {
+  const { subReddit } = props;
 
-  const handleClickOpenApprove = () => { setOpenApprove(true); };
-  const handleClickCloseApprove = () => { setOpenApprove(false); };
+  const [openLeave, setOpenLeave] = React.useState(false);
+  const handleClickOpenLeave = () => { setOpenLeave(true); };
+  const handleClickCloseLeave = () => { setOpenLeave(false); };
+
+  const [openInvitation, setOpenInvitation] = React.useState(false);
+  const handleClickOpenInvitation = () => { setOpenInvitation(true); };
+  const handleClickCloseInvitation = () => { setOpenInvitation(false); };
+
   return (
     <ModMainPage>
-      <ApproveContext.Provider value={{
-        openApprove, handleClickCloseApprove,
+      <LeaveContext.Provider value={{
+        openLeave, handleClickCloseLeave,
       }}
       >
-        <ModeratorPopUp />
-      </ApproveContext.Provider>
+        <LeavePopUp />
+      </LeaveContext.Provider>
+      <InvitationContext.Provider value={{
+        openInvitation, handleClickCloseInvitation,
+      }}
+      >
+        <Invitation />
+      </InvitationContext.Provider>
       <ControlBar>
         <RedditButton
           fontSize="14px"
@@ -33,7 +48,7 @@ function Aprrove() {
           fontWeight="bold"
           variant="outlined"
           sx={{ marginRight: '12px' }}
-          onClick={handleClickOpenApprove}
+          onClick={handleClickOpenLeave}
         >
           Leave as mod
         </RedditButton>
@@ -42,20 +57,48 @@ function Aprrove() {
           padding="0px 24px 0px 24px"
           fontWeight="bold"
           variant="contained"
-          onClick={handleClickOpenApprove}
+          onClick={handleClickOpenInvitation}
         >
           Invite user as mode
         </RedditButton>
       </ControlBar>
       <QueueBox>
         <QueueText>
-          <Typography variant="h6">Approved users</Typography>
+          <Typography variant="h6">
+            Moderators of r/
+            {subReddit}
+          </Typography>
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyModerator />
+      <SearchBar />
+      <UserContainer>
+        <NonEmptyModerator type="0" />
+      </UserContainer>
+      <UserContainer>
+        <Typography
+          color="#1C1C1C"
+          padding="0px 0px 8px 4px"
+          fontWeight={600}
+          fontSize="14px"
+        >
+          You can edit these moderators
+        </Typography>
+        <NonEmptyModerator type="1" />
+      </UserContainer>
+      <UserContainer>
+        <Typography
+          color="#1C1C1C"
+          padding="0px 0px 8px 4px"
+          fontWeight={600}
+          fontSize="14px"
+        >
+          Invited moderators
+        </Typography>
+        <NonEmptyModerator type="2" />
+      </UserContainer>
     </ModMainPage>
   );
 }
 
-export default Aprrove;
+export default Moderator;

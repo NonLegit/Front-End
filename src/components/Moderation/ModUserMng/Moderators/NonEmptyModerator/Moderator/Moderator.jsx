@@ -5,15 +5,20 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import * as React from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { UserBar } from './styles';
-import RemovePopUp from '../../ModeratorsPopUp/RemovePopUp/RemovePopUp';
+import RemovePopUp from '../../RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
 
-function Moderator() {
+function Moderator(props) {
+  // 0 stands for all moderators
+  // 1 stands for Editable moderators
+  // 2 stands for Invited moderators
+  const { type } = props;
   const [openRemove, setOpenRemove] = React.useState(false);
 
-  // const handleClickOpenRemove = () => { setOpenRemove(true); };
+  const handleClickOpenRemove = () => { setOpenRemove(true); };
   const handleClickCloseRemove = () => { setOpenRemove(false); };
 
   return (
@@ -52,16 +57,47 @@ function Moderator() {
         alignItems: 'center', display: 'flex', padding: '8px 16px', width: '30%',
       }}
       >
-        <Typography
-          padding="4px"
-          fontSize="12px"
-          color="#878A8C"
-        >
-          Everything
-        </Typography>
-        <IconButton disableRipple disableTouchRipple>
-          <EditIcon fontSize="small" />
-        </IconButton>
+        {(() => {
+          switch (type) {
+            case '1': return (
+              <>
+                <Typography
+                  padding="4px"
+                  fontSize="12px"
+                  color="#878A8C"
+                >
+                  Everything
+                </Typography>
+                <IconButton disableRipple disableTouchRipple>
+                  <EditIcon fontSize="small" />
+                </IconButton>
+              </>
+            );
+            case '2': return (
+              <>
+                <Typography
+                  padding="4px"
+                  fontSize="12px"
+                  color="#878A8C"
+                >
+                  Everything
+                </Typography>
+                <IconButton disableRipple disableTouchRipple>
+                  <DeleteIcon fontSize="small" onClick={handleClickOpenRemove} />
+                </IconButton>
+              </>
+            );
+            default: return (
+              <Typography
+                padding="4px"
+                fontSize="12px"
+                color="#878A8C"
+              >
+                Everything
+              </Typography>
+            );
+          }
+        })()}
       </Box>
     </UserBar>
   );

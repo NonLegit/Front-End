@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 export const ModMainPage = styled(Box)(() => ({
   backgroundColor: '#dae0e6',
-  // marginLeft: 280,
+  marginLeft: 280,
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',

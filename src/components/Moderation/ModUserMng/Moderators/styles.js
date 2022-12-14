@@ -22,3 +22,7 @@ export const ControlBar = styled(Box)(() => ({
   height: '48px',
   padding: '0 24px',
 }));
+
+export const UserContainer = styled(Box)(() => ({
+  marginBottom: '36px',
+}));

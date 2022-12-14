@@ -2,8 +2,8 @@ import { Dialog, styled } from '@mui/material';
 
 const StyledDialog = styled(Dialog)(({ fullscreen }) => ({
   '& .MuiDialog-paper': {
-    width: '410px',
-    height: '186px',
+    width: '538px',
+    height: '520px',
     borderRadius: '5px',
     display: 'flex',
     flexDirection: 'column',
