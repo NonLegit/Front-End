@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 10,
+      "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png",
+      "fixedName": "kalba222",
+      "rank": 1,
+      "isJoined": false,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    },
+    {
+      "id": 10,
+      "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png",
+      "fixedName": "basma",
+      "rank": 1,
+      "isJoined": false,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    },
+    {
+      "id": 10,
+      "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png",
+      "fixedName": "nour22",
+      "rank": 1,
+      "isJoined": false,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    },
+    {
+      "id": 10,
+      "subredditName": "selm alsodan",
+      "rank": 1,
+      "isJoined": true,
+      "membersCount": 10000,
+      "description": "welcome to subreddit"
+    }
+  ]
+}

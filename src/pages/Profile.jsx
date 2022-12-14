@@ -1,6 +1,8 @@
+import MainProfile from '../components/MainProfile/MainProfile';
+
 function Profile() {
   return (
-    <div>Profile</div>
+    <MainProfile />
   );
 }
 

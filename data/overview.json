@@ -1,0 +1,142 @@
+{
+  "posts": [
+    {
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string1",
+      "kind": "link",
+      "text": "string",
+      "url": "string",
+      "sr": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2022-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string2",
+      "kind": "link",
+      "text": "string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string ",
+      "url": "string",
+      "sr": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2022-10-09T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string3",
+      "kind": "link",
+      "text": "string",
+      "url": "string",
+      "sr": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    }
+  ],
+  "comments": [
+    {
+      "parent": "string",
+      "parentType": "string",
+      "owner": "{{$UserName}}",
+      "ownerType": "User",
+      "post": "string",
+      "title": "HEllo",
+      "author": "string",
+      "text": "string",
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "votes": 0,
+      "commentVoteStatus": "1",
+      "isDeleted": false,
+      "mentions": ["userName of mentioned users"],
+      "isSaved": false
+    }
+  ]
+}

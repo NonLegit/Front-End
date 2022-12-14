@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContent MainContent renders correctly 1`] = `
+<div
+  className="css-xd4h8n"
+  width={200}
+>
+  <div>
+    dummy
+  </div>
+</div>
+`;
