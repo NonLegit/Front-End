@@ -1,0 +1,71 @@
+import { IconButton, TableCell } from '@mui/material';
+import TableRow from '@mui/material/TableRow';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useState } from 'react';
+import {
+  Actions, BodyCell, BodyFirstCell, Filter, Text,
+} from './style';
+import Edit from './EditFlair/Edit';
+
+function Entity(props) {
+  const {
+    row, handleClick, can, trueCan,
+  } = props;
+  const [show, setShow] = useState(false);
+  function copied() {
+    alert('text copied');
+  }
+  const Edited = () => {
+    console.log('clicked');
+    handleClick();
+    setShow(true);
+  };
+  const save = () => {
+    trueCan();
+    setShow(false);
+  };
+  const cancel = () => {
+    trueCan();
+    setShow(false);
+  };
+  return (
+    <>
+      <TableRow
+        key={row.name}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+        <BodyFirstCell>
+          <Text color={row.textColor} backgroundColor={row.backgroundColor}>
+            {row.text}
+          </Text>
+        </BodyFirstCell>
+        <BodyCell align="center">{row.cssClass}</BodyCell>
+        <BodyCell align="center" />
+        <BodyCell align="center">
+          <Actions>
+            <Filter
+              onClick={() => { navigator.clipboard.writeText(row.id); copied(); }}
+            >
+              Copy ID
+            </Filter>
+            {(can)
+              ? <Filter onClick={() => Edited()}>edit</Filter>
+              : <Filter disabled condition={!can}>edit</Filter>}
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
+          </Actions>
+        </BodyCell>
+      </TableRow>
+      {show
+      && (
+      <TableRow>
+        <TableCell align="left" colSpan={4}>
+          <Edit flair={row} save={save} cancel={cancel} />
+        </TableCell>
+      </TableRow>
+      )}
+    </>
+  );
+}
+export default Entity;

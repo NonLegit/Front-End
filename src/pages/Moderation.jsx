@@ -7,6 +7,8 @@ import ModerationHeader from '../components/Moderation/ModerationHeader/Moderati
 import ModerationMainPage from '../components/Moderation/ModerationMainPage/ModerationMainPage';
 import Queue from '../components/Moderation/ModQueues/Queue';
 import PostFlair from '../components/Moderation/Post Flair/PostFlair';
+import PostsAndComments from '../components/Moderation/PostsAndComments/PostsAndComments';
+import Rules from '../components/Moderation/Rules/Rules';
 
 const renderSwitch = (param) => {
   switch (param) {
@@ -16,6 +18,10 @@ const renderSwitch = (param) => {
       return <Queue subTitle={param} />;
     case 'Post flair':
       return <PostFlair />;
+    case 'Rules':
+      return <Rules />;
+    case 'Posts and Comments':
+      return <PostsAndComments />;
     default:
       return <ModerationMainPage />;
   }

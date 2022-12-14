@@ -47,7 +47,7 @@ function ModerationDrawer() {
         <ModBox
           icon={<SettingsOutlinedIcon />}
           headerText="OTHER"
-          arr={['Comunity settings', 'Comunity apperance']}
+          arr={['Community', 'Posts and Comments', 'Comunity apperance']}
         />
         <ModBox
           icon={<SignalCellularAltOutlinedIcon />}

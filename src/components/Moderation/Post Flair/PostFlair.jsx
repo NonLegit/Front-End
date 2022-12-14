@@ -2,27 +2,21 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
-import { IconButton } from '@mui/material';
-import TableRow from '@mui/material/TableRow';
-import DeleteIcon from '@mui/icons-material/Delete';
+
+import { useState } from 'react';
 import {
   AboutString,
-  Actions,
   Add,
   AddFlair,
   Body,
-  BodyCell,
-  BodyFirstCell,
-  Filter,
   IconBtn,
   LeftAlighne,
   POSTFLAIRPREVIEW,
-  StyledTooltip, TableHeader, TableHeaderCell, TableHeaderCellContainer, Text, TotalContainer,
+  StyledTooltip, TableHeader, TableHeaderCell, TableHeaderCellContainer, TotalContainer,
 } from './style';
+import Entity from './Entity/Entity';
+import NewFlair from './NewFlair/NewFlair';
 
-function copied() {
-  alert('text copied');
-}
 const rows = [
   {
     textColor: '#0079d3',
@@ -41,10 +35,29 @@ const rows = [
 ];
 
 export default function PostFlair() {
+  const [can, setCan] = useState(true);
+  const [add, setAdd] = useState(false);
+
+  const handleClick = () => {
+    setCan(false);
+  };
+  const trueCan = () => {
+    setCan(true);
+  };
+  const save = () => {
+    setCan(true);
+    setAdd(false);
+  };
+  const cancel = () => {
+    setCan(true);
+    setAdd(false);
+  };
   return (
     <TotalContainer>
       <AddFlair>
-        <Add>Add Flair</Add>
+        {can
+          ? <Add onClick={() => { setCan(false); setAdd(true); }}>Add Flair</Add>
+          : <Add disabled condition={!can}>Add Flair</Add>}
       </AddFlair>
       <LeftAlighne>
         <AboutString>
@@ -97,33 +110,13 @@ export default function PostFlair() {
             </TableHead>
             <Body>
               {rows.map((row) => (
-                <TableRow
-                  key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <BodyFirstCell>
-                    <Text color={row.textColor} backgroundColor={row.backgroundColor}>
-                      {row.text}
-                    </Text>
-                  </BodyFirstCell>
-                  <BodyCell align="center">{row.cssClass}</BodyCell>
-                  <BodyCell align="center" />
-                  <BodyCell align="center">
-                    <Actions>
-                      <Filter onClick={() => { navigator.clipboard.writeText(row.id); copied(); }}>
-                        Copy ID
-                      </Filter>
-                      <Filter>edit</Filter>
-                      <IconButton>
-                        <DeleteIcon />
-                      </IconButton>
-                    </Actions>
-                  </BodyCell>
-                </TableRow>
+                <Entity row={row} handleClick={handleClick} can={can} trueCan={trueCan} />
               ))}
             </Body>
           </TableHeader>
         </TableContainer>
+        {add
+        && <NewFlair save={save} cancel={cancel} />}
       </LeftAlighne>
     </TotalContainer>
   );
