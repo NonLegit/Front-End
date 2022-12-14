@@ -55,7 +55,10 @@ function OtherProfilePosts(props) {
             </Box>
             <ParagraphBox>
               <ParagraphWhite />
-              <ParagraphPost data-testid="post-body">{post?.text}</ParagraphPost>
+              <ParagraphPost
+                data-testid="post-body"
+                dangerouslySetInnerHTML={{ __html: post?.text }}
+              />
             </ParagraphBox>
             <OtherProfilePostFooter
               postid={post?._id}

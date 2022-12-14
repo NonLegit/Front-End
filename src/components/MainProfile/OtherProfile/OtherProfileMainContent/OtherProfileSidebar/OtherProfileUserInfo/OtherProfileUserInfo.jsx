@@ -1,9 +1,8 @@
 import { Box, CardMedia, Typography } from '@mui/material';
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import CakeIcon from '@mui/icons-material/Cake';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import moment from 'moment/moment';
-import { UserContext } from '../../../../../../contexts/UserProvider';
 
 import UserInfoServer from '../../../../mainProfileServer';
 import {
@@ -20,7 +19,7 @@ import Block from './Block/Block';
  * @component OtherProfileUserInfo
  * @returns {React.Component} OtherProfileUserInfo
  */
-function OtherProfileUserInfo() {
+function OtherProfileUserInfo({ username }) {
   const [displayName, setDisplayName] = useState();
   const [about, setAbout] = useState();
   const [postKarma, setPostKarma] = useState();
@@ -36,8 +35,6 @@ function OtherProfileUserInfo() {
   const [hover, setHover] = useState(false);
 
   const [open, setOpen] = useState(false);
-
-  const { username } = useContext(UserContext);
 
   const [info, statusCode] = UserInfoServer(username);
   followRequest(username, follow, () => { setIsFollowedUi((prev) => !prev); });
