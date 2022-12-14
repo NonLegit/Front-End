@@ -73,7 +73,7 @@ function CommentsContent(props) {
             {' '}
             point .
             {' '}
-            {(moment.utc(comment.time).local().startOf('seconds')
+            {(moment.utc(comment.createdAt).local().startOf('seconds')
               .fromNow())}
           </CommentText>
         </Box>
@@ -82,8 +82,8 @@ function CommentsContent(props) {
           <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Reply</CommentText>
           <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Share</CommentText>
 
-          <MoreList>
-            <MoreHorizOutlinedIcon onClick={handleClick} />
+          <MoreList onClick={handleClick}>
+            <MoreHorizOutlinedIcon />
           </MoreList>
           <Menu
             id="long-menu"

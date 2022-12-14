@@ -84,7 +84,8 @@ function OtherProfilePostFooter(props) {
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}
-          {!submitted && ' Comments'}
+          {' '}
+          Comments
         </FooterText>
       </ElementBox>
       <ElementBox>

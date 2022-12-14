@@ -2,12 +2,13 @@ import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAlt
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { UserContext } from '../../../../../contexts/UserProvider';
+import mergeTwo from '../../../../../utils/mergeSort';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox } from '../styles';
 import ContentBox from './styles';
 import Posts from './Posts/Posts';
-// import Comments from './Comments/Comments';
+import Comments from './Comments/Comments';
 import { overviewServer } from '../../../profileServer';
 
 /**
@@ -22,12 +23,11 @@ import { overviewServer } from '../../../profileServer';
 function Content() {
   const { username } = useParams();
   const [isContent, setIsContent] = useState(false);
-  const [posts] = overviewServer(username);
+  const [posts, comments] = overviewServer(username);
 
   useEffect(() => {
-    if (posts?.length > 0) { setIsContent(true); }
-    // if (posts?.posts.length > 0 || comments?.length > 0) { setIsContent(true); }
-  }, [username, posts]);
+    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
+  }, [username, posts, comments]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
@@ -45,12 +45,11 @@ function Content() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            { posts.map((post, index) => (
-              <Posts key={`${index + 0}`} post={post} />
+            {mergeTwo(posts, comments).map((entity, index) => (
+              (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" />
+                : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" />
+                  : <Comments key={`${index + 0}`} comment={entity} />
             ))}
-            {/* {comments.map((comment, index) => (
-              <Comments key={`${index + 0}`} comment={comment} />
-            ))} */}
           </>
           )}
     </ContentBox>

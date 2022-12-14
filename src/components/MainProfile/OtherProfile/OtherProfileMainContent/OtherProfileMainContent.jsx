@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import CommunitiesSubscriberProvider from '../../../../contexts/CommunitiesSubscriberContext';
 import UserProvider from '../../../../contexts/UserProvider';
 import OtherProfileCommentsTap from './OtherProfileCommentsTap/OtherProfileCommentsTap';
 import OtherProfileContent from './OtherProfileContent/OtherProfileContent';
@@ -43,10 +44,12 @@ function OtherProfileMainContent() {
   return (
     <Box>
       <UserProvider name={username}>
-        <ProfilePage>
-          {renderSwitch(subTitle)}
-          <OtherProfileSidebar />
-        </ProfilePage>
+        <CommunitiesSubscriberProvider>
+          <ProfilePage>
+            {renderSwitch(subTitle)}
+            <OtherProfileSidebar />
+          </ProfilePage>
+        </CommunitiesSubscriberProvider>
       </UserProvider>
     </Box>
   );

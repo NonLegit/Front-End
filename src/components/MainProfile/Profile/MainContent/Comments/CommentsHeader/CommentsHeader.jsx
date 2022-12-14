@@ -62,6 +62,7 @@ function CommentsHeader(props) {
         Posted by
       </CommentText>
       <CommentText variant="caption" coloring="#787c7e" hover="true">
+        u/
         {post?.author?.name}
       </CommentText>
     </CommentsBoxHeader>

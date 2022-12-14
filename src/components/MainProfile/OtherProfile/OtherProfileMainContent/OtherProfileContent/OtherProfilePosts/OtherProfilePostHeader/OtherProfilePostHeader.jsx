@@ -1,8 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import moment from 'moment/moment';
 import { useState } from 'react';
-// import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {
   HeaderAvatar, HeaderAvatarImage, HeaderPost, Joined, LinkTo,
 } from './styles';
@@ -19,7 +17,7 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    subReddit, nameUser, Time, isSubReddit, type, icon,
+    subReddit, nameUser, Time, type, icon,
   } = props;
   const [joined, setJoined] = useState(false);
 
@@ -59,7 +57,7 @@ function OtherProfilePostHeader(props) {
             Posted by
           </Typography>
           <LinkTo to={`/user/${nameUser}`}>
-            <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1, '&:hover': { textDecoration: 'underline' } }}>
+            <Typography variant="caption" sx={{ color: '#787c7e', '&:hover': { textDecoration: 'underline' } }}>
               u/
               {nameUser}
             </Typography>
@@ -76,7 +74,7 @@ function OtherProfilePostHeader(props) {
           </Typography>
 
         </Box>
-        {isSubReddit && (
+        {type === 'Subreddit' && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
           onClick={handleJoin}
@@ -89,20 +87,6 @@ function OtherProfilePostHeader(props) {
         )}
 
       </Box>
-
-      {/* {((subTitle === 'Spam').toString() === 'true')
-      && (
-        <RemovalBox>
-          <BlockOutlinedIcon fontSize="string" />
-          <Typography variant="caption">Add a removal reason</Typography>
-        </RemovalBox>
-      )}
-      {((subTitle === 'Edited').toString() === 'true')
-      && (
-      <ApprovedBox>
-        <CheckCircleIcon fontSize="string" />
-      </ApprovedBox>
-      )} */}
     </HeaderPost>
   );
 }

@@ -11,7 +11,7 @@ export const CommentsBoxHeader = styled(Box)(({ theme }) => ({
   color: theme.palette.grey[500],
   padding: '8px 8px',
   '&:hover': {
-    border: '1px solid #898989',
+    outline: '1px solid #898989',
   },
 }));
 
@@ -31,8 +31,9 @@ export const TagPost = styled(Typography)(({ color }) => ({
   color,
   border: `1px solid ${color}`,
   padding: '0 5px',
-  height: 22,
-  textAlign: 'center',
+  height: '16px',
+  display: 'flex',
+  alignItems: 'center',
   borderRadius: 2,
   margin: 5,
 }));

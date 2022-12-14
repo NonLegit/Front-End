@@ -13,15 +13,15 @@ export const postsCommentsServer = (name, type) => {
   return [data?.posts];
 };
 
-export const overviewServer = (name) => {
+export const overviewServer = (name, sortType) => {
   if (name === ' ') { return null; }
-  const [data, dataError, statusCode] = useFetch(`users/${name}/overview`);
+  const [data, dataError, statusCode] = useFetch(`users/${name}/overview/?sort=${sortType}`);
   useEffect(() => {
     if (statusCode === 401) {
       window.location.pathname = 'login';
     }
   }, [data, dataError, statusCode]);
-  return [data?.posts];
+  return [data?.posts, data?.comments];
 };
 
 export const postReactionsServer = (postId, action, dir) => {

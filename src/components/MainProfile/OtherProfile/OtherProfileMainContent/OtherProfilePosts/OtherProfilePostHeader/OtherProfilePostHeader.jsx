@@ -3,8 +3,9 @@ import moment from 'moment/moment';
 import { useState } from 'react';
 import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
-// import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 import {
   HeaderPost, Joined, LinkTo,
 } from './styles';
@@ -21,8 +22,15 @@ import {
 
 function OtherProfilePostHeader(props) {
   const {
-    nameUser, Time, subReddit, nsfw, locked, isSubReddit, type,
+    nameUser,
+    Time,
+    subReddit,
+    modState,
+    locked,
+    notJoined,
+    type,
   } = props;
+
   const [joined, setJoined] = useState(false);
 
   const handleJoin = () => {
@@ -48,7 +56,7 @@ function OtherProfilePostHeader(props) {
           .
         </Typography>
       </LinkTo>
-      {isSubReddit && (
+      {(notJoined && type === 'Subreddit') && (
       <Joined
         variant={(joined ? 'outlined' : 'contained')}
         onClick={handleJoin}
@@ -75,21 +83,9 @@ function OtherProfilePostHeader(props) {
       </Typography>
 
       {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
-      {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
-
-      {/* {((subTitle === 'Spam').toString() === 'true')
-      && (
-        <RemovalBox>
-          <BlockOutlinedIcon fontSize="string" />
-          <Typography variant="caption">Add a removal reason</Typography>
-        </RemovalBox>
-      )}
-      {((subTitle === 'Edited').toString() === 'true')
-      && (
-      <ApprovedBox>
-        <CheckCircleIcon fontSize="string" />
-      </ApprovedBox>
-      )} */}
+      {modState === 'spam' && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
+      {modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="string" />}
+      {modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
     </HeaderPost>
   );
 }

@@ -29,9 +29,11 @@ export const Flair = styled(RedditButton)(({ backgroundcolor, flaircolor }) => (
 
 export const TagPost = styled(Typography)(({ color }) => ({
   color,
-  height: 22,
   border: `1px solid ${color}`,
   padding: '0 5px',
+  height: '16px',
+  display: 'flex',
+  alignItems: 'center',
   borderRadius: 2,
   margin: 5,
 }));

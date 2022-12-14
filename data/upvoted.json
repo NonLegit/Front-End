@@ -1,6 +1,7 @@
 {
   "posts": [
     {
+      "_id": "string11",
       "author": {
         "_id": "string",
         "name": "nour"
@@ -15,7 +16,6 @@
       "kind": "link",
       "text": "text of upvoted post 1",
       "url": "string",
-      "sr": "string",
       "votes": 30,
       "commentCount": 21,
       "views": 0,
@@ -34,15 +34,17 @@
       "postVoteStatus": "1",
       "isSaved": true,
       "isHidden": false,
-      "isSpam": true,
+      "modState": "spam",
       "sharedFrom": "string",
       "shareCount": 0,
       "images": [
         "https://b.thumbs.redditmedia.com/m8ZcMXROdRNdZ2Xk_40FO8HLo3X0EmDL9S0xi9wieCI.jpg"
       ],
-      "video": "string"
+      "video": "string",
+      "sortOnHot": 0
     },
     {
+      "_id": "string",
       "author": {
         "_id": "string",
         "name": "nour2"
@@ -70,11 +72,14 @@
       "postVoteStatus": "1",
       "isSaved": false,
       "isHidden": true,
-      "isSpam": false,
+      "modState": "approved",
       "sharedFrom": "string",
       "shareCount": 0,
-      "images": [],
-      "video": "string"
+      "images": [
+        "https://b.thumbs.redditmedia.com/m8ZcMXROdRNdZ2Xk_40FO8HLo3X0EmDL9S0xi9wieCI.jpg"
+      ],
+      "video": "string",
+      "sortOnHot": 0
     }
   ]
 }

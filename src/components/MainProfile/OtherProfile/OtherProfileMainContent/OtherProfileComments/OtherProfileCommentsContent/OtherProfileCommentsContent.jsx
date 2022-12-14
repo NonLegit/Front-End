@@ -72,7 +72,7 @@ function OtherProfileCommentsContent(props) {
             {' '}
             point .
             {' '}
-            {(moment.utc(comment.time).local().startOf('seconds')
+            {(moment.utc(comment.createdAt).local().startOf('seconds')
               .fromNow())}
           </CommentText>
         </Box>

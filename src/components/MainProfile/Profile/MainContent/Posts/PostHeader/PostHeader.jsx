@@ -2,9 +2,12 @@ import { Typography } from '@mui/material';
 
 import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
+import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import moment from 'moment/moment';
+import { useState } from 'react';
 import {
-  HeaderPost, LinkTo,
+  HeaderPost, Joined, LinkTo,
 } from './styles';
 
 /**
@@ -23,9 +26,25 @@ function PostHeader(props) {
     Time,
     subReddit,
     type,
-    nsfw,
+    notJoined,
+    modState,
     locked,
   } = props;
+
+  const [joined, setJoined] = useState(false);
+
+  const handleJoin = () => {
+    setJoined((prev) => !prev);
+  };
+
+  const [hover, setHover] = useState(false);
+
+  const handleMouseIn = () => {
+    setHover(true);
+  };
+  const handleMouseOut = () => {
+    setHover(false);
+  };
   return (
     <HeaderPost>
 
@@ -37,6 +56,17 @@ function PostHeader(props) {
           .
         </Typography>
       </LinkTo>
+      {(notJoined && type === 'Subreddit') && (
+      <Joined
+        variant={(joined ? 'outlined' : 'contained')}
+        onClick={handleJoin}
+        onMouseEnter={handleMouseIn}
+        onMouseLeave={handleMouseOut}
+        data-testid="join button"
+      >
+        {(joined ? (hover ? 'leave' : 'joined') : 'join')}
+      </Joined>
+      )}
 
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         Posted by
@@ -54,7 +84,9 @@ function PostHeader(props) {
       </Typography>
 
       {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="string" />}
-      {nsfw && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
+      {modState === 'spam' && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
+      {modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="string" />}
+      {modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
 
     </HeaderPost>
   );

@@ -1,11 +1,14 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import CommunitiesSubscriberProvider from '../../../../contexts/CommunitiesSubscriberContext';
+import CommunitiesProvider from '../../../../contexts/CommunitiesModeratorContext';
 import CommentsTap from './CommentsTap/CommentsTap';
 import Content from './Content/Content';
 import FollowersList from './FollowersList/FollowersList';
 import HistoryTap from './HistoryTap/HistoryTap';
 import PostsFilteredTap from './PostsFilteredTap/PostsFilteredTap';
 import PostsTap from './PostsTap/PostsTap';
+import SavedTap from './SavedTap/SavedTap';
 import Sidebar from './Sidebar/Sidebar';
 import { ProfilePage } from './styles';
 
@@ -21,9 +24,14 @@ const renderSwitch = (param) => {
       <PostsTap />
     );
   }
-  if (param === 'upvoted' || param === 'downvoted' || param === 'saved' || param === 'hidden') {
+  if (param === 'upvoted' || param === 'downvoted' || param === 'hidden') {
     return (
       <PostsFilteredTap />
+    );
+  }
+  if (param === 'saved') {
+    return (
+      <SavedTap />
     );
   }
   if (param === 'history') {
@@ -58,10 +66,14 @@ function ProfileMainContent() {
   const { subTitle } = useParams();
   return (
     <Box>
-      <ProfilePage>
-        {renderSwitch(subTitle)}
-        <Sidebar />
-      </ProfilePage>
+      <CommunitiesProvider>
+        <CommunitiesSubscriberProvider>
+          <ProfilePage>
+            {renderSwitch(subTitle)}
+            <Sidebar />
+          </ProfilePage>
+        </CommunitiesSubscriberProvider>
+      </CommunitiesProvider>
     </Box>
   );
 }

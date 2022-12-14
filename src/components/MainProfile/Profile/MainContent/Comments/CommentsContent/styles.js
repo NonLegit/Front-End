@@ -3,22 +3,19 @@ import { styled } from '@mui/material/styles';
 
 export const CommentsBoxContent = styled(Box)(() => ({
   width: '100%',
-  // height: 90,
   display: 'flex',
   alignItems: 'stretch',
-  // alignItems: 'center',
   paddingLeft: 20,
   padding: '8px 8px 8px 16px',
   verticalAlign: 'baseline',
 
-  // justifyContent: 'center',
   '&:hover': {
-    border: '1px solid #898989',
+    outline: '1px solid #898989',
+
   },
 }));
 
 export const CommentsBoxBlue = styled(Box)(({ theme }) => ({
-  // backgroundColor: '#0079d30d',
   [theme.breakpoints.between('0', '950')]: {
     width: '100%',
   },

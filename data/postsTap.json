@@ -7,10 +7,10 @@
       },
       "owner": {
         "_id": "string",
-        "name": "basmaaaa",
+        "name": "kalba222",
         "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
       },
-      "ownerType": "Subreddit0",
+      "ownerType": "Subreddit",
       "title": "string",
       "kind": "link",
       "text": "string",
@@ -50,7 +50,7 @@
         "name": "basmaaaa111",
         "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
       },
-      "ownerType": "Subreddit1",
+      "ownerType": "Subreddit",
       "title": "string",
       "kind": "link",
       "text": "string",

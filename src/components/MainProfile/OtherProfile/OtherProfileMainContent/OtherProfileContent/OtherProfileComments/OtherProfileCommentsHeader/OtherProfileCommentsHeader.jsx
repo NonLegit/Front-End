@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../../../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
-import CommentsBoxHeader from './styles';
+import { CommentsBoxHeader, Flair, TagPost } from './styles';
 
 /**
  * Header of the comment
@@ -19,11 +19,11 @@ import CommentsBoxHeader from './styles';
 function OtherProfileCommentsHeader(props) {
   const { username } = useContext(UserContext);
   const {
-    subReddit, publisher, title,
+    post, noheader,
   } = props;
   return (
 
-    <CommentsBoxHeader>
+    <CommentsBoxHeader noheader={noheader}>
       <ChatBubbleOutlineOutlinedIcon />
       <CommentText
         variant="caption"
@@ -35,21 +35,35 @@ function OtherProfileCommentsHeader(props) {
       <CommentText variant="caption" coloring="#787c7e">
         commented on
         {' '}
-        {title}
-        {' '}
+        {post.title}
         .
       </CommentText>
+      {post?.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
+      {/* check with baaaaaack */}
+      {post?.nsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
+      {
+            post?.flairId?.text
+            && (
+            <Flair
+              disableripple
+              backgroundcolor={post?.flairId?.backgroundColor}
+              flaircolor={post?.flairId?.textColor}
+            >
+              {post?.flairId?.text}
+            </Flair>
+            )
+          }
       <CommentText variant="caption" coloring="black" hover="true" sx={{ fontWeight: 700 }}>
-        u/
-        {subReddit}
-        {' '}
+        {post?.ownerType === 'User' ? 'u/' : 'r/'}
+        {post?.owner?.name}
         .
       </CommentText>
       <CommentText variant="caption" coloring="#787c7e">
         Posted by
       </CommentText>
       <CommentText variant="caption" coloring="#787c7e" hover="true">
-        {publisher}
+        u/
+        {post?.author?.name}
       </CommentText>
     </CommentsBoxHeader>
 
