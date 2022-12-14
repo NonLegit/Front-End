@@ -235,7 +235,7 @@ function CreatePostForm() {
           nswf={nswf}
           hanldeNsfw={hanldeNsfw}
           setFlair={setFlair}
-          subreddit={communityToPostIn}
+          subreddit={communityName?.substring(2)}
           flair={flair}
           communityName={communityName}
         />
