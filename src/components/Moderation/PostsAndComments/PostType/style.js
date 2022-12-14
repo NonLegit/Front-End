@@ -22,7 +22,7 @@ export const FlexBoxColumn = styled('div')({
   alignItems: 'flex-start',
 });
 export const AboutString = styled('div')({
-  fontSize: 18,
+  fontSize: 16,
   fontWeight: 500,
   color: 'black',
   marginTop: 10,

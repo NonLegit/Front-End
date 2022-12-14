@@ -2,6 +2,7 @@ import {
   Box,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import Community from '../components/Moderation/Community/Community';
 import ModerationDrawer from '../components/Moderation/ModerationDrawer/ModerationDrawer';
 import ModerationHeader from '../components/Moderation/ModerationHeader/ModerationHeader';
 import ModerationMainPage from '../components/Moderation/ModerationMainPage/ModerationMainPage';
@@ -22,6 +23,8 @@ const renderSwitch = (param) => {
       return <Rules />;
     case 'Posts and Comments':
       return <PostsAndComments />;
+    case 'Community':
+      return <Community />;
     default:
       return <ModerationMainPage />;
   }

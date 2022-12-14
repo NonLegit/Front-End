@@ -1,6 +1,6 @@
 import PostType from './PostType/PostType';
 import {
-  AboutString, Add, AddFlair, Container,
+  AboutString, AboutSubString, Add, AddFlair, Container,
   Disc, FlexBox, FlexBoxColumn, LeftAlighne, SortString, TotalContainer,
 } from './style';
 import SuggestionSort from './SuggestionSort/SuggestionSort';
@@ -16,9 +16,9 @@ function PostsAndComments() {
           </AboutString>
           <Disc>posts</Disc>
 
-          <AboutString>
+          <AboutSubString>
             Post type options
-          </AboutString>
+          </AboutSubString>
 
           <PostType />
 

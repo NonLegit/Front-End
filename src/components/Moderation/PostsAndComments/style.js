@@ -8,6 +8,14 @@ export const AboutString = styled('div')({
   paddingLeft: 17,
 
 });
+export const AboutSubString = styled('div')({
+  fontSize: 16,
+  fontWeight: 500,
+  color: 'black',
+  marginBottom: 16,
+  paddingLeft: 17,
+
+});
 export const LeftAlighne = styled('div')({
   marginLeft: 303,
   paddingTop: 49,
@@ -87,7 +95,7 @@ export const FlexBoxColumn = styled('div')({
   alignItems: 'flex-start',
 });
 export const SortString = styled('div')({
-  fontSize: 18,
+  fontSize: 16,
   fontWeight: 500,
   color: 'black',
   paddingLeft: 17,
