@@ -102,7 +102,7 @@ function OtherProfilePost(props) {
             </Box>
           </PostContentBox>
         </Box>
-        {expand && <Box>{entity.text}</Box>}
+        {expand && <Box dangerouslySetInnerHTML={{ __html: entity?.text }} />}
       </PostSidebaRes>
     </PostsQueueBox>
   );
