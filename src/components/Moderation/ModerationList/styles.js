@@ -1,5 +1,5 @@
 import {
-  List, styled, alpha,
+  List, styled, alpha, Link, Typography,
 } from '@mui/material';
 
 const StyledList = styled(List)(({ theme }) => ({
@@ -23,6 +23,10 @@ const StyledList = styled(List)(({ theme }) => ({
     },
     '& .MuiListItemText-root': {
       paddingRight: '150px',
+      marginLeft: 3,
+      fontSize: 12,
+      fontWeight: 600,
+      display: 'flex',
     },
     [theme.breakpoints.down('lg')]: {
       padding: '0px',
@@ -63,3 +67,37 @@ const StyledList = styled(List)(({ theme }) => ({
 }));
 
 export default StyledList;
+
+export const HeaderText = styled('div')(({ theme }) => ({
+  marginLeft: 3,
+  fontSize: 12,
+  fontWeight: 600,
+  display: 'flex',
+  [theme.breakpoints.up('lg')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.down('lg')]: {
+    display: 'flex',
+  },
+}));
+
+export const HeaderLink = styled(Link)(({ theme }) => ({
+  marginLeft: 3,
+  fontWeight: 'bolder',
+  letterSpacing: 0.7,
+  textTransform: 'uppercase',
+  [theme.breakpoints.up('lg')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.down('lg')]: {
+    display: 'flex',
+  },
+}));
+
+export const HeaderSubpage = styled(Typography)(() => ({
+  marginLeft: 3,
+  fontSize: 12,
+  letterSpacing: 0.7,
+  fontWeight: 700,
+  textTransform: 'uppercase',
+}));

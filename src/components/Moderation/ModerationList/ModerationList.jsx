@@ -3,9 +3,9 @@ import {
   List, ListItemButton, ListItemText, ListItemIcon,
   Collapse,
 } from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 import BackupTableOutlinedIcon from '@mui/icons-material/BackupTableOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutline';
 import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
@@ -13,9 +13,11 @@ import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
-import StyledList from './styles';
+import StyledList, { HeaderText, HeaderLink, HeaderSubpage } from './styles';
 
 function ModerationList() {
+  const { subReddit, subTitle } = useParams();
+
   const [openModList, setOpenModList] = React.useState(0);
   const handleClickModList = () => {
     setOpenModList(!openModList);
@@ -30,7 +32,17 @@ function ModerationList() {
   return (
     <StyledList>
       <ListItemButton disableTouchRipple onClick={handleClickModList}>
-        <ListItemText primary="Mod" sx={{ color: 'black', paddingLeft: '5px' }} />
+        {/* <ListItemText primary="Mod" sx={{ color: 'black', paddingLeft: '5px' }} /> */}
+        <HeaderText>
+          <HeaderLink href="/" underline="none">
+            r/
+            {subReddit}
+          </HeaderLink>
+          <HeaderSubpage>
+          &nbsp;/&nbsp;
+            {subTitle}
+          </HeaderSubpage>
+        </HeaderText>
         <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
       </ListItemButton>
       <Collapse
