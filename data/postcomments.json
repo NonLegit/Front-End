@@ -2,125 +2,13 @@
   "status": "string",
   "comments": [
     {
-      "_id": "string",
+      "_id": "1",
       "author": "Basma Elhoseny",
-      "post": "Hello This is the first Comment",
+      "post": "Basma's Comment",
       "mentions": [
         "string"
       ],
       "replies": [
-        {
-          "_id": "string",
-          "author": "Eslam",
-          "post": "Reply 1 on comment 1",
-          "mentions": [
-            "string"
-          ],
-          "replies": [
-            {
-              "_id": "string",
-              "author": "Basma Elhoseny",
-              "post": "Reply 2",
-              "mentions": [
-                "string"
-              ],
-              "replies": [
-                {
-                  "_id": "string",
-                  "author": "Basma Elhoseny",
-                  "post": "Reply",
-                  "mentions": [
-                    "string"
-                  ],
-                  "replies": [
-                    {
-                      "_id": "string",
-                      "author": "Basma Elhoseny",
-                      "post": "Hello This is the first Comment",
-                      "mentions": [
-                        "string"
-                      ],
-                      "replies": [
-                        {
-                          "_id": "string",
-                          "author": "Basma Elhoseny",
-                          "post": "Hello This is the first Comment",
-                          "mentions": [
-                            "string"
-                          ],
-                          "replies": [
-                          ],
-                          "parent": "string",
-                          "parentType": "string",
-                          "text": "string",
-                          "createdAt": "2017-07-21T17:32:28Z",
-                          "votes": 0,
-                          "repliesCount": 0
-                        },
-                        {
-                          "_id": "string",
-                          "author": "Aya Elhoseny",
-                          "post": "Hello This is the first Comment",
-                          "mentions": [
-                            "string"
-                          ],
-                          "replies": [
-                          ],
-                          "parent": "string",
-                          "parentType": "string",
-                          "text": "string",
-                          "createdAt": "2017-07-21T17:32:28Z",
-                          "votes": 0,
-                          "repliesCount": 0
-                        }
-                      ],
-                      "parent": "string",
-                      "parentType": "string",
-                      "text": "string",
-                      "createdAt": "2017-07-21T17:32:28Z",
-                      "votes": 0,
-                      "repliesCount": 0
-                    }
-                  ],
-                  "parent": "string",
-                  "parentType": "string",
-                  "text": "string",
-                  "createdAt": "2017-07-21T17:32:28Z",
-                  "votes": 0,
-                  "repliesCount": 0
-                }
-              ],
-              "parent": "string",
-              "parentType": "string",
-              "text": "string",
-              "createdAt": "2017-07-21T17:32:28Z",
-              "votes": 0,
-              "repliesCount": 0
-            },
-            {
-              "_id": "string",
-              "author": "Youssef Elhoseny",
-              "post": "Hello This is the first Comment",
-              "mentions": [
-                "string"
-              ],
-              "replies": [
-              ],
-              "parent": "string",
-              "parentType": "string",
-              "text": "string",
-              "createdAt": "2017-07-21T17:32:28Z",
-              "votes": 0,
-              "repliesCount": 0
-            }
-          ],
-          "parent": "string",
-          "parentType": "string",
-          "text": "string",
-          "createdAt": "2017-07-21T17:32:28Z",
-          "votes": 0,
-          "repliesCount": 0
-        }
       ],
       "parent": "string",
       "parentType": "string",
@@ -130,9 +18,9 @@
       "repliesCount": 0
     },
     {
-      "_id": "string",
-      "author": "Amr",
-      "post": "Hello This is the Second Comment",
+      "_id": "2",
+      "author": "Eslam",
+      "post": "Eslam's Comment",
       "mentions": [
         "string"
       ],
@@ -144,6 +32,13 @@
       "createdAt": "2017-07-21T17:32:28Z",
       "votes": 0,
       "repliesCount": 0
+    },
+    {
+      "Type": "moreReplies",
+      "count": 100,
+      "children": [
+        "string"
+      ]
     }
   ]
 }

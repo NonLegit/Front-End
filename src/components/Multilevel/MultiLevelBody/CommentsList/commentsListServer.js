@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 // services
 import axios from '../../../../services/instance';
 
+// Get comments on a certain Post
+// Calling Endpoint /comments/more_children
 export const getComments = (props) => {
   // props
   const { postID, depth, limit } = props;
