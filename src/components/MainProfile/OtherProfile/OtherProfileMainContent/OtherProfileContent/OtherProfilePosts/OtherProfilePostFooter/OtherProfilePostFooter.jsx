@@ -21,10 +21,14 @@ import { postReactionsServer } from '../../../../../profileServer';
  * @returns {React.Component} OtherProfilePostFooter
  */
 function OtherProfilePostFooter(props) {
-  const { postid, numComments } = props;
+  const {
+    postid,
+    numComments,
+    isSaved,
+  } = props;
 
   const [showList, setShowList] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(isSaved);
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -35,6 +39,7 @@ function OtherProfilePostFooter(props) {
     postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
   };
+
   const handleHide = () => {
     postReactionsServer(postid, 'hide', 1);
     setSaved((prev) => !prev);
@@ -77,19 +82,6 @@ function OtherProfilePostFooter(props) {
           <MoreHorizOutlinedIcon onClick={handleClick} data-testid="show-more" />
           {showList && (
           <SelectBox data-testid="more-menu">
-            {!saved ? (
-              <SelectItem onClick={() => { handleSave(); }} res={true.toString()}>
-                <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
-                Save
-              </SelectItem>
-            )
-              : (
-                <SelectItem condition={true.toString()} onClick={() => { handleSave(); }} res={true.toString()}>
-                  <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
-                  Unsave
-                </SelectItem>
-              )}
-            <Divider />
             <SelectItem onClick={() => { handleHide(); }}>
               <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
               Hide
