@@ -1,8 +1,9 @@
 import {
-  Box,
+  Box, IconButton,
 } from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 export const PostContainer = styled(Box)(() => ({
   width: '100%',
@@ -40,19 +41,21 @@ export const PostTitle = styled(Link)(() => ({
   },
 }));
 
-export const PostMedia = styled(Box)(({ kind }) => ({
+export const PostMedia = styled(Box)(({ kind, spoiler }) => ({
   display: 'flex',
-  justifyContent: (kind === 'self') ? 'flex-start' : 'center',
+  justifyContent: (kind === 'self' || kind === 'url') ? 'flex-start' : 'center',
   alignItems: 'center',
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
+  position: 'relative',
+  filter: spoiler && 'blur(3px)',
 }));
 
-export const CustomImage = styled('img')(() => ({
+export const CustomImage = styled('img')(({ maxHeight }) => ({
   maxWidth: '100%',
-  maxHeight: '512px',
+  maxHeight,
 }));
 
-export const PostText = styled('p')(() => ({
+export const PostText = styled('p')(({ maxHeight }) => ({
   fontSize: 14,
   fontWeight: 400,
   lineHeight: '21px',
@@ -61,7 +64,7 @@ export const PostText = styled('p')(() => ({
   marginTop: 0,
   position: 'relative',
   cursor: 'pointer',
-  maxHeight: 250,
+  maxHeight,
   overflow: 'hidden',
 }));
 
@@ -71,4 +74,47 @@ export const PostTextContainer = styled(Box)(() => ({
   width: '100%',
   height: '100%',
   backgroundImage: 'linear-gradient(to bottom, transparent 70%, white)',
+}));
+
+export const ControlsIcon = styled(IconButton)(({ left, right, display }) => ({
+  backgroundColor: '#fff',
+  '&:hover': {
+    backgroundColor: '#fff',
+  },
+  left,
+  right,
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(0, -50%);',
+  display,
+}));
+
+export const PostUrlLink = styled(Box)(() => ({
+  width: 135,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: 'inherit',
+}));
+
+export const PostUrl = styled('a')(({ theme }) => ({
+  fontSize: 13,
+  color: theme?.palette?.primary?.light,
+  height: 22,
+  display: 'flex',
+  alignItems: 'center',
+  '&:visited ': {
+    color: theme?.palette?.primary?.light,
+  },
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+  marginBottom: 10,
+}));
+
+export const LinkIcon = styled(LaunchIcon)(() => ({
+  width: 13,
+  height: 13,
+  color: 'inherit',
 }));

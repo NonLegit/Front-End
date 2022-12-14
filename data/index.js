@@ -5,6 +5,7 @@ const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { posts } = require('./submitPost.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
+const subredditFlairs = require('./subredditFlairs.json');
 const Flair = require('./Flair.json');
 const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
@@ -33,6 +34,13 @@ const token = require('./token.json');
 const userInfo = require('./userInfo.json');
 const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
+const save = require('./save.json');
+const unsave = require('./unsave.json');
+const hide = require('./hide.json');
+const unhide = require('./unhide.json');
+const vote = require('./vote.json');
+const addImagesToPost = require('./addImagesToPost.json');
+
 // Something more
 
 module.exports = () => ({
@@ -73,5 +81,12 @@ module.exports = () => ({
   socialLinks,
   postSocialLinks,
   userImage,
+  subredditFlairs,
+  save,
+  unsave,
+  hide,
+  unhide,
+  vote,
+  addImagesToPost,
   // Something more
 });
