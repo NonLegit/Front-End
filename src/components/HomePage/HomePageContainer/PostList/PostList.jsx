@@ -1,3 +1,4 @@
+import { useHiddenPostsContext } from '../../../../contexts/HiddenPostsContext';
 import Post from '../../../Post/Post';
 /**
  * This component is the timeline (the container which contains all posts retrieved to be displayed)
@@ -9,14 +10,19 @@ import Post from '../../../Post/Post';
 
 function PostList(props) {
   const { posts } = props;
+  const { hiddenPosts } = useHiddenPostsContext();
   return (
     <>
-      {posts.map((post) => {
+      {posts.filter((post) => {
+        const id = post._id;
+        return !hiddenPosts.includes(id);
+      }).map((post) => {
         const {
-          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType,
+          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
         return (
           <Post
+            postVoteStatus={postVoteStatus}
             createdAt={createdAt}
             title={title}
             ownerIcon={ownerIcon}
@@ -33,6 +39,11 @@ function PostList(props) {
             text={text}
             key={id}
             ownerType={ownerType}
+            isSaved={isSaved}
+            postId={id}
+            url={url}
+            nsfw={nsfw}
+            spoiler={spoiler}
           />
         );
       })}

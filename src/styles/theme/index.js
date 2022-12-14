@@ -34,6 +34,11 @@ const theme = createTheme({
       main: '#DAE0E6',
       dark: '#2E2F30',
     },
+    nsfw: {
+      main: '#ff585b',
+      light: '#ff585b',
+      dark: '#ff585b',
+    },
   },
 });
 

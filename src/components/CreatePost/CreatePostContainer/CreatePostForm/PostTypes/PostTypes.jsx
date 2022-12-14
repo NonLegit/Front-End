@@ -2,6 +2,7 @@ import { Divider } from '@mui/material';
 import PostAddOutlinedIcon from '@mui/icons-material/PostAddOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import { useEffect, useState } from 'react';
 import { CustomTab, CustomTabs } from './styles';
 /**
  * This component contains the tabs of post types
@@ -14,6 +15,13 @@ import { CustomTab, CustomTabs } from './styles';
 
 function PostTypes(props) {
   const { postType, handlePostType } = props;
+  const [lastMediaType, setLastMediaType] = useState(postType === 2 ? 2 : 1);
+  useEffect(() => {
+    if (postType === 2 || postType === 1) {
+      setLastMediaType(postType);
+    }
+  }, [postType]);
+
   return (
     <CustomTabs
       value={postType}
@@ -35,7 +43,7 @@ function PostTypes(props) {
         icon={<ImageOutlinedIcon />}
         iconPosition="start"
         label="images & videos"
-        value={1}
+        value={lastMediaType}
         data-testid="media"
       />
       <Divider
@@ -51,7 +59,7 @@ function PostTypes(props) {
 )}
         iconPosition="start"
         label="link"
-        value={2}
+        value={3}
         data-testid="url"
       />
     </CustomTabs>

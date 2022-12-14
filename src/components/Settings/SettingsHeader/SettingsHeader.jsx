@@ -17,7 +17,7 @@ function SettingsHeader() {
   return (
     <section data-testid="settings-header">
 
-      <HeaderContiner>User settings</HeaderContiner>
+      <HeaderContiner id="settings">User settings</HeaderContiner>
 
       <Nav>
         <TabsContiner>

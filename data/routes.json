@@ -1,7 +1,6 @@
 {
     "/subreddits/:name/":"/Subreddit",
     "/subreddits":"/CreatSubreddit",
-    "/subreddits/:subredditName/flairs":"/Flair",
     "/subreddits/:subredditName/:name/hot":"/hot",
     "/subreddits/:Name/subscribe":"/join",
     "/subreddits/:Name/top":"/top",
@@ -41,5 +40,12 @@
     "/posts/:postID":"/editpost",
     "/comments":"/createcomment",
     "/comments/comment_tree/:postID":"/postcomments",
-    "/comments/more_children":"/morecomments"
+    "/comments/more_children":"/morecomments",
+    "/subreddits/:subreddit/flairs":"/subredditFlairs",
+    "/posts/:postId/save":"/save",
+    "/posts/:postId/unsave":"/unsave",
+    "/posts/:postId/hide":"/hide",
+    "/posts/:postId/unhide":"/hide",
+    "/posts/:postId/vote":"/vote",
+    "/posts/:postId/images":"/addImagesToPost"
 }
