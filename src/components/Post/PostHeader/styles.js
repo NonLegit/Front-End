@@ -45,3 +45,11 @@ export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => (
     backgroundColor,
   },
 }));
+
+export const Spoiler = styled(RedditButton)(() => ({
+  fontSize: 12,
+  padding: '0px 7px',
+  borderRadius: 3,
+  fontWeight: 500,
+  lineHeight: 1.3,
+}));

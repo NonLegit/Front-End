@@ -9,7 +9,7 @@ import JoinButton from '../../JoinButton/JoinButton';
 import {
   CreatedAt,
   Flair,
-  PostInfo, PostInfoLink, PostTitle,
+  PostInfo, PostInfoLink, PostTitle, Spoiler,
 } from './styles';
 /**
  * This component is the upper section of post
@@ -24,13 +24,16 @@ import {
  * @property {string} flairBackgroundColor -Post flair background color.
  * @property {string} flairColor -Post flair color.
  * @property {boolean} subredit -to identify if post in home page or subreddit.
+ * @property {boolean} nsfw -Whether the post is not safe for work or not.
+ * @property {boolean} spoiler -Whether the post is spoiler or not.
  * @returns {React.Component} Post header
  */
 
 function PostHeader(props) {
   const {
     title, ownerIcon, ownerType, ownerName, authorName, flairText, flairBackgroundColor, flairColor, createdAt,
-    subredit,
+    // eslint-disable-next-line no-unused-vars
+    subredit, nsfw, spoiler,
 
   } = props;
   return (
@@ -97,6 +100,14 @@ function PostHeader(props) {
             >
               {flairText}
             </Flair>
+            )
+          }
+          {' '}
+          {
+            spoiler && (
+            <Spoiler color="third" variant="outlined">
+              spoiler
+            </Spoiler>
             )
           }
         </Typography>

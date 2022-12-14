@@ -41,12 +41,13 @@ export const PostTitle = styled(Link)(() => ({
   },
 }));
 
-export const PostMedia = styled(Box)(({ kind }) => ({
+export const PostMedia = styled(Box)(({ kind, spoiler }) => ({
   display: 'flex',
   justifyContent: (kind === 'self' || kind === 'url') ? 'flex-start' : 'center',
   alignItems: 'center',
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
   position: 'relative',
+  filter: spoiler && 'blur(3px)',
 }));
 
 export const CustomImage = styled('img')(({ maxHeight }) => ({

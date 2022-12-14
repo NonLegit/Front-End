@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 // mui components
 import {
   Box, useMediaQuery, useTheme,
@@ -47,7 +48,6 @@ import PostHeader from './PostHeader/PostHeader';
 function Post(props) {
   const {
     createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
-    // eslint-disable-next-line no-unused-vars
     subredit, postVoteStatus, isSaved, postId, url, nsfw, spoiler,
   } = props;
 
@@ -125,6 +125,8 @@ function Post(props) {
           createdAt={createdAt}
           subredit={subredit}
           ownerType={ownerType}
+          nsfw={nsfw}
+          spoiler={spoiler}
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}
@@ -132,6 +134,7 @@ function Post(props) {
           mt={1.5}
           kind={kind}
           ref={postMediaRef}
+          spoiler={spoiler}
         >
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
