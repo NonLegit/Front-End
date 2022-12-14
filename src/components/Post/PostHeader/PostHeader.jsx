@@ -9,7 +9,7 @@ import JoinButton from '../../JoinButton/JoinButton';
 import {
   CreatedAt,
   Flair,
-  PostInfo, PostInfoLink, PostTitle, Spoiler,
+  PostInfo, PostInfoLink, PostTitle, Tag,
 } from './styles';
 /**
  * This component is the upper section of post
@@ -32,7 +32,6 @@ import {
 function PostHeader(props) {
   const {
     title, ownerIcon, ownerType, ownerName, authorName, flairText, flairBackgroundColor, flairColor, createdAt,
-    // eslint-disable-next-line no-unused-vars
     subredit, nsfw, spoiler,
 
   } = props;
@@ -105,9 +104,22 @@ function PostHeader(props) {
           {' '}
           {
             spoiler && (
-            <Spoiler color="third" variant="outlined">
+            <Tag
+              color="third"
+              variant="outlined"
+            >
               spoiler
-            </Spoiler>
+            </Tag>
+            )
+          }
+          {
+            nsfw && (
+            <Tag
+              color="nsfw"
+              variant="outlined"
+            >
+              nsfw
+            </Tag>
             )
           }
         </Typography>

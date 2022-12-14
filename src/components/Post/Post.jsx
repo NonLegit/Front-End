@@ -130,6 +130,7 @@ function Post(props) {
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}
+        {!nsfw && (
         <PostMedia
           mt={1.5}
           kind={kind}
@@ -164,7 +165,10 @@ function Post(props) {
                         boxShadow: 10,
                       }}
                       color="third"
-                      onClick={() => handleDirection(-1)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDirection(-1);
+                      }}
                     >
                       <ArrowBackIosNewIcon />
                     </ControlsIcon>
@@ -176,7 +180,10 @@ function Post(props) {
                         boxShadow: 10,
                       }}
                       color="third"
-                      onClick={() => handleDirection(1)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDirection(1);
+                      }}
                     >
                       <ArrowForwardIosIcon />
                     </ControlsIcon>
@@ -201,6 +208,7 @@ function Post(props) {
                 ))
           )}
         </PostMedia>
+        )}
         <PostReactions
           votes={votes}
           matchSm={matchSm}
