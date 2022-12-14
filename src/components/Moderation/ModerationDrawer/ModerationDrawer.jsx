@@ -27,7 +27,7 @@ function ModerationDrawer() {
         <ModBox
           icon={<PersonOutlineOutlinedIcon />}
           headerText="USER MANAGEMENT"
-          arr={['Banned', 'Muted', 'Approved']}
+          arr={['Banned', 'Muted', 'Approved', 'Moderators']}
         />
         <ModBox
           icon={<SellOutlinedIcon />}
