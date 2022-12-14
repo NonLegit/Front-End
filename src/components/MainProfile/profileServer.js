@@ -3,7 +3,7 @@ import useFetch from '../../hooks/useFetch';
 import axios from '../../services/instance';
 
 export const postsCommentsServer = (name, type) => {
-  const [data, dataError, statusCode] = useFetch(`user/${name}/${type}`);
+  const [data, dataError, statusCode] = useFetch(`users/${name}/${type}`);
 
   useEffect(() => {
     if (statusCode === 401) {
