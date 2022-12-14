@@ -47,6 +47,6 @@
         "isSpam": true,
         "url": "string",
         "isSaved": true,
-        "postVoteStatus": 0
+        "postVoteStatus": 1
     }
 }

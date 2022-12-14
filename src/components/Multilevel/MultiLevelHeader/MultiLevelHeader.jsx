@@ -51,6 +51,8 @@ function MultiLevelHeader() {
     console.log('DownVote');
   };
   return (
+    post
+    && (
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>
         {/* <Divider orientation="vertical" flexItem /> */}
@@ -79,6 +81,7 @@ function MultiLevelHeader() {
       <Button variant="text" startIcon={<CloseIcon fontSize="small" />} color="third" onClick={close}>Close</Button>
 
     </MultiLevelHeaderBox>
+    )
   );
 }
 

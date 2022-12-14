@@ -34,38 +34,39 @@ function MultiLevelSideBar() {
   }, [SubredditData]);
 
   return (
-    post?.ownerType === 'Subreddit' ? (
-      <SideBarSubreddit
-        disc={sunreddit?.description}
-        topics={sunreddit?.topics}
-        Name={sunreddit?.name}
-        primaryTopic={sunreddit?.primaryTopic}
-        createdAt={sunreddit?.createdAt}
-        moderatoesName={sunreddit?.moderators}
-        username={cookies?.redditUser?.username}
-        members={sunreddit?.membersCount}
-        postCard
-      />
-    )
-      : (
-        <SideBar>
-          {(post?.ownerType === 'User'
-            ? ((cookies?.redditUser?.id === post?.owner?._id)
-              ? (
-                <UserProvider name={post?.owner?.name}>
-                  <UserInfo />
-                </UserProvider>
-              )
-              : (
-                <UserProvider name={post?.owner?.name}>
-                  <OtherProfileUserInfo />
-                </UserProvider>
-              )
-            ) : null)}
-          <BackToTop />
-        </SideBar>
+    post && (
+      post?.ownerType === 'Subreddit' ? (
+        <SideBarSubreddit
+          disc={sunreddit?.description}
+          topics={sunreddit?.topics}
+          Name={sunreddit?.name}
+          primaryTopic={sunreddit?.primaryTopic}
+          createdAt={sunreddit?.createdAt}
+          moderatoesName={sunreddit?.moderators}
+          username={cookies?.redditUser?.username}
+          members={sunreddit?.membersCount}
+          postCard
+        />
       )
-  );
+        : (
+          <SideBar>
+            {(post?.ownerType === 'User'
+              ? ((cookies?.redditUser?.id === post?.owner?._id)
+                ? (
+                  <UserProvider name={post?.owner?.name}>
+                    <UserInfo />
+                  </UserProvider>
+                )
+                : (
+                  <UserProvider name={post?.owner?.name}>
+                    <OtherProfileUserInfo />
+                  </UserProvider>
+                )
+              ) : null)}
+            <BackToTop />
+          </SideBar>
+        )
+    ));
 }
 
 export default MultiLevelSideBar;

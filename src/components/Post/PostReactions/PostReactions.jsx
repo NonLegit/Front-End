@@ -17,6 +17,7 @@ import {
 // styles
 import { useTheme } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../contexts/EditPostContext';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
 } from './styles';
@@ -64,7 +65,11 @@ function PostReactions(props) {
     postReactionsServer(postId, 'hide', 1);
   };
 
+  // routes
   const navigate = useNavigate();
+
+  // contexts
+  const { setEditPost } = useEditPostContext();
   return (
     <PostActions mt={0.5}>
       {!matchSm && (
@@ -158,7 +163,11 @@ function PostReactions(props) {
               <Divider />
             </>
             )}
-            <ListItemButton onClick={() => navigate('/submit')}>
+            <ListItemButton onClick={() => {
+              setEditPost(true);
+              navigate('/user/BasmaElhoseny/comments/koko');
+            }}
+            >
               <ListItemIcon>
                 <ModeEditOutlineOutlinedIcon />
               </ListItemIcon>

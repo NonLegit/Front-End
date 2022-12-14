@@ -30,7 +30,7 @@ function EditPost() {
 
   // States
   const [text, setText] = useState(EditorState.createWithContent(ContentState.createFromBlockArray(
-    convertFromHTML('EditPost.jsx to be modified  :) '),
+    convertFromHTML(post?.text),
   )));
   const [readyToSave, setReadyToSave] = useState(false);
 
