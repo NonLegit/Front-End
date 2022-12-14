@@ -4,7 +4,7 @@
     {
       "_id": "1",
       "author": "Basma Elhoseny",
-      "post": "Basma's Comment",
+      "post": "string",
       "mentions": [
         "string"
       ],
@@ -12,7 +12,7 @@
       ],
       "parent": "string",
       "parentType": "string",
-      "text": "string",
+      "text": "Basma's Comment",
       "createdAt": "2017-07-21T17:32:28Z",
       "votes": 0,
       "repliesCount": 0
@@ -20,7 +20,7 @@
     {
       "_id": "2",
       "author": "Eslam",
-      "post": "Eslam's Comment",
+      "post": "string",
       "mentions": [
         "string"
       ],
@@ -28,7 +28,7 @@
       ],
       "parent": "string",
       "parentType": "string",
-      "text": "string",
+      "text": "Eslam's Comment",
       "createdAt": "2017-07-21T17:32:28Z",
       "votes": 0,
       "repliesCount": 0
