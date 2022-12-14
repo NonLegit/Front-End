@@ -15,7 +15,7 @@ function OtherProfileCommentsTap() {
 
   // check if the page have any content posts to show
   useEffect(() => {
-    if (posts?.length > 0) { setIsContent(true); }
+    if (posts?.length > 0) { setIsContent(true); } else { setIsContent(false); }
   }, [username, posts]);
 
   const emptyContent = 'hmm... u/NourThird hasn\'t commented on anything';
