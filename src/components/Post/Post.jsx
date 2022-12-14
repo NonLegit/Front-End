@@ -7,10 +7,9 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 // styles
 import { useRef, useEffect, useState } from 'react';
-import { CarouselItem } from 'react-bootstrap';
 
 import {
-  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, CustomCarousel, ControlsIcon,
+  PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, ControlsIcon,
 
 } from './styles';
 
@@ -47,38 +46,54 @@ function Post(props) {
     createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
     subredit, postVoteStatus, isSaved, postId,
   } = props;
+
+  // styles
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
-  const postTextRef = useRef();
-  const maxTextHeight = 180;
-  // const doc = new DOMParser().parseFromString(text, 'text/xml');
-  // console.log(doc);
   const matchMd = useMediaQuery(theme.breakpoints.up('md'));
 
+  // variables
+  const maxTextHeight = 180;
+
+  // states
   const [displayShadow, setDisplayShadow] = useState(false);
   const [index, setIndex] = useState(0);
   const [maxImagesHeight, setMaxImagesHeight] = useState(450);
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
+  // refs
+  const postTextRef = useRef();
+  const postMediaRef = useRef();
+
+  const handleDirection = (dir) => {
+    setIndex(index + dir);
   };
 
+  // effects
   useEffect(() => {
     // console.log('height', postTextRef?.current?.offsetHeight);
     setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
   }, [text]);
 
   useEffect(() => {
-    let minHeight = 450;
     images?.forEach((image) => {
       const img = new Image();
       // console.log(img);
       img.src = image;
-      minHeight = Math.min(minHeight, img.height);
-      console.log('my img height', img.height);
+      img.onload = () => {
+        setMaxImagesHeight((maxImagesHeight) => {
+          console.log('rakam', postMediaRef?.current?.offsetWidth);
+          const maxValue = Math.min(maxImagesHeight, img.height);
+          const postWidth = postMediaRef?.current?.offsetWidth;
+          if (maxImagesHeight > img.height && img.width > postWidth) {
+            return img.height * (postWidth / img.width);
+          }
+          return maxValue;
+        });
+        console.log('my img height', img.height);
+      };
     });
-    setMaxImagesHeight(minHeight);
   }, [images]);
+
   console.log('for post ', postId, maxImagesHeight);
   return (
     <PostContainer my={2}>
@@ -109,58 +124,60 @@ function Post(props) {
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}
-        {kind === 'video' ? (
-          <PostMedia mt={1.5} kind={kind}>
+        <PostMedia
+          mt={1.5}
+          kind={kind}
+          ref={postMediaRef}
+        >
+          {kind === 'video' ? (
+
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
               <source src={videos[0]} type="video/mp4" />
             </video>
-          </PostMedia>
-        ) : (
-          (kind === 'image')
-            ? (
-              <CustomCarousel
-                interval={null}
-                indicators={false}
-                activeIndex={index}
-                length={images.length - 1}
-                onSelect={handleSelect}
-                prevIcon={(
-                  <ControlsIcon
-                    sx={{
-                      boxShadow: 10,
-                    }}
-                    color="third"
-                  >
-                    <ArrowBackIosNewIcon />
-                  </ControlsIcon>
-)}
-                nextIcon={(
-                  <ControlsIcon
-                    sx={{
-                      boxShadow: 10,
-                    }}
-                    color="third"
-                  >
-                    <ArrowForwardIosIcon />
-                  </ControlsIcon>
-)}
-              >
-                {images.map((image) => (
-                  <CarouselItem key={image}>
-                    <PostMedia mt={1.5} kind={kind}>
-                      <CustomImage
-                        src={image}
-                        alt="post image"
-                        maxHeight={maxImagesHeight}
-                      />
-                    </PostMedia>
-                  </CarouselItem>
-                ))}
+          ) : (
+            (kind === 'image')
+              ? (
+                <>
+                  {images.map((image, imageIndex) => (
+                    imageIndex === index
+                    && (
+                    <CustomImage
+                      src={image}
+                      alt="post image"
+                      key={image}
+                      maxHeight={maxImagesHeight}
+                    />
+                    )
+                  ))}
+                  <>
+                    <ControlsIcon
+                      disableRipple
+                      left={10}
+                      display={index === 0 ? 'none' : 'flex'}
+                      sx={{
+                        boxShadow: 10,
+                      }}
+                      color="third"
+                      onClick={() => handleDirection(-1)}
+                    >
+                      <ArrowBackIosNewIcon />
+                    </ControlsIcon>
+                    <ControlsIcon
+                      disableRipple
+                      right={10}
+                      display={index === images.length - 1 ? 'none' : 'flex'}
+                      sx={{
+                        boxShadow: 10,
+                      }}
+                      color="third"
+                      onClick={() => handleDirection(1)}
+                    >
+                      <ArrowForwardIosIcon />
+                    </ControlsIcon>
+                  </>
+                </>
+              ) : (
 
-              </CustomCarousel>
-
-            ) : (
-              <PostMedia mt={1.5} kind={kind}>
                 <PostText
                   ref={postTextRef}
                   maxHeight={displayShadow ? maxTextHeight : 'none'}
@@ -168,9 +185,9 @@ function Post(props) {
                   {displayShadow && <PostTextContainer />}
                   <div dangerouslySetInnerHTML={{ __html: text }} />
                 </PostText>
-              </PostMedia>
-            )
-        )}
+              )
+          )}
+        </PostMedia>
         {/* <img src="./assets/images/Screenshot (1).png" alt="" /> */}
         <PostReactions
           votes={votes}

@@ -46,6 +46,7 @@ export const PostMedia = styled(Box)(({ kind }) => ({
   justifyContent: (kind === 'self') ? 'flex-start' : 'center',
   alignItems: 'center',
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
+  position: 'relative',
 }));
 
 export const CustomImage = styled('img')(({ maxHeight }) => ({
@@ -85,9 +86,15 @@ export const CustomCarousel = styled(Carousel)(({ activeIndex: index, length }) 
   },
 }));
 
-export const ControlsIcon = styled(IconButton)(() => ({
+export const ControlsIcon = styled(IconButton)(({ left, right, display }) => ({
   backgroundColor: '#fff',
   '&:hover': {
     backgroundColor: '#fff',
   },
+  left,
+  right,
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(0, -50%);',
+  display,
 }));
