@@ -14,7 +14,6 @@ import BackToTop from '../../BackToTop/BackToTop';
 import PostList from './PostList/PostList';
 import communities from './CommunitiesStaticData';
 import homePageServer from './homePageServer';
-import HiddenPostsContextProvider from '../../../contexts/HiddenPostsContext';
 
 /**
  * This component works as a container for all home page components
@@ -38,11 +37,9 @@ function HomePageContainer() {
     <OuterContainer>
       <MainContainer>
         <MainContent width={640}>
-          <HiddenPostsContextProvider>
-            {cookies.redditUser ? <CreatePostInHome /> : null}
-            <PostsClassification />
-            {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
-          </HiddenPostsContextProvider>
+          {cookies.redditUser ? <CreatePostInHome /> : null}
+          <PostsClassification />
+          {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
         </MainContent>
         {match
         && (
