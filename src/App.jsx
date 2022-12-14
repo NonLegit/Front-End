@@ -111,7 +111,13 @@ function App() {
               }
               />
               <Route
-                path="/moderation"
+                path="/r/:subReddit/about/"
+                element={
+                  <Moderation />
+              }
+              />
+              <Route
+                path="/r/:subReddit/about/:subTitle"
                 element={
                   <Moderation />
               }
@@ -135,7 +141,7 @@ function App() {
               }
               />
               <Route
-                path="/SubReddit/:Name"
+                path="/r/:Name"
                 element={
                   <SubReddit />
               }

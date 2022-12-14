@@ -10,7 +10,7 @@ import {
 
 function Entity(props) {
   const {
-    row, index,
+    row, index, setefitRule,
   } = props;
   const [expand, setExpand] = useState();
 
@@ -22,10 +22,10 @@ function Entity(props) {
       <Row>
         <Actions>
           <Num>{index + 1}</Num>
-          <Text>{row.title}</Text>
+          <Text>{row?.title}</Text>
         </Actions>
         <Actions>
-          <IconButton><CreateIcon /></IconButton>
+          <IconButton onClick={() => { setefitRule(row); const ele = document.getElementById('add'); ele.click(); }}><CreateIcon /></IconButton>
           <ElementBox>
             {expand ? <UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
               : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
@@ -37,19 +37,19 @@ function Entity(props) {
       <MoreData>
         <Details>
           <MoreDetailsHeader>Report reason</MoreDetailsHeader>
-          <MoreDetails>{row.title}</MoreDetails>
+          <MoreDetails>{row?.title}</MoreDetails>
         </Details>
         <Details>
           <MoreDetailsHeader>APPLIES TO</MoreDetailsHeader>
-          <MoreDetails>{row.appliesTo}</MoreDetails>
+          <MoreDetails>{row?.appliesTo}</MoreDetails>
         </Details>
         <Details>
           <MoreDetailsHeader>CREATED</MoreDetailsHeader>
-          <MoreDetails>{row.createdAt}</MoreDetails>
+          <MoreDetails>{row?.createdAt}</MoreDetails>
         </Details>
         <Details>
           <MoreDetailsHeader>FULL DESCRIPTION</MoreDetailsHeader>
-          <MoreDetails>{row.description}</MoreDetails>
+          <MoreDetails>{row?.description}</MoreDetails>
         </Details>
       </MoreData>
       )}

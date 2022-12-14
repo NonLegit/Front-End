@@ -12,6 +12,7 @@ import PostsAndComments from '../components/Moderation/PostsAndComments/PostsAnd
 import Rules from '../components/Moderation/Rules/Rules';
 
 const renderSwitch = (param) => {
+  console.log(param);
   switch (param) {
     case 'Spam':
     case 'Edited':

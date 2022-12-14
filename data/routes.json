@@ -42,6 +42,7 @@
     "/posts/:postId/hide":"/hide",
     "/posts/:postId/unhide":"/hide",
     "/posts/:postId/vote":"/vote",
-    "/posts/:postId/images":"/addImagesToPost"
+    "/posts/:postId/images":"/addImagesToPost",
+    "subreddits/:Name/flairs/:id":"/UpdateFlair"
 
 }

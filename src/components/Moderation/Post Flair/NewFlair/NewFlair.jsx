@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import PostFlair from './PostFlair';
 import {
   AddFlair,
   Cancel,
@@ -9,6 +11,7 @@ import {
 
 export default function NewFlair(props) {
   const { save, cancel } = props;
+  const { subReddit } = useParams();
 
   const [count, setCount] = useState(64);
   const [error, setError] = useState('');
@@ -24,6 +27,15 @@ export default function NewFlair(props) {
       setError('');
     }
   };
+
+  const SendData = () => {
+    const text = document.getElementById('text');
+    const backgroundColor = document.getElementById('bgColor');
+    const cssClass = document.getElementById('css');
+    const textColor = document.getElementById('textColor');
+    PostFlair(`subreddits/${subReddit}/flairs`, subReddit, text, backgroundColor, textColor, cssClass);
+    save();
+  };
   return (
     <>
       <Container>
@@ -32,7 +44,7 @@ export default function NewFlair(props) {
           <SecondLable>Flair text</SecondLable>
           <FormCont>
             <Input
-              id="input"
+              id="text"
               onChange={check}
               onInput={(e) => {
               // eslint-disable-next-line radix
@@ -58,7 +70,7 @@ export default function NewFlair(props) {
           <SecondLable>CSS Class</SecondLable>
           <FormCont>
             <Input
-              id="input"
+              id="css"
               onChange={check}
               placeholder="none"
             />
@@ -72,6 +84,7 @@ export default function NewFlair(props) {
             <SecondLable>Flair background color</SecondLable>
             <Color
               type="color"
+              id="bgColor"
             />
             {/* <div />
             <div /> */}
@@ -83,12 +96,13 @@ export default function NewFlair(props) {
             <Color
               type="color"
               placeholder="Aa"
+              id="textColor"
             />
           </ColorData>
         </SplitArea>
       </Container>
       <AddFlair>
-        <Save onClick={save}>
+        <Save onClick={SendData}>
           Save
         </Save>
         <Cancel onClick={cancel}>Cancel</Cancel>

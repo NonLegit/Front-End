@@ -5,6 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import { Dialog, Divider, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { useParams } from 'react-router-dom';
 import {
   Add,
   Cancel,
@@ -15,14 +16,19 @@ import {
   Lable, TextArea, Title, TitleString,
 } from './style';
 import RadioBtn from './Radio/Radio';
+import PostRule from './PostRuleServer';
+import EditRule from './EditRuleServer';
+import DeleteRule from './DeleteServer';
 
-export default function AddRule() {
+export default function AddRule(props) {
+  const { rule } = props;
   const [open, setOpen] = React.useState(false);
   const [can, setCan] = React.useState(false);
 
   const [count, setCount] = React.useState(100);
   const [count2, setCount2] = React.useState(100);
   const [count3, setCount3] = React.useState(500);
+  const { subReddit, edit } = useParams();
 
   const [type, setType] = React.useState('Posts&comments');
 
@@ -30,6 +36,14 @@ export default function AddRule() {
     if (count < 100) { setCan(true); } else { setCan(false); }
     console.log(can);
   }, [count]);
+
+  React.useEffect(() => {
+    if (rule?.appliesTo) {
+      setType(rule?.appliesTo);
+    } else {
+      setType('Posts&comments');
+    }
+  }, [rule]);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -39,7 +53,6 @@ export default function AddRule() {
   };
   const myType = (t) => {
     setType(t);
-    console.log(type);
   };
   const check = (e) => {
     const ele = e?.target?.value;
@@ -52,6 +65,23 @@ export default function AddRule() {
   const check3 = (e) => {
     const ele = e?.target?.value;
     if (500 - ele.length >= 0) { setCount3(500 - ele.length); }
+  };
+
+  const SendData = () => {
+    const defaultName = document.getElementById('defaultName');
+    const title = document.getElementById('title');
+    const description = document.getElementById('description');
+    if (edit) {
+      EditRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
+    } else {
+      PostRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
+    }
+    handleClose();
+  };
+  const DeleteData = () => {
+    const title = document.getElementById('title');
+    DeleteRule(subReddit, title);
+    handleClose();
   };
   return (
     <div>
@@ -70,6 +100,8 @@ export default function AddRule() {
               <Lable>Rule</Lable>
             </DialogContentText>
             <TextArea
+              defaultValue={rule?.title}
+              id="title"
               placeholder='Rule displayed (e.g. "No photos")'
               onChange={check}
               onInput={(e) => {
@@ -84,12 +116,14 @@ export default function AddRule() {
               {' '}
               Characters remaining
             </Count>
-            <RadioBtn myType={myType} />
+            <RadioBtn myType={myType} type={(rule?.appliesTo) ? rule?.appliesTo : 'Posts&comments'} />
             <DialogContentText>
               <Lable marginTop="-19px">Report reason</Lable>
               <Disc>Defaults to rule name if left blank</Disc>
             </DialogContentText>
             <TextArea
+              id="defaultName"
+              defaultValue={rule?.defaultName}
               placeholder='Reason rule is broken (e.g. "This is a photos")'
               onChange={check2}
               onInput={(e) => {
@@ -108,6 +142,8 @@ export default function AddRule() {
               <Lable marginTop="11px">Full description</Lable>
             </DialogContentText>
             <FullDiscTextArea
+              id="description"
+              defaultValue={rule?.description}
               placeholder="Enter the Full description of the rule"
               onChange={check3}
               onInput={(e) => {
@@ -127,8 +163,10 @@ export default function AddRule() {
             { (can)
               ? (
                 <>
-                  <Cancel onClick={handleClose}>Cancel</Cancel>
-                  <Add onClick={handleClose}>Add Rule</Add>
+                  {(edit)
+                    ? <Cancel onClick={DeleteData}>Delete</Cancel>
+                    : <Cancel onClick={handleClose}>Cancel</Cancel>}
+                  <Add onClick={SendData}>Add Rule</Add>
                 </>
               )
               : (

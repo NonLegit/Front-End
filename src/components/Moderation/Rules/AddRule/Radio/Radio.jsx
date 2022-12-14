@@ -2,6 +2,7 @@ import {
   DialogContentText,
   FormControl, FormControlLabel, Radio, RadioGroup,
 } from '@mui/material';
+// import React from 'react';
 import {
   Cont, ContUp, Lable, Name,
 } from './style';
@@ -11,7 +12,15 @@ import {
    * @return {React.Component} -radio button in  pop up form
    */
 function RadioBtn(props) {
-  const { myType } = props;
+  const { myType, type } = props;
+  console.log(type);
+  // React.useEffect(() => {
+  //   if (type) {
+  //     myType(type);
+  //   } else {
+  //     myType('Posts&comments');
+  //   }
+  // }, [type]);
   return (
     <>
       <DialogContentText><Lable> Applies to</Lable></DialogContentText>
@@ -20,7 +29,7 @@ function RadioBtn(props) {
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
           id="type"
-          defaultValue="Posts&comments"
+          defaultValue={type}
           onChange={(e) => myType(e.target.value)}
         >
           <ContUp condition2="true">
@@ -37,7 +46,7 @@ function RadioBtn(props) {
           </ContUp>
           <ContUp condition="true">
             <Cont>
-              <FormControlLabel value="Commentsonly" control={<Radio />} sx={{ margin: 0 }} />
+              <FormControlLabel value="CommentsOnly" control={<Radio />} sx={{ margin: 0 }} />
               <Name sx={{ margin: 1 }}>Comments only</Name>
             </Cont>
           </ContUp>

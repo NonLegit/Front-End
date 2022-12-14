@@ -3,7 +3,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   AboutString,
   Add,
@@ -16,27 +17,40 @@ import {
 } from './style';
 import Entity from './Entity/Entity';
 import NewFlair from './NewFlair/NewFlair';
+import useFetch from '../../SubReddit/SideBar/Flirt/flirtServer';
 
-const rows = [
-  {
-    textColor: '#0079d3',
-    backgroundColor: '#f6f7f8',
-    text: 'flair1',
-    cssClass: 'c1',
-    id: '1',
-  },
-  {
-    textColor: 'red',
-    backgroundColor: 'green',
-    text: 'flair1',
-    cssClass: 'c2',
-    id: '2',
-  },
-];
+// const rows = [
+//   {
+//     textColor: '#0079d3',
+//     backgroundColor: '#f6f7f8',
+//     text: 'flair1',
+//     cssClass: 'c1',
+//     id: '1',
+//   },
+//   {
+//     textColor: 'red',
+//     backgroundColor: 'green',
+//     text: 'flair1',
+//     cssClass: 'c2',
+//     id: '2',
+//   },
+// ];
 
 export default function PostFlair() {
   const [can, setCan] = useState(true);
   const [add, setAdd] = useState(false);
+  const [flair, setFalir] = useState([]);
+  const { subReddit } = useParams();
+  const [data, dataError] = useFetch(subReddit);
+  console.log(data);
+
+  const value = useMemo(() => ({ data, dataError }), [data, dataError]);
+  console.log(value);
+
+  useEffect(() => {
+    setFalir(data);
+    console.log(dataError);
+  }, [flair, data]);
 
   const handleClick = () => {
     setCan(false);
@@ -109,7 +123,7 @@ export default function PostFlair() {
               </TableHeaderCellContainer>
             </TableHead>
             <Body>
-              {rows.map((row) => (
+              {flair?.map((row) => (
                 <Entity row={row} handleClick={handleClick} can={can} trueCan={trueCan} />
               ))}
             </Body>

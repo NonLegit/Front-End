@@ -1,4 +1,4 @@
-import { styled, TableCell } from '@mui/material';
+import { Box, styled, TableCell } from '@mui/material';
 
 export const BodyCell = styled(TableCell)(() => ({
   fontSize: 12,
@@ -73,3 +73,7 @@ export const Text = styled('span')(({ color, backgroundColor }) => ({
   backgroundColor,
   color,
 }));
+export const SplitArea = styled(Box)({
+  width: '50%',
+
+});

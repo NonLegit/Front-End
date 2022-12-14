@@ -1,4 +1,7 @@
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 import AddRule from './AddRule/AddRyle';
 import Entity from './Entity/Entity';
 import {
@@ -12,29 +15,42 @@ import {
   StyledTooltip, TotalContainer,
 } from './style';
 
-const rows = [
-  {
-    title: 'Rule 1',
-    description: 'stringssssssssss',
-    defaultName: 'string',
-    appliesTo: 'Posts and comments',
-    createdAt: 'Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00',
-  },
-  {
-    title: 'Rule 2',
-    description: 'stringsaaaaaaa',
-    defaultName: 'string',
-    appliesTo: 'Posts ',
-    createdAt: 'Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00',
-  },
-];
+// const rows = [
+//   {
+//     title: 'Rule 1',
+//     description: 'stringssssssssss',
+//     defaultName: 'string',
+//     appliesTo: 'Posts and comments',
+//     createdAt: 'Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00',
+//   },
+//   {
+//     title: 'Rule 2',
+//     description: 'stringsaaaaaaa',
+//     defaultName: 'string',
+//     appliesTo: 'Posts ',
+//     createdAt: 'Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00',
+//   },
+// ];
 
 export default function Rules() {
+  const [rules, setRules] = useState([]);
+  const [editRule, setefitRule] = useState();
+
+  const { subReddit } = useParams();
+  const [data, dataError] = getSubredditAllData(subReddit);
+  const value = useMemo(() => ({ data, dataError }), [data, dataError]);
+  useEffect(() => {
+    setRules(data?.rules);
+    console.log(dataError);
+  }, [rules, data]);
+
+  console.log(value);
+
   return (
     <TotalContainer>
       <AddFlair>
-        <Add onClick={() => { const ele = document.getElementById('add'); ele.click(); }}>Add Rule</Add>
-        <AddRule />
+        <Add onClick={() => { const ele = document.getElementById('add'); setefitRule(null); ele.click(); }}>Add Rule</Add>
+        <AddRule rule={editRule} />
       </AddFlair>
       <LeftAlighne>
         <Header>
@@ -55,8 +71,8 @@ export default function Rules() {
           </AboutDisc>
         </Header>
         <TotalContainer>
-          {rows.map((row, index) => (
-            <Entity row={row} index={index} />
+          {rules?.map((row, index) => (
+            <Entity row={row} index={index} setefitRule={setefitRule} />
           ))}
         </TotalContainer>
       </LeftAlighne>

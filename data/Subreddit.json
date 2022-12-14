@@ -7,7 +7,29 @@
       "fixedName": "selm alsodan",
       "name": "selm alsodan",
       "isJoined": true,
-      "rules": [],
+      "rules": [
+        {
+          "title": "Rule 1",
+          "description": "stringssssssssss",
+          "defaultName": "string",
+          "appliesTo": "Posts&comments",
+          "createdAt": "Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00"
+        },
+        {
+          "title": "Rule 2",
+          "description": "stringaaaaaaaaaa",
+          "defaultName": "stringasasc",
+          "appliesTo": "PostsOnly",
+          "createdAt": "Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00"
+        },
+        {
+          "title": "Rule 2",
+          "description": "stringaaaaaaaaaa",
+          "defaultName": "stringasasc",
+          "appliesTo": "CommentsOnly",
+          "createdAt": "Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00"
+        }
+      ],
       "type": "Public",
       "nsfw": true,
       "postType": "Text",

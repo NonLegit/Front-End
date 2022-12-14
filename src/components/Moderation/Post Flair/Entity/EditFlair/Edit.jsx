@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import EditFlair from './EditFlair';
 import {
   AddFlair,
   Cancel,
@@ -11,6 +13,8 @@ export default function Edit(props) {
   const { flair, save, cancel } = props;
   const [count, setCount] = useState(64 - flair.text.length);
   const [error, setError] = useState('');
+  const { subReddit } = useParams();
+
   const check = (e) => {
     const ele = e?.target?.value;
     setCount(64 - ele.length);
@@ -23,6 +27,19 @@ export default function Edit(props) {
       setError('');
     }
   };
+  const SendData = () => {
+    const text = document.getElementById('text');
+    const backgroundColor = document.getElementById('bgColor');
+    const cssClass = document.getElementById('css');
+    const textColor = document.getElementById('textColor');
+    EditFlair(subReddit, flair?._id, {
+      text,
+      backgroundColor,
+      textColor,
+      cssClass,
+    });
+    save();
+  };
   return (
     <>
       <Container>
@@ -31,7 +48,7 @@ export default function Edit(props) {
           <SecondLable>Flair text</SecondLable>
           <FormCont>
             <Input
-              id="input"
+              id="text"
               onChange={check}
               defaultValue={flair?.text}
               onInput={(e) => {
@@ -58,7 +75,7 @@ export default function Edit(props) {
           <SecondLable>CSS Class</SecondLable>
           <FormCont>
             <Input
-              id="input"
+              id="css"
               onChange={check}
               defaultValue={flair?.cssClass}
               placeholder="none"
@@ -73,6 +90,7 @@ export default function Edit(props) {
           <SecondLable>Flair background color</SecondLable>
           <Color
             type="color"
+            id="bgColor"
             defaultValue={flair?.backgroundColor}
           />
         </ColorData>
@@ -81,13 +99,14 @@ export default function Edit(props) {
           <SecondLable>Flair text color</SecondLable>
           <Color
             type="color"
+            id="textColor"
             defaultValue={flair?.textColor}
             placeholder="Aa"
           />
         </ColorData>
       </Container>
       <AddFlair>
-        <Save onClick={save}>
+        <Save onClick={SendData}>
           Save
         </Save>
         <Cancel onClick={cancel}>Cancel</Cancel>
