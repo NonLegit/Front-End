@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // MUI components
 import {
@@ -23,12 +24,12 @@ import { HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes } fro
 import theme from '../../../styles/theme';
 import { addPostToHistory } from './scripts';
 
-// Scripts
-
 function MultiLevelHeader() {
   // Context
   const { post } = usePostContext();
 
+  // useNavigate
+  const navigate = useNavigate();
   // useEffect
   useEffect(() => {
     // Add This post to the History
@@ -38,8 +39,8 @@ function MultiLevelHeader() {
   }, [post]);
 
   const close = () => {
-    // Back to previous Page [Windows History]
-    console.log('Closed');
+    // Backward
+    navigate(-1);
   };
 
   const upVote = () => {

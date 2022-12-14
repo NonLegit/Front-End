@@ -13,6 +13,9 @@ import { usePostContext } from '../../../../contexts/PostContext';
 // Styles
 import { MultiLevelContentConatiner } from './styles';
 
+// Utlis
+import calculateTime from '../../../../utils/calculateTime';
+
 /* The Main Content of the post including Actions */
 function MultiLevelPostContent(props) {
   const { Edit } = props;
@@ -24,12 +27,21 @@ function MultiLevelPostContent(props) {
 
   return (
     <MultiLevelContentConatiner>
-      MultiLevelPostContent
+      {/* MultiLevelPostContent
       {' '}
       {Edit}
       {' '}
-      Value
+      Value */}
       {/* Owner Authoer */}
+      <Typography variant="h1" fontSize="20px" fontWeight="600">
+        Posted by
+        {' '}
+        {post?.ownerType === 'User' ? 'u' : 'r'}
+        /
+        {post?.author?.name}
+        {' '}
+        {calculateTime(post?.createdAt)}
+      </Typography>
       {/* Title */}
       <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
       {Edit ? <EditPost /> : <p>{post?.text}</p>}

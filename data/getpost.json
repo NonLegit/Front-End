@@ -4,7 +4,7 @@
         "_id": "987654321",
         "author": {
             "_id": "string",
-            "name": "string"
+            "name": "Basma Elhoseny"
         },
         "ownerType": "User",
         "owner": {
@@ -23,7 +23,7 @@
         },
         "flairText": "string",
         "sharedFrom": "string",
-        "title": "string",
+        "title": "Title",
         "kind": "link",
         "text": "string",
         "images": [
