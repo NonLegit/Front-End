@@ -1,7 +1,10 @@
-import { styled, Tooltip } from '@mui/material';
+import {
+  styled, Tooltip,
+  IconButton,
+} from '@mui/material';
 import { tooltipClasses } from '@mui/material/Tooltip';
 
-const styledTooltip = styled(({ className, ...props }) => (
+export const StyledTooltip = styled(({ className, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <Tooltip {...props} arrow classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -13,4 +16,8 @@ const styledTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-export default styledTooltip;
+export const NotificationButton = styled(IconButton)(() => ({
+  display: 'flexx',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));

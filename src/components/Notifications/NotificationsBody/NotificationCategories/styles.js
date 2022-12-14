@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
-export const Notification = styled('div')(({ today }) => ({
+export const Notification = styled('div')(({ seen }) => ({
   padding: '16px',
   display: 'flex',
   borderBottom: '1px solid #EDEFF1',
-  backgroundColor: today ? '#e9f5fd' : '',
+  backgroundColor: seen ? '#e9f5fd' : '',
 }));
 export const NotificationBody = styled('div')(() => ({
   cursor: 'pointer',

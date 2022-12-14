@@ -14,8 +14,8 @@ const notificationsFetch = () => {
     axios.get(api) // fetch api
       .then((actualData) => {
         console.log(actualData.data);
-        setToday(actualData.data.filter((e) => checkTimeNow(e.createdAt)));
-        setEarlier(actualData.data.filter((e) => !checkTimeNow(e.createdAt)));
+        setToday(actualData.data.data.filter((e) => checkTimeNow(e.createdAt)));
+        setEarlier(actualData.data.data.filter((e) => !checkTimeNow(e.createdAt)));
       })
       .catch((error) => {
         if (error.response.status === 401) {

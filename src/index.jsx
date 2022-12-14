@@ -4,6 +4,12 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('firebase-messaging-sw.js')
+    .then((registration) => registration.scope)
+    .catch((err) => err);
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>

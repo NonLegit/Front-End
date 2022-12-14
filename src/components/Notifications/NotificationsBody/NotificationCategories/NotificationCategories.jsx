@@ -1,14 +1,16 @@
 /* eslint-disable import/no-cycle */
-import { useContext, createContext } from 'react';
+import { useContext, createContext, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment/moment';
+import { useCookies } from 'react-cookie';
 import { CategoriesContext } from '../NotificationsBody';
 import {
   Notification, Options, MenuOptions, NotificationTime,
   NotificationBody, BodyHead, Body, ContainerHead, SeeMore,
 } from './styles';
 import NotificationImages from './NotificationImage/NotificationImages';
+import { redditCookie } from '../../../Authentication/authenticationServer';
 
 export const ReplayContext = createContext();
 /**
@@ -27,8 +29,9 @@ function NotificationCategories() {
     earlier, today, handleClose, handleClick, open, anchorEl,
   } = useContext(CategoriesContext);
   // options of see more
-  const options = ['Hide this notification', 'Disable updates from this community'];
+  const options = ['Hide this notification'];
   // to set today or earlier
+  const [cookies, setCookies] = useCookies(['redditUser']);
   const value = (today) || earlier;
   moment.updateLocale('en', {
     relativeTime: {
@@ -42,23 +45,68 @@ function NotificationCategories() {
       yy: '%dy',
     },
   });
+  useEffect(() => {
+    redditCookie(setCookies);
+  }, []);
+  const follwed = (ele) => {
+    const follow = (ele?.followedSubreddit) ? `r/${ele?.followedSubreddit.fixedName}` : `u/${cookies?.redditUser.userName}`;
+    if (ele?.type === 'follow') {
+      return 'New follower!';
+    } if (ele?.type === 'postReply') {
+      const temp = `u/${ele?.followerUser.userName} replied to your post in `;
+      return temp + follow;
+    }
+    if (ele?.type === 'commentReply') {
+      const temp = `u/${ele?.followerUser.userName} replied to your comment in `;
+      return temp + follow;
+    }
+    if (ele?.type === 'userMention') {
+      const temp = `u/${ele?.followerUser.userName} mentioned you in `;
+      return temp;
+    }
+    if (ele?.type === 'firstPostUpVote' || ele?.type === 'firstCommentUpVote') {
+      const temp = '⬆️ 1st upvote!';
+      return temp;
+    }
+    return '';
+  };
+  const body = (ele) => {
+    const follow = (ele?.followedSubreddit) ? `r/${ele?.followedSubreddit.fixedName}` : `u/${cookies?.redditUser.userName}`;
+    if (ele?.type === 'follow') {
+      return `${ele.followerUser.userName} followed you. Start a chat!`;
+    } if (ele?.type === 'postReply') {
+      const temp = `${ele?.comment.text}`;
+      return temp;
+    }
+    if (ele?.type === 'commentReply') {
+      const temp = `${ele?.comment.text}  `;
+      return temp;
+    }
+    if (ele?.type === 'userMention') {
+      const temp = `${ele?.comment.text}`;
+      return temp;
+    }
+    if (ele?.type === 'firstPostUpVote') {
+      const temp = 'Go see your comment on ';
+      return temp + follow;
+    }
+    if (ele?.type === 'firstCommentUpVote') {
+      const temp = 'Go see your comment on ';
+      return temp + follow;
+    }
+    return '';
+  };
   return (
     <div data-testid={`notification-categories-${today ? 'today' : 'earlier'}`}>
       { value?.map((ele, indx) => (
-        <Notification today={today} key={`${ele.date}${indx + 0}`}>
-          <ReplayContext.Provider value={ele.type}>
-            <NotificationImages />
+        <Notification seen={ele.seen} key={`${indx + 0}`}>
+          <ReplayContext.Provider value={ele?.type}>
+            <NotificationImages image={ele.followerUser.profilePicture} />
           </ReplayContext.Provider>
           <NotificationBody>
             <ContainerHead>
               <BodyHead>
-                { (ele.type === 'follower') ? ('New follower!')
-                  : (ele.type === 'msg') ? ('New message! ')
-                    : (ele.type === 'post_reply') ? (`u/${ele.userId} replied to your post in r/${ele.subreddit}`)
-                      : (ele.type === 'comment_reply') ? (`u/${ele.userId} replied to your comment in r/${ele.subreddit}`)
-                        : (ele.type === 'user_mention') ? (`u/${ele.userId} mentioned you in r/${ele.subreddit}`)
-                          : (ele.type === 'post_upvote') ? (`u/${ele.userId} upvote you post in r/${ele.subreddit}`)
-                            : (ele.type === 'comment_upvote') ? (`u/${ele.userId} upvote you comment in r/${ele.subreddit}`) : '' }
+                {follwed(ele)}
                 <NotificationTime>
                   { ' · ' }
                   { (moment.utc(ele.createdAt).local().startOf('seconds')
@@ -105,9 +153,7 @@ function NotificationCategories() {
               </SeeMore>
             </ContainerHead>
             <Body>
-              { (ele.type === 'follower') ? (`${ele.userId} followed you. Follow them back or start a chat! `)
-                : (ele.type === 'msg') ? (`${ele.userId} send message to you!! `)
-                  : (String(ele.type).includes('post')) ? ele.postId : ele.commentId }
+              {body(ele)}
             </Body>
           </NotificationBody>
         </Notification>

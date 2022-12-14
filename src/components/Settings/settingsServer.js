@@ -28,25 +28,6 @@ export const settingsPost = async (prefs) => {
     });
   return [message, flag];
 };
-export const image = async (file, type) => {
-  const api = '/users/images';
-  const message = '';
-  console.log(file);
-  console.log(type);
-  await axios.post(`${api}`, {
-    type,
-    file,
-  })
-    .then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      if (error?.response.status === 401) {
-        redirectLogin();
-      }
-      console.log(error);
-    });
-  return message;
-};
 export const settingsFetch = () => {
   const api = '/users/me/prefs';
   const [data, dataError, statusCode] = useFetch(api);
@@ -64,7 +45,7 @@ export const settingsFetch = () => {
 export const imagePost = async (data) => {
   const api = '/users/images';
   console.log(data);
-  await axios.post(`${api}`, data)
+  await axios.post(`${api}`, (data))
     .then((response) => {
       console.log(response);
     }).catch((error) => {

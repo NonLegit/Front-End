@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { useEffect, useState } from 'react';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
 import SettingsPrivacy from './components/Settings/SettingsPrivacy/SettingsPrivacy';
@@ -24,8 +25,24 @@ import CreatePost from './pages/CreatePost';
 import PostTypeContextProvider from './contexts/PostTypeContext';
 import Notifications from './pages/Notifications';
 import SubReddit from './pages/SubReddit';
+import { getFirebaseToken } from './lib/firebase';
 
 function App() {
+  const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
+  const handleGetFirebaseToken = () => {
+    if (showNotificationBanner) {
+      getFirebaseToken()
+        .then((firebaseToken) => {
+          console.log('Firebase token: ', firebaseToken);
+
+          setShowNotificationBanner(false);
+        })
+        .catch((err) => console.error('An error occured while retrieving firebase token. ', err));
+    }
+  };
+  useEffect(() => {
+    handleGetFirebaseToken();
+  }, []);
   return (
 
     <ThemeProvider theme={theme}>
