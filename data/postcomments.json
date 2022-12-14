@@ -37,7 +37,9 @@
       "Type": "moreReplies",
       "count": 100,
       "children": [
-        "string"
+        "10",
+        "11",
+        "12"
       ]
     }
   ]

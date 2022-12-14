@@ -1,0 +1,60 @@
+{
+    "status": "string",
+    "comments": [
+      {
+        "_id": "10",
+        "author": "Aya Elhoseny",
+        "post": "string",
+        "mentions": [
+          "string"
+        ],
+        "replies": [
+        ],
+        "parent": "string",
+        "parentType": "string",
+        "text": "Comment no 3 in the Post",
+        "createdAt": "2001-01-11T17:32:28Z",
+        "votes": 0,
+        "repliesCount": 0
+      },
+      {
+        "_id": "11",
+        "author": "Youssef Elhoseny",
+        "post": "string",
+        "mentions": [
+          "string"
+        ],
+        "replies": [
+        ],
+        "parent": "string",
+        "parentType": "string",
+        "text": "Comment no 4 in the Post",
+        "createdAt": "2022-12-13T17:32:28Z",
+        "votes": 0,
+        "repliesCount": 0
+      },
+      {
+        "_id": "12",
+        "author": "Aya Elhoseny",
+        "post": "string",
+        "mentions": [
+          "string"
+        ],
+        "replies": [
+         ],
+        "parent": "string",
+        "parentType": "string",
+        "text": "Comment no 5 in the Post",
+        "createdAt": "2022-12-14T10:32:28Z",
+        "votes": 0,
+        "repliesCount": 0
+      },    
+      {
+        "Type": "moreReplies",
+        "count": 0,
+        "children": [
+          "string"
+        ]
+      }
+    ]
+  }

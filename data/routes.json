@@ -40,5 +40,6 @@
     "/getpost/:postID":"/getpost",
     "/posts/:postID":"/editpost",
     "/comments":"/createcomment",
-    "/comments/comment_tree/:postID":"/postcomments"
+    "/comments/comment_tree/:postID":"/postcomments",
+    "/comments/more_children":"/morecomments"
 }

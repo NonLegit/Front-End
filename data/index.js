@@ -37,6 +37,7 @@ const getPost = require('./getpost.json');
 const editPost = require('./editpost.json');
 const createcomment = require('./createcomment.json');
 const postComments = require('./postcomments.json');
+const moreComments = require('./moreComments.json');
 
 // Something more
 
@@ -82,5 +83,6 @@ module.exports = () => ({
   editPost,
   createcomment,
   postComments,
+  moreComments,
   // Something more
 });

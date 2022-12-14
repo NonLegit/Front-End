@@ -21,7 +21,7 @@ import { MoreCommentsLink } from '../styles';
 
 function Comment(props) {
   const {
-    comment, src, depth, level, lastChild, remainingSiblings,
+    comment, src, depth, level, lastChild, remainingSiblings, loadMoreComments,
   } = props;
 
   // Constants
@@ -34,10 +34,6 @@ function Comment(props) {
   // Functions
   const toggleComment = () => {
     setCollapse(!collpase);
-  };
-
-  const moreComments = () => {
-    console.log('more comments');
   };
 
   return (
@@ -73,8 +69,8 @@ function Comment(props) {
         </CommentBody>
       </CommentContainer>
 
-      {lastChild ? (
-        <MoreCommentsLink onClick={moreComments}>
+      {lastChild && remainingSiblings > 0 ? (
+        <MoreCommentsLink onClick={loadMoreComments}>
           {/* Only the First 10 Comments */}
           {remainingSiblings > 10 ? 10 : remainingSiblings}
           {' '}
