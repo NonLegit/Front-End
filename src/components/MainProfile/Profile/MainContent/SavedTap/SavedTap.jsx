@@ -22,8 +22,9 @@ function SavedTap() {
   const [isContent, setIsContent] = useState(false);
   // check if the page have any content posts to show
   useEffect(() => {
+    console.log(posts, comments);
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
-  }, [username, posts, subTitle]);
+  }, [username, posts, comments, subTitle]);
 
   const emptyContent = renderText(subTitle);
   return (

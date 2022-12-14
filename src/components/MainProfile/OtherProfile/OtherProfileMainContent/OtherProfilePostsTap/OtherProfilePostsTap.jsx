@@ -20,7 +20,8 @@ function OtherProfilePostsTap() {
   // check if the page have any content posts to show
   useEffect(() => {
     if (posts?.length > 0) { setIsContent(true); }
-  }, [username, posts]);
+    console.log(isContent);
+  }, [username, posts, isContent]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;

@@ -35,7 +35,7 @@ function CommentsHeader(props) {
       <CommentText variant="caption" coloring="#787c7e">
         commented on
         {' '}
-        {post.title}
+        {post?.title}
         .
       </CommentText>
       {post?.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
