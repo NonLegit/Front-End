@@ -44,7 +44,9 @@ function CreateComment() {
   const comment = () => {
     if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
       setText(EditorState.createEmpty());
+
       // Need refresh post Component =>to pop comment
+      // UpdatePost();
     }
   };
 

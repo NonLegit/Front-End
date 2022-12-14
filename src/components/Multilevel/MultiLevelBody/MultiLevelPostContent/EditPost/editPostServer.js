@@ -13,9 +13,8 @@ export const editPost = (postID, bodyText, setPost) => {
   }).catch((error) => {
     console.log(error);
     // 400
-
     // 401
-
     // 404
+    // Error message:error.response.data.message
   });
 };

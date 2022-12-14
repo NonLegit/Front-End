@@ -22,6 +22,29 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   // border: '5px solid #abcabc',
 }));
 
+// PostHeader
+export const PostHeader = styled(Box)(() => ({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  flexWrap: 'nowrap',
+
+  // width: '100%',
+  // display: 'flex',
+  // flexDirection: 'column',
+  // flexWrap: 'nowrap',
+
+  // padding: '0px 10px',
+  // marginTop: '5px',
+
+  '& > *': {
+    margin: '0px 5px !important',
+  },
+
+  // border: '5px solid #abcabc',
+}));
+
 // Save button
 export const SaveButton = styled(RedditButton)(() => ({
   padding: '3px 20px',

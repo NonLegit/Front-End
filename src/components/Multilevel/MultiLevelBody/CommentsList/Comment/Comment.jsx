@@ -24,7 +24,7 @@ import { getMoreChildren } from '../commentsListServer';
 
 function Comment(props) {
   const {
-    comment, src, depth, level, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
+    comment, src, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
   } = props;
 
   // Constants
@@ -73,12 +73,6 @@ function Comment(props) {
           <CommentHeader>
             <AuthorLink href={authorProfilelink}>{comment?.author}</AuthorLink>
             <Duration>{comment ? calculateTime(comment?.createdAt) : null}</Duration>
-            <p>
-              d:
-              {depth}
-              l:
-              {level}
-            </p>
           </CommentHeader>
           {collpase ? null
             : (

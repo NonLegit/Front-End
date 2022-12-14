@@ -11,7 +11,8 @@ import CreateComment from './CreateComment/CreateComment';
 import { usePostContext } from '../../../../contexts/PostContext';
 
 // Styles
-import { MultiLevelContentConatiner } from './styles';
+import { MultiLevelContentConatiner, PostHeader } from './styles';
+import { AuthorLink, ImgAvatar } from '../CommentsList/Comment/styles';
 
 // Utlis
 import calculateTime from '../../../../utils/calculateTime';
@@ -23,6 +24,10 @@ function MultiLevelPostContent(props) {
   // Context
   const { post } = usePostContext();
 
+  // Constants
+  const authorProfilelink = `./user/${post?.author?.name}`;
+  const ownerProfilelink = `./user/${post?.owner?.name}`;
+
   useEffect(() => console.log('Edit', Edit), []);
 
   return (
@@ -33,15 +38,31 @@ function MultiLevelPostContent(props) {
       {' '}
       Value */}
       {/* Owner Authoer */}
-      <Typography variant="h1" fontSize="20px" fontWeight="600">
-        Posted by
-        {' '}
-        {post?.ownerType === 'User' ? 'u' : 'r'}
-        /
-        {post?.author?.name}
-        {' '}
-        {calculateTime(post?.createdAt)}
-      </Typography>
+      {/* PostHeader */}
+      <PostHeader>
+        <ImgAvatar alt={post?.owner?.name} src={post?.owner?.icon} />
+        <Typography fontSize="12px" fontWeight="400">
+          <AuthorLink href={ownerProfilelink}>
+            {post?.ownerType === 'User' ? 'u' : 'r'}
+            /
+            {post?.owner?.name}
+          </AuthorLink>
+        </Typography>
+
+        <Typography fontSize="12px" fontWeight="400">
+          Posted by
+          {' '}
+          <AuthorLink href={authorProfilelink}>
+            u/
+            {post?.author?.name}
+          </AuthorLink>
+        </Typography>
+
+        <Typography fontSize="12px" fontWeight="400">
+          {calculateTime(post?.createdAt)}
+        </Typography>
+      </PostHeader>
+
       {/* Title */}
       <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
       {Edit ? <EditPost /> : <p>{post?.text}</p>}

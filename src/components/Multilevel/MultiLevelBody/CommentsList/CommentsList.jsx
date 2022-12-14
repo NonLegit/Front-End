@@ -26,14 +26,19 @@ function CommentsList() {
 
   // State
   const [comments, setComments] = useState(null);
+  const [sortName, setSortName] = useState(undefined);
+
   // const [commentFetched] = getComments({ postID, depth: 9, limit: 20 });// 9=depth
 
   const commentsCount = (post?.commentCount <= 0);
   // useEffect
   useEffect(() => {
     // Fetch Initial Comments with depth and limit
-    getComments({ postID, depth: 9, limit: 20 }, setComments);
-  }, [postID, post]);
+    getComments({
+      postID, depth: 9, limit: 20, sort: sortName,
+    }, setComments);
+    console.log('Refeteched');
+  }, [postID, post, sortName]);
 
   // Load More Comments on This post
   const loadMoreComments = () => {
@@ -57,6 +62,9 @@ function CommentsList() {
 
   // getMoreChildren(comments[comments.length - 2]?.children, comments, setComments);
 
+  // const setSort = (e) => {
+
+  // };
   // True if there is moreReplies object
   const moreRepliesFormat = (comments) ? comments[comments.length - 1]?.Type === 'moreReplies' : false;
   const lastChild = (comments) ? (moreRepliesFormat ? comments.length - 2 : comments.length - 1) : -1;
@@ -66,14 +74,15 @@ function CommentsList() {
     commentsCount ? <NoComments />
       : (
         <MultilevelPostCommentsConatiner>
+          <h1>{sortName}</h1>
           <Divider />
-          <SortComments />
+          <SortComments sortName={sortName} setSortName={setSortName} />
           {/* Loop over   All array of comments on the post */}
           {
           comments?.map((comment, i) => {
             if (i === comments.length - 1 && moreRepliesFormat) { return null; }
             // No problem with  i= comments.length - 1
-            return (<Comment key={comment?._id} comment={comment} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" depth={0} level={i} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
+            return (<Comment key={comment?._id} comment={comment} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
             // loadMoreRepliesParentFun=this fucntion
           })
 }
