@@ -90,7 +90,7 @@ function NotificationsBody() {
             today, handleClose, handleClick, open, anchorEl,
           }}
           >
-            <NotificationCategories />
+            <NotificationCategories NavBar={false} />
           </CategoriesContext.Provider>
         </>
         )}
@@ -103,7 +103,7 @@ function NotificationsBody() {
               earlier, handleClose, handleClick, open, anchorEl,
             }}
             >
-              <NotificationCategories />
+              <NotificationCategories NavBar={false} />
             </CategoriesContext.Provider>
           </>
           )}

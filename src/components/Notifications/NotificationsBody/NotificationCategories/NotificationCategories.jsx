@@ -24,7 +24,7 @@ export const ReplayContext = createContext();
  * @param {object} anchorEl - anchor element
  * @return {React.Component} - Retrun all notificaions dependent on type today or earlier
  */
-function NotificationCategories() {
+function NotificationCategories({ NavBar }) {
   const {
     earlier, today, handleClose, handleClick, open, anchorEl,
   } = useContext(CategoriesContext);
@@ -101,7 +101,7 @@ function NotificationCategories() {
       { value?.map((ele, indx) => (
         <Notification seen={ele.seen} key={`${indx + 0}`}>
           <ReplayContext.Provider value={ele?.type}>
-            <NotificationImages image={ele.followerUser.profilePicture} />
+            <NotificationImages image={ele.followerUser?.profilePicture} />
           </ReplayContext.Provider>
           <NotificationBody>
             <ContainerHead>
@@ -113,47 +113,54 @@ function NotificationCategories() {
                     .fromNow())}
                 </NotificationTime>
               </BodyHead>
-              <SeeMore>
-                <IconButton
-                  data-testid="seeMore"
-                  id={indx}
-                  aria-controls={open ? 'long-menu' : undefined}
-                  aria-expanded={open ? 'true' : undefined}
-                  aria-haspopup="true"
-                  onClick={handleClick}
-                  catorige={(today) ? 'today' : 'earlier'}
-                >
-                  <MoreHorizIcon />
-                </IconButton>
-                <MenuOptions
-                  data-testid="options"
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  id={indx}
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                >
-                  {options.map((option) => (
-                    <Options
-                      key={option}
-                      selected={option === 'Pyxis'}
-                      onClick={handleClose}
+              {(!NavBar)
+                ? (
+                  <SeeMore>
+                    <IconButton
+                      data-testid="seeMore"
+                      id={indx}
+                      aria-controls={open ? 'long-menu' : undefined}
+                      aria-expanded={open ? 'true' : undefined}
+                      aria-haspopup="true"
+                      onClick={handleClick}
+                      catorige={(today) ? 'today' : 'earlier'}
                     >
-                      {option}
-                    </Options>
-                  ))}
-                </MenuOptions>
-              </SeeMore>
+                      <MoreHorizIcon />
+                    </IconButton>
+
+                    <MenuOptions
+                      data-testid="options"
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      id={indx}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                    >
+                      {options.map((option) => (
+                        <Options
+                          key={option}
+                          selected={option === 'Pyxis'}
+                          onClick={handleClose}
+                        >
+                          {option}
+                        </Options>
+                      ))}
+                    </MenuOptions>
+                  </SeeMore>
+                ) : null}
             </ContainerHead>
             <Body>
-              {body(ele)}
+              { body(ele).slice(0, 200) }
+              {
+                body(ele).length > 200 && '...'
+              }
             </Body>
           </NotificationBody>
         </Notification>

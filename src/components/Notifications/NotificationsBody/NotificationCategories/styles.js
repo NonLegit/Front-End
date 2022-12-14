@@ -16,15 +16,20 @@ export const ContainerHead = styled('div')(() => ({
   display: 'flex',
   justifyContent: ' space-between',
   alignItems: 'start',
+  whiteSpace: 'normal',
 }));
 export const BodyHead = styled('div')(() => ({
   fontSize: ' 18px',
   lineHeight: '20px',
+  whiteSpace: 'normal',
 }));
-export const Body = styled('div')(() => ({
+export const Body = styled('div')(({ theme }) => ({
+  ...theme.typography.button,
   fontWeight: '400',
   fontSize: ' 14px',
   color: '#7c7c7c',
+  whiteSpace: 'normal',
+  WebkitLineClamp: 3,
 }));
 export const SeeMore = styled('div')(() => ({
   '& .MuiButtonBase-root': {
