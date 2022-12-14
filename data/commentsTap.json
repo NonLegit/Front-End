@@ -1,0 +1,121 @@
+{
+  "status": "success",
+  "posts": [
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "ownerType": "Subreddit",
+      "owner": {
+        "_id": "string",
+        "name": "string",
+        "icon": "string"
+      },
+      "title": "string",
+      "text": "string",
+      "nsfw": true,
+      "flairId": {
+        "_id": "string",
+        "text": "string",
+        "backgroundColor": "string",
+        "textColor": "string"
+      },
+      "comments": [
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false
+        }
+      ]
+    },
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "string"
+      },
+      "ownerType": "User",
+      "owner": {
+        "_id": "string",
+        "name": "string",
+        "icon": "string"
+      },
+      "title": "string",
+      "text": "string",
+      "nsfw": true,
+      "flairId": {
+        "_id": "string",
+        "text": "string",
+        "backgroundColor": "string",
+        "textColor": "string"
+      },
+      "comments": [
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false
+        },
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "Post",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false
+        },
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false
+        }
+      ]
+    }
+  ]
+}

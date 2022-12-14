@@ -22,9 +22,9 @@ import {
 } from './styles';
 import PostFooterList from './PostFooterList/PostFooterList';
 import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListResponsive';
-import ModeratorList from './ModeratorList/ModeratorList';
 import ArrowList from './ArrowList/ArrowList';
 import { postReactionsServer } from '../../../../profileServer';
+import ModeratorList from '../../ModeratorList/ModeratorList';
 
 /**
  * Footer of the post that contain all icons
@@ -38,7 +38,7 @@ import { postReactionsServer } from '../../../../profileServer';
 function PostFooter(props) {
   const {
     postid, numComments, approved, removed, spam, handleExpand, expand, postedByOthers,
-    saved, hidden, submitted, points, postVoteStatus, nsfw, spoiler, sendReplies,
+    saved, hidden, submitted, points, postVoteStatus, nsfw, spoiler, sendReplies, locked,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
@@ -152,7 +152,12 @@ function PostFooter(props) {
           <ElementBox>
             <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
             {moderatorList && (
-            <ModeratorList />
+            <ModeratorList
+              postid={postid}
+              nsfw={nsfw}
+              spoiler={spoiler}
+              locked={locked}
+            />
             )}
           </ElementBox>
         </ClickAwayListener>

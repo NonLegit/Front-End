@@ -1,7 +1,9 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import CommentsTap from './CommentsTap/CommentsTap';
 import Content from './Content/Content';
 import FollowersList from './FollowersList/FollowersList';
+import HistoryTap from './HistoryTap/HistoryTap';
 import PostsFilteredTap from './PostsFilteredTap/PostsFilteredTap';
 import PostsTap from './PostsTap/PostsTap';
 import Sidebar from './Sidebar/Sidebar';
@@ -22,6 +24,16 @@ const renderSwitch = (param) => {
   if (param === 'upvoted' || param === 'downvoted' || param === 'saved' || param === 'hidden') {
     return (
       <PostsFilteredTap />
+    );
+  }
+  if (param === 'history') {
+    return (
+      <HistoryTap />
+    );
+  }
+  if (param === 'comments') {
+    return (
+      <CommentsTap />
     );
   }
   if (param === 'followers') {

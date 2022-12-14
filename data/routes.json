@@ -20,7 +20,8 @@
     "/subreddits/mine/moderator": "/subreddits",
     "/subreddits/moderator/:name": "/userSubreddits",
     "/users/:name/overview": "/overview",
-    "/user/:name/post": "/postsTap",
+    "/user/:name/posts": "/postsTap",
+    "/user/:name/comments": "/commentsTap",
     "/users/upvoted": "/upvoted",
     "/users/downvoted": "/downvoted",
     "/users/saved": "/saved",
@@ -42,9 +43,8 @@
     "/users/:name/block_user":"/block",
     "/users/:name/unblock_user":"/block",
     "/users/followers":"/followers",
-    "/posts/:postId/hide":"/postAction",
-    "/posts/:postId/unhide":"/postAction",
-    "/posts/:postId/save":"/postAction",
-    "/posts/:postId/unsave":"/postAction",
-    "/posts/:postId/vote":"/postAction"
+    "/posts/:postId/:action":"/postAction",
+    "/comments/:postId/:action":"/postAction",
+    "/posts/:postId":"/deleteAction",
+    "/posts/:postId/actions/:action":"/actionOnPost"
 }

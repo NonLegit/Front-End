@@ -60,6 +60,10 @@ function Posts(props) {
             isSaved={post?.isSaved}
             subTitle={post?.ownerType}
             numComments={post?.commentCount}
+            nsfw={post?.nsfw}
+            spoiler={post?.spoiler}
+            sendReplies={post?.sendReplies}
+            locked={post?.locked}
           />
         </Box>
       </PostContentBox>

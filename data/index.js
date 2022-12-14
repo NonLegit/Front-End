@@ -37,6 +37,9 @@ const follow = require('./follow.json');
 const block = require('./block.json');
 const followers = require('./followers.json');
 const postAction = require('./postAction.json');
+const deleteAction = require('./deleteAction.json');
+const actionOnPost = require('./actionOnPost.json');
+const commentsTap = require('./commentsTap.json');
 // Something more
 
 module.exports = () => ({
@@ -81,5 +84,8 @@ module.exports = () => ({
   block,
   followers,
   postAction,
+  deleteAction,
+  actionOnPost,
+  commentsTap,
   // Something more
 });

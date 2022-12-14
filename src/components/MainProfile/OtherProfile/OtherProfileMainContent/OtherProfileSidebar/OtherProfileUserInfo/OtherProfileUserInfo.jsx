@@ -1,9 +1,10 @@
 import { Box, CardMedia, Typography } from '@mui/material';
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import CakeIcon from '@mui/icons-material/Cake';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import moment from 'moment/moment';
-import { useParams } from 'react-router-dom';
+import { UserContext } from '../../../../../../contexts/UserProvider';
+
 import UserInfoServer from '../../../../mainProfileServer';
 import {
   ProfilePic, ProfileBox,
@@ -36,7 +37,8 @@ function OtherProfileUserInfo() {
 
   const [open, setOpen] = useState(false);
 
-  const { username } = useParams();
+  const { username } = useContext(UserContext);
+
   const [info, statusCode] = UserInfoServer(username);
   followRequest(username, follow, () => { setIsFollowedUi((prev) => !prev); });
   blockRequest(username, block);
@@ -55,6 +57,7 @@ function OtherProfileUserInfo() {
   }, [info, statusCode]);
 
   const [showList, setShowList] = useState(false);
+
   const handleClickList = () => {
     setShowList((prev) => !prev);
   };

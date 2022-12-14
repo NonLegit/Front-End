@@ -99,6 +99,7 @@ function Post(props) {
                 nsfw={entity?.nsfw}
                 spoiler={entity?.spoiler}
                 sendReplies={entity?.sendReplies}
+                locked={entity?.locked}
               />
             </Box>
           </PostContentBox>

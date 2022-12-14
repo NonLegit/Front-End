@@ -63,7 +63,7 @@ function UserInfo() {
   };
 
   const handleFollowes = () => {
-    navigate('followers');
+    navigate(`/user/${username}/followers`);
   };
 
   return (

@@ -9,7 +9,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
-import { postReactionsServer } from '../../../../../profileServer';
+import { actionOnPost, deletePostComment, postReactionsServer } from '../../../../../profileServer';
 
 /**
  * List items of post footer
@@ -38,13 +38,18 @@ function PostFooterList(props) {
     postReactionsServer(postid, 'hide', 1);
   };
   const handleNsfw = () => {
+    actionOnPost(postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
     setIsNsfw((prev) => !prev);
   };
   const handleSpoiler = () => {
+    actionOnPost(postid, isSpoiler ? 'unspoiler' : 'spoiler');
     setIsSpoiler((prev) => !prev);
   };
   const handleSendReplies = () => {
     setIsSendReplies((prev) => !prev);
+  };
+  const handleDelete = () => {
+    deletePostComment('posts', postid);
   };
   return (
     <SelectBox>
@@ -76,7 +81,7 @@ function PostFooterList(props) {
         Hide
       </SelectItem>
       <Divider />
-      <SelectItem>
+      <SelectItem onClick={() => { handleDelete(); }}>
         <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
         Delete
       </SelectItem>

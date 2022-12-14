@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useContext, useEffect, useState } from 'react';
-import { postsTapServer } from '../../../profileServer';
+import { postsCommentsServer } from '../../../profileServer';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox, WideBox } from '../styles';
 import EmptyContent from '../EmptyContent/EmptyContent';
@@ -17,7 +17,7 @@ import Post from '../Posts/Post';
 function PostsTap() {
   const { subTitle } = useParams();
   const { username } = useContext(UserContext);
-  const [posts] = postsTapServer(username);
+  const [posts] = postsCommentsServer(username, 'posts');
   const [isContent, setIsContent] = useState(false);
 
   // check if the page have any content posts to show
