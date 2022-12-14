@@ -9,6 +9,29 @@
         "string"
       ],
       "replies": [
+        {
+          "_id": "102",
+          "author": "Eslam",
+          "post": "string",
+          "mentions": [
+            "string"
+          ],
+          "replies": [
+          ],
+          "parent": "string",
+          "parentType": "string",
+          "text": "Reply on Comment 1",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "repliesCount": 0
+        },
+        {
+          "Type": "moreReplies",
+          "count": 20,
+          "children": [
+            "string"
+          ]
+        }
       ],
       "parent": "string",
       "parentType": "string",
