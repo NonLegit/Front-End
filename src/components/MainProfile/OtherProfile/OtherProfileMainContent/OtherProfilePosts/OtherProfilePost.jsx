@@ -16,6 +16,7 @@ import OtherProfilePostSide from './OtherProfilePostSide/OtherProfilePostSide';
 import OtherProfilePostHeader from './OtherProfilePostHeader/OtherProfilePostHeader';
 import OtherProfilePostFooter from './OtherProfileFooter/OtherProfilePostFooter';
 import { UserContext } from '../../../../../contexts/UserProvider';
+import { CommunitiesSubscriberContext } from '../../../../../contexts/CommunitiesSubscriberContext';
 
 /**
  * the post that appear in posts - saved - hidden - upvoted - downvotep taps
@@ -32,16 +33,20 @@ function OtherProfilePost(props) {
   } = props;
   const [expand, setExpand] = useState();
   const [subTitle, setSubTitle] = useState(type);
+  const [notJoined, setNotJoined] = useState(false);
   const { username } = useContext(UserContext);
+  const { communities } = useContext(CommunitiesSubscriberContext);
+
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
   useEffect(() => {
+    if (communities?.filter((element) => element.fixedName === entity.owner.name).length === 0) { setNotJoined(true); }
     setSubTitle(type);
-  }, [type]);
+  }, [type, communities]);
   return (
     <PostsQueueBox>
-      <OtherProfilePostSide points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.isSpam} />
+      <OtherProfilePostSide postid={entity?._id} points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.modState === 'spam'} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
@@ -72,18 +77,19 @@ function OtherProfilePost(props) {
                     )
                   }
                 {entity.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
-                {entity.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
+                {entity.nsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <OtherProfilePostHeader
                 type={entity.ownerType}
-                subReddit={entity.name}
+                subReddit={entity.owner.name}
                 nameUser={username}
                 Time={entity.createdAt}
-                nsfw={entity.nsfw}
+                modState={entity.modState}
                 locked={entity.locked}
-                isSubReddit={entity?.ownerType === 'Subreddit'}
+                notJoined={notJoined}
               />
               <OtherProfilePostFooter
+                postid={entity?._id}
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}

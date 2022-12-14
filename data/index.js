@@ -34,6 +34,12 @@ const token = require('./token.json');
 const userInfo = require('./userInfo.json');
 const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
+const follow = require('./follow.json');
+const block = require('./block.json');
+const followers = require('./followers.json');
+const deleteAction = require('./deleteAction.json');
+const actionOnPost = require('./actionOnPost.json');
+const commentsTap = require('./commentsTap.json');
 const save = require('./save.json');
 const unsave = require('./unsave.json');
 const hide = require('./hide.json');
@@ -81,6 +87,12 @@ module.exports = () => ({
   socialLinks,
   postSocialLinks,
   userImage,
+  follow,
+  block,
+  followers,
+  deleteAction,
+  actionOnPost,
+  commentsTap,
   subredditFlairs,
   save,
   unsave,

@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { CommunitiesSubscriberContext } from '../../../../../../../contexts/CommunitiesSubscriberContext';
 
-import { subscribedUser } from '../otherProfileCommunitiesServer';
 import joinPost from './server';
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
@@ -9,17 +9,17 @@ import {
 
 function OtherProfileEntityComment(props) {
   const { community } = props;
-  const [communities] = subscribedUser();
+  const { communitiesSubscriber } = useContext(CommunitiesSubscriberContext);
 
   // check if current logged in user is joined or not
   const [joined, setJoined] = useState(false);
 
   useEffect(() => {
-    if ((communities?.filter((e) => e?.fixedName === community?.fixedName))?.length > 0) {
-      console.log(communities, community.fixedName);
+    if ((communitiesSubscriber?.filter((e) => e?.fixedName === community?.fixedName))?.length > 0) {
+      console.log(communitiesSubscriber, community.fixedName);
       setJoined(true);
     }
-  }, [communities, community]);
+  }, [communitiesSubscriber, community]);
 
   joinPost(joined, community.subredditName);
 

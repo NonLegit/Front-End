@@ -2,18 +2,20 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import RedditButton from '../../../../../RedditButton/RedditButton';
 
-export const PostsQueueBox = styled(Box)(() => ({
+export const PostsQueueBox = styled(Box)(({ condition }) => ({
   minHeight: 150,
   display: 'flex',
   backgroundColor: 'white',
   marginTop: 10,
   borderRadius: 3,
-  border: '1px solid #ccc;',
-  marginBottom: 10,
   '&:hover': {
-    border: '1px solid #898989',
+    outline: '1px solid #898989',
     cursor: 'pointer',
   },
+  ...((condition === 'true') && {
+    marginBottom: 10,
+    border: '1px solid #ccc;',
+  }),
 }));
 
 export const PostContentBox = styled(Box)(() => ({
@@ -26,11 +28,12 @@ export const TitlePost = styled(Typography)(({ theme }) => ({
 
 }));
 
-export const ParagraphPost = styled(Typography)(({ theme }) => ({
+export const ParagraphPost = styled(Box)(({ theme }) => ({
   color: theme.palette.grey[500],
   minHeight: 36,
   display: 'flex',
   alignItems: 'flex-start',
+  fontSize: '1rem',
 }));
 
 export const ParagraphBox = styled(Box)(() => ({
