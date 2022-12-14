@@ -25,6 +25,9 @@
                 "string"
               ],
               "replies": [
+                "150",
+                "160",
+                "180"
               ],
               "parent": "string",
               "parentType": "string",
@@ -35,7 +38,7 @@
             },
             {
               "Type": "moreReplies",
-              "count": 100,
+              "count": 0,
               "children": [
                 "10",
                 "11",

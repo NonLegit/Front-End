@@ -6,10 +6,14 @@ import axios from '../../../../services/instance';
 // Calling Endpoint /comments/more_children
 export const getComments = (props, setComments) => {
   // props
-  const { postID, depth, limit } = props;
+  const {
+    postID, depth, limit, commentId,
+  } = props;
 
   console.log('Post ID sent to DB ', postID);
   console.log('Depth sent to DB ', depth);
+  console.log('Root Comment ID sent to DB ', commentId);
+
   axios.get(
     `/comments/comment_tree/${postID}`,
     {
@@ -17,7 +21,7 @@ export const getComments = (props, setComments) => {
         limit, // The maximum number of comments to return
         depth, // the maximum depth of the comment subtrees
         // sort: // string Enum: "top" "new" "best" "old"
-        // commentId: //string If supplied, this comment will be the (highlighted) focal point of the returned view
+        commentId, // string If supplied, this comment will be the (highlighted) focal point of the returned view
         // context: //integer The number of parents shown(an integer between 0 and 8)
       },
     },
@@ -51,19 +55,19 @@ export const getMoreChildren = (children, comments, setComments) => {
     },
   ).then((response) => {
     // remove last elememt of the array
-    console.log('Old Comments Array:');
-    console.log(comments);
+    // console.log('Old Comments Array:');
+    // console.log(comments);
 
     comments.pop();
 
-    console.log('After  Comments Array Pop:');
-    console.log(comments);
-    console.log(response.data.comments);
+    // console.log('After  Comments Array Pop:');
+    // console.log(comments);
+    // console.log(response.data.comments);
 
     const newComments = comments.concat(response.data.comments);
 
-    console.log('Comments Array:');
-    console.log(newComments);
+    // console.log('Comments Array:');
+    // console.log(newComments);
 
     setComments(newComments);
   }).catch((error) => {

@@ -24,7 +24,7 @@ import { getMoreChildren } from '../commentsListServer';
 
 function Comment(props) {
   const {
-    comment, src, depth, level, lastChild, remainingSiblings, loadMoreRepliesParentFun,
+    comment, src, depth, level, lastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
   } = props;
 
   // Constants
@@ -47,8 +47,13 @@ function Comment(props) {
   // The parent Comment refreshes his replies
   // new Replies=>Array of strings of new repleis to be added to this replies
   const loadMoreReplies = () => {
+    // replies here can't be empty because the butotn called by this fucntion won't appear if it is empty :)
     getMoreChildren(replies[replies.length - 2]?.children, replies, setReplies);
   };
+
+  const moreReplies = lastChild && remainingSiblings > 0;
+  // const continueThread = !moreReplies && lastChild && (replies is Array of strings));
+  const continueThread = !moreReplies && lastChild && comment?.replies?.length > 0 && (typeof replies[0] === 'string');
 
   return (
     <>
@@ -77,17 +82,24 @@ function Comment(props) {
                 <CommentText>{comment?.text}</CommentText>
                 <CommentActions />
                 {/* Loop Over All array of Replies on This Comment */}
-                {replies?.map((reply, i) => {
-                  if (i === replies.length - 1) { return null; }
-                  return (<Comment key={reply?._id} comment={reply} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" depth={depth + 1} level={i} lastChild={i === replies.length - 2} remainingSiblings={replies[replies.length - 1]?.count} loadMoreRepliesParentFun={loadMoreReplies} />);
-                })}
-                {/* {morereplies ? <p>Continue Thread</p> : null} */}
+                {continueThread ? null
+                  : replies?.map((reply, i) => {
+                    if (i === replies.length - 1) { return null; }
+                    return (<Comment key={reply?._id} comment={reply} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" lastChild={i === replies.length - 2} remainingSiblings={replies[replies.length - 1]?.count} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} />);
+                  })}
+                {continueThread
+                  ? (
+                    <MoreCommentsLink onClick={() => continueThreadParentFun(comment?._id)}>
+                      Continue Thread :a
+                    </MoreCommentsLink>
+                  )
+                  : null}
               </>
             )}
         </CommentBody>
       </CommentContainer>
 
-      {lastChild && remainingSiblings > 0 ? (
+      {moreReplies ? (
         // <MoreCommentsLink onClick={loadMoreComments}>
         <MoreCommentsLink onClick={loadMoreRepliesParentFun}>
           {/* Only the First 10 Comments */}
