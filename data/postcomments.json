@@ -17,6 +17,31 @@
             "string"
           ],
           "replies": [
+            {
+              "_id": "2",
+              "author": "Eslam",
+              "post": "string",
+              "mentions": [
+                "string"
+              ],
+              "replies": [
+              ],
+              "parent": "string",
+              "parentType": "string",
+              "text": "Level 3 Eslam's Comment",
+              "createdAt": "2017-07-21T17:32:28Z",
+              "votes": 0,
+              "repliesCount": 0
+            },
+            {
+              "Type": "moreReplies",
+              "count": 100,
+              "children": [
+                "10",
+                "11",
+                "12"
+              ]
+            }
           ],
           "parent": "string",
           "parentType": "string",
