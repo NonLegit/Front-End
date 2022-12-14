@@ -23,7 +23,6 @@ export const MediaDetailsContainer = styled(Box)(() => ({
 
 export const Caption = styled('input')(({ theme }) => ({
   padding: 10,
-  marginBottom: 10,
   border: '1px solid #edeff1',
   '&:focus-visible': {
     outline: '1px solid #1a1a1b',

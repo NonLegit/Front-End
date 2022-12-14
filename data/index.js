@@ -5,6 +5,7 @@ const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { posts } = require('./submitPost.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const Subreddit = require('./Subreddit.json');
+const subredditFlairs = require('./subredditFlairs.json');
 const Flair = require('./Flair.json');
 const CreatSubreddit = require('./CreatSubreddit.json');
 const signup = require('./SignUp.json');
@@ -36,10 +37,16 @@ const postSocialLinks = require('./postSocialLinks.json');
 const follow = require('./follow.json');
 const block = require('./block.json');
 const followers = require('./followers.json');
-const postAction = require('./postAction.json');
 const deleteAction = require('./deleteAction.json');
 const actionOnPost = require('./actionOnPost.json');
 const commentsTap = require('./commentsTap.json');
+const save = require('./save.json');
+const unsave = require('./unsave.json');
+const hide = require('./hide.json');
+const unhide = require('./unhide.json');
+const vote = require('./vote.json');
+const addImagesToPost = require('./addImagesToPost.json');
+
 // Something more
 
 module.exports = () => ({
@@ -83,9 +90,15 @@ module.exports = () => ({
   follow,
   block,
   followers,
-  postAction,
   deleteAction,
   actionOnPost,
   commentsTap,
+  subredditFlairs,
+  save,
+  unsave,
+  hide,
+  unhide,
+  vote,
+  addImagesToPost,
   // Something more
 });
