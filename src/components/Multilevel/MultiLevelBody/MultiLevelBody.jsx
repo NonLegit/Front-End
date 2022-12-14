@@ -21,6 +21,7 @@ function MultiLevelBody({ Edit }) {
       <PostContainer>
         {/* Reactions */}
         <Reactions
+          viewPost
           flexDirection="column"
           votes={post?.votes}
           postVoteStatus={post?.postVoteStatus}

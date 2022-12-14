@@ -29,17 +29,14 @@ function CreateComment() {
 
   // States
   const [text, setText] = useState(EditorState.createEmpty());
-  const [readyToSave, setReadyToSave] = useState(false);
+  // const [readyToSave, setReadyToSave] = useState(false);
 
   const handleCommentTextChange = (text) => {
-    // if (text.length() < 0) {
-    //   setReadyToSave(false);
-    //   return;
-    // }
-    // ==>Handle @
-    setReadyToSave(true);
+    console.log(convertToRaw(text.getCurrentContent()));
     setText(text);
   };
+
+  console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
     if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
@@ -53,13 +50,17 @@ function CreateComment() {
   return (
     <div>
       <Typography>Comment as BasmaElhoseny01</Typography>
-      <TextEditor handlePostTextChange={handleCommentTextChange} postText={text} />
+      <TextEditor
+        handlePostTextChange={handleCommentTextChange}
+        postText={text}
+        commentPlaceholder
+      />
       <Box m={2} gap={1} display="flex" justifyContent="flex-end">
         <SaveButton
           variant="contained"
           type="submit"
           onClick={comment}
-          disabled={!readyToSave}
+          disabled={draftToHtml(convertToRaw(text.getCurrentContent())).length === 8}
         >
           Comment
         </SaveButton>

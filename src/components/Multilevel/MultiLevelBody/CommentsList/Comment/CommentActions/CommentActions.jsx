@@ -13,7 +13,15 @@ function CommentActions() {
 
   return (
     <CommentActionsContainer>
-      <Reactions flexDirection="row" votes={post?.votes} />
+      {post && (
+      <Reactions
+        flexDirection="row"
+        viewPost
+        votes={post?.votes}
+        postVoteStatus={post?.postVoteStatus}
+        postId={post?._id}
+      />
+      )}
       <div>up</div>
       <div>up</div>
       <div>up</div>
