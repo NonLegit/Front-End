@@ -71,6 +71,9 @@ export const getMoreChildren = (children, comments, setComments) => {
 
     setComments(newComments);
   }).catch((error) => {
+    // 404 Post Not found
+    // 400 Error
+    // Error message:error.response.data.message
     console.log(error);
   });
 };

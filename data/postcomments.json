@@ -10,7 +10,7 @@
       ],
       "replies": [
         {
-          "_id": "102",
+          "_id": "101",
           "author": "Eslam",
           "post": "string",
           "mentions": [
@@ -18,7 +18,7 @@
           ],
           "replies": [
             {
-              "_id": "2",
+              "_id": "10101",
               "author": "Eslam",
               "post": "string",
               "mentions": [
@@ -52,13 +52,6 @@
           "createdAt": "2017-07-21T17:32:28Z",
           "votes": 0,
           "repliesCount": 0
-        },
-        {
-          "Type": "moreReplies",
-          "count": 20,
-          "children": [
-            "string"
-          ]
         }
       ],
       "parent": "string",
@@ -75,8 +68,7 @@
       "mentions": [
         "string"
       ],
-      "replies": [
-      ],
+      "replies": [],
       "parent": "string",
       "parentType": "string",
       "text": "Eslam's Comment",

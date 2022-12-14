@@ -24,7 +24,7 @@ import { getMoreChildren } from '../commentsListServer';
 
 function Comment(props) {
   const {
-    comment, src, depth, level, lastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
+    comment, src, depth, level, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
   } = props;
 
   // Constants
@@ -34,6 +34,10 @@ function Comment(props) {
   // state
   const [collpase, setCollapse] = useState(false);
   const [replies, setReplies] = useState(comment.replies);
+
+  const moreRepliesFormat = (replies) ? replies[replies.length - 1]?.Type === 'moreReplies' : false;
+  const lastChild = (replies) ? (moreRepliesFormat ? replies.length - 2 : replies.length - 1) : -1;
+  const remainingSiblingsCountVar = (replies && moreRepliesFormat) ? replies[replies.length - 1]?.count : 0;
 
   useEffect(() => {
     // setReplies(repliesProp);
@@ -51,9 +55,9 @@ function Comment(props) {
     getMoreChildren(replies[replies.length - 2]?.children, replies, setReplies);
   };
 
-  const moreReplies = lastChild && remainingSiblings > 0;
-  // const continueThread = !moreReplies && lastChild && (replies is Array of strings));
-  const continueThread = !moreReplies && lastChild && comment?.replies?.length > 0 && (typeof replies[0] === 'string');
+  const moreReplies = isLastChild && remainingSiblings > 0;
+  // const continueThread = !moreReplies && isLastChild && (replies is Array of strings));
+  const continueThread = !moreReplies && isLastChild && comment?.replies?.length > 0 && (typeof replies[0] === 'string');
 
   return (
     <>
@@ -84,8 +88,8 @@ function Comment(props) {
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
                   : replies?.map((reply, i) => {
-                    if (i === replies.length - 1) { return null; }
-                    return (<Comment key={reply?._id} comment={reply} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" lastChild={i === replies.length - 2} remainingSiblings={replies[replies.length - 1]?.count} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} />);
+                    if (i === replies.length - 1 && moreRepliesFormat) { return null; }
+                    return (<Comment key={reply?._id} comment={reply} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCountVar} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} />);
                   })}
                 {continueThread
                   ? (
