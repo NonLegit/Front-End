@@ -1,4 +1,4 @@
-import BackHomeBottun from './BackHomeBottun/BackHome';
+import BackToTop from '../../../../BackToTop/BackToTop';
 import OtherProfileCommunities from './OtherProfileCommunities/OtherProfileCommunities';
 import { SidebarBox } from './styles';
 import OtherProfileUserInfo from './OtherProfileUserInfo/OtherProfileUserInfo';
@@ -14,7 +14,7 @@ function OtherProfileSidebar() {
     <SidebarBox>
       <OtherProfileUserInfo />
       <OtherProfileCommunities />
-      <BackHomeBottun />
+      <BackToTop />
     </SidebarBox>
 
   );

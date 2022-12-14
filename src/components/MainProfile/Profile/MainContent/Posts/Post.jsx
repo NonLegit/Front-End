@@ -45,8 +45,6 @@ function Post(props) {
   };
   useEffect(() => {
     setSubTitle(type);
-    console.log('list', communities);
-    console.log('list2', communitiesSubscriber);
     if (communitiesSubscriber?.filter((element) => element.fixedName === entity.owner.name).length === 0) {
       setNotJoined(true);
     }

@@ -88,10 +88,6 @@ function PostFooter(props) {
     setIsSaved(saved);
     setIsHidden(hidden);
     setModList(isModList);
-    console.log(postid, isModList);
-    console.log(postid, postedByOthers);
-    console.log(postid, modList);
-    console.log(postid, !postedByOthers && !modList);
   }, [saved, hidden, isModList, modList]);
 
   const moderator = [
