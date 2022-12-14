@@ -89,8 +89,9 @@ function CreatePostForm() {
       sendReplies,
       flairId: flair?.id,
       flairText: flair?.text,
+      url: postUrl,
     };
-    // console.log(post);
+    console.log('el post', post);
     submitPostServer(post, navigate, postType, postMedia);
   };
   /**
