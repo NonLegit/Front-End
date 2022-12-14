@@ -115,13 +115,14 @@ function App() {
                 element={
                   <Moderation />
               }
-              />
-              <Route
-                path="/r/:subReddit/about/:subTitle"
-                element={
-                  <Moderation />
+              >
+                <Route
+                  path="/r/:subReddit/about/:subTitle"
+                  element={
+                    <Moderation />
               }
-              />
+                />
+              </Route>
               <Route
                 path="/submit"
                 element={

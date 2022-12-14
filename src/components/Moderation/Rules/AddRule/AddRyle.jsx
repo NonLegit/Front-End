@@ -28,14 +28,22 @@ export default function AddRule(props) {
   const [count, setCount] = React.useState(100);
   const [count2, setCount2] = React.useState(100);
   const [count3, setCount3] = React.useState(500);
-  const { subReddit, edit } = useParams();
+  const [edit, setEdit] = React.useState(false);
+
+  const { subReddit } = useParams();
 
   const [type, setType] = React.useState('Posts&comments');
 
   React.useEffect(() => {
+    if (rule) {
+      setCount(rule?.title?.length);
+      setCount2(rule?.defaultName?.length);
+      setCount3(rule?.description?.length);
+      setEdit(true);
+    }
     if (count < 100) { setCan(true); } else { setCan(false); }
     console.log(can);
-  }, [count]);
+  }, [count, rule]);
 
   React.useEffect(() => {
     if (rule?.appliesTo) {
@@ -160,20 +168,36 @@ export default function AddRule(props) {
             </Count>
           </DialogContent>
           <DialogActions>
-            { (can)
+            {(can)
               ? (
-                <>
-                  {(edit)
-                    ? <Cancel onClick={DeleteData}>Delete</Cancel>
-                    : <Cancel onClick={handleClose}>Cancel</Cancel>}
-                  <Add onClick={SendData}>Add Rule</Add>
-                </>
+                (edit)
+                  ? (
+                    <>
+                      <Cancel onClick={DeleteData}>Delete</Cancel>
+                      <Add onClick={SendData}>Save</Add>
+                    </>
+                  )
+                  : (
+                    <>
+                      <Cancel onClick={handleClose}>Cancel</Cancel>
+                      <Add onClick={SendData}>Add Rule</Add>
+                    </>
+                  )
               )
               : (
-                <>
-                  <Cancel disabled condition={!can}>Cancel</Cancel>
-                  <Add disabled condition={!can}>Add Rule</Add>
-                </>
+                (edit)
+                  ? (
+                    <>
+                      <Cancel disabled>Delete</Cancel>
+                      <Add disabled>Save</Add>
+                    </>
+                  )
+                  : (
+                    <>
+                      <Cancel disabled>Cancel</Cancel>
+                      <Add disabled>Add Rule</Add>
+                    </>
+                  )
               )}
           </DialogActions>
         </Dialog>
