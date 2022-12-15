@@ -26,7 +26,7 @@ function MultiLevelPostContent(props) {
 
   // Constants
   const authorProfilelink = `/user/${post?.author?.name}`;
-  const ownerProfilelink = (post?.ownerType === 'User') ? `/user/${post?.owner?.name}` : `/SubReddit/${post?.owner?.name}`;
+  const ownerProfilelink = (post?.ownerType === 'User') ? `/user/${post?.owner?.name}` : `/r/${post?.owner?.name}`;
 
   useEffect(() => console.log('Edit', Edit), []);
 
@@ -65,7 +65,8 @@ function MultiLevelPostContent(props) {
 
       {/* Title */}
       <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
-      {Edit ? <EditPost /> : <p>{post?.text}</p>}
+      {Edit ? <EditPost />
+        : <div dangerouslySetInnerHTML={{ __html: post?.text }} />}
       {/* Post Actions Bar */}
       {/* Post Insights */}
       {/* Post Statistics */}

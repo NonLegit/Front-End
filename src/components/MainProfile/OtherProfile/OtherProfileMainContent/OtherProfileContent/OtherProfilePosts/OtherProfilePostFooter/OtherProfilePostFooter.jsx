@@ -21,10 +21,10 @@ import { postReactionsServer } from '../../../../../profileServer';
  * @returns {React.Component} OtherProfilePostFooter
  */
 function OtherProfilePostFooter(props) {
-  const { postid, numComments } = props;
+  const { postid, numComments, isSaved } = props;
 
   const [showList, setShowList] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(isSaved);
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -35,6 +35,7 @@ function OtherProfilePostFooter(props) {
     postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
   };
+
   const handleHide = () => {
     postReactionsServer(postid, 'hide', 1);
     setSaved((prev) => !prev);

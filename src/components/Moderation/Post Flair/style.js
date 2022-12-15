@@ -150,7 +150,6 @@ export const Add = styled(Button)(({ condition, theme }) => ({
   height: 32,
   width: 106,
   fontWeight: 700,
-  position: 'absolute',
   boxShadow: 'none',
   right: 0,
   margin: '0 24px',

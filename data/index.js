@@ -43,7 +43,6 @@ const deleteAction = require('./deleteAction.json');
 const actionOnPost = require('./actionOnPost.json');
 const commentsTap = require('./commentsTap.json');
 const getPost = require('./getpost.json');
-const editPost = require('./editpost.json');
 const createcomment = require('./createcomment.json');
 const postComments = require('./postcomments.json');
 const moreComments = require('./moreComments.json');
@@ -104,7 +103,6 @@ module.exports = () => ({
   actionOnPost,
   commentsTap,
   getPost,
-  editPost,
   createcomment,
   postComments,
   moreComments,

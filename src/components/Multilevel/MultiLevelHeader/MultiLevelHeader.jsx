@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,9 +33,10 @@ function MultiLevelHeader() {
   const navigate = useNavigate();
   // useEffect
   useEffect(() => {
+    console.log('MultiLevelHeader.jsx', post);
     // Add This post to the History
     if (post !== null) {
-      addPostToHistory(post);
+      // addPostToHistory(post);
     }
   }, [post]);
 

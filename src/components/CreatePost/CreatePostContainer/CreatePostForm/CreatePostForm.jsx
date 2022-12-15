@@ -43,7 +43,7 @@ function CreatePostForm() {
   const { initialPostType } = usePostTypeContext();
 
   // variables
-  const postTypes = ['self', 'image', 'video', 'url'];
+  const postTypes = ['self', 'image', 'video', 'link'];
 
   // states
   const [postMedia, setPostMedia] = useState([]);
@@ -89,8 +89,9 @@ function CreatePostForm() {
       sendReplies,
       flairId: flair?.id,
       flairText: flair?.text,
+      url: postUrl,
     };
-    // console.log(post);
+    console.log('el post', post);
     submitPostServer(post, navigate, postType, postMedia);
   };
   /**

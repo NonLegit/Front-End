@@ -32,7 +32,7 @@ export const FooterText = styled(Typography)(({
   }),
 }));
 export const ElementBox = styled(Box)(({
-  condition, condition2, theme, responsive, responsive3icons,
+  condition, theme,
 }) => ({
   height: '100%',
   display: 'flex',
@@ -45,22 +45,7 @@ export const ElementBox = styled(Box)(({
     backgroundColor: '#1a1a1b1a',
   },
   ...((condition === 'true') && {
-    [theme.breakpoints.between('0', '1050')]: {
-      display: 'none',
-    },
-  }),
-  ...((condition2 === 'true') && {
-    color: '#46d16087',
-    '&:hover': {
-    },
-  }),
-  ...((responsive) && {
-    [theme.breakpoints.between('0', '1050')]: {
-      display: 'none',
-    },
-  }),
-  ...((responsive3icons) && {
-    [theme.breakpoints.between('0', '400')]: {
+    [theme.breakpoints.between('0', '550')]: {
       display: 'none',
     },
   }),
@@ -69,7 +54,6 @@ export const ElementBox = styled(Box)(({
 export const SelectBox = styled(Box)(({ theme }) => ({
   width: 100,
   marginTop: 120,
-  // marginLeft: 500,
   border: ' 1px solid #eee',
   borderRadius: 4,
   boxShadow: '0 2px 4px 0 #eee',
@@ -97,7 +81,7 @@ export const SelectItem = styled(Button)(({ theme, condition, res }) => ({
   }),
   ...((res === 'true') && {
     display: 'none',
-    [theme.breakpoints.between('0', '1050')]: {
+    [theme.breakpoints.between('0', '550')]: {
       display: 'flex',
     },
   }),

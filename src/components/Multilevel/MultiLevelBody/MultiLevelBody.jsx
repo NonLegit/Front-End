@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 // Components
+import { useEffect } from 'react';
 import Reactions from '../../Post/Reactions/Reactions';
 import CommentsList from './CommentsList/CommentsList';
 import MultiLevelPostContent from './MultiLevelPostContent/MultiLevelPostContent';
@@ -12,6 +14,12 @@ import { MultiLevelBodyConatiner, PostContainer } from './styles';
 function MultiLevelBody({ Edit }) {
   // Context
   const { post } = usePostContext();
+
+  useEffect(() => {
+    console.log('MultiLevelBody.jsx', post);
+    console.log('MultiLevelBody.jsx Edit', Edit);
+  }, [post]);
+
   console.log(post);
   console.log('from multilevel', post?.postVoteStatus, post?._id);
   return (
@@ -21,7 +29,6 @@ function MultiLevelBody({ Edit }) {
       <PostContainer>
         {/* Reactions */}
         <Reactions
-          viewPost
           flexDirection="column"
           votes={post?.votes}
           postVoteStatus={post?.postVoteStatus}

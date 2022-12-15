@@ -62,8 +62,8 @@ function OtherProfilePosts(props) {
             </ParagraphBox>
             <OtherProfilePostFooter
               postid={post?._id}
-              subTitle={post?.ownerType}
               numComments={post?.commentCount}
+              isSaved={post?.isSaved}
             />
           </Box>
         </PostContentBox>

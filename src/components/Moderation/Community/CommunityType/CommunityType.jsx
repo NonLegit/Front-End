@@ -13,7 +13,7 @@ import {
    * @return {React.Component} -radio button in  pop up form
    */
 function RadioBtn(props) {
-  const { myType } = props;
+  const { myType, type } = props;
   return (
     <>
       <SelectHeader> Type of Community</SelectHeader>
@@ -22,7 +22,7 @@ function RadioBtn(props) {
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
           id="type"
-          defaultValue="Public"
+          defaultValue={type}
           onChange={(e) => myType(e.target.value)}
         >
           <ContUp condition2="true">

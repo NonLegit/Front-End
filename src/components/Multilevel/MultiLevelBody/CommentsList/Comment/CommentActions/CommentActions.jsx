@@ -64,7 +64,7 @@ function CommentActions(props) {
       {post && (
         <Reactions
           flexDirection="row"
-          viewPost
+          viewpost
           votes={post?.votes}
           postVoteStatus={post?.postVoteStatus}
           postId={post?._id}
