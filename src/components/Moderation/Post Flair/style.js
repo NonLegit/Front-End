@@ -59,6 +59,27 @@ export const TableHeaderCell = styled(TableCell)(() => ({
   height: 54.4,
   borderBottom: 0,
 }));
+export const TableHeaderCellRes = styled(TableCell)(({ theme }) => ({
+  [theme.breakpoints.between('1200', '5000')]: {
+    backgroundColor: '#f6f7f8',
+    color: '#878a8c',
+    fontSize: 10,
+    fontWeight: 700,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+    alignItems: 'center',
+    borderRadius: '4px 4px 0 0',
+    verticalAlign: 'middle',
+    padding: 0,
+    whiteSpace: 'nowrap',
+    height: 54.4,
+    borderBottom: 0,
+  },
+  [theme.breakpoints.between('0', '1200')]: {
+    display: 'none',
+  },
+}));
+
 export const POSTFLAIRPREVIEW = styled(TableCell)(() => ({
   backgroundColor: '#f6f7f8',
   color: '#878a8c',
@@ -90,8 +111,9 @@ export const AboutString = styled('h2')({
   paddingLeft: 17,
 
 });
-export const AddFlair = styled('div')({
-  minWidth: 400,
+export const AddFlair = styled('div')(({ theme }) => ({
+
+  // minWidth: 400,
   whiteSpace: 'nowrap',
   alignItems: 'center',
   backgroundColor: '#edeff1',
@@ -105,16 +127,22 @@ export const AddFlair = styled('div')({
   right: 0,
   marginTop: 9,
   Zindex: 3,
-});
-export const LeftAlighne = styled('div')({
-  marginLeft: 303,
-  paddingTop: 49,
-  backgroundColor: '#dae0e6',
-});
+  [theme.breakpoints.between('0', '1200')]: {
+    backgroundColor: 'transparent',
+
+  },
+}));
+export const LeftAlighne = styled('div')(({ theme }) => ({
+  [theme.breakpoints.between('1200', '5000')]: {
+    marginLeft: 303,
+    paddingTop: 49,
+    backgroundColor: '#dae0e6',
+  },
+}));
 export const TotalContainer = styled('div')({
   backgroundColor: '#dae0e6',
 });
-export const Add = styled(Button)(({ condition }) => ({
+export const Add = styled(Button)(({ condition, theme }) => ({
   backgroundColor: '#0079d3',
   color: 'white',
   textTransform: 'unset',
@@ -135,4 +163,5 @@ export const Add = styled(Button)(({ condition }) => ({
     backgroundColor: 'transparent',
     border: '1px solid #848484',
   }),
+  [theme.breakpoints.between('0', '1200')]: { marginBottom: 30 },
 }));

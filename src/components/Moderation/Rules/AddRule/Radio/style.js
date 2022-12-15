@@ -2,39 +2,39 @@ import {
   Box, DialogTitle, styled,
 } from '@mui/material';
 
-export const Lable = styled('div')({
+export const Lable = styled('div')(({ theme }) => ({
   marginTop: 11,
   paddingBottom: 8,
   fontFamily: 'Noto Sans,Arial,sans-serif',
   fontSize: 14,
   fontWeight: 400,
-});
-export const ContUp = styled(Box)(({ condition, condition2, theme }) => ({
+  [theme.breakpoints.between('0', '600')]: {
+    marginTop: 5,
+  },
+}));
+export const ContUp = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   [theme.breakpoints.between('0', '600')]: {
     alignItems: ' flex-start',
     display: 'flex',
     flexDirection: 'column',
-    marginTop: 17,
-    ...((condition === 'true') && {
-      marginTop: 22,
-    }),
-    ...((condition2 === 'true') && {
-      marginTop: 0,
-    }),
+    marginTop: 0,
   },
 }));
-export const Cont = styled(Box)({
+export const Cont = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-});
+  [theme.breakpoints.between('0', '600')]: {
+    marginTop: 0,
+  },
+}));
 export const Name = styled('h3')({
   fontSize: 14,
   color: '#1c1c1c',
   display: 'block',
   fontWeight: 400,
-  marginBottom: 4,
+  marginBottom: 0,
   height: 20,
   marginTop: 0,
 });

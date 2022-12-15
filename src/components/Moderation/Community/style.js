@@ -11,14 +11,19 @@ export const Container = styled('div')({
   maxWidth: 856,
   padding: '16px 24px',
 });
-export const LeftAlighne = styled('div')({
-  marginLeft: 303,
+export const LeftAlighne = styled('div')(({ theme }) => ({
+  marginLeft: 0,
   paddingTop: 49,
   backgroundColor: '#dae0e6',
-});
+  [theme.breakpoints.between('1200', '5000')]: {
+    marginLeft: 303,
+    paddingTop: 49,
+    backgroundColor: '#dae0e6',
+  },
+}));
 
-export const AddFlair = styled('div')({
-  minWidth: 400,
+export const AddFlair = styled('div')(() => ({
+  // minWidth: 400,
   whiteSpace: 'nowrap',
   alignItems: 'center',
   backgroundColor: '#edeff1',
@@ -28,11 +33,10 @@ export const AddFlair = styled('div')({
   justifyContent: 'flex-end',
   left: 280,
   padding: '0 24px',
-  position: 'fixed',
   right: 0,
   marginTop: 9,
   Zindex: 3,
-});
+}));
 export const Add = styled(Button)(({ condition }) => ({
   backgroundColor: '#0079d3',
   color: 'white',
@@ -54,6 +58,7 @@ export const Add = styled(Button)(({ condition }) => ({
     backgroundColor: 'transparent',
     border: '1px solid #848484',
   }),
+
 }));
 export const Disc = styled('p')((marginTop) => ({
   fontSize: 10,

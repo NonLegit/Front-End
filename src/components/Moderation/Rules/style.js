@@ -26,17 +26,19 @@ export const AddFlair = styled('div')({
   justifyContent: 'flex-end',
   left: 280,
   padding: '0 24px',
-  position: 'fixed',
   right: 0,
   marginTop: 9,
   Zindex: 3,
 });
-export const LeftAlighne = styled('div')({
-  marginLeft: 303,
-  paddingTop: 49,
-  backgroundColor: '#dae0e6',
-});
-export const Add = styled(Button)(() => ({
+export const LeftAlighne = styled('div')(({ theme }) => ({
+  [theme.breakpoints.between('1200', '5000')]: {
+    marginLeft: 303,
+    paddingTop: 49,
+    backgroundColor: '#dae0e6',
+  },
+}));
+export const Add = styled(Button)(({ theme }) => ({
+
   backgroundColor: '#0079d3',
   color: 'white',
   textTransform: 'unset',
@@ -51,6 +53,10 @@ export const Add = styled(Button)(() => ({
   '&:hover': {
     backgroundColor: '#0079d3',
     color: 'white',
+  },
+  [theme.breakpoints.between('0', '1200')]: {
+    margin: 0,
+    left: 0,
   },
 }));
 export const IconBtn = styled(IconButton)(() => ({

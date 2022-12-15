@@ -1,6 +1,25 @@
 import { Box, styled, TableCell } from '@mui/material';
 
-export const BodyCell = styled(TableCell)(() => ({
+export const BodyCell = styled(TableCell)(({ theme }) => ({
+  [theme.breakpoints.between('1200', '5000')]: {
+    fontSize: 12,
+    fontWeight: 500,
+    borderRadius: 2,
+    marginRight: 5,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'pre',
+    wordBreak: 'normal',
+    padding: '0 4px',
+    height: 54.4,
+    backgroundColor: 'white',
+  },
+  [theme.breakpoints.between('0', '1200')]: {
+    display: 'none',
+  },
+}));
+export const BodyLastCell = styled(TableCell)(() => ({
+
   fontSize: 12,
   fontWeight: 500,
   borderRadius: 2,
@@ -12,6 +31,7 @@ export const BodyCell = styled(TableCell)(() => ({
   padding: '0 4px',
   height: 54.4,
   backgroundColor: 'white',
+
 }));
 export const BodyFirstCell = styled(TableCell)(() => ({
   fontSize: 12,
@@ -62,8 +82,8 @@ export const Filter = styled('button')(({ condition }) => ({
 }));
 
 export const Actions = styled('div')({
-  marginLeft: '20%',
-  marginRight: '20%',
+  marginLeft: '15%',
+  marginRight: '15%',
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',

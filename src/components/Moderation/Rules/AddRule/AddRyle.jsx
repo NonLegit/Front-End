@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import { Dialog, Divider, IconButton } from '@mui/material';
+import { Divider, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useParams } from 'react-router-dom';
 import {
@@ -11,6 +10,8 @@ import {
   Cancel,
   Container,
   Count,
+  Dial,
+  DialCont,
   Disc,
   FullDiscTextArea,
   Lable, TextArea, Title, TitleString,
@@ -97,13 +98,13 @@ export default function AddRule(props) {
         Open form dialog
       </Button>
       <Container>
-        <Dialog open={open} onClose={handleClose} sx={{ '& .MuiPaper-root': { width: '500px' } }}>
+        <Dial open={open} onClose={handleClose}>
           <Title>
             <TitleString>Add rule</TitleString>
             <IconButton onClick={handleClose}><CloseIcon /></IconButton>
           </Title>
           <Divider />
-          <DialogContent>
+          <DialCont>
             <DialogContentText>
               <Lable>Rule</Lable>
             </DialogContentText>
@@ -166,7 +167,7 @@ export default function AddRule(props) {
               {' '}
               Characters remaining
             </Count>
-          </DialogContent>
+          </DialCont>
           <DialogActions>
             {(can)
               ? (
@@ -200,7 +201,7 @@ export default function AddRule(props) {
                   )
               )}
           </DialogActions>
-        </Dialog>
+        </Dial>
       </Container>
     </div>
   );

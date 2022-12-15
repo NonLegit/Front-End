@@ -2,7 +2,7 @@ import axios from '../../../../../services/instance';
 
 const EditFlair = async (Name, id, prefs) => {
   let statusCode = '';
-  await axios.patch(`subreddits/${Name}/flairs/${id}`, prefs).then((response) => {
+  await axios.patch(`subreddits/${Name}/flair/${id}`, prefs).then((response) => {
     statusCode = response.status;
   }).catch((error) => {
     statusCode = error.response.status;

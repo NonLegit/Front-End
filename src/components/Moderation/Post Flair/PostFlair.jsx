@@ -13,7 +13,7 @@ import {
   IconBtn,
   LeftAlighne,
   POSTFLAIRPREVIEW,
-  StyledTooltip, TableHeader, TableHeaderCell, TableHeaderCellContainer, TotalContainer,
+  StyledTooltip, TableHeader, TableHeaderCell, TableHeaderCellContainer, TableHeaderCellRes, TotalContainer,
 } from './style';
 import Entity from './Entity/Entity';
 import NewFlair from './NewFlair/NewFlair';
@@ -89,7 +89,7 @@ export default function PostFlair() {
             <TableHead>
               <TableHeaderCellContainer>
                 <POSTFLAIRPREVIEW>POST FLAIR PREVIEW</POSTFLAIRPREVIEW>
-                <TableHeaderCell align="center">
+                <TableHeaderCellRes align="center">
                   CSS CLASS
                   <StyledTooltip
                     title="CSS classes determine the styling for flair in old Reddit"
@@ -98,8 +98,8 @@ export default function PostFlair() {
                       <ErrorOutlineIcon sx={{ transform: 'rotate(180deg)', color: 'gray', paddingTop: '5px' }} />
                     </IconBtn>
                   </StyledTooltip>
-                </TableHeaderCell>
-                <TableHeaderCell align="center">
+                </TableHeaderCellRes>
+                <TableHeaderCellRes align="center">
                   SETTINGS
                   <StyledTooltip
                     title="Shows if flair is mod-only, user editable, allows text, or allows emojis"
@@ -108,7 +108,7 @@ export default function PostFlair() {
                       <ErrorOutlineIcon sx={{ transform: 'rotate(180deg)', color: 'gray', paddingTop: '5px' }} />
                     </IconBtn>
                   </StyledTooltip>
-                </TableHeaderCell>
+                </TableHeaderCellRes>
                 <TableHeaderCell align="center">
                   FLAIR ID
                   <StyledTooltip

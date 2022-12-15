@@ -32,22 +32,22 @@ function RadioBtn(props) {
           defaultValue={type}
           onChange={(e) => myType(e.target.value)}
         >
-          <ContUp condition2="true">
+          <ContUp>
             <Cont>
               <FormControlLabel value="Posts&comments" control={<Radio />} sx={{ margin: 0 }} />
-              <Name sx={{ margin: 1 }}>Posts & comments</Name>
+              <Name>Posts & comments</Name>
             </Cont>
           </ContUp>
           <ContUp>
             <Cont>
               <FormControlLabel value="PostsOnly" control={<Radio />} sx={{ margin: 0 }} />
-              <Name sx={{ margin: 1 }}>Posts only</Name>
+              <Name>Posts only</Name>
             </Cont>
           </ContUp>
-          <ContUp condition="true">
+          <ContUp>
             <Cont>
               <FormControlLabel value="CommentsOnly" control={<Radio />} sx={{ margin: 0 }} />
-              <Name sx={{ margin: 1 }}>Comments only</Name>
+              <Name>Comments only</Name>
             </Cont>
           </ContUp>
         </RadioGroup>

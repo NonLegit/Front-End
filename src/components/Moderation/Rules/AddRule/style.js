@@ -1,12 +1,30 @@
 import {
-  Box, Button, DialogTitle, styled,
+  Box, Button, Dialog, DialogContent, DialogTitle, styled,
 } from '@mui/material';
 
 export const Title = styled(DialogTitle)({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  '& .-MuiTypography-root': {
+    padding: '12px 20',
+  },
+
 });
+export const Dial = styled(Dialog)(({ theme }) => ({
+  [theme.breakpoints.between('0', '1200')]: {
+    '& .MuiTypography-root': { padding: '0px 0px' },
+  },
+  '& .MuiPaper-root': { width: '500px' },
+}));
+
+export const DialCont = styled(DialogContent)(({ theme }) => ({
+  [theme.breakpoints.between('0', '600')]: {
+    '& .DialogContent': { padding: '0px 0px' },
+    '& .MuiDialogContent-root': { paddingTop: '0px' },
+  },
+}));
+
 export const TitleString = styled('div')({
   flex: '1 1 100%',
   width: '100%',
@@ -66,7 +84,7 @@ export const Container = styled(Box)({
   overflowY: 'auto',
   marginTop: 0,
 });
-export const Disc = styled('p')({
+export const Disc = styled('p')(({ theme }) => ({
   fontWeight: 400,
   color: '#7c7c7c',
   fontSize: 12,
@@ -75,7 +93,10 @@ export const Disc = styled('p')({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-start',
-});
+  [theme.breakpoints.between('0', '1200')]: {
+    marginTop: -5,
+  },
+}));
 export const Count = styled('p')(({ condition }) => ({
   fontWeight: 400,
   color: '#7c7c7c',
@@ -89,7 +110,7 @@ export const Count = styled('p')(({ condition }) => ({
     color: 'red',
   }),
 }));
-export const Add = styled(Button)(({ condition }) => ({
+export const Add = styled(Button)(({ condition, theme }) => ({
   backgroundColor: '#0079d3',
   color: 'white',
   textTransform: 'unset',
@@ -111,8 +132,12 @@ export const Add = styled(Button)(({ condition }) => ({
     border: '1px solid #848484',
 
   }),
+
+  [theme.breakpoints.between('0', '600')]: {
+    margin: '-5px 24px 0px ',
+  },
 }));
-export const Cancel = styled(Button)(({ condition }) => ({
+export const Cancel = styled(Button)(({ condition, theme }) => ({
   backgroundColor: 'transparent',
   color: '#0079d3',
   textTransform: 'unset',
@@ -130,4 +155,7 @@ export const Cancel = styled(Button)(({ condition }) => ({
     backgroundColor: 'transparent',
     border: '1px solid #848484',
   }),
+  [theme.breakpoints.between('0', '600')]: {
+    margin: '-5px 150px 0px ',
+  },
 }));

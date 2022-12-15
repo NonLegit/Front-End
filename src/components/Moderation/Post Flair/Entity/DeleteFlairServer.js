@@ -2,7 +2,7 @@ import axios from '../../../../services/instance';
 
 const DeleteFlair = async (Name, id) => {
   let statusCode = '';
-  await axios.delete(`subreddits/${Name}/flairs/${id}`)
+  await axios.delete(`subreddits/${Name}/flair/${id}`)
     .then((response) => {
       statusCode = response.status;
     }).catch((error) => {

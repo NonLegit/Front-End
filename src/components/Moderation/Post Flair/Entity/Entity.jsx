@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  Actions, BodyCell, BodyFirstCell, Filter, Text,
+  Actions, BodyCell, BodyFirstCell, BodyLastCell, Filter, Text,
 } from './style';
 import Edit from './EditFlair/Edit';
 import DeleteFlair from './DeleteFlairServer';
@@ -45,7 +45,7 @@ function Entity(props) {
         </BodyFirstCell>
         <BodyCell align="center" />
         <BodyCell align="center" />
-        <BodyCell align="center">
+        <BodyLastCell align="center">
           <Actions>
             <Filter
               onClick={() => { navigator.clipboard.writeText(row?._id); copied(); }}
@@ -59,7 +59,7 @@ function Entity(props) {
               <DeleteIcon />
             </IconButton>
           </Actions>
-        </BodyCell>
+        </BodyLastCell>
       </TableRow>
       {show
       && (
