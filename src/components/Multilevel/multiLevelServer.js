@@ -2,7 +2,7 @@
 import axios from '../../services/instance';
 
 export const getPost = (postID, setPost) => {
-  axios.get(`/getpost/${postID}`).then((response) => {
+  axios.get(`/posts/${postID}`).then((response) => {
     console.log(response);
     // 200
     if (response.status === 200 || response.status === 200) {
