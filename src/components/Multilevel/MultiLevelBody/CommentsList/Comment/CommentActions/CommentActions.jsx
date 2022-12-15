@@ -2,6 +2,8 @@ import { useCookies } from 'react-cookie';
 
 // MUI Compoents
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 
 // Components
 import Reactions from '../../../../../Post/Reactions/Reactions';
@@ -26,8 +28,7 @@ function CommentActions(props) {
 
   const dropDownListOptions = [{ value: 'Save', icon: 'Save' }];
   const dropDownListOptionsAuthor = [{ value: 'Edit', icon: 'Edit' }, { value: 'Save', icon: 'Save' }, { value: 'Delete', icon: 'Delete' }];
-
-  // const dropDownListOptionsAuthor = [{ value: 'Save', icon: 'Save' }, { value: 'Edit', icon: 'Edit' }, { value: 'Delete', icon: 'Delete' }];
+  const dropDownListOptionsMod = [{ value: 'Approve', icon: 'Approve' }, { value: 'Remove', icon: 'Remove' }, { value: 'Remove as spam', icon: 'Remove as spam' }, { value: 'Lock comment', icon: 'Lock comment' }];
 
   const replyOnComment = () => {
     // call Reply endPoint
@@ -38,7 +39,7 @@ function CommentActions(props) {
     // call Share endPoint
     console.log('Share Comment with Text', comment?.text);
   };
-  const handleSelect = (option) => {
+  const handleSelectEdit = (option) => {
     // Call Back API
     console.log('Option Selected', option);
     if (option === 'Edit') {
@@ -51,6 +52,11 @@ function CommentActions(props) {
       // call Delete endPoint
       console.log('Delete Comment with Text', comment?.text);
     }
+  };
+
+  const handleSelectMod = (option) => {
+    console.log(option);
+    // Call Back API
   };
 
   return (
@@ -77,7 +83,15 @@ function CommentActions(props) {
         </FooterText>
       </ElementBox>
 
-      <DropDownList handleSelectionFun={handleSelect} options={cookies.redditUser?.id === comment?.author?._id ? dropDownListOptionsAuthor : dropDownListOptions} />
+      <DropDownList handleSelectionFun={handleSelectEdit} options={cookies.redditUser?.id === comment?.author?._id ? dropDownListOptionsAuthor : dropDownListOptions}>
+        <MoreVertIcon />
+      </DropDownList>
+
+      {/* Add cONDION ON THIS PREVIEW */}
+      <DropDownList handleSelectionFun={handleSelectMod} options={dropDownListOptionsMod}>
+        <ShieldOutlinedIcon />
+      </DropDownList>
+
     </CommentActionsContainer>
   );
 }

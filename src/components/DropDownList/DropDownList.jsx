@@ -2,13 +2,11 @@ import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const ITEM_HEIGHT = 48;
 
 function DropDownList(props) {
-  // eslint-disable-next-line no-unused-vars
-  const { options, handleSelectionFun } = props;
+  const { options, handleSelectionFun, children } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -37,7 +35,7 @@ function DropDownList(props) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <MoreVertIcon />
+        {children}
       </IconButton>
       <Menu
         id="long-menu"

@@ -7,5 +7,5 @@ export const CommentActionsContainer = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
 
-  border: '2px solid black',
+  // border: '2px solid black',
 }));

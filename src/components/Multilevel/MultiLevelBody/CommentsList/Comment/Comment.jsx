@@ -28,7 +28,8 @@ function Comment(props) {
   } = props;
 
   // Constants
-  const authorProfilelink = `./user/${comment?.author?.userName}`;
+  const authorProfilelink = `/user/${comment?.author?.userName}`;
+
   // const replies = (comment) ? comment.replies : [];
 
   // state
@@ -87,8 +88,8 @@ function Comment(props) {
                   })}
                 {continueThread
                   ? (
-                    <MoreCommentsLink onClick={() => continueThreadParentFun(comment?._id)}>
-                      Continue Thread :a
+                    <MoreCommentsLink blueColor onClick={() => continueThreadParentFun(comment?._id)}>
+                      Continue Thread ➜
                     </MoreCommentsLink>
                   )
                   : null}

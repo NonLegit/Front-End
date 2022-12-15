@@ -18,12 +18,12 @@ export const MultilevelPostCommentsConatiner = styled(Box)(() => ({
 }));
 
 // Expand Comments Link
-export const MoreCommentsLink = styled(Link)(() => ({
+export const MoreCommentsLink = styled(Link)(({ blueColor }) => ({
 
   fontWeight: '700',
   textDecoration: 'none',
   fontSize: '12px',
-  color: theme.palette.third.main,
+  color: (blueColor !== undefined) ? `${theme.palette.primary.main}` : theme.palette.third.main,
 
   '&.MuiLink-root:hover': {
     textDecoration: 'underline',
