@@ -4,14 +4,14 @@ import {
 } from './styles';
 
 function TextEditor(props) {
-  const { handlePostTextChange, postText } = props;
+  const { handlePostTextChange, postText, commentPlaceholder } = props;
   // theme
   const theme = useTheme();
   return (
     <CustomTextEditor
       editorState={postText}
       toolbarStyle={ToolbarStyleObject}
-      placeholder="Text(optional)"
+      placeholder={commentPlaceholder ? 'What are your thought?' : 'Text(optional)'}
       onEditorStateChange={handlePostTextChange}
       styles={{
         '& .rdw-option-wrapper': {

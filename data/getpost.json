@@ -1,0 +1,52 @@
+{
+    "status": "sucess",
+    "post": {
+        "_id": "987654321",
+        "author": {
+            "_id": "string",
+            "name": "Basma Elhoseny"
+        },
+        "ownerType": "User",
+        "owner": {
+            "_id": "11",
+            "name": "Basma Elhoseny",
+            "icon": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb"
+        },
+        "replies": [
+            "string"
+        ],
+        "flairId": {
+            "_id": "string",
+            "text": "string",
+            "backgroundColor": "string",
+            "textColor": "string"
+        },
+        "flairText": "string",
+        "sharedFrom": "string",
+        "title": "Post's Title",
+        "kind": "link",
+        "text": "This is My First Post :)",
+        "images": [
+            "string"
+        ],
+        "video": "string",
+        "createdAt": "2022-07-21T17:32:28Z",
+        "locked": true,
+        "isDeleted": true,
+        "sendReplies": true,
+        "nsfw": true,
+        "spoiler": true,
+        "votes": 100,
+        "views": 0,
+        "commentCount": 2,
+        "shareCount": 0,
+        "suggestedSort": "top",
+        "scheduled": true,
+        "sortOnHot": 0,
+        "sortOnBest": 0,
+        "isSpam": true,
+        "url": "string",
+        "isSaved": true,
+        "postVoteStatus": 1
+    }
+}
