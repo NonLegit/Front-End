@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 // services
 import axios from '../../../../../services/instance';
 
 export const editPost = (postID, bodyText, setPost) => {
+  console.log('editPostServer PostID', postID);
   axios.patch(`/posts/${postID}`, { text: bodyText }).then((response) => {
-    console.log(response);
+    console.log('patch posts response to edit post ', response);
     // 200
     if (response.status === 200) {
       console.log('Edited Sucessfully :)');

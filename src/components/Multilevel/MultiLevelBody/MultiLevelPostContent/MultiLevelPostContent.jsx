@@ -65,8 +65,8 @@ function MultiLevelPostContent(props) {
       </PostHeader>
 
       {/* Title */}
-      {/* <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography> */}
-      {/* {Edit ? <EditPost /> : <p>{post?.text}</p>} */}
+      <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
+      {Edit ? <EditPost /> : <p>{post?.text}</p>}
       {/* Post Actions Bar */}
       {/* Post Insights */}
       {/* Post Statistics */}

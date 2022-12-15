@@ -29,7 +29,7 @@ function MultiLevelBody({ Edit }) {
         />
         <MultiLevelPostContent Edit={Edit} />
       </PostContainer>
-      <CommentsList />
+      {/* <CommentsList /> */}
     </MultiLevelBodyConatiner>
     )
   );
