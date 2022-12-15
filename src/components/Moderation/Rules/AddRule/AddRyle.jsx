@@ -82,14 +82,19 @@ export default function AddRule(props) {
     const description = document.getElementById('description').value;
     console.log(title, defaultName, description);
     if (edit) {
-      EditRule(`subreddits/${subReddit}/rules/${title}`, defaultName, description, type);
+      EditRule(subReddit, title, {
+        defaultName,
+        description,
+        type,
+      });
     } else {
       PostRule(`subreddits/${subReddit}/rules/${title}`, defaultName, description, type);
     }
     handleClose();
   };
   const DeleteData = () => {
-    const title = document.getElementById('title');
+    const title = document.getElementById('title').value;
+    console.log(title);
     DeleteRule(subReddit, title);
     handleClose();
   };
