@@ -2,8 +2,8 @@
 /* eslint-disable import/no-cycle */
 import { Box, Avatar, Typography } from '@mui/material';
 import * as React from 'react';
-import { UserBar } from './styles';
-import { UserMngButton } from '../../../styles';
+import { UserBar, UserContainer, UserMngButton } from '../../../styles';
+
 import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
@@ -22,10 +22,7 @@ function ApprovedUser() {
       >
         <RemovePopUp />
       </RemoveContext.Provider>
-      <Box sx={{
-        display: 'flex', alignItems: 'center', padding: '8px 16px', minWidth: '220px',
-      }}
-      >
+      <UserContainer>
         <Avatar />
         <Box>
           <Typography
@@ -36,7 +33,7 @@ function ApprovedUser() {
             username
           </Typography>
         </Box>
-      </Box>
+      </UserContainer>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <Typography
           padding="8px"

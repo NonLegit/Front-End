@@ -1,8 +1,8 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
-import StyledDialog from './styles';
-import { RemoveContext } from '../NonEmptyModerator/Moderator/Moderator';
+import { StyledDialog, FooterContainer } from '../../styles';
+import { RemoveContext } from '../NonEmptyModerator/Moderator';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 
@@ -13,6 +13,8 @@ function RemovePopUp(props) {
   } = React.useContext(RemoveContext);
   return (
     <StyledDialog
+      width="490px"
+      height="190px"
       fullScreen
       open={openRemove}
     >
@@ -29,9 +31,9 @@ function RemovePopUp(props) {
           ?
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
+      <FooterContainer>
         <Footer buttonFunction={handleClickCloseRemove} firstButtonText="Cancel" secondButtonText="Remove" />
-      </Box>
+      </FooterContainer>
     </StyledDialog>
   );
 }

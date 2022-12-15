@@ -4,8 +4,8 @@ import { Box, Avatar, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
-import { UserBar } from './styles';
-import { UserMngButton } from '../../../styles';
+import { UserBar, UserContainer, UserMngButton } from '../../../styles';
+
 import MoreDetails from '../MoreDetails/MoreDetails';
 import EditBanPopUp from '../../BanUserPopUp/EditBanPopUp/EditBanPopUp';
 
@@ -30,10 +30,7 @@ function BannedUser() {
         >
           <EditBanPopUp />
         </EditBanContext.Provider>
-        <Box sx={{
-          display: 'flex', alignItems: 'center', padding: '8px 16px', minWidth: '220px',
-        }}
-        >
+        <UserContainer>
           <Avatar />
           <Box>
             <Typography
@@ -44,7 +41,7 @@ function BannedUser() {
               username
             </Typography>
           </Box>
-        </Box>
+        </UserContainer>
         <Box sx={{ display: 'flex', width: '100%' }}>
           <Typography
             padding="8px"

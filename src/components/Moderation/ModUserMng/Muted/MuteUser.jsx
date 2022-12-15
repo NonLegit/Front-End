@@ -5,7 +5,7 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
   QueueBox, QueueText, ControlBar,
-} from './styles';
+} from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import MutePopUp from './MuteUserPopUp/MutePopUp/MutePopUp';
 import { RedditButton } from '../../styles';

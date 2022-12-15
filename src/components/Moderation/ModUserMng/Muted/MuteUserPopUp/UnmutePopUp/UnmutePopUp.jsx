@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog, FooterContainer } from '../../../styles';
 import { UnmuteContext } from '../../NonEmptyMuted/MutedUser/MutedUser';
 import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
@@ -15,6 +15,8 @@ function UnmutePopUp(props) {
     <StyledDialog
       fullScreen
       open={openUnmute}
+      width="410px"
+      height="190px"
     >
       <Box>
         <Header buttonFunction={handleClickCloseUnmute} headerText="Confirm" />
@@ -27,9 +29,9 @@ function UnmutePopUp(props) {
           {userName}
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
+      <FooterContainer>
         <Footer buttonFunction={handleClickCloseUnmute} firstButtonText="Cancel" secondButtonText="Remove" />
-      </Box>
+      </FooterContainer>
     </StyledDialog>
   );
 }

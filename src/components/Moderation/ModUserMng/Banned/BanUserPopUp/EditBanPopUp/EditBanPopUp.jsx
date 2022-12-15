@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog } from '../../../styles';
 import EditBanHeader from '../EditBanHeader/EditBanHeader';
 import BanReason from '../BanReason/BanReason';
 import BanNote from '../BanNote/BanNote';
@@ -19,6 +19,8 @@ function EditBanPopUp(props) {
     <StyledDialog
       fullScreen
       open={openEditBan}
+      width="538px"
+      height="550px"
     >
       <Box>
         <EditBanHeader handleClickCloseBan={handleClickCloseEditBan} userName={userName} />

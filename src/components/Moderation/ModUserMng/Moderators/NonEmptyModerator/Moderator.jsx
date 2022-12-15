@@ -6,11 +6,10 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import * as React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { UserBar } from './styles';
-import RemovePopUp from '../../RemovePopUp/RemovePopUp';
+import { UserBar, UserContainer } from '../../styles';
+import RemovePopUp from '../RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
-
 function Moderator(props) {
   // 0 stands for all moderators
   // 1 stands for Editable moderators
@@ -29,10 +28,7 @@ function Moderator(props) {
       >
         <RemovePopUp />
       </RemoveContext.Provider>
-      <Box sx={{
-        display: 'flex', alignItems: 'center', padding: '8px 16px', minWidth: '220px',
-      }}
-      >
+      <UserContainer>
         <Avatar />
         <Box>
           <Typography
@@ -43,7 +39,7 @@ function Moderator(props) {
             username
           </Typography>
         </Box>
-      </Box>
+      </UserContainer>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <Typography
           padding="8px"
@@ -54,7 +50,7 @@ function Moderator(props) {
         </Typography>
       </Box>
       <Box sx={{
-        alignItems: 'center', display: 'flex', padding: '8px 16px', width: '30%',
+        alignItems: 'center', display: 'flex', padding: '8px 16px', width: '30%', justifyContent: 'flex-end',
       }}
       >
         {(() => {
