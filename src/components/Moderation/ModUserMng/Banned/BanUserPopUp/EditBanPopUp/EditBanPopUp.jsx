@@ -11,7 +11,9 @@ import EditBanFooter from '../EditBanFooter/EditBanFooter';
 import { EditBanContext } from '../../NonEmptyBanned/BannedUser/BannedUser';
 
 function EditBanPopUp(props) {
-  const { userName } = props;
+  const {
+    userName, note, punishReason, punishType,
+  } = props;
   const {
     openEditBan, handleClickCloseEditBan,
   } = React.useContext(EditBanContext);
@@ -20,17 +22,17 @@ function EditBanPopUp(props) {
       fullScreen
       open={openEditBan}
       width="538px"
-      height="550px"
+      height="525px"
     >
       <Box>
         <EditBanHeader handleClickCloseBan={handleClickCloseEditBan} userName={userName} />
         <Divider />
-        <BanReason />
-        <BanNote />
+        <BanReason punishType={punishType} />
+        <BanNote note={note} />
         <BanPeriod />
       </Box>
       <Box sx={{ backgroundColor: '#edeff1 ', height: '100%' }}>
-        <BanMessage />
+        <BanMessage punishReason={punishReason} />
         <EditBanFooter handleClickCloseBan={handleClickCloseEditBan} />
       </Box>
     </StyledDialog>

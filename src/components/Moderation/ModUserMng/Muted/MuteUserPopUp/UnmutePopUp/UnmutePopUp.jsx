@@ -24,13 +24,14 @@ function UnmutePopUp(props) {
       </Box>
       <Box sx={{ padding: '16px' }}>
         <Typography fonstSize="14px" sx={{ margin: '10px 0px' }}>
-          Are you sure you want to Unmute
+          Are you sure you want to unmute
           {' '}
           {userName}
+          ?
         </Typography>
       </Box>
       <FooterContainer>
-        <Footer buttonFunction={handleClickCloseUnmute} firstButtonText="Cancel" secondButtonText="Remove" />
+        <Footer buttonFunction={handleClickCloseUnmute} firstButtonText="Cancel" secondButtonText="Unmute" />
       </FooterContainer>
     </StyledDialog>
   );

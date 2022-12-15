@@ -1,5 +1,5 @@
 import {
-  Button, Box, Dialog, styled,
+  Button, Box, Dialog, styled, Avatar,
 } from '@mui/material';
 
 export const UserMngButton = styled(Button)(() => ({
@@ -85,4 +85,16 @@ export const FooterContainer = styled(Box)(() => ({
   display: 'flex',
   backgroundColor: '#edeff1 ',
   height: '100%',
+}));
+
+export const StyledDetails = styled(Box)(() => ({
+  backgroundColor: '#edeff1',
+  marginLeft: '24px',
+  marginRight: '24px',
+  flexDirection: 'column',
+}));
+
+export const StyledAvatar = styled(Avatar)(() => ({
+  width: '32px',
+  height: '32px',
 }));

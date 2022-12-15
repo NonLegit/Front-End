@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
-import { Box, Avatar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
-import { UserBar, UserContainer, UserMngButton } from '../../../styles';
+import {
+  StyledAvatar, UserBar, UserContainer, UserMngButton,
+} from '../../../styles';
 
 import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
@@ -23,7 +25,7 @@ function ApprovedUser() {
         <RemovePopUp />
       </RemoveContext.Provider>
       <UserContainer>
-        <Avatar />
+        <StyledAvatar variant="square" />
         <Box>
           <Typography
             padding="8px"

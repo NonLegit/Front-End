@@ -27,7 +27,7 @@ function BanPopUp() {
         <Divider />
         <Username placeholder="u/username" />
         <BanReason />
-        <BanNote />
+        <BanNote note="" />
         <BanPeriod />
       </Box>
       <Box sx={{ backgroundColor: '#edeff1 ', height: '100%' }}>

@@ -9,7 +9,7 @@ import {
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import MutePopUp from './MuteUserPopUp/MutePopUp/MutePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyMuted from './NonEmptyMuted/NonEmptyMuted';
+import MutedUserList from './NonEmptyMuted/MutedUserList/MutedUserList';
 
 export const MuteContext = React.createContext();
 
@@ -43,7 +43,7 @@ function Mute() {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyMuted />
+      <MutedUserList />
     </ModMainPage>
   );
 }

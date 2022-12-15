@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
 import { StyledDialog, FooterContainer } from '../../styles';
-import { RemoveContext } from '../NonEmptyModerator/Moderator';
+import { RemoveContext } from '../NonEmptyModerator/NonEmptyModerator';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 

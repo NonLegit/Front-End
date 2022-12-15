@@ -1,24 +1,39 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import {
-  Box, Avatar, Typography, IconButton,
+  Box, Typography, IconButton,
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import * as React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { UserBar, UserContainer } from '../../styles';
+import { StyledAvatar, UserBar, UserContainer } from '../../styles';
 import RemovePopUp from '../RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
-function Moderator(props) {
+function NonEmptyModerator(props) {
   // 0 stands for all moderators
   // 1 stands for Editable moderators
   // 2 stands for Invited moderators
-  const { type } = props;
+  const {
+    userName, profilePicture, modDate, all, access, config, flair, posts, type,
+  } = props;
   const [openRemove, setOpenRemove] = React.useState(false);
 
   const handleClickOpenRemove = () => { setOpenRemove(true); };
   const handleClickCloseRemove = () => { setOpenRemove(false); };
+  const handlePermissions = () => {
+    const permissions = [];
+    if (all === true) permissions.push('Everything');
+    else {
+      if (access === true) permissions.push('Manage Users, ');
+      if (config === true) permissions.push('Manage Settings, ');
+      if (flair === true) permissions.push('Manage Flair, ');
+      if (posts === true) permissions.push('Manage Posts & Comments, ');
+      const lastElemnt = permissions.pop().trimEnd();
+      permissions.push(lastElemnt.substring(0, lastElemnt.length - 1));
+    }
+    return permissions;
+  };
 
   return (
     <UserBar>
@@ -29,28 +44,29 @@ function Moderator(props) {
         <RemovePopUp />
       </RemoveContext.Provider>
       <UserContainer>
-        <Avatar />
+        <StyledAvatar src={profilePicture} variant="square" />
         <Box>
           <Typography
             padding="8px"
             fontSize="15px"
             fontWeight="bold"
           >
-            username
+            {userName}
           </Typography>
         </Box>
       </UserContainer>
-      <Box sx={{ display: 'flex', width: '100%' }}>
+      <Box sx={{ display: 'flex' }}>
         <Typography
           padding="8px"
           fontSize="12px"
           color="#878A8C"
+          width="max-content"
         >
-          2 hours ago
+          {modDate}
         </Typography>
       </Box>
       <Box sx={{
-        alignItems: 'center', display: 'flex', padding: '8px 16px', width: '30%', justifyContent: 'flex-end',
+        alignItems: 'center', display: 'flex', padding: '8px 16px', width: '100%', justifyContent: 'flex-end',
       }}
       >
         {(() => {
@@ -62,7 +78,7 @@ function Moderator(props) {
                   fontSize="12px"
                   color="#878A8C"
                 >
-                  Everything
+                  {handlePermissions()}
                 </Typography>
                 <IconButton disableRipple disableTouchRipple>
                   <EditIcon fontSize="small" />
@@ -76,7 +92,7 @@ function Moderator(props) {
                   fontSize="12px"
                   color="#878A8C"
                 >
-                  Everything
+                  {handlePermissions()}
                 </Typography>
                 <IconButton disableRipple disableTouchRipple>
                   <DeleteIcon fontSize="small" onClick={handleClickOpenRemove} />
@@ -89,7 +105,7 @@ function Moderator(props) {
                 fontSize="12px"
                 color="#878A8C"
               >
-                Everything
+                {handlePermissions()}
               </Typography>
             );
           }
@@ -98,4 +114,4 @@ function Moderator(props) {
     </UserBar>
   );
 }
-export default Moderator;
+export default NonEmptyModerator;

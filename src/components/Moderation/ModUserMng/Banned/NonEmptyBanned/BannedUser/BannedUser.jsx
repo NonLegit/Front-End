@@ -1,17 +1,22 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
-import { Box, Avatar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
-import { UserBar, UserContainer, UserMngButton } from '../../../styles';
+import {
+  UserBar, UserContainer, UserMngButton, StyledAvatar,
+} from '../../../styles';
 
 import MoreDetails from '../MoreDetails/MoreDetails';
 import EditBanPopUp from '../../BanUserPopUp/EditBanPopUp/EditBanPopUp';
 
 export const EditBanContext = React.createContext();
 
-function BannedUser() {
+function BannedUser(props) {
+  const {
+    userName, profilePicture, banDate, punishType, note, punishReason, duration,
+  } = props;
   const [openEditBan, setOpenEditBan] = React.useState(false);
 
   const handleClickOpenEditBan = () => { setOpenEditBan(true); };
@@ -28,17 +33,22 @@ function BannedUser() {
           openEditBan, handleClickCloseEditBan,
         }}
         >
-          <EditBanPopUp />
+          <EditBanPopUp
+            userName={userName}
+            note={note}
+            punishReason={punishReason}
+            punishType={punishType}
+          />
         </EditBanContext.Provider>
         <UserContainer>
-          <Avatar />
+          <StyledAvatar src={profilePicture} variant="square" />
           <Box>
             <Typography
               padding="8px"
               fontSize="15px"
               fontWeight="bold"
             >
-              username
+              {userName}
             </Typography>
           </Box>
         </UserContainer>
@@ -48,7 +58,11 @@ function BannedUser() {
             fontSize="12px"
             color="#878A8C"
           >
-            2 hours ago (Permanent)
+            {banDate}
+            {' '}
+            (
+            {(duration === -1) ? 'permenant' : `${duration} days left`}
+            )
           </Typography>
           <Typography
             padding="8px"
@@ -62,7 +76,7 @@ function BannedUser() {
             fontSize="12px"
             color="#878A8C"
           >
-            Spam
+            {punishType}
           </Typography>
         </Box>
         <Box sx={{ display: 'flex', padding: '8px 16px', width: '30%' }}>
@@ -83,7 +97,7 @@ function BannedUser() {
           </UserMngButton>
         </Box>
       </UserBar>
-      <MoreDetails modNote="blabla" bannedFor="toooooot" isOpened={isOpened} />
+      <MoreDetails modNote={note} bannedFor={punishReason} isOpened={isOpened} />
     </>
   );
 }

@@ -9,9 +9,10 @@ import {
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import LeavePopUp from './LeavePopUp/LeavePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyModerator from './NonEmptyModerator/Moderator';
+// import NonEmptyModerator from './NonEmptyModerator/NonEmptyModerator';
 import Invitation from './InvitationPopUp/InvitationPopUp';
 import SearchBar from '../SearchBar/SearchBar';
+import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
 
 export const LeaveContext = React.createContext();
 export const InvitationContext = React.createContext();
@@ -73,12 +74,13 @@ function Moderator(props) {
       </QueueBox>
       <SearchBar />
       <InstanceContainer>
-        <NonEmptyModerator type="0" />
+        <ModeratorsList />
+        {/* <NonEmptyModerator type="0" />
       </InstanceContainer>
       <InstanceContainer>
         <Typography
           color="#1C1C1C"
-          padding="0px 0px 8px 4px"
+          padding="0px 0px 8px 24px"
           fontWeight={600}
           fontSize="14px"
         >
@@ -89,13 +91,13 @@ function Moderator(props) {
       <InstanceContainer>
         <Typography
           color="#1C1C1C"
-          padding="0px 0px 8px 4px"
+          padding="0px 0px 8px 24px"
           fontWeight={600}
           fontSize="14px"
         >
           Invited moderators
         </Typography>
-        <NonEmptyModerator type="2" />
+        <NonEmptyModerator type="2" /> */}
       </InstanceContainer>
     </ModMainPage>
   );
