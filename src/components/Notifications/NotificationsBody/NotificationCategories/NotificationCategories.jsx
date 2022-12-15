@@ -1,10 +1,13 @@
+/* eslint-disable consistent-return */
 /* eslint-disable import/no-cycle */
 import { useContext, createContext, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment/moment';
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 import { CategoriesContext } from '../NotificationsBody';
+import { notificationMarkRead } from '../notificationsServer';
 import {
   Notification, Options, MenuOptions, NotificationTime,
   NotificationBody, BodyHead, Body, ContainerHead, SeeMore,
@@ -32,6 +35,7 @@ function NotificationCategories({ NavBar }) {
   const options = ['Hide this notification'];
   // to set today or earlier
   const [cookies, setCookies] = useCookies(['redditUser']);
+  const navigate = useNavigate();
   const value = (today) || earlier;
   moment.updateLocale('en', {
     relativeTime: {
@@ -96,20 +100,29 @@ function NotificationCategories({ NavBar }) {
     }
     return '';
   };
+  const handleLink = (ele) => {
+    const follow = (ele?.followedSubreddit) ? `/Subreddit/${ele?.followedSubreddit.fixedName}` : `/user/${cookies?.redditUser.userName}`;
+    if (!ele.seen) { notificationMarkRead(ele._id); }
+    if (ele?.type === 'follow') {
+      navigate(`/user/${ele.followerUser.userName}`);
+    } else {
+      navigate(`${follow}/comments/${ele.post}`);
+    }
+  };
   return (
     <div data-testid={`notification-categories-${today ? 'today' : 'earlier'}`}>
-      { value?.map((ele, indx) => (
-        <Notification seen={ele.seen} key={`${indx + 0}`}>
-          <ReplayContext.Provider value={ele?.type}>
-            <NotificationImages image={ele.followerUser?.profilePicture} />
+      { value?.map((element, indx) => (
+        <Notification seen={!element.seen} key={`${indx + 0}`}>
+          <ReplayContext.Provider value={element?.type}>
+            <NotificationImages image={element.followerUser?.profilePicture} />
           </ReplayContext.Provider>
-          <NotificationBody>
+          <NotificationBody onClick={() => { handleLink(element); }}>
             <ContainerHead>
               <BodyHead>
-                {follwed(ele)}
+                {follwed(element)}
                 <NotificationTime>
                   { ' · ' }
-                  { (moment.utc(ele.createdAt).local().startOf('seconds')
+                  { (moment.utc(element.createdAt).local().startOf('seconds')
                     .fromNow())}
                 </NotificationTime>
               </BodyHead>
@@ -118,16 +131,16 @@ function NotificationCategories({ NavBar }) {
                   <SeeMore>
                     <IconButton
                       data-testid="seeMore"
-                      id={indx}
+                      id="long-button"
                       aria-controls={open ? 'long-menu' : undefined}
                       aria-expanded={open ? 'true' : undefined}
                       aria-haspopup="true"
-                      onClick={handleClick}
                       catorige={(today) ? 'today' : 'earlier'}
+                      onClick={(e) => { handleClick(e, element._id); }}
                     >
                       <MoreHorizIcon />
-                    </IconButton>
 
+                    </IconButton>
                     <MenuOptions
                       data-testid="options"
                       anchorOrigin={{
@@ -138,10 +151,13 @@ function NotificationCategories({ NavBar }) {
                         vertical: 'top',
                         horizontal: 'right',
                       }}
-                      id={indx}
+                      id="long-menu"
                       anchorEl={anchorEl}
                       open={open}
                       onClose={handleClose}
+                      MenuListProps={{
+                        'aria-labelledby': 'long-button',
+                      }}
                     >
                       {options.map((option) => (
                         <Options
@@ -157,9 +173,9 @@ function NotificationCategories({ NavBar }) {
                 ) : null}
             </ContainerHead>
             <Body>
-              { body(ele).slice(0, 200) }
+              { body(element).slice(0, 200) }
               {
-                body(ele).length > 200 && '...'
+                body(element).length > 200 && '...'
               }
             </Body>
           </NotificationBody>

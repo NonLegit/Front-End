@@ -35,6 +35,8 @@ const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
 const listBlock = require('./listBlock.json');
 const blockUser = require('./blockUser.json');
+const hideNotification = require('./hideNotification.json');
+const markAsRead = require('./markAsRead.json');
 // Something more
 
 module.exports = () => ({
@@ -77,5 +79,7 @@ module.exports = () => ({
   userImage,
   listBlock,
   blockUser,
+  hideNotification,
+  markAsRead,
   // Something more
 });

@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import { createContext, useState, useEffect } from 'react';
 import { onForegroundNottification } from '../../../lib/firebase';
-import notificationsFetch from './notificationsServer';
+import notificationsFetch, { notificationHide } from './notificationsServer';
 import NotificationCategories from './NotificationCategories/NotificationCategories';
 import
 {
@@ -45,9 +46,11 @@ function NotificationsBody() {
     console.log(dataEarlier);
   }, [dataEarlier, dataToday]);
   // function to set what notifiacation we select and it's type
-  const handleClick = (event) => {
+  const handleClick = (event, id) => {
+    console.log(id);
+    console.log(event);
     setAnchorEl(event.currentTarget);
-    setSelect(event.currentTarget.getAttribute('id'));
+    setSelect(id);
     setType(event.currentTarget.getAttribute('catorige'));
   };
 
@@ -67,13 +70,14 @@ function NotificationsBody() {
     if (select !== null && tabindex === '0') {
       if (type === 'today') {
         setToday(
-          today.filter((e, i) => i !== Number(select)),
+          today.filter((e) => (e._id !== (select))),
         );
       } else {
         setEarlier(
-          earlier.filter((e, i) => i !== Number(select)),
+          earlier.filter((e) => (e._id !== (select))),
         );
       }
+      notificationHide(Number(select));
       setSelect(null);
     }
     setAnchorEl(null);

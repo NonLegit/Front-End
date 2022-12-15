@@ -40,5 +40,8 @@
     "/users/image":"/userImage",
     "/users/blocked":"/listBlock",
     "/users/:userName/block_user":"/blockUser",
-    "/users/:userName/unblock_user":"/blockUser"
+    "/users/:userName/unblock_user":"/blockUser",
+    "/users/notifications/:notificationId/mark_as_read":"/markAsRead",
+    "/users/notifications/mark_as_read":"/markAsRead",
+    "/users/notifications/:notificationId/hide":"/hideNotification"
 }
