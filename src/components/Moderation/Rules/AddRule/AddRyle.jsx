@@ -77,9 +77,10 @@ export default function AddRule(props) {
   };
 
   const SendData = () => {
-    const defaultName = document.getElementById('defaultName');
-    const title = document.getElementById('title');
-    const description = document.getElementById('description');
+    const defaultName = document.getElementById('defaultName').value;
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    console.log(title, defaultName, description);
     if (edit) {
       EditRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
     } else {
