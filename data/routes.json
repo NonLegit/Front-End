@@ -50,13 +50,13 @@
     "/posts/:postId/:action":"/postAction",
     "/posts/:postId":"/deleteAction",
     "/posts/:postId/actions/:action":"/actionOnPost",
-    "/subreddits/:subreddit/flairs":"/subredditFlairs",
+    "/subreddits/:subreddit/flair":"/subredditFlairs",
     "/posts/:postId/save":"/save",
     "/posts/:postId/unsave":"/unsave",
     "/posts/:postId/hide":"/hide",
     "/posts/:postId/unhide":"/hide",
     "/posts/:postId/vote":"/vote",
     "/posts/:postId/images":"/addImagesToPost",
-    "subreddits/:Name/flairs/:id":"/UpdateFlair"
+    "subreddits/:Name/flair/:id":"/UpdateFlair"
 
 }
