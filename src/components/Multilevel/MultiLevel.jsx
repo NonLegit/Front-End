@@ -33,10 +33,10 @@ function MultiLevel({ Edit }) {
     <PostContextProvider postID={postID}>
       <MultiLevelConatiner>
         <MultiLevelHeader />
-        <MultiLevelContentConatiner>
-          <MultiLevelBody Edit={Edit} />
-          {/* <MultiLevelSideBar /> */}
-        </MultiLevelContentConatiner>
+        {/* <MultiLevelContentConatiner>
+          <MultiLevelBody Edit={Edit} /> */}
+        {/* <MultiLevelSideBar /> */}
+        {/* </MultiLevelContentConatiner> */}
       </MultiLevelConatiner>
     </PostContextProvider>
   );
