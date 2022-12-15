@@ -37,9 +37,9 @@ export default function AddRule(props) {
 
   React.useEffect(() => {
     if (rule) {
-      setCount(rule?.title?.length);
-      setCount2(rule?.defaultName?.length);
-      setCount3(rule?.description?.length);
+      setCount(100 - rule.title.length);
+      setCount2(100 - rule.defaultName.length);
+      setCount3(500 - rule.description.length);
       setEdit(true);
     }
     if (count < 100) { setCan(true); } else { setCan(false); }
