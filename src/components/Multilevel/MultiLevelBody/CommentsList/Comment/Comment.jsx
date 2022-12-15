@@ -24,11 +24,11 @@ import { getMoreChildren } from '../commentsListServer';
 
 function Comment(props) {
   const {
-    comment, src, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
+    comment, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
   } = props;
 
   // Constants
-  const authorProfilelink = `./user/${comment?.author}`;
+  const authorProfilelink = `./user/${comment?.author?.userName}`;
   // const replies = (comment) ? comment.replies : [];
 
   // state
@@ -65,25 +65,25 @@ function Comment(props) {
         {!collpase ? null
           : <OpenInFullRoundedIcon color="primary" fontSize="small" onClick={toggleComment} sx={{ marginTop: '5px' }} />}
         <CommentLeftSideBar>
-          <ImgAvatar alt={comment?.author} src={src} />
+          <ImgAvatar alt={comment?.author?.userName} src={comment?.author?.profilePicture} />
           <CommentAlign orientation="vertical" flexItem onClick={toggleComment} />
         </CommentLeftSideBar>
 
         <CommentBody>
           <CommentHeader>
-            <AuthorLink href={authorProfilelink}>{comment?.author}</AuthorLink>
+            <AuthorLink href={authorProfilelink}>{comment?.author?.userName}</AuthorLink>
             <Duration>{comment ? calculateTime(comment?.createdAt) : null}</Duration>
           </CommentHeader>
           {collpase ? null
             : (
               <>
                 <CommentText>{comment?.text}</CommentText>
-                <CommentActions />
+                <CommentActions comment={comment} />
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
                   : replies?.map((reply, i) => {
                     if (i === replies.length - 1 && moreRepliesFormat) { return null; }
-                    return (<Comment key={reply?._id} comment={reply} src="https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb" isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCountVar} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} />);
+                    return (<Comment key={reply?._id} comment={reply} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCountVar} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} />);
                   })}
                 {continueThread
                   ? (

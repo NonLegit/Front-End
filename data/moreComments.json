@@ -1,60 +1,72 @@
 {
-    "status": "string",
-    "comments": [
-      {
+  "status": "string",
+  "comments": [
+    {
+      "_id": "10",
+      "author": {
+        "_id": "639a5f0e995a7314c8c796c0",
+        "userName": "Aya Elhoseny",
+        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "post": "string",
+      "mentions": [
+        "string"
+      ],
+      "replies": [],
+      "parent": "string",
+      "parentType": "string",
+      "text": "Comment no 3 in the Post",
+      "createdAt": "2001-01-11T17:32:28Z",
+      "votes": 0,
+      "repliesCount": 0
+    },
+    {
+      "_id": "11",
+      "author": {
+        "_id": "639a5f0e998a7314c8c746c0",
+        "userName": "Youssef Elhoseny",
+        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "post": "string",
+      "mentions": [
+        "string"
+      ],
+      "replies": [],
+      "parent": "string",
+      "parentType": "string",
+      "text": "Comment no 4 in the Post",
+      "createdAt": "2022-12-13T17:32:28Z",
+      "votes": 0,
+      "repliesCount": 0
+    },
+    {
+      "_id": "12",
+      "author": {
         "_id": "10",
-        "author": "Aya Elhoseny",
-        "post": "string",
-        "mentions": [
-          "string"
-        ],
-        "replies": [
-        ],
-        "parent": "string",
-        "parentType": "string",
-        "text": "Comment no 3 in the Post",
-        "createdAt": "2001-01-11T17:32:28Z",
-        "votes": 0,
-        "repliesCount": 0
+        "userName": "Basma Elhoseny",
+        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+        "profileBackground": "users/defaultcover.png"
       },
-      {
-        "_id": "11",
-        "author": "Youssef Elhoseny",
-        "post": "string",
-        "mentions": [
-          "string"
-        ],
-        "replies": [
-        ],
-        "parent": "string",
-        "parentType": "string",
-        "text": "Comment no 4 in the Post",
-        "createdAt": "2022-12-13T17:32:28Z",
-        "votes": 0,
-        "repliesCount": 0
-      },
-      {
-        "_id": "12",
-        "author": "Aya Elhoseny",
-        "post": "string",
-        "mentions": [
-          "string"
-        ],
-        "replies": [
-         ],
-        "parent": "string",
-        "parentType": "string",
-        "text": "Comment no 5 in the Post",
-        "createdAt": "2022-12-14T10:32:28Z",
-        "votes": 0,
-        "repliesCount": 0
-      },    
-      {
-        "Type": "moreReplies",
-        "count": 90,
-        "children": [
-          "string"
-        ]
-      }
-    ]
-  }
+      "post": "string",
+      "mentions": [
+        "string"
+      ],
+      "replies": [],
+      "parent": "string",
+      "parentType": "string",
+      "text": "Comment no 5 in the Post",
+      "createdAt": "2022-12-14T10:32:28Z",
+      "votes": 0,
+      "repliesCount": 0
+    },
+    {
+      "Type": "moreReplies",
+      "count": 90,
+      "children": [
+        "string"
+      ]
+    }
+  ]
+}
