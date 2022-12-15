@@ -17,6 +17,7 @@ function MultiLevelBody({ Edit }) {
 
   useEffect(() => {
     console.log('MultiLevelBody.jsx', post);
+    console.log('MultiLevelBody.jsx Edit', Edit);
   }, [post]);
 
   console.log(post);
