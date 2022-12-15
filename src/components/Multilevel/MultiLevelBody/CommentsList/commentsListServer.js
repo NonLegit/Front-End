@@ -56,6 +56,7 @@ export const getMoreChildren = (children, comments, setComments) => {
       },
     },
   ).then((response) => {
+    console.log('/comments/more_children', response);
     // remove last elememt of the array
     // console.log('Old Comments Array:');
     // console.log(comments);
