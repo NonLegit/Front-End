@@ -26,7 +26,7 @@ function MultiLevelPostContent(props) {
 
   // Constants
   const authorProfilelink = `/user/${post?.author?.name}`;
-  const ownerProfilelink = (post?.ownerType === 'User') ? `/user/${post?.owner?.name}` : `/SubReddit/${post?.owner?.name}`;
+  const ownerProfilelink = (post?.ownerType === 'User') ? `/user/${post?.owner?.name}` : `/r/${post?.owner?.name}`;
 
   useEffect(() => console.log('Edit', Edit), []);
 
