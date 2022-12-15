@@ -46,6 +46,7 @@ export default function NewFlair(props) {
           <FormCont>
             <Input
               id="text"
+              type="text"
               onChange={check}
               onInput={(e) => {
               // eslint-disable-next-line radix
@@ -71,6 +72,7 @@ export default function NewFlair(props) {
           <SecondLable>CSS Class</SecondLable>
           <FormCont>
             <Input
+              type="text"
               id="css"
               onChange={check}
               placeholder="none"
