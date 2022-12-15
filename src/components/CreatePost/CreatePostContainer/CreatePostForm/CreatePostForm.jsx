@@ -11,7 +11,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter,
 } from './styles';
-import PostMedia from './PostMedia/PostMedia';
 import PostTags from './PostTags/PostTags';
 import PostSubmission from './PostSubmission/PostSubmission';
 import PostTypes from './PostTypes/PostTypes';
@@ -21,6 +20,7 @@ import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 import submitPostServer from './submitPostServer';
 import currentSubredditServer from './currentSubredditServer';
 import TextEditor from './TextEditor/TextEditor';
+import PostMedia from './PostMedia/PostMedia';
 
 /**
  * This component is the main section off create post page which holds the form to submit posts
@@ -43,7 +43,7 @@ function CreatePostForm() {
   const { initialPostType } = usePostTypeContext();
 
   // variables
-  const postTypes = ['self', 'media', 'url'];
+  const postTypes = ['self', 'image', 'video', 'link'];
 
   // states
   const [postMedia, setPostMedia] = useState([]);
@@ -57,6 +57,8 @@ function CreatePostForm() {
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
+  const [flair, setFlair] = useState(null);
+  const [communityName, setCommunityName] = useState(subredditName);
   // console.log('title', title);
   // console.log('community to post in', communityToPostIn);
 
@@ -85,9 +87,12 @@ function CreatePostForm() {
       spoiler,
       nswf,
       sendReplies,
+      flairId: flair?.id,
+      flairText: flair?.text,
+      url: postUrl,
     };
-    // console.log(post);
-    submitPostServer(post, navigate);
+    console.log('el post', post);
+    submitPostServer(post, navigate, postType, postMedia);
   };
   /**
    * This function handles title change
@@ -98,7 +103,7 @@ function CreatePostForm() {
   /**
    * This function handles post text change
    */
-  if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
+  // if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
 
   const handlePostTextChange = (editorState) => {
     setPostText(editorState);
@@ -127,10 +132,19 @@ function CreatePostForm() {
     }
   };
   const handlePostMedia = (e) => {
-    const files = Array.from(e.target.files).map((file) => ({ src: URL.createObjectURL(file), caption: '', link: '' }));
+    console.log('ahmed sayed zizo', e.target.files);
+    setPostType(e.target.files[0].type.substr(0, 5) === 'video' ? 2 : 1);
+    const files = Array.from(e.target.files).map((file) => ({
+      src: URL.createObjectURL(file),
+      caption: '',
+      link: '',
+      file,
+      fileName: file.name,
+    }));
     setActiveMediaFile(postMedia.length + files.length - 1);
     setPostMedia([...postMedia, ...files]);
   };
+  console.log(postMedia);
   /**
    * This function handles if post is spoiler or not
    */
@@ -163,6 +177,9 @@ function CreatePostForm() {
         subredditIcon={subredditIcon}
         subredditName={subredditName}
         ownerType={ownerType}
+        communityName={communityName}
+        setCommunityName={setCommunityName}
+        setFlair={setFlair}
       />
       <PostFormContainer>
         <PostTypes
@@ -194,16 +211,17 @@ function CreatePostForm() {
               postText={postText}
             />
           ) : null}
-          {postType === 1 ? (
+          {(postType === 1 || postType === 2) ? (
             <PostMedia
               handlePostMedia={handlePostMedia}
               postMedia={postMedia}
               setPostMedia={setPostMedia}
               activeMediaFile={activeMediaFile}
               setActiveMediaFile={setActiveMediaFile}
+              availableType={postType === 1 ? 'image' : 'video'}
             />
           ) : null}
-          {postType === 2 ? (
+          {postType === 3 ? (
             <PostUrl
               placeholder="Url"
               value={postUrl}
@@ -217,6 +235,10 @@ function CreatePostForm() {
           hanldeSpoiler={hanldeSpoiler}
           nswf={nswf}
           hanldeNsfw={hanldeNsfw}
+          setFlair={setFlair}
+          subreddit={communityName?.substring(2)}
+          flair={flair}
+          communityName={communityName}
         />
         <Divider />
         <PostSubmission

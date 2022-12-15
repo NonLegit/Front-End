@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material';
+import { useContext } from 'react';
+
+import { CommunitiesContext } from '../../../../../../contexts/CommunitiesModeratorContext';
 import { InfoBox } from '../styles';
-import communitiesServer from './communitiesServer';
 import EntityComment from './EntityCommunity/EntityCommunity';
 
 /**
@@ -12,7 +14,7 @@ import EntityComment from './EntityCommunity/EntityCommunity';
 
 function Communities() {
   // will fetch the comminities here
-  const [communities] = communitiesServer();
+  const { communities } = useContext(CommunitiesContext);
 
   return (
     <InfoBox>

@@ -3,14 +3,14 @@
     {
       "author": {
         "_id": "string",
-        "name": "Nourziad111"
+        "name": "nour"
       },
       "owner": {
         "_id": "string",
-        "name": "basmaaaa",
+        "name": "kalba222",
         "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
       },
-      "ownerType": "Subreddit0",
+      "ownerType": "Subreddit",
       "title": "string",
       "kind": "link",
       "text": "string",
@@ -43,14 +43,14 @@
     {
       "author": {
         "_id": "string",
-        "name": "Nourzi123"
+        "name": "nour"
       },
       "owner": {
         "_id": "string",
         "name": "basmaaaa111",
         "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
       },
-      "ownerType": "Subreddit1",
+      "ownerType": "Subreddit",
       "title": "string",
       "kind": "link",
       "text": "string",
@@ -83,7 +83,7 @@
     {
       "author": {
         "_id": "string",
-        "name": "NourZiad122"
+        "name": "nour"
       },
       "owner": {
         "_id": "string",

@@ -38,10 +38,10 @@ function ProfileHeader() {
 
   const content = [
     {
-      id: 1, Title: 'Comments', text: '', res: 'res6',
+      id: 1, Title: 'Comments', text: 'comments', res: 'res6',
     },
     {
-      id: 2, Title: 'History', text: '', res: 'res5',
+      id: 2, Title: 'History', text: 'history', res: 'res5',
     },
     {
       id: 3, Title: 'Saved', text: 'saved', res: 'res4',

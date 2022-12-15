@@ -13,6 +13,9 @@ export const logOut = (removeCookie) => {
       // remove Reddit Cookie
 
       removeRedditCookie(removeCookie);
+      if (localStorage.getItem('RedditHistory')) {
+        localStorage.removeItem('RedditHistory');
+      }
     }
   }).catch((error) => {
     if (error.response.status === 401) {

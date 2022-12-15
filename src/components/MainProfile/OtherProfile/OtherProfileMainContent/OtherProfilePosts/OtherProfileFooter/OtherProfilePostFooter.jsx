@@ -16,6 +16,8 @@ import {
 } from './styles';
 import OtherProfilePostFooterListResponsive from './OtherProfilePostFooterListResponsive/OtherProfilePostFooterListResponsive';
 import OtherProfileArrowList from './OtherProfileArrowList/OtherProfileArrowList';
+import { postReactionsServer } from '../../../../profileServer';
+
 /**
  * Footer of the post that contain all icons
  *
@@ -27,7 +29,7 @@ import OtherProfileArrowList from './OtherProfileArrowList/OtherProfileArrowList
  */
 function OtherProfilePostFooter(props) {
   const {
-    numComments, handleExpand, expand, saved, hidden, submitted,
+    postid, numComments, handleExpand, expand, saved, hidden, submitted,
     points, postVoteStatus,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
@@ -41,11 +43,13 @@ function OtherProfilePostFooter(props) {
 
   // switch icon to hidden post and vice verse
   const handleClickHide = () => {
+    postReactionsServer(postid, hidden ? 'unhide' : 'hide', hidden);
     setIsHidden((prev) => !prev);
   };
 
   // switch icon to saved post and vice versa
   const handleClickSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setIsSaved((prev) => !prev);
   };
 
@@ -69,7 +73,7 @@ function OtherProfilePostFooter(props) {
 
   return (
     <FooterBox>
-      <OtherProfileArrowList points={points} postVoteStatus={postVoteStatus} />
+      <OtherProfileArrowList postid={postid} points={points} postVoteStatus={postVoteStatus} />
       <ElementBox>
         {expand ? <UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
@@ -80,7 +84,8 @@ function OtherProfilePostFooter(props) {
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}
-          {!submitted && ' Comments'}
+          {' '}
+          Comments
         </FooterText>
       </ElementBox>
       <ElementBox>
@@ -110,7 +115,7 @@ function OtherProfilePostFooter(props) {
       <ElementBox show={true.toString()}>
         <MoreHorizOutlinedIcon onClick={handleClick2} />
         {showList2 && (
-        <OtherProfilePostFooterListResponsive isSaved={isSaved} />
+        <OtherProfilePostFooterListResponsive isSaved={isSaved} postid={postid} />
         )}
       </ElementBox>
 

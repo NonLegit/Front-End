@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { useState, useContext, useEffect } from 'react';
 
+import { CommunitiesContext } from '../../../../../contexts/CommunitiesModeratorContext';
 import {
   EmptyImage,
   Flair,
@@ -16,6 +17,7 @@ import PostSide from './PostSide/PostSide';
 import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
 import { UserContext } from '../../../../../contexts/UserProvider';
+import { CommunitiesSubscriberContext } from '../../../../../contexts/CommunitiesSubscriberContext';
 
 /**
  * the post that appear in posts - saved - hidden - upvoted - downvotep taps
@@ -32,16 +34,27 @@ function Post(props) {
   } = props;
   const [expand, setExpand] = useState();
   const [subTitle, setSubTitle] = useState(type);
+  const [modList, setModList] = useState(false);
   const { username } = useContext(UserContext);
+  const { communities } = useContext(CommunitiesContext);
+  const { communitiesSubscriber } = useContext(CommunitiesSubscriberContext);
+  const [notJoined, setNotJoined] = useState(false);
+
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
   useEffect(() => {
     setSubTitle(type);
-  }, [type]);
+    if (communitiesSubscriber?.filter((element) => element.fixedName === entity.owner.name).length === 0) {
+      setNotJoined(true);
+    }
+    if (entity.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === entity.owner.name).length > 0) {
+      setModList(true);
+    }
+  }, [type, communities, entity, communitiesSubscriber]);
   return (
-    <PostsQueueBox>
-      <PostSide points={entity?.votes} postVoteStatus={entity?.postVoteStatus} spam={entity?.isSpam} />
+    <PostsQueueBox saved={subTitle}>
+      <PostSide postid={entity?._id} points={entity?.votes} postVoteStatus={entity?.postVoteStatus} spam={entity?.modState === 'spam'} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
@@ -72,37 +85,39 @@ function Post(props) {
             )
           }
                 {entity?.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
-                {entity?.isSpam && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
+                {entity?.nsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <PostHeader
                 subReddit={entity?.owner.name}
                 type={entity?.ownerType}
                 nameUser={entity?.author.name}
                 Time={entity?.createdAt}
-                nsfw={entity?.nsfw}
+                modState={entity?.modState}
                 locked={entity?.locked}
+                notJoined={notJoined}
               />
               <PostFooter
+                postid={entity?._id}
                 handleExpand={handleExpand}
                 expand={expand}
                 submitted={subTitle === undefined}
-                postedByOthers={!(entity?.author.name === username)}
+                isModList={modList}
+                postedByOthers={(entity?.author.name !== username)}
                 saved={entity?.isSaved}
                 hidden={entity?.isHidden}
-                approved={entity?.approved}
-                removed={entity?.removed}
-                spam={entity?.isSpam}
+                modState={entity?.modState}
                 numComments={entity?.commentCount}
                 points={entity?.votes}
                 postVoteStatus={entity?.postVoteStatus}
                 nsfw={entity?.nsfw}
                 spoiler={entity?.spoiler}
                 sendReplies={entity?.sendReplies}
+                locked={entity?.locked}
               />
             </Box>
           </PostContentBox>
         </Box>
-        {expand && <Box>{entity?.text}</Box>}
+        {expand && <Box dangerouslySetInnerHTML={{ __html: entity?.text }} />}
       </PostSidebaRes>
     </PostsQueueBox>
   );

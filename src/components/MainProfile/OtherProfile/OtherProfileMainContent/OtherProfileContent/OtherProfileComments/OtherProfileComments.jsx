@@ -1,4 +1,5 @@
 import { Divider } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import OtherProfileCommentsContent from './OtherProfileCommentsContent/OtherProfileCommentsContent';
 import OtherProfileCommentsHeader from './OtherProfileCommentsHeader/OtherProfileCommentsHeader';
 import { CommentsBox } from './styles';
@@ -11,21 +12,25 @@ import { CommentsBox } from './styles';
  * @returns {React.Component} Comments
  */
 function OtherProfileComments(props) {
-  const { comment } = props;
+  const { comment, noheader } = props;
+  const { username } = useParams();
+
   return (
     <CommentsBox>
       <OtherProfileCommentsHeader
-        subReddit={comment?.ownerType}
-        publisher={comment?.author}
-        title={comment?.title}
+        post={comment}
+        noheader={noheader}
       />
       <Divider variant="middle" />
-      <OtherProfileCommentsContent
-        time={comment?.createdAt}
-        points={comment?.votes}
-        body={comment?.text}
-      />
-      {/* <Divider orientation="vertical" flexItem /> */}
+      { comment?.comments?.map((comment, index) => (
+        <div key={`${index + 0}`}>
+          <OtherProfileCommentsContent
+            comment={comment}
+            op={comment?.author?.name === username}
+          />
+          <Divider variant="middle" />
+        </div>
+      ))}
 
     </CommentsBox>
   );

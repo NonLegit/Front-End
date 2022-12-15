@@ -9,6 +9,8 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
+import { actionOnPost, deletePostComment, postReactionsServer } from '../../../../../profileServer';
+
 /**
  * List items of post footer
  *
@@ -17,6 +19,7 @@ import { SelectBox, SelectItem } from './styles';
  */
 function PostFooterList(props) {
   const {
+    postid,
     isSaved,
     nsfw,
     spoiler,
@@ -26,17 +29,27 @@ function PostFooterList(props) {
   const [isNsfw, setIsNsfw] = useState(nsfw);
   const [isSpoiler, setIsSpoiler] = useState(spoiler);
   const [isSendReplies, setIsSendReplies] = useState(sendReplies);
+
   const handleSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
   };
+  const handleHide = () => {
+    postReactionsServer(postid, 'hide', 1);
+  };
   const handleNsfw = () => {
+    actionOnPost(postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
     setIsNsfw((prev) => !prev);
   };
   const handleSpoiler = () => {
+    actionOnPost(postid, isSpoiler ? 'unspoiler' : 'spoiler');
     setIsSpoiler((prev) => !prev);
   };
   const handleSendReplies = () => {
     setIsSendReplies((prev) => !prev);
+  };
+  const handleDelete = () => {
+    deletePostComment('posts', postid);
   };
   return (
     <SelectBox>
@@ -63,12 +76,12 @@ function PostFooterList(props) {
         Pin Post To Profile
       </SelectItem>
       <Divider />
-      <SelectItem>
+      <SelectItem onClick={() => { handleHide(); }}>
         <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
         Hide
       </SelectItem>
       <Divider />
-      <SelectItem>
+      <SelectItem onClick={() => { handleDelete(); }}>
         <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
         Delete
       </SelectItem>

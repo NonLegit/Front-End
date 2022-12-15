@@ -1,7 +1,7 @@
 {
   "status": "success",
   "user": {
-    "id": 10,
+    "id": "10",
     "userName": "nour",
     "email": "nour@email.com",
     "profilePicture": "https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21",
@@ -10,7 +10,7 @@
     "autoplayMedia": true,
     "canbeFollowed": true,
     "lastUpdatedPassword": "2022-10-22-06-12",
-    "followersCount": 0,
+    "followersCount": 3,
     "friendsCount": 0,
     "accountActivated": true,
     "gender": "male",

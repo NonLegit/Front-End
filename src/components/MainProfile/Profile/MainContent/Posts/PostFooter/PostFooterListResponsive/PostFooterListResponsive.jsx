@@ -5,6 +5,7 @@ import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
+import { postReactionsServer } from '../../../../../profileServer';
 
 /**
  * resposive list of the post footer
@@ -13,10 +14,14 @@ import { SelectBox, SelectItem } from './styles';
  * @returns {React.Component} PostFooterListResponsive
  */
 function PostFooterListResponsive(props) {
-  const { isSaved } = props;
+  const { postid, isSaved } = props;
   const [saved, setSaved] = useState(isSaved);
   const handleSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
+  };
+  const handleHide = () => {
+    postReactionsServer(postid, 'hide', 1);
   };
   return (
     <SelectBox>
@@ -34,7 +39,7 @@ function PostFooterListResponsive(props) {
           </SelectItem>
         )}
       <Divider />
-      <SelectItem>
+      <SelectItem onClick={() => { handleHide(); }}>
         <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
         Hide
       </SelectItem>
