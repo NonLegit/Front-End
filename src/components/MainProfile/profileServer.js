@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import useFetch from '../../hooks/useFetch';
 import axios from '../../services/instance';
 
-export const postsCommentsServer = (name, type) => {
-  const [data, dataError, statusCode] = useFetch(`users/${name}/${type}`);
+export const postsCommentsServer = (name, type, sortType) => {
+  const [data, dataError, statusCode] = useFetch(`users/${name}/${type}/?sort=${sortType}`);
 
   useEffect(() => {
     if (statusCode === 401) {
@@ -57,7 +57,7 @@ export const actionOnPost = (postId, action) => {
   });
 };
 
-export const saveComment = (commentsId, action) => {
+export const actionComment = (commentsId, action) => {
   axios.post(`/comments/${commentsId}/${action}`).then((response) => {
     if (response.status === 401) {
       window.location.pathname = 'login';

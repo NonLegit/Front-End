@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import mergeTwo from '../../../../../utils/mergeSort';
 import renderText from '../../../../../utils/renderText';
 import { WideBox } from '../styles';
-import EmptyContent from '../EmptyContent/EmptyContent';
+import EmptyContent from '../../../EmptyContent/EmptyContent';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import Post from '../Posts/Post';
 import SavedTapServer from './SavedTapServer';
-import Comments from '../Comments/Comments';
+import Comments from '../../../Comments/Comments';
 
 /**
  * Saved taps

@@ -1,6 +1,6 @@
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { useContext } from 'react';
-import { UserContext } from '../../../../../../../contexts/UserProvider';
+import { UserContext } from '../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
 import { CommentsBoxHeader, Flair, TagPost } from './styles';
@@ -22,12 +22,12 @@ function CommentsHeader(props) {
     post, noheader,
   } = props;
   return (
-
     <CommentsBoxHeader noheader={noheader}>
-      <ChatBubbleOutlineOutlinedIcon />
+      <ChatBubbleOutlineOutlinedIcon sx={{ marginRight: 1 }} />
       <CommentText
         variant="caption"
         hover="true"
+        onClick={() => { window.location.pathname = `./user/${username}`; }}
       >
         {username}
 
@@ -53,7 +53,13 @@ function CommentsHeader(props) {
             </Flair>
             )
           }
-      <CommentText variant="caption" coloring="black" hover="true" sx={{ fontWeight: 700 }}>
+      <CommentText
+        variant="caption"
+        coloring="black"
+        hover="true"
+        sx={{ fontWeight: 700 }}
+        onClick={() => { window.location.pathname = (post?.ownerType === 'User') ? `./user/${post?.owner?.name}` : `./Subreddit/${post?.owner?.name}`; }}
+      >
         {post?.ownerType === 'User' ? 'u/' : 'r/'}
         {post?.owner?.name}
         .
@@ -61,7 +67,7 @@ function CommentsHeader(props) {
       <CommentText variant="caption" coloring="#787c7e">
         Posted by
       </CommentText>
-      <CommentText variant="caption" coloring="#787c7e" hover="true">
+      <CommentText variant="caption" coloring="#787c7e" hover="true" onClick={() => { window.location.pathname = `./user/${post?.author?.name}`; }}>
         u/
         {post?.author?.name}
       </CommentText>

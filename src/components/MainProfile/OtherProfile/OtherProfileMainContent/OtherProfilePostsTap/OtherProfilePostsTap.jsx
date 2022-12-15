@@ -1,10 +1,16 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import { useEffect, useState, useMemo } from 'react';
 import { postsCommentsServer } from '../../../profileServer';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import { WideBox } from '../styles';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
 import Post from '../OtherProfilePosts/OtherProfilePost';
+
+function useQuery() {
+  const { search } = useLocation();
+
+  return useMemo(() => new URLSearchParams(search), [search]);
+}
 
 /**
  * posts tap in my profile
@@ -14,14 +20,16 @@ import Post from '../OtherProfilePosts/OtherProfilePost';
  */
 function OtherProfilePostsTap() {
   const { subTitle, username } = useParams();
-  const [posts] = postsCommentsServer(username, 'posts');
+  const query = useQuery();
+  const sort = query.get('sort');
+  const [posts] = postsCommentsServer(username, 'posts', sort);
   const [isContent, setIsContent] = useState(false);
 
   // check if the page have any content posts to show
   useEffect(() => {
+    console.log(posts);
     if (posts?.length > 0) { setIsContent(true); } else { setIsContent(false); }
-    console.log(isContent);
-  }, [username, posts, isContent]);
+  }, [username, posts]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
@@ -30,11 +38,7 @@ function OtherProfilePostsTap() {
       <Filter subTitle2={`${subTitle}/`} />
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
-          && (
-          <>
-            { posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} />))}
-          </>
-          )}
+          && posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} />))}
 
     </WideBox>
   );

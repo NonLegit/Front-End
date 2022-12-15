@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import Comments from '../Comments/Comments';
+import Comments from '../../../../Comments/Comments';
 import PostFooter from './PostFooter/PostFooter';
 import PostHeader from './PostHeader/PostHeader';
 import PostSide from './PostSide/PostSide';
@@ -74,7 +74,7 @@ function Posts(props) {
         </PostContentBox>
       </PostsQueueBox>
       {post?.comments
-        && <Comments comment={post} noheader={condition} />}
+        && <Comments entity={post} noheader={condition} profile overview="true" />}
     </>
   );
 }

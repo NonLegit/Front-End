@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import renderText from '../../../../../utils/renderText';
 import { WideBox } from '../styles';
-import EmptyContent from '../EmptyContent/EmptyContent';
+import EmptyContent from '../../../EmptyContent/EmptyContent';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import Post from '../Posts/Post';
 import postsFilteredTapServer from './postsFilteredTapServer';

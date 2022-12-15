@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
+import Comments from '../../../../Comments/Comments';
 import OtherProfilePostFooter from './OtherProfilePostFooter/OtherProfilePostFooter';
 import OtherProfilePostHeader from './OtherProfilePostHeader/OtherProfilePostHeader';
 import OtherProfilePostSide from './OtherProfilePostSide/OtherProfilePostSide';
-import OtherProfileComments from '../OtherProfileComments/OtherProfileComments';
 
 import {
   Flair,
@@ -69,7 +69,7 @@ function OtherProfilePosts(props) {
         </PostContentBox>
       </PostsQueueBox>
       {post?.comments
-        && <OtherProfileComments comment={post} noheader={condition} />}
+        && <Comments entity={post} noheader={condition} profile={false} overview="true" />}
 
     </>
   );

@@ -1,8 +1,9 @@
 import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import CommunitiesProvider from '../../../../contexts/CommunitiesModeratorContext';
+import CommentsTap from '../../CommentsTap/CommentsTap';
 import CommunitiesSubscriberProvider from '../../../../contexts/CommunitiesSubscriberContext';
 import UserProvider from '../../../../contexts/UserProvider';
-import OtherProfileCommentsTap from './OtherProfileCommentsTap/OtherProfileCommentsTap';
 import OtherProfileContent from './OtherProfileContent/OtherProfileContent';
 import OtherProfilePostsTap from './OtherProfilePostsTap/OtherProfilePostsTap';
 import OtherProfileSidebar from './OtherProfileSidebar/OtherProfileSidebar';
@@ -22,7 +23,7 @@ const renderSwitch = (param) => {
   }
   if (param === 'comments') {
     return (
-      <OtherProfileCommentsTap />
+      <CommentsTap profile={false} />
     );
   }
   return (
@@ -45,10 +46,12 @@ function OtherProfileMainContent() {
     <Box>
       <UserProvider name={username}>
         <CommunitiesSubscriberProvider>
-          <ProfilePage>
-            {renderSwitch(subTitle)}
-            <OtherProfileSidebar />
-          </ProfilePage>
+          <CommunitiesProvider>
+            <ProfilePage>
+              {renderSwitch(subTitle)}
+              <OtherProfileSidebar />
+            </ProfilePage>
+          </CommunitiesProvider>
         </CommunitiesSubscriberProvider>
       </UserProvider>
     </Box>

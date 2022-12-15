@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import RedditButton from '../../../../../../RedditButton/RedditButton';
+import RedditButton from '../../../RedditButton/RedditButton';
 
-export const CommentsBoxHeader = styled(Box)(({ theme }) => ({
+export const CommentsBoxHeader = styled(Box)(({ theme, noheader }) => ({
   width: '100%',
   minHeight: 38,
   display: 'flex',
@@ -13,6 +13,9 @@ export const CommentsBoxHeader = styled(Box)(({ theme }) => ({
   '&:hover': {
     outline: '1px solid #898989',
   },
+  ...((noheader === 'false') && {
+    display: 'none',
+  }),
 }));
 
 export const Flair = styled(RedditButton)(({ backgroundcolor, flaircolor }) => ({

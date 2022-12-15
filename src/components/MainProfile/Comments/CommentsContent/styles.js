@@ -1,27 +1,32 @@
-import { Box, Button, IconButton } from '@mui/material';
+import {
+  Box, Button, Divider, IconButton, Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const CommentsBoxContent = styled(Box)(() => ({
   width: '100%',
-  // height: 90,
   display: 'flex',
   alignItems: 'stretch',
-  // alignItems: 'center',
   paddingLeft: 20,
   padding: '8px 8px 8px 16px',
   verticalAlign: 'baseline',
 
-  // justifyContent: 'center',
   '&:hover': {
-    border: '1px solid #898989',
+    outline: '1px solid #898989',
+
   },
 }));
 
-export const CommentsBoxBlue = styled(Box)(({ theme }) => ({
-  // backgroundColor: '#0079d30d',
+export const CommentsBoxBlue = styled(Box)(({ theme, overview }) => ({
   [theme.breakpoints.between('0', '950')]: {
     width: '100%',
   },
+  ...((overview === 'true') && {
+    width: 595,
+    height: 77,
+    backgroundColor: '#0079d30d',
+    padding: '4px 4px',
+  }),
 }));
 
 export const CommentsButton = styled(Button)(({ theme }) => ({
@@ -40,10 +45,17 @@ export const DashedLine = styled(Box)(() => ({
   verticalAlign: 'baseline',
 }));
 
-export const MoreList = styled(IconButton)(() => ({
+export const MoreList = styled(IconButton)(({ responsive3icons, theme }) => ({
+  borderRadius: 5,
+  height: 25,
   '&:hover': {
-    backgroundColor: 'transparent',
+    backgroundColor: '#eee',
   },
+  ...((responsive3icons) && {
+    [theme.breakpoints.between('0', '540')]: {
+      display: 'none',
+    },
+  }),
 }));
 
 export const SelectBox = styled(Box)(({ theme }) => ({
@@ -76,5 +88,30 @@ export const SelectItem = styled(Button)(({ theme, condition }) => ({
   textTransform: 'none',
   ...((condition === 'true') && {
     color: theme.palette.primary.main,
+  }),
+}));
+
+export const FooterText = styled(Typography)(() => ({
+  marginLeft: 5,
+  display: 'flex',
+  alignItems: 'center',
+  fontWeight: 700,
+}));
+
+export const ModList = styled(Box)(({ responsive3icons, theme }) => ({
+
+  display: 'none',
+  ...((responsive3icons) && {
+    [theme.breakpoints.between('0', '540')]: {
+      display: 'block',
+    },
+  }),
+}));
+
+export const ResDivider = styled(Divider)(({ responsive3icons, theme }) => ({
+  ...((responsive3icons) && {
+    [theme.breakpoints.between('0', '540')]: {
+      display: 'none',
+    },
   }),
 }));
