@@ -1,0 +1,28 @@
+{
+  "followers": [
+    {
+      "_id": "ahmed",
+      "userName": "ahmed",
+      "profilePicture": "https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&v=enabled&s=8b766d157e1520808577a5260fd5e5876982b9cb",
+      "isFollowed": "false",
+      "postKarma": 5,
+      "commentKarma": 5
+    },
+    {
+      "_id": "ahmed",
+      "userName": "ahmed",
+      "profilePicture": "https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&v=enabled&s=8b766d157e1520808577a5260fd5e5876982b9cb",
+      "isFollowed": "true",
+      "postKarma": 5,
+      "commentKarma": 5
+    },
+    {
+      "_id": "ahmed",
+      "userName": "ahmed",
+      "profilePicture": "https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&v=enabled&s=8b766d157e1520808577a5260fd5e5876982b9cb",
+      "isFollowed": "false",
+      "postKarma": 5,
+      "commentKarma": 5
+    }
+  ]
+}

@@ -55,7 +55,7 @@ function CreatePostInHome(props) {
       </Link>
       <Link
         to={subredditName ? `/submit/r/${subredditName}` : '/submit'}
-        onClick={() => handleClick(2)}
+        onClick={() => handleClick(3)}
       >
         <CustomIconButton color="third">
           <AttachFileIcon sx={{ transform: 'rotate(45deg)' }} />

@@ -1,0 +1,161 @@
+{
+  "status": "success",
+  "posts": [
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "string"
+      },
+      "ownerType": "Subreddit",
+      "owner": {
+        "_id": "string",
+        "name": "string",
+        "icon": "string"
+      },
+      "title": "string",
+      "text": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "_id": "string",
+        "text": "string",
+        "backgroundColor": "string",
+        "textColor": "string"
+      },
+      "flairText": "string",
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": ["string"],
+      "video": "string",
+      "sortOnHot": 0,
+      "comments": [
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        }
+      ]
+    },
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "string"
+      },
+      "ownerType": "Subreddit",
+      "owner": {
+        "_id": "string",
+        "name": "string",
+        "icon": "string"
+      },
+      "title": "string",
+      "text": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "_id": "string",
+        "text": "string",
+        "backgroundColor": "string",
+        "textColor": "string"
+      },
+      "flairText": "string",
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": ["string"],
+      "video": "string",
+      "sortOnHot": 0,
+      "comments": [
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        },
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        },
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        }
+      ]
+    }
+  ]
+}

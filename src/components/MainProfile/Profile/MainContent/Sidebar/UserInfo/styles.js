@@ -42,6 +42,7 @@ export const WideButton = styled(Button)(() => ({
   boxShadow: 'none',
   width: '100%',
   marginTop: 5,
+  marginBottom: 5,
   height: 32,
   textTransform: 'none',
   '&:hover': {

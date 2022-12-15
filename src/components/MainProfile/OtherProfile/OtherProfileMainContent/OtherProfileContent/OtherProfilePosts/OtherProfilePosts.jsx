@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import OtherProfilePostFooter from './OtherProfilePostFooter/OtherProfilePostFooter';
 import OtherProfilePostHeader from './OtherProfilePostHeader/OtherProfilePostHeader';
 import OtherProfilePostSide from './OtherProfilePostSide/OtherProfilePostSide';
+import OtherProfileComments from '../OtherProfileComments/OtherProfileComments';
 
 import {
   Flair,
@@ -21,23 +22,24 @@ import {
  * @returns {React.Component} OtherProfilePosts
  */
 function OtherProfilePosts(props) {
-  const { post } = props;
+  const { post, condition } = props;
   return (
-    <PostsQueueBox>
-      <OtherProfilePostSide points={post?.votes} postVoteStatus={post?.postVoteStatus} />
-      <PostContentBox>
-        <Box sx={{ marginLeft: 1 }}>
-          <OtherProfilePostHeader
-            type={post?.ownerType}
-            subReddit={post?.owner?.name}
-            icon={post?.owner?.icon}
-            isSubReddit={post?.ownerType === 'Subreddit'}
-            nameUser={post?.author?.name}
-            Time={post?.createdAt}
-          />
-          <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-            <TitlePost variant="h6">{post?.title}</TitlePost>
-            {
+    <>
+      {' '}
+      <PostsQueueBox condition={condition}>
+        <OtherProfilePostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
+        <PostContentBox>
+          <Box sx={{ marginLeft: 1 }}>
+            <OtherProfilePostHeader
+              type={post?.ownerType}
+              subReddit={post?.owner?.name}
+              icon={post?.owner?.icon}
+              nameUser={post?.author?.name}
+              Time={post?.createdAt}
+            />
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+              <TitlePost variant="h6">{post?.title}</TitlePost>
+              {
             post?.flairId?.text
             && (
             <Flair
@@ -50,15 +52,26 @@ function OtherProfilePosts(props) {
             )
           }
 
+            </Box>
+            <ParagraphBox>
+              <ParagraphWhite />
+              <ParagraphPost
+                data-testid="post-body"
+                dangerouslySetInnerHTML={{ __html: post?.text }}
+              />
+            </ParagraphBox>
+            <OtherProfilePostFooter
+              postid={post?._id}
+              subTitle={post?.ownerType}
+              numComments={post?.commentCount}
+            />
           </Box>
-          <ParagraphBox>
-            <ParagraphWhite />
-            <ParagraphPost data-testid="post-body" variant="body2">{post?.text}</ParagraphPost>
-          </ParagraphBox>
-          <OtherProfilePostFooter subTitle={post?.ownerType} numComments={post?.commentCount} />
-        </Box>
-      </PostContentBox>
-    </PostsQueueBox>
+        </PostContentBox>
+      </PostsQueueBox>
+      {post?.comments
+        && <OtherProfileComments comment={post} noheader={condition} />}
+
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { postsTapServer } from '../../../profileServer';
+import { postsCommentsServer } from '../../../profileServer';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import { WideBox } from '../styles';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
@@ -14,13 +14,14 @@ import Post from '../OtherProfilePosts/OtherProfilePost';
  */
 function OtherProfilePostsTap() {
   const { subTitle, username } = useParams();
-  const [posts] = postsTapServer(username);
+  const [posts] = postsCommentsServer(username, 'posts');
   const [isContent, setIsContent] = useState(false);
 
   // check if the page have any content posts to show
   useEffect(() => {
     if (posts?.length > 0) { setIsContent(true); }
-  }, [username, posts]);
+    console.log(isContent);
+  }, [username, posts, isContent]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;

@@ -2,14 +2,19 @@ import { Tooltip } from '@mui/material';
 import { styled } from '@mui/system';
 import RedditButton from '../../../../RedditButton/RedditButton';
 
-export const OptionButton = styled(RedditButton)(() => ({
-  padding: '2px 16px',
+export const OptionButton = styled(RedditButton)(({ flair }) => ({
+  padding: `${flair ? 0 : 2}px 16px`,
   fontSize: 14,
   fontWeight: 'bold',
   '&.Mui-disabled': {
     cursor: 'not-allowed',
   },
-
+  color: flair?.textColor,
+  backgroundColor: flair?.backgroundColor,
+  '&:hover': {
+    color: flair?.textColor,
+    backgroundColor: flair?.backgroundColor,
+  },
 }));
 
 export const SpoilerButton = styled(RedditButton)(({ spoiler }) => ({

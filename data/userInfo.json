@@ -20,7 +20,8 @@
     "createdAt": "2022-10-22-06-12",
     "description": " info",
     "isFollowed": false,
-    "nsfw":true,
+    "isBlocked": true,
+    "nsfw":false,
     "socialLinks": [
       {
         "social": {
