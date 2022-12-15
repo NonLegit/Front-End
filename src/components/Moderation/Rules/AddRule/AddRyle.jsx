@@ -82,9 +82,9 @@ export default function AddRule(props) {
     const description = document.getElementById('description').value;
     console.log(title, defaultName, description);
     if (edit) {
-      EditRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
+      EditRule(`subreddits/${subReddit}/rules/${title}`, defaultName, description, type);
     } else {
-      PostRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
+      PostRule(`subreddits/${subReddit}/rules/${title}`, defaultName, description, type);
     }
     handleClose();
   };
