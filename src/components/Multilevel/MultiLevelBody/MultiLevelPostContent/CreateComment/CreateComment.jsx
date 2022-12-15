@@ -25,7 +25,7 @@ import { saveComment } from './createCommentServer';
 
 function CreateComment() {
   // Context
-  let { post } = usePostContext();
+  const { post } = usePostContext();
 
   // States
   const [text, setText] = useState(EditorState.createEmpty());
@@ -45,7 +45,6 @@ function CreateComment() {
       // Need refresh post Component =>to pop comment
       // UpdatePost();
       // Refetch post
-      post = usePostContext();
     }
   };
 
