@@ -29,10 +29,10 @@ export default function NewFlair(props) {
   };
 
   const SendData = () => {
-    const text = document.getElementById('text');
-    const backgroundColor = document.getElementById('bgColor');
+    const text = document.getElementById('text').value;
+    const backgroundColor = document.getElementById('bgColor').value;
     // const cssClass = document.getElementById('css');
-    const textColor = document.getElementById('textColor');
+    const textColor = document.getElementById('textColor').value;
     console.log(text, backgroundColor, textColor);
     PostFlair(`subreddits/${subReddit}/flair`, subReddit, text, backgroundColor, textColor);
     save();
