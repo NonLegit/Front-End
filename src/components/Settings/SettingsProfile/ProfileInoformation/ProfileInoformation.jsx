@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 
+import { useAlert } from 'react-alert';
 import {
   ContentSubHeader, ContentHeader, Content, Text,
 } from '../../styles';
@@ -10,7 +11,6 @@ import { SettingsContext } from '../../../../contexts/SettingsProvider';
 
 import { settingsPost } from '../../settingsServer';
 import SocialLinksSettings from './SocialLinksSettings/SocialLinksSettings';
-
 /**
  * - ProfileInoformation
  * - Edit Display name  and About people in Seetings Page
@@ -24,6 +24,7 @@ function ProfileInoformation() {
   const {
     prefs, setPrefs,
   } = useContext(SettingsContext);
+  const alert = useAlert();
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   useEffect(() => { console.log(prefs); }, [prefs]);
@@ -35,13 +36,17 @@ function ProfileInoformation() {
 
   const handleDisplayName = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name }));
-    const message = await settingsPost({ ...prefs, displayName: name });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, displayName: name });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
   const handleInfo = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, description: about }));
-    const message = await settingsPost({ ...prefs, description: about });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, description: about });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
 
   return (

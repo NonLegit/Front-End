@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import {
   ContentSubHeader, ContentHeader, Content, Text, SubHeader,
 } from '../../styles';
 import { ProfilePic, AddPhoto } from './styles';
 import { SettingsContext } from '../../../../contexts/SettingsProvider';
-import { image } from '../../settingsServer';
+import { imagePost } from '../../settingsServer';
 
 /**
  * - ProfileImage
@@ -18,19 +18,27 @@ function ProfileImage() {
   const {
     prefs, setPrefs,
   } = useContext(SettingsContext);
-  const [formData, setFormData] = useState();
-
   useEffect(() => {
-    console.log('ss', formData);
-  }, [formData]);
+    console.log(prefs);
+  }, [prefs]);
   const onFileChange = async (event, type) => {
     const file = event.target.files[0];
+    console.log(event.target.files[0]);
+    if (event.target && event.target.files[0]) {
+      const formData = new FormData();
+
+      formData.append('type', type);
+      formData.append('file', event.target.files[0]);
+      console.log(formData);
+      imagePost(formData);
+    }
     const reader = new FileReader();
     reader.onload = () => {
+      console.log('sa');
       if (reader.readyState === 2) {
-        if (file && (file.type.match('image/png') || file.type.match('image/jpg') || file.type.match('image/jpeg'))) {
+        console.log('sa');
+        if (file) {
           reader.readAsDataURL(event.target.files[0]);
-          image(reader.result, type);
 
           if (type === 'profileBackground') {
             setPrefs((oldPrefs) => ({ ...oldPrefs, profileBackground: reader.result }));
@@ -38,10 +46,6 @@ function ProfileImage() {
             setPrefs((oldPrefs) => ({ ...oldPrefs, profilePicture: reader.result }));
           }
         }
-        setFormData({
-          type,
-          file: reader.result,
-        });
       }
     };
   };

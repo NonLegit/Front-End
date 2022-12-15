@@ -8,6 +8,7 @@
     "/users/signup": "/signup",
     "/users/username_available?userName=:username": "/unique",
     "/users/me/": "/me",
+    "/users/images/": "/me",
     "/users/google":"/google",
     "/users/facebook":"/facebook",
     "/users/login":"/login",
@@ -37,6 +38,10 @@
     "/users/social_links": "/socialLinks",
     "/users/social_links/:id": "/postSocialLinks",
     "/users/image":"/userImage",
+    "/users/blocked":"/listBlock",
+    "/users/notifications/:notificationId/mark_as_read":"/markAsRead",
+    "/users/notifications/mark_as_read":"/markAsRead",
+    "/users/notifications/:notificationId/hide":"/hideNotification",
     "/users/:name/follow":"/follow",
     "/users/:name/unfollow":"/follow",
     "/users/:name/block_user":"/block",
@@ -44,17 +49,20 @@
     "/users/followers":"/followers",
     "/posts/:postId/:action":"/postAction",
     "/posts/:postId/actions/:action":"/actionOnPost",
+    "/subreddits/:subreddit/flair":"/subredditFlairs",
     "/getpost/:postID":"/getpost",
     "/posts/:postID":"/getpost",
     "/comments":"/createcomment",
     "/comments/comment_tree/:postID":"/postcomments",
     "/comments/more_children":"/morecomments",
-    "/subreddits/:subreddit/flairs":"/subredditFlairs",
     "/posts/:postId/save":"/save",
     "/posts/:postId/unsave":"/unsave",
     "/posts/:postId/hide":"/hide",
     "/posts/:postId/unhide":"/hide",
     "/posts/:postId/vote":"/vote",
     "/posts/:postId/images":"/addImagesToPost",
+
     "subreddits/:Name/flairs/:id":"/UpdateFlair"
+
+
 }

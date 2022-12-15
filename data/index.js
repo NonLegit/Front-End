@@ -34,6 +34,8 @@ const token = require('./token.json');
 const userInfo = require('./userInfo.json');
 const socialLinks = require('./socialLinks.json');
 const postSocialLinks = require('./postSocialLinks.json');
+const hideNotification = require('./hideNotification.json');
+const markAsRead = require('./markAsRead.json');
 const follow = require('./follow.json');
 const block = require('./block.json');
 const followers = require('./followers.json');
@@ -92,6 +94,8 @@ module.exports = () => ({
   socialLinks,
   postSocialLinks,
   userImage,
+  hideNotification,
+  markAsRead,
   follow,
   block,
   followers,

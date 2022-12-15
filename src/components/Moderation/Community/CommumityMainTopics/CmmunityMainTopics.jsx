@@ -16,7 +16,7 @@ import AddList from './CommunityTopics/CommunityTopics';
  */
 function CommunityMianTopic(props) {
   const {
-    topics, Name, primaryTopic,
+    topics, Name, primaryTopic, setTopics, setPrimaryTopic,
   } = props;
   const [more, setMore] = useState(false);
   const [listOfTopics, setListOfTopics] = useState(false);
@@ -42,17 +42,12 @@ function CommunityMianTopic(props) {
     // setSelection('Add a Primary Topic');
   };
 
-  const sendData = (val) => {
-  //  patchData(Name, { primaryTopic: val }); // fetch api
-    console.log(val);
-  };
-
   // handel on select item
   const ListSelected = (e) => {
     setMore(!more);
     setSelection(e.target.textContent);
     setListOfTopics(true);
-    sendData(e.target.textContent);
+    setPrimaryTopic(e.target.textContent);
   };
 
   // close the list in  click away
@@ -100,7 +95,7 @@ function CommunityMianTopic(props) {
           </Lists>
         </ClickAwayListener>
       )}
-      {listOfTopics && <AddList topics={topics} Name={Name} listOfTopics={listOfTopics} />}
+      {listOfTopics && <AddList topics={topics} Name={Name} listOfTopics={listOfTopics} setTopics={setTopics} />}
     </>
   );
 }

@@ -1,6 +1,5 @@
-import NotificationsBody from '../components/Notifications/NotificationsBody/NotificationsBody';
-import NotificationsHeader from '../components/Notifications/NotificationsHeader/NotificationsHeader';
-import { ContinerNotifications } from '../components/Notifications/NotificationsHeader/styles';
+import MainNotifications from '../components/Notifications/MainNotifications';
+import { ContinerNotifications } from '../components/Notifications/styles';
 
 /**
  * Notifications page
@@ -12,8 +11,8 @@ import { ContinerNotifications } from '../components/Notifications/Notifications
 function Notifications() {
   return (
     <ContinerNotifications data-testid="notifications">
-      <NotificationsHeader />
-      <NotificationsBody />
+      <MainNotifications />
+
     </ContinerNotifications>
   );
 }

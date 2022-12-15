@@ -9,7 +9,7 @@ import MultiLevelHeader from './MultiLevelHeader/MultiLevelHeader';
 import MultiLevelSideBar from './MultiLevelSideBar/MultiLevelSideBar';
 
 // Styles
-import { MultiLevelContentConatiner, MultiLevelConatiner } from './styles';
+import { MultiLevelContentConatiner, MultiLevelConatiner } from './Styles';
 
 // Context
 import PostContextProvider from '../../contexts/PostContext';

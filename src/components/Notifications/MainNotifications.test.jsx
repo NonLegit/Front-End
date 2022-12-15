@@ -5,8 +5,8 @@ import '@testing-library/jest-dom';
 import { createMemoryHistory } from 'history';
 import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
-import App from '../../../App';
-import NotificationsHeader from './NotificationsHeader';
+import App from '../../App';
+import MainNotifications from './MainNotifications';
 
 // render notifications page
 it('should render notifications page', () => {
@@ -33,6 +33,6 @@ it('routes to message page by click message button', async () => {
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<Router><NotificationsHeader /></Router>).toJSON();
+  const tree = renderer.create(<Router><MainNotifications /></Router>).toJSON();
   expect(tree).toMatchSnapshot();
 });

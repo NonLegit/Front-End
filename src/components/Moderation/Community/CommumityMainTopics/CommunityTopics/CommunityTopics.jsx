@@ -25,7 +25,7 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
    */
 function AddList(props) {
   const {
-    topics,
+    topics, setTopics,
   } = props;
   const [showList, setShowList] = useState(false);
   // eslint-disable-next-line prefer-const
@@ -75,18 +75,8 @@ function AddList(props) {
   };
   const handleClickAway = () => {
     setShowList(false);
+    setTopics(tempString);
   };
-  //   const sendData = () => {
-  //     patchData(Name, { topics: tempString }); // fetch api
-  //   };
-  //   const decord = () => {
-  //     trueShaw();
-  //     setTempString(tags);
-  //     setTag(tags);
-  //     setShow(true);
-  //     trueShaw();
-  //     console.log(show);
-  //   };
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
 
