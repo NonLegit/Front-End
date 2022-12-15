@@ -9,8 +9,8 @@ export const editPost = (postID, bodyText, setPost) => {
     // 200
     if (response.status === 200) {
       console.log('Edited Sucessfully :)');
-      setPost(response.data.post);
-      console.log(response.data.post);
+      setPost(response.data.data);
+      console.log(response.data.data);
     }
   }).catch((error) => {
     console.log(error);
