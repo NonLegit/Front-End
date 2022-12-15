@@ -25,18 +25,18 @@ import { saveComment } from './createCommentServer';
 
 function CreateComment() {
   // Context
-  const { post } = usePostContext();
+  let { post } = usePostContext();
 
   // States
   const [text, setText] = useState(EditorState.createEmpty());
   // const [readyToSave, setReadyToSave] = useState(false);
 
   const handleCommentTextChange = (text) => {
-    console.log(convertToRaw(text.getCurrentContent()));
+    // console.log(convertToRaw(text.getCurrentContent()));
     setText(text);
   };
 
-  console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
+  // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
     if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
@@ -44,6 +44,8 @@ function CreateComment() {
 
       // Need refresh post Component =>to pop comment
       // UpdatePost();
+      // Refetch post
+      post = usePostContext();
     }
   };
 

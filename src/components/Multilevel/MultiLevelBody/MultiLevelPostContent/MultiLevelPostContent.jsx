@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 
 // MUI components
@@ -66,12 +65,13 @@ function MultiLevelPostContent(props) {
 
       {/* Title */}
       <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
-      {Edit ? <EditPost /> : <p>{post?.text}</p>}
+      {Edit ? <EditPost />
+        : <div dangerouslySetInnerHTML={{ __html: post?.text }} />}
       {/* Post Actions Bar */}
       {/* Post Insights */}
       {/* Post Statistics */}
       {/* Create Comment */}
-      {/* <CreateComment /> */}
+      <CreateComment />
     </MultiLevelContentConatiner>
   );
 }
