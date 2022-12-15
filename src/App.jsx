@@ -27,7 +27,7 @@ import SubReddit from './pages/SubReddit';
 import MainProfile from './components/MainProfile/MainProfile';
 import PostPage from './pages/PostPage';
 import theme from './styles/theme';
-import { Cover } from './components/SubReddit/style';
+import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
 
 function App() {
@@ -87,6 +87,12 @@ function App() {
                   }
                 />
                 <Route
+                  path="/register"
+                  element={
+                    <SignUpPage />
+                  }
+                />
+                <Route
                   path="/password"
                   element={
                     <ForgetPasswordPage />
@@ -119,13 +125,6 @@ function App() {
                 />
 
                 <Route
-                  path="/moderation"
-                  element={
-                    <Moderation />
-                  }
-                />
-
-                <Route
                   path="/submit"
                   element={
                     <CreatePost />
@@ -147,7 +146,7 @@ function App() {
                 />
 
                 <Route
-                  path="/SubReddit/:Name"
+                  path="/r/:Name"
                   element={
                     <SubReddit />
                   }
@@ -218,7 +217,7 @@ function App() {
                   }
                 >
                   <Route
-                    path="/r/:subReddit/about/:subTitle"
+                    path=":subTitle"
                     element={
                       <Moderation />
                     }
@@ -226,31 +225,47 @@ function App() {
                 </Route>
 
                 <Route
-                  path="/r/:Name"
-                  element={
+                  path="/r"
+                  element={(
                     <SubReddit />
-                  }
+                  )}
                 >
+
                   <Route
-                    path=""
+                    path=":Name"
                     element={
                       <Cover />
                     }
-                  />
-
-                  <Route
-                    path=":postClass"
-                    element={
-                      <SubReddit />
+                  >
+                    <Route
+                      path=":postClass"
+                      element={
+                        <Cover />
                     }
-                  />
+                    />
 
-                  <Route
-                    path="comments/:postID"
-                    element={
-                      <PostPage />
+                    {/* <Route
+                      path="/about"
+                      element={
+                        <Moderation />
                     }
-                  />
+                    >
+                      <Route
+                        path=":subTitle"
+                        element={
+                          <Moderation />
+                    }
+                      />
+                    </Route> */}
+
+                    <Route
+                      path="comments/:postID"
+                      element={
+                        <PostPage />
+                    }
+                    />
+                  </Route>
+
                 </Route>
 
               </Routes>
