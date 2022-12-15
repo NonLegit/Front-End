@@ -5,7 +5,7 @@
 /* eslint-disable import/no-cycle */
 import { createContext, useState, useEffect } from 'react';
 import { onForegroundNottification } from '../../../lib/firebase';
-import notificationsFetch, { notificationHide } from './notificationsServer';
+import notificationsFetch, { notificationHide } from '../notificationsServer';
 import NotificationCategories from './NotificationCategories/NotificationCategories';
 import
 {
@@ -24,11 +24,13 @@ export const CategoriesContext = createContext();
  * @return {React.Component} - Body of each Notification depandent it's type
  */
 
-function NotificationsBody() {
+function NotificationsBody({
+  setEarlier, setToday, earlier, today,
+}) {
   // earlier data
-  const [earlier, setEarlier] = useState([]);
-  // today data
-  const [today, setToday] = useState([]);
+  // const [earlier, setEarlier] = useState([]);
+  // // today data
+  // const [today, setToday] = useState([]);
   const [dataToday, dataEarlier] = notificationsFetch();
   //  anchor element
   const [anchorEl, setAnchorEl] = useState(null);
@@ -47,6 +49,7 @@ function NotificationsBody() {
   }, [dataEarlier, dataToday]);
   // function to set what notifiacation we select and it's type
   const handleClick = (event, id) => {
+    event.stopPropagation();
     console.log(id);
     console.log(event);
     setAnchorEl(event.currentTarget);
@@ -66,6 +69,7 @@ function NotificationsBody() {
   });
   // function to handel deleteing when click hide
   const handleClose = (event) => {
+    event.stopPropagation();
     const tabindex = event.currentTarget.getAttribute('tabindex');
     if (select !== null && tabindex === '0') {
       if (type === 'today') {

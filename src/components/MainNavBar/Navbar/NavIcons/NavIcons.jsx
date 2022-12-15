@@ -16,7 +16,7 @@ import {
   StyledTooltip, NotificationButton, NotificationContent, NotificationContanier,
   NotificationHeaderIcons, NotificationIcons, LinkTo, SeeAll,
 } from './styles';
-import notificationsFetch from '../../../Notifications/NotificationsBody/notificationsServer';
+import notificationsFetch from '../../../Notifications/notificationsServer';
 import NotificationCategories from '../../../Notifications/NotificationsBody/NotificationCategories/NotificationCategories';
 import { CategoriesContext } from '../../../Notifications/NotificationsBody/NotificationsBody';
 /**

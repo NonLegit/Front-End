@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import checkTimeNow from '../../../utils/checkTimeNow';
-import axios from '../../../services/instance';
-import { redirectLogin } from '../../../utils/Redirect';
+import checkTimeNow from '../../utils/checkTimeNow';
+import axios from '../../services/instance';
+import { redirectLogin } from '../../utils/Redirect';
 /**
  * - Notifications Fetch
  */

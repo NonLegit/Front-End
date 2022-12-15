@@ -7,7 +7,7 @@ import moment from 'moment/moment';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import { CategoriesContext } from '../NotificationsBody';
-import { notificationMarkRead } from '../notificationsServer';
+import { notificationMarkRead } from '../../notificationsServer';
 import {
   Notification, Options, MenuOptions, NotificationTime,
   NotificationBody, BodyHead, Body, ContainerHead, SeeMore,
