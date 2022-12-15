@@ -26,7 +26,7 @@ function CommentsList() {
 
   // State
   const [comments, setComments] = useState(null);
-  const [sortName, setSortName] = useState(undefined);
+  const [sortName, setSortName] = useState('new');
 
   // const [commentFetched] = getComments({ postID, depth: 9, limit: 20 });// 9=depth
 
@@ -74,7 +74,6 @@ function CommentsList() {
     commentsCount ? <NoComments />
       : (
         <MultilevelPostCommentsConatiner>
-          <h1>{sortName}</h1>
           <Divider />
           <SortComments sortName={sortName} setSortName={setSortName} />
           {/* Loop over   All array of comments on the post */}

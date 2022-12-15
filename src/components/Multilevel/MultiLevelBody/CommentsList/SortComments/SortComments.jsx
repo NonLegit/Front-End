@@ -7,13 +7,18 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import {
   Box,
 } from '@mui/material';
+import { useEffect } from 'react';
 import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './styles';
 
 function SortComments(props) {
-  const { SortName, setSortName } = props;
+  const { sortName, setSortName } = props;
   const [Sort, setSort] = React.useState(false);
+
+  useEffect(() => {
+    console.log('FROMMMM', sortName);
+  }, []);
 
   // show and hide the sort list
   const showSort = () => {
@@ -32,7 +37,10 @@ function SortComments(props) {
           size="small"
           onClick={showSort}
         >
-          {SortName}
+          Sort By:
+          {' '}
+          {sortName}
+          <h1>cvvv</h1>
           {!Sort && (
           <ExpandMoreIcon
             sx={{
@@ -51,7 +59,7 @@ function SortComments(props) {
             }}
             onClick={showSort}
           >
-            {SortName}
+            {sortName}
             <MoreHorizOutlinedIcon />
           </ExpandLessIcon>
           )}
@@ -65,25 +73,25 @@ function SortComments(props) {
         </ListItemButton> */}
 
         <ListItemButton onClick={() => { setSortName('Top'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Top').toString()}>
+          <ShowMoreListItemText Condition={(sortName === 'Top').toString()}>
             Top
           </ShowMoreListItemText>
         </ListItemButton>
 
         <ListItemButton onClick={() => { setSortName('New'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'New').toString()}>
+          <ShowMoreListItemText Condition={(sortName === 'New').toString()}>
             New
           </ShowMoreListItemText>
         </ListItemButton>
 
         <ListItemButton onClick={() => { setSortName('Best'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Best').toString()}>
+          <ShowMoreListItemText Condition={(sortName === 'Best').toString()}>
             Best
           </ShowMoreListItemText>
         </ListItemButton>
 
         <ListItemButton onClick={() => { setSortName('Old'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Old').toString()}>
+          <ShowMoreListItemText Condition={(sortName === 'Old').toString()}>
             Old
           </ShowMoreListItemText>
         </ListItemButton>
