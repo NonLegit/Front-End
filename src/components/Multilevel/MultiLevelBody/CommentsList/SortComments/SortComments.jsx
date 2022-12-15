@@ -40,7 +40,6 @@ function SortComments(props) {
           Sort By:
           {' '}
           {sortName}
-          <h1>cvvv</h1>
           {!Sort && (
           <ExpandMoreIcon
             sx={{
