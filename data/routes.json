@@ -45,6 +45,11 @@
     "/posts/:postId/:action":"/postAction",
     "/posts/:postId":"/deleteAction",
     "/posts/:postId/actions/:action":"/actionOnPost",
+    "/getpost/:postID":"/getpost",
+    "/posts/:postID":"/editpost",
+    "/comments":"/createcomment",
+    "/comments/comment_tree/:postID":"/postcomments",
+    "/comments/more_children":"/morecomments",
     "/subreddits/:subreddit/flairs":"/subredditFlairs",
     "/posts/:postId/save":"/save",
     "/posts/:postId/unsave":"/unsave",
@@ -53,5 +58,4 @@
     "/posts/:postId/vote":"/vote",
     "/posts/:postId/images":"/addImagesToPost",
     "subreddits/:Name/flairs/:id":"/UpdateFlair"
-
 }

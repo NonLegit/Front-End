@@ -14,7 +14,7 @@ import UserLogin from '../../../authentication';
  */
 function SideBar(props) {
   const {
-    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members,
+    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members, postCard,
   } = props;
   const [moderate, setModerate] = useState(false);
   const finalArray = moderatoesName?.map((obj) => obj.userName);
@@ -41,9 +41,12 @@ function SideBar(props) {
         <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} />
       </CommunityContainer>
       )}
+      {!postCard
+      && (
       <CommunityContainer>
         <Flirt />
       </CommunityContainer>
+      )}
       <CommunityContainer sx={{ padding: '0px 12px' }}>
         <Moderators moderatoesName={finalArray} />
       </CommunityContainer>

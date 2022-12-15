@@ -40,6 +40,11 @@ const followers = require('./followers.json');
 const deleteAction = require('./deleteAction.json');
 const actionOnPost = require('./actionOnPost.json');
 const commentsTap = require('./commentsTap.json');
+const getPost = require('./getpost.json');
+const editPost = require('./editpost.json');
+const createcomment = require('./createcomment.json');
+const postComments = require('./postcomments.json');
+const moreComments = require('./moreComments.json');
 const save = require('./save.json');
 const unsave = require('./unsave.json');
 const hide = require('./hide.json');
@@ -94,6 +99,11 @@ module.exports = () => ({
   deleteAction,
   actionOnPost,
   commentsTap,
+  getPost,
+  editPost,
+  createcomment,
+  postComments,
+  moreComments,
   subredditFlairs,
   save,
   unsave,

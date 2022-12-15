@@ -1,9 +1,9 @@
 import { Box, IconButton } from '@mui/material';
 import { styled } from '@mui/system';
 
-export const Voting = styled(Box)(({ flexDirection }) => ({
+export const Voting = styled(Box)(({ flexDirection, viewPost }) => ({
   padding: (flexDirection === 'column' ? '8px 4px' : 0),
-  backgroundColor: (flexDirection === 'column' ? '#F8F9FA' : '#fff'),
+  backgroundColor: !viewPost ? (flexDirection === 'column' ? '#F8F9FA' : '#fff') : '#fff',
   display: 'flex',
   borderRadius: '3px 0 0 3px',
   alignItems: 'center',

@@ -1,0 +1,28 @@
+{
+    "status": "sucess",
+    "post": {
+      "_id": "string",
+      "author": "string",
+      "owner": "string",
+      "title": "string",
+      "kind": "link",
+      "text": "New Edited Text :)",
+      "url": "string",
+      "images": [
+        "string"
+      ],
+      "video": "string",
+      "votes": 0,
+      "shareCount": 0,
+      "views": 0,
+      "commentCount": 0,
+      "createdAt": "2017-07-21T17:32:28Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": "string",
+      "flairText": "string"
+    }
+  }
