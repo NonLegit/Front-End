@@ -43,6 +43,8 @@ export const getComments = (props, setComments) => {
 };
 
 export const getMoreChildren = (children, comments, setComments) => {
+  console.log('children sent to DB ', children);
+  console.log('Depth sent to DB ', comments);
   axios.get(
     '/comments/more_children',
     {
