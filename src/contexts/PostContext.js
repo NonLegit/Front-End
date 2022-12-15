@@ -16,6 +16,7 @@ function PostContextProvider(props) {
   // UseEffect
   useEffect(() => {
     getPost(postID, setPost);
+    console.log('PostContext.js', postID);
   }, []);
 
   const value = useMemo(() => ({ post, setPost }), [post, setPost]);

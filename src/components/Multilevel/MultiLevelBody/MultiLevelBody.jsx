@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Components
 import Reactions from '../../Post/Reactions/Reactions';
 import CommentsList from './CommentsList/CommentsList';
@@ -21,7 +22,6 @@ function MultiLevelBody({ Edit }) {
       <PostContainer>
         {/* Reactions */}
         <Reactions
-          viewPost
           flexDirection="column"
           votes={post?.votes}
           postVoteStatus={post?.postVoteStatus}
