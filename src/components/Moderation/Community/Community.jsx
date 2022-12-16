@@ -97,7 +97,7 @@ export default function Community() {
       topics,
       primaryTopic,
       name,
-      description: { disc },
+      description: disc,
       nsfw,
       region,
       type,
@@ -121,7 +121,7 @@ export default function Community() {
                 </AboutSubString>
                 <InputName
                   type="text"
-                  defaultValue={name}
+                  defaultValue={subReddit}
                   onChange={check}
                   onInput={(e) => {
                   // eslint-disable-next-line radix

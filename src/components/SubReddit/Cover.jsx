@@ -44,7 +44,6 @@ function Header() {
   const [members, setMembers] = useState();
   const [exist, setExist] = useState(true);
   const [showPopUp, setShowPopUp] = useState(false);
-  const [name, setName] = useState();
   const [rules, setRules] = useState([]);
 
   const [nsfw, setNsfw] = useState();
@@ -82,7 +81,6 @@ function Header() {
     if (statusCode === 404) {
       setExist(false);
     }
-    setName(data?.name);
     setIcon(data?.icon);
     setRules(data?.rules);
     setDisc(data?.description);
@@ -131,7 +129,7 @@ function Header() {
 
   // subscribr or unsubscribe
   const sendData = (b) => {
-    PostJoin(`/subreddits/${name}/subscribe`, b);
+    PostJoin(`/subreddits/${Name}/subscribe`, b);
     // leave(Name, { isJoined: b });
   };
   // const leaveCommunity = (b) => {
