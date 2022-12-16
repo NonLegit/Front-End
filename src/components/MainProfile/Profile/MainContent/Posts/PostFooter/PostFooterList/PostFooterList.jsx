@@ -9,7 +9,7 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
-import { actionOnPost, deletePostComment, postReactionsServer } from '../../../../../profileServer';
+import { deletePostComment, postReactionsServer } from '../../../../../profileServer';
 
 /**
  * List items of post footer
@@ -24,10 +24,10 @@ function PostFooterList(props) {
     nsfw,
     spoiler,
     sendReplies,
+    handleNsfw,
+    handleSpoiler,
   } = props;
   const [saved, setSaved] = useState(isSaved);
-  const [isNsfw, setIsNsfw] = useState(nsfw);
-  const [isSpoiler, setIsSpoiler] = useState(spoiler);
   const [isSendReplies, setIsSendReplies] = useState(sendReplies);
 
   const handleSave = () => {
@@ -37,14 +37,7 @@ function PostFooterList(props) {
   const handleHide = () => {
     postReactionsServer(postid, 'hide', 1);
   };
-  const handleNsfw = () => {
-    actionOnPost(postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
-    setIsNsfw((prev) => !prev);
-  };
-  const handleSpoiler = () => {
-    actionOnPost(postid, isSpoiler ? 'unspoiler' : 'spoiler');
-    setIsSpoiler((prev) => !prev);
-  };
+
   const handleSendReplies = () => {
     setIsSendReplies((prev) => !prev);
   };
@@ -86,27 +79,27 @@ function PostFooterList(props) {
         Delete
       </SelectItem>
       <Divider />
-      {!isSpoiler ? (
-        <SelectItem onClick={() => { handleSpoiler(); }}>
+      {!spoiler ? (
+        <SelectItem onClick={handleSpoiler}>
           <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
           Mark As Spoiler
         </SelectItem>
       )
         : (
-          <SelectItem onClick={() => { handleSpoiler(); }}>
+          <SelectItem onClick={handleSpoiler}>
             <CheckBoxIcon sx={{ marginRight: 1 }} />
             Mark As Spoiler
           </SelectItem>
         )}
       <Divider />
-      {!isNsfw ? (
-        <SelectItem onClick={() => { handleNsfw(); }}>
+      {!nsfw ? (
+        <SelectItem onClick={handleNsfw}>
           <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
           Mark As NSFW
         </SelectItem>
       )
         : (
-          <SelectItem onClick={() => { handleNsfw(); }}>
+          <SelectItem onClick={handleNsfw}>
             <CheckBoxIcon sx={{ marginRight: 1 }} />
             Mark As NSFW
           </SelectItem>

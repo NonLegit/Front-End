@@ -113,7 +113,7 @@ export const AboutString = styled('h2')({
 });
 export const AddFlair = styled('div')(({ theme }) => ({
 
-  // minWidth: 400,
+  minWidth: 350,
   whiteSpace: 'nowrap',
   alignItems: 'center',
   backgroundColor: '#edeff1',
@@ -123,19 +123,14 @@ export const AddFlair = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
   left: 280,
   padding: '0 24px',
-  position: 'fixed',
   right: 0,
-  marginTop: 9,
+  marginTop: -19,
   Zindex: 3,
-  [theme.breakpoints.between('0', '1200')]: {
-    backgroundColor: 'transparent',
-
-  },
+  [theme.breakpoints.between('0', '1200')]: { marginTop: -19 },
 }));
 export const LeftAlighne = styled('div')(({ theme }) => ({
   [theme.breakpoints.between('1200', '5000')]: {
     marginLeft: 303,
-    paddingTop: 49,
     backgroundColor: '#dae0e6',
   },
 }));
@@ -150,7 +145,6 @@ export const Add = styled(Button)(({ condition, theme }) => ({
   height: 32,
   width: 106,
   fontWeight: 700,
-  position: 'absolute',
   boxShadow: 'none',
   right: 0,
   margin: '0 24px',
@@ -163,5 +157,5 @@ export const Add = styled(Button)(({ condition, theme }) => ({
     backgroundColor: 'transparent',
     border: '1px solid #848484',
   }),
-  [theme.breakpoints.between('0', '1200')]: { marginBottom: 30 },
+  [theme.breakpoints.between('0', '1200')]: { margin: 0 },
 }));

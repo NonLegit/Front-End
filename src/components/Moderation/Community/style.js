@@ -23,7 +23,6 @@ export const LeftAlighne = styled('div')(({ theme }) => ({
 }));
 
 export const AddFlair = styled('div')(() => ({
-  // minWidth: 400,
   whiteSpace: 'nowrap',
   alignItems: 'center',
   backgroundColor: '#edeff1',
@@ -34,8 +33,8 @@ export const AddFlair = styled('div')(() => ({
   left: 280,
   padding: '0 24px',
   right: 0,
-  marginTop: 9,
-  Zindex: 3,
+  marginTop: -16,
+
 }));
 export const Add = styled(Button)(({ condition }) => ({
   backgroundColor: '#0079d3',
@@ -45,10 +44,12 @@ export const Add = styled(Button)(({ condition }) => ({
   height: 32,
   width: 106,
   fontWeight: 700,
-  position: 'absolute',
   boxShadow: 'none',
   right: 0,
   margin: '0 24px',
+  Zindex: 3,
+  position: 'fixed',
+
   '&:hover': {
     backgroundColor: '#0079d3',
     color: 'white',
@@ -185,3 +186,38 @@ export const Warning = styled(Box)({
   verticalAlign: 'top',
   marginTop: -1,
 });
+export const NotFoundBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'absolute',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '80%',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+}));
+
+export const NotFountImage = styled(Box)(() => ({
+  backgroundColor: '#a8a8a8',
+  borderRadius: '100%',
+  height: 100,
+  width: 100,
+  marginBottom: 40,
+}));
+
+export const BackHomeButton = styled(Button)(() => ({
+  width: 200,
+  borderRadius: 30,
+  height: 30,
+  boxShadow: 'none',
+  marginLeft: 10,
+  marginRight: 10,
+  '&:hover': { boxShadow: 'none' },
+}));
+
+export const ImageWarning = styled('img')(() => ({
+  width: 240,
+  height: 128,
+  marginBottom: 30,
+}));

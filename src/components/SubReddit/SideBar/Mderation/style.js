@@ -1,7 +1,8 @@
 import {
-  Box, Button, Link, List, Tooltip, tooltipClasses,
+  Box, Button, List, Tooltip, tooltipClasses,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 export const AboutCountainer = styled('div')({
   fontSize: 10,
@@ -135,13 +136,16 @@ export const CreatPost = styled(Button)(({
   },
 }));
 
-export const Admin = styled(Box)({
+export const Admin = styled(Link)({
   display: 'flex',
   marginRight: 5,
   alignItems: 'center',
   '&:hover': {
     backgroundColor: '#e8e8e8',
+    color: 'black',
   },
+  color: 'black',
+  textDecoration: 'none',
 });
 
 export const New = styled(Box)({

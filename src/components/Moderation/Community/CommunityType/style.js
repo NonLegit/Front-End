@@ -60,5 +60,5 @@ export const SelectHeader = styled(DialogTitle)({
   display: 'flex',
   justifyContent: 'space-between',
   marginTop: 16,
-  padding: '0 0 16px',
+  padding: '0 0 17px 17px',
 });

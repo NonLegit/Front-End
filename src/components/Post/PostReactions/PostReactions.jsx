@@ -165,7 +165,8 @@ function PostReactions(props) {
             )}
             <ListItemButton onClick={() => {
               setEditPost(true);
-              navigate('/user/BasmaElhoseny/comments/koko');
+              // navigate(`/user/BasmaElhoseny/comments/koko`);
+              navigate(`/user/BasmaElhoseny/comments/${postId}`);
             }}
             >
               <ListItemIcon>

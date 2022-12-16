@@ -11,13 +11,13 @@ import postReactionsServer from '../postReactionsServer';
  * @property {string} flexDirection -The direction of reactions (vertical or horizontal).
  * @property {number} votes -Number of post votes.
  * @property {number} postId -The Id of the current post.
- * @property {boolean} viewPost -To differentiate between post and view post.
+ * @property {boolean} viewpost -To differentiate between post and view post.
  * @returns {React.Component}  Upvote and downvote only.
  */
 
 function Reactions(props) {
   const {
-    flexDirection, votes, postVoteStatus, postId, viewPost,
+    flexDirection, votes, postVoteStatus, postId, viewpost,
   } = props;
   console.log('vote status', postVoteStatus, postId);
   const theme = useTheme();
@@ -39,7 +39,7 @@ function Reactions(props) {
     <Voting
       flexDirection={flexDirection}
       gap={0.5}
-      viewPost={viewPost}
+      viewpost={viewpost}
     >
       {(reaction === 1)
         ? (

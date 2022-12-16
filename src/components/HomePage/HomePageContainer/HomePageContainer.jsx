@@ -1,6 +1,7 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -22,7 +23,6 @@ import homePageServer from './homePageServer';
  * @component HomePageContainer
  * @returns {React.Component} Container represents the home page
  */
-
 function HomePageContainer() {
   const { postClass } = useParams();
   // variables
@@ -32,7 +32,9 @@ function HomePageContainer() {
   // states
   const [posts, postsError] = homePageServer(postClass);
 
+  // Cookies
   const [cookies] = useCookies(['redditUser']);
+
   return (
     <OuterContainer>
       <MainContainer>

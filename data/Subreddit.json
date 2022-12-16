@@ -1,12 +1,13 @@
 {
   "status": "success",
   "data": {
-    "description":"",
+    "description":"discription",
     "icon": "https://styles.redditmedia.com/t5_75adtv/styles/profileIcon_qyshu6vkr8z91.jpeg?width=256&height=256&crop=256:256,smart&s=935dbc41a42200365af94cf69648fee7f80bcbc7",
       "_id": "638bc4316bde7c283ece7215",
       "fixedName": "selm alsodan",
       "name": "selm alsodan",
       "isJoined": true,
+      "region":"Egypt",
       "rules": [
         {
           "title": "Rule 1",

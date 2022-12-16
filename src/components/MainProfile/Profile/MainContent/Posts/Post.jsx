@@ -18,6 +18,7 @@ import PostHeader from './PostHeader/PostHeader';
 import PostFooter from './PostFooter/PostFooter';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import { CommunitiesSubscriberContext } from '../../../../../contexts/CommunitiesSubscriberContext';
+import { actionOnPost, moderationAction } from '../../../profileServer';
 
 /**
  * the post that appear in posts - saved - hidden - upvoted - downvotep taps
@@ -40,6 +41,11 @@ function Post(props) {
   const { communitiesSubscriber } = useContext(CommunitiesSubscriberContext);
   const [notJoined, setNotJoined] = useState(false);
 
+  const [isNsfw, setIsNsfw] = useState(entity?.nsfw);
+  const [isSpoiler, setIsSpoiler] = useState(entity?.spoiler);
+  const [isLocked, setIsLocked] = useState(entity?.locked);
+  const [modState, setModState] = useState(entity?.modState);
+
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
@@ -52,6 +58,32 @@ function Post(props) {
       setModList(true);
     }
   }, [type, communities, entity, communitiesSubscriber]);
+
+  const handleNsfw = () => {
+    actionOnPost(entity?.postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
+    setIsNsfw((prev) => !prev);
+  };
+  const handleSpoiler = () => {
+    actionOnPost(entity?.postid, isSpoiler ? 'unspoiler' : 'spoiler');
+    setIsSpoiler((prev) => !prev);
+  };
+  const handleLock = () => {
+    actionOnPost(entity?.postid, isLocked ? 'unlock_comments' : 'lock_comments');
+    setIsLocked((prev) => !prev);
+  };
+  const handleApprove = () => {
+    moderationAction(entity?.postid, 'approve');
+    setModState('approved');
+  };
+  const handleRemove = () => {
+    moderationAction(entity?.postid, 'remove');
+    setModState('removed');
+  };
+  const handleSpam = () => {
+    moderationAction(entity?.postid, 'spam');
+    setModState('spammed');
+  };
+
   return (
     <PostsQueueBox saved={subTitle}>
       <PostSide postid={entity?._id} points={entity?.votes} postVoteStatus={entity?.postVoteStatus} spam={entity?.modState === 'spam'} />
@@ -84,16 +116,16 @@ function Post(props) {
             </Flair>
             )
           }
-                {entity?.spoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
-                {entity?.nsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
+                {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
+                {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
               <PostHeader
                 subReddit={entity?.owner.name}
                 type={entity?.ownerType}
                 nameUser={entity?.author.name}
                 Time={entity?.createdAt}
-                modState={entity?.modState}
-                locked={entity?.locked}
+                locked={isLocked}
+                modState={modState}
                 notJoined={notJoined}
               />
               <PostFooter
@@ -105,19 +137,25 @@ function Post(props) {
                 postedByOthers={(entity?.author.name !== username)}
                 saved={entity?.isSaved}
                 hidden={entity?.isHidden}
-                modState={entity?.modState}
                 numComments={entity?.commentCount}
                 points={entity?.votes}
                 postVoteStatus={entity?.postVoteStatus}
-                nsfw={entity?.nsfw}
-                spoiler={entity?.spoiler}
                 sendReplies={entity?.sendReplies}
-                locked={entity?.locked}
+                nsfw={isNsfw}
+                spoiler={isSpoiler}
+                locked={isLocked}
+                modState={modState}
+                handleLock={handleLock}
+                handleSpoiler={handleSpoiler}
+                handleNsfw={handleNsfw}
+                handleApprove={handleApprove}
+                handleRemove={handleRemove}
+                handleSpam={handleSpam}
               />
             </Box>
           </PostContentBox>
         </Box>
-        {expand && <Box>{entity?.text}</Box>}
+        {expand && <Box dangerouslySetInnerHTML={{ __html: entity?.text }} />}
       </PostSidebaRes>
     </PostsQueueBox>
   );

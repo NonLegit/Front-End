@@ -5,8 +5,7 @@ import { Box } from '@mui/system';
 
 // services
 import {
-  // eslint-disable-next-line no-unused-vars
-  convertToRaw, EditorState, ContentState, convertFromHTML,
+  convertToRaw, EditorState,
 } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 
@@ -21,7 +20,7 @@ import { usePostContext } from '../../../../../contexts/PostContext';
 import { SaveButton } from '../styles';
 
 // Server
-import { saveComment } from './createCommentServer';
+import { saveComment } from '../../CommentsList/commentsListServer';
 
 function CreateComment() {
   // Context
@@ -32,11 +31,11 @@ function CreateComment() {
   // const [readyToSave, setReadyToSave] = useState(false);
 
   const handleCommentTextChange = (text) => {
-    console.log(convertToRaw(text.getCurrentContent()));
+    // console.log(convertToRaw(text.getCurrentContent()));
     setText(text);
   };
 
-  console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
+  // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
     if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
@@ -44,6 +43,7 @@ function CreateComment() {
 
       // Need refresh post Component =>to pop comment
       // UpdatePost();
+      // Refetch post
     }
   };
 

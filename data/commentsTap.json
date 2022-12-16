@@ -5,12 +5,12 @@
       "_id": "string",
       "author": {
         "_id": "string",
-        "name": "string"
+        "name": "nour"
       },
       "ownerType": "Subreddit",
       "owner": {
         "_id": "string",
-        "name": "string",
+        "name": "kalba222",
         "icon": "string"
       },
       "title": "string",
@@ -30,7 +30,6 @@
         "backgroundColor": "string",
         "textColor": "string"
       },
-      "flairText": "string",
       "postVoteStatus": "1",
       "isSaved": true,
       "isHidden": true,
@@ -44,12 +43,14 @@
         {
           "_id": "string",
           "parent": "string",
-          "parentType": "string",
+          "parentType": "Post",
           "author": {
             "_id": "string",
             "name": "string"
           },
           "title": "string",
+          "modState": "unmoderated",
+
           "text": "string",
           "createdAt": "2017-07-21T17:32:28Z",
           "votes": 0,
@@ -94,7 +95,7 @@
       "postVoteStatus": "1",
       "isSaved": true,
       "isHidden": true,
-      "modState": "unmoderated",
+      "modState": "approved",
       "sharedFrom": "string",
       "shareCount": 0,
       "images": ["string"],
@@ -110,6 +111,8 @@
             "name": "string"
           },
           "title": "string",
+          "modState": "approved",
+
           "text": "string",
           "createdAt": "2017-07-21T17:32:28Z",
           "votes": 0,
@@ -129,6 +132,8 @@
           },
           "title": "string",
           "text": "string",
+          "modState": "spam",
+
           "createdAt": "2017-07-21T17:32:28Z",
           "votes": 0,
           "commentVoteStatus": "1",

@@ -9,7 +9,7 @@ export const SidebarBox = styled(Box)(({ theme }) => ({
   flex: '0 0 312px',
   display: 'flex',
   flexDirection: 'column',
-  [theme.breakpoints.between('0', '970')]: {
+  [theme.breakpoints.between('0', '1000')]: {
     display: 'none',
   },
 }));

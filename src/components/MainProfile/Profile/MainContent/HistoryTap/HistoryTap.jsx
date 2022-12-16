@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { WideBox } from '../styles';
-import EmptyContent from '../EmptyContent/EmptyContent';
+import EmptyContent from '../../../EmptyContent/EmptyContent';
 import Post from '../Posts/Post';
 
 function HistoryTap() {

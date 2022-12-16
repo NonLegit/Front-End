@@ -37,9 +37,9 @@ export default function AddRule(props) {
 
   React.useEffect(() => {
     if (rule) {
-      setCount(rule?.title?.length);
-      setCount2(rule?.defaultName?.length);
-      setCount3(rule?.description?.length);
+      setCount(100 - rule.title.length);
+      setCount2(100 - rule.defaultName.length);
+      setCount3(500 - rule.description.length);
       setEdit(true);
     }
     if (count < 100) { setCan(true); } else { setCan(false); }
@@ -77,18 +77,25 @@ export default function AddRule(props) {
   };
 
   const SendData = () => {
-    const defaultName = document.getElementById('defaultName');
-    const title = document.getElementById('title');
-    const description = document.getElementById('description');
+    const defaultName = document.getElementById('defaultName').value;
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    console.log(title, defaultName, description);
     if (edit) {
-      EditRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
+      EditRule(subReddit, rule?.title, {
+        title,
+        defaultName,
+        description,
+        type,
+      });
     } else {
-      PostRule(`subreddits/${subReddit}/rules/${title}`, subReddit, defaultName, description, type);
+      PostRule(`subreddits/${subReddit}/rules/${title}`, defaultName, description, type);
     }
     handleClose();
   };
   const DeleteData = () => {
-    const title = document.getElementById('title');
+    const title = document.getElementById('title').value;
+    console.log(title);
     DeleteRule(subReddit, title);
     handleClose();
   };

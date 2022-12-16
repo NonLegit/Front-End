@@ -6,17 +6,27 @@ import { wrongIcon, rightIcon } from './styles';
 import theme from '../../styles/theme';
 
 // scripts
-import { redirectLogin } from '../../utils/Redirect';
+// import { redirectLogin } from '../../utils/Redirect';
 
 // utils
 import { EmailFormat } from '../../utils/checkEmail';
+
+/**
+ * Remove Reddit Cookie
+ * @param {removecookiestate} removeCookie
+ */
+export const removeRedditCookie = (removeCookie) => {
+  removeCookie('redditUser');
+  // redirectLogin(0);
+};
+
 /**
  *
  * Add Reddit Cookie
  * Must be Authorized user
  * @returns {void}
  */
-export const redditCookie = async (setCookie) => {
+export const redditCookie = async (setCookie, removeCookie) => {
   await axios.get('/users/me/').then((response) => {
     if (response.status === 200) {
     // set cookie
@@ -25,16 +35,12 @@ export const redditCookie = async (setCookie) => {
       setCookie('redditUser', response.data.user, { path: '/', expires: date });
     }
     // unauthorized(invalid JWT) =>Redirect to login page
-  }).catch(() => redirectLogin(20));
-};
-
-/**
- * Remove Reddit Cookie
- * @param {removecookiestate} removeCookie
- */
-export const removeRedditCookie = (removeCookie) => {
-  removeCookie('redditUser');
-  redirectLogin(0);
+  }).catch(() => {
+    // redirectLogin(20);
+    console.log('In Valid jwt');
+    // Remove Reddit Cokkie if avaliable before
+    removeRedditCookie(removeCookie);
+  });
 };
 
 /**

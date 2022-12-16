@@ -35,9 +35,9 @@ function CommentsList() {
   useEffect(() => {
     // Fetch Initial Comments with depth and limit
     getComments({
-      postID, depth: 9, limit: 20, sort: sortName,
+      postID, depth: 2, limit: 5, sort: sortName,
     }, setComments);
-    console.log('Refeteched');
+    console.log('CommentsList.jsx', post);
   }, [postID, post, sortName]);
 
   // Load More Comments on This post

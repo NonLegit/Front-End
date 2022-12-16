@@ -1,52 +1,44 @@
 {
-    "status": "sucess",
-    "post": {
-        "_id": "987654321",
-        "author": {
-            "_id": "string",
-            "name": "Basma Elhoseny"
-        },
+    "status": "OK",
+    "data": {
+        "_id": "639b5661106f0cd6ca989fdd",
         "ownerType": "User",
-        "owner": {
-            "_id": "11",
-            "name": "Basma Elhoseny",
-            "icon": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb"
-        },
-        "replies": [
-            "string"
-        ],
-        "flairId": {
-            "_id": "string",
-            "text": "string",
-            "backgroundColor": "string",
-            "textColor": "string"
-        },
-        "flairText": "string",
-        "sharedFrom": "string",
-        "title": "Post's Title",
-        "kind": "link",
-        "text": "This is My First Post :)",
-        "images": [
-            "string"
-        ],
-        "video": "string",
-        "createdAt": "2022-07-21T17:32:28Z",
-        "locked": true,
-        "isDeleted": true,
+        "replies": [],
+        "title": "My First Post",
+        "kind": "self",
+        "text": "<p>Helooooooooooooooooo<strong>Basmaa :)</strong></p>\n",
+        "url": "",
+        "createdAt": "2022-12-15T06:09:24.932Z",
+        "locked": false,
+        "isDeleted": false,
         "sendReplies": true,
-        "nsfw": true,
-        "spoiler": true,
-        "votes": 100,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 0,
         "views": 0,
-        "commentCount": 2,
+        "commentCount": 10,
         "shareCount": 0,
-        "suggestedSort": "top",
-        "scheduled": true,
-        "sortOnHot": 0,
-        "sortOnBest": 0,
-        "isSpam": true,
-        "url": "string",
-        "isSaved": true,
-        "postVoteStatus": 1
+        "suggestedSort": "new",
+        "scheduled": false,
+        "modState": "unmoderated",
+        "spamCount": 0,
+        "spammedBy": [],
+        "images": [],
+        "videos": [],
+        "sortOnHot": 835542282466,
+        "sortOnBest": 668433825972.8,
+        "__v": 0,
+        "owner": {
+            "_id": "639a5cbc1c0d09e8648693d7",
+            "name": "Basma",
+            "icon": "https://api.nonlegit.click/users/default.png"
+        },
+        "author": {
+            "_id": "639a5cbc1c0d09e8648693d7",
+            "name": "Basma"
+        },
+        "isSaved": false,
+        "postVoteStatus": "0",
+        "isSpam": false
     }
 }
