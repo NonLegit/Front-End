@@ -11,14 +11,15 @@ import FormDialog from './PopUpSubReddit/PopUp';
  * @component PersonalReddit
  * @property {string} title -Title of personal reddit
  * @property {string} paragraph -Paragraph of personal reddit
+ * @property {string} image -Image of personal reddit
  * @returns {React.Component}  Buttons to show info about communities
  */
 
 function PersonalReddit(props) {
-  const { title, paragraph } = props;
+  const { title, paragraph, image } = props;
   return (
     <RedditPersonal>
-      <UpperImage src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" />
+      <UpperImage src={image} />
       <MiddleBox>
         <RedditImage src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" />
         <Typography

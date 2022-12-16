@@ -34,6 +34,7 @@ import PostPage from './pages/PostPage';
 import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
+import AllPage from './pages/AllPage';
 
 function App() {
   const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
@@ -90,6 +91,18 @@ function App() {
                   path="/r/popular/:postClass"
                   element={
                     <PopularPage />
+                }
+                />
+                <Route
+                  path="/r/all"
+                  element={
+                    <AllPage />
+                }
+                />
+                <Route
+                  path="/r/all/:postClass"
+                  element={
+                    <AllPage />
                 }
                 />
                 <Route

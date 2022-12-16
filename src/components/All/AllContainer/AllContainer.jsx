@@ -9,7 +9,7 @@ import HomePageFooter from '../../HomePage/HomePageContainer/HomePageFooter/Home
 import PostsClassification from '../../HomePage/HomePageContainer/PostsClassification/PostsClassification';
 import BackToTop from '../../BackToTop/BackToTop';
 import PostList from '../../HomePage/HomePageContainer/PostList/PostList';
-import popularPageServer from './popularPageServer';
+import allPageServer from './allPageServer';
 import { PopularPosts } from './styles';
 
 /**
@@ -19,14 +19,14 @@ import { PopularPosts } from './styles';
  * @component PopularContainer
  * @returns {React.Component} Container represents the popular page
  */
-function PopularContainer() {
+function AllContainer() {
   const { postClass } = useParams();
   // variables
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
   // states
-  const [posts, postsError] = popularPageServer(postClass);
+  const [posts, postsError] = allPageServer(postClass);
   return (
     <OuterContainer>
       <MainContainer>
@@ -34,7 +34,7 @@ function PopularContainer() {
           <PopularPosts>
             Popular posts
           </PopularPosts>
-          <PostsClassification allOrPopular="r/popular/" />
+          <PostsClassification allOrPopular="r/all/" />
           {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
         </MainContent>
         {match
@@ -42,8 +42,8 @@ function PopularContainer() {
         <SideBar>
           <RedditPremium />
           <PersonalReddit
-            title="r/popular"
-            paragraph="The best posts on Reddit for you, pulled from the most active communities on Reddit. Check here to see the most shared, upvoted, and commented content on the internet."
+            title="r/all"
+            paragraph="The most active posts from all of Reddit. Come here to see new posts rising and be a part of the conversation."
             image="https://www.redditstatic.com/desktop2x/img/id-cards/banner@2x.png"
           />
           <HomePageFooter />
@@ -55,4 +55,4 @@ function PopularContainer() {
   );
 }
 
-export default PopularContainer;
+export default AllContainer;
