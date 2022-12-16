@@ -7,7 +7,7 @@ import {
   Header, Button, ContentHeader, Content, ContentSubHeader,
   SettingsPageConranier, SubHeader, AntSwitch,
 } from '../styles';
-import DeleteAccountWindow from './DeleteAccount/DeleteAccount';
+import DeleteAccountWindow from './DeleteAccountButton/DeleteAccountButton';
 import AccountPreferences from './AccountPreferences/AccountPreferences';
 import { DeleteAccount, BootstrapDialog } from './styles';
 import { settingsFetch } from '../settingsServer';

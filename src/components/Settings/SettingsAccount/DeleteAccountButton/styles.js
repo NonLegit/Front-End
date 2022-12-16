@@ -14,7 +14,7 @@ export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
   '& .MuiPaper-root': {
-    width: '350px',
+    width: '400px',
     // width: '700px',
     // heigh: '500px',
     // minWidth: 360,
@@ -53,10 +53,10 @@ export const PargraphSmall = styled('div')(() => ({
 export const TeaxArea = styled('textarea')(() => ({
   width: '100%',
   resize: 'vertical',
+  padding: '6px',
 }));
 export const Input = styled('input')(() => ({
   width: '100%',
-
   padding: '10px',
   marginBottom: '10px',
 }));

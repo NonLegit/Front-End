@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-param-reassign */
 import { useState } from 'react';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -6,10 +8,12 @@ import { ThemeProvider } from '@mui/material';
 import { Link } from 'react-router-dom';
 import
 {
-  NotificationsHead, HeaderContiner, TabsContiner, Tab, TabText, theme,
+  NotificationsHead, HeaderContiner, TabsContiner,
+  Tab, TabText, theme, CreateCommunity, Text, CreateCommunityContainer,
 } from './styles';
 import NotificationsBody from './NotificationsBody/NotificationsBody';
 import { notificationMarkAll } from './notificationsServer';
+import FormDialog from '../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 
 function MainNotifications() {
   // earlier data
@@ -40,6 +44,7 @@ function MainNotifications() {
     setToday(dataToday);
     notificationMarkAll();
   };
+
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -70,6 +75,22 @@ function MainNotifications() {
         </HeaderContiner>
       </ThemeProvider>
       <NotificationsBody earlier={earlier} setEarlier={setEarlier} today={today} setToday={setToday} />
+      { (today?.length === 0) && (earlier?.length === 0)
+        && (
+        <CreateCommunityContainer>
+          <Text>You can Create Communtiy to get notifications</Text>
+          <CreateCommunity
+            onClick={() => {
+              const ele = document.getElementById('popup-form-button');
+              console.log(ele);
+              ele.click();
+            }}
+          >
+            Create Communtiy
+          </CreateCommunity>
+        </CreateCommunityContainer>
+        )}
+      <FormDialog display="none" />
     </div>
   );
 }

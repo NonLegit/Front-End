@@ -41,7 +41,6 @@ function App() {
       getFirebaseToken()
         .then((firebaseToken) => {
           console.log('Firebase token: ', firebaseToken);
-
           setShowNotificationBanner(false);
         })
         .catch((err) => console.error('An error occured while retrieving firebase token. ', err));

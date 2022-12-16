@@ -54,6 +54,7 @@ const unhide = require('./unhide.json');
 const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
 const UpdateFlair = require('./UpdateFlair.json');
+const listBlock = require('./listBlock.json');
 // Something more
 
 module.exports = () => ({
@@ -115,5 +116,6 @@ module.exports = () => ({
   unhide,
   vote,
   addImagesToPost,
+  listBlock,
   // Something more
 });

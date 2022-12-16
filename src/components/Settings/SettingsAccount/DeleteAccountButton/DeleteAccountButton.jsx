@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
@@ -8,10 +7,14 @@ import {
   Input, CheckBox, CheckText, Footer, SaveBtn,
 } from './styles';
 
-function DeleteAccount({ setOpenPass }) {
-  const [checked, setChecked] = useState(true);
+function DeleteAccountButton({ setOpenPass }) {
+  const [checked, setChecked] = useState(false);
   const [condition, setCondition] = useState(false);
-  const checkSubmission = () => { setCondition(true); };
+  const checkSubmission = () => {
+    if (condition) {
+      setCondition(true);
+    }
+  };
 
   return (
     <Contanier>
@@ -24,7 +27,7 @@ function DeleteAccount({ setOpenPass }) {
         <CloseIcon />
       </IconClose>
       <Header>Delete account</Header>
-      <Pargraph>We're sorry to see you go</Pargraph>
+      <Pargraph>We are sorry to see you go</Pargraph>
       <Pargraph>
         Once you delete your account, your profile and username are permanently removed from Reddit and your posts, comments, and messages are disassociated (not deleted) from your account unless you delete them beforehand
       </Pargraph>
@@ -45,15 +48,15 @@ function DeleteAccount({ setOpenPass }) {
           inputProps={{ 'aria-label': 'controlled' }}
         />
         <CheckText>
-          I understand that deleted accounts aren't recoverable
+          I understand that deleted accounts arenot recoverable
         </CheckText>
       </CheckBox>
       <Footer>
         <CancelButton>Cancel</CancelButton>
-        <SaveBtn variant="contained" condition={condition} onClick={() => checkSubmission()}>Save email</SaveBtn>
+        <SaveBtn variant="contained" condition={condition} onClick={() => { checkSubmission(); }}>Save email</SaveBtn>
       </Footer>
     </Contanier>
   );
 }
 
-export default DeleteAccount;
+export default DeleteAccountButton;

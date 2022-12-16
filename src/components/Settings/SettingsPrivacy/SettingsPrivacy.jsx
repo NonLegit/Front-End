@@ -22,9 +22,9 @@ function SettingsPrivacy() {
   const [name, setName] = useState('');
   const [data] = privacyFetch();
   const navigate = useNavigate();
-  const actionUSer = async (action) => {
-    if (name !== '') {
-      const [text, type] = await blockuser(name, action);
+  const actionUSer = async (nameUser, action) => {
+    if (nameUser !== '') {
+      const [text, type] = await blockuser(nameUser, action);
       if (text !== '') {
       // setMessage(text);
       // setStats(type);
@@ -56,7 +56,7 @@ function SettingsPrivacy() {
               type="text"
               onChange={(e) => { setName(e.currentTarget.value.trim()); }}
             />
-            <AddButton active={name.length > 0} onClick={() => { actionUSer('block_user'); }}>ADD</AddButton>
+            <AddButton active={name.length > 0} onClick={() => { actionUSer(name, 'block_user'); }}>ADD</AddButton>
           </AddBlock>
         </Text>
         {
@@ -67,7 +67,7 @@ function SettingsPrivacy() {
                 <ImageBlock src={e.profilePicture} />
                 { e.userName }
               </BlocekInfo>
-              <AddButton active onClick={() => { actionUSer('unblock_user'); }}>Remove</AddButton>
+              <AddButton active onClick={() => { actionUSer(e.userName, 'unblock_user'); }}>Remove</AddButton>
             </BlocekConataier>
           ))
         }
