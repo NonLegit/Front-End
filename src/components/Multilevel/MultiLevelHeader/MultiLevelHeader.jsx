@@ -19,7 +19,7 @@ import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 import { usePostContext } from '../../../contexts/PostContext';
 
 // Styles
-import { HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes } from './Styles';
+import { HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes } from './styles';
 
 // Theme
 import theme from '../../../styles/theme';

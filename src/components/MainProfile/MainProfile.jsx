@@ -27,6 +27,10 @@ function MainProfile() {
   const [userNsfw, setUserNsfw] = useState();
 
   useEffect(() => {
+    console.log(username);
+  }, [username]);
+
+  useEffect(() => {
     setUserLoggedIn(cookies.redditUser?.userName);
     setIsBlocked(false);
     setUserNsfw(cookies.redditUser?.adultContent);

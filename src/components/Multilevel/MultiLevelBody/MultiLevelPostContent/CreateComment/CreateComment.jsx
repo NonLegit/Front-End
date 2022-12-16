@@ -5,8 +5,7 @@ import { Box } from '@mui/system';
 
 // services
 import {
-  // eslint-disable-next-line no-unused-vars
-  convertToRaw, EditorState, ContentState, convertFromHTML,
+  convertToRaw, EditorState,
 } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 
@@ -21,7 +20,7 @@ import { usePostContext } from '../../../../../contexts/PostContext';
 import { SaveButton } from '../styles';
 
 // Server
-import { saveComment } from './createCommentServer';
+import { saveComment } from '../../CommentsList/commentsListServer';
 
 function CreateComment() {
   // Context

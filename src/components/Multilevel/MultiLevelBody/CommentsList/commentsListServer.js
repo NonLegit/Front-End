@@ -26,7 +26,7 @@ export const getComments = (props, setComments) => {
       },
     },
   ).then((response) => {
-    console.log(response);
+    console.log('/comments/comment_tree', response);
     // 200
     if (response.status === 200 || response.status === 304) {
       console.log('Commnets for post ', postID, 'are got :)');
@@ -43,6 +43,8 @@ export const getComments = (props, setComments) => {
 };
 
 export const getMoreChildren = (children, comments, setComments) => {
+  console.log('children sent to DB ', children);
+  console.log('Depth sent to DB ', comments);
   axios.get(
     '/comments/more_children',
     {
@@ -54,6 +56,7 @@ export const getMoreChildren = (children, comments, setComments) => {
       },
     },
   ).then((response) => {
+    console.log('/comments/more_children', response);
     // remove last elememt of the array
     // console.log('Old Comments Array:');
     // console.log(comments);
@@ -75,5 +78,29 @@ export const getMoreChildren = (children, comments, setComments) => {
     // 400 Error
     // Error message:error.response.data.message
     console.log(error);
+  });
+};
+
+export const saveComment = async (parentID, parentType, comment) => {
+  await axios.post(
+    '/comments',
+    {
+      parent: `${parentID}`,
+      parentType,
+      text: comment,
+    },
+  ).then((response) => {
+    console.log(response);
+    // 201
+    if (response.status === 201 || response.status === 200 || response.status === 304) {
+      console.log('Comment Saved Sucessfully :)', comment, 'on Post', parentID);
+      return true;
+    }
+    return false;
+  }).catch((error) => {
+    console.log(error);
+    // 400
+    // 404
+    return false;
   });
 };

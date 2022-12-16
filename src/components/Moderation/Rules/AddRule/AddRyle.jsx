@@ -82,7 +82,8 @@ export default function AddRule(props) {
     const description = document.getElementById('description').value;
     console.log(title, defaultName, description);
     if (edit) {
-      EditRule(subReddit, title, {
+      EditRule(subReddit, rule?.title, {
+        title,
         defaultName,
         description,
         type,

@@ -47,9 +47,9 @@ export default function Community() {
 
   const [exist, setExist] = useState(true);
 
-  const { Name } = useParams();
+  const { subReddit } = useParams();
 
-  const [data, dataError, statusCode] = getSubredditAllData(Name);
+  const [data, dataError, statusCode] = getSubredditAllData(subReddit);
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
   console.log(value, data);
   useEffect(() => {
@@ -93,7 +93,7 @@ export default function Community() {
     ele.click();
   };
   const SendData = () => {
-    patchData(Name, {
+    patchData(subReddit, {
       topics,
       primaryTopic,
       name,

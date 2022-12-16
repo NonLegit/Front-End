@@ -1,3 +1,4 @@
+import axiosMedia from '../../../../services/mediaInstance';
 import axios from '../../../../services/instance';
 import { redirectLogin } from '../../../../utils/Redirect';
 /**
@@ -6,6 +7,7 @@ import { redirectLogin } from '../../../../utils/Redirect';
  * @function submitPostServer
  * @param {Object} post - post to be posted
  */
+
 // eslint-disable-next-line no-unused-vars
 const submitPostServer = (post, navigate, postType, postMedia) => {
   console.log(JSON.stringify(post));
@@ -20,15 +22,20 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
       const { message } = response.data;
       console.log(message);
     } else {
-      const post = response?.data;
+      const post = response?.data?.data;
+      console.log('response after create post', post);
+      console.log('post from response', post);
       const postId = post?._id;
+      console.log('post from response', postId);
       if (postType === 1) {
         postMedia.forEach((media) => {
+          const formData = new FormData();
           const { fileName, file } = media;
-          axios.post(`/posts/${postId}/images`, {
-            filename: fileName,
-            file,
-          }).then((response) => {
+          formData.append('filename', fileName);
+          formData.append('file', file);
+          formData.append('kind', 'image');
+          console.log(formData);
+          axiosMedia.post(`/posts/${postId}/images`, formData).then((response) => {
             console.log(response);
           }).catch((error) => {
             console.log(error.response);
