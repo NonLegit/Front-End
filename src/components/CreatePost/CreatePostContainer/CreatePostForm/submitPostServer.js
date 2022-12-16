@@ -1,4 +1,4 @@
-import axios from '../../../../services/instance';
+import axios from '../../../../services/mediaInstance';
 import { redirectLogin } from '../../../../utils/Redirect';
 /**
  * This function works as a server for submitting post
@@ -6,6 +6,7 @@ import { redirectLogin } from '../../../../utils/Redirect';
  * @function submitPostServer
  * @param {Object} post - post to be posted
  */
+
 // eslint-disable-next-line no-unused-vars
 const submitPostServer = (post, navigate, postType, postMedia) => {
   console.log(JSON.stringify(post));
