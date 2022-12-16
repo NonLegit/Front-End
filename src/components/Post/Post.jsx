@@ -47,7 +47,7 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
+    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video,
     subredit, postVoteStatus, isSaved, postId, url, nsfw, spoiler,
   } = props;
 
@@ -139,7 +139,7 @@ function Post(props) {
         >
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={videos[0]} type="video/mp4" />
+              <source src={video} type="video/mp4" />
             </video>
           ) : (
             (kind === 'image')

@@ -18,7 +18,7 @@ function PostList(props) {
         return !hiddenPosts.includes(id);
       }).map((post) => {
         const {
-          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
+          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
         return (
           <Post
@@ -32,7 +32,7 @@ function PostList(props) {
             flairBackgroundColor={flairBackgroundColor}
             flairColor={flairColor}
             images={images}
-            videos={videos}
+            video={video}
             kind={kind}
             votes={votes}
             commentCount={commentCount}
