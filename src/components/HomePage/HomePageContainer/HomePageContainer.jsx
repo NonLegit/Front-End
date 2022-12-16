@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import { redditCookie } from '../../Authentication/authenticationServer';
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -32,7 +34,14 @@ function HomePageContainer() {
   // states
   const [posts, postsError] = homePageServer(postClass);
 
-  const [cookies] = useCookies(['redditUser']);
+  // // Cookies
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies(['redditUser']);
+
+  useEffect(() => {
+    redditCookie(setCookies);
+  }, []);
+
   return (
     <OuterContainer>
       <MainContainer>

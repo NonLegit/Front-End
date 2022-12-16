@@ -34,7 +34,7 @@ function Comment(props) {
 
   // state
   const [collpase, setCollapse] = useState(false);
-  const [replies, setReplies] = useState(comment.replies);
+  const [replies, setReplies] = useState(comment?.replies);
 
   const moreRepliesFormat = (replies) ? replies[replies.length - 1]?.Type === 'moreReplies' : false;
   const lastChild = (replies) ? (moreRepliesFormat ? replies.length - 2 : replies.length - 1) : -1;
@@ -42,7 +42,10 @@ function Comment(props) {
 
   useEffect(() => {
     // setReplies(repliesProp);
-  }, []);
+    console.log('Comment.jsx comment:', comment);
+    console.log('Comment.jsx replies', replies);
+    console.log('Comment.jsx replies for', comment?._id, replies?.length > 0);
+  }, [comment]);
 
   // Functions
   const toggleComment = () => {
@@ -58,10 +61,51 @@ function Comment(props) {
 
   const moreReplies = isLastChild && remainingSiblings > 0;
   // const continueThread = !moreReplies && isLastChild && (replies is Array of strings));
-  const continueThread = !moreReplies && isLastChild && comment?.replies?.length > 0 && (typeof replies[0] === 'string');
+  const continueThread = !moreReplies && isLastChild && replies?.length > 0 && (typeof replies[0] === 'string');
 
   return (
     <>
+      {/* <p>
+        Last child of this array
+        {lastChild}
+      </p>
+      <p>
+        continueThread:
+        {continueThread ? 'true' : 'false'}
+      </p>
+
+      <p>
+        !moreReplies:
+        {!moreReplies ? 'true' : 'false'}
+      </p>
+
+      <p>
+        isLastChild:
+        {isLastChild ? 'true' : 'false'}
+      </p>
+      <p>
+        More Repleis Format:
+        {moreRepliesFormat ? 'true' : 'false'}
+      </p>
+
+      <p>
+        LengthCon:
+        {replies?.length > 0 ? 'true' : 'false'}
+      </p>
+      <p>
+        id:
+        {comment?._id}
+      </p> */}
+
+      {/* <p>
+        typeof replies ==
+        {replies ? typeof replies[0] === 'string' ? 'true' : 'false' : null}
+      </p> */}
+      {/* <p>
+        Type of repleis
+        {typeof replies[0]}
+
+      </p> */}
       <CommentContainer>
         {!collpase ? null
           : <OpenInFullRoundedIcon color="primary" fontSize="small" onClick={toggleComment} sx={{ marginTop: '5px' }} />}

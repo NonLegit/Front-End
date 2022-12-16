@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 // services
+import Cookies from 'js-cookie';
 import axios from '../../services/instance';
 
 // styles
@@ -10,6 +12,7 @@ import { redirectLogin } from '../../utils/Redirect';
 
 // utils
 import { EmailFormat } from '../../utils/checkEmail';
+
 /**
  *
  * Add Reddit Cookie
@@ -17,6 +20,8 @@ import { EmailFormat } from '../../utils/checkEmail';
  * @returns {void}
  */
 export const redditCookie = async (setCookie) => {
+  console.log('RedditCookie', Cookies.get('jwt'));
+
   await axios.get('/users/me/').then((response) => {
     if (response.status === 200) {
     // set cookie
@@ -25,7 +30,9 @@ export const redditCookie = async (setCookie) => {
       setCookie('redditUser', response.data.user, { path: '/', expires: date });
     }
     // unauthorized(invalid JWT) =>Redirect to login page
-  }).catch(() => redirectLogin(20));
+  }).catch(() => {
+    redirectLogin(20);
+  });
 };
 
 /**

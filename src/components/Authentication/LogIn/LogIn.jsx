@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 // mui components
 import { Typography } from '@mui/material';
 
@@ -15,8 +15,7 @@ import FirstParty from '../FirstParty/FirstParty';
 import { AuthenticationBody, StyledLink } from '../styles';
 
 // scripts
-
-import { redditCookie } from '../authenticationServer';
+// import { redditCookie } from '../authenticationServer';
 
 // environment variables
 const { REACT_APP_ENV } = process.env;
@@ -30,6 +29,7 @@ function LogIn() {
   const [remeberMe, setRemeberMe] = useState(false);
 
   // cookies
+  // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies] = useCookies(['redditUser']);
 
   // useEffect
@@ -40,10 +40,10 @@ function LogIn() {
       if (cookies.redditUser === undefined) {
         setRemeberMe(false);
       } else { setRemeberMe(true); }
-    } else if (Cookies.get('jwt')) {
+    } else if (cookies.redditUser) {
       // production
       // Update Cookie
-      redditCookie(setCookies);
+      // redditCookie(setCookies);
       // check on Reddit cookie
       // if (cookies.redditUser === undefined) {
       //   redditCookie(setCookies);

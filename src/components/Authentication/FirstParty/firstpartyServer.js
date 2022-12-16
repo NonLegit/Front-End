@@ -10,8 +10,8 @@ import { wrongIcon, rightIcon } from '../styles';
 import theme from '../../../styles/theme';
 
 // scripts
-import { redditCookie } from '../authenticationServer';
-import { redirectHome } from '../../../utils/Redirect';
+// import { redditCookie } from '../authenticationServer';
+// import { redirectHome } from '../../../utils/Redirect';
 
 /**
 *
@@ -99,12 +99,17 @@ export const logIn = async (
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      if (popUp === false) { console.log('popup'); redditCookie(setCookies); redirectHome(1000); } else {
+      if (popUp === false) {
+        console.log('popup');
+        // redditCookie(setCookies);
+        // redirectHome(1000);
+      } else {
         // PopUp window
         const interval = setInterval(() => {
           handleClose();
-          redditCookie(setCookies);
+          // redditCookie(setCookies);
           clearInterval(interval);
+          // redirectHome(1000);
         }, 1000);
       }
     }

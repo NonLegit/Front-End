@@ -44,6 +44,7 @@ function App() {
                   path="/"
                   element={
                     <HomePage data-testid="home page" />
+                    // <LogInPage />
                   }
                 />
                 <Route

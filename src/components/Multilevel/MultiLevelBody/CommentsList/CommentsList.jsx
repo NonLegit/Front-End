@@ -45,7 +45,7 @@ function CommentsList() {
     console.log('More Comemts on the Parent Post');
 
     // Call API of more Children
-    getMoreChildren(comments[comments.length - 2]?.children, comments, setComments);
+    getMoreChildren(comments[comments.length - 1]?.children, comments, setComments);
   };
 
   // Continue A thread

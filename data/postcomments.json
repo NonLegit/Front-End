@@ -1,108 +1,217 @@
 {
-  "status": "string",
+  "status": "success",
   "comments": [
     {
-      "_id": "1",
+      "_id": "639b9092106f0cd6ca98aa52",
       "author": {
-        "_id": "10",
-        "userName": "Basma Elhoseny",
-        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+        "_id": "639a5cbc1c0d09e8648693d7",
+        "userName": "Basma",
+        "profilePicture": "users/default.png",
         "profileBackground": "users/defaultcover.png"
       },
-      "post": "string",
-      "mentions": [
-        "string"
-      ],
+      "post": "639b5661106f0cd6ca989fdd",
+      "mentions": [],
+      "replies": [],
+      "parent": "639b5661106f0cd6ca989fdd",
+      "parentType": "Post",
+      "text": "<p>comemnt 4</p>\n<p></p>\n",
+      "createdAt": "2022-12-15T06:09:24.889Z",
+      "isDeleted": false,
+      "votes": 0,
+      "repliesCount": 0,
+      "locked": false,
+      "nsfw": false,
+      "spoiler": false,
+      "modState": "unmoderated",
+      "sortOnHot": 835542282444.5,
+      "__v": 0
+    },
+    {
+      "_id": "639b9097106f0cd6ca98aa58",
+      "author": {
+        "_id": "639a5cbc1c0d09e8648693d7",
+        "userName": "Basma",
+        "profilePicture": "users/default.png",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "post": "639b5661106f0cd6ca989fdd",
+      "mentions": [],
+      "replies": [],
+      "parent": "639b5661106f0cd6ca989fdd",
+      "parentType": "Post",
+      "text": "<p>comment 6</p>\n<p></p>\n",
+      "createdAt": "2022-12-15T06:09:24.889Z",
+      "isDeleted": false,
+      "votes": 0,
+      "repliesCount": 0,
+      "locked": false,
+      "nsfw": false,
+      "spoiler": false,
+      "modState": "unmoderated",
+      "sortOnHot": 835542282444.5,
+      "__v": 0
+    },
+    {
+      "_id": "639b9088106f0cd6ca98aa46",
+      "author": {
+        "_id": "639a5cbc1c0d09e8648693d7",
+        "userName": "Basma",
+        "profilePicture": "users/default.png",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "post": "639b5661106f0cd6ca989fdd",
+      "mentions": [],
+      "replies": [],
+      "parent": "639b5661106f0cd6ca989fdd",
+      "parentType": "Post",
+      "text": "<p>omment 2</p>\n<p>C</p>\n",
+      "createdAt": "2022-12-15T06:09:24.889Z",
+      "isDeleted": false,
+      "votes": 0,
+      "repliesCount": 0,
+      "locked": false,
+      "nsfw": false,
+      "spoiler": false,
+      "modState": "unmoderated",
+      "sortOnHot": 835542282444.5,
+      "__v": 0
+    },
+    {
+      "_id": "639b8214106f0cd6ca98a7ca",
+      "author": {
+        "_id": "639a5cbc1c0d09e8648693d7",
+        "userName": "Basma",
+        "profilePicture": "users/default.png",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "post": "639b5661106f0cd6ca989fdd",
+      "mentions": [],
       "replies": [
         {
-          "_id": "101",
+          "_id": "639b8f13106f0cd6ca98a954",
           "author": {
-            "_id": "639a5f0e995a7314c8c746c8",
-            "userName": "Eslam",
-            "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",            
+            "_id": "639a5cbc1c0d09e8648693d7",
+            "userName": "Basma",
+            "profilePicture": "users/default.png",
             "profileBackground": "users/defaultcover.png"
           },
-          "post": "string",
-          "mentions": [
-            "string"
-          ],
+          "post": "639b5661106f0cd6ca989fdd",
+          "mentions": [],
           "replies": [
             {
-              "_id": "10101",
+              "_id": "639b90e7106f0cd6ca98aa8d",
               "author": {
-                "_id": "639a5f0e995a7314c8c746c5",
-                "userName": "Eslam",
-                "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+                "_id": "639a5cbc1c0d09e8648693d7",
+                "userName": "Basma",
+                "profilePicture": "users/default.png",
                 "profileBackground": "users/defaultcover.png"
-            },
-            "post": "string",
-              "mentions": [
-                "string"
-              ],
+              },
+              "post": "639b5661106f0cd6ca989fdd",
+              "mentions": [],
               "replies": [
-                "150",
-                "160",
-                "180"
+                "639b910b106f0cd6ca98aac2"
               ],
-              "parent": "string",
-              "parentType": "string",
-              "text": "Level 3 Eslam's Comment",
-              "createdAt": "2017-07-21T17:32:28Z",
+              "parent": "639b8f13106f0cd6ca98a954",
+              "parentType": "Comment",
+              "text": "<p>reply 2</p>\n<p></p>\n",
+              "createdAt": "2022-12-15T06:09:24.889Z",
+              "isDeleted": true,
               "votes": 0,
-              "repliesCount": 0
+              "repliesCount": 1,
+              "locked": false,
+              "nsfw": false,
+              "spoiler": false,
+              "modState": "unmoderated",
+              "sortOnHot": 835542282444.5,
+              "__v": 0
             },
             {
-              "Type": "moreReplies",
-              "count": 0,
-              "children": [
-                "10",
-                "11",
-                "12"
-              ]
+              "_id": "639b90f0106f0cd6ca98aa9e",
+              "author": {
+                "_id": "639a5cbc1c0d09e8648693d7",
+                "userName": "Basma",
+                "profilePicture": "users/default.png",
+                "profileBackground": "users/defaultcover.png"
+              },
+              "post": "639b5661106f0cd6ca989fdd",
+              "mentions": [],
+              "replies": [],
+              "parent": "639b8f13106f0cd6ca98a954",
+              "parentType": "Comment",
+              "text": "<p>reply3</p>\n<p></p>\n",
+              "createdAt": "2022-12-15T06:09:24.889Z",
+              "isDeleted": false,
+              "votes": 0,
+              "repliesCount": 0,
+              "locked": false,
+              "nsfw": false,
+              "spoiler": false,
+              "modState": "unmoderated",
+              "sortOnHot": 835542282444.5,
+              "__v": 0
             }
           ],
-          "parent": "string",
-          "parentType": "string",
-          "text": "Reply on Comment 1",
-          "createdAt": "2017-07-21T17:32:28Z",
+          "parent": "639b8214106f0cd6ca98a7ca",
+          "parentType": "Comment",
+          "text": "<p>This is my first Reply</p>\n",
+          "createdAt": "2022-12-15T06:09:24.889Z",
+          "isDeleted": false,
           "votes": 0,
-          "repliesCount": 0
+          "repliesCount": 2,
+          "locked": false,
+          "nsfw": false,
+          "spoiler": false,
+          "modState": "unmoderated",
+          "sortOnHot": 835542282444.5,
+          "__v": 0
         }
       ],
-      "parent": "string",
-      "parentType": "string",
-      "text": "Basma's Comment",
-      "createdAt": "2017-07-21T17:32:28Z",
+      "parent": "639b5661106f0cd6ca989fdd",
+      "parentType": "Post",
+      "text": "<p>My First Comment</p>\n",
+      "createdAt": "2022-12-15T06:09:24.889Z",
+      "isDeleted": false,
       "votes": 0,
-      "repliesCount": 0
+      "repliesCount": 1,
+      "locked": false,
+      "nsfw": false,
+      "spoiler": false,
+      "modState": "unmoderated",
+      "sortOnHot": 835542282444.5,
+      "__v": 0
     },
     {
-      "_id": "2",
+      "_id": "639b908e106f0cd6ca98aa4c",
       "author": {
-        "_id": "639a5f0e995a7314c8c746a5",
-        "userName": "Eslam",
-        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+        "_id": "639a5cbc1c0d09e8648693d7",
+        "userName": "Basma",
+        "profilePicture": "users/default.png",
         "profileBackground": "users/defaultcover.png"
-    },
-      "post": "string",
-      "mentions": [
-        "string"
-      ],
+      },
+      "post": "639b5661106f0cd6ca989fdd",
+      "mentions": [],
       "replies": [],
-      "parent": "string",
-      "parentType": "string",
-      "text": "Eslam's Comment",
-      "createdAt": "2017-07-21T17:32:28Z",
+      "parent": "639b5661106f0cd6ca989fdd",
+      "parentType": "Post",
+      "text": "<p>comment 3</p>\n",
+      "createdAt": "2022-12-15T06:09:24.889Z",
+      "isDeleted": false,
       "votes": 0,
-      "repliesCount": 0
+      "repliesCount": 0,
+      "locked": false,
+      "nsfw": false,
+      "spoiler": false,
+      "modState": "unmoderated",
+      "sortOnHot": 835542282444.5,
+      "__v": 0
     },
     {
+      "_id": "639b90af106f0cd6ca98aa6d",
       "Type": "moreReplies",
-      "count": 100,
+      "count": 2,
       "children": [
-        "10",
-        "11",
-        "12"
+        "639b90af106f0cd6ca98aa6d",
+        "639b90b2106f0cd6ca98aa73"
       ]
     }
   ]
