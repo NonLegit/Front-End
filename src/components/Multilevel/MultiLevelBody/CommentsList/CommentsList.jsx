@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -35,17 +36,21 @@ function CommentsList() {
   useEffect(() => {
     // Fetch Initial Comments with depth and limit
     getComments({
-      postID, depth: 2, limit: 5, sort: sortName,
+      postID, depth: 2, limit: 3, sort: sortName,
     }, setComments);
     console.log('CommentsList.jsx', post);
   }, [postID, post, sortName]);
 
-  // Load More Comments on This post
+  // Load More Comments on This post Vertical Limit
   const loadMoreComments = () => {
     console.log('More Comemts on the Parent Post');
+    console.log('Comments List ::::::)', comments);
 
     // Call API of more Children
-    getMoreChildren(comments[comments.length - 2]?.children, comments, setComments);
+    getMoreChildren({
+      children: comments[comments.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
+      limit: 2, // How many more commenets to be loaded Vertically
+    }, comments, setComments);
   };
 
   // Continue A thread

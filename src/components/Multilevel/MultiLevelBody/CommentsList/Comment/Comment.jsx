@@ -53,7 +53,11 @@ function Comment(props) {
   // new Replies=>Array of strings of new repleis to be added to this replies
   const loadMoreReplies = () => {
     // replies here can't be empty because the butotn called by this fucntion won't appear if it is empty :)
-    getMoreChildren(replies[replies.length - 2]?.children, replies, setReplies);
+    // Call API of more Children
+    getMoreChildren({
+      children: replies[replies.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
+      limit: 2, // How many more commenets to be loaded Vertically
+    }, replies, setReplies);
   };
 
   const moreReplies = isLastChild && remainingSiblings > 0;

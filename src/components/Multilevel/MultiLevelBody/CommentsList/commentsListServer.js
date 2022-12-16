@@ -31,7 +31,6 @@ export const getComments = (props, setComments) => {
     if (response.status === 200 || response.status === 304) {
       console.log('Commnets for post ', postID, 'are got :)');
       console.log(postID);
-
       setComments(response.data.comments);
     }
   }).catch((error) => {
@@ -42,16 +41,17 @@ export const getComments = (props, setComments) => {
   });
 };
 
-export const getMoreChildren = (children, comments, setComments) => {
+export const getMoreChildren = (props, comments, setComments) => {
+  const { children, limit } = props;
   console.log('children sent to DB ', children);
-  console.log('Depth sent to DB ', comments);
+  console.log('Comments Array to be Refilled ', comments);
   axios.get(
     '/comments/more_children',
     {
       params: {
-        children, // An array of comment IDs that need to be fetched
+        children: children?.toString(), // An array of comment IDs that need to be fetched
         // depth, // The maximum depth of the comment subtrees
-        // limit: // The maximum number of replies in each level
+        limit, // The maximum number of replies in each level
         // sort: // Available values : top, new, best, old
       },
     },
@@ -68,7 +68,7 @@ export const getMoreChildren = (children, comments, setComments) => {
     // console.log(response.data.comments);
 
     const newComments = comments.concat(response.data.comments);
-
+    // BEEEEEEEEEEEEEEEEECKKKKKKKKKKKKKK
     // console.log('Comments Array:');
     // console.log(newComments);
 
