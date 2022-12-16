@@ -78,7 +78,7 @@ function Comment(props) {
           {collpase ? null
             : (
               <>
-                <CommentText>{comment?.text}</CommentText>
+                <CommentText><div dangerouslySetInnerHTML={{ __html: comment?.text }} /></CommentText>
                 <CommentActions comment={comment} />
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
