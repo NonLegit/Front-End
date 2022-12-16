@@ -1,5 +1,7 @@
 import React from 'react';
-import { BannedUsers } from '../../List';
+// import { BannedUsers } from '../../List';
+import { useParams } from 'react-router-dom';
+import { bannedFetch } from './BannedServer';
 import BannedUser from '../BannedUser/BannedUser';
 import calculateTime from '../../../utils/calculateTime';
 import SearchBar from '../../../SearchBar/SearchBar';
@@ -11,12 +13,13 @@ function BannedUserList() {
   const childToParent = (childData) => {
     setData(childData);
   };
-
+  const { subReddit } = useParams();
+  const [BannedUsers] = bannedFetch(subReddit);
   const [filteredData, setfilteredData] = React.useState([]);
 
   React.useEffect(() => {
-    setfilteredData(BannedUsers.filter((user) => user.userName.toLowerCase().includes(data)));
-  }, [data]);
+    setfilteredData(BannedUsers?.filter((user) => user.userName.toLowerCase().includes(data)));
+  }, [data, BannedUsers]);
 
   return (
     <>

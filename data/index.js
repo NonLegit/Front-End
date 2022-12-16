@@ -54,6 +54,7 @@ const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
 const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
+const baned = require('./banedList.json');
 // Something more
 
 module.exports = () => ({
@@ -115,5 +116,6 @@ module.exports = () => ({
   vote,
   addImagesToPost,
   moderatorAction,
+  baned,
   // Something more
 });
