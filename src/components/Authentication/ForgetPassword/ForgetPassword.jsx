@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import Cookies from 'js-cookie';
+
 // mui components
 import { Typography } from '@mui/material';
 
@@ -22,7 +22,7 @@ import { checkUserName, recoverPassword } from './ForgetPasswordServer';
 import { redditCookie, checkEmail } from '../authenticationServer';
 
 // environment variables
-const { REACT_APP_ENV } = process.env;
+// const { REACT_APP_ENV } = process.env;
 
 /**
  * Component for Forget Password Page
@@ -45,28 +45,28 @@ function ForgetPassword() {
   });
 
   // cookies
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
   // useEffect
   useEffect(() => {
     // Check on Cookies
     // developememt
-    if (REACT_APP_ENV === 'development') {
-      if (cookies.redditUser === undefined) {
-        setremeberMe(false);
-      } else { setremeberMe(true); }
-    } else if (Cookies.get('jwt')) {
+    /// Ask if this user already loggied in the back
+    redditCookie(setCookies, removeCookie);
+    if (cookies.redditUser !== undefined) {
       // production
       // Update Cookie
-      redditCookie(setCookies);
+      // redditCookie(setCookies);
       // check on Reddit cookie
       // if (cookies.redditUser === undefined) {
       //   redditCookie(setCookies);
       // }
       // Redirect to loading page
+      console.log('Remember me is set to true');
       setremeberMe(true);
     } else {
       // No Cookie by Back End
+      console.log('Remember me is set to false');
       setremeberMe(false);
     }
   }, []);

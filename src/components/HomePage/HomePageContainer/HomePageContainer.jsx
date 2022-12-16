@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
-import { useEffect } from 'react';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { redditCookie } from '../../Authentication/authenticationServer';
+
 import MainContent from '../../MainContent/MainContent';
 import { MainContainer, OuterContainer } from './styles';
 import SideBar from '../../SideBar/SideBar';
@@ -25,7 +23,6 @@ import homePageServer from './homePageServer';
  * @component HomePageContainer
  * @returns {React.Component} Container represents the home page
  */
-
 function HomePageContainer() {
   const { postClass } = useParams();
   // variables
@@ -35,19 +32,12 @@ function HomePageContainer() {
   // states
   const [posts, postsError] = homePageServer(postClass);
 
-  // // Cookies
-  // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookies] = useCookies(['redditUser']);
-
-  useEffect(() => {
-    console.log('HomePage');
-    // redditCookie(setCookies);
-  }, []);
+  // Cookies
+  const [cookies] = useCookies(['redditUser']);
 
   return (
     <OuterContainer>
-      <h1>Hoem Page</h1>
-      {/* <MainContainer>
+      <MainContainer>
         <MainContent width={640}>
           {cookies.redditUser ? <CreatePostInHome /> : null}
           <PostsClassification />
@@ -63,7 +53,7 @@ function HomePageContainer() {
           <BackToTop />
         </SideBar>
         )}
-      </MainContainer> */}
+      </MainContainer>
     </OuterContainer>
   );
 }
