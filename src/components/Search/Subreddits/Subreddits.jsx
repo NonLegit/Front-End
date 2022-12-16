@@ -35,7 +35,7 @@ function Subreddits() {
           />
           <Box sx={{ padding: '0 8px' }}>
             <Box sx={{ display: 'flex' }}>
-              <PostInfoLink to="/" color="#000" fontWeight="bolder">
+              <PostInfoLink to="/r/toptalent" color="#000" fontWeight="bolder">
                 r/toptalent
               </PostInfoLink>
               <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">

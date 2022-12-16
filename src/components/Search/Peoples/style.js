@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 export const PeopleString = styled('h4')({
   fontWeight: 500,
@@ -48,7 +49,7 @@ export const TextContainer = styled('div')({
   height: 32,
   alignItems: 'center',
 });
-export const Text = styled('h6')({
+export const Text = styled(Link)({
   maxWidth: '100%',
   whiteSpace: 'nowrap',
   overflow: 'hidden',

@@ -23,7 +23,7 @@ function Comments() {
               }}
               alt="Profile Image"
             />
-            <PostInfoLink to="/" color="#000" fontWeight="bolder">
+            <PostInfoLink to="/r/toptalent" color="#000" fontWeight="bolder">
               r/toptalent
             </PostInfoLink>
             <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
@@ -31,7 +31,7 @@ function Comments() {
                 •
               </span>
               <div>Posted By</div>
-              <PostInfoLink to="/" color="inherit" fontWeight="normal">
+              <PostInfoLink to="/user/righteous_boldness07" color="inherit" fontWeight="normal">
                 u/righteous_boldness07 2 years ago
               </PostInfoLink>
             </Box>
@@ -62,7 +62,7 @@ function Comments() {
             <Box>
               <PostInfo py={1}>
 
-                <PostInfoLink to="/" color="#000" fontWeight="bolder">
+                <PostInfoLink to="/user/AhmehHosny" color="#000" fontWeight="bolder">
                   Ahmed Hosny
                 </PostInfoLink>
                 <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">

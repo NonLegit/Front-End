@@ -4,6 +4,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
+import { useNavigate, useSearchParams } from 'react-router-dom';
+
 import {
   Box,
 } from '@mui/material';
@@ -12,17 +14,27 @@ import {
 } from './style';
 
 export default function SortType() {
-  const [Sort, setSort] = React.useState(false);
-  const [SortName, setSortName] = React.useState('Sort');
+  const [Openort, setOpenSort] = React.useState(false);
+
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get('type');
+
+  const Sort = searchParams.get('sort') || 'Relevance';
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClick = (subPage) => {
+    navigate(`?type=${type}&sort=${subPage}`);
+  };
 
   // show and hide the sort list
   const showSort = () => {
-    setSort(!Sort);
+    setOpenSort(!Openort);
   };
 
   // close list when click out
   const handleClickAway = () => {
-    setSort(false);
+    setOpenSort(false);
   };
   return (
     <Box position="relative" display="flex">
@@ -32,8 +44,8 @@ export default function SortType() {
           size="small"
           onClick={showSort}
         >
-          {SortName}
-          {!Sort && (
+          {Sort}
+          {!Openort && (
           <ExpandMoreIcon
             sx={{
               borderRadius: '10%',
@@ -43,7 +55,7 @@ export default function SortType() {
             <MoreHorizOutlinedIcon />
           </ExpandMoreIcon>
           )}
-          {Sort && (
+          {Openort && (
           <ExpandLessIcon
             sx={{
               borderRadius: '10%',
@@ -51,35 +63,35 @@ export default function SortType() {
             }}
             onClick={showSort}
           >
-            {SortName}
+            {Sort}
             <MoreHorizOutlinedIcon />
           </ExpandLessIcon>
           )}
         </Fab>
       </ClickAwayListener>
-      <ShowMoreList display={(Sort === false ? 'none' : 'block')}>
-        <ListItemButton onClick={() => { setSortName('Relevance'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Relevance' || SortName === 'Sort').toString()}>
+      <ShowMoreList display={(Openort === false ? 'none' : 'block')}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Relevance'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'Relevance' || Sort === 'Sort').toString()}>
             Relevance
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setSortName('Hot'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Hot').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Hot'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'Hot').toString()}>
             Hot
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setSortName('Top'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Top').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Top'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'Top').toString()}>
             Top
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setSortName('New'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'New').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('New'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'New').toString()}>
             New
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setSortName('Most Comments'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(SortName === 'Most Comments').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Most Comments'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'Most Comments').toString()}>
             Most Comments
           </ShowMoreListItemText>
         </ListItemButton>

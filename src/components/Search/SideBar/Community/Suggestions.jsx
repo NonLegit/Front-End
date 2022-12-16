@@ -21,7 +21,7 @@ function Suggestions() {
     <OneSuggeest>
       <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
       <TextContainer>
-        <Text>
+        <Text to="/r/HistoryPorn">
           r/HistoryPorn
         </Text>
         <TextP>

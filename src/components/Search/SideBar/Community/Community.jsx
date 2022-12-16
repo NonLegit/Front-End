@@ -13,8 +13,10 @@ function Community() {
         <Suggestions />
         <Suggestions />
         <Suggestions />
-        <ShowMore>See More Communities</ShowMore>
       </Suggestion>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+        <ShowMore>See More Communities</ShowMore>
+      </Box>
     </Box>
   );
 }

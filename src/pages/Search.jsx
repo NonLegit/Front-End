@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
-import { useLocation } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Comments from '../components/Search/Comments/Comments';
 import Peoples from '../components/Search/Peoples/People';
 import { SearchByCommunitiesHeader } from '../components/Search/Subreddits/style';
@@ -14,15 +13,9 @@ import SideBar from '../components/Search/SideBar/SideBar';
 import Post from '../components/Search/Post/Post';
 
 function Search() {
-  function useQuery() {
-    const { search } = useLocation();
-
-    return useMemo(() => new URLSearchParams(search), [search]);
-  }
-
-  const query = useQuery();
-  const type = query.get('type') || 'Posts';
-
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get('type') || 'Posts';
+  console.log(type);
   return (
 
     <TotalHeader>

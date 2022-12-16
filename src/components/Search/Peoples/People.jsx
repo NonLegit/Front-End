@@ -24,7 +24,7 @@ function Peoples() {
       <Box sx={{ display: 'flex' }}>
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         <TextContainer>
-          <Text>
+          <Text to="/user/hi">
             U/hi
           </Text>
           <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>

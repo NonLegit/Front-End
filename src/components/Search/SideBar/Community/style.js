@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 export const CommunityString = styled('h4')({
   fontWeight: 500,
@@ -44,7 +45,7 @@ export const TextContainer = styled('div')({
   alignItems: 'baseline',
   height: 32,
 });
-export const Text = styled('h6')({
+export const Text = styled(Link)({
   maxWidth: '100%',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
@@ -90,14 +91,17 @@ export const Btn = styled(Button)({
   textTransform: 'initial',
 
 });
-export const ShowMore = styled('p')({
+export const ShowMore = styled(Link)({
   fontSize: 14,
   color: '#0079d3',
   padding: 16,
   height: 50,
   fontWeight: 500,
-  margin: 0,
   cursor: 'pointer',
+  '&:hover': {
+    color: '#0079d3',
+  },
+  textDecoration: 'none',
 });
 export const Joined = styled(Button)(() => ({
   flexShrink: 0,
