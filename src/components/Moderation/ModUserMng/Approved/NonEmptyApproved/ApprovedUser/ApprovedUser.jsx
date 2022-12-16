@@ -3,7 +3,7 @@
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
 import {
-  StyledAvatar, UserBar, UserContainer, UserMngButton,
+  StyledAvatar, UserBar, UserContainer, UserMngButton, UsermngButtonContainer,
 } from '../../../styles';
 
 import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
@@ -45,7 +45,7 @@ function ApprovedUser() {
           2 hours ago
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', padding: '8px 16px', width: '30%' }}>
+      <UsermngButtonContainer>
         <UserMngButton
           disableRipple
           disableFocusRipple
@@ -59,7 +59,7 @@ function ApprovedUser() {
         >
           Remove
         </UserMngButton>
-      </Box>
+      </UsermngButtonContainer>
     </UserBar>
   );
 }

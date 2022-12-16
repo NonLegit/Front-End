@@ -1,12 +1,40 @@
+import React from 'react';
 import { BannedUsers } from '../../List';
 import BannedUser from '../BannedUser/BannedUser';
 import calculateTime from '../../../utils/calculateTime';
+import SearchBar from '../../../SearchBar/SearchBar';
+import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
+import NoResult from '../../../NoResult/NoResult';
 
 function BannedUserList() {
+  const [data, setData] = React.useState('');
+  const childToParent = (childData) => {
+    setData(childData);
+  };
+
+  const [filteredData, setfilteredData] = React.useState([]);
+
+  React.useEffect(() => {
+    setfilteredData(BannedUsers.filter((user) => user.userName.toLowerCase().includes(data)));
+  }, [data]);
+
   return (
     <>
+      <SearchBar childToParent={childToParent} />
       {
-      BannedUsers.map((user) => {
+        (filteredData.length !== 0 && data !== '') && (
+        <SearchResultBar
+          resultNumber={filteredData.length}
+          filteredData={filteredData}
+          childToParent={childToParent}
+        />
+        )
+      }
+      {
+       (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
+      }
+      {
+      filteredData.map((user) => {
         const {
           id, userName, profilePicture, banDate, baninfo,
         } = user;

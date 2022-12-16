@@ -12,7 +12,7 @@ import { EditBanContext } from '../../NonEmptyBanned/BannedUser/BannedUser';
 
 function EditBanPopUp(props) {
   const {
-    userName, note, punishReason, punishType,
+    userName, note, punishReason, punishType, duration,
   } = props;
   const {
     openEditBan, handleClickCloseEditBan,
@@ -29,7 +29,7 @@ function EditBanPopUp(props) {
         <Divider />
         <BanReason punishType={punishType} />
         <BanNote note={note} />
-        <BanPeriod />
+        <BanPeriod duration={duration} />
       </Box>
       <Box sx={{ backgroundColor: '#edeff1 ', height: '100%' }}>
         <BanMessage punishReason={punishReason} />

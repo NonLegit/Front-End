@@ -5,7 +5,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
 import {
-  UserBar, UserContainer, UserMngButton, StyledAvatar,
+  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer,
 } from '../../../styles';
 import MoreDetails from '../MoreDetails/MoreDetails';
 import UnmutePopUp from '../../MuteUserPopUp/UnmutePopUp/UnmutePopUp';
@@ -56,7 +56,7 @@ function BannedUser(props) {
             {joiningDate}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', padding: '8px 16px', width: '30%' }}>
+        <UsermngButtonContainer>
           <UserMngButton
             disableRipple
             disableFocusRipple
@@ -72,7 +72,7 @@ function BannedUser(props) {
           >
             More Details
           </UserMngButton>
-        </Box>
+        </UsermngButtonContainer>
       </UserBar>
       <MoreDetails modNote={modNote} isOpened={isOpened} />
     </>

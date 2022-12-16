@@ -15,6 +15,12 @@ export const UserMngButton = styled(Button)(() => ({
   },
 }));
 
+export const UsermngButtonContainer = styled(Box)(() => ({
+  display: 'flex',
+  padding: '0px 16px',
+  minWidth: 'fit-content',
+}));
+
 export const UserBar = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',

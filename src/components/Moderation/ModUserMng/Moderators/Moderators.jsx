@@ -75,29 +75,6 @@ function Moderator(props) {
       <SearchBar />
       <InstanceContainer>
         <ModeratorsList />
-        {/* <NonEmptyModerator type="0" />
-      </InstanceContainer>
-      <InstanceContainer>
-        <Typography
-          color="#1C1C1C"
-          padding="0px 0px 8px 24px"
-          fontWeight={600}
-          fontSize="14px"
-        >
-          You can edit these moderators
-        </Typography>
-        <NonEmptyModerator type="1" />
-      </InstanceContainer>
-      <InstanceContainer>
-        <Typography
-          color="#1C1C1C"
-          padding="0px 0px 8px 24px"
-          fontWeight={600}
-          fontSize="14px"
-        >
-          Invited moderators
-        </Typography>
-        <NonEmptyModerator type="2" /> */}
       </InstanceContainer>
     </ModMainPage>
   );
