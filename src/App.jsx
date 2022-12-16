@@ -2,6 +2,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
+
+import { redditCookie } from './components/Authentication/authenticationServer';
 
 import HiddenPostsContextProvider from './contexts/HiddenPostsContext';
 import MainNavBar from './components/MainNavBar/MainNavBar';
@@ -35,6 +38,9 @@ import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
+
   const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
   const handleGetFirebaseToken = () => {
     if (showNotificationBanner) {
@@ -47,11 +53,16 @@ function App() {
         .catch((err) => console.error('An error occured while retrieving firebase token. ', err));
     }
   };
+
   useEffect(() => {
     handleGetFirebaseToken();
-  }, []);
-  return (
 
+    // Get cookie @ the beginning of the website page
+    console.log('HomePage');
+    redditCookie(setCookies, removeCookie);
+  }, []);
+
+  return (
     <ThemeProvider theme={theme}>
 
       <CssBaseline />
@@ -74,7 +85,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="/user/:Name"
+                  path="/user/:username"
                   element={
                     <Profile />
                   }
