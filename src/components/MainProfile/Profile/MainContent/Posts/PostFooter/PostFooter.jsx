@@ -24,7 +24,7 @@ import PostFooterList from './PostFooterList/PostFooterList';
 import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListResponsive';
 import ArrowList from './ArrowList/ArrowList';
 import { postReactionsServer } from '../../../../profileServer';
-import ModeratorList from '../../ModeratorList/ModeratorList';
+import ModeratorList from '../../../../ModeratorList/ModeratorList';
 
 /**
  * Footer of the post that contain all icons
@@ -39,6 +39,7 @@ function PostFooter(props) {
   const {
     postid, numComments, modState, handleExpand, expand, postedByOthers,
     saved, hidden, submitted, isModList, points, postVoteStatus, nsfw, spoiler, sendReplies, locked,
+    handleLock, handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
@@ -46,6 +47,7 @@ function PostFooter(props) {
   const [showList2, setShowList2] = useState(false);
   const [moderatorList, setModeratorList] = useState(false);
   const [modList, setModList] = useState(false);
+
   // handle disable the list when click away
   const handleClick = () => {
     setShowList((prev) => !prev);
@@ -92,13 +94,13 @@ function PostFooter(props) {
 
   const moderator = [
     {
-      id: 1, text: 'Approved', condition: modState === 'approved', icon: <CheckCircleOutlineOutlinedIcon />,
+      id: 1, text: 'Approved', condition: modState === 'approved', icon: <CheckCircleOutlineOutlinedIcon />, func: handleApprove,
     },
     {
-      id: 2, text: 'Removed', condition: modState === 'removed', icon: <BlockOutlinedIcon />,
+      id: 2, text: 'Removed', condition: modState === 'removed', icon: <BlockOutlinedIcon />, func: handleRemove,
     },
     {
-      id: 3, text: 'Spam', condition: modState === 'spam', icon: <CancelPresentationOutlinedIcon />,
+      id: 3, text: 'Spam', condition: modState === 'spammed', icon: <CancelPresentationOutlinedIcon />, func: handleSpam,
     },
   ];
   const common = [
@@ -165,6 +167,7 @@ function PostFooter(props) {
           approved={(entity.condition && entity.text === 'Approved')?.toString()}
           spam={(entity.condition && (entity.text === 'Spam' || entity.text === 'Removed'))?.toString()}
           modicons={true.toString()}
+          onClick={entity.func}
         >
           {entity.icon}
           <FooterText variant="caption" condition={true.toString()}>{entity.text}</FooterText>
@@ -181,6 +184,9 @@ function PostFooter(props) {
               nsfw={nsfw}
               spoiler={spoiler}
               locked={locked}
+              handleNsfw={handleNsfw}
+              handleSpoiler={handleSpoiler}
+              handleLock={handleLock}
             />
           )}
         </ElementBox>
@@ -210,6 +216,8 @@ function PostFooter(props) {
                 nsfw={nsfw}
                 spoiler={spoiler}
                 sendReplies={sendReplies}
+                handleNsfw={handleNsfw}
+                handleSpoiler={handleSpoiler}
               />
             )}
           </ElementBox>

@@ -15,8 +15,9 @@ export const AboutDisc = styled('div')({
   fontWeight: 500,
   color: 'black',
 });
-export const AddFlair = styled('div')({
-  minWidth: 400,
+export const AddFlair = styled('div')(({ theme }) => ({
+
+  minWidth: 350,
   whiteSpace: 'nowrap',
   alignItems: 'center',
   backgroundColor: '#edeff1',
@@ -27,9 +28,12 @@ export const AddFlair = styled('div')({
   left: 280,
   padding: '0 24px',
   right: 0,
-  marginTop: 9,
+  marginTop: -17,
   Zindex: 3,
-});
+  [theme.breakpoints.between('0', '1200')]: {
+    marginTop: -17,
+  },
+}));
 export const LeftAlighne = styled('div')(({ theme }) => ({
   [theme.breakpoints.between('1200', '5000')]: {
     marginLeft: 303,
@@ -56,7 +60,6 @@ export const Add = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.between('0', '1200')]: {
     margin: 0,
-    left: 0,
   },
 }));
 export const IconBtn = styled(IconButton)(() => ({

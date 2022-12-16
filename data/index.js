@@ -52,6 +52,7 @@ const hide = require('./hide.json');
 const unhide = require('./unhide.json');
 const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
+const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
 // Something more
 
@@ -113,5 +114,6 @@ module.exports = () => ({
   unhide,
   vote,
   addImagesToPost,
+  moderatorAction,
   // Something more
 });

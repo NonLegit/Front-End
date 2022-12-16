@@ -42,6 +42,7 @@ export const AddFlair = styled('div')(({ theme }) => ({
   Zindex: 3,
   [theme.breakpoints.between('1200', '5000')]: {
     backgroundColor: '#edeff1',
+    marginTop: -17,
   },
 }));
 export const Add = styled(Button)(({ condition, theme }) => ({
@@ -71,6 +72,7 @@ export const Add = styled(Button)(({ condition, theme }) => ({
 }));
 export const TotalContainer = styled('div')({
   backgroundColor: '#dae0e6',
+  // horiz: 'none',
 });
 export const Container = styled('div')({
   backgroundColor: 'white',
