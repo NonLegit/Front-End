@@ -9,6 +9,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 // styles
 import { useRef, useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import {
   PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, ControlsIcon, PostUrl, PostUrlLink, LinkIcon,
 
@@ -51,6 +52,9 @@ function Post(props) {
     subredit, postVoteStatus, isSaved, postId, url, nsfw, spoiler,
   } = props;
 
+  // routes
+  const navigate = useNavigate();
+
   // styles
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -68,8 +72,24 @@ function Post(props) {
   const postTextRef = useRef();
   const postMediaRef = useRef();
 
+  // handlers
   const handleDirection = (dir) => {
     setIndex(index + dir);
+  };
+
+  const redirectToPost = (redirect) => {
+    if (redirect) {
+      const username = ownerName;
+      if (ownerType === 'User') {
+        if (username) {
+          navigate(`/user/${username}/comments/${postId}`);
+        } else {
+          navigate('/');
+        }
+      } else {
+        navigate(`/r/${ownerName}/comments/${postId}`);
+      }
+    }
   };
 
   // effects
@@ -127,6 +147,7 @@ function Post(props) {
           ownerType={ownerType}
           nsfw={nsfw}
           spoiler={spoiler}
+          redirectToPost={redirectToPost}
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}
@@ -136,6 +157,7 @@ function Post(props) {
           kind={kind}
           ref={postMediaRef}
           spoiler={spoiler}
+          onClick={() => redirectToPost(kind !== 'link')}
         >
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
