@@ -103,7 +103,6 @@ function App() {
                       <MainProfile />
                     }
                   />
-
                   <Route
                     path="comments/:postID"
                     element={
