@@ -1,17 +1,16 @@
 import { useState, useContext, useEffect } from 'react';
-import AddIcon from '@mui/icons-material/Add';
-import { Box } from '@mui/system';
 
+import { useAlert } from 'react-alert';
 import {
   ContentSubHeader, ContentHeader, Content, Text,
 } from '../../styles';
 import {
-  DisplayName, About, AddSocialLinks,
+  DisplayName, About,
 } from './styles';
 import { SettingsContext } from '../../../../contexts/SettingsProvider';
 
 import { settingsPost } from '../../settingsServer';
-
+import SocialLinksSettings from './SocialLinksSettings/SocialLinksSettings';
 /**
  * - ProfileInoformation
  * - Edit Display name  and About people in Seetings Page
@@ -25,9 +24,11 @@ function ProfileInoformation() {
   const {
     prefs, setPrefs,
   } = useContext(SettingsContext);
-  useEffect(() => { console.log(prefs); }, [prefs]);
+  const alert = useAlert();
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
+  useEffect(() => { console.log(prefs); }, [prefs]);
+
   useEffect(() => {
     setName(prefs?.displayName);
     setAbout(prefs?.description);
@@ -35,14 +36,19 @@ function ProfileInoformation() {
 
   const handleDisplayName = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, displayName: name }));
-    const message = await settingsPost({ ...prefs, displayName: name });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, displayName: name });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
   const handleInfo = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, description: about }));
-    const message = await settingsPost({ ...prefs, description: about });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, description: about });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
+
   return (
     <>
       <Text>
@@ -87,22 +93,7 @@ function ProfileInoformation() {
           Character remaining
         </ContentSubHeader>
       </Text>
-      <Text>
-        <Content>
-          <ContentHeader>
-            Social links (5 max)
-          </ContentHeader>
-          <ContentSubHeader>
-            People who visit your profile will see your social links.
-          </ContentSubHeader>
-        </Content>
-        <AddSocialLinks>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <AddIcon />
-            Add social link
-          </Box>
-        </AddSocialLinks>
-      </Text>
+      <SocialLinksSettings />
     </>
   );
 }

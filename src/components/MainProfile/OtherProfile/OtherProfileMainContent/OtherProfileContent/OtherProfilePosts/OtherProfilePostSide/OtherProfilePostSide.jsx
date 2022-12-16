@@ -3,6 +3,8 @@ import { useState } from 'react';
 import {
   UpArrow, DownArrow, SidebarQueueBox, UpArrowFilled, DownArrowFilled,
 } from './styles';
+import { postReactionsServer } from '../../../../../profileServer';
+
 /**
  * sidebar of the post containing arrow up and down
  *
@@ -12,23 +14,41 @@ import {
  * @returns {React.Component} OtherProfilePostSidebar
  */
 function OtherProfilePostSide(props) {
-  const { points, postVoteStatus } = props;
+  const { postid, points, postVoteStatus } = props;
   const [postPoints, setPostPoints] = useState(points);
+  const [status, setStatus] = useState(postVoteStatus);
+
   const handleClickUp = () => {
-    setPostPoints(postPoints + 1);
+    postReactionsServer(postid, 'vote', 1);
+    if (status === '-1') setPostPoints(postPoints + 2);
+    else setPostPoints(postPoints + 1);
+    setStatus('1');
   };
   const handleClickDown = () => {
+    postReactionsServer(postid, 'vote', -1);
+    if (status === '1') setPostPoints(postPoints - 2);
+    else setPostPoints(postPoints - 1);
+    setStatus('-1');
+  };
+  const handleNoUpvote = () => {
+    postReactionsServer(postid, 'vote', 0);
     setPostPoints(postPoints - 1);
+    setStatus('0');
+  };
+  const handleNoDownvote = () => {
+    postReactionsServer(postid, 'vote', 0);
+    setPostPoints(postPoints + 1);
+    setStatus('0');
   };
 
   return (
     <SidebarQueueBox>
       {
-        (postVoteStatus === '1') ? <UpArrowFilled onClick={() => { handleClickDown(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
+        (status === '1') ? <UpArrowFilled onClick={() => { handleNoUpvote(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
       }
       <Typography variant="caption" sx={{ fontWeight: 700 }}>{postPoints}</Typography>
       {
-        (postVoteStatus === '-1') ? <DownArrowFilled onClick={() => { handleClickUp(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
+        (status === '-1') ? <DownArrowFilled onClick={() => { handleNoDownvote(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
       }
     </SidebarQueueBox>
   );

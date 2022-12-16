@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 // icons
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
@@ -16,10 +16,14 @@ import {
 
 // styles
 import { useTheme } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../contexts/EditPostContext';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
 } from './styles';
 import Reactions from '../Reactions/Reactions';
+import postReactionsServer from '../postReactionsServer';
+import { useHiddenPostsContext } from '../../../contexts/HiddenPostsContext';
 
 /**
  * This component is the container of post reactions
@@ -29,28 +33,52 @@ import Reactions from '../Reactions/Reactions';
  * @property {boolean} matchMd -check whether screen size is larger than meduim
  * @property {boolean} matchSm -check whether screen size is larger than small
  * @property {number} commentCount -Number of post comments.
+ * @property {number} postVoteStatus -The last vote of the current user in this post.
+ * @property {boolean} isSaved -Is this post saved by the current user or not.
+ * @property {number} postId -The Id of the current post.
  * @returns {React.Component}  All post reactions.
  */
 
 function PostReactions(props) {
   const {
-    matchSm, comments, matchMd, votes,
+    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId,
   } = props;
 
   const [showMore, setShowMore] = useState(false);
-  const [save, setSave] = useState(false);
+  const [save, setSave] = useState(isSaved);
   const theme = useTheme();
   const matchXs = useMediaQuery(theme.breakpoints.down('xs'));
   const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
+  const { setHiddenPosts } = useHiddenPostsContext();
+
+  // handlers
   const handleShowMore = () => {
     setShowMore(!showMore);
   };
-  const handleSave = () => setSave(!save);
+  const handleSave = () => {
+    postReactionsServer(postId, save ? 'unsave' : 'save', save);
+    setSave(!save);
+  };
   const handleClickAway = () => setShowMore(false);
+  const handleHide = () => {
+    setHiddenPosts((hiddenPosts) => [...hiddenPosts, postId]);
+    postReactionsServer(postId, 'hide', 1);
+  };
+
+  // routes
+  const navigate = useNavigate();
+
+  // contexts
+  const { setEditPost } = useEditPostContext();
   return (
     <PostActions mt={0.5}>
       {!matchSm && (
-      <Reactions flexDirection="row" votes={votes} />
+      <Reactions
+        flexDirection="row"
+        postVoteStatus={postVoteStatus}
+        votes={votes}
+        postId={postId}
+      />
       )}
       <ActionButton
         color="third"
@@ -135,7 +163,21 @@ function PostReactions(props) {
               <Divider />
             </>
             )}
-            <ListItemButton>
+            <ListItemButton onClick={() => {
+              setEditPost(true);
+              // navigate(`/user/BasmaElhoseny/comments/koko`);
+              navigate(`/user/BasmaElhoseny/comments/${postId}`);
+            }}
+            >
+              <ListItemIcon>
+                <ModeEditOutlineOutlinedIcon />
+              </ListItemIcon>
+              <ShowMoreListItemText>
+                edit post
+              </ShowMoreListItemText>
+            </ListItemButton>
+            <Divider />
+            <ListItemButton onClick={handleHide}>
               <ListItemIcon>
                 <VisibilityOffOutlinedIcon />
               </ListItemIcon>

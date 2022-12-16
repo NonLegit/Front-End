@@ -5,7 +5,8 @@ import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import ContentBox from './styles';
 import Posts from './OtherProfilePosts/OtherProfilePosts';
-// import Comments from './OtherProfileComments/OtherProfileComments';
+import Comments from './OtherProfileComments/OtherProfileComments';
+import mergeTwo from '../../../../../utils/mergeSort';
 
 /**
  * Content component display the comments and posts in the profile page
@@ -19,11 +20,10 @@ import Posts from './OtherProfilePosts/OtherProfilePosts';
 function OtherProfileContent() {
   const { username } = useParams();
   const [isContent, setIsContent] = useState(false);
-  const [posts] = overviewServer(username);
+  const [posts, comments] = overviewServer(username);
 
   useEffect(() => {
-    // if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
-    if (posts?.length > 0) { setIsContent(true); }
+    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
   }, [username, posts]);
 
   const emptyContent = `hmm... u/${username}
@@ -31,17 +31,16 @@ function OtherProfileContent() {
 
   return (
     <ContentBox>
-      <Filter subTitle2="" />
+      <Filter subTitle2="./" />
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
           && (
           <>
-            {posts?.map((post, index) => (
-              <Posts key={`${index + 0}`} post={post} />
+            {mergeTwo(posts, comments).map((entity, index) => (
+              (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" />
+                : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" />
+                  : <Comments key={`${index + 0}`} comment={entity} />
             ))}
-            {/* {comments.map((comment, index) => (
-              <Comments key={`${index + 0}`} comment={comment} />
-            ))} */}
           </>
           )}
     </ContentBox>

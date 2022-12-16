@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 // eslint-disable-next-line import/no-named-as-default
 import BackHome from './style';
 
@@ -7,14 +8,20 @@ function BackHomeBottun() {
     document.body.scrollTop = 0;
   }
   return (
-    <BackHome
-      variant="contained"
-      fontSize={15}
-      fontWeight="bold"
-      onClick={() => goToTop()}
+    <Box sx={{
+      position: 'relative', flex: '1 1 auto',
+    }}
     >
-      Back to Top
-    </BackHome>
+      <BackHome
+        variant="contained"
+        fontSize={15}
+        fontWeight="bold"
+        onClick={() => goToTop()}
+      >
+        Back to Top
+      </BackHome>
+
+    </Box>
   );
 }
 

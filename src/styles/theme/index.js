@@ -25,6 +25,20 @@ const theme = createTheme({
       main: '#978A8C',
       contrastText: '#fff',
     },
+    white: {
+      main: '#ffffff',
+      light: '#ffffff',
+      dark: '#898989',
+    },
+    offwhite: {
+      main: '#DAE0E6',
+      dark: '#2E2F30',
+    },
+    nsfw: {
+      main: '#ff585b',
+      light: '#ff585b',
+      dark: '#ff585b',
+    },
   },
 });
 

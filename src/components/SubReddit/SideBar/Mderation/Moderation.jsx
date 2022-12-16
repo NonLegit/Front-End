@@ -74,7 +74,7 @@ function Moderation(props) {
           About Community
         </AboutString>
         <More>
-          <Admin>
+          <Admin to={`/r/${Name}/about`}>
             <AdminPanelSettingsOutlinedIcon />
             Mood Tools
           </Admin>

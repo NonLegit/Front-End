@@ -1,5 +1,5 @@
 import {
-  Avatar, Box, Button, styled,
+  Box, Button, styled,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -12,16 +12,16 @@ export const ComminityBox = styled(Box)(() => ({
   position: 'relative',
 }));
 
-export const HeaderAvatar = styled(Avatar)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+export const HeaderAvatar = styled(Box)(() => ({
   width: 32,
   height: 32,
   fontSize: 32,
   marginRight: 8,
 }));
 
-export const HeaderAvatarText = styled('p')(() => ({
-  fontSize: 20,
+export const HeaderAvatarImage = styled('img')(() => ({
+  width: 32,
+  height: 32,
 }));
 
 export const SubReddit = styled(Link)(() => ({

@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import RedditButton from '../../../../RedditButton/RedditButton';
 
 export const PostsQueueBox = styled(Box)(() => ({
   display: 'flex',
@@ -24,8 +25,7 @@ export const PostSidebaRes = styled(Box)(({ theme }) => ({
 
 export const EmptyImage = styled(Box)(() => ({
   height: 72,
-  width: 96,
-
+  minWidth: 96,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -36,6 +36,7 @@ export const EmptyImage = styled(Box)(() => ({
 export const PostImage = styled('img')(() => ({
   height: '100%',
   width: '100%',
+  borderRadius: 4,
 }));
 
 export const PostContentBox = styled(Box)(() => ({
@@ -60,7 +61,21 @@ export const TagPost = styled(Typography)(({ color }) => ({
   color,
   border: `1px solid ${color}`,
   padding: '0 5px',
-  height: 'fit-content',
+  height: '16px',
+  display: 'flex',
+  alignItems: 'center',
   borderRadius: 2,
   margin: 5,
+}));
+
+export const Flair = styled(RedditButton)(({ backgroundcolor, flaircolor }) => ({
+  fontSize: 10,
+  padding: '2px 10px',
+  fontWeight: 'normal',
+  backgroundColor: backgroundcolor,
+  color: flaircolor,
+  marginLeft: 5,
+  '&:hover': {
+    backgroundColor: backgroundcolor,
+  },
 }));

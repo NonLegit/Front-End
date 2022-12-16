@@ -197,6 +197,7 @@ export const TotalHeader = styled('div')(({ theme }) => ({
     padding: '0px',
   },
 }));
+
 export const NotFoundBox = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
@@ -225,4 +226,10 @@ export const BackHomeButton = styled(Button)(() => ({
   marginLeft: 10,
   marginRight: 10,
   '&:hover': { boxShadow: 'none' },
+}));
+
+export const ImageWarning = styled('img')(() => ({
+  width: 240,
+  height: 128,
+  marginBottom: 30,
 }));

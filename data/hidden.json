@@ -1,8 +1,15 @@
 {
   "posts": [
     {
-      "author": "string",
-      "owner": "string",
+      "author": {
+        "_id": "string",
+        "name": "string"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "string",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
       "ownerType": "Subreddit",
       "title": "hidden",
       "kind": "link",
@@ -18,8 +25,12 @@
       "spoiler": true,
       "sendReplies": true,
       "locked": true,
-      "flairId": "string",
-      "flairText": "string",
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
       "postVoteStatus": "1",
       "isSaved": true,
       "isHidden": true,

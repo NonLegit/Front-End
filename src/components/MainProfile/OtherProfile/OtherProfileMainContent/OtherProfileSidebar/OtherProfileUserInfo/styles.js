@@ -1,5 +1,5 @@
 import {
-  Box, Button, Card, styled, Typography,
+  Box, Button, Card, styled, Typography, Dialog,
 } from '@mui/material';
 
 export const UserInfoBox = styled(Card)(() => ({
@@ -64,7 +64,7 @@ export const UserInfoButton = styled(Button)(() => ({
   fontSize: 14,
   fontWeight: 700,
   boxShadow: 'none',
-  width: '45%',
+  width: '48%',
   marginTop: 10,
   height: 32,
   textTransform: 'none',
@@ -73,6 +73,25 @@ export const UserInfoButton = styled(Button)(() => ({
     height: 32,
   },
 }));
+
+export const BlockButton = styled(Button)(() => ({
+  borderRadius: 999,
+  fontSize: 14,
+  fontWeight: 700,
+  boxShadow: 'none',
+  backgroundColor: '#ff4500',
+  width: '100%',
+  marginTop: 10,
+  height: 32,
+  textTransform: 'none',
+  '&:hover': {
+    boxShadow: 'none',
+    height: 32,
+    backgroundColor: '#ff4500',
+
+  },
+}));
+
 export const MoreOptions = styled(Button)(() => ({
   borderRadius: 999,
   fontSize: 14,
@@ -102,4 +121,46 @@ export const OptionsButtons = styled(Button)(({ theme }) => ({
   '&:hover': {
     backgroundColor: '#ededed',
   },
+}));
+
+export const Text = styled('span')(() => ({
+  height: 40,
+  width: 'fit-content',
+  fontSize: 12,
+  fontWeight: 700,
+  backgroundColor: '#edeff1',
+  padding: '10px 12px',
+  borderRadius: 9999,
+  color: 'black',
+  cursor: 'pointer',
+  marginBottom: 8,
+  marginRight: 4,
+  textAlign: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+export const PlatformIcon = styled('img')(() => ({
+  height: 16,
+  width: 16,
+  marginRight: 5,
+}));
+
+export const LinkTo = styled('a')(() => ({
+  textDecoration: 'none',
+}));
+
+export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+  '& .MuiPaper-root': {
+    minWidth: 360,
+    maxWidth: 538,
+  },
+
 }));

@@ -13,13 +13,13 @@ const createPostServer = () => {
   const communities = data?.data.map((community) => ({
     ...community, subredditName: community.fixedName, id: community._id,
   }));
-  console.log('communities', communities);
-  console.log(statusCode);
+  // console.log('communities', communities);
+  // console.log(statusCode);
   if (statusCode === 200) {
     if (statusCode === 401) {
       redirectLogin();
     } else {
-      console.log('errorMessage');
+      // console.log('errorMessage');
     }
   }
 

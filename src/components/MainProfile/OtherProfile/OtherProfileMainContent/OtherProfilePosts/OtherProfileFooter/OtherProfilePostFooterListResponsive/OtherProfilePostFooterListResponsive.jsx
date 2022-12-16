@@ -6,6 +6,7 @@ import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import { Divider } from '@mui/material';
 import { useState } from 'react';
 import { SelectBox, SelectItem } from './styles';
+import { postReactionsServer } from '../../../../../profileServer';
 
 /**
  * resposive list of the post footer
@@ -14,10 +15,14 @@ import { SelectBox, SelectItem } from './styles';
  * @returns {React.Component} OtherProfilePostFooterListResponsive
  */
 function OtherProfilePostFooterListResponsive(props) {
-  const { isSaved } = props;
+  const { postid, isSaved } = props;
   const [saved, setSaved] = useState(isSaved);
   const handleClick = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
+  };
+  const handleClickHide = () => {
+    postReactionsServer(postid, 'hide', 1);
   };
   return (
     <SelectBox>
@@ -34,7 +39,7 @@ function OtherProfilePostFooterListResponsive(props) {
           </SelectItem>
         )}
       <Divider />
-      <SelectItem>
+      <SelectItem onClick={() => { handleClickHide(); }}>
         <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
         Hide
       </SelectItem>

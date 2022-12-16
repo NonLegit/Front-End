@@ -1,10 +1,11 @@
+import { Outlet } from 'react-router-dom';
 import CreatePostInSubredditContextProvider from '../contexts/CreatePostInSubredditContext';
-import Subreddit from '../components/SubReddit/Cover';
+// import Subreddit from '../components/SubReddit/Cover';
 
 function SubReddit() {
   return (
     <CreatePostInSubredditContextProvider>
-      <Subreddit />
+      <Outlet />
     </CreatePostInSubredditContextProvider>
   );
 }

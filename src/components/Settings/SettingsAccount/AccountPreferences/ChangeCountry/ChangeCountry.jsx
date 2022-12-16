@@ -2,8 +2,9 @@ import {
   Box, Divider,
 } from '@mui/material';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import { useAlert } from 'react-alert';
 import countryList from 'react-select-country-list';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useContext } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {
   Button, ContentHeader, Content, ContentSubHeader, AntSwitch,
@@ -11,19 +12,38 @@ import {
 import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './styles';
+import { SettingsContext } from '../../../../../contexts/SettingsProvider';
+import { settingsPost } from '../../../settingsServer';
 /**
  * - ChangeCountry
  * - Change Country of user in settings page
  *  @component
- *  @property {function} setValue set Coutry of user
- *  @property {Object} value Coutry of user
+ *  @property {setPrefs} setValue set perfs it will be Coutry of user
+ *  @property {prefs} value perfs of user
  *  @property {Boolean} open bool to open list or close
+ *  @property {function} handleChangeCoutry handel when
  */
+
 function ChangeCountry() {
-  const [value, setValue] = useState('Egypt');
-  const options = useMemo(() => countryList().getData(), []);
+  const {
+    prefs, setPrefs,
+  } = useContext(SettingsContext);
+  const alert = useAlert();
+
   const [open, setOpen] = useState(false);
-  //   useEffect(() => { console.log(value); }, [value]);
+  const options = useMemo(() => countryList().getData(), []);
+  const handleChangeCoutry = async (country) => {
+    setPrefs((oldPrefs) => ({ ...oldPrefs, country }));
+
+    const [text, type] = await settingsPost({ ...prefs, country });
+    if (text !== '') {
+      // setMessage(text);
+      // setStats(type);
+      //  setOpenAlert(true);
+      alert.show({ text, type });
+    }
+  };
+
   return (
     <Button sx={{ flexDirection: 'column' }}>
       <Content>
@@ -42,7 +62,7 @@ function ChangeCountry() {
               size="small"
               onClick={() => { setOpen(!open); }}
             >
-              {value}
+              {prefs?.country}
               <ArrowDropDownIcon sx={{ color: 'black' }} />
             </Fab>
           </ClickAwayListener>
@@ -53,8 +73,8 @@ function ChangeCountry() {
             {
                 options.map((e, index) => (
                   <div key={`${index + 0}`}>
-                    <ListItemButton onClick={() => { setValue(e.label); setOpen(!open); }}>
-                      <ShowMoreListItemText Condition={(value === e.label).toString()}>
+                    <ListItemButton onClick={() => { handleChangeCoutry(e.label.toLowerCase()); setOpen(!open); }}>
+                      <ShowMoreListItemText Condition={(prefs?.country.toLowerCase() === e.label.toLowerCase()).toString()}>
                         {e.label}
                       </ShowMoreListItemText>
                     </ListItemButton>

@@ -1,8 +1,10 @@
-import MainProfile from '../components/MainProfile/MainProfile';
+import { Outlet } from 'react-router-dom';
 
 function Profile() {
   return (
-    <MainProfile />
+
+    <Outlet />
+
   );
 }
 

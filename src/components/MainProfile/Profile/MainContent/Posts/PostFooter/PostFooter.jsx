@@ -22,8 +22,9 @@ import {
 } from './styles';
 import PostFooterList from './PostFooterList/PostFooterList';
 import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListResponsive';
-import ModeratorList from './ModeratorList/ModeratorList';
 import ArrowList from './ArrowList/ArrowList';
+import { postReactionsServer } from '../../../../profileServer';
+import ModeratorList from '../../ModeratorList/ModeratorList';
 
 /**
  * Footer of the post that contain all icons
@@ -36,14 +37,15 @@ import ArrowList from './ArrowList/ArrowList';
  */
 function PostFooter(props) {
   const {
-    numComments, approved, removed, spam, handleExpand, expand, postedByOthers,
-    saved, hidden, submitted, points, postVoteStatus, nsfw, spoiler, sendReplies,
+    postid, numComments, modState, handleExpand, expand, postedByOthers,
+    saved, hidden, submitted, isModList, points, postVoteStatus, nsfw, spoiler, sendReplies, locked,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
   const [showList, setShowList] = useState(false);
   const [showList2, setShowList2] = useState(false);
   const [moderatorList, setModeratorList] = useState(false);
+  const [modList, setModList] = useState(false);
   // handle disable the list when click away
   const handleClick = () => {
     setShowList((prev) => !prev);
@@ -72,28 +74,31 @@ function PostFooter(props) {
 
   // switch icon to hidden post and vice verse
   const handleClickHide = () => {
+    postReactionsServer(postid, isHidden ? 'unhide' : 'hide', isHidden);
     setIsHidden((prev) => !prev);
   };
 
   // switch icon to saved post and vice versa
   const handleClickSave = () => {
+    postReactionsServer(postid, isSaved ? 'unsave' : 'save', isSaved);
     setIsSaved((prev) => !prev);
   };
 
   useEffect(() => {
     setIsSaved(saved);
     setIsHidden(hidden);
-  }, [saved, hidden]);
+    setModList(isModList);
+  }, [saved, hidden, isModList, modList]);
 
   const moderator = [
     {
-      id: 1, text: 'Approved', condition: approved, icon: <CheckCircleOutlineOutlinedIcon />,
+      id: 1, text: 'Approved', condition: modState === 'approved', icon: <CheckCircleOutlineOutlinedIcon />,
     },
     {
-      id: 2, text: 'Removed', condition: removed, icon: <BlockOutlinedIcon />,
+      id: 2, text: 'Removed', condition: modState === 'removed', icon: <BlockOutlinedIcon />,
     },
     {
-      id: 3, text: 'Spam', condition: spam, icon: <CancelPresentationOutlinedIcon />,
+      id: 3, text: 'Spam', condition: modState === 'spam', icon: <CancelPresentationOutlinedIcon />,
     },
   ];
   const common = [
@@ -111,7 +116,7 @@ function PostFooter(props) {
 
   return (
     <FooterBox>
-      <ArrowList points={points} postVoteStatus={postVoteStatus} />
+      <ArrowList postid={postid} points={points} postVoteStatus={postVoteStatus} />
       <ElementBox>
         {expand ? <UnfoldLessOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />
           : <UnfoldMoreOutlinedIcon sx={{ rotate: '-45deg' }} onClick={() => { handleExpand(); }} />}
@@ -131,7 +136,30 @@ function PostFooter(props) {
         <FooterText variant="caption" responsiveshare={true.toString()}>Share</FooterText>
       </ElementBox>
 
-      {(submitted) && moderator.map((entity) => (
+      {(!postedByOthers && (!modList || !submitted)) && (
+      <ElementBox awardedit={true.toString()}>
+        <ModeEditOutlinedIcon />
+        <FooterText variant="caption" responsiveshare={true.toString()}>Edit Post</FooterText>
+      </ElementBox>
+      )}
+
+      {(!modList || !submitted) && (
+      <>
+        {common.map((entity) => (
+          <ElementBox
+            key={entity.id}
+            onClick={() => { entity.func(); }}
+            data-testid={(entity.id === 2) && 'hidden'}
+            condition={true.toString()}
+          >
+            {entity.icon}
+            <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
+          </ElementBox>
+        ))}
+      </>
+      )}
+
+      {(submitted && modList) && moderator.map((entity) => (
         <ElementBox
           key={entity.id}
           approved={(entity.condition && entity.text === 'Approved')?.toString()}
@@ -143,41 +171,28 @@ function PostFooter(props) {
         </ElementBox>
       ))}
 
-      {(submitted) && (
-      <>
-        <ClickAwayListener onClickAway={handleModListClickAway}>
-          <ElementBox>
-            <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
-            {moderatorList && (
-            <ModeratorList />
-            )}
-          </ElementBox>
-        </ClickAwayListener>
-        <ElementBox condition2={true.toString()}>
-          <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
-          <FooterText variant="caption">Insights</FooterText>
+      {(submitted && modList) && (
+      <ClickAwayListener onClickAway={handleModListClickAway}>
+        <ElementBox>
+          <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
+          {moderatorList && (
+            <ModeratorList
+              postid={postid}
+              nsfw={nsfw}
+              spoiler={spoiler}
+              locked={locked}
+            />
+          )}
         </ElementBox>
-      </>
+      </ClickAwayListener>
       )}
 
-      {(!postedByOthers) && (
-      <ElementBox awardedit={true.toString()}>
-        <ModeEditOutlinedIcon />
-        <FooterText variant="caption" responsiveshare={true.toString()}>Edit Post</FooterText>
+      {(submitted) && (
+      <ElementBox condition2={true.toString()}>
+        <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
+        <FooterText variant="caption">Insights</FooterText>
       </ElementBox>
       )}
-
-      {(!submitted) && common.map((entity) => (
-        <ElementBox
-          key={entity.id}
-          onClick={() => { entity.func(); }}
-          data-testid={(entity.id === 2) && 'hidden'}
-          condition={true.toString()}
-        >
-          {entity.icon}
-          <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
-        </ElementBox>
-      ))}
 
       {postedByOthers ? (
         <ElementBox condition={true.toString()}>
@@ -190,6 +205,7 @@ function PostFooter(props) {
             <MoreHorizOutlinedIcon onClick={handleClick} />
             {showList && (
               <PostFooterList
+                postid={postid}
                 isSaved={saved}
                 nsfw={nsfw}
                 spoiler={spoiler}
@@ -205,7 +221,7 @@ function PostFooter(props) {
         <ElementBox show={true.toString()}>
           <MoreHorizOutlinedIcon onClick={handleClick2} />
           {showList2 && (
-          <PostFooterListResponsive isSaved={isSaved} />
+          <PostFooterListResponsive postid={postid} isSaved={isSaved} />
           )}
         </ElementBox>
       </ClickAwayListener>

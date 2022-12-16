@@ -5,6 +5,7 @@ import
   Divider, Box,
 } from '@mui/material';
 import { useState, useContext } from 'react';
+import { useAlert } from 'react-alert';
 import {
   Button, ContentHeader, Content, ContentSubHeader, AntSwitch,
 } from '../../../styles';
@@ -18,13 +19,19 @@ function ChangeGender() {
   const {
     prefs, setPrefs,
   } = useContext(SettingsContext);
+  const alert = useAlert();
   const [open, setOpen] = useState(false);
 
   const handleChange = async (gender) => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, gender }));
     setOpen(!open);
-    const message = await settingsPost({ ...prefs, gender });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, gender });
+    if (text !== '') {
+      // setMessage(text);
+      // setStats(type);
+      //  setOpenAlert(true);
+      alert.show({ text, type });
+    }
   };
 
   return (
@@ -65,7 +72,7 @@ function ChangeGender() {
             }}
             >
               <ShowMoreListItemText Condition={(prefs?.gender === 'male').toString()}>
-                Mele
+                Male
               </ShowMoreListItemText>
             </ListItemButton>
             <Divider />

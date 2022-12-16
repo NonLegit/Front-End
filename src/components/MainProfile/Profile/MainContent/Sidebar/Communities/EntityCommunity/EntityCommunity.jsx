@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import joinPost from './server';
 import {
-  ComminityBox, HeaderAvatar, HeaderAvatarText, Joined, SubReddit,
+  ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
 } from './styles';
 
 function EntityComment(props) {
@@ -29,7 +29,7 @@ function EntityComment(props) {
   return (
     <ComminityBox>
       <HeaderAvatar>
-        <HeaderAvatarText>r/</HeaderAvatarText>
+        <HeaderAvatarImage src={community.icon} />
       </HeaderAvatar>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>

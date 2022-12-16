@@ -1,16 +1,132 @@
-[
-    {
-        "id": "0",
-        "text": "string",
-        "backgroundColor": "black",
-        "textColor": "white",
-        "permission": "modOnly"
-    },
-    {
-        "id": "0",
-        "text": "string",
-        "backgroundColor": "black",
-        "textColor": "white",
-        "permission": "modOnly"
-    }
+{
+    "status": "OK",
+    "data": [
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },  {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2834",
+            "text": "heljilo",
+            "textColor": "#eeeeee",
+            "backgroundColor": "#121212",
+            "permissions": "modOnly",
+            "__v": 0
+        },
+        {
+            "_id": "638bed1001f496d7284c2836",
+            "text": "third flair",
+            "textColor": "#f1f3f3",
+            "backgroundColor": "#111111",
+            "permissions": "modOnly",
+            "__v": 0
+        }
 ]
+}

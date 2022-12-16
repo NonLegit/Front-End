@@ -1,8 +1,15 @@
 {
   "posts": [
     {
-      "author": "nour",
-      "owner": "basma",
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basma",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
       "ownerType": "Subreddit",
       "title": "downvoted post 1",
       "kind": "link",
@@ -18,8 +25,12 @@
       "spoiler": true,
       "sendReplies": true,
       "locked": true,
-      "flairId": "string",
-      "flairText": "string",
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
       "postVoteStatus": "-1",
       "isSaved": true,
       "isHidden": true,
@@ -30,8 +41,15 @@
       "video": "string"
     },
     {
-      "author": "nour2",
-      "owner": "basma2",
+      "author": {
+        "_id": "string",
+        "name": "nour2"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basma2",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
       "ownerType": "Subreddit",
       "title": "downvoted post 2",
       "kind": "link",
@@ -47,8 +65,12 @@
       "spoiler": true,
       "sendReplies": true,
       "locked": true,
-      "flairId": "string",
-      "flairText": "string",
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
       "postVoteStatus": "-1",
       "isSaved": true,
       "isHidden": true,

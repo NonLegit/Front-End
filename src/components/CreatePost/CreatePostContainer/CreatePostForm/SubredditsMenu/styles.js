@@ -138,7 +138,8 @@ export const NoCommunitiesFound = styled(Box)(({ theme }) => ({
 }
 ));
 
-export const ChosenCommunityIcon = styled(Avatar)(() => ({
+export const ChosenCommunityIcon = styled(Avatar)(({ theme, ownerType }) => ({
   height: 22,
   width: 22,
+  backgroundColor: (ownerType === 'Subreddit') && theme.palette.primary.main,
 }));

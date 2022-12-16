@@ -4,10 +4,11 @@ import {
 
 export const SidebarBox = styled(Box)(({ theme }) => ({
   width: 312,
-  height: 'fit-content',
+  minHeight: 'calc(100vh - 48px);',
   marginLeft: 24,
   flex: '0 0 312px',
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
   [theme.breakpoints.between('0', '970')]: {
     display: 'none',
   },

@@ -1,62 +1,182 @@
 {
-  "posts": [
+  "status": "success",
+  "savedPosts": [
     {
-      "author": "string",
-      "owner": "string",
-      "ownerType": "Subreddit",
-      "title": "saved",
-      "kind": "link",
-      "text": "string",
-      "url": "string",
-      "sr": "string",
-      "votes": 0,
-      "commentCount": 0,
-      "views": 0,
-      "createdAt": "2017-07-21T17:32:28.000Z",
-      "suggestedSort": "top",
-      "nsfw": true,
-      "spoiler": true,
-      "sendReplies": true,
-      "locked": true,
-      "flairId": "string",
-      "flairText": "string",
-      "postVoteStatus": "1",
-      "isSaved": true,
-      "isHidden": true,
-      "isSpam": true,
-      "sharedFrom": "string",
-      "shareCount": 0,
-      "images": [],
-      "video": "string"
+      "createdAt": "2015-07-22T17:32:28Z",
+      "savedPost": {
+        "author": {
+          "_id": "string",
+          "name": "string"
+        },
+        "owner": {
+          "_id": "string",
+          "name": "string",
+          "icon": "string"
+        },
+        "ownerType": "Subreddit",
+        "title": "string",
+        "kind": "link",
+        "text": "string",
+        "url": "string",
+        "sr": "string",
+        "votes": 0,
+        "commentCount": 0,
+        "views": 0,
+        "createdAt": "2017-07-21T17:32:28Z",
+        "suggestedSort": "top",
+        "nsfw": true,
+        "spoiler": true,
+        "sendReplies": true,
+        "locked": true,
+        "flairId": {
+          "_id": "string",
+          "text": "string",
+          "backgroundColor": "string",
+          "textColor": "string"
+        },
+        "flairText": "string",
+        "postVoteStatus": "1",
+        "isSaved": true,
+        "isHidden": true,
+        "isSpam": true,
+        "sharedFrom": "string",
+        "shareCount": 0,
+        "images": ["string"],
+        "video": "string"
+      }
     },
     {
-      "author": "string",
-      "owner": "string",
-      "ownerType": "Subreddit",
-      "title": "saved",
-      "kind": "link",
-      "text": "string",
-      "url": "string",
-      "sr": "string",
-      "votes": 0,
-      "commentCount": 0,
-      "views": 0,
-      "createdAt": "2017-07-21T17:32:28.000Z",
-      "suggestedSort": "top",
-      "nsfw": true,
-      "spoiler": true,
-      "sendReplies": true,
-      "locked": true,
-      "flairId": "string",
-      "flairText": "string",
-      "postVoteStatus": "1",
-      "isSaved": true,
-      "isHidden": true,
-      "isSpam": true,
-      "sharedFrom": "string",
-      "shareCount": 0,
-      "images": [],
-      "video": "string"
+      "createdAt": "2018-07-23T17:32:28Z",
+      "savedPost": {
+        "author": {
+          "_id": "string",
+          "name": "NourZiad122"
+        },
+        "owner": {
+          "_id": "string",
+          "name": "basmaaa22",
+          "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+        },
+        "ownerType": "Subreddit",
+        "title": "saved",
+        "kind": "link",
+        "text": "string",
+        "url": "string",
+        "sr": "string",
+        "votes": 0,
+        "commentCount": 0,
+        "views": 0,
+        "createdAt": "2017-07-21T17:32:28.000Z",
+        "suggestedSort": "top",
+        "nsfw": true,
+        "spoiler": true,
+        "sendReplies": true,
+        "locked": true,
+        "flairId": {
+          "id": 1,
+          "text": "string",
+          "backgroundColor": "black",
+          "textColor": "white"
+        },
+        "postVoteStatus": "1",
+        "isSaved": true,
+        "isHidden": true,
+        "isSpam": true,
+        "sharedFrom": "string",
+        "shareCount": 0,
+        "images": [],
+        "video": "string"
+      }
+    },
+    {
+      "createdAt": "2017-07-21T17:32:28Z",
+      "savedPost": {
+        "_id": "string",
+        "author": {
+          "_id": "string",
+          "name": "nour"
+        },
+        "owner": {
+          "_id": "string",
+          "name": "basmaaa22",
+          "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+        },
+        "ownerType": "Subreddit",
+        "title": "saved",
+        "kind": "link",
+        "text": "string",
+        "url": "string",
+        "sr": "string",
+        "votes": 0,
+        "commentCount": 0,
+        "views": 0,
+        "createdAt": "2017-07-21T17:32:28.000Z",
+        "suggestedSort": "top",
+        "nsfw": true,
+        "spoiler": true,
+        "sendReplies": true,
+        "locked": true,
+        "flairId": {
+          "id": 1,
+          "text": "string",
+          "backgroundColor": "black",
+          "textColor": "white"
+        },
+        "postVoteStatus": "1",
+        "isSaved": true,
+        "isHidden": true,
+        "isSpam": true,
+        "sharedFrom": "string",
+        "shareCount": 0,
+        "images": [],
+        "video": "string"
+      }
+    }
+  ],
+  "savedComments": [
+    {
+      "createdAt": "2017-07-21T17:39:28Z",
+      "savedComment": {
+        "_id": "string",
+        "author": {
+          "_id": "string",
+          "name": "string"
+        },
+        "ownerType": "Subreddit",
+        "owner": {
+          "_id": "string",
+          "name": "string",
+          "icon": "string"
+        },
+        "title": "string",
+        "text": "string",
+        "nsfw": true,
+        "flairId": {
+          "_id": "string",
+          "text": "string",
+          "backgroundColor": "string",
+          "textColor": "string"
+        },
+        "comments": [
+          {
+            "_id": "string",
+            "parent": "string",
+            "parentType": "string",
+            "author": {
+              "_id": "string",
+              "name": "string"
+            },
+            "title": "string",
+            "text": "string",
+            "createdAt": "2017-07-21T17:32:28Z",
+            "votes": 0,
+            "commentVoteStatus": "1",
+            "isDeleted": false,
+            "mentions": ["userName of mentioned users"],
+            "isSaved": false
+          }
+        ]
+      }
     }
   ]
 }

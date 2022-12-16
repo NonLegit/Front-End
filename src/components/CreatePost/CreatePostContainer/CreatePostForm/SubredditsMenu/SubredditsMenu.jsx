@@ -21,13 +21,14 @@ import {
  * @property {function} setOwnerType -Hanlding post owner type (subreddit or user).
  * @property {string} subredditIcon -Subreddit icon.
  * @property {string} subredditName -Subreddit name.
+ * @property {string} ownerType -to know if the type of the owner is User or Subreddit
  * @returns {React.Component} Container of subreddit menu
  */
 
 function SubredditsMenu(props) {
   // props
   const {
-    setCommunityToPostIn, setOwnerType, subredditIcon, subredditName,
+    setCommunityToPostIn, setOwnerType, subredditIcon, subredditName, ownerType, communityName, setCommunityName, setFlair,
   } = props;
 
   // contexts
@@ -36,11 +37,10 @@ function SubredditsMenu(props) {
   // states
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [communityName, setCommunityName] = useState(subredditName);
   const [chosenCommunityIcon, setChosenCommunityIcon] = useState(subredditIcon);
   const [showIcon, setShowIcon] = useState(!!subredditName);
-  console.log('show icon', showIcon);
-  console.log(chosenCommunityIcon);
+  // console.log('show icon', showIcon);
+  // console.log(chosenCommunityIcon);
 
   useEffect(() => {
     setChosenCommunityIcon(subredditIcon);
@@ -56,6 +56,7 @@ function SubredditsMenu(props) {
     setSearching(true);
     setChosenCommunityIcon(null);
     setCommunityToPostIn(null);
+    setFlair(null);
   };
   const handleClickAway = () => {
     setOpen(false);
@@ -83,7 +84,7 @@ function SubredditsMenu(props) {
     setChosenCommunityIcon(null);
   };
   const handleFilter = (community) => iMatcher(`r/${community.subredditName}`, communityName);
-  console.log(communityName);
+  // console.log(communityName);
 
   // variables
   const filteredArray = communities?.filter(handleFilter);
@@ -98,7 +99,15 @@ function SubredditsMenu(props) {
         <ClickAwayContainer>
           <MenuContainer>
             {searching ? <SearchIcon />
-              : (showIcon && chosenCommunityIcon ? <ChosenCommunityIcon src={chosenCommunityIcon} /> : <DashedCircle />)}
+              : (showIcon
+                ? (
+                  <ChosenCommunityIcon
+                    src={chosenCommunityIcon}
+                    ownerType={ownerType}
+                  >
+                    {ownerType === 'Subreddit' ? 'r/' : (ownerType === 'User' ? 'u/' : '')}
+                  </ChosenCommunityIcon>
+                ) : <DashedCircle />)}
             <SubredditSearchField
               type="text"
               placeholder={searching ? 'Search communities' : 'Choose a community'}

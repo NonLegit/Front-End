@@ -7,11 +7,12 @@ import {
 } from './styles';
 import DraggableMedia from './DraggableMedia/DraggableMedia';
 import PostMediaDetails from './PostMediaDetails/PostMediaDetails';
+import PostVideo from './PostVideo/PostVideo';
 
 function PostMedia(props) {
   // props
   const {
-    handlePostMedia, postMedia, setPostMedia, activeMediaFile, setActiveMediaFile,
+    handlePostMedia, postMedia, setPostMedia, activeMediaFile, setActiveMediaFile, availableType,
   } = props;
   const mediaCount = postMedia.length;
 
@@ -61,6 +62,8 @@ function PostMedia(props) {
     temp[activeMediaFile].link = e.target.value;
     setPostMedia(temp);
   };
+  console.log('the media type', availableType);
+  console.log('my condition', !availableType ? 'video/*,image/*' : `${availableType}/*`);
   return (
     mediaCount === 0
       ? (
@@ -81,65 +84,71 @@ function PostMedia(props) {
               onChange={handlePostMedia}
             />
           </UploadButton>
-          {postMedia.map((media) => (<img key={media} src={media} width={100} alt="" />))}
         </PostEmptyMediaContainer>
-      ) : (mediaCount >= 1
-        ? (
-          <PostMediaOuterContainer>
-            <PostOneMediaContainer>
-              <DndProvider backend={HTML5Backend}>
-                {postMedia.map((media, index) => (
-                  <DraggableMedia
-                    mediaSwap={mediaSwap}
-                    mediaDelete={mediaDelete}
-                    media={media}
-                    key={media.src}
-                    id={index}
-                    activeMediaFile={activeMediaFile}
-                    setActiveMediaFile={setActiveMediaFile}
-                  />
-                ))}
-              </DndProvider>
-              <AddMoreMediaFiles>
-                <IconButton
-                  color="third"
-                  sx={{
-                    '&:hover': {
-                      backgroundColor: 'inherit',
-                      color: '#000',
-                    },
-                  }}
-                  disableRipple
-                  component="label"
-                >
-                  <input
-                    hidden
-                    accept="video/*,image/*"
-                    multiple
-                    type="file"
-                    onChange={handlePostMedia}
-                  />
-                  <AddIcon
+      ) : (availableType === 'video' ? (
+        <PostVideo
+          src={postMedia[0].src}
+          setPostMedia={setPostMedia}
+        />
+      )
+        : (mediaCount >= 1
+          ? (
+            <PostMediaOuterContainer>
+              <PostOneMediaContainer>
+                <DndProvider backend={HTML5Backend}>
+                  {postMedia.map((media, index) => (
+                    <DraggableMedia
+                      mediaSwap={mediaSwap}
+                      mediaDelete={mediaDelete}
+                      media={media}
+                      key={media.src}
+                      id={index}
+                      activeMediaFile={activeMediaFile}
+                      setActiveMediaFile={setActiveMediaFile}
+                    />
+                  ))}
+                </DndProvider>
+                <AddMoreMediaFiles>
+                  <IconButton
+                    color="third"
                     sx={{
-                      fontSize: 35,
+                      '&:hover': {
+                        backgroundColor: 'inherit',
+                        color: '#000',
+                      },
                     }}
+                    disableRipple
+                    component="label"
+                  >
+                    <input
+                      hidden
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={handlePostMedia}
+                    />
+                    <AddIcon
+                      sx={{
+                        fontSize: 35,
+                      }}
+                    />
+                  </IconButton>
+                </AddMoreMediaFiles>
+              </PostOneMediaContainer>
+              {mediaCount > 1
+                ? (
+                  <PostMediaDetails
+                    mediaFile={postMedia[activeMediaFile]}
+                    key={postMedia[activeMediaFile].src}
+                    handleCaptionChange={handleCaptionChange}
+                    handlePostLinkChange={handlePostLinkChange}
                   />
-                </IconButton>
-              </AddMoreMediaFiles>
-            </PostOneMediaContainer>
-            {mediaCount > 1
-              ? (
-                <PostMediaDetails
-                  mediaFile={postMedia[activeMediaFile]}
-                  key={postMedia[activeMediaFile].src}
-                  handleCaptionChange={handleCaptionChange}
-                  handlePostLinkChange={handlePostLinkChange}
-                />
-              )
-              : null}
-          </PostMediaOuterContainer>
-        )
-        : null)
+                )
+                : null}
+            </PostMediaOuterContainer>
+          )
+          : null)
+      )
   );
 }
 

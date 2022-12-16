@@ -38,7 +38,7 @@ function OtherProfileHeader() {
 
   const content = [
     {
-      id: 1, Title: 'Comments', text: '', res: 'res6',
+      id: 1, Title: 'Comments', text: 'comments', res: 'res6',
     },
   ];
 

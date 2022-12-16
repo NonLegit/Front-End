@@ -6,6 +6,7 @@ import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettin
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import { useState } from 'react';
 import { ClickAwayListener, Divider } from '@mui/material';
@@ -18,7 +19,8 @@ import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
 import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
-import ModeratorList from './ModeratorList/ModeratorList';
+import { actionOnPost, deletePostComment, postReactionsServer } from '../../../../../profileServer';
+import ModeratorList from '../../../ModeratorList/ModeratorList';
 
 /**
  * footer for a post conatining all icons
@@ -29,11 +31,20 @@ import ModeratorList from './ModeratorList/ModeratorList';
  * @returns {React.Component} PostFooter
  */
 function PostFooter(props) {
-  const { subTitle, numComments, isSaved } = props;
+  const {
+    postid, subTitle, numComments, isSaved,
+    nsfw,
+    spoiler,
+    sendReplies,
+    locked,
+  } = props;
 
   const [showList, setShowList] = useState(false);
   const [saved, setSaved] = useState(isSaved);
   const [moderatorList, setModeratorList] = useState(false);
+  const [isNsfw, setIsNsfw] = useState(nsfw);
+  const [isSpoiler, setIsSpoiler] = useState(spoiler);
+  const [isSendReplies, setIsSendReplies] = useState(sendReplies);
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -44,7 +55,29 @@ function PostFooter(props) {
     setShowList(false);
   };
 
+  // switch icon to hidden post and vice verse
+  const handleClickHide = () => {
+    postReactionsServer(postid, 'hide', 1);
+  };
+
+  const handleNsfw = () => {
+    actionOnPost(postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
+    setIsNsfw((prev) => !prev);
+  };
+  const handleSpoiler = () => {
+    actionOnPost(postid, isSpoiler ? 'unspoiler' : 'spoiler');
+    setIsSpoiler((prev) => !prev);
+  };
+  const handleSendReplies = () => {
+    setIsSendReplies((prev) => !prev);
+  };
+  const handleDelete = () => {
+    deletePostComment('posts', postid);
+  };
+
+  // switch icon to saved post and vice versa
   const handleSave = () => {
+    postReactionsServer(postid, saved ? 'unsave' : 'save', saved);
     setSaved((prev) => !prev);
   };
 
@@ -84,7 +117,12 @@ function PostFooter(props) {
         <ElementBox>
           <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
           {moderatorList && (
-          <ModeratorList />
+          <ModeratorList
+            postid={postid}
+            nsfw={nsfw}
+            spoiler={spoiler}
+            locked={locked}
+          />
           )}
         </ElementBox>
       </ClickAwayListener>
@@ -120,35 +158,53 @@ function PostFooter(props) {
               Pin Post To Profile
             </SelectItem>
             <Divider />
-            <SelectItem>
+            <SelectItem onClick={() => { handleClickHide(); }}>
               <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
               Hide
             </SelectItem>
             <Divider />
-            <SelectItem>
+            <SelectItem onClick={() => { handleDelete(); }}>
               <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
               Delete
             </SelectItem>
             <Divider />
-            <SelectItem>
-              <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-              Mark As OC
-            </SelectItem>
+            {!isSpoiler ? (
+              <SelectItem onClick={() => { handleSpoiler(); }}>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Mark As Spoiler
+              </SelectItem>
+            )
+              : (
+                <SelectItem onClick={() => { handleSpoiler(); }}>
+                  <CheckBoxIcon sx={{ marginRight: 1 }} />
+                  Mark As Spoiler
+                </SelectItem>
+              )}
             <Divider />
-            <SelectItem>
-              <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-              Mark As Spoiler
-            </SelectItem>
+            {!isNsfw ? (
+              <SelectItem onClick={() => { handleNsfw(); }}>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Mark As NSFW
+              </SelectItem>
+            )
+              : (
+                <SelectItem onClick={() => { handleNsfw(); }}>
+                  <CheckBoxIcon sx={{ marginRight: 1 }} />
+                  Mark As NSFW
+                </SelectItem>
+              )}
             <Divider />
-            <SelectItem>
-              <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-              Mark As NSFW
-            </SelectItem>
-            <Divider />
-            <SelectItem>
-              <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
-              Send Me Reply Notifications
-            </SelectItem>
+            {!isSendReplies ? (
+              <SelectItem onClick={() => { handleSendReplies(); }}>
+                <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
+                Send Me Reply Notifications
+              </SelectItem>
+            ) : (
+              <SelectItem onClick={() => { handleSendReplies(); }}>
+                <CheckBoxIcon sx={{ marginRight: 1 }} />
+                Send Me Reply Notifications
+              </SelectItem>
+            )}
 
           </SelectBox>
           )}

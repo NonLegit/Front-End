@@ -50,6 +50,7 @@ export const FirstPartyContainer = styled('form')(({ width, mnwidth }) => ({
   display: 'flex',
   flexDirection: 'column',
 }));
+
 export const RedditTextField = styled((props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <TextField {...props} size="small" autoComplete="off" />
