@@ -160,7 +160,7 @@ function Post(props) {
                     <ControlsIcon
                       disableRipple
                       left={10}
-                      display={index === 0 ? 'none' : 'flex'}
+                      display={index <= 0 ? 'none' : 'flex'}
                       sx={{
                         boxShadow: 10,
                       }}
@@ -175,7 +175,7 @@ function Post(props) {
                     <ControlsIcon
                       disableRipple
                       right={10}
-                      display={index === images.length - 1 ? 'none' : 'flex'}
+                      display={index >= images.length - 1 ? 'none' : 'flex'}
                       sx={{
                         boxShadow: 10,
                       }}

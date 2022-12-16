@@ -10,7 +10,6 @@ import PostsClassification from '../../HomePage/HomePageContainer/PostsClassific
 import BackToTop from '../../BackToTop/BackToTop';
 import PostList from '../../HomePage/HomePageContainer/PostList/PostList';
 import allPageServer from './allPageServer';
-import { PopularPosts } from './styles';
 
 /**
  * This component works as a container for all popular page components
@@ -31,9 +30,6 @@ function AllContainer() {
     <OuterContainer>
       <MainContainer>
         <MainContent width={640}>
-          <PopularPosts>
-            Popular posts
-          </PopularPosts>
           <PostsClassification allOrPopular="r/all/" />
           {!postsError ? (posts && <PostList posts={posts} />) : 'error in fetching posts'}
         </MainContent>
