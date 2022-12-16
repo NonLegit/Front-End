@@ -152,7 +152,7 @@ function Header() {
                     <Desc>
                       <Namee>
                         r/
-                        { name }
+                        { Name }
                       </Namee>
                       <Com>
                         r/
@@ -206,6 +206,7 @@ function Header() {
                       videos={posts?.videos}
                       kind={posts?.kind}
                       votes={posts?.votes}
+                      postVoteStatus={posts?.postVoteStatus}
                       commentCount={posts?.commentCount}
                       text={posts?.text}
                       key={posts?.id}
