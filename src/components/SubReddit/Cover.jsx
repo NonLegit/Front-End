@@ -44,6 +44,8 @@ function Header() {
   const [exist, setExist] = useState(true);
   const [showPopUp, setShowPopUp] = useState(false);
   const [name, setName] = useState();
+  const [rules, setRules] = useState([]);
+
   const [nsfw, setNsfw] = useState();
   const [userNsfw, setUserNsfw] = useState();
   const [warning, setWarning] = useState(false);
@@ -81,6 +83,7 @@ function Header() {
     }
     setName(data?.name);
     setIcon(data?.icon);
+    setRules(data?.rules);
     setDisc(data?.description);
     setTopics(data?.topics);
     setPrimaryTopic(data?.primaryTopic);
@@ -93,6 +96,7 @@ function Header() {
     setSubredditIcon(data?.icon);
     console.log(data?._id);
     setPosts(data3?.data);
+
     // join and comment another endpoint line 95
     // setJoin(data?.isJoined);
   }, [data, postClass, data3, statusCode]);
@@ -209,7 +213,7 @@ function Header() {
                     />
                   ))}
                 </MainContent>
-                <SideBar members={members} Name={Name} username={username} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
+                <SideBar rules={rules} members={members} Name={Name} username={username} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
               </Box>
             </TotalHeader>
 

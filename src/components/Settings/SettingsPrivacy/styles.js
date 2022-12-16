@@ -3,6 +3,7 @@ import { alpha } from '@mui/material/styles';
 import {
   TextField,
 } from '@mui/material';
+
 import theme, { fonts } from '../../../styles/theme';
 
 export const AddBlock = styled('div')(() => ({
@@ -17,13 +18,13 @@ export const AddBlock = styled('div')(() => ({
     border: '1px solid #0079D3',
   },
 }));
-export const AddButton = styled('div')(() => ({
+export const AddButton = styled('div')(({ active }) => ({
   marginLeft: 12,
   fontSize: 14,
-  fontWeight: '600',
+  fontWeight: '700',
   color: '#0079D3',
-  opacity: '.4',
-  cursor: 'pointer',
+  opacity: (!active) ? '0.4' : '1',
+  cursor: (!active) ? 'not-allowed' : 'pointer',
   display: 'flex',
   alignItems: 'center',
 }));
@@ -83,5 +84,27 @@ export const RedditTextField = styled((props) => (
     fontWeight: 'bold',
     fontSize: '10px',
     letterSpacing: '0.1em',
+  },
+}));
+export const BlocekConataier = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: '8px',
+  marginBottom: '8px',
+}));
+
+export const ImageBlock = styled('img')(() => ({
+  objectFit: 'cover',
+  width: '24px',
+  heught: '24px',
+}));
+export const BlocekInfo = styled('div')(() => ({
+  display: 'flex',
+  gap: '8px',
+  padding: '6px 10px',
+  cursor: 'pointer',
+
+  '&:hover': {
+    backgroundColor: '#EDEFF1',
   },
 }));

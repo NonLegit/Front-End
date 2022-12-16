@@ -2,6 +2,7 @@ import {
   Box, Divider,
 } from '@mui/material';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import { useAlert } from 'react-alert';
 import countryList from 'react-select-country-list';
 import { useState, useMemo, useContext } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -27,13 +28,22 @@ function ChangeCountry() {
   const {
     prefs, setPrefs,
   } = useContext(SettingsContext);
-  const options = useMemo(() => countryList().getData(), []);
+  const alert = useAlert();
+
   const [open, setOpen] = useState(false);
+  const options = useMemo(() => countryList().getData(), []);
   const handleChangeCoutry = async (country) => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, country }));
-    const message = await settingsPost({ ...prefs, country });
-    if (message !== '') { alert(message); }
+
+    const [text, type] = await settingsPost({ ...prefs, country });
+    if (text !== '') {
+      // setMessage(text);
+      // setStats(type);
+      //  setOpenAlert(true);
+      alert.show({ text, type });
+    }
   };
+
   return (
     <Button sx={{ flexDirection: 'column' }}>
       <Content>

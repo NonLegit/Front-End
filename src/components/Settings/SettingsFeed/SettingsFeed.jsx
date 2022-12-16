@@ -1,6 +1,7 @@
 import { Box } from '@mui/system';
 import { Switch } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { useAlert } from 'react-alert';
 import {
   AntSwitch, ContentSubHeader, ContentHeader, Content, Button, Header,
   SettingsPageConranier, SubHeader,
@@ -15,6 +16,7 @@ import { settingsPost, settingsFetch } from '../settingsServer';
  *  @property {Object} data data from fetch
  */
 function SettingsFeed() {
+  const alert = useAlert();
   const [prefs, setPrefs] = useState();
   const [data] = settingsFetch();
   useEffect(() => {
@@ -23,13 +25,17 @@ function SettingsFeed() {
 
   const handleAdultContent = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, adultContent: !oldPrefs.adultContent }));
-    const message = await settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, adultContent: !prefs?.adultContent });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
   const handleAutoplayMedia = async () => {
     setPrefs((oldPrefs) => ({ ...oldPrefs, autoplayMedia: !oldPrefs.autoplayMedia }));
-    const message = await settingsPost({ ...prefs, autoplayMedia: !prefs?.autoplayMedia });
-    if (message !== '') { alert(message); }
+    const [text, type] = await settingsPost({ ...prefs, autoplayMedia: !prefs?.autoplayMedia });
+    if (text !== '') {
+      alert.show({ text, type });
+    }
   };
   return (
 
