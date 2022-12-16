@@ -41,7 +41,7 @@ function HomePageContainer() {
 
   useEffect(() => {
     console.log('HomePage');
-    redditCookie(setCookies);
+    // redditCookie(setCookies);
   }, []);
 
   return (

@@ -15,7 +15,7 @@ import FirstParty from '../FirstParty/FirstParty';
 import { AuthenticationBody, StyledLink } from '../styles';
 
 // scripts
-// import { redditCookie } from '../authenticationServer';
+import { redditCookie } from '../authenticationServer';
 
 // environment variables
 // const { REACT_APP_ENV } = process.env;
@@ -29,13 +29,16 @@ function LogIn() {
   const [remeberMe, setRemeberMe] = useState(false);
 
   // cookies
-  const [cookies] = useCookies(['redditUser']);
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
   // useEffect
   useEffect(() => {
     // Check on Cookies
     // developememt
-    if (cookies.redditUser) {
+    /// Ask if this user already loggied in the back
+    redditCookie(setCookies, removeCookie);
+    // if logged in in the back end
+    if (cookies.redditUser !== undefined) {
       // production
       // Update Cookie
       // redditCookie(setCookies);
