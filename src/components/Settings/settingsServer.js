@@ -45,7 +45,7 @@ export const settingsFetch = () => {
 export const imagePost = async (data) => {
   const api = '/users/images';
   console.log(data);
-  await axios.post(`${api}`, (data))
+  await axios.post(`${api}`, data)
     .then((response) => {
       console.log(response);
     }).catch((error) => {

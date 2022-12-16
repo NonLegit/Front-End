@@ -33,6 +33,7 @@ import PostPage from './pages/PostPage';
 import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
+import { notificationToken } from './services/notificationToken';
 
 function App() {
   const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
@@ -42,6 +43,7 @@ function App() {
         .then((firebaseToken) => {
           console.log('Firebase token: ', firebaseToken);
           setShowNotificationBanner(false);
+          notificationToken(firebaseToken);
         })
         .catch((err) => console.error('An error occured while retrieving firebase token. ', err));
     }

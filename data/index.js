@@ -55,6 +55,7 @@ const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
 const UpdateFlair = require('./UpdateFlair.json');
 const listBlock = require('./listBlock.json');
+const notificationToken = require('./notificationToken.json');
 // Something more
 
 module.exports = () => ({
@@ -117,5 +118,6 @@ module.exports = () => ({
   vote,
   addImagesToPost,
   listBlock,
+  notificationToken,
   // Something more
 });
