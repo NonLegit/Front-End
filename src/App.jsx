@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 
+import PopularPage from './pages/PopularPage';
 import HiddenPostsContextProvider from './contexts/HiddenPostsContext';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
@@ -68,10 +69,28 @@ function App() {
                   }
                 />
                 <Route
+                  path="/r/popular"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
                   path="/:postClass"
                   element={
                     <HomePage />
                   }
+                />
+                <Route
+                  path="/r/popular"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
+                  path="/r/popular/:postClass"
+                  element={
+                    <PopularPage />
+                }
                 />
                 <Route
                   path="/user/:Name"
