@@ -33,6 +33,7 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
           const { fileName, file } = media;
           formData.append('filename', fileName);
           formData.append('file', file);
+          formData.append('kind', 'image');
           console.log(formData);
           axiosMedia.post(`/posts/${postId}/images`, formData).then((response) => {
             console.log(response);
