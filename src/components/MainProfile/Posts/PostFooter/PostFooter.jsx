@@ -17,6 +17,8 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../../contexts/EditPostContext';
 import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
@@ -35,8 +37,8 @@ import ModeratorList from '../../ModeratorList/ModeratorList';
  */
 function PostFooter(props) {
   const {
-    postid, numComments, isSaved,
-    nsfw, spoiler, locked,
+    postid, numComments, isSaved, subTitle,
+    nsfw, spoiler, locked, owner,
     modState, sendReplies, handleLock,
     handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
     mod, profile,
@@ -81,6 +83,10 @@ function PostFooter(props) {
   const handleModList = () => {
     setModeratorList((prev) => !prev);
   };
+
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
     <FooterBox>
       <ElementBox>
@@ -153,13 +159,10 @@ function PostFooter(props) {
           {showList && (
           <SelectBox data-testid="more-menu">
             {profile && !mod && (
-            <>
-              <SelectItem>
-                <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
-                Edit Post
-              </SelectItem>
-              <Divider />
-            </>
+            <SelectItem onClick={() => { setEditPost(true); navigate(`/${subTitle === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
+              <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
+              Edit Post
+            </SelectItem>
             )}
             {mod && (
               <SelectItem condition={!saved && 'true'} onClick={() => { handleSave(); }}>

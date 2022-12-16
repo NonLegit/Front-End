@@ -38,12 +38,15 @@ function Comments(props) {
       { entity?.comments?.map((comment, index) => (
         <>
           <CommentsContent
+            postid={entity?._id}
             key={`${index + 0}`}
             comment={comment}
             op={entity?.author?.name === username}
             modList={modList}
             profile={profile}
             overview={overview}
+            ownerType={entity.ownerType}
+            owner={entity.owner.name}
           />
           <Divider variant="middle" />
         </>

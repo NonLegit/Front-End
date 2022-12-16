@@ -15,15 +15,16 @@ import {
  */
 
 function ProfileHeader() {
-  const { subTitle } = useParams();
+  const { subTitle, username } = useParams();
   const navigate = useNavigate();
 
   /**
    * this function to navigate between the taps
    * @param {string} subPage - the page to navigate to
    */
+
   const handleClick = (subPage) => {
-    navigate(`${subPage}`);
+    navigate(`/user/${username}/${subPage}`);
   };
 
   const [showList, setShowList] = useState(false);

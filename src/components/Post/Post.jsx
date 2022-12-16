@@ -145,17 +145,20 @@ function Post(props) {
             (kind === 'image')
               ? (
                 <>
-                  {images.map((image, imageIndex) => (
-                    imageIndex === index
+                  {images.map((image, imageIndex) => {
+                    const { _id, path } = image || {};
+                    return (
+                      imageIndex === index
                     && (
                     <CustomImage
-                      src={image}
+                      src={path}
                       alt="post image"
-                      key={image}
+                      key={_id}
                       maxHeight={maxImagesHeight}
                     />
                     )
-                  ))}
+                    );
+                  })}
                   <>
                     <ControlsIcon
                       disableRipple
