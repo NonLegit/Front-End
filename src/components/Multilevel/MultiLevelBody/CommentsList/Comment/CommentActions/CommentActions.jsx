@@ -25,7 +25,7 @@ import { usePostContext } from '../../../../../../contexts/PostContext';
 
 // styles
 import { CommentActionsContainer } from './styles';
-import { ElementBox, FooterText } from '../../../../../MainProfile/OtherProfile/OtherProfileMainContent/OtherProfileContent/OtherProfilePosts/OtherProfilePostFooter/styles';
+import { ElementBox, FooterText } from '../../../../../MainProfile/Posts/PostFooter/styles';
 import { SaveButton } from '../../../MultiLevelPostContent/styles';
 
 // Server
