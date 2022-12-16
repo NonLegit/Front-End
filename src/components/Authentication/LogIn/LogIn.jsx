@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 // mui components
 import { Typography } from '@mui/material';
 
@@ -15,11 +15,10 @@ import FirstParty from '../FirstParty/FirstParty';
 import { AuthenticationBody, StyledLink } from '../styles';
 
 // scripts
-
-import { redditCookie } from '../authenticationServer';
+// import { redditCookie } from '../authenticationServer';
 
 // environment variables
-const { REACT_APP_ENV } = process.env;
+// const { REACT_APP_ENV } = process.env;
 
 /**
  * Login Page Component
@@ -30,20 +29,16 @@ function LogIn() {
   const [remeberMe, setRemeberMe] = useState(false);
 
   // cookies
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  const [cookies] = useCookies(['redditUser']);
 
   // useEffect
   useEffect(() => {
     // Check on Cookies
     // developememt
-    if (REACT_APP_ENV === 'development') {
-      if (cookies.redditUser === undefined) {
-        setRemeberMe(false);
-      } else { setRemeberMe(true); }
-    } else if (Cookies.get('jwt')) {
+    if (cookies.redditUser) {
       // production
       // Update Cookie
-      redditCookie(setCookies);
+      // redditCookie(setCookies);
       // check on Reddit cookie
       // if (cookies.redditUser === undefined) {
       //   redditCookie(setCookies);
