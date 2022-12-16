@@ -30,6 +30,9 @@ function Comment(props) {
   // Constants
   const authorProfilelink = `/user/${comment?.author?.userName}`;
 
+  // constants of tree Structure
+  const limitForMoreReplies = 2;
+
   // const replies = (comment) ? comment.replies : [];
 
   // state
@@ -56,7 +59,7 @@ function Comment(props) {
     // Call API of more Children
     getMoreChildren({
       children: replies[replies.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
-      limit: 2, // How many more commenets to be loaded Vertically
+      limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
     }, replies, setReplies);
   };
 
@@ -106,7 +109,7 @@ function Comment(props) {
         // <MoreCommentsLink onClick={loadMoreComments}>
         <MoreCommentsLink onClick={loadMoreRepliesParentFun}>
           {/* Only the First 10 Comments */}
-          {remainingSiblings > 10 ? 10 : remainingSiblings}
+          {remainingSiblings > limitForMoreReplies ? limitForMoreReplies : remainingSiblings}
           {' '}
           more replies
         </MoreCommentsLink>

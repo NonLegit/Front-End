@@ -29,14 +29,18 @@ function CommentsList() {
   const [comments, setComments] = useState(null);
   const [sortName, setSortName] = useState('new');
 
-  // const [commentFetched] = getComments({ postID, depth: 9, limit: 20 });// 9=depth
-
   const commentsCount = (post?.commentCount <= 0);
+
+  // constants of tree Structure
+  const limit = 3;
+  const depth = 2;
+  const limitForMoreReplies = 2;
+
   // useEffect
   useEffect(() => {
     // Fetch Initial Comments with depth and limit
     getComments({
-      postID, depth: 2, limit: 3, sort: sortName,
+      postID, depth, limit, sort: sortName,
     }, setComments);
     console.log('CommentsList.jsx', post);
   }, [postID, post, sortName]);
@@ -49,7 +53,7 @@ function CommentsList() {
     // Call API of more Children
     getMoreChildren({
       children: comments[comments.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
-      limit: 2, // How many more commenets to be loaded Vertically
+      limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
     }, comments, setComments);
   };
 
