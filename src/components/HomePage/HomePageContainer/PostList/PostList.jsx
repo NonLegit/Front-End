@@ -9,13 +9,14 @@ import Post from '../../../Post/Post';
  */
 
 function PostList(props) {
-  const { posts } = props;
+  const { posts, subredit } = props;
   const { hiddenPosts } = useHiddenPostsContext();
+  console.log(subredit);
   return (
     <>
       {posts.filter((post) => {
-        const id = post._id;
-        return !hiddenPosts.includes(id);
+        const id = post?._id;
+        return !hiddenPosts?.includes(id);
       }).map((post) => {
         const {
           _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
@@ -44,6 +45,7 @@ function PostList(props) {
             url={url}
             nsfw={nsfw}
             spoiler={spoiler}
+            subredit
           />
         );
       })}

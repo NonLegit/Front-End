@@ -2,11 +2,12 @@ import { Box, ThemeProvider, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import PostList from '../HomePage/HomePageContainer/PostList/PostList';
 import { redditCookie } from '../Authentication/authenticationServer';
 import Nsfw from '../NSFW/Nsfw';
 import FormDialog from '../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import MainContent from '../MainContent/MainContent';
-import PostSubreddit from '../Post/Post';
+// import PostSubreddit from '../Post/Post';
 import CreatePostInSubreddit from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
@@ -96,7 +97,7 @@ function Header() {
     setSubredditIcon(data?.icon);
     console.log(data?._id);
     setPosts(data3?.data);
-
+    console.log(data3?.data);
     // join and comment another endpoint line 95
     // setJoin(data?.isJoined);
   }, [data, postClass, data3, statusCode]);
@@ -152,7 +153,7 @@ function Header() {
                     <Desc>
                       <Namee>
                         r/
-                        { Name }
+                        {Name}
                       </Namee>
                       <Com>
                         r/
@@ -192,7 +193,7 @@ function Header() {
                     <CreatePostInSubreddit subredditName={Name} />
                   </ThemeProvider>
                   <PostsClassificationSubreddit subredditName={Name} />
-                  { posts?.map((posts) => (
+                  {/* { posts?.map((posts) => (
                     <PostSubreddit
                       createdAt={createdAt}
                       title={posts?.title}
@@ -212,7 +213,9 @@ function Header() {
                       key={posts?.id}
                       subredit
                     />
-                  ))}
+                  ))} */}
+                  {posts
+                  && <PostList posts={posts} subredit />}
                 </MainContent>
                 <SideBar rules={rules} members={members} Name={Name} username={username} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
               </Box>

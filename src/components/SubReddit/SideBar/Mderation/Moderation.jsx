@@ -170,7 +170,7 @@ function Moderation(props) {
       )}
       {listOfTopics && <AddList topics={topics} Name={Name} listOfTopics={listOfTopics} />}
       <Hr sx={{ marginBottom: 1, marginTop: 0 }} />
-      <CustomLink>
+      <CustomLink to={`/submit/r/${Name}`}>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">
           create Post
         </CreatPost>
