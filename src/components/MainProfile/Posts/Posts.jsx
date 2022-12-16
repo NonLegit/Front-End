@@ -168,10 +168,8 @@ function Posts(props) {
                 (post?.kind === 'image')
                   ? (
                     <>
-                      {post?.images.map((image, imageIndex) => {
-                        console.log('my imageshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkkkkk', image);
-                        return (
-                          imageIndex === index
+                      {post?.images.map((image, imageIndex) => (
+                        imageIndex === index
                     && (
                     <CustomImage
                       src={image.path}
@@ -180,8 +178,7 @@ function Posts(props) {
                       maxHeight={maxImagesHeight}
                     />
                     )
-                        );
-                      })}
+                      ))}
                       <>
                         <ControlsIcon
                           disableRipple

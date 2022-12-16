@@ -161,23 +161,26 @@ function Post(props) {
         >
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={video} type="video/mp4" />
+              <source src={`https://api.nonlegit.click/${video.path}`} type="video/mp4" />
             </video>
           ) : (
             (kind === 'image')
               ? (
                 <>
-                  {images.map((image, imageIndex) => (
-                    imageIndex === index
+                  {images.map((image, imageIndex) => {
+                    console.log('my imageshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkkkkk', image);
+                    return (
+                      imageIndex === index
                     && (
                     <CustomImage
-                      src={image}
+                      src={`https://api.nonlegit.click/${image.path}`}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
                     />
                     )
-                  ))}
+                    );
+                  })}
                   <>
                     <ControlsIcon
                       disableRipple
