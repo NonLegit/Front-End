@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useParams } from 'react-router-dom';
@@ -39,12 +40,14 @@ function HomePageContainer() {
   const [cookies, setCookies] = useCookies(['redditUser']);
 
   useEffect(() => {
+    console.log('HomePage');
     redditCookie(setCookies);
   }, []);
 
   return (
     <OuterContainer>
-      <MainContainer>
+      <h1>Hoem Page</h1>
+      {/* <MainContainer>
         <MainContent width={640}>
           {cookies.redditUser ? <CreatePostInHome /> : null}
           <PostsClassification />
@@ -60,7 +63,7 @@ function HomePageContainer() {
           <BackToTop />
         </SideBar>
         )}
-      </MainContainer>
+      </MainContainer> */}
     </OuterContainer>
   );
 }

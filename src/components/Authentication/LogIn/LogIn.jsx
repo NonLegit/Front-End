@@ -44,9 +44,11 @@ function LogIn() {
       //   redditCookie(setCookies);
       // }
       // Redirect to loading page
+      console.log('Remember me is set to true');
       setRemeberMe(true);
     } else {
       // No Cookie by Back End
+      console.log('Remember me is set to false');
       setRemeberMe(false);
     }
   }, []);
