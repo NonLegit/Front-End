@@ -20,7 +20,7 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
       const { message } = response.data;
       console.log(message);
     } else {
-      const post = response?.data;
+      const post = response?.data?.data;
       console.log('response after create post', post);
       console.log('post from response', post);
       const postId = post?._id;
