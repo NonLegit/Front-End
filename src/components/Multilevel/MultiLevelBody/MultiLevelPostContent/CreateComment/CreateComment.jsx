@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 // MUI Components
 import { Box } from '@mui/system';
@@ -21,14 +22,21 @@ import { SaveButton } from '../styles';
 
 // Server
 import { saveComment } from '../../CommentsList/commentsListServer';
+import { AuthorLink } from '../../CommentsList/Comment/styles';
 
 function CreateComment() {
   // Context
   const { post } = usePostContext();
 
+  // Cookie
+  const [cookies] = useCookies(['redditUser']);
+
   // States
   const [text, setText] = useState(EditorState.createEmpty());
   // const [readyToSave, setReadyToSave] = useState(false);
+
+  // Constants
+  const authorProfilelink = `/user/${cookies?.redditUser?.userName}`;
 
   const handleCommentTextChange = (text) => {
     // console.log(convertToRaw(text.getCurrentContent()));
@@ -49,7 +57,12 @@ function CreateComment() {
 
   return (
     <div>
-      <Typography>Comment as BasmaElhoseny01</Typography>
+      <Typography>
+        Comment as
+        {' '}
+        <AuthorLink href={authorProfilelink}>{cookies?.redditUser?.userName}</AuthorLink>
+      </Typography>
+
       <TextEditor
         handlePostTextChange={handleCommentTextChange}
         postText={text}

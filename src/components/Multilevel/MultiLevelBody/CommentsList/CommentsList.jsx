@@ -32,9 +32,11 @@ function CommentsList() {
   const commentsCount = (post?.commentCount <= 0);
 
   // constants of tree Structure
-  const limit = 3;
+  const limit = 2;
   const depth = 2;
   const limitForMoreReplies = 2;
+  const threadLimit = 2;
+  const threadDepth = 2;
 
   // useEffect
   useEffect(() => {
@@ -64,7 +66,7 @@ function CommentsList() {
     // Call API of more Children
     // getMoreChildren(comments[comments.length - 2]?.children, comments, setComments);
     getComments({
-      postID, depth: 9, limit: 20, commentId: commentID,
+      postID, depth: threadDepth, limit: threadLimit, sort: sortName, commentId: commentID,
     }, setComments);
     console.log('Continue Thread Starting from child id ', commentID);
   };

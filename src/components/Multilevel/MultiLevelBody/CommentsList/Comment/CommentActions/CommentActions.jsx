@@ -15,7 +15,7 @@ import {
 import draftToHtml from 'draftjs-to-html';
 
 // Components
-import Reactions from '../../../../../Post/Reactions/Reactions';
+import CommentReactions from './CommentReactions/CommentReactions';
 import DropDownList from '../../../../../DropDownList/DropDownList';
 import TextEditor from '../../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
 import RedditButton from '../../../../../RedditButton/RedditButton';
@@ -69,6 +69,8 @@ function CommentActions(props) {
   const shareComment = () => {
     // call Share endPoint
     console.log('Share Comment with Text', comment?.text);
+    // navigator.clipboard.writeText(this.state.textToCopy);
+    navigator.clipboard.writeText('Basma');
   };
   const handleSelectEdit = (option) => {
     // Call Back API
@@ -92,14 +94,13 @@ function CommentActions(props) {
 
   return (
     <div>
+
       <CommentActionsContainer>
-        {post && (
-        <Reactions
-          flexDirection="row"
-          viewpost
-          votes={post?.votes}
-          postVoteStatus={post?.postVoteStatus}
-          postId={post?._id}
+        {comment && (
+        <CommentReactions
+          votes={comment?.votes}
+          commentVoteStatus={comment?.votes}
+          commentId={comment?._id}
         />
         )}
         <ElementBox onClick={() => setReplyEditor(true)}>
