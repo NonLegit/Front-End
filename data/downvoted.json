@@ -1,0 +1,84 @@
+{
+  "posts": [
+    {
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basma",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "downvoted post 1",
+      "kind": "link",
+      "text": "text of down voted post 1",
+      "url": "string",
+      "sr": "string",
+      "votes": 10,
+      "commentCount": 20,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "-1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "nour2"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basma2",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "downvoted post 2",
+      "kind": "link",
+      "text": "text of down voted post 2",
+      "url": "string",
+      "sr": "string",
+      "votes": 15,
+      "commentCount": 25,
+      "views": 0,
+      "createdAt": "2022-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "-1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    }
+  ]
+}

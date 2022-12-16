@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<span
+  className="css-19lxpi3"
+  data-testid="add"
+  id="add"
+  onClick={[Function]}
+  onTouchEnd={[Function]}
+>
+  <div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1f5eo08-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      id="ListAlert"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      openForm dialog
+    </button>
+  </div>
+  <div
+    className="MuiBox-root css-p58oka"
+  />
+  <textarea
+    autoFocus={true}
+    className="css-h1mzer"
+    data-testid="input"
+    id="input"
+    onInput={[Function]}
+    type="text"
+  />
+  <div
+    className="MuiBox-root css-1e5p0dr"
+  >
+    <p
+      className="css-13icyxo"
+    >
+      / 25
+    </p>
+    <div
+      className="MuiBox-root css-1euf48e"
+    >
+      <p
+        className="css-1w2jjrd"
+        color="red"
+        id="cancel"
+        onClick={[Function]}
+      >
+        Cancel
+      </p>
+      <p
+        className="css-44rl5i"
+        color="#0079d3"
+        onClick={[Function]}
+      >
+        Save
+      </p>
+    </div>
+  </div>
+</span>
+`;

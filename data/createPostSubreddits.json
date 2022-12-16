@@ -1,0 +1,54 @@
+{
+  "subredditsHomePage": {
+    "data": [
+      {
+        "_id": 0,
+        "fixedName": "noooouu",
+        "status": true,
+        "isJoined": true,
+        "membersCount": 617671,
+        "icon": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797"
+      },
+      {
+        "_id": 1,
+        "fixedName": "kalba222",
+        "status": true,
+        "isJoined": false,
+        "membersCount": 23458320,
+        "icon": "https://styles.redditmedia.com/t5_2haljk/styles/communityIcon_v3mfg6zq8ml41.jpg?format=pjpg&s=06415378b24bb050806de9bc4609263bcb23b362"
+      },
+      {
+        "_id": 2,
+        "fixedName": "CMP 2024",
+        "status": false,
+        "isJoined": false,
+        "membersCount": 10340400,
+        "icon": "https://styles.redditmedia.com/t5_2qh87/styles/communityIcon_ub69d1lpjlf51.png"
+      },
+      {
+        "_id": 3,
+        "fixedName": "CMP 2022",
+        "status": false,
+        "isJoined": true,
+        "membersCount": 10000,
+        "icon": "https://styles.redditmedia.com/t5_2qiq1/styles/communityIcon_dwmyh6nx1n821.png"
+      },
+      {
+        "_id": 5,
+        "fixedName": "toptalent",
+        "status": true,
+        "isJoined": true,
+        "membersCount": 617671,
+        "icon": "https://styles.redditmedia.com/t5_75adtv/styles/profileIcon_qyshu6vkr8z91.jpeg?w_idth=256&height=256&crop=256:256,smart&s=935dbc41a42200365af94cf69648fee7f80bcbc7"
+      },
+      {
+        "_id": 6,
+        "fixedName": "CMP 2020",
+        "status": true,
+        "isJoined": true,
+        "membersCount": 617671,
+        "icon": "https://styles.redditmedia.com/t5_75adtv/styles/profileIcon_qyshu6vkr8z91.jpeg?w_idth=256&height=256&crop=256:256,smart&s=935dbc41a42200365af94cf69648fee7f80bcbc7https://styles.redditmedia.com/t5_75adtv/styles/profileIcon_qyshu6vkr8z91.jpeg?w_idth=256&height=256&crop=256:256,smart&s=935dbc41a42200365af94cf69648fee7f80bcbc7"
+      }
+    ]
+  }
+}

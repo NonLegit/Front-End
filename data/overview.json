@@ -1,0 +1,287 @@
+{
+  "posts": [
+    {
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "kalba222",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string1",
+      "kind": "self",
+      "text": "string",
+      "url": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 70,
+      "createdAt": "2022-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": false,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string",
+      "sortOnHot": 0
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string2",
+      "kind": "image",
+      "text": "string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string ",
+      "url": "string",
+      "sr": "string",
+      "votes": 100,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2022-10-09T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": false,
+      "spoiler": false,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [
+        "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+        "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+      ],
+      "video": "string",
+      "sortOnHot": 9
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "NourZiad122"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string3",
+      "kind": "video",
+      "text": "string",
+      "url": "string",
+      "sr": "string",
+      "votes": 10,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": false,
+      "spoiler": false,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+      "sortOnHot": 80
+    }
+  ],
+  "comments": [
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "string"
+      },
+      "ownerType": "Subreddit",
+      "owner": {
+        "_id": "string",
+        "name": "kalba222",
+        "icon": "string"
+      },
+      "title": "string",
+      "text": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2022-13-12T17:32:28Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "_id": "string",
+        "text": "string",
+        "backgroundColor": "string",
+        "textColor": "string"
+      },
+      "flairText": "string",
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": ["string"],
+      "video": "string",
+      "sortOnHot": 0,
+      "comments": [
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        },
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "string"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        }
+      ]
+    },
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "ownerType": "Subreddit",
+      "owner": {
+        "_id": "string",
+        "name": "string",
+        "icon": "string"
+      },
+      "title": "string",
+      "text": "string",
+      "votes": 99,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "_id": "string",
+        "text": "string",
+        "backgroundColor": "string",
+        "textColor": "string"
+      },
+      "flairText": "string",
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "modState": "unmoderated",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": ["string"],
+      "video": "string",
+      "sortOnHot": 0,
+      "comments": [
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "nour"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        },
+        {
+          "_id": "string",
+          "parent": "string",
+          "parentType": "string",
+          "author": {
+            "_id": "string",
+            "name": "nour"
+          },
+          "title": "string",
+          "text": "string",
+          "createdAt": "2017-07-21T17:32:28Z",
+          "votes": 0,
+          "commentVoteStatus": "1",
+          "isDeleted": false,
+          "mentions": ["userName of mentioned users"],
+          "isSaved": false,
+          "sortOnHot": 0
+        }
+      ]
+    }
+  ]
+}
