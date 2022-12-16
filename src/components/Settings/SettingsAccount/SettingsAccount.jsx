@@ -7,8 +7,9 @@ import {
   Header, Button, ContentHeader, Content, ContentSubHeader,
   SettingsPageConranier, SubHeader, AntSwitch,
 } from '../styles';
+import DeleteAccountWindow from './DeleteAccount/DeleteAccount';
 import AccountPreferences from './AccountPreferences/AccountPreferences';
-import { DeleteAccount } from './styles';
+import { DeleteAccount, BootstrapDialog } from './styles';
 import { settingsFetch } from '../settingsServer';
 /**
  * - SettingsAccount
@@ -19,6 +20,7 @@ import { settingsFetch } from '../settingsServer';
  *  @property {Object} data data from fetch
  */
 const SettingsAccount = () => {
+  const [openPass, setOpenPass] = useState(false);
   const [prefs, setPrefs] = useState();
   const [data] = settingsFetch();
   useEffect(() => {
@@ -50,11 +52,25 @@ const SettingsAccount = () => {
         <SubHeader> DELETE ACCOUNT  </SubHeader>
         <DeleteAccount>
           <DeleteOutlineOutlinedIcon />
-          <Box sx={{ fontSize: '12px' }}>
+          <Box onClick={() => { setOpenPass(true); }} sx={{ fontSize: '12px' }}>
             {' '}
             <Box sx={{ width: 'fit-content', cursor: 'pointer' }}> DELETE ACCOUNT</Box>
           </Box>
         </DeleteAccount>
+        <BootstrapDialog
+          onClose={(event, reason) => {
+            if (reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+              setOpenPass(false);
+            }
+          }}
+          aria-labelledby="customized-dialog-title"
+          open={openPass}
+          keepMounted
+        >
+          <DeleteAccountWindow
+            setOpenPass={setOpenPass}
+          />
+        </BootstrapDialog>
       </Box>
     </SettingsPageConranier>
 
