@@ -1,4 +1,5 @@
-import axios from '../../../../services/mediaInstance';
+import axiosMedia from '../../../../services/mediaInstance';
+import axios from '../../../../services/instance';
 import { redirectLogin } from '../../../../utils/Redirect';
 /**
  * This function works as a server for submitting post
@@ -33,7 +34,7 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
           formData.append('filename', fileName);
           formData.append('file', file);
           console.log(formData);
-          axios.post(`/posts/${postId}/images`, formData).then((response) => {
+          axiosMedia.post(`/posts/${postId}/images`, formData).then((response) => {
             console.log(response);
           }).catch((error) => {
             console.log(error.response);
