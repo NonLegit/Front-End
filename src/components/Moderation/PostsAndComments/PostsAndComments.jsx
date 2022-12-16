@@ -14,15 +14,7 @@ function PostsAndComments() {
           <AboutString>
             Posts and Comment settings
           </AboutString>
-          <Disc>posts</Disc>
-
-          <AboutSubString>
-            Post type options
-          </AboutSubString>
-
-          <PostType />
-
-          <Disc marginTop="33px">Comments</Disc>
+          <Disc sx={{ marginTop: '20px' }}>Comments</Disc>
           <FlexBox>
             <FlexBoxColumn>
               <SortString>
@@ -32,6 +24,14 @@ function PostsAndComments() {
             </FlexBoxColumn>
             <SuggestionSort />
           </FlexBox>
+          <Disc>posts</Disc>
+
+          <AboutSubString>
+            Post type options
+          </AboutSubString>
+
+          <PostType />
+
         </Container>
       </LeftAlighne>
     </TotalContainer>

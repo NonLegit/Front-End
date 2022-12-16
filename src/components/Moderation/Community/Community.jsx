@@ -63,11 +63,13 @@ export default function Community() {
     setType(data?.type);
     setNsfw(data?.nsfw);
     setRegion(data?.region);
+  }, [data, statusCode]);
 
+  useEffect(() => {
     console.log(type);
-    console.log(nsfw);
+    console.log(nsfw === true);
     console.log(region);
-  }, [data, statusCode, type, nsfw]);
+  }, [nsfw]);
   const myType = (t) => {
     setType(t);
   };
@@ -193,7 +195,12 @@ export default function Community() {
                 <Disc>COMMUNITY TYPE</Disc>
               </Section>
               <Section>
-                <RadioBtn myType={myType} type={type} />
+                {(type === 'Public')
+                && <RadioBtn myType={myType} type="Public" />}
+                {(type === 'Restricted')
+                && <RadioBtn myType={myType} type="Restricted" />}
+                { (type === 'Private')
+               && <RadioBtn myType={myType} type="Private" />}
               </Section>
               <Section>
                 <FlexBox>
@@ -206,7 +213,10 @@ export default function Community() {
                       When your community is marked as an 18+ community, users must be flagged as 18+ in their user settings
                     </SmallDisc>
                   </FlexBoxColumn>
-                  <Switch defaultChecked={nsfw} value="nsfw" onClick={() => { setNsfw(!nsfw); }} />
+                  { nsfw
+                    && <Switch defaultChecked onClick={() => { setNsfw(!nsfw); }} />}
+                  {!nsfw
+                    && <Switch defaultChecked={false} onClick={() => { setNsfw(!nsfw); }} />}
                 </FlexBox>
               </Section>
             </Container>
@@ -214,7 +224,6 @@ export default function Community() {
         </TotalContainer>
       )
       : (
-
         <NotFoundBox>
           <NotFountImage src="https://www.redditstatic.com/desktop2x/img/snoomoji/snoo_thoughtful.png" />
           <Typography sx={{ fontWeight: 700, marginBottom: 2, fontSize: '18px' }}>Sorry, there aren’t any communities on Reddit with that name.</Typography>
@@ -225,7 +234,6 @@ export default function Community() {
           </Box>
           {showPopUp && <Box sx={{ display: 'absolute' }}><FormDialog display="none" /></Box>}
         </NotFoundBox>
-
       )
   );
 }

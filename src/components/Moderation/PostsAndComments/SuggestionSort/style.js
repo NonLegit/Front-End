@@ -8,7 +8,7 @@ export const Select = styled(Box)(() => ({
   },
 }));
 
-export const SelectBox = styled(Box)(() => ({
+export const SelectBox = styled(Box)(({ theme }) => ({
   width: 180,
   border: ' 1px solid #eee',
   borderRadius: 4,
@@ -17,6 +17,11 @@ export const SelectBox = styled(Box)(() => ({
   position: 'absolute',
   margin: '990px 560px 680px 725px',
   zIndex: 10,
+  [theme.breakpoints.between('0', '930')]: {
+    margin: 0,
+    right: 0,
+    top: 375,
+  },
 }));
 
 export const SelectItem = styled(Button)(({ condition }) => ({
