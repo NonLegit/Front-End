@@ -45,7 +45,7 @@ function PostList(props) {
             url={url}
             nsfw={nsfw}
             spoiler={spoiler}
-            subredit
+            subredit={subredit}
           />
         );
       })}
