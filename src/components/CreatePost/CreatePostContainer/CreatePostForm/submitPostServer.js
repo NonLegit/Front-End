@@ -24,11 +24,12 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
       const postId = post?._id;
       if (postType === 1) {
         postMedia.forEach((media) => {
+          const formData = new FormData();
           const { fileName, file } = media;
-          axios.post(`/posts/${postId}/images`, {
-            filename: fileName,
-            file,
-          }).then((response) => {
+          formData.append('filename', fileName);
+          formData.append('file', file);
+          console.log(formData);
+          axios.post(`/posts/${postId}/images`, formData).then((response) => {
             console.log(response);
           }).catch((error) => {
             console.log(error.response);
