@@ -21,7 +21,10 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
       console.log(message);
     } else {
       const post = response?.data;
+      console.log('response after create post', post);
+      console.log('post from response', post);
       const postId = post?._id;
+      console.log('post from response', postId);
       if (postType === 1) {
         postMedia.forEach((media) => {
           const formData = new FormData();
