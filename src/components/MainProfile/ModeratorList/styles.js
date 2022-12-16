@@ -14,10 +14,10 @@ export const SelectBox = styled(Box)(({ theme }) => ({
     width: 200,
     marginLeft: -100,
   },
-  [theme.breakpoints.between('0', '540')]: {
+  [theme.breakpoints.between('0', '420')]: {
     marginLeft: -150,
   },
-  [theme.breakpoints.between('0', '540')]: {
+  [theme.breakpoints.between('0', '420')]: {
     marginTop: 300,
   },
 }));
@@ -34,7 +34,7 @@ export const SelectItem = styled(Button)(({ theme, responsive }) => ({
   ...((responsive === 'true') && {
     justifyContent: 'left',
     display: 'none',
-    [theme.breakpoints.between('0', '540')]: {
+    [theme.breakpoints.between('0', '420')]: {
       display: 'flex',
     },
   }),
@@ -42,7 +42,7 @@ export const SelectItem = styled(Button)(({ theme, responsive }) => ({
 
 export const DividerRes = styled(Divider)(({ theme }) => ({
   display: 'none',
-  [theme.breakpoints.between('0', '540')]: {
+  [theme.breakpoints.between('0', '420')]: {
     display: 'block',
   },
 }));

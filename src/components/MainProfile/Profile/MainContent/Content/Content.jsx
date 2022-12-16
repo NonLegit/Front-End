@@ -1,13 +1,12 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState, useMemo } from 'react';
-// import { UserContext } from '../../../../../contexts/UserProvider';
 import mergeTwo from '../../../../../utils/mergeSort';
 import EmptyContent from '../../../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox } from '../styles';
 import ContentBox from './styles';
-import Posts from './Posts/Posts';
+import Posts from '../../../Posts/Posts';
 import Comments from '../../../Comments/Comments';
 import { overviewServer } from '../../../profileServer';
 
@@ -35,8 +34,9 @@ function Content() {
 
   useEffect(() => {
     console.log(posts);
+    setIsContent(false);
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
-  }, [username, posts, comments]);
+  }, [username, posts, comments, sort]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
@@ -54,9 +54,9 @@ function Content() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            {mergeTwo(posts, comments).map((entity, index) => (
-              (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" />
-                : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" />
+            {mergeTwo(posts, comments, sort).map((entity, index) => (
+              (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" profile />
+                : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" profile />
                   : <Comments key={`${index + 0}`} entity={entity} overview="true" profile />
             ))}
           </>

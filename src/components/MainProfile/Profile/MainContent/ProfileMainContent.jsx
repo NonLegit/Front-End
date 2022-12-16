@@ -11,6 +11,7 @@ import SavedTap from './SavedTap/SavedTap';
 import Sidebar from './Sidebar/Sidebar';
 import { ProfilePage } from './styles';
 import CommentsTap from '../../CommentsTap/CommentsTap';
+import UserProvider from '../../../../contexts/UserProvider';
 
 const renderSwitch = (param) => {
   if (param === undefined || param === '?sort=new' || param === '?sort=hot' || param === '?sort=top' || param === '?sort=top&t=day') {
@@ -63,17 +64,20 @@ const renderSwitch = (param) => {
  */
 
 function ProfileMainContent() {
-  const { subTitle } = useParams();
+  const { subTitle, username } = useParams();
   return (
     <Box>
-      <CommunitiesProvider>
-        <CommunitiesSubscriberProvider>
-          <ProfilePage>
-            {renderSwitch(subTitle)}
-            <Sidebar />
-          </ProfilePage>
-        </CommunitiesSubscriberProvider>
-      </CommunitiesProvider>
+      <UserProvider name={username}>
+        <CommunitiesProvider>
+          <CommunitiesSubscriberProvider>
+            <ProfilePage>
+              {renderSwitch(subTitle)}
+              <Sidebar />
+            </ProfilePage>
+          </CommunitiesSubscriberProvider>
+        </CommunitiesProvider>
+      </UserProvider>
+
     </Box>
   );
 }

@@ -49,6 +49,7 @@ function OtherProfileUserInfo({ username }) {
     setProfilePic(info?.profilePicture);
     setCoverPic(info?.profileBackground);
     setFollow(info?.isFollowed);
+    setIsFollowedUi(info?.isFollowed);
     setSocialLinks(info?.socialLinks);
     setBlock(info?.isBlocked);
   }, [info, statusCode]);

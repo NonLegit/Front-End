@@ -18,14 +18,14 @@ export const CommentsBoxContent = styled(Box)(() => ({
 }));
 
 export const CommentsBoxBlue = styled(Box)(({ theme, overview }) => ({
-  [theme.breakpoints.between('0', '950')]: {
+  [theme.breakpoints.between('0', '1000')]: {
     width: '100%',
   },
   ...((overview === 'true') && {
     width: 595,
-    height: 77,
+    minHeight: 77,
     backgroundColor: '#0079d30d',
-    padding: '4px 4px',
+    padding: '4px 10px',
   }),
 }));
 

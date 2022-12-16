@@ -1,9 +1,9 @@
-import { Box, Typography } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import RedditButton from '../../../../../RedditButton/RedditButton';
+import RedditButton from '../../RedditButton/RedditButton';
 
 export const PostsQueueBox = styled(Box)(({ condition }) => ({
-  minHeight: 150,
+  minHeight: 120,
   display: 'flex',
   backgroundColor: 'white',
   marginTop: 10,
@@ -58,4 +58,42 @@ export const Flair = styled(RedditButton)(({ backgroundcolor, flaircolor }) => (
   '&:hover': {
     backgroundColor: backgroundcolor,
   },
+}));
+
+export const TagPost = styled(Typography)(({ color }) => ({
+  color,
+  border: `1px solid ${color}`,
+  padding: '0 5px',
+  height: '16px',
+  display: 'flex',
+  alignItems: 'center',
+  borderRadius: 2,
+  margin: 5,
+}));
+
+export const PostMedia = styled(Box)(({ kind, spoiler }) => ({
+  display: 'flex',
+  justifyContent: (kind === 'self' || kind === 'link') ? 'flex-start' : 'center',
+  alignItems: 'center',
+  backgroundColor: (kind === 'video') ? '#000' : '#fff',
+  position: 'relative',
+  filter: spoiler && 'blur(3px)',
+}));
+
+export const CustomImage = styled('img')(({ maxHeight }) => ({
+  maxWidth: '100%',
+  maxHeight,
+}));
+
+export const ControlsIcon = styled(IconButton)(({ left, right, display }) => ({
+  backgroundColor: '#fff',
+  '&:hover': {
+    backgroundColor: '#fff',
+  },
+  left,
+  right,
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(0, -50%);',
+  display,
 }));

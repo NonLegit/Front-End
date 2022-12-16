@@ -32,8 +32,9 @@ function PostsTap() {
 
   // check if the page have any content posts to show
   useEffect(() => {
-    if (posts?.length > 0) { setIsContent(true); } else { setIsContent(false); }
-  }, [username, posts]);
+    setIsContent(false);
+    if (posts?.length > 0) { setIsContent(true); }
+  }, [username, posts, sort]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;

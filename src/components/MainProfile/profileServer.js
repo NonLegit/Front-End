@@ -67,3 +67,14 @@ export const actionComment = (commentsId, action) => {
     console.log(error.response.status);
   });
 };
+
+export const moderationAction = (postId, action) => {
+  axios.patch(`/posts/${postId}/moderate/${action}`).then((response) => {
+    if (response.status === 401) {
+      window.location.pathname = 'login';
+    }
+    console.log('action response', response, action);
+  }).catch((error) => {
+    console.log(error.response.status);
+  });
+};

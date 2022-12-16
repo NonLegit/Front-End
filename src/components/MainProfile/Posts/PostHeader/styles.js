@@ -7,10 +7,10 @@ export const HeaderPost = styled(Box)(() => ({
   marginTop: 8,
   minHeight: 24,
   marginBottom: 8,
-  flexWrap: 'nowrap',
-  position: 'relative',
-  width: '100%',
+  flexWrap: 'wrap',
   alignItems: 'center',
+  position: 'relative',
+  maxWidth: '85%',
 }));
 
 export const HeaderAvatar = styled(Box)(() => ({
@@ -24,6 +24,14 @@ export const HeaderAvatarImage = styled('img')(() => ({
   height: 20,
 }));
 
+export const LinkTo = styled(Link)(() => ({
+  textDecoration: 'none',
+  color: '#787c7e',
+  display: 'flex',
+  alignItems: 'center',
+  marginLeft: '8px',
+}));
+
 export const Joined = styled(Button)(() => ({
   textTransform: 'unset',
   borderRadius: 999,
@@ -32,17 +40,9 @@ export const Joined = styled(Button)(() => ({
   position: 'absolute',
   fontSize: 12,
   fontWeight: 700,
-  right: 7,
+  right: '-15%',
   boxShadow: 'none',
   '&:hover': {
     boxShadow: 'none',
   },
-}));
-
-export const LinkTo = styled(Link)(() => ({
-  textDecoration: 'none',
-  color: '#787c7e',
-  display: 'flex',
-  alignItems: 'center',
-  marginLeft: 8,
 }));

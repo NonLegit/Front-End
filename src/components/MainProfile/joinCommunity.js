@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 
-import axios from '../../../../../../../services/instance';
+import axios from '../../services/instance';
 
 /**
  * submit a post request when user join or leave a sommunity
@@ -10,7 +10,7 @@ import axios from '../../../../../../../services/instance';
  * @returns {object} provided response through backend
  */
 
-const joinPost = (sub, subredditName) => {
+const joinCommunity = (sub, subredditName) => {
   const [data, setData] = useState(null);
   const isFirstRun = useRef(true);
   useEffect(() => {
@@ -21,6 +21,7 @@ const joinPost = (sub, subredditName) => {
     axios.post(`subreddits/${subredditName}/subscribe`, {
       sub,
     }).then((response) => {
+      console.log(response);
       setData(response);
     }).catch((error) => {
       console.log(error);
@@ -29,4 +30,4 @@ const joinPost = (sub, subredditName) => {
   return data;
 };
 
-export default joinPost;
+export default joinCommunity;

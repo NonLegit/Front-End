@@ -7,20 +7,20 @@
       },
       "owner": {
         "_id": "string",
-        "name": "basmaaa22",
+        "name": "kalba222",
         "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
       },
       "ownerType": "Subreddit",
       "title": "string1",
-      "kind": "link",
+      "kind": "self",
       "text": "string",
       "url": "string",
       "votes": 0,
       "commentCount": 0,
-      "views": 0,
+      "views": 70,
       "createdAt": "2022-07-21T17:32:28.000Z",
       "suggestedSort": "top",
-      "nsfw": true,
+      "nsfw": false,
       "spoiler": true,
       "sendReplies": true,
       "locked": true,
@@ -37,7 +37,8 @@
       "sharedFrom": "string",
       "shareCount": 0,
       "images": [],
-      "video": "string"
+      "video": "string",
+      "sortOnHot": 0
     },
     {
       "author": {
@@ -51,17 +52,17 @@
       },
       "ownerType": "Subreddit",
       "title": "string2",
-      "kind": "link",
+      "kind": "image",
       "text": "string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string string ",
       "url": "string",
       "sr": "string",
-      "votes": 0,
+      "votes": 100,
       "commentCount": 0,
       "views": 0,
       "createdAt": "2022-10-09T17:32:28.000Z",
       "suggestedSort": "top",
-      "nsfw": true,
-      "spoiler": true,
+      "nsfw": false,
+      "spoiler": false,
       "sendReplies": true,
       "locked": true,
       "flairId": {
@@ -76,8 +77,12 @@
       "modState": "unmoderated",
       "sharedFrom": "string",
       "shareCount": 0,
-      "images": [],
-      "video": "string"
+      "images": [
+        "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+        "https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
+      ],
+      "video": "string",
+      "sortOnHot": 9
     },
     {
       "author": {
@@ -91,17 +96,17 @@
       },
       "ownerType": "Subreddit",
       "title": "string3",
-      "kind": "link",
+      "kind": "video",
       "text": "string",
       "url": "string",
       "sr": "string",
-      "votes": 0,
+      "votes": 10,
       "commentCount": 0,
       "views": 0,
       "createdAt": "2017-07-21T17:32:28.000Z",
       "suggestedSort": "top",
-      "nsfw": true,
-      "spoiler": true,
+      "nsfw": false,
+      "spoiler": false,
       "sendReplies": true,
       "locked": true,
       "flairId": {
@@ -117,7 +122,8 @@
       "sharedFrom": "string",
       "shareCount": 0,
       "images": [],
-      "video": "string"
+      "video": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+      "sortOnHot": 80
     }
   ],
   "comments": [
@@ -213,7 +219,7 @@
       },
       "title": "string",
       "text": "string",
-      "votes": 0,
+      "votes": 99,
       "commentCount": 0,
       "views": 0,
       "createdAt": "2017-07-21T17:32:28Z",

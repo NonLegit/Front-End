@@ -3,11 +3,8 @@ import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
 import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
-
 import { Divider } from '@mui/material';
-import { useState } from 'react';
 import { DividerRes, SelectBox, SelectItem } from './styles';
-import { actionOnPost } from '../../../profileServer';
 
 /**
  * list of the functionality of the moderator for smaller screens
@@ -16,39 +13,29 @@ import { actionOnPost } from '../../../profileServer';
  * @returns {React.Component} ModeratorList
  */
 function ModeratorList({
-  postid,
   nsfw,
   spoiler,
   locked,
+  handleLock,
+  handleSpoiler,
+  handleNsfw,
+  handleApprove,
+  handleRemove,
+  handleSpam,
 }) {
-  const [isNsfw, setIsNsfw] = useState(nsfw);
-  const [isSpoiler, setIsSpoiler] = useState(spoiler);
-  const [isLocked, setIsLocked] = useState(locked);
-  const handleNsfw = () => {
-    actionOnPost(postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
-    setIsNsfw((prev) => !prev);
-  };
-  const handleSpoiler = () => {
-    actionOnPost(postid, isSpoiler ? 'unspoiler' : 'spoiler');
-    setIsSpoiler((prev) => !prev);
-  };
-  const handleLock = () => {
-    actionOnPost(postid, isLocked ? 'unlock_comments' : 'lock_comments');
-    setIsLocked((prev) => !prev);
-  };
   return (
     <SelectBox>
-      <SelectItem responsive={true.toString()}>
+      <SelectItem responsive={true.toString()} onClick={handleApprove}>
         <CheckCircleOutlineOutlinedIcon sx={{ marginRight: 1 }} />
         Approve
       </SelectItem>
       <DividerRes />
-      <SelectItem responsive={true.toString()}>
+      <SelectItem responsive={true.toString()} onClick={handleRemove}>
         <BlockOutlinedIcon sx={{ marginRight: 1 }} />
         Remove
       </SelectItem>
       <DividerRes />
-      <SelectItem responsive={true.toString()}>
+      <SelectItem responsive={true.toString()} onClick={handleSpam}>
         <CancelPresentationOutlinedIcon sx={{ marginRight: 1 }} />
         Spam
       </SelectItem>
@@ -58,7 +45,7 @@ function ModeratorList({
         Distinguish As Mod
       </SelectItem>
       <Divider />
-      {!isLocked ? (
+      {!locked ? (
         <SelectItem onClick={() => { handleLock(); }}>
           <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
           Lock Comments
@@ -76,7 +63,7 @@ function ModeratorList({
         Mark As OC
       </SelectItem>
       <Divider />
-      {!isSpoiler ? (
+      {!spoiler ? (
         <SelectItem onClick={() => { handleSpoiler(); }}>
           <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
           Mark As Spoiler
@@ -89,7 +76,7 @@ function ModeratorList({
           </SelectItem>
         )}
       <Divider />
-      {!isNsfw ? (
+      {!nsfw ? (
         <SelectItem onClick={() => { handleNsfw(); }}>
           <CropSquareOutlinedIcon sx={{ marginRight: 1 }} />
           Mark As NSFW

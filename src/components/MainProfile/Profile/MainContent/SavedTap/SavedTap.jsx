@@ -23,6 +23,7 @@ function SavedTap() {
   // check if the page have any content posts to show
   useEffect(() => {
     console.log(posts, comments);
+    setIsContent(false);
     if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
   }, [username, posts, comments, subTitle]);
 

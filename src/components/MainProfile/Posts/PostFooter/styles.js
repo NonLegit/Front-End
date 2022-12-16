@@ -32,7 +32,7 @@ export const FooterText = styled(Typography)(({
   }),
 }));
 export const ElementBox = styled(Box)(({
-  condition, condition2, theme, responsive, responsive3icons,
+  condition, condition2, theme, responsive, responsive3icons, saveresponsive,
 }) => ({
   height: '100%',
   display: 'flex',
@@ -60,7 +60,12 @@ export const ElementBox = styled(Box)(({
     },
   }),
   ...((responsive3icons) && {
-    [theme.breakpoints.between('0', '400')]: {
+    [theme.breakpoints.between('0', '420')]: {
+      display: 'none',
+    },
+  }),
+  ...((saveresponsive === 'true') && {
+    [theme.breakpoints.between('0', '550')]: {
       display: 'none',
     },
   }),
@@ -68,7 +73,7 @@ export const ElementBox = styled(Box)(({
 
 export const SelectBox = styled(Box)(({ theme }) => ({
   width: 260,
-  marginTop: 330,
+  marginTop: 240,
   // marginLeft: 500,
   border: ' 1px solid #eee',
   borderRadius: 4,
@@ -77,10 +82,10 @@ export const SelectBox = styled(Box)(({ theme }) => ({
   position: 'absolute',
   zIndex: 10,
   [theme.breakpoints.between('0', '760')]: {
-    marginLeft: -150,
+    marginLeft: -120,
   },
   [theme.breakpoints.between('0', '500')]: {
-    marginTop: 360,
+    marginTop: 270,
     width: 200,
   },
 }));

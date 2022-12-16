@@ -4,7 +4,7 @@ import { overviewServer } from '../../../profileServer';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
 import ContentBox from './styles';
-import Posts from './OtherProfilePosts/OtherProfilePosts';
+import Posts from '../../../Posts/Posts';
 import Comments from '../../../Comments/Comments';
 import mergeTwo from '../../../../../utils/mergeSort';
 
@@ -31,8 +31,9 @@ function OtherProfileContent() {
   const [posts, comments] = overviewServer(username, sort);
 
   useEffect(() => {
-    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); }
-  }, [username, posts]);
+    setIsContent(false);
+    if (posts?.length > 0 || comments?.length > 0) { setIsContent(true); } else { setIsContent(false); }
+  }, [username, posts, comments, sort]);
 
   const emptyContent = `hmm... u/${username}
           hasn't posted recently`;
@@ -44,7 +45,7 @@ function OtherProfileContent() {
       {isContent
           && (
           <>
-            {mergeTwo(posts, comments).map((entity, index) => (
+            {mergeTwo(posts, comments, sort).map((entity, index) => (
               (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" />
                 : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" />
                   : <Comments key={`${index + 0}`} entity={entity} overview="true" profile={false} />

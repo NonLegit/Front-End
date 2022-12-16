@@ -21,7 +21,8 @@ function PostsFilteredTap() {
   const [isContent, setIsContent] = useState(false);
   // check if the page have any content posts to show
   useEffect(() => {
-    if (posts?.length > 0) { setIsContent(true); } else { setIsContent(false); }
+    setIsContent(false);
+    if (posts?.length > 0) { setIsContent(true); }
     console.log(isContent);
   }, [username, posts, subTitle, isContent]);
 

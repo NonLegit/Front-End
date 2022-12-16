@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { useState } from 'react';
-import { postReactionsServer } from '../../../../../profileServer';
+import { postReactionsServer } from '../../profileServer';
 
 import {
   UpArrow, DownArrow, SidebarQueueBox, UpArrowFilled, DownArrowFilled,

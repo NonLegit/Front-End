@@ -1,12 +1,12 @@
 import {
-  Box, Divider, Menu, MenuItem,
+  Box, Menu, MenuItem,
 } from '@mui/material';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { useContext, useState } from 'react';
 import moment from 'moment/moment';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+// import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
-import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+// import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
@@ -19,10 +19,11 @@ import { UserContext } from '../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
 import {
-  CommentsBoxBlue, CommentsBoxContent, DashedLine, FooterText, ModList, MoreList, ResDivider, SelectItem,
+  CommentsBoxBlue, CommentsBoxContent, DashedLine, FooterText, MoreList, ResDivider, SelectItem,
 } from './styles';
-import { actionComment, deletePostComment } from '../../profileServer';
+import { actionComment } from '../../profileServer';
 
+// deletePostComment
 /**
  * the Body of an comment
  *
@@ -35,7 +36,7 @@ import { actionComment, deletePostComment } from '../../profileServer';
 
 function CommentsContent(props) {
   const {
-    comment, op, modList, profile, overview,
+    comment, op, modList, overview,
   } = props;
   const { username } = useContext(UserContext);
   const [saved, setSaved] = useState(comment.isSaved);
@@ -66,9 +67,9 @@ function CommentsContent(props) {
     setSpam((prev) => !prev);
   };
 
-  const handleDelete = () => {
-    deletePostComment('comments', comment._id);
-  };
+  // const handleDelete = () => {
+  //   deletePostComment('comments', comment._id);
+  // };
 
   return (
     <CommentsBoxContent>
@@ -139,7 +140,7 @@ function CommentsContent(props) {
                   </SelectItem>
                 )}
             </MenuItem>
-
+            {/*
             {profile && (
             <>
               <Divider />
@@ -204,7 +205,7 @@ function CommentsContent(props) {
               </ModList>
               )}
             </>
-            )}
+            )} */}
 
           </Menu>
 

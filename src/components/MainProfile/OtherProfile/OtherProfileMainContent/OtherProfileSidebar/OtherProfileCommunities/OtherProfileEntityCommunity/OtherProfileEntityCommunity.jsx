@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
+import joinCommunity from '../../../../../joinCommunity';
 import { CommunitiesSubscriberContext } from '../../../../../../../contexts/CommunitiesSubscriberContext';
 
-import joinPost from './server';
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
 } from './styles';
@@ -21,7 +21,7 @@ function OtherProfileEntityComment(props) {
     }
   }, [communitiesSubscriber, community]);
 
-  joinPost(joined, community.subredditName);
+  joinCommunity(joined, community.subredditName);
 
   // sharing their state currently
   const handleJoin = () => {
