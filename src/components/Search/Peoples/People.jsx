@@ -1,13 +1,19 @@
 import { Box, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { useState } from 'react';
+import numFormatter from '../../../utils/MembersNum';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
 
-function Peoples() {
+function Peoples(props) {
+  const { people } = props;
   const [follow, setFollow] = useState(true);
   const handleJoin = () => {
+    /// //////////////////////send folllow request
+    /// //////////////////////////////////////
+    /// //////////////////////////////////////
+    /// //////////////////////////////////////////
     setFollow((prev) => !prev);
   };
 
@@ -24,14 +30,17 @@ function Peoples() {
       <Box sx={{ display: 'flex' }}>
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         <TextContainer>
-          <Text to="/user/hi">
-            U/hi
+          <Text to={`/user/${people?.fixedName}`}>
+            U/
+            {people?.fixedName}
           </Text>
           <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
             •
           </Typography>
           <TextP>
-            100 karma
+            {numFormatter(people?.karma)}
+            {' '}
+            karma
           </TextP>
         </TextContainer>
       </Box>

@@ -63,6 +63,8 @@ function FormDialog({ display }) {
     const ele = document.getElementById('name');
     if (ele.value.length === 0) {
       setchecked('A community name is required');
+    } else if (ele.value.length < 4) {
+      setchecked('Community names must be between 3-21 characters');
     } else {
       setchecked('');
     }
@@ -105,7 +107,7 @@ function FormDialog({ display }) {
    */
   const Submit = async (e) => {
     e.preventDefault();
-    if (subRedditName !== '' && errorMassage === '') {
+    if (subRedditName !== '' && errorMassage === '' && subRedditName?.trim()?.length > 3) {
       console.log(subRedditName, ' ', type, ' ', adult);
       // axios.post('http://localhost:8000/subreddits/401', {
       //   owner: user,                                               ------> from log in in تجميعه

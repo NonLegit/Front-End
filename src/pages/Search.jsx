@@ -16,6 +16,53 @@ function Search() {
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type') || 'Posts';
   console.log(type);
+
+  const subreddits = [
+    {
+      icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
+      _id: 10,
+      fixedName: 'uniquesubreddit',
+      membersCount: 10000,
+      description: 'welcome to subreddit',
+    },
+    {
+      icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
+      _id: 10,
+      fixedName: 'uniquesubreddit',
+      membersCount: 10000,
+      description: 'welcome to subreddit',
+    },
+    {
+      icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
+      _id: 10,
+      fixedName: 'uniquesubreddit',
+      membersCount: 10000,
+      description: 'welcome to subreddit',
+    },
+  ];
+  const peoples = [
+    {
+      icon: '/static/images/avatar/1.jpg',
+      _id: 10,
+      fixedName: 'uniquesubreddit',
+      karma: 10000,
+      description: 'welcome to subreddit',
+    },
+    {
+      icon: '/static/images/avatar/1.jpg',
+      _id: 10,
+      fixedName: 'uniquesubreddit',
+      karma: 10000,
+      description: 'welcome to subreddit',
+    },
+    {
+      icon: '/static/images/avatar/1.jpg',
+      _id: 10,
+      fixedName: 'uniquesubreddit',
+      karma: 10000,
+      description: 'welcome to subreddit',
+    },
+  ];
   return (
 
     <TotalHeader>
@@ -42,19 +89,22 @@ function Search() {
         { type === 'Communities'
         && (
           <SearchByCommunitiesHeader>
-            <Subreddits />
-            <Subreddits />
-            <Subreddits />
-            <Subreddits />
+            {subreddits?.map((subreddit) => (
+
+              <Subreddits subreddit={subreddit} />
+            ))}
           </SearchByCommunitiesHeader>
         )}
         { type === 'People'
         && (
           <SearchByCommunitiesHeader>
+            {peoples?.map((people) => (
+
+              <Peoples people={people} />
+            ))}
+            {/* <Peoples />
             <Peoples />
-            <Peoples />
-            <Peoples />
-            <Peoples />
+            <Peoples /> */}
           </SearchByCommunitiesHeader>
         )}
         { type === 'Comments'
