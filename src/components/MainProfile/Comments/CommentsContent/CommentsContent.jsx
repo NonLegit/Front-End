@@ -1,12 +1,12 @@
 import {
-  Box, Menu, MenuItem,
+  Box, Divider, Menu, MenuItem,
 } from '@mui/material';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { useContext, useState } from 'react';
 import moment from 'moment/moment';
-// import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
-// import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
@@ -15,15 +15,16 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../../contexts/EditPostContext';
 import { UserContext } from '../../../../contexts/UserProvider';
 
 import { CommentText } from '../styles';
 import {
-  CommentsBoxBlue, CommentsBoxContent, DashedLine, FooterText, MoreList, ResDivider, SelectItem,
+  CommentsBoxBlue, CommentsBoxContent, DashedLine, FooterText, ModList, MoreList, ResDivider, SelectItem,
 } from './styles';
-import { actionComment } from '../../profileServer';
+import { actionComment, deletePostComment } from '../../profileServer';
 
-// deletePostComment
 /**
  * the Body of an comment
  *
@@ -36,7 +37,7 @@ import { actionComment } from '../../profileServer';
 
 function CommentsContent(props) {
   const {
-    comment, op, modList, overview,
+    comment, op, modList, overview, profile, ownerType, owner, postid,
   } = props;
   const { username } = useContext(UserContext);
   const [saved, setSaved] = useState(comment.isSaved);
@@ -67,9 +68,12 @@ function CommentsContent(props) {
     setSpam((prev) => !prev);
   };
 
-  // const handleDelete = () => {
-  //   deletePostComment('comments', comment._id);
-  // };
+  const handleDelete = () => {
+    deletePostComment('comments', comment._id);
+  };
+
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
 
   return (
     <CommentsBoxContent>
@@ -140,13 +144,13 @@ function CommentsContent(props) {
                   </SelectItem>
                 )}
             </MenuItem>
-            {/*
+
             {profile && (
             <>
               <Divider />
 
               <MenuItem>
-                <SelectItem>
+                <SelectItem onClick={() => { setEditPost(true); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
                   <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
                   Edit Post
                 </SelectItem>
@@ -205,7 +209,7 @@ function CommentsContent(props) {
               </ModList>
               )}
             </>
-            )} */}
+            )}
 
           </Menu>
 

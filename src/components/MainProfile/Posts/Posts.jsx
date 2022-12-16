@@ -4,6 +4,8 @@ import {
 } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../contexts/EditPostContext';
 import Comments from '../Comments/Comments';
 import PostFooter from './PostFooter/PostFooter';
 import PostHeader from './PostHeader/PostHeader';
@@ -118,9 +120,12 @@ function Posts(props) {
     });
   }, []);
 
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
     <>
-      <PostsQueueBox condition={condition}>
+      <PostsQueueBox condition={condition} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
         <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
         <PostContentBox>
           <Box sx={{ marginLeft: 1 }}>
@@ -239,6 +244,7 @@ function Posts(props) {
               postid={post?._id}
               isSaved={post?.isSaved}
               subTitle={post?.ownerType}
+              owner={post?.owner?.name}
               numComments={post?.commentCount}
               sendReplies={post?.sendReplies}
               mod={mod}

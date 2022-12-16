@@ -2,6 +2,8 @@ import { Box } from '@mui/material';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { useState, useContext, useEffect } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../../../contexts/EditPostContext';
 import {
   EmptyImage,
   Flair,
@@ -44,8 +46,12 @@ function OtherProfilePost(props) {
     if (communities?.filter((element) => element.fixedName === entity.owner.name).length === 0) { setNotJoined(true); }
     setSubTitle(type);
   }, [type, communities]);
+
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
-    <PostsQueueBox>
+    <PostsQueueBox onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
       <OtherProfilePostSide postid={entity?._id} points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.modState === 'spam'} />
 
       <PostSidebaRes>
