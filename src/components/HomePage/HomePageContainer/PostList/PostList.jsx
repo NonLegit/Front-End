@@ -12,6 +12,7 @@ function PostList(props) {
   const { posts, subredit } = props;
   const { hiddenPosts } = useHiddenPostsContext();
   console.log(subredit);
+
   return (
     <>
       {posts.filter((post) => {
@@ -21,9 +22,11 @@ function PostList(props) {
         const {
           _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
+        console.log('koo', postVoteStatus);
         return (
+
           <Post
-            postVoteStatus={postVoteStatus}
+            postVoteStatus={postVoteStatus || 0}
             createdAt={createdAt}
             title={title}
             ownerIcon={ownerIcon}
