@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "_id": "string11",
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basma",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "upvoted post 1",
+      "kind": "link",
+      "text": "text of upvoted post 1",
+      "url": "string",
+      "votes": 30,
+      "commentCount": 21,
+      "views": 0,
+      "createdAt": "2020-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": false,
+      "sendReplies": true,
+      "locked": false,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": false,
+      "modState": "spam",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [
+        "https://b.thumbs.redditmedia.com/m8ZcMXROdRNdZ2Xk_40FO8HLo3X0EmDL9S0xi9wieCI.jpg"
+      ],
+      "video": "string",
+      "sortOnHot": 0
+    },
+    {
+      "_id": "string",
+      "author": {
+        "_id": "string",
+        "name": "nour2"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basma2",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "User",
+      "title": "upvoted post 2",
+      "kind": "link",
+      "text": "text of upvoted post 2",
+      "url": "string",
+      "sr": "string",
+      "votes": 32,
+      "commentCount": 29,
+      "views": 0,
+      "createdAt": "2022-09-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": false,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "postVoteStatus": "1",
+      "isSaved": false,
+      "isHidden": true,
+      "modState": "approved",
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [
+        "https://b.thumbs.redditmedia.com/m8ZcMXROdRNdZ2Xk_40FO8HLo3X0EmDL9S0xi9wieCI.jpg"
+      ],
+      "video": "string",
+      "sortOnHot": 0
+    }
+  ]
+}

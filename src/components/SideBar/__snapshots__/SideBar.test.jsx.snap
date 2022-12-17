@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar SideBar renders correctly 1`] = `
+<div
+  className="css-q28llr"
+>
+  <div>
+    dummy
+  </div>
+</div>
+`;

@@ -1,0 +1,202 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "_id": "5",
+            "type": "postReply",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "<p>I finshed</p>"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "ESLAM",
+                "profilePicture": "https://img.a.transfermarkt.technology/portrait/big/28003-1631171950.jpg?lm=1"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "Nonlegit"
+            },
+            "seen": true,
+            "hidden": true,
+            "createdAt": "2022-12-14T02:28:17.509Z",
+            "__v": 0
+        },
+        {
+            "_id": "6",
+            "type": "follow",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "I finshed"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScInWLqwO7OiMyjH_8NL6C2u0G_hLv4h9Rew&usqp=CAU"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "CMP2024Front"
+            },
+            "seen": true,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        },
+        {
+            "_id": "7",
+            "type": "commentReply",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "Paragraphs are the building <p>blocks</p> of papers. Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph. A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long. Ultimately, a paragraph is a sentence or group of sentences that support one main idea. In this handout, we will refer to this as the “controlling idea,” because it controls what happens in the rest of the paragraph."
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCT_d88lJHkZfoiSopWuAnbA4g74c9AWsLVA&usqp=CAU"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "CMP2024Front"
+            },
+            "seen": false,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        },
+        {
+            "_id": "10",
+            "type": "commentReply",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "I finshed"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRHoSZ0WQgkeITC88KBoY_3gYViRFbB5NbCg&usqp=CAU"
+            },
+            "seen": false,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        },
+        {
+            "_id": "11",
+            "type": "userMention",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "I finshed"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8A-h9LhfTB506qoPo5C7tHr6IdzXifpDJuQ&usqp=CAU"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "CMP2024Front"
+            },
+            "seen": false,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        },
+        {
+            "_id": "12",
+            "type": "firstPostUpVote",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "I finshed"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn5IgqbBkQBWjPj50kakdH2R7TutIx5IUx4Q&usqp=CAU"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "CMP2024Front"
+            },
+            "seen": false,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        },
+        {
+            "_id": "13",
+            "type": "firstCommentUpVote",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "<p>I finshed</p>"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMFVHOVnlwulPe0zB_j5xWyt5XPpMPQK2ppA&usqp=CAU"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "CMP2024Front"
+            },
+            "seen": false,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        } 
+         ,
+         {
+            "_id": "20",
+            "type": "firstPostUpVote",
+            "post": "6397df2c1d0aa5f9d9fd4cad",
+            "comment": {
+                "_id": "6397e43a5a9d4e21b62ff20d",
+                "text": "I finshed"
+            },
+            "followedUser": {
+                "_id": "639768d6a5648677e33d5b19"
+            },
+            "followerUser": {
+                "_id": "6397354402c3e344ea207066",
+                "userName": "Eman",
+                "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn5IgqbBkQBWjPj50kakdH2R7TutIx5IUx4Q&usqp=CAU"
+            },
+            "followedSubreddit": {
+                "_id": "638bed1001f496d7284c2862",
+                "fixedName": "CMP2024Front"
+            },
+            "seen": false,
+            "hidden": true,
+            "createdAt": "2022-12-13T02:28:17.509Z",
+            "__v": 0
+        }
+    ]
+}

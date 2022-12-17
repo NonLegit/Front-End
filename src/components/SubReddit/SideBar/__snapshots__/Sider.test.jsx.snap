@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-1e29btd"
+>
+  <div
+    className="css-1868w9n"
+  >
+    <div
+      className="css-l1ctgm"
+    >
+      <h2
+        className="css-dgde1h"
+      >
+        About Community
+      </h2>
+      <button
+        className="css-t5krk3"
+      >
+        <div
+          className="MuiBox-root css-uwcr2l"
+        >
+          <div
+            className="MuiBox-root css-k008qs"
+            data-testid="sort"
+            onClick={[Function]}
+            onTouchEnd={[Function]}
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="MoreHorizIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+    <h2
+      className="css-2v81eu"
+    >
+      <h2
+        className="css-yevfdk"
+      />
+    </h2>
+    <div
+      className="css-1maxkpg"
+    >
+      <div
+        className="css-knd9j4"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="EmailOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+          />
+        </svg>
+      </div>
+      <h2
+        className="css-1nrunep"
+      >
+        Created
+         
+        December 04, 2022
+      </h2>
+    </div>
+    <hr
+      className="css-1m0ad5p"
+    />
+    <div
+      className="MuiBox-root css-10ucsqm"
+    >
+      <span>
+        <div
+          className="css-p1puod"
+        />
+        <p
+          className="css-1cgnkz"
+        >
+          Members
+        </p>
+      </span>
+      <span>
+        <div
+          className="css-1o97w51"
+        >
+          1.0k
+        </div>
+        <p
+          className="css-1cgnkz"
+        >
+          Online
+        </p>
+      </span>
+      <span>
+        <div
+          className="css-p1puod"
+        >
+          Top 1%
+        </div>
+        <p
+          className="css-1cgnkz"
+        >
+          Ranked by Size
+        </p>
+      </span>
+      <div />
+    </div>
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1anzha9-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        fontSize={15}
+        fontWeight="bold"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        padding="4px"
+        tabIndex={0}
+        type="button"
+      >
+        create Post
+      </button>
+    </a>
+  </div>
+  <div
+    className="css-1868w9n"
+  >
+    <div
+      className="css-tm1krm"
+    >
+      <h2
+        className="css-hzpx4j"
+      >
+        Filter by flair
+      </h2>
+    </div>
+    <div
+      className="MuiBox-root css-38zrbw"
+    />
+    <button
+      className="css-1qmeimn"
+    >
+      See more
+    </button>
+  </div>
+  <div
+    className="css-1o6gy2p"
+  >
+    <div
+      className="css-1f2ln3t"
+    >
+      <h2
+        className="css-dgde1h"
+      >
+        Moderators
+      </h2>
+    </div>
+    <a
+      className="css-vgri8"
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root css-azyh4b-MuiButtonBase-root"
+        disabled={false}
+        fontSize={15}
+        fontWeight="bold"
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        padding="4px"
+        tabIndex={0}
+        type="button"
+        variant="outlined"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ubwraf-MuiSvgIcon-root"
+          data-testid="MailOutlineIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+          />
+        </svg>
+         
+        Message the Mods
+      </button>
+    </a>
+    <div
+      className="css-e3tcub"
+    >
+      <div
+        className="css-qq790j"
+      >
+        VIEW ALL MODERATORS
+      </div>
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ub553u-MuiButtonBase-root-MuiButton-root"
+    disabled={false}
+    fontSize={15}
+    fontWeight="bold"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    Back to Top
+  </button>
+</div>
+`;

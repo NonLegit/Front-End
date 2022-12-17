@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-uwcr2l"
+>
+  <div
+    className="MuiBox-root css-k008qs"
+    data-testid="sort"
+    onClick={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="MoreHorizIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+      />
+    </svg>
+  </div>
+</div>
+`;

@@ -1,0 +1,72 @@
+{
+  "status": "success",
+  "user": {
+    "id": 10,
+    "userName": "ahmed",
+    "email": "nour@email.com",
+    "profilePicture": "https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21",
+    "profileBackground": "https://styles.redditmedia.com/t5_75eaom/styles/profileBanner_rml44oyq8ey91.jpeg?width=1280&height=384&crop=1280:384,smart&s=4a75a7f2d0376de5633d8c52db59cc40c6a3be3c",
+    "adultContent": true,
+    "autoplayMedia": true,
+    "canbeFollowed": true,
+    "lastUpdatedPassword": "2022-10-22-06-12",
+    "followersCount": 0,
+    "friendsCount": 0,
+    "accountActivated": true,
+    "gender": "male",
+    "displayName": "firstname secondname",
+    "postKarma": 1,
+    "commentKarma": 1,
+    "createdAt": "2022-10-22-06-12",
+    "description": " info",
+    "isFollowed": false,
+    "isBlocked": true,
+    "nsfw":false,
+    "socialLinks": [
+      {
+        "social": {
+          "baseLink": "httpss://facebook.com",
+          "placeholderLink": "httpss://facebook.com",
+          "_id": "string",
+          "type": "facebook",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+        },
+        "displayText": "facebookiii",
+        "userLink": "https://facebook.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://instagram.com",
+          "placeholderLink": "@username",
+          "_id": "string",
+          "type": "instagram",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+        },
+        "displayText": "instanb",
+        "userLink": "https://instagram.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://facebook.com",
+          "placeholderLink": "httpss://facebook.com",
+          "_id": "string",
+          "type": "facebook",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/facebook.png"
+        },
+        "displayText": "faceiii",
+        "userLink": "https://facebook.com/nour"
+      },
+      {
+        "social": {
+          "baseLink": "httpss://instagram.com",
+          "placeholderLink": "@username",
+          "_id": "string",
+          "type": "instagram",
+          "icon": "https://www.redditstatic.com/desktop2x/img/social-links/instagram.png"
+        },
+        "displayText": "insta",
+        "userLink": "https://instagram.com/nour"
+      }
+    ]
+  }
+}

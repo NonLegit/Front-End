@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "kalba222",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string",
+      "kind": "link",
+      "text": "string",
+      "url": "string",
+      "sr": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaaa111",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit",
+      "title": "string",
+      "kind": "link",
+      "text": "string",
+      "url": "string",
+      "sr": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    },
+    {
+      "author": {
+        "_id": "string",
+        "name": "nour"
+      },
+      "owner": {
+        "_id": "string",
+        "name": "basmaaa22",
+        "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
+      },
+      "ownerType": "Subreddit2",
+      "title": "string",
+      "kind": "link",
+      "text": "string",
+      "url": "string",
+      "sr": "string",
+      "votes": 0,
+      "commentCount": 0,
+      "views": 0,
+      "createdAt": "2017-07-21T17:32:28.000Z",
+      "suggestedSort": "top",
+      "nsfw": true,
+      "spoiler": true,
+      "sendReplies": true,
+      "locked": true,
+      "flairId": {
+        "id": 1,
+        "text": "string",
+        "backgroundColor": "black",
+        "textColor": "white"
+      },
+      "postVoteStatus": "1",
+      "isSaved": true,
+      "isHidden": true,
+      "isSpam": true,
+      "sharedFrom": "string",
+      "shareCount": 0,
+      "images": [],
+      "video": "string"
+    }
+  ]
+}
