@@ -64,50 +64,35 @@ export const StyledList = styled(List)(({ theme }) => ({
 }));
 
 export const SwitchButton = styled((props) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
-  width: 42,
-  height: 26,
+  // the track width and heigth
+  width: '44px',
+  height: '23px',
   padding: 0,
   '& .MuiSwitch-switchBase': {
-    padding: 0,
-    margin: 2,
+    width: '22px !important',
+    height: '22px !important',
+    padding: '0px !important',
     transitionDuration: '300ms',
     '&.Mui-checked': {
-      transform: 'translateX(16px)',
+      transform: 'translateX(22px)',
       color: '#fff',
       '& + .MuiSwitch-track': {
         backgroundColor: '#24a0ed',
         opacity: 1,
         border: 0,
       },
-      '&.Mui-disabled + .MuiSwitch-track': {
-        opacity: 0.5,
-      },
-    },
-    '&.Mui-focusVisible .MuiSwitch-thumb': {
-      color: '#33cf4d',
-      border: '6px solid #fff',
-    },
-    '&.Mui-disabled .MuiSwitch-thumb': {
-      color:
-        theme.palette.mode === 'light'
-          ? theme.palette.grey[100]
-          : theme.palette.grey[600],
-    },
-    '&.Mui-disabled + .MuiSwitch-track': {
-      opacity: 0.7,
     },
   },
   '& .MuiSwitch-thumb': {
     boxSizing: 'border-box',
-    width: 22,
-    height: 22,
+    width: '22px',
+    height: '22px',
   },
   '& .MuiSwitch-track': {
-    borderRadius: 26 / 2,
-    backgroundColor: '#E9E9EA',
+    borderRadius: '35px',
+    backgroundColor: '#cacbcd',
     opacity: 1,
     transition: theme.transitions.create(['background-color'], {
       duration: 500,

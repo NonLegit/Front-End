@@ -9,7 +9,7 @@ function MainNavBar() {
   const [cookies] = useCookies(['redditUser']);
 
   return (
-    (cookies.redditUser === undefined) ? <SignNavbar /> : <Navbar />
+    (cookies.redditUser === undefined) ? <Navbar /> : <SignNavbar />
   );
 }
 

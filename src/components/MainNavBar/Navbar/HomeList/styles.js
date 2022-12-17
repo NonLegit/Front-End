@@ -24,6 +24,9 @@ const StyledList = styled(List)(({ theme }) => ({
       padding: '0px',
     },
   },
+  '& .MuiListSubheader-root': {
+    fontSize: '10px',
+  },
   '& .MuiCollapse-root .MuiList-root': {
     boxShadow: '0 2px 4px 0 rgba(28,28,28,0.2)',
   },

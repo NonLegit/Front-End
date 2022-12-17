@@ -14,9 +14,7 @@ import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { redditCookie } from '../../../Authentication/authenticationServer';
 import FormDialog from '../../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
-import {
-  StyledList,
-} from './styles';
+import { StyledList, SwitchButton } from './styles';
 import karma from '../assests/karma.png';
 import { firstList, secondList, exploreList } from './Lists';
 import { logOut } from './server';
@@ -52,9 +50,7 @@ function UserList() {
   return (
     <ClickAwayListener onClickAway={() => { setOpenUserList(false); }}>
       <StyledList>
-
         <ListItemButton onClick={handleClickUserList}>
-
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <ListItemIcon>
               <Box>
@@ -75,7 +71,6 @@ function UserList() {
           </Box>
           <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
         </ListItemButton>
-
         <Collapse in={Boolean(openUserList)} timeout="auto" unmountOnExit>
           <List component="div" disablePadding sx={{ position: 'absolute', width: '100%' }}>
             <ListItemButton>
@@ -83,6 +78,10 @@ function UserList() {
                 <AccountCircleOutlinedIcon sx={{ color: '#787C7E' }} />
               </ListItemIcon>
               <ListItemText primary="my stuff" />
+            </ListItemButton>
+            <ListItemButton>
+              <ListItemText primary="Online Status" />
+              <SwitchButton />
             </ListItemButton>
             {
             firstList.map((items, index) => (

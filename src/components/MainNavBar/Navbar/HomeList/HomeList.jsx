@@ -2,7 +2,7 @@
 import HomeIcon from '@mui/icons-material/Home';
 import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 import {
-  List, ListItemButton, ListItemIcon, ListItemText,
+  List, ListItemButton, ListItemIcon, ListItemText, IconButton,
   Collapse, ListSubheader, ClickAwayListener,
 } from '@mui/material';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -12,10 +12,12 @@ import Avatar from '@mui/material/Avatar';
 import AddIcon from '@mui/icons-material/Add';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { Link } from 'react-router-dom';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 import StyledList from './styles';
 import Reddit from '../assests/Reddit.svg';
 import FormDialog from '../../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
-
+import { communities } from './CommunitiesStaticData';
 /**
  *  HomeList
  * @component
@@ -26,6 +28,7 @@ function HomeList() {
   const handleClickHomeList = () => {
     setopenHomeList(!openHomeList);
   };
+
   const feedsList = [
     { icon: <HomeIcon />, label: 'home' },
     { icon: <OutboundOutlinedIcon />, label: 'popular' },
@@ -39,6 +42,7 @@ function HomeList() {
     { icon: <ContactlessOutlinedIcon />, label: 'top communities' },
     { icon: <NotificationsNoneIcon />, label: 'notifications' },
   ];
+  console.log(communities);
   return (
     <ClickAwayListener onClickAway={() => { setopenHomeList(false); }}>
       <StyledList>
@@ -50,7 +54,35 @@ function HomeList() {
           <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
         </ListItemButton>
         <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit sx={{ position: 'absolute', width: '270px', left: '0px' }}>
-          <List component="div" disablePadding subheader={<ListSubheader>feeds</ListSubheader>}>
+          <List component="div" disablePadding subheader={<ListSubheader>YOUR COMMUNITIES</ListSubheader>}>
+            <ListItemButton>
+              <Link to="/submit" style={{ textDecoration: 'none', display: 'flex' }}>
+                <ListItemIcon>
+                  <AddIcon sx={{ fontSize: 30 }} />
+                </ListItemIcon>
+                <ListItemText primary="Create Community" />
+              </Link>
+            </ListItemButton>
+            {communities.map((items, index) => (
+              <ListItemButton key={`${index + 0}`}>
+                <ListItemIcon>
+                  <Avatar src={items.icon} />
+                </ListItemIcon>
+                <ListItemText primary={items.subredditName} />
+                {!items.isFavourited ? (
+                  <IconButton sx={{ padding: '0px !important' }}>
+                    <StarBorderIcon sx={{ color: '#b4cbdd', fontSize: '25px' }} />
+                  </IconButton>
+                ) : (
+                  <IconButton sx={{ padding: '0px !important' }}>
+                    <StarIcon sx={{ fontSize: '25px', color: '#0079d3' }} />
+                  </IconButton>
+
+                )}
+              </ListItemButton>
+            ))}
+          </List>
+          <List component="div" disablePadding subheader={<ListSubheader>FEEDS</ListSubheader>}>
             {feedsList.map((items, index) => (
               (items.label === 'home') ? (
 

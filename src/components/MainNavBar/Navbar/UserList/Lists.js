@@ -1,7 +1,7 @@
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
-export const firstList = ['Online Status', 'profile', 'create avatar', 'user settings'];
+export const firstList = ['profile', 'create avatar', 'user settings'];
 export const secondList = [
   { icon: <PeopleOutlinedIcon sx={{ color: 'black', fontSize: 25 }} />, label: 'create a community' },
   { icon: <HelpOutlineOutlinedIcon />, label: 'help center' },
