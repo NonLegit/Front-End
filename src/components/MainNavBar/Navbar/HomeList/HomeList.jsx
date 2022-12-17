@@ -17,7 +17,7 @@ import StarIcon from '@mui/icons-material/Star';
 import StyledList from './styles';
 import Reddit from '../assests/Reddit.svg';
 import FormDialog from '../../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
-import { communities } from './CommunitiesStaticData';
+import { communities, favouriteCommunities } from './CommunitiesStaticData';
 /**
  *  HomeList
  * @component
@@ -53,12 +53,29 @@ function HomeList() {
           <ListItemText primary="Home" sx={{ color: 'black', paddingLeft: '5px' }} />
           <ExpandMore sx={{ color: '#757575', fontSize: 20 }} />
         </ListItemButton>
-        <Collapse in={Boolean(openHomeList)} timeout="auto" unmountOnExit sx={{ position: 'absolute', width: '270px', left: '0px' }}>
+        <Collapse
+          in={Boolean(openHomeList)}
+          timeout="auto"
+          unmountOnExit
+        >
+          <List component="div" disablePadding subheader={<ListSubheader>FAVOURITES</ListSubheader>}>
+            {favouriteCommunities.map((items, index) => (
+              <ListItemButton key={`${index + 0}`}>
+                <ListItemIcon>
+                  <Avatar src={items.icon} />
+                </ListItemIcon>
+                <ListItemText primary={items.subredditName} />
+                <IconButton sx={{ padding: '0px !important' }}>
+                  <StarIcon sx={{ fontSize: '25px', color: '#0079d3' }} />
+                </IconButton>
+              </ListItemButton>
+            ))}
+          </List>
           <List component="div" disablePadding subheader={<ListSubheader>YOUR COMMUNITIES</ListSubheader>}>
             <ListItemButton>
               <Link to="/submit" style={{ textDecoration: 'none', display: 'flex' }}>
                 <ListItemIcon>
-                  <AddIcon sx={{ fontSize: 30 }} />
+                  <AddIcon fontSize="30px" />
                 </ListItemIcon>
                 <ListItemText primary="Create Community" />
               </Link>
@@ -71,7 +88,7 @@ function HomeList() {
                 <ListItemText primary={items.subredditName} />
                 {!items.isFavourited ? (
                   <IconButton sx={{ padding: '0px !important' }}>
-                    <StarBorderIcon sx={{ color: '#b4cbdd', fontSize: '25px' }} />
+                    <StarBorderIcon sx={{ color: '#0079d3', fontSize: '25px' }} />
                   </IconButton>
                 ) : (
                   <IconButton sx={{ padding: '0px !important' }}>

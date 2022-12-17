@@ -4,6 +4,14 @@ import {
 
 const StyledList = styled(List)(({ theme }) => ({
   position: 'relative',
+  '& .MuiCollapse-root': {
+    position: 'absolute',
+    maxHeight: '465px',
+    overflowY: 'scroll',
+    overflowX: 'clip',
+    width: '270px',
+    left: '0px',
+  },
   '& .MuiButtonBase-root': {
     justifyContent: 'flex-start',
     backgroundColor: 'white',
