@@ -161,7 +161,7 @@ function Post(props) {
         >
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={`https://api.nonlegit.click/${video.path}`} type="video/mp4" />
+              <source src={video} type="video/mp4" />
             </video>
           ) : (
             (kind === 'image')
@@ -173,7 +173,7 @@ function Post(props) {
                       imageIndex === index
                     && (
                     <CustomImage
-                      src={`https://api.nonlegit.click/${image.path}`}
+                      src={image}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
