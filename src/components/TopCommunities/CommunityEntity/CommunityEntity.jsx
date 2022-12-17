@@ -30,27 +30,30 @@ function CommunityEntity(props) {
   };
 
   return (
-    <CommunityListItem sidebar={sidebar?.toString()} onClick={() => { window.open(`${window.location.protocol}/r/${subredditName}`); }}>
-      <CommunityIndex>
-        {index}
-      </CommunityIndex>
-      {status ? (
-        <KeyboardArrowUpIcon
-          sx={{ color: '#46d160' }}
+    <CommunityListItem sidebar={sidebar?.toString()}>
+      <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => { window.open(`${window.location.protocol}/r/${subredditName}`); }}>
+        <CommunityIndex>
+          {index}
+        </CommunityIndex>
+        {status ? (
+          <KeyboardArrowUpIcon
+            sx={{ color: '#46d160' }}
+          />
+        ) : (
+          <KeyboardArrowDownIcon
+            sx={{ color: '#ea0027' }}
+          />
+        )}
+        <CommunityImage
+          sidebar={sidebar?.toString()}
+          src={icon}
         />
-      ) : (
-        <KeyboardArrowDownIcon
-          sx={{ color: '#ea0027' }}
-        />
-      )}
-      <CommunityImage
-        sidebar={sidebar?.toString()}
-        src={icon}
-      />
-      <CommunityName variant="caption">
-        r/
-        {subredditName}
-      </CommunityName>
+        <CommunityName variant="caption">
+          r/
+          {subredditName}
+        </CommunityName>
+
+      </Box>
       {!sidebar && (
       <>
         <Box sx={{ position: 'absolute', right: 100 }}>
