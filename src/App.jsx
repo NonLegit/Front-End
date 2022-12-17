@@ -6,6 +6,8 @@ import { useCookies } from 'react-cookie';
 
 import { redditCookie } from './components/Authentication/authenticationServer';
 
+import 'quill/dist/quill.snow.css';
+import PopularPage from './pages/PopularPage';
 import HiddenPostsContextProvider from './contexts/HiddenPostsContext';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
@@ -37,6 +39,7 @@ import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
 import { notificationToken } from './services/notificationToken';
+import AllPage from './pages/AllPage';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -80,17 +83,48 @@ function App() {
                   }
                 />
                 <Route
+                  path="/r/popular"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
                   path="/:postClass"
                   element={
                     <HomePage />
                   }
                 />
                 <Route
+                  path="/r/popular"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
+                  path="/r/popular/:postClass"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
+                  path="/r/all"
+                  element={
+                    <AllPage />
+                }
+                />
+                <Route
+                  path="/r/all/:postClass"
+                  element={
+                    <AllPage />
+                }
+                />
+                <Route
                   path="/user/:username"
                   element={
                     <Profile />
-                  }
+                    }
                 >
+
                   <Route
                     path=""
                     element={

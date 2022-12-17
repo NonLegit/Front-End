@@ -177,7 +177,7 @@ function Posts(props) {
                         imageIndex === index
                     && (
                     <CustomImage
-                      src={image}
+                      src={image.path}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}

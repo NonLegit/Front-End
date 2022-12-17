@@ -99,7 +99,7 @@ function SubredditsMenu(props) {
         <ClickAwayContainer>
           <MenuContainer>
             {searching ? <SearchIcon />
-              : (showIcon
+              : (showIcon && chosenCommunityIcon
                 ? (
                   <ChosenCommunityIcon
                     src={chosenCommunityIcon}
