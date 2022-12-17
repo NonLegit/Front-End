@@ -29,6 +29,7 @@ import CreatePost from './pages/CreatePost';
 import PostTypeContextProvider from './contexts/PostTypeContext';
 import Notifications from './pages/Notifications';
 import SubReddit from './pages/SubReddit';
+import Explore from './pages/Explore';
 
 import { getFirebaseToken } from './lib/firebase';
 import MainProfile from './components/MainProfile/MainProfile';
@@ -256,6 +257,13 @@ function App() {
                 </Route>
 
                 <Route
+                  path="/t/:title"
+                  element={
+                    <Explore />
+                  }
+                />
+
+                <Route
                   path="/r"
                   element={(
                     <SubReddit />
@@ -274,7 +282,6 @@ function App() {
                         <Cover />
                     }
                     />
-
                     {/* <Route
                       path="/about"
                       element={
