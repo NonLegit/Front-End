@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import RedditButton from '../RedditButton/RedditButton';
 
 export const PostContainer = styled(Box)(() => ({
   width: '100%',
@@ -67,4 +68,14 @@ export const Video = styled('video')(({ src }) => ({
 
 export const Image = styled('img')(({ src }) => ({
   src,
+}));
+export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => ({
+  fontSize: 10,
+  padding: '2px 10px',
+  fontWeight: 'normal',
+  backgroundColor,
+  color: flairColor,
+  '&:hover': {
+    backgroundColor,
+  },
 }));

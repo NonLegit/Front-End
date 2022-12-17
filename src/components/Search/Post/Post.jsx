@@ -5,11 +5,38 @@ import { useState } from 'react';
 import {
   PostContainer, PostInfo, PostInfoLink, PostTitle,
   PostRich, PostMedia, Image, Video,
+  // Flair,
 } from './styles';
 import RedditButton from '../RedditButton/RedditButton';
 
 function Post() {
   const [type] = useState('');
+
+  // const posts=[
+  //   {
+  //     createdAt='2 years ago'
+
+  //     title='Update: My (32F) husband (36M) became a robot and I don’t know how to help him.'
+  //     ownerIcon="https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+  //     ownerName='toptalent'
+  //     authorName='righteous_boldness07'
+
+  //     flairText={posts?.flairId?.flairText}
+  //     flairBackgroundColor={posts?.flairId?.flairBackgroundColor}
+  //     flairColor={posts?.flairId?.flairColor}
+
+  //     text={posts?.text}
+  //     images="[EgyBest].Breaking.Bad.S01E02.BluRay.360p.x264.mp4"
+  //     videos={posts?.videos}
+  //     kind={posts?.kind}
+
+  //     votes={posts?.votes}
+  //     postVoteStatus={posts?.postVoteStatus}
+  //     commentCount={posts?.commentCount}
+
+  //     key={posts?.id}
+  //   }
+  // ]
   return (
     <PostContainer my={2} sx={{ '&:hover': { border: 1 } }}>
       <Box width="100%" p={1}>
@@ -50,6 +77,18 @@ function Post() {
               <Box>
                 /r/all
               </Box>
+              {/* {
+            flairText
+            && (
+            <Flair
+              disableRipple
+              backgroundColor={flairBackgroundColor}
+              flairColor={flairColor}
+            >
+              {flairText}
+            </Flair>
+            )
+          } */}
             </RedditButton>
           </Typography>
           <PostMedia>
@@ -62,7 +101,6 @@ function Post() {
         <PostRich mt={5}>
           <Typography variant="span" sx={{ marginRight: 3 }}>120k upvotes </Typography>
           <Typography variant="span" sx={{ marginRight: 3 }}>120k comments </Typography>
-          <Typography variant="span" sx={{ marginRight: 3 }}>120k awards </Typography>
         </PostRich>
       </Box>
 

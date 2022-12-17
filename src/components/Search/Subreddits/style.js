@@ -88,7 +88,10 @@ export const Joined = styled(Button)(() => ({
 }));
 export const SearchByCommunitiesHeader = styled(Box)(({ theme }) => ({
   [theme.breakpoints.between('0', '1000')]: {
-    width: '100%',
+    width: 'fit-content',
+  },
+  [theme.breakpoints.between('0', '440')]: {
+    margin: 0,
   },
   width: 976,
   display: 'flex',

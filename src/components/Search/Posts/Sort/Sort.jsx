@@ -17,7 +17,7 @@ export default function SortType() {
   const [Openort, setOpenSort] = React.useState(false);
 
   const [searchParams] = useSearchParams();
-  const type = searchParams.get('type');
+  const type = searchParams.get('type') || 'Posts';
 
   const Sort = searchParams.get('sort') || 'Relevance';
   const navigate = useNavigate();

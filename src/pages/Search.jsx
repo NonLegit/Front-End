@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import Comments from '../components/Search/Comments/Comments';
 import Peoples from '../components/Search/Peoples/People';
@@ -7,7 +6,7 @@ import Subreddits from '../components/Search/Subreddits/Subreddits';
 import FilterSearch from '../components/Search/Header/Filter';
 import Posts from '../components/Search/Posts/Posts';
 import {
-  TotalHeader, SearchContainer, PostsContainer, SearchHeadderContainer,
+  TotalHeader, SearchContainer, PostsContainer, SearchHeadderContainer, PostsContainer2,
 } from '../components/Search/Header/style';
 import SideBar from '../components/Search/SideBar/SideBar';
 import Post from '../components/Search/Post/Post';
@@ -74,17 +73,14 @@ function Search() {
         </SearchHeadderContainer>
         { type === 'Posts'
        && (
-       <Box sx={{
-         display: 'flex', flexDirection: 'row', margin: '0 auto', paddingTop: '8px',
-       }}
-       >
+       <PostsContainer2>
          <PostsContainer>
            <Post />
            <Post />
            <Post />
          </PostsContainer>
-         <SideBar />
-       </Box>
+         <SideBar peoples={peoples} subreddits={subreddits} />
+       </PostsContainer2>
        )}
         { type === 'Communities'
         && (

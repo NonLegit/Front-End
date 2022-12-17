@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { useState } from 'react';
 import numFormatter from '../../../utils/MembersNum';
+import { followRequest } from './FollowServer';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
@@ -10,10 +11,7 @@ function Peoples(props) {
   const { people } = props;
   const [follow, setFollow] = useState(true);
   const handleJoin = () => {
-    /// //////////////////////send folllow request
-    /// //////////////////////////////////////
-    /// //////////////////////////////////////
-    /// //////////////////////////////////////////
+    followRequest(people?.fixedName, follow);
     setFollow((prev) => !prev);
   };
 

@@ -82,3 +82,9 @@ export const SearchHeadderContainer = styled('div')(({ theme }) => ({
   },
   margin: '0 auto',
 }));
+export const PostsContainer2 = styled('div')(() => ({
+  display: 'flex',
+  flexDirection: 'row',
+  paddingTop: '8px',
+
+}));

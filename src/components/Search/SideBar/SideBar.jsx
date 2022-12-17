@@ -4,14 +4,15 @@ import People from './People/People';
 import PersonalReddit from '../PersonalReddit/PersonalReddit';
 import BackHome from '../../BackHomeBottun/BackHome';
 
-function SideBar() {
+function SideBar(props) {
+  const { subreddits, peoples } = props;
   return (
     <SideBarContainer>
       <CommunityContainer>
-        <Community />
+        <Community subreddits={subreddits} />
       </CommunityContainer>
       <CommunityContainer>
-        <People />
+        <People peoples={peoples} />
       </CommunityContainer>
       <PersonalReddit />
       <BackHome />

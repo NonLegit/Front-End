@@ -15,8 +15,8 @@ export default function TimeType() {
   const [Time, setTime] = React.useState(false);
 
   const [searchParams] = useSearchParams();
-  const sort = searchParams.get('sort');
-  const type = searchParams.get('type');
+  const sort = searchParams.get('sort') || 'Relevance';
+  const type = searchParams.get('type') || 'Posts';
 
   const t = searchParams.get('t') || 'All Time';
   const navigate = useNavigate();

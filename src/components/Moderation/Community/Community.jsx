@@ -66,6 +66,14 @@ export default function Community() {
   }, [data, statusCode]);
 
   useEffect(() => {
+    // console.log(disc.length);
+    const x = disc?.length;
+    const y = subReddit?.length;
+    setCount(100 - y);
+    setCountDisc(100 - x);
+  }, [disc, subReddit]);
+
+  useEffect(() => {
     console.log(type);
     console.log(nsfw === true);
     console.log(region);

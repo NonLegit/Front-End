@@ -4,14 +4,16 @@ import {
   PeopleString, ShowMore, Suggestion,
 } from './style';
 
-function People() {
+function People(props) {
+  const { peoples } = props;
   return (
     <Box sx={{ height: 284, width: 310 }}>
       <PeopleString>People</PeopleString>
       <Suggestion>
-        <Suggestions />
-        <Suggestions />
-        <Suggestions />
+        {peoples?.map((people) => (
+
+          <Suggestions people={people} />
+        ))}
       </Suggestion>
       <Box sx={{ display: 'flex', justifyContent: 'cenetr' }}>
         <ShowMore>See More Communities</ShowMore>
