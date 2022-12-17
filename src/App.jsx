@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
-
+import 'quill/dist/quill.snow.css';
 import PopularPage from './pages/PopularPage';
 import HiddenPostsContextProvider from './contexts/HiddenPostsContext';
 import MainNavBar from './components/MainNavBar/MainNavBar';

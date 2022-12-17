@@ -1,8 +1,8 @@
+/* eslint-disable max-classes-per-file */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/button-has-type */
 import { useMemo, useRef } from 'react';
-import 'quill/dist/quill.snow.css';
 import ReactQuill, { Quill } from 'react-quill';
 import TitleIcon from '@mui/icons-material/Title';
 import FormatBoldIcon from '@mui/icons-material/FormatBold';
@@ -20,6 +20,24 @@ import { TfiQuoteRight } from 'react-icons/tfi';
 import { TextEditorWrapper } from './styles';
 
 const BlockEmbed = Quill.import('blots/embed');
+
+class ImageBlot extends BlockEmbed {
+  static create(value) {
+    const imgTag = super.create();
+    imgTag.setAttribute('src', value.src);
+    imgTag.setAttribute('alt', value.alt);
+    imgTag.setAttribute('width', '100%');
+    return imgTag;
+  }
+
+  static value(node) {
+    return { src: node.getAttribute('src'), alt: node.getAttribute('alt') };
+  }
+}
+
+ImageBlot.blotName = 'image';
+ImageBlot.tagName = 'img';
+Quill.register(ImageBlot);
 
 class Video extends BlockEmbed {
   static create(value) {
@@ -55,7 +73,8 @@ function TextEditor(props) {
   console.log('agdjhdgjgfghfgjhs');
 
   const editorRef = useRef();
-  const inputRef = useRef();
+  const videoRef = useRef();
+  const imageRef = useRef();
   const icons = Quill.import('ui/icons');
   icons.link = null;
   icons.bold = null;
@@ -85,13 +104,30 @@ function TextEditor(props) {
     quill.setSelection(position + 1);
   };
 
+  const insertImage = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log(e.target.files);
+    const file = e.target.files[0];
+    const quill = editorRef.current.getEditor();
+    quill.focus();
+    const range = quill.getSelection();
+    const position = range ? range.index : 0;
+    quill.insertEmbed(position, 'image', { src: URL.createObjectURL(file) });
+    console.log(URL.createObjectURL(file));
+    quill.setSelection(position + 1);
+  };
+
   const modules = useMemo(() => ({
     syntax: true,
     toolbar: {
       container: '#toolbar',
       handlers: {
         video: () => {
-          inputRef?.current?.click();
+          videoRef?.current?.click();
+        },
+        image: () => {
+          imageRef?.current?.click();
         },
       },
     },
@@ -196,7 +232,8 @@ function TextEditor(props) {
         ]}
         placeholder={commentPlaceholder ? 'What are your thought?' : 'Text(optional)'}
       />
-      <input type="file" accept="video/*" ref={inputRef} style={{ display: 'none' }} onChange={insertVideo} />
+      <input type="file" accept="video/*" ref={videoRef} style={{ display: 'none' }} onChange={insertVideo} />
+      <input type="file" accept="image/*" ref={imageRef} style={{ display: 'none' }} onChange={insertImage} />
     </TextEditorWrapper>
   );
 }
