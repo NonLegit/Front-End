@@ -62,5 +62,6 @@
   "/posts/:postId/vote": "/vote",
   "/posts/:postId/images": "/addImagesToPost",
   "/posts/:postId/moderate/:action": "/moderatorAction",
-  "subreddits/:Name/flairs/:id": "/UpdateFlair"
+  "subreddits/:Name/flairs/:id": "/UpdateFlair",
+  "/subreddits/leaderboard/:category": "/TopCommunities"
 }

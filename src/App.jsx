@@ -4,6 +4,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
+import TopCommunitiesPage from './pages/TopCommunitiesPage';
 import { redditCookie } from './components/Authentication/authenticationServer';
 
 import HiddenPostsContextProvider from './contexts/HiddenPostsContext';
@@ -78,6 +79,19 @@ function App() {
                     <HomePage data-testid="home page" />
                   }
                 />
+                <Route
+                  path="/subreddits/leaderboard"
+                  element={
+                    <TopCommunitiesPage />
+                  }
+                >
+                  <Route
+                    path=":category"
+                    element={
+                      <TopCommunitiesPage />
+                  }
+                  />
+                </Route>
                 <Route
                   path="/:postClass"
                   element={
