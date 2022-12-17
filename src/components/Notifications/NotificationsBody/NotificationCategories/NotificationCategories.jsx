@@ -139,7 +139,6 @@ function NotificationCategories({ NavBar }) {
                       onClick={(e) => { handleClick(e, element._id); }}
                     >
                       <MoreHorizIcon />
-
                     </IconButton>
                     <MenuOptions
                       data-testid="options"
@@ -173,7 +172,7 @@ function NotificationCategories({ NavBar }) {
                 ) : null}
             </ContainerHead>
             <Body>
-              { body(element).slice(0, 200) }
+              { body(element).replace(/<[^>]+>/g, '').slice(0, 200) }
               {
                 body(element).length > 200 && '...'
               }
