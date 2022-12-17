@@ -6,6 +6,7 @@ import {
   CommunityName, CommunityImage, CommunityIndex, CommunityListItem, Joined,
 } from './styles';
 import joinCommunity from '../../MainProfile/joinCommunity';
+import numFormatter from '../../../utils/MembersNum';
 
 function CommunityEntity(props) {
   const {
@@ -31,7 +32,16 @@ function CommunityEntity(props) {
 
   return (
     <CommunityListItem sidebar={sidebar?.toString()}>
-      <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => { window.open(`${window.location.protocol}/r/${subredditName}`); }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+          flex: '1 1 100%',
+          flexWrap: 'wrap',
+        }}
+        onClick={() => { window.open(`${window.location.protocol}/r/${subredditName}`); }}
+      >
         <CommunityIndex>
           {index}
         </CommunityIndex>
@@ -69,7 +79,7 @@ function CommunityEntity(props) {
           )}
         </Box>
         <CommunityIndex sx={{ display: 'flex', justifyContent: 'flex-end', flexGrow: '1' }}>
-          {members}
+          {numFormatter(members) }
         </CommunityIndex>
       </>
       )}

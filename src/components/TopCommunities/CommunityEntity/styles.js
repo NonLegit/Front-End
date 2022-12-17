@@ -5,10 +5,11 @@ import { styled } from '@mui/material/styles';
 
 export const CommunityListItem = styled(ListItem)(({ sidebar }) => ({
   padding: '8px 8px 8px 16px',
+  display: 'flex',
+  justifyContent: 'space-between',
   ...((sidebar !== 'true') && {
     height: 64,
     padding: '8px 15px 8px 25px',
-
   }),
 }));
 export const CommunityName = styled(Typography)(() => ({

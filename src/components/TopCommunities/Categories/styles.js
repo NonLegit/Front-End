@@ -1,17 +1,20 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const CategoriesBox = styled(Box)(() => ({
+export const CategoriesBox = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
-  width: 192,
+  minWidth: 192,
   marginRight: 24,
   borderRadius: 4,
   border: '1px solid #ccc',
   height: 'fit-content',
+  [theme.breakpoints.between('0', '670')]: {
+    display: 'none',
+  },
 }));
 
 export const HeaderText = styled(Box)(() => ({
-  height: 41,
+  minHeight: 41,
   backgroundColor: '#f6f7f8',
   borderBottom: 'thin solid #edeff1',
   paddingLeft: 24,

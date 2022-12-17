@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const TopSideBox = styled(Box)(() => ({
+export const TopSideBox = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
   width: 312,
   marginLeft: 24,
@@ -10,6 +10,9 @@ export const TopSideBox = styled(Box)(() => ({
   position: 'relative',
   height: 'fit-content',
   marginBottom: 20,
+  [theme.breakpoints.between('0', '1050')]: {
+    display: 'none',
+  },
 }));
 
 export const HeaderText = styled(Typography)(() => ({
