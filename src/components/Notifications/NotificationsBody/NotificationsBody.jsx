@@ -70,6 +70,7 @@ function NotificationsBody({
   // function to handel deleteing when click hide
   const handleClose = (event) => {
     event.stopPropagation();
+    console.log(select);
     const tabindex = event.currentTarget.getAttribute('tabindex');
     if (select !== null && tabindex === '0') {
       if (type === 'today') {
@@ -81,7 +82,7 @@ function NotificationsBody({
           earlier.filter((e) => (e._id !== (select))),
         );
       }
-      notificationHide(Number(select));
+      notificationHide(select);
       setSelect(null);
     }
     setAnchorEl(null);

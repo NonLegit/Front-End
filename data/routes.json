@@ -15,7 +15,7 @@
     "/users/forgot_password":"/forgetpassword",
     "/users/forgot_username":"/forgetusername",
     "/users/reset_password/:token":"/resetpassword",
-    "/user/notifications": "/notifications",
+    "/users/notifications": "/notifications",
     "/users/me/prefs": "/settings",
     "/subreddits/mine/moderator": "/subreddits",
     "/subreddits/moderator/:name": "/userSubreddits",

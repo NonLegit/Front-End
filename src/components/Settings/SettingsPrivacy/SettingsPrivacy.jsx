@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import {
@@ -20,15 +20,31 @@ function SettingsPrivacy() {
   const alert = useAlert();
 
   const [name, setName] = useState('');
+  const [blocked, setBloked] = useState([]);
   const [data] = privacyFetch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setBloked(data);
+    console.log(data);
+  }, [data]);
   const actionUSer = async (nameUser, action) => {
     if (nameUser !== '') {
       const [text, type] = await blockuser(nameUser, action);
-      if (text !== '') {
+      if (text !== 'Operation done successfully') {
       // setMessage(text);
       // setStats(type);
       //  setOpenAlert(true);
+        if (action === 'block_user') {
+          let list = blocked;
+          list = list.concat({ profilePicture: 'https://i.pinimg.com/474x/eb/c8/82/ebc882ee454681ad38fcf9380342bc03.jpg', userName: nameUser });
+          console.log(list);
+          setBloked(list);
+        } else {
+          let list = blocked;
+          list = list.filter((e) => (e.userName !== nameUser));
+          setBloked(list);
+        }
         alert.show({ text, type });
       }
     }
@@ -60,7 +76,7 @@ function SettingsPrivacy() {
           </AddBlock>
         </Text>
         {
-          data?.map((e) => (
+          blocked?.map((e) => (
 
             <BlocekConataier>
               <BlocekInfo onClick={() => { navigate(`/user/${e.userName}`); }}>
