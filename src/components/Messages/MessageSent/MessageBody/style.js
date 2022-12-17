@@ -1,17 +1,12 @@
 import styled from '@emotion/styled';
 import { Link } from '@mui/material';
 
-export const SentContiner = styled('div')(() => ({
-  margin: '20px auto',
-  width: '70%',
-  minWidth: ' 300px',
-}));
-export const Message = styled('div')(({ theme, indx }) => ({
+export const Body = styled('div')(({ theme, index }) => ({
   padding: ' 10px 15px',
   width: '100%',
-  backgroundColor: (indx % 2) ? '#f6f7f8' : theme.palette.common.white,
+  backgroundColor: (index % 2) ? '#f6f7f8' : theme.palette.common.white,
 }));
-export const MessageBody = styled('div')(() => ({
+export const MessageBoddy = styled('div')(() => ({
   padding: '10px 15px',
 }));
 export const MessageHeader = styled('h3')(() => ({
@@ -37,6 +32,7 @@ export const ReplayButton = styled('div')(() => ({
   color: '#888',
   fontWeight: 'bold',
   cursor: 'pointer',
+  width: 'fit-content',
   '&:hover': {
     textDecoration: 'underline',
   },
@@ -44,6 +40,7 @@ export const ReplayButton = styled('div')(() => ({
 export const TeaxArea = styled('textarea')(() => ({
   width: '60%',
   height: '100px',
+  padding: '8px',
 }));
 export const ButtonsContanier = styled('div')(() => ({
   display: 'flex',
@@ -60,4 +57,9 @@ export const SubmitButton = styled('button')(({ theme }) => ({
   cursor: 'pointer',
   borderRadius: '4px',
   marginTop: '12px',
+}));
+export const Error = styled('p')(() => ({
+  color: 'red',
+  fontSize: 'small',
+  margin: '3px',
 }));

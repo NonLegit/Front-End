@@ -11,6 +11,7 @@ const HeaderContainer = styled('ul')(() => ({
   display: 'flex',
   margin: ' 0px 0px 0px 20px',
   padding: '0px',
+  flexWrap: 'wrap',
   '& .link': {
     textDecoration: 'none',
   },

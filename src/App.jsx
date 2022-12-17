@@ -37,6 +37,8 @@ import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
 import { notificationToken } from './services/notificationToken';
+import MessageForm from './components/Messages/MessageForm/MessageForm';
+import MessageSent from './components/Messages/MessageSent/MessageSent';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -151,12 +153,30 @@ function App() {
                   }
                 />
                 <Route
-                  path="/messages"
+                  path="messages"
                   element={
                     <Messages />
-                  }
-                />
-
+          }
+                >
+                  <Route
+                    path="inbox"
+                    element={
+                      <HomePage />
+          }
+                  />
+                  <Route
+                    path="compose"
+                    element={
+                      <MessageForm />
+          }
+                  />
+                  <Route
+                    path="sent"
+                    element={
+                      <MessageSent />
+          }
+                  />
+                </Route>
                 <Route
                   path="/submit"
                   element={
