@@ -4,8 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
 import { StyledTabs } from './styles';
-import CommunitiesHeader from '../CommunitiesHeader/CommunitiesHeader';
-import Community from '../Community/Community';
+import CommunitiesTab from '../CommunitiesTab/CommunitiesTab';
 
 export default function NavButtons(props) {
   const { title } = props;
@@ -32,10 +31,9 @@ export default function NavButtons(props) {
             value="2"
           />
         </StyledTabs>
-        <TabPanel value="1">Item one</TabPanel>
+        <TabPanel value="1">Posts</TabPanel>
         <TabPanel value="2" sx={{ padding: '20px 0px 0px 0px' }}>
-          <CommunitiesHeader explore={title} />
-          <Community />
+          <CommunitiesTab title={title} />
         </TabPanel>
       </TabContext>
     </Box>

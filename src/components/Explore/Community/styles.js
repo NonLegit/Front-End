@@ -3,7 +3,7 @@ import { Box, styled, Button } from '@mui/material';
 export const StyledCommunityContainer = styled(Box)(() => ({
   background: 'white',
   display: 'flex',
-  maxWidth: '640px',
+  // maxWidth: '640px',
   marin: 'auto',
 }));
 

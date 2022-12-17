@@ -31,7 +31,6 @@ function UserList() {
   // navigate
   const navigate = useNavigate();
   const handleClick = (subPage) => {
-    console.log(subPage);
     navigate(`/t/${subPage}`);
   };
   // eslint-disable-next-line no-unused-vars

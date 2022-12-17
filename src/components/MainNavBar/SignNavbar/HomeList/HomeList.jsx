@@ -7,6 +7,7 @@ import {
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
 import ExpandLess from '@mui/icons-material/ExpandLess';
+import { useNavigate } from 'react-router-dom';
 import { StyledList } from './styles';
 import { firstList, exploreList } from '../Drawer/Lists';
 
@@ -16,6 +17,11 @@ import { firstList, exploreList } from '../Drawer/Lists';
  * @returns {React.Component} the left list in the navbar in signed out mode.
  */
 function HomeList() {
+  // navigate
+  const navigate = useNavigate();
+  const handleClick = (subPage) => {
+    navigate(`/t/${subPage}`);
+  };
   const [openHomeList, setOpenHomeList] = React.useState(0);
   const handleClickHomeList = () => {
     setOpenHomeList(!openHomeList);
@@ -70,7 +76,7 @@ function HomeList() {
               <Collapse in={Boolean(openSubList[index])} timeout="auto" unmountOnExit>
                 {Sub.Content.map((items) => (
                   <ListItemButton key={`${index + 0}`}>
-                    <ListItemText primary={items} />
+                    <ListItemText primary={items} onClick={() => handleClick(items)} />
                   </ListItemButton>
                 ))}
               </Collapse>
