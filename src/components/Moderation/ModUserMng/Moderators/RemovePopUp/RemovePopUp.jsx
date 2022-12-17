@@ -6,14 +6,13 @@ import { RemoveContext } from '../NonEmptyModerator/NonEmptyModerator';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 
-function RemovePopUp(props) {
-  const { userName } = props;
+function RemovePopUp() {
   const {
-    openRemove, handleClickCloseRemove,
+    openRemove, handleClickCloseRemove, userName,
   } = React.useContext(RemoveContext);
   return (
     <StyledDialog
-      width="490px"
+      width="fit-content"
       height="190px"
       fullScreen
       open={openRemove}

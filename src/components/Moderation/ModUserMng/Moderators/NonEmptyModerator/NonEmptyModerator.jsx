@@ -38,7 +38,7 @@ function NonEmptyModerator(props) {
   return (
     <UserBar>
       <RemoveContext.Provider value={{
-        openRemove, handleClickCloseRemove,
+        openRemove, handleClickCloseRemove, userName,
       }}
       >
         <RemovePopUp />
@@ -55,7 +55,7 @@ function NonEmptyModerator(props) {
           </Typography>
         </Box>
       </UserContainer>
-      <Box sx={{ display: 'flex' }}>
+      <Box display="flex">
         <Typography
           padding="8px"
           fontSize="12px"
