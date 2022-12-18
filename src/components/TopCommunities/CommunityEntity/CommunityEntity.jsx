@@ -5,8 +5,8 @@ import { useState } from 'react';
 import {
   CommunityName, CommunityImage, CommunityIndex, CommunityListItem, Joined,
 } from './styles';
-import joinCommunity from '../../MainProfile/joinCommunity';
 import numFormatter from '../../../utils/MembersNum';
+import PostJoin from '../../SubReddit/PostJoin';
 
 function CommunityEntity(props) {
   const {
@@ -15,9 +15,9 @@ function CommunityEntity(props) {
 
   const [joined, setJoined] = useState(isJoined);
 
-  joinCommunity(joined, subredditName);
-
   const handleJoin = () => {
+    PostJoin(`/subreddits/${subredditName}/subscribe`, joined ? 'unsub' : 'sub');
+
     setJoined((prev) => !prev);
   };
 
