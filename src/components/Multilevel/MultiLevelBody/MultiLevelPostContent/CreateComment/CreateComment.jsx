@@ -4,12 +4,6 @@ import { useCookies } from 'react-cookie';
 // MUI Components
 import { Box } from '@mui/system';
 
-// services
-import {
-  convertToRaw, EditorState,
-} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-
 // components
 import { Typography } from '@mui/material';
 import TextEditor from '../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
@@ -32,7 +26,7 @@ function CreateComment() {
   const [cookies] = useCookies(['redditUser']);
 
   // States
-  const [text, setText] = useState(EditorState.createEmpty());
+  const [text, setText] = useState('');
   // const [readyToSave, setReadyToSave] = useState(false);
 
   // Constants
@@ -46,8 +40,8 @@ function CreateComment() {
   // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
-    if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
-      setText(EditorState.createEmpty());
+    if (saveComment(post?._id, 'Post', text)) {
+      setText('');
 
       // Need refresh post Component =>to pop comment
       // UpdatePost();
@@ -73,7 +67,7 @@ function CreateComment() {
           variant="contained"
           type="submit"
           onClick={comment}
-          disabled={draftToHtml(convertToRaw(text.getCurrentContent())).length === 8}
+          disabled={text?.length === 8}
         >
           Comment
         </SaveButton>

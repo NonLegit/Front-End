@@ -37,6 +37,9 @@ function MultiLevelPostContent(props) {
     if (Comment) {
       ref.current?.scrollIntoView({ behavior: 'smooth' });
     }
+
+    console.log('Post text ', post?.text);
+    console.log('Divvvvvvv', <div dangerouslySetInnerHTML={{ __html: post?.text }} />);
   }, []);
 
   return (

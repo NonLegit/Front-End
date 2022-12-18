@@ -16,7 +16,6 @@ import {
 
 // styles
 import { useTheme } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
 import { useEditPostContext } from '../../../contexts/EditPostContext';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
@@ -41,7 +40,7 @@ import { useHiddenPostsContext } from '../../../contexts/HiddenPostsContext';
 
 function PostReactions(props) {
   const {
-    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId,
+    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost,
   } = props;
 
   const [showMore, setShowMore] = useState(false);
@@ -65,9 +64,6 @@ function PostReactions(props) {
     postReactionsServer(postId, 'hide', 1);
   };
 
-  // routes
-  const navigate = useNavigate();
-
   // contexts
   const { setEditPost, setCommentPost } = useEditPostContext();
   return (
@@ -84,12 +80,9 @@ function PostReactions(props) {
         color="third"
         startIcon={<ChatBubbleOutlineRoundedIcon />}
         onClick={() => {
-          // setEditPost(true);
-          // set Comment True
-          // navigate(`/user/BasmaElhoseny/comments/koko`);
           setCommentPost(true);
           setEditPost(false);
-          navigate(`/user/BasmaElhoseny/comments/${postId}`);
+          redirectToPost(true);
         }}
       >
         {comments}
@@ -173,8 +166,8 @@ function PostReactions(props) {
             )}
             <ListItemButton onClick={() => {
               setEditPost(true);
-              // navigate(`/user/BasmaElhoseny/comments/koko`);
-              navigate(`/user/BasmaElhoseny/comments/${postId}`);
+              setCommentPost(false);
+              redirectToPost(true);
             }}
             >
               <ListItemIcon>

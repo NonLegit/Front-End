@@ -19,6 +19,8 @@ import { TfiQuoteRight } from 'react-icons/tfi';
 
 import { TextEditorWrapper } from './styles';
 
+import 'quill/dist/quill.snow.css';
+
 const BlockEmbed = Quill.import('blots/embed');
 
 class ImageBlot extends BlockEmbed {

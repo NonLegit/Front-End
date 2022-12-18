@@ -8,12 +8,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import { Box } from '@mui/system';
 
-// services
-import {
-  convertToRaw, EditorState,
-} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-
 // Components
 import CommentReactions from './CommentReactions/CommentReactions';
 import DropDownList from '../../../../../DropDownList/DropDownList';
@@ -41,7 +35,7 @@ function CommentActions(props) {
   const { comment } = props;
 
   // States
-  const [reply, setReply] = useState(EditorState.createEmpty());
+  const [reply, setReply] = useState('');
   const [replyEditor, setReplyEditor] = useState(false);
 
   const dropDownListOptions = [{ value: 'Save', icon: 'Save' }];
@@ -51,8 +45,8 @@ function CommentActions(props) {
   const replyOnComment = () => {
     // call Reply endPoint
     console.log('Reply on Comment with Text', comment?.text);
-    if (saveComment(comment?._id, 'Comment', draftToHtml(convertToRaw(reply.getCurrentContent())))) {
-      setReply(EditorState.createEmpty());
+    if (saveComment(comment?._id, 'Comment', reply)) {
+      setReply('');
       setReplyEditor(false);
 
       // Need refresh post Component =>to pop comment
@@ -62,7 +56,6 @@ function CommentActions(props) {
   };
 
   const handleCommentReplyChange = (text) => {
-    // console.log(convertToRaw(text.getCurrentContent()));
     setReply(text);
   };
 
@@ -141,7 +134,7 @@ function CommentActions(props) {
               type="submit"
               onClick={() => {
                 setReplyEditor(false);
-                setReply(EditorState.createEmpty());
+                setReply('');
               }}
             >
               Cancel
@@ -151,7 +144,7 @@ function CommentActions(props) {
               variant="contained"
               type="submit"
               onClick={replyOnComment}
-              disabled={draftToHtml(convertToRaw(reply.getCurrentContent())).length === 8}
+              disabled={reply?.length === 8}
             >
               Reply
             </SaveButton>

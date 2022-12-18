@@ -242,6 +242,7 @@ function Post(props) {
           postVoteStatus={postVoteStatus}
           isSaved={isSaved}
           postId={postId}
+          redirectToPost={redirectToPost}
         />
       </Box>
     </PostContainer>
