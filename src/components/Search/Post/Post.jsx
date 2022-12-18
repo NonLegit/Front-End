@@ -9,6 +9,13 @@ import {
 } from './styles';
 import RedditButton from '../RedditButton/RedditButton';
 
+/**
+ * Posts in search by posts
+ * @component
+
+ * @return {React.Component} - Posts in search by posts
+ */
+
 function Post() {
   const [type] = useState('');
 

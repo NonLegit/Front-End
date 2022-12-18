@@ -6,7 +6,15 @@ import { followRequest } from './FollowServer';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
+/**
+ * Search by people
+ * @component
+ * @property  {function} handleJoin send follow to backend
+ * @property  {function} handleMouseIn when hover set buttom value to unfollow
+ * @property  {function} handleMouseOut when out of hover set button value to follow
 
+ * @return {React.Component} - Search by people
+ */
 function Peoples(props) {
   const { people } = props;
   const [follow, setFollow] = useState(true);

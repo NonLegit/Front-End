@@ -6,8 +6,17 @@ import {
   FlexBoxColumn,
 } from './style';
 /**
- * More icon
- * @return {React.Component} - More icon
+ * Posts Type
+ * @component
+ * @property  {function} setallowImgs - set allow image or not
+ * @property  {function} setallowVideos - set allow image or not
+ * @property  {function} setallowLinks - set allow image or not
+ *
+ * @param {string} allowImgs -  allow image or not
+ * @param {string} allowVideos -  allow video or not
+ * @param {string} allowLinks -  allow links or not
+ *
+ * @return {React.Component} - Posts Type
  */
 export default function PostType(props) {
   const {

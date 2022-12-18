@@ -13,6 +13,15 @@ import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './style';
 
+/**
+ * Search by posts sort type
+ * @component
+ * @property  {function} handleClick  navigate and change sort type
+ * @property  {function} showSort show and hide the sort list
+ * @property  {function} handleClickAway close list when click out
+
+ * @return {React.Component} - Search by posts sort type
+ */
 export default function SortType() {
   const [Openort, setOpenSort] = React.useState(false);
 

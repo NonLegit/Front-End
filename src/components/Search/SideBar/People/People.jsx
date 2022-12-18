@@ -3,7 +3,12 @@ import Suggestions from './Suggestions';
 import {
   PeopleString, ShowMore, Suggestion,
 } from './style';
+/**
+ * Search by posts sidebar people section
+ * @component
 
+ * @return {React.Component} - Search by posts sidebar people section
+ */
 function People(props) {
   const { peoples } = props;
   return (

@@ -10,8 +10,12 @@ import {
 } from './style';
 import AddList from './CommunityTopics/CommunityTopics';
 /**
- * About section in sidebar for moderators only instead of about section for normal users
- * @component
+* List of Primary topics in community
+* @component
+ * @property  {function} changeShow show list of topics or not
+ * @property  {function} ListSelected to set the primary topic
+ * @property  {function} handleClickAway handel on select item
+ *
  * @return {React.Component} - Moderators section in sidebar
  */
 function CommunityMianTopic(props) {

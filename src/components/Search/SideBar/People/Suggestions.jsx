@@ -5,7 +5,15 @@ import numFormatter from '../../../../utils/MembersNum';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
+/**
+ * people in sidebar entity
+ * @component
+ * @property  {function} handleJoin send follow to backend
+ * @property  {function} handleMouseIn when hover set buttom value to unfollow
+ * @property  {function} handleMouseOut when out of hover set button value to follow
 
+ * @return {React.Component} - people in sidebar entity
+ */
 function Suggestions(props) {
   const { people } = props;
   const [follow, setFollow] = useState(true);

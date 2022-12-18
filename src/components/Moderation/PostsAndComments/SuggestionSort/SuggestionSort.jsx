@@ -6,8 +6,12 @@ import {
   Select, SelectBox, Selected, SelectItem,
 } from './style';
 /**
- * More icon
- * @return {React.Component} - More icon
+ * Suggestion Sort
+ * @component
+ * @property  {function} handleClick1 oggle the list when click
+ * @property  {function} handleClickAway1 handle disable the list when click away
+ *
+ * @return {React.Component} - Suggestion Sort
  */
 export default function SuggestionSort() {
   const [showList1, setShowList1] = useState(false);

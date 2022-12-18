@@ -5,7 +5,15 @@ import numFormatter from '../../../../utils/MembersNum';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
+/**
+ * Search by community entity in sidebar
+ * @component
+ * @property  {function} handleJoin send join to backend
+ * @property  {function} handleMouseIn when hover set buttom value to leave
+ * @property  {function} handleMouseOut when out of hover set button value to joined
 
+ * @return {React.Component} - Search by community entity in sidebar
+ */
 function Suggestions(props) {
   const { subreddit } = props;
   const [joined, setJoined] = useState(true);

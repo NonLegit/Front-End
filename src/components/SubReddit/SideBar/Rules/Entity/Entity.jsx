@@ -6,9 +6,11 @@ import {
 } from './style';
 
 /**
- * About Section for normal user
+ * Rule Entity
  * @component
- * @return {React.Component} - About Section for normal user
+ * @property  {function} handleClick toggle show rule or not
+
+ * @return {React.Component} - Rule Entity
  */
 function Entity(props) {
   const { rule, index } = props;

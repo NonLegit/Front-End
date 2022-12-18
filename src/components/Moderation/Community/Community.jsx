@@ -9,28 +9,24 @@ import CommunityMianTopic from './CommumityMainTopics/CmmunityMainTopics';
 import RadioBtn from './CommunityType/CommunityType';
 import CountrySelect from './Region/Region';
 import {
-  AboutString,
-  AboutSubString,
-  Add,
-  AddFlair,
-  Adult,
-  BackHomeButton,
-  Container,
-  Count,
-  Disc,
-  FlexBox,
-  FlexBoxColumn,
-  InputName,
-  LeftAlighne,
-  NotFoundBox,
-  NotFountImage,
-  NSFWs,
-  Section,
-  SmallDisc,
-  TextArea,
-  TotalContainer,
-  Warning,
+  AboutString, AboutSubString, Add, AddFlair, Adult, BackHomeButton, Container, Count, Disc, FlexBox, FlexBoxColumn, InputName, LeftAlighne,
+  NotFoundBox, NotFountImage, NSFWs, Section, SmallDisc, TextArea, TotalContainer, Warning,
 } from './style';
+
+/**
+ * Community
+ * @component
+ * @property  {function} myType to set the type of the community
+ * @property  {function} check to check if the community name length less than 100
+ * @property  {function} checkDisc to check if the community description length less than 100
+ * @property  {function} redirect to redirect to homepage
+ * @property  {function} createCommunity to show community form
+ * @property  {function} SendData to send new subreddit data to backend
+
+* @param {string} t - the new type of the community
+* @param {string} e - the input feild which is clicked
+* @return {React.Component} - Community
+ */
 
 export default function Community() {
   const [count, setCount] = useState(100);
