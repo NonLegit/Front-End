@@ -12,10 +12,12 @@ function useQuery() {
 }
 
 /**
- * filter posts by their type for large screens
+ * filter Search by its type
  *
  * @component FilterSearch
- * @returns {React.Component} FilterSearch
+ * @property  {function} handleClick navigate
+
+ * @returns {React.Component} filter Search by its type
  */
 function FilterSearch() {
   const query = useQuery();

@@ -4,9 +4,9 @@ import {
 import Entity from './Entity/Entity';
 
 /**
- * About Section for normal user
+ * About Rule
  * @component
- * @return {React.Component} - About Section for normal user
+ * @return {React.Component} - Add Rule
  */
 function Rules(props) {
   const { Name, rules } = props;

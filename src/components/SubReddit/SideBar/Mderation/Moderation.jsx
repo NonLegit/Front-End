@@ -21,7 +21,12 @@ import AddList from './AddList/AddList';
 /**
  * About section in sidebar for moderators only instead of about section for normal users
  * @component
- * @return {React.Component} - Moderators section in sidebar
+ * @property  {function} changeShow show select list or not
+ * @property  {function} sendData send data to backend
+ * @property  {function} ListSelected handel on select item
+ * @property  {function} handleClickAway close the list in  click away
+ *
+ * @return {React.Component} - About section in sidebar for moderators only instead of about section for normal users
  */
 function Moderation(props) {
   const {

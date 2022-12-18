@@ -12,7 +12,14 @@ import CustomizedDialogs from './DiscAlerdt/DistAlert';
 /**
  * Add discreption for the community
  * @component
- * @return {React.Component} - Add discreption
+ * @property  {function} handleClickAway1 return to defult mode when click away
+ * @property  {function} handleChange count number of char in input feild to make sure not exeed the limit
+ * @property  {function} falseShow close the input
+ * @property  {function} sendData send data to backend
+ * @property  {function} SaveAction save all data and send to backend
+ * @property  {function} decord descord all changes in input
+
+ * @return {React.Component} - Add discreption for the community
  */
 function AddSector(props) {
   const { disc2, Name } = props;
@@ -23,14 +30,9 @@ function AddSector(props) {
   const [haveDisc, setHaveDisc] = useState(true);
   // return to defult mode when click away
   const handleClickAway1 = () => {
-    // const btn = document.getElementById('save');
-    // btn.click();
-    // setShow(false);
-    // setCount(500 - disc.length);
     const ele = document.getElementById('discInput');
     if (disc !== ele?.value?.trim() && !show) {
       const alert = document.getElementById('DiscAlert');
-      // setShow(true);
       console.log(show);
       alert.click();
     } else {

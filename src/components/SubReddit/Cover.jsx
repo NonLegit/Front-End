@@ -26,6 +26,10 @@ import { useCreatePostInSubredditContext } from '../../contexts/CreatePostInSubr
 /**
  * Subreddit page
  * @component
+ * @property  {function} redirect redirect to homepage
+ * @property  {function} createCommunity open create community form
+ * @property  {function} sendData send data to backend
+
  * @return {React.Component} - Subreddit page
  */
 
@@ -191,27 +195,6 @@ function Header() {
                     <CreatePostInSubreddit subredditName={Name} />
                   </ThemeProvider>
                   <PostsClassificationSubreddit subredditName={Name} />
-                  {/* { posts?.map((posts) => (
-                    <PostSubreddit
-                      createdAt={createdAt}
-                      title={posts?.title}
-                      ownerIcon={icon}
-                      ownerName={Name}
-                      authorName={posts?.author?.name}
-                      flairText={posts?.flairId?.flairText}
-                      flairBackgroundColor={posts?.flairId?.flairBackgroundColor}
-                      flairColor={posts?.flairId?.flairColor}
-                      images={posts?.images}
-                      videos={posts?.videos}
-                      kind={posts?.kind}
-                      votes={posts?.votes}
-                      postVoteStatus={posts?.postVoteStatus}
-                      commentCount={posts?.commentCount}
-                      text={posts?.text}
-                      key={posts?.id}
-                      subredit
-                    />
-                  ))} */}
                   {posts
                   && <PostList posts={posts} subredit />}
                 </MainContent>

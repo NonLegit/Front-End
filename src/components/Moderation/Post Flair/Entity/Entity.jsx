@@ -9,6 +9,17 @@ import {
 import Edit from './EditFlair/Edit';
 import DeleteFlair from './DeleteFlairServer';
 
+/**
+ * Entity of Flair
+ * @component
+ * @property  {function} copied copy id
+ * @property  {function} Edited show enable form
+ * @property  {function} save clase form and enable add
+ * @property  {function} cancel clase form and enable add
+ *
+ * @return {React.Component} - Entity of Flair
+ */
+
 function Entity(props) {
   const {
     row, handleClick, can, trueCan,

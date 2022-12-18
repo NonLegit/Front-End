@@ -12,6 +12,16 @@ import {
 } from './style';
 import SuggestionSort from './SuggestionSort/SuggestionSort';
 
+/**
+ * Posts And Comments
+ * @component
+ * @property  {function} redirect redirect to home page
+ * @property  {function} createCommunity show create community form
+ * @property  {function} SendData send data to backend
+ *
+ * @return {React.Component} - Posts And Comments
+ */
+
 function PostsAndComments() {
   const { subReddit } = useParams();
   const [exist, setExist] = useState(true);

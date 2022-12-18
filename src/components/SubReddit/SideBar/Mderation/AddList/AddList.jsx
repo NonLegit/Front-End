@@ -10,8 +10,7 @@ import patchData from '../ModerationServer';
 
 import AddBtn from './Add Bottun/AddBtn';
 import {
-  AboutContent,
-  Lists,
+  AboutContent, Lists,
 } from './style';
 
 const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Makeup', 'Business, Economics, and Finance', 'Careers', 'Cars and Motor Vehicles',
@@ -22,7 +21,19 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
 /**
  * AddList(community topics)
  * @component
- * @return {React.Component} - community topics
+ * @property  {function} handleKeyDown  handel on press enter to add the community topic
+ * @property  {function} removeItem to rempve element when press x
+ * @property  {function} ListSelected add item when select from list
+ * @property  {function} trueShaw open the input
+ * @property  {function} falseShaw clase the input
+ * @property  {function} trueShawList open the list ip topics
+ * @property  {function} setTemp set new list of topics
+ * @property  {function} setTag set new list of topics
+ * @property  {function} sendData send data to backend
+ * @property  {function} handleClickAway1 return to default view of add list
+ * @property  {function} decord descord all changes
+
+ * @return {React.Component} - AddList(community topics)
  */
 function AddList(props) {
   const {

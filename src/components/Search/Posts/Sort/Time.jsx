@@ -11,6 +11,16 @@ import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './style';
 
+/**
+ * Search by posts time type
+ * @component
+ * @property  {function} handleClick  navigate and change sort type
+ * @property  {function} showTime show and hide the time list
+ * @property  {function} handleClickAway close list when click out
+
+ * @return {React.Component} - Search by posts time type
+ */
+
 export default function TimeType() {
   const [Time, setTime] = React.useState(false);
 

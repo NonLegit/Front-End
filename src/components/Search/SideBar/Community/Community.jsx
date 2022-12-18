@@ -4,6 +4,13 @@ import {
   CommunityString, Suggestion, ShowMore,
 } from './style';
 
+/**
+ * Search by posts sidebar community section
+ * @component
+
+ * @return {React.Component} - Search by posts sidebar community section
+ */
+
 function Community(props) {
   const { subreddits } = props;
   return (
