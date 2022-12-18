@@ -4,7 +4,7 @@ const PostJoin = async (url, action) => {
   // const [data, setData] = useState(null);
   // const [error, setError] = useState(null);
 
-  await axios.post(url, null, {
+  await axios.post(url, [], {
     params: {
       action,
     },

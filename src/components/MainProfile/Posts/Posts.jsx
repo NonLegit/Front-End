@@ -4,6 +4,8 @@ import {
 } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../contexts/EditPostContext';
 import Comments from '../Comments/Comments';
 import PostFooter from './PostFooter/PostFooter';
 import PostHeader from './PostHeader/PostHeader';
@@ -118,6 +120,9 @@ function Posts(props) {
     });
   }, []);
 
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
     <>
       <PostsQueueBox condition={condition}>
@@ -134,7 +139,7 @@ function Posts(props) {
               modState={modState}
               notJoined={notJoined}
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
               <TitlePost variant="h6">{post?.title}</TitlePost>
               {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
               {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
@@ -161,7 +166,7 @@ function Posts(props) {
               sx={{ marginLeft: 2, maxWidth: '90%' }}
             >
               {post?.kind === 'video' ? (
-                <video controls style={{ width: '1000%', maxHeight: '512px' }}>
+                <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
                   <source src={post?.videos} type="video/mp4" />
                 </video>
               ) : (
@@ -172,10 +177,11 @@ function Posts(props) {
                         imageIndex === index
                     && (
                     <CustomImage
-                      src={image}
+                      src={image.path}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     />
                     )
                       ))}
@@ -216,6 +222,7 @@ function Posts(props) {
                   ) : ((post.kind === 'self') && (
                     <ParagraphBox
                       ref={postTextRef}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     >
                       <ParagraphWhite />
                       <ParagraphPost
@@ -239,6 +246,7 @@ function Posts(props) {
               postid={post?._id}
               isSaved={post?.isSaved}
               subTitle={post?.ownerType}
+              owner={post?.owner?.name}
               numComments={post?.commentCount}
               sendReplies={post?.sendReplies}
               mod={mod}

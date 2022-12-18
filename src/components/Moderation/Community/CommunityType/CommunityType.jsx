@@ -9,7 +9,7 @@ import {
 } from './style';
 /**
    *@component
-   * @param {object} props
+   * @param {object} props - default value for radio buttom & myType to set it when change
    * @return {React.Component} -radio button in  pop up form
    */
 function RadioBtn(props) {

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import { Box } from '@mui/material';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 import { useContext, useEffect } from 'react';
@@ -30,24 +31,27 @@ function ProfileImage() {
       formData.append('type', type);
       formData.append('file', event.target.files[0]);
       console.log(formData);
-      imagePost(formData);
-    }
-    const reader = new FileReader();
-    reader.onload = () => {
-      console.log('sa');
-      if (reader.readyState === 2) {
-        console.log('sa');
-        if (file) {
-          reader.readAsDataURL(event.target.files[0]);
+      console.log(event.target.files[0]);
+      for (const pair of formData.entries()) {
+        console.log(`${pair[0]}, ${pair[1]}`);
+      }
 
-          if (type === 'profileBackground') {
-            setPrefs((oldPrefs) => ({ ...oldPrefs, profileBackground: reader.result }));
-          } else {
-            setPrefs((oldPrefs) => ({ ...oldPrefs, profilePicture: reader.result }));
+      imagePost(formData);
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          if (file) {
+            if (type === 'profileBackground') {
+              setPrefs((oldPrefs) => ({ ...oldPrefs, profileBackground: reader.result }));
+            } else {
+              setPrefs((oldPrefs) => ({ ...oldPrefs, profilePicture: reader.result }));
+            }
           }
         }
-      }
-    };
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   };
 
   return (

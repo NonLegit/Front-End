@@ -101,7 +101,7 @@ function NotificationCategories({ NavBar }) {
     return '';
   };
   const handleLink = (ele) => {
-    const follow = (ele?.followedSubreddit) ? `/Subreddit/${ele?.followedSubreddit.fixedName}` : `/user/${cookies?.redditUser.userName}`;
+    const follow = (ele?.followedSubreddit) ? `/r/${ele?.followedSubreddit.fixedName}` : `/user/${cookies?.redditUser.userName}`;
     if (!ele.seen) { notificationMarkRead(ele._id); }
     if (ele?.type === 'follow') {
       navigate(`/user/${ele.followerUser.userName}`);
@@ -139,7 +139,6 @@ function NotificationCategories({ NavBar }) {
                       onClick={(e) => { handleClick(e, element._id); }}
                     >
                       <MoreHorizIcon />
-
                     </IconButton>
                     <MenuOptions
                       data-testid="options"
@@ -173,7 +172,7 @@ function NotificationCategories({ NavBar }) {
                 ) : null}
             </ContainerHead>
             <Body>
-              { body(element).slice(0, 200) }
+              { body(element).replace(/<[^>]+>/g, '').slice(0, 200) }
               {
                 body(element).length > 200 && '...'
               }

@@ -4,14 +4,15 @@ import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
-  QueueBox, QueueText, ControlBar, UserContainer,
-} from './styles';
+  QueueBox, QueueText, ControlBar, InstanceContainer,
+} from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import LeavePopUp from './LeavePopUp/LeavePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyModerator from './NonEmptyModerator/Moderator/Moderator';
+// import NonEmptyModerator from './NonEmptyModerator/NonEmptyModerator';
 import Invitation from './InvitationPopUp/InvitationPopUp';
 import SearchBar from '../SearchBar/SearchBar';
+import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
 
 export const LeaveContext = React.createContext();
 export const InvitationContext = React.createContext();
@@ -72,31 +73,9 @@ function Moderator(props) {
         </QueueText>
       </QueueBox>
       <SearchBar />
-      <UserContainer>
-        <NonEmptyModerator type="0" />
-      </UserContainer>
-      <UserContainer>
-        <Typography
-          color="#1C1C1C"
-          padding="0px 0px 8px 4px"
-          fontWeight={600}
-          fontSize="14px"
-        >
-          You can edit these moderators
-        </Typography>
-        <NonEmptyModerator type="1" />
-      </UserContainer>
-      <UserContainer>
-        <Typography
-          color="#1C1C1C"
-          padding="0px 0px 8px 4px"
-          fontWeight={600}
-          fontSize="14px"
-        >
-          Invited moderators
-        </Typography>
-        <NonEmptyModerator type="2" />
-      </UserContainer>
+      <InstanceContainer>
+        <ModeratorsList />
+      </InstanceContainer>
     </ModMainPage>
   );
 }

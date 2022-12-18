@@ -32,6 +32,7 @@ export const StyledSearchBar = styled(Box)(() => ({
   backgroundColor: '#edeff1',
   borderRadius: '4px 4px 0 0',
   height: '48px',
+  margin: '0px 24px',
 }));
 
 export const StyledSearchContainer = styled(Box)(() => ({

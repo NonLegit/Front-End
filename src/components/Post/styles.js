@@ -48,6 +48,7 @@ export const PostMedia = styled(Box)(({ kind, spoiler }) => ({
   backgroundColor: (kind === 'video') ? '#000' : '#fff',
   position: 'relative',
   filter: spoiler && 'blur(3px)',
+  cursor: 'pointer',
 }));
 
 export const CustomImage = styled('img')(({ maxHeight }) => ({

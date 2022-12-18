@@ -20,6 +20,7 @@ import { deletePostComment, postReactionsServer } from '../../../../../profileSe
 function PostFooterList(props) {
   const {
     postid,
+    handleEditPost,
     isSaved,
     nsfw,
     spoiler,
@@ -46,7 +47,7 @@ function PostFooterList(props) {
   };
   return (
     <SelectBox>
-      <SelectItem>
+      <SelectItem onClick={handleEditPost}>
         <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
         Edit Post
       </SelectItem>

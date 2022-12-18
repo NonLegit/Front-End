@@ -15,7 +15,7 @@ import {
  */
 
 function OtherProfileHeader() {
-  const { subTitle } = useParams();
+  const { subTitle, username } = useParams();
   const navigate = useNavigate();
 
   /**
@@ -23,7 +23,7 @@ function OtherProfileHeader() {
    * @param {string} subPage - the page to navigate to
    */
   const handleClick = (subPage) => {
-    navigate(`${subPage}`);
+    navigate(`/user/${username}/${subPage}`);
   };
 
   const [showList, setShowList] = useState(false);

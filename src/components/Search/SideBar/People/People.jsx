@@ -3,15 +3,22 @@ import Suggestions from './Suggestions';
 import {
   PeopleString, ShowMore, Suggestion,
 } from './style';
+/**
+ * Search by posts sidebar people section
+ * @component
 
-function People() {
+ * @return {React.Component} - Search by posts sidebar people section
+ */
+function People(props) {
+  const { peoples } = props;
   return (
     <Box sx={{ height: 284, width: 310 }}>
       <PeopleString>People</PeopleString>
       <Suggestion>
-        <Suggestions />
-        <Suggestions />
-        <Suggestions />
+        {peoples?.map((people) => (
+
+          <Suggestions people={people} />
+        ))}
       </Suggestion>
       <Box sx={{ display: 'flex', justifyContent: 'cenetr' }}>
         <ShowMore>See More Communities</ShowMore>
