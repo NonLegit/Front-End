@@ -16,12 +16,14 @@ export const MultiLevelConatiner = styled(Box)(() => ({
   // alignItems: 'space-around',
   // justifyContent: 'flex-start',
   // border: '10px solid black',
+
 }));
 
 // MultiLevelBody Left Container
 export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexBasis: '100%',
-  backgroundColor: theme.palette.offwhite.main,
+  // backgroundColor: theme.palette.offwhite.main,
+  backgroundColor: 'red',
 
   padding: '20px',
   display: 'flex',

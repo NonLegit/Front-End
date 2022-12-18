@@ -18,7 +18,9 @@ import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 import { usePostContext } from '../../../contexts/PostContext';
 
 // Styles
-import { HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes } from './styles';
+import {
+  HeaderVerticalDivider, MultiLevelHeaderBox, MultiLevelHeaderVotes, TopPostVotesConatiner,
+} from './styles';
 
 // Theme
 import theme from '../../../styles/theme';
@@ -56,26 +58,28 @@ function MultiLevelHeader() {
     && (
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>
-        {/* <Divider orientation="vertical" flexItem /> */}
-        <HeaderVerticalDivider orientation="vertical" flexItem />
-        <IconButton onClick={upVote}>
-          <VoteIcon
-            color={theme.palette.secondary?.main}
-            direction="up"
-          />
-        </IconButton>
-        <Typography variant="p">{post?.votes}</Typography>
-        <IconButton onClick={downVote}>
-          <VoteIcon
-            color={theme.palette.secondary?.main}
-            direction="down"
-          />
-        </IconButton>
-        <HeaderVerticalDivider orientation="vertical" flexItem />
-        {/* <VotedIcon
+        <TopPostVotesConatiner>
+          {/* <Divider orientation="vertical" flexItem /> */}
+          <HeaderVerticalDivider orientation="vertical" flexItem />
+          <IconButton onClick={upVote}>
+            <VoteIcon
+              color={theme.palette.secondary?.main}
+              direction="up"
+            />
+          </IconButton>
+          <Typography variant="p">{post?.votes}</Typography>
+          <IconButton onClick={downVote}>
+            <VoteIcon
+              color={theme.palette.secondary?.main}
+              direction="down"
+            />
+          </IconButton>
+          <HeaderVerticalDivider orientation="vertical" flexItem />
+          {/* <VotedIcon
           color={theme.palette.secondary?.main}
           direction="down"
         /> */}
+        </TopPostVotesConatiner>
         <ArticleIcon />
         <Typography variant="p" fontSize="14px">{post?.title}</Typography>
       </MultiLevelHeaderVotes>

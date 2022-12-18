@@ -1,22 +1,48 @@
 // MUI components
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Typography } from '@mui/material';
-import { StatisticsCaption, StatisticsIcon } from './styles';
+
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import IosShareIcon from '@mui/icons-material/IosShare';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+
+// Styles
+import { StaticticsContainer, StatisticsCaption, StatisticsIcon } from './styles';
+
+// Context
+import { usePostContext } from '../../../../../contexts/PostContext';
 
 function PostStatistics(props) {
   // eslint-disable-next-line no-unused-vars
   const { views, shareCount } = props;
+
+  // Context
+  const { post } = usePostContext();
   return (
-    <div>
-      PostStatistics
+    <StaticticsContainer>
       <StatisticsIcon>
-        <Typography>530</Typography>
+        <Typography fontSize="22px" fontWeight="500">{post?.views}</Typography>
         <StatisticsCaption>
-          <Typography>Total Shares</Typography>
-          <VisibilityIcon />
+          <VisibilityIcon fontSize="12px" />
+          <Typography fontSize="14px">Total Views</Typography>
         </StatisticsCaption>
       </StatisticsIcon>
-    </div>
+
+      <StatisticsIcon>
+        <Typography fontSize="22px" fontWeight="500">{post?.views}</Typography>
+        <StatisticsCaption>
+          <IosShareIcon fontSize="12px" />
+          <Typography fontSize="14px">Total Shares</Typography>
+        </StatisticsCaption>
+      </StatisticsIcon>
+
+      <StatisticsIcon>
+        <Typography fontSize="22px" fontWeight="500">{post?.commentCount}</Typography>
+        <StatisticsCaption>
+          <ChatBubbleOutlineIcon fontSize="12px" />
+          <Typography fontSize="14px">Total Comments</Typography>
+        </StatisticsCaption>
+      </StatisticsIcon>
+    </StaticticsContainer>
   );
 }
 

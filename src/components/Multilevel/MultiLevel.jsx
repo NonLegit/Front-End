@@ -32,6 +32,8 @@ function MultiLevel({ Edit, Comment }) {
   return (
     <PostContextProvider postID={postID}>
       <MultiLevelConatiner>
+        {/* <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}> */}
+
         <MultiLevelHeader />
         <MultiLevelContentConatiner>
           <MultiLevelBody Edit={Edit} Comment={Comment} />
