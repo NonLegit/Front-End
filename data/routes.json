@@ -64,6 +64,5 @@
     "/posts/:postId/images":"/addImagesToPost",
     "subreddits/:Name/flairs/:id":"/UpdateFlair",
     "/notifications/token":"/notificationToken"
-
-
+    "/subreddits/:subredditName/banned":"/baned"
 }

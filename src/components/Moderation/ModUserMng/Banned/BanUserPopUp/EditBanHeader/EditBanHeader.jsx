@@ -6,7 +6,9 @@ function EditBanHaeder(props) {
   const { handleClickCloseBan, userName } = props;
   return (
     <StyledBox>
-      <Typography>
+      <Typography
+        fontWeight={600}
+      >
         Edit ban for: u/
         {userName}
       </Typography>

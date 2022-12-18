@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
-import { Box, Avatar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
-import { UserBar } from './styles';
-import { UserMngButton } from '../../../styles';
+import {
+  StyledAvatar, UserBar, UserContainer, UserMngButton, UsermngButtonContainer,
+} from '../../../styles';
+
 import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
@@ -22,11 +24,8 @@ function ApprovedUser() {
       >
         <RemovePopUp />
       </RemoveContext.Provider>
-      <Box sx={{
-        display: 'flex', alignItems: 'center', padding: '8px 16px', minWidth: '220px',
-      }}
-      >
-        <Avatar />
+      <UserContainer>
+        <StyledAvatar variant="square" />
         <Box>
           <Typography
             padding="8px"
@@ -36,7 +35,7 @@ function ApprovedUser() {
             username
           </Typography>
         </Box>
-      </Box>
+      </UserContainer>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <Typography
           padding="8px"
@@ -46,7 +45,7 @@ function ApprovedUser() {
           2 hours ago
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', padding: '8px 16px', width: '30%' }}>
+      <UsermngButtonContainer>
         <UserMngButton
           disableRipple
           disableFocusRipple
@@ -60,7 +59,7 @@ function ApprovedUser() {
         >
           Remove
         </UserMngButton>
-      </Box>
+      </UsermngButtonContainer>
     </UserBar>
   );
 }

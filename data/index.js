@@ -56,6 +56,7 @@ const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
+const baned = require('./banedList.json');
 // Something more
 
 module.exports = () => ({
@@ -119,5 +120,6 @@ module.exports = () => ({
   listBlock,
   notificationToken,
   moderatorAction,
+  baned,
   // Something more
 });
