@@ -18,6 +18,8 @@ export const CommentsBoxContent = styled(Box)(() => ({
 }));
 
 export const CommentsBoxBlue = styled(Box)(({ theme, overview }) => ({
+  cursor: 'pointer',
+  width: '100%',
   [theme.breakpoints.between('0', '1000')]: {
     width: '100%',
   },

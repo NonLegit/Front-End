@@ -4,9 +4,6 @@ import {
 import '../../../../styles/theme/textEditor.css';
 import { useState, useEffect } from 'react';
 
-import draftToHtml from 'draftjs-to-html';
-import { convertToRaw, EditorState } from 'draft-js';
-
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter,
@@ -49,7 +46,7 @@ function CreatePostForm() {
   const [postMedia, setPostMedia] = useState([]);
   const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [title, setTitle] = useState('');
-  const [postText, setPostText] = useState(EditorState.createEmpty());
+  const [postText, setPostText] = useState('');
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
   const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
@@ -80,7 +77,7 @@ function CreatePostForm() {
     e.preventDefault();
     const post = {
       title,
-      text: draftToHtml(convertToRaw(postText.getCurrentContent())),
+      text: postText,
       kind: postTypes[postType],
       owner: communityToPostIn,
       ownerType,
@@ -106,6 +103,7 @@ function CreatePostForm() {
   // if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
 
   const handlePostTextChange = (editorState) => {
+    console.log('editor', editorState);
     setPostText(editorState);
   };
   const handleSaveDraft = (e) => {
@@ -157,6 +155,8 @@ function CreatePostForm() {
   const hanldeNsfw = () => {
     setNswf(!nswf);
   };
+
+  console.log('post text', postText);
   return (
     <FormContainer>
       <TitleContainer my={2}>

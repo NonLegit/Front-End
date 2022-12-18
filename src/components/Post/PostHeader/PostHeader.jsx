@@ -32,9 +32,15 @@ import {
 function PostHeader(props) {
   const {
     title, ownerIcon, ownerType, ownerName, authorName, flairText, flairBackgroundColor, flairColor, createdAt,
-    subredit, nsfw, spoiler,
+    subredit, nsfw, spoiler, redirectToPost,
 
   } = props;
+
+  const handleClickOnTitle = (e) => {
+    e.preventDefault();
+    redirectToPost(true);
+  };
+
   return (
     <>
       <PostInfo pb={1}>
@@ -49,7 +55,7 @@ function PostHeader(props) {
               }}
               alt="Profile ownerIcon"
             />
-            <PostInfoLink to={ownerType === 'Subreddit' ? `/Subreddit/${ownerName}` : `/user/${ownerName}`} color="#000" fontWeight="bolder">
+            <PostInfoLink to={ownerType === 'Subreddit' ? `/r/${ownerName}` : `/user/${ownerName}`} color="#000" fontWeight="bolder">
               {ownerType === 'Subreddit' ? 'r/' : 'u/'}
               {ownerName}
             </PostInfoLink>
@@ -81,7 +87,7 @@ function PostHeader(props) {
         </Box>
         )}
       </PostInfo>
-      <PostTitle to="/">
+      <PostTitle onClick={handleClickOnTitle}>
         <Typography
           variant="h6"
           component="h3"

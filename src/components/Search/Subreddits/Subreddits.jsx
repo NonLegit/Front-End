@@ -2,14 +2,29 @@ import {
   Avatar, Box, Typography,
 } from '@mui/material';
 import { useState } from 'react';
+import numFormatter from '../../../utils/MembersNum';
+import PostJoin from '../../SubReddit/PostJoin';
 import {
   Joined,
   PostContainer, PostInfo, PostInfoLink,
 } from './style';
 
-function Subreddits() {
+/**
+ * Search by community
+ * @component
+ * @property  {function} handleJoin send join to backend
+ * @property  {function} handleMouseIn when hover set buttom value to leave
+ * @property  {function} handleMouseOut when out of hover set button value to joined
+
+ * @return {React.Component} - Search by community
+ */
+
+function Subreddits(props) {
+  const { subreddit } = props;
   const [joined, setJoined] = useState(true);
   const handleJoin = () => {
+    PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, !joined);
+
     setJoined((prev) => !prev);
   };
 
@@ -21,12 +36,13 @@ function Subreddits() {
   const handleMouseOut = () => {
     setHover(false);
   };
+
   return (
     <PostContainer my={2} sx={{ padding: '16px' }}>
       <Box width="100%" sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <PostInfo sx={{ display: 'flex', flexDirection: 'raw' }}>
           <Avatar
-            src="https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+            src={subreddit?.icon}
             sx={{
               width: 36,
               height: 36,
@@ -35,18 +51,23 @@ function Subreddits() {
           />
           <Box sx={{ padding: '0 8px' }}>
             <Box sx={{ display: 'flex' }}>
-              <PostInfoLink to="/r/toptalent" color="#000" fontWeight="bolder">
-                r/toptalent
+              <PostInfoLink to={`/r/${subreddit?.fixedName}`} color="#000" fontWeight="bolder">
+                r/
+                {subreddit?.fixedName}
               </PostInfoLink>
               <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
                 <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
                   •
                 </Typography>
-                <div>2.3m Members</div>
+                <div>
+                  2.3m
+                  {' '}
+                  {numFormatter(subreddit?.membersCount)}
+                </div>
               </Box>
             </Box>
             <div>
-              Videos and GIFs of people (figuratively) fucking dying.
+              {subreddit?.description}
             </div>
           </Box>
         </PostInfo>

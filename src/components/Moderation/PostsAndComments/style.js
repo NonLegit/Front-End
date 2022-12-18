@@ -1,4 +1,4 @@
-import { Button, styled } from '@mui/material';
+import { Box, Button, styled } from '@mui/material';
 
 export const AboutString = styled('div')({
   fontSize: 18,
@@ -113,3 +113,38 @@ export const SortString = styled('div')({
   paddingLeft: 17,
 
 });
+export const NotFoundBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'absolute',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '80%',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+}));
+
+export const NotFountImage = styled(Box)(() => ({
+  backgroundColor: '#a8a8a8',
+  borderRadius: '100%',
+  height: 100,
+  width: 100,
+  marginBottom: 40,
+}));
+
+export const BackHomeButton = styled(Button)(() => ({
+  width: 200,
+  borderRadius: 30,
+  height: 30,
+  boxShadow: 'none',
+  marginLeft: 10,
+  marginRight: 10,
+  '&:hover': { boxShadow: 'none' },
+}));
+
+export const ImageWarning = styled('img')(() => ({
+  width: 240,
+  height: 128,
+  marginBottom: 30,
+}));

@@ -17,6 +17,7 @@ import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useNavigate } from 'react-router-dom';
 import {
   ElementBox, FooterBox, FooterText,
 } from './styles';
@@ -25,6 +26,7 @@ import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListR
 import ArrowList from './ArrowList/ArrowList';
 import { postReactionsServer } from '../../../../profileServer';
 import ModeratorList from '../../../../ModeratorList/ModeratorList';
+import { useEditPostContext } from '../../../../../../contexts/EditPostContext';
 
 /**
  * Footer of the post that contain all icons
@@ -40,6 +42,7 @@ function PostFooter(props) {
     postid, numComments, modState, handleExpand, expand, postedByOthers,
     saved, hidden, submitted, isModList, points, postVoteStatus, nsfw, spoiler, sendReplies, locked,
     handleLock, handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
+    ownerType, owner,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
@@ -47,6 +50,9 @@ function PostFooter(props) {
   const [showList2, setShowList2] = useState(false);
   const [moderatorList, setModeratorList] = useState(false);
   const [modList, setModList] = useState(false);
+
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -84,6 +90,11 @@ function PostFooter(props) {
   const handleClickSave = () => {
     postReactionsServer(postid, isSaved ? 'unsave' : 'save', isSaved);
     setIsSaved((prev) => !prev);
+  };
+
+  const handleEditPost = () => {
+    setEditPost(true);
+    navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`);
   };
 
   useEffect(() => {
@@ -141,7 +152,13 @@ function PostFooter(props) {
       {(!postedByOthers && (!modList || !submitted)) && (
       <ElementBox awardedit={true.toString()}>
         <ModeEditOutlinedIcon />
-        <FooterText variant="caption" responsiveshare={true.toString()}>Edit Post</FooterText>
+        <FooterText
+          variant="caption"
+          responsiveshare={true.toString()}
+          onClick={handleEditPost}
+        >
+          Edit Post
+        </FooterText>
       </ElementBox>
       )}
 
@@ -212,6 +229,7 @@ function PostFooter(props) {
             {showList && (
               <PostFooterList
                 postid={postid}
+                handleEditPost={handleEditPost}
                 isSaved={saved}
                 nsfw={nsfw}
                 spoiler={spoiler}

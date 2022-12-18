@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import {
@@ -20,15 +20,31 @@ function SettingsPrivacy() {
   const alert = useAlert();
 
   const [name, setName] = useState('');
+  const [blocked, setBloked] = useState([]);
   const [data] = privacyFetch();
   const navigate = useNavigate();
-  const actionUSer = async (action) => {
-    if (name !== '') {
-      const [text, type] = await blockuser(name, action);
-      if (text !== '') {
+
+  useEffect(() => {
+    setBloked(data);
+    console.log(data);
+  }, [data]);
+  const actionUSer = async (nameUser, action) => {
+    if (nameUser !== '') {
+      const [text, type] = await blockuser(nameUser, action);
+      if (text !== 'Operation done successfully') {
       // setMessage(text);
       // setStats(type);
       //  setOpenAlert(true);
+        if (action === 'block_user') {
+          let list = blocked;
+          list = list.concat({ profilePicture: 'https://i.pinimg.com/474x/eb/c8/82/ebc882ee454681ad38fcf9380342bc03.jpg', userName: nameUser });
+          console.log(list);
+          setBloked(list);
+        } else {
+          let list = blocked;
+          list = list.filter((e) => (e.userName !== nameUser));
+          setBloked(list);
+        }
         alert.show({ text, type });
       }
     }
@@ -56,18 +72,18 @@ function SettingsPrivacy() {
               type="text"
               onChange={(e) => { setName(e.currentTarget.value.trim()); }}
             />
-            <AddButton active={name.length > 0} onClick={() => { actionUSer('block_user'); }}>ADD</AddButton>
+            <AddButton active={name.length > 0} onClick={() => { actionUSer(name, 'block_user'); }}>ADD</AddButton>
           </AddBlock>
         </Text>
         {
-          data?.map((e) => (
+          blocked?.map((e) => (
 
             <BlocekConataier>
               <BlocekInfo onClick={() => { navigate(`/user/${e.userName}`); }}>
                 <ImageBlock src={e.profilePicture} />
                 { e.userName }
               </BlocekInfo>
-              <AddButton active onClick={() => { actionUSer('unblock_user'); }}>Remove</AddButton>
+              <AddButton active onClick={() => { actionUSer(e.userName, 'unblock_user'); }}>Remove</AddButton>
             </BlocekConataier>
           ))
         }
