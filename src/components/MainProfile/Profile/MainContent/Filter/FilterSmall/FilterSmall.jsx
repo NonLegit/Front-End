@@ -3,7 +3,7 @@ import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
 import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { ClickAwayListener } from '@mui/material';
 import { useState, useMemo } from 'react';
 import {
@@ -117,14 +117,15 @@ function FilterSmall(props) {
   const [showList, setShowList] = useState(false);
   const [showList2, setShowList2] = useState(false);
   const [allTime, setAllTime] = useState('All Time');
+  const { username } = useParams();
 
   const handleClick = (subPage) => {
     setAllTime('All Time');
-    navigate(`${subTitle2}?sort=${subPage}`);
+    navigate(`/user/${username}/${subTitle2}?sort=${subPage}`);
   };
   const handleClick2 = () => {
     setAllTime('Today');
-    navigate(`${subTitle2}?sort=top&t=day`);
+    navigate(`/user/${username}/${subTitle2}?sort=top&t=day`);
   };
 
   // show list of new - hot - top

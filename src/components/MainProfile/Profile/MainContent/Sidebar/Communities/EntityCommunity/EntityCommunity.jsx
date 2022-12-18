@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
-
-import joinCommunity from '../../../../../joinCommunity';
+import PostJoin from '../../../../../../SubReddit/PostJoin';
 
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
@@ -12,10 +11,9 @@ function EntityComment(props) {
   // check if current logged in user is joined or not
   const [joined, setJoined] = useState(true);
 
-  joinCommunity(joined, community.subredditName);
-
   // sharing their state currently
   const handleJoin = () => {
+    PostJoin(`/subreddits/${community.fixedName}/subscribe`, joined ? 'unsub' : 'sub');
     setJoined((prev) => !prev);
   };
 
@@ -34,7 +32,7 @@ function EntityComment(props) {
       </HeaderAvatar>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <SubReddit to={`/Subreddit/${community.fixedName}`}>
+        <SubReddit to={`/r/${community.fixedName}`}>
           r/
           {community.fixedName}
         </SubReddit>

@@ -125,7 +125,7 @@ function Posts(props) {
 
   return (
     <>
-      <PostsQueueBox condition={condition} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
+      <PostsQueueBox condition={condition}>
         <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
         <PostContentBox>
           <Box sx={{ marginLeft: 1 }}>
@@ -139,7 +139,7 @@ function Posts(props) {
               modState={modState}
               notJoined={notJoined}
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
               <TitlePost variant="h6">{post?.title}</TitlePost>
               {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
               {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
@@ -166,7 +166,7 @@ function Posts(props) {
               sx={{ marginLeft: 2, maxWidth: '90%' }}
             >
               {post?.kind === 'video' ? (
-                <video controls style={{ width: '1000%', maxHeight: '512px' }}>
+                <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
                   <source src={post?.videos} type="video/mp4" />
                 </video>
               ) : (
@@ -181,6 +181,7 @@ function Posts(props) {
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     />
                     )
                       ))}
@@ -221,6 +222,7 @@ function Posts(props) {
                   ) : ((post.kind === 'self') && (
                     <ParagraphBox
                       ref={postTextRef}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     >
                       <ParagraphWhite />
                       <ParagraphPost

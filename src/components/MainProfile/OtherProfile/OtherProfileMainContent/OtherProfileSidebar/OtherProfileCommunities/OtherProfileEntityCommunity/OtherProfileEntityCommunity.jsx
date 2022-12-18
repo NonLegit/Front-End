@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
-import joinCommunity from '../../../../../joinCommunity';
+import PostJoin from '../../../../../../SubReddit/PostJoin';
 import { CommunitiesSubscriberContext } from '../../../../../../../contexts/CommunitiesSubscriberContext';
 
 import {
@@ -15,16 +15,16 @@ function OtherProfileEntityComment(props) {
   const [joined, setJoined] = useState(false);
 
   useEffect(() => {
+    console.log(community.fixedName);
     if ((communitiesSubscriber?.filter((e) => e?.fixedName === community?.fixedName))?.length > 0) {
       console.log(communitiesSubscriber, community.fixedName);
       setJoined(true);
     }
   }, [communitiesSubscriber, community]);
 
-  joinCommunity(joined, community.subredditName);
-
   // sharing their state currently
   const handleJoin = () => {
+    PostJoin(`/subreddits/${community.fixedName}/subscribe`, joined ? 'unsub' : 'sub');
     setJoined((prev) => !prev);
   };
 
@@ -43,7 +43,7 @@ function OtherProfileEntityComment(props) {
       </HeaderAvatar>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <SubReddit to={`/Subreddit/${community.fixedName}`}>
+        <SubReddit to={`/r/${community.fixedName}`}>
           r/
           {community.fixedName}
         </SubReddit>

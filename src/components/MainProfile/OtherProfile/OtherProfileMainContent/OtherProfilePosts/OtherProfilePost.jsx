@@ -51,27 +51,27 @@ function OtherProfilePost(props) {
   const { setEditPost } = useEditPostContext();
 
   return (
-    <PostsQueueBox onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
+    <PostsQueueBox>
       <OtherProfilePostSide postid={entity?._id} points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.modState === 'spam'} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
-          {entity.images.length === 0 ? (
-            <EmptyImage>
+          <EmptyImage onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
+            {entity.images.length === 0 ? (
+
               <ArticleOutlinedIcon fontSize="small" color="disabled" />
-            </EmptyImage>
-          )
-            : (
-              <EmptyImage>
+            )
+              : (
                 <PostImage src={entity.images[0]} alt="post pic" />
-              </EmptyImage>
-            )}
+              )}
+          </EmptyImage>
+
           <PostContentBox>
             <Box sx={{ marginLeft: 1 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
                 <TitlePost variant="h6">{entity.title}</TitlePost>
                 {
-              entity?.flairId?.text
+                entity?.flairId?.text
                     && (
                     <Flair
                       disableRipple

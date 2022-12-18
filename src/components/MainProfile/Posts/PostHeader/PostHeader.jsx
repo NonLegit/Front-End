@@ -5,10 +5,10 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useState } from 'react';
+import PostJoin from '../../../SubReddit/PostJoin';
 import {
   HeaderAvatar, HeaderAvatarImage, HeaderPost, LinkTo, Joined,
 } from './styles';
-import joinCommunity from '../../joinCommunity';
 
 /**
  * Header for a post
@@ -27,9 +27,8 @@ function PostHeader(props) {
 
   const [joined, setJoined] = useState(false);
 
-  joinCommunity(joined, subReddit);
-
   const handleJoin = () => {
+    PostJoin(`/subreddits/${subReddit}/subscribe`, joined ? 'unsub' : 'sub');
     setJoined((prev) => !prev);
   };
 
@@ -53,7 +52,7 @@ function PostHeader(props) {
           <HeaderAvatarImage src={icon} />
         </HeaderAvatar>
 
-        <LinkTo to={(type === 'Subreddit') ? `/Subreddit/${subReddit}` : `/user/${subReddit}`}>
+        <LinkTo to={(type === 'Subreddit') ? `/r/${subReddit}` : `/user/${subReddit}`}>
           <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
             {type === 'Subreddit' ? 'r/' : 'u/'}
             {subReddit}
