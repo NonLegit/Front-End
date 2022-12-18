@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 // MUI components
 import { Typography } from '@mui/material';
 
 // Components
 import EditPost from './EditPost/EditPost';
+import PostStatistics from './PostStatistics/PostStatistics';
 import CreateComment from './CreateComment/CreateComment';
 
 // Context
@@ -19,7 +20,7 @@ import calculateTime from '../../../../utils/calculateTime';
 
 /* The Main Content of the post including Actions */
 function MultiLevelPostContent(props) {
-  const { Edit } = props;
+  const { Edit, Comment } = props;
 
   // Context
   const { post } = usePostContext();
@@ -28,7 +29,14 @@ function MultiLevelPostContent(props) {
   const authorProfilelink = `/user/${post?.author?.name}`;
   const ownerProfilelink = (post?.ownerType === 'User') ? `/user/${post?.owner?.name}` : `/r/${post?.owner?.name}`;
 
-  useEffect(() => console.log('Edit', Edit), []);
+  const ref = useRef(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log('Edit', Edit);
+    if (Comment) {
+      ref.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   return (
     <MultiLevelContentConatiner>
@@ -71,7 +79,18 @@ function MultiLevelPostContent(props) {
       {/* Post Insights */}
       {/* Post Statistics */}
       {/* Create Comment */}
-      <CreateComment />
+      {/* // ref={ref}
+        // style={{ scrollMargin: '100px 0px 0px 0px' }}
+       */}
+      <PostStatistics />
+
+      <div
+        ref={ref}
+        style={{ scrollMargin: '110px 0px 0px 0px' }}
+      >
+        <CreateComment />
+      </div>
+
     </MultiLevelContentConatiner>
   );
 }

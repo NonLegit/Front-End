@@ -4,7 +4,7 @@ import MultiLevel from '../components/Multilevel/MultiLevel';
 function PostPage() {
   const { editPost } = useEditPostContext();
   return (
-    <MultiLevel Edit={editPost} />
+    <MultiLevel Edit={editPost} Comment />
   );
 }
 

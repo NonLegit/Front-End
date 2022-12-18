@@ -83,6 +83,12 @@ function PostReactions(props) {
       <ActionButton
         color="third"
         startIcon={<ChatBubbleOutlineRoundedIcon />}
+        onClick={() => {
+          // setEditPost(true);
+          // set Comment True
+          // navigate(`/user/BasmaElhoseny/comments/koko`);
+          navigate(`/user/BasmaElhoseny/comments/${postId}`);
+        }}
       >
         {comments}
         {' '}

@@ -17,7 +17,7 @@ import PostContextProvider from '../../contexts/PostContext';
 // scripts
 import { redditCookie } from '../Authentication/authenticationServer';
 
-function MultiLevel({ Edit }) {
+function MultiLevel({ Edit, Comment }) {
   // cookies
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies] = useCookies(['redditUser']);
@@ -34,7 +34,7 @@ function MultiLevel({ Edit }) {
       <MultiLevelConatiner>
         <MultiLevelHeader />
         <MultiLevelContentConatiner>
-          <MultiLevelBody Edit={Edit} />
+          <MultiLevelBody Edit={Edit} Comment={Comment} />
           {/* <MultiLevelSideBar /> */}
         </MultiLevelContentConatiner>
       </MultiLevelConatiner>
