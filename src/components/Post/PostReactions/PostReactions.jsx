@@ -69,7 +69,7 @@ function PostReactions(props) {
   const navigate = useNavigate();
 
   // contexts
-  const { setEditPost } = useEditPostContext();
+  const { setEditPost, setCommentPost } = useEditPostContext();
   return (
     <PostActions mt={0.5}>
       {!matchSm && (
@@ -87,6 +87,8 @@ function PostReactions(props) {
           // setEditPost(true);
           // set Comment True
           // navigate(`/user/BasmaElhoseny/comments/koko`);
+          setCommentPost(true);
+          setEditPost(false);
           navigate(`/user/BasmaElhoseny/comments/${postId}`);
         }}
       >
