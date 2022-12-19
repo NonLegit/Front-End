@@ -31,11 +31,10 @@ function EditPost({ setEdit }) {
   const handlePostTextChange = (text) => {
     setReadyToSave(true);
     setText(text);
-    // console.log(draftToHtml(convertToRaw(text.getCurrentContent())));
   };
-  console.log('Ediiiiiii', text);
 
   const cancel = () => {
+    setEdit(false);
     console.log('cancel');
   };
 
@@ -44,7 +43,6 @@ function EditPost({ setEdit }) {
     // console.log(post);
     editPost(post?._id, text, setPost);
     setEdit(false);
-    // window.location.reload();
   };
 
   return (
@@ -60,10 +58,6 @@ function EditPost({ setEdit }) {
         >
           Cancel
         </RedditButton>
-        {/* <h1>
-          hee
-          {post?.text}
-        </h1> */}
 
         <SaveButton
           variant="contained"

@@ -63,7 +63,6 @@ function MultiLevelSideBar() {
                   </UserProvider>
                 )
               ) : null)}
-            <div style={{ height: '50px' }} />
             <BackToTop />
           </SideBar>
         )

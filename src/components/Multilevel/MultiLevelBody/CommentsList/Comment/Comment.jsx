@@ -16,6 +16,7 @@ import {
   CommentBody,
   CommentContainer, CommentHeader, CommentLeftSideBar, Duration, ImgAvatar,
   CommentText,
+  ImgAvatarSmall,
 } from './styles';
 import { MoreCommentsLink } from '../styles';
 
@@ -79,6 +80,7 @@ function Comment(props) {
 
         <CommentBody>
           <CommentHeader>
+            <ImgAvatarSmall small alt={comment?.author?.userName} src={comment?.author?.profilePicture} />
             <AuthorLink href={authorProfilelink}>{comment?.author?.userName}</AuthorLink>
             <Duration>{comment ? calculateTime(comment?.createdAt) : null}</Duration>
           </CommentHeader>

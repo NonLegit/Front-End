@@ -27,13 +27,14 @@ function CreateComment() {
 
   // States
   const [text, setText] = useState('');
-  // const [readyToSave, setReadyToSave] = useState(false);
+  const [readyToSave, setReadyToSave] = useState(false);
 
   // Constants
   const authorProfilelink = `/user/${cookies?.redditUser?.userName}`;
 
   const handleCommentTextChange = (text) => {
-    // console.log(convertToRaw(text.getCurrentContent()));
+    setReadyToSave(true);
+    console.log('hhhh', text);
     setText(text);
   };
 
@@ -67,7 +68,7 @@ function CreateComment() {
           variant="contained"
           type="submit"
           onClick={comment}
-          disabled={text?.length === 8}
+          disabled={!readyToSave}
         >
           Comment
         </SaveButton>

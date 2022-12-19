@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../../../styles/theme/index';
 
 // CommentContainer
-export const CommentContainer = styled(Box)(() => ({
+export const CommentContainer = styled(Box)(({ theme }) => ({
   // width: '50px',
   // border: '10px solid red',
   // padding: '5px',
@@ -18,10 +18,23 @@ export const CommentContainer = styled(Box)(() => ({
   flexDirection: 'row',
 
   // border: '2px solid black',
+
+  '&': {
+    [theme.breakpoints.down('785')]: {
+      margin: '5px 0px 5px 0px !important',
+    },
+  },
 }));
 
 // CommentLeftSideBar
-export const CommentLeftSideBar = styled(Box)(() => ({
+// eslint-disable-next-line no-unused-vars
+export const CommentLeftSideBar = styled(Box)(({ theme }) => ({
+  '&': {
+    [theme.breakpoints.down('785')]: {
+      display: 'none',
+    },
+  },
+
   // height: '100%',
   // width: '10px',
   display: 'flex',
@@ -37,6 +50,20 @@ export const CommentLeftSideBar = styled(Box)(() => ({
 export const ImgAvatar = styled(Avatar)(() => ({
   width: '30px',
   height: '30px',
+
+}));
+
+// Small Image Avatar for comment @ small screen
+export const ImgAvatarSmall = styled(Avatar)(() => ({
+  width: '30px',
+  height: '30px',
+  display: 'none',
+
+  '&': {
+    [theme.breakpoints.down('750')]: {
+      display: 'inline',
+    },
+  },
 }));
 
 // Vertical Align of comment

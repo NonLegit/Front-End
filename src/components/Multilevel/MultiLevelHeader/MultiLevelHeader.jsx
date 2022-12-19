@@ -59,7 +59,6 @@ function MultiLevelHeader() {
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>
         <TopPostVotesConatiner>
-          {/* <Divider orientation="vertical" flexItem /> */}
           <HeaderVerticalDivider orientation="vertical" flexItem />
           <IconButton onClick={upVote}>
             <VoteIcon

@@ -33,7 +33,7 @@ function CommentsList() {
 
   // constants of tree Structure
   const limit = 12;
-  const depth = 2;
+  const depth = 20;
   const limitForMoreReplies = 2;
   const threadLimit = 2;
   const threadDepth = 2;
