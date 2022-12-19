@@ -37,7 +37,9 @@ import { CommunitiesSubscriberContext } from '../../../contexts/CommunitiesSubsc
  * @returns {React.Component} Posts
  */
 function Posts(props) {
-  const { post, condition, profile } = props;
+  const {
+    post, condition, profile, nohover,
+  } = props;
 
   const [isNsfw, setIsNsfw] = useState(post?.nsfw);
   const [isSpoiler, setIsSpoiler] = useState(post?.spoiler);
@@ -53,13 +55,13 @@ function Posts(props) {
 
   useEffect(() => {
     console.log(post?.kind);
-    if (communitiesSubscriber?.filter((element) => element.fixedName === post.owner.name).length === 0) {
+    if (communitiesSubscriber?.filter((element) => element.fixedName === post?.owner.name).length === 0) {
       setNotJoined(true);
     }
   }, [post, communitiesSubscriber]);
 
   useEffect(() => {
-    if (post.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === post.owner.name).length > 0) {
+    if (post?.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === post?.owner.name).length > 0) {
       setMod(true);
     }
   }, [communities, post]);
@@ -102,7 +104,7 @@ function Posts(props) {
   };
 
   useEffect(() => {
-    post.images?.forEach((image) => {
+    post?.images?.forEach((image) => {
       const img = new Image();
       img.src = image;
       img.onload = () => {
@@ -125,7 +127,7 @@ function Posts(props) {
 
   return (
     <>
-      <PostsQueueBox condition={condition}>
+      <PostsQueueBox condition={condition} nohover={nohover}>
         <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
         <PostContentBox>
           <Box sx={{ marginLeft: 1 }}>
@@ -219,7 +221,7 @@ function Posts(props) {
                         </ControlsIcon>
                       </>
                     </>
-                  ) : ((post.kind === 'self') && (
+                  ) : ((post?.kind === 'self') && (
                     <ParagraphBox
                       ref={postTextRef}
                       onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}

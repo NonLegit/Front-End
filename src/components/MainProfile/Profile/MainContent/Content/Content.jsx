@@ -55,8 +55,8 @@ function Content() {
               </NewBox>
             </NEW>
             {mergeTwo(posts, comments, sort).map((entity, index) => (
-              (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" profile />
-                : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" profile />
+              (!entity.comments) ? <Posts nohover={false} key={`${index + 0}`} post={entity} condition="true" profile />
+                : (entity.author.name === username) ? <Posts nohover={false} key={`${index + 0}`} post={entity} condition="false" profile />
                   : <Comments key={`${index + 0}`} entity={entity} overview="true" profile />
             ))}
           </>

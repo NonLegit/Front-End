@@ -46,8 +46,8 @@ function OtherProfileContent() {
           && (
           <>
             {mergeTwo(posts, comments, sort).map((entity, index) => (
-              (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" />
-                : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" />
+              (!entity.comments) ? <Posts nohover={false} key={`${index + 0}`} post={entity} condition="true" />
+                : (entity.author.name === username) ? <Posts nohover={false} key={`${index + 0}`} post={entity} condition="false" />
                   : <Comments key={`${index + 0}`} entity={entity} overview="true" profile={false} />
             ))}
           </>

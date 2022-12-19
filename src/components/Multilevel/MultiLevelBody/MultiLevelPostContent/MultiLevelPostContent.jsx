@@ -8,9 +8,12 @@ import { Typography } from '@mui/material';
 import EditPost from './EditPost/EditPost';
 import PostStatistics from './PostStatistics/PostStatistics';
 import CreateComment from './CreateComment/CreateComment';
+import Posts from '../../../MainProfile/Posts/Posts';
 
 // Context
 import { usePostContext } from '../../../../contexts/PostContext';
+import CommunitiesProvider from '../../../../contexts/CommunitiesModeratorContext';
+import CommunitiesSubscriberProvider from '../../../../contexts/CommunitiesSubscriberContext';
 
 // Styles
 import { MultiLevelContentConatiner, PostHeader } from './styles';
@@ -49,6 +52,14 @@ function MultiLevelPostContent(props) {
 
   return (
     <MultiLevelContentConatiner>
+      <CommunitiesProvider>
+        <CommunitiesSubscriberProvider>
+          <div style={{ marginLeft: '-45px' }}>
+            <Posts post={post} profile nohover />
+          </div>
+        </CommunitiesSubscriberProvider>
+      </CommunitiesProvider>
+
       {/* MultiLevelPostContent
       {' '}
       {Edit}
@@ -56,7 +67,7 @@ function MultiLevelPostContent(props) {
       Value */}
       {/* Owner Authoer */}
       {/* PostHeader */}
-      <PostHeader>
+      {/* <PostHeader>
         <ImgAvatar alt={post?.owner?.name} src={post?.owner?.icon} />
         <Typography fontSize="12px" fontWeight="400">
           <AuthorLink href={ownerProfilelink}>
@@ -78,10 +89,10 @@ function MultiLevelPostContent(props) {
         <Typography fontSize="12px" fontWeight="400">
           {calculateTime(post?.createdAt)}
         </Typography>
-      </PostHeader>
+      </PostHeader> */}
 
       {/* Title */}
-      <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
+      {/* <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography> */}
       {/* <h1>
         Helooo
         {post?.text}

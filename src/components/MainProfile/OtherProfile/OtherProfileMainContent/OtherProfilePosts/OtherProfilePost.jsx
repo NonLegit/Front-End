@@ -104,6 +104,8 @@ function OtherProfilePost(props) {
                 numComments={entity.commentCount}
                 points={entity.votes}
                 postVoteStatus={entity.postVoteStatus}
+                ownerType={entity.ownerType}
+                owner={entity.owner.name}
               />
             </Box>
           </PostContentBox>

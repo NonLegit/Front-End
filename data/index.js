@@ -39,7 +39,6 @@ const markAsRead = require('./markAsRead.json');
 const follow = require('./follow.json');
 const block = require('./block.json');
 const followers = require('./followers.json');
-const deleteAction = require('./deleteAction.json');
 const actionOnPost = require('./actionOnPost.json');
 const commentsTap = require('./commentsTap.json');
 const getPost = require('./getpost.json');
@@ -103,7 +102,6 @@ module.exports = () => ({
   follow,
   block,
   followers,
-  deleteAction,
   actionOnPost,
   commentsTap,
   getPost,
