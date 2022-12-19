@@ -6,7 +6,10 @@ const PostTypeContext = createContext(null);
 
 function PostTypeContextProvider({ children }) {
   const [initialPostType, setInitialPostType] = useState(0);
-  const value = useMemo(() => ({ initialPostType, setInitialPostType }), [initialPostType, setInitialPostType]);
+  const [initialPostUrl, setInitialPostUrl] = useState('');
+  const value = useMemo(() => ({
+    initialPostType, setInitialPostType, initialPostUrl, setInitialPostUrl,
+  }), [initialPostType, setInitialPostType, initialPostUrl, setInitialPostUrl]);
   return (
     <PostTypeContext.Provider
       value={value}

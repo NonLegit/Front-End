@@ -92,6 +92,17 @@ function Post(props) {
     }
   };
 
+  const getPostUrl = () => {
+    const username = ownerName;
+    if (ownerType === 'User') {
+      if (username) {
+        return `/user/${username}/comments/${postId}`;
+      }
+      return '/';
+    }
+    return `/r/${ownerName}/comments/${postId}`;
+  };
+
   // effects
   useEffect(() => {
     setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
@@ -237,6 +248,7 @@ function Post(props) {
           isSaved={isSaved}
           postId={postId}
           redirectToPost={redirectToPost}
+          getPostUrl={getPostUrl}
           authorName={authorName}
         />
       </Box>

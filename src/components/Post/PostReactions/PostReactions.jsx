@@ -17,6 +17,7 @@ import {
 
 // styles
 import { useTheme } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import { useEditPostContext } from '../../../contexts/EditPostContext';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
@@ -25,6 +26,7 @@ import Reactions from '../Reactions/Reactions';
 import postReactionsServer from '../postReactionsServer';
 import { useHiddenPostsContext } from '../../../contexts/HiddenPostsContext';
 import UserLogin from '../../../authentication';
+import { usePostTypeContext } from '../../../contexts/PostTypeContext';
 
 /**
  * This component is the container of post reactions
@@ -42,7 +44,7 @@ import UserLogin from '../../../authentication';
 
 function PostReactions(props) {
   const {
-    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName,
+    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName, getPostUrl,
   } = props;
 
   const [showMore, setShowMore] = useState(false);
@@ -51,6 +53,11 @@ function PostReactions(props) {
   const matchXs = useMediaQuery(theme.breakpoints.down('xs'));
   const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
   const { setHiddenPosts } = useHiddenPostsContext();
+  const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
+  const { REACT_APP_ENV, REACT_APP_PROXY_DEVELOPMENT, REACT_APP_PROXY_PRODUCTION } = process.env;
+
+  // routes
+  const navigate = useNavigate();
 
   // handlers
   const handleShowMore = () => {
@@ -71,6 +78,11 @@ function PostReactions(props) {
     postReactionsServer(postId, 'delete', 1, setHiddenPosts);
   };
 
+  const handleShare = () => {
+    setInitialPostUrl(`${REACT_APP_ENV === 'development' ? REACT_APP_PROXY_DEVELOPMENT : REACT_APP_PROXY_PRODUCTION}${getPostUrl()}`);
+    setInitialPostType(3);
+    navigate('/submit');
+  };
   // contexts
   const { setEditPost, setCommentPost } = useEditPostContext();
 
@@ -104,6 +116,7 @@ function PostReactions(props) {
       <ActionButton
         color="third"
         startIcon={<ShareOutlinedIcon />}
+        onClick={handleShare}
       >
         Share
 

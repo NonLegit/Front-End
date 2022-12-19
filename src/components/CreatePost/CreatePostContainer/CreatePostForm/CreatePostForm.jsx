@@ -38,7 +38,7 @@ function CreatePostForm() {
   // console.log('component', subredditId, subredditIcon, subredditName);
 
   // contexts
-  const { initialPostType } = usePostTypeContext();
+  const { initialPostType, initialPostUrl } = usePostTypeContext();
   const {
     communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName,
   } = useCreatePostSidebarContext();
@@ -51,7 +51,7 @@ function CreatePostForm() {
   const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [title, setTitle] = useState('');
   const [postText, setPostText] = useState('');
-  const [postUrl, setPostUrl] = useState('');
+  const [postUrl, setPostUrl] = useState(initialPostUrl);
   const [postType, setPostType] = useState(initialPostType);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
