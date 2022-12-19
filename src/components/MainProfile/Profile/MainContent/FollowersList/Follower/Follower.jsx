@@ -1,15 +1,25 @@
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { followRequest } from '../../../../mainProfileServer';
 import {
   FollowerBox, FollowerPhoto, FollowingButton, LinkToProfile,
 } from './styles';
 
 function Follower({ follower }) {
   const [following, setFollowing] = useState(undefined);
+  const [isFollowedUi, setIsFollowedUi] = useState(undefined);
 
   useEffect(() => {
     setFollowing(follower.isFollowed === 'true');
+    setIsFollowedUi(follower.isFollowed === 'true');
   }, [follower]);
+
+  followRequest(follower.userName, following, () => { setIsFollowedUi((prev) => !prev); });
+
+  const handleClickFollow = () => {
+    setFollowing((prev) => !prev);
+  };
+
   return (
     <FollowerBox>
       <LinkToProfile>
@@ -23,7 +33,7 @@ function Follower({ follower }) {
         </Typography>
 
       </LinkToProfile>
-      {following ? <FollowingButton>Following</FollowingButton> : <FollowingButton notfollowing="true">Follow</FollowingButton>}
+      {isFollowedUi ? <FollowingButton onClick={handleClickFollow}>Following</FollowingButton> : <FollowingButton notfollowing="true" onClick={handleClickFollow}>Follow</FollowingButton>}
     </FollowerBox>
   );
 }
