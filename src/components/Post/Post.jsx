@@ -167,7 +167,7 @@ function Post(props) {
             (kind === 'image')
               ? (
                 <>
-                  {images.map((image, imageIndex) => {
+                  {images?.map((image, imageIndex) => {
                     console.log('my imageshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkkkkk', image);
                     return (
                       imageIndex === index

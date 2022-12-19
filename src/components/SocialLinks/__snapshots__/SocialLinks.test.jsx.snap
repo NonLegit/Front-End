@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <h2
+    className="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-g8doz5-MuiTypography-root-MuiDialogTitle-root"
+  >
+    Add Social Link
+  </h2>,
+  <div
+    className="MuiDialogContent-root MuiDialogContent-dividers css-1uhmgr5-MuiDialogContent-root"
+  />,
+]
+`;
