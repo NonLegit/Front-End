@@ -1,4 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
+import UserInfo from '../../MainProfile/Profile/MainContent/Sidebar/UserInfo/UserInfo';
 import RedditPremium from '../../HomePage/HomePageContainer/RedditPremium/RedditPremium';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
 import MainContent from '../../MainContent/MainContent';
@@ -34,7 +35,9 @@ function CreatePostContainer() {
           {
             (communityToPostIn === null || ownerType === null) ? (
               <RedditPremium />
-            ) : <div>adham</div>
+            ) : (
+              <UserInfo username="nour" />
+            )
 }
         </SideBar>
         )}
