@@ -15,7 +15,7 @@ export const MultiLevelConatiner = styled(Box)(() => ({
   flexWrap: 'wrap',
   // alignItems: 'space-around',
   // justifyContent: 'flex-start',
-  // border: '10px solid black',
+  border: '10px solid black',
 
   '&': {
     [theme.breakpoints.down('sm')]: {
@@ -36,6 +36,6 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   justifyContent: 'space-around',
   flexWrap: 'wrap',
 
-  // border: '10px solid green',
+  border: '10px solid green',
 
 }));
