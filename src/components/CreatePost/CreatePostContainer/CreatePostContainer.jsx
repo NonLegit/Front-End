@@ -1,4 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
+import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 import UserInfo from '../../MainProfile/Profile/MainContent/Sidebar/UserInfo/UserInfo';
 import RedditPremium from '../../HomePage/HomePageContainer/RedditPremium/RedditPremium';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
@@ -7,6 +8,7 @@ import SideBar from '../../SideBar/SideBar';
 import CreatePostForm from './CreatePostForm/CreatePostForm';
 import { MainContainer, OuterContainer } from './styles';
 import { useCreatePostSidebarContext } from '../../../contexts/CreatePostSidebarContext';
+import SubredditSideBar from '../../SubReddit/SideBar/SideBar';
 /**
  * This component works as a container for all create post page components
  * and a repository the data fetched in
@@ -23,6 +25,7 @@ function CreatePostContainer() {
     communityToPostIn, ownerType,
   } = useCreatePostSidebarContext();
   console.log('oooowbbhdd', communityToPostIn, ownerType);
+  const [data] = getSubredditAllData('Nonliget');
   return (
     <OuterContainer>
       <MainContainer>
@@ -31,15 +34,30 @@ function CreatePostContainer() {
         </MainContent>
         {match
         && (
-        <SideBar>
-          {
-            (communityToPostIn === null || ownerType === null) ? (
-              <RedditPremium />
-            ) : (
-              <UserInfo username="nour" />
-            )
+          (communityToPostIn === null || ownerType === null) ? (
+            <SideBar>
+              {
+              (communityToPostIn === null || ownerType === null) ? (
+                <RedditPremium />
+              ) : (
+                <UserInfo username="nour" />
+
+              )
 }
-        </SideBar>
+            </SideBar>
+          ) : (
+            <SubredditSideBar
+              rules={data?.rules}
+              members={data?.membersCount}
+              Name={data?.fixedName}
+              username="noue"
+              topics={data?.topics}
+              disc={data?.description}
+              primaryTopic={data?.primaryTopic}
+              createdAt={data?.createdAt}
+              moderatoesName={data?.moderators}
+            />
+          )
         )}
       </MainContainer>
     </OuterContainer>
