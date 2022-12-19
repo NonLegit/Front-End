@@ -52,7 +52,7 @@ function SideBar(props) {
       <CommunityContainer sx={{ padding: '0px 12px' }}>
         <Moderators moderatoesName={finalArray} />
       </CommunityContainer>
-      <BackHome sx={{ marginTop: -5 }} />
+      {!createPost && <BackHome sx={{ marginTop: -5 }} />}
     </SideBarContainer>
   );
 }
