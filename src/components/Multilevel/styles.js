@@ -17,19 +17,24 @@ export const MultiLevelConatiner = styled(Box)(() => ({
   // justifyContent: 'flex-start',
   // border: '10px solid black',
 
+  '&': {
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 0px',
+    },
+  },
+
 }));
 
 // MultiLevelBody Left Container
 export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexBasis: '100%',
-  // backgroundColor: theme.palette.offwhite.main,
-  backgroundColor: 'red',
+  backgroundColor: theme.palette.offwhite.main,
 
-  padding: '20px',
+  // padding: '20px',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-around',
-  flexWrap: 'nowrap',
+  flexWrap: 'wrap',
 
   // border: '10px solid green',
 
