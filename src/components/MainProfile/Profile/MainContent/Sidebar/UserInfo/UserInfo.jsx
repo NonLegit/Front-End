@@ -6,7 +6,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CakeIcon from '@mui/icons-material/Cake';
 import AddIcon from '@mui/icons-material/Add';
 import {
-  useContext, useEffect, useState,
+  useEffect, useState,
 } from 'react';
 import moment from 'moment/moment';
 import { Link, useNavigate } from 'react-router-dom';
@@ -15,7 +15,6 @@ import {
   UserInfoBox, UserName, InfoBox,
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog, LinkTo,
 } from './styles';
-import { UserContext } from '../../../../../../contexts/UserProvider';
 import userInfoServer from './userInfoServer';
 import SocialLinks from '../../../../../SocialLinks/SocialLinks';
 import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
@@ -25,7 +24,7 @@ import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
  * @component UserInfo
  * @returns {React.Component} UserInfo
  */
-function UserInfo() {
+function UserInfo({ username }) {
   const [displayName, setDisplayName] = useState();
   const [about, setAbout] = useState();
   const [postKarma, setPostKarma] = useState();
@@ -39,7 +38,6 @@ function UserInfo() {
 
   const navigate = useNavigate();
 
-  const { username } = useContext(UserContext);
   const [info] = userInfoServer();
   useEffect(() => {
     setDisplayName(info?.displayName);
