@@ -5,7 +5,7 @@ import axios from '../../services/instance';
 const PostsData = (Name, postClass) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const { page, limit } = useListingContext();
+  const { page, limit, setPage } = useListingContext();
 
   useEffect(() => {
     console.log(postClass);
@@ -22,7 +22,7 @@ const PostsData = (Name, postClass) => {
       }
       console.log('ana geeeet', page, limit);
       setData((data) => {
-        if (!data) { return response.data; }
+        if (page === 0 || !data) { return response.data; }
         const tempData = {
           ...data,
         };
@@ -34,7 +34,11 @@ const PostsData = (Name, postClass) => {
       setError(error);
       console.log(error);
     });
-  }, [postClass, Name]);
+  }, [postClass, Name, page, limit]);
+  useEffect(() => {
+    setPage(0);
+    console.log('etghayar');
+  }, [postClass]);
   return [data, error];
 };
 export default PostsData;

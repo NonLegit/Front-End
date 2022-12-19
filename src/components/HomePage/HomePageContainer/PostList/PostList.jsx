@@ -29,11 +29,10 @@ function PostList(props) {
       {posts.filter((post) => {
         const id = post?._id;
         return !hiddenPosts?.includes(id);
-      }).map((post) => {
+      }).map((post, index) => {
         const {
           _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
-        console.log('koo', postVoteStatus);
         return (
 
           <Post
@@ -52,7 +51,8 @@ function PostList(props) {
             votes={votes}
             commentCount={commentCount}
             text={text}
-            key={id}
+            // eslint-disable-next-line react/no-array-index-key
+            key={id + index}
             ownerType={ownerType}
             isSaved={isSaved}
             postId={id}

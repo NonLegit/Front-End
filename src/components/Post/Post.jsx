@@ -94,18 +94,16 @@ function Post(props) {
 
   // effects
   useEffect(() => {
-    // console.log('height', postTextRef?.current?.offsetHeight);
     setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
   }, [text]);
 
   useEffect(() => {
     images?.forEach((image) => {
       const img = new Image();
-      // console.log(img);
+
       img.src = image;
       img.onload = () => {
         setMaxImagesHeight((maxImagesHeight) => {
-          console.log('rakam', postMediaRef?.current?.offsetWidth);
           const maxValue = Math.min(maxImagesHeight, img.height);
           const postWidth = postMediaRef?.current?.offsetWidth;
           if (maxImagesHeight > img.height && img.width > postWidth) {
@@ -113,7 +111,6 @@ function Post(props) {
           }
           return maxValue;
         });
-        console.log('my img height', img.height);
       };
     });
   }, [images]);
@@ -167,10 +164,8 @@ function Post(props) {
             (kind === 'image')
               ? (
                 <>
-                  {images.map((image, imageIndex) => {
-                    console.log('my imageshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkkkkk', image);
-                    return (
-                      imageIndex === index
+                  {images.map((image, imageIndex) => (
+                    imageIndex === index
                     && (
                     <CustomImage
                       src={image}
@@ -179,8 +174,7 @@ function Post(props) {
                       maxHeight={maxImagesHeight}
                     />
                     )
-                    );
-                  })}
+                  ))}
                   <>
                     <ControlsIcon
                       disableRipple
