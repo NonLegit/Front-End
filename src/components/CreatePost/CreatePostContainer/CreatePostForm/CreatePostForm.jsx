@@ -40,7 +40,7 @@ function CreatePostForm() {
   // contexts
   const { initialPostType } = usePostTypeContext();
   const {
-    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType,
+    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName,
   } = useCreatePostSidebarContext();
 
   // variables
@@ -57,13 +57,13 @@ function CreatePostForm() {
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
   const [flair, setFlair] = useState(null);
-  const [communityName, setCommunityName] = useState(subredditName);
   // console.log('title', title);
   // console.log('community to post in', communityToPostIn);
 
   useEffect(() => {
     setCommunityToPostIn(subredditId);
     setOwnerType(initialOwnerType);
+    setCommunityName(subredditName);
   }, []);
   useEffect(() => {
     setCommunityToPostIn(subredditId);

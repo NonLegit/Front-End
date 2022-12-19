@@ -7,9 +7,11 @@ const CreatePostSidebarContext = createContext(null);
 function CreatePostSidebarContextProvider({ children }) {
   const [communityToPostIn, setCommunityToPostIn] = useState(null);
   const [ownerType, setOwnerType] = useState(null);
+  const [communityName, setCommunityName] = useState(null);
   const value = useMemo(() => ({
-    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType,
-  }), [communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType]);
+    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName,
+  }), [communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName]);
+
   return (
     <CreatePostSidebarContext.Provider
       value={value}

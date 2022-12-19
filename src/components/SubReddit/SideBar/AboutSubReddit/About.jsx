@@ -14,7 +14,7 @@ import {
  */
 function About(props) {
   const {
-    disc, createdAt, num, Name,
+    disc, createdAt, num, Name, createPost,
   } = props;
   return (
     <>
@@ -59,11 +59,13 @@ function About(props) {
         </span>
         <div />
       </Box>
+      { !createPost && (
       <CustomLink to={`/submit/r/${Name}`}>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">
           create Post
         </CreatPost>
       </CustomLink>
+      )}
     </>
   );
 }

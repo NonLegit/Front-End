@@ -1,4 +1,6 @@
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { useCookies } from 'react-cookie';
+import { useEffect } from 'react';
 import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 import UserInfo from '../../MainProfile/Profile/MainContent/Sidebar/UserInfo/UserInfo';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
@@ -20,12 +22,26 @@ import PostingToReddit from './PostingToReddit/PostingToReddit';
 function CreatePostContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
+
+  // contexts
   const { communities, communitiesError } = useCommunitiesInCreatePostContext();
   const {
-    communityToPostIn, ownerType,
+    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName,
   } = useCreatePostSidebarContext();
+
   console.log('oooowbbhdd', communityToPostIn, ownerType);
-  const [data] = getSubredditAllData('Nonliget');
+  // cookies
+  const [cookies] = useCookies(['redditUser']);
+
+  // variables
+  const username = cookies.redditUser?.userName;
+  const [data] = getSubredditAllData(communityName);
+
+  useEffect(() => () => {
+    setCommunityToPostIn(null);
+    setOwnerType(null);
+    setCommunityName(null);
+  }, []);
   return (
     <OuterContainer>
       <MainContainer>
@@ -34,14 +50,22 @@ function CreatePostContainer() {
         </MainContent>
         {match
         && (
-          (communityToPostIn === null || ownerType === null) ? (
+          (communityToPostIn === null || ownerType !== 'Subreddit') ? (
             <SideBar>
               {
               (communityToPostIn === null || ownerType === null) ? (
                 <PostingToReddit />
               ) : (
-                <UserInfo username="nour" />
+                <>
+                  <Box
+                    margin={8}
+                  />
+                  <UserInfo
+                    username={username}
+                    createPost
+                  />
 
+                </>
               )
 }
             </SideBar>
@@ -50,12 +74,13 @@ function CreatePostContainer() {
               rules={data?.rules}
               members={data?.membersCount}
               Name={data?.fixedName}
-              username="noue"
+              username={username}
               topics={data?.topics}
               disc={data?.description}
               primaryTopic={data?.primaryTopic}
               createdAt={data?.createdAt}
               moderatoesName={data?.moderators}
+              createPost
             />
           )
         )}
