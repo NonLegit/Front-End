@@ -43,7 +43,7 @@ function EditPost() {
 
   return (
     <div>
-      <TextEditor handlePostTextChange={handlePostTextChange} postText={text} Edit />
+      <TextEditor handlePostTextChange={handlePostTextChange} postText={text} Edit id="edit" />
       <Box m={2} gap={1} display="flex" justifyContent="flex-end">
         <RedditButton
           padding="3px 16px"

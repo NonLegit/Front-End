@@ -209,6 +209,7 @@ function CreatePostForm() {
             <TextEditor
               handlePostTextChange={handlePostTextChange}
               postText={postText}
+              id="create"
             />
           ) : null}
           {(postType === 1 || postType === 2) ? (

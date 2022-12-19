@@ -87,7 +87,6 @@ function CommentActions(props) {
 
   return (
     <div>
-
       <CommentActionsContainer>
         {comment && (
         <CommentReactions
@@ -125,6 +124,7 @@ function CommentActions(props) {
             handlePostTextChange={handleCommentReplyChange}
             postText={reply}
             commentPlaceholder
+            id={comment?._id}
           />
           <Box m={2} gap={1} display="flex" justifyContent="flex-end">
             <RedditButton

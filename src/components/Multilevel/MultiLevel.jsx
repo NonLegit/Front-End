@@ -37,7 +37,7 @@ function MultiLevel({ Edit, Comment }) {
         <MultiLevelHeader />
         <MultiLevelContentConatiner>
           <MultiLevelBody Edit={Edit} Comment={Comment} />
-          {/* <MultiLevelSideBar /> */}
+          <MultiLevelSideBar />
         </MultiLevelContentConatiner>
       </MultiLevelConatiner>
     </PostContextProvider>
