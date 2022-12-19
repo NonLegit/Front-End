@@ -14,6 +14,7 @@ import PostTypes from './PostTypes/PostTypes';
 import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
+import { useCreatePostSidebarContext } from '../../../../contexts/CreatePostSidebarContext';
 import submitPostServer from './submitPostServer';
 import currentSubredditServer from './currentSubredditServer';
 import TextEditor from './TextEditor/TextEditor';
@@ -38,6 +39,9 @@ function CreatePostForm() {
 
   // contexts
   const { initialPostType } = usePostTypeContext();
+  const {
+    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType,
+  } = useCreatePostSidebarContext();
 
   // variables
   const postTypes = ['self', 'image', 'video', 'link'];
@@ -49,8 +53,6 @@ function CreatePostForm() {
   const [postText, setPostText] = useState('');
   const [postUrl, setPostUrl] = useState('');
   const [postType, setPostType] = useState(initialPostType);
-  const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
-  const [ownerType, setOwnerType] = useState(initialOwnerType);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
@@ -59,6 +61,10 @@ function CreatePostForm() {
   // console.log('title', title);
   // console.log('community to post in', communityToPostIn);
 
+  useEffect(() => {
+    setCommunityToPostIn(subredditId);
+    setOwnerType(initialOwnerType);
+  }, []);
   useEffect(() => {
     setCommunityToPostIn(subredditId);
   }, [subredditId]);
