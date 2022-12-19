@@ -237,6 +237,7 @@ function Post(props) {
           isSaved={isSaved}
           postId={postId}
           redirectToPost={redirectToPost}
+          authorName={authorName}
         />
       </Box>
     </PostContainer>

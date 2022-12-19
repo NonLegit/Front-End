@@ -59,6 +59,7 @@
     "/posts/:postId/save":"/save",
     "/posts/:postId/unsave":"/unsave",
     "/posts/:postId/hide":"/hide",
+    "/posts/:postId/delete":"/delete",
     "/posts/:postId/unhide":"/hide",
     "/posts/:postId/vote":"/vote",
     "/posts/:postId/images":"/addImagesToPost",
