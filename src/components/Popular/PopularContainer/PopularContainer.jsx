@@ -11,6 +11,7 @@ import BackToTop from '../../BackToTop/BackToTop';
 import PostList from '../../HomePage/HomePageContainer/PostList/PostList';
 import popularPageServer from './popularPageServer';
 import { PopularPosts } from './styles';
+import cleanPage from '../../../utils/cleanPage';
 
 /**
  * This component works as a container for all popular page components
@@ -27,6 +28,7 @@ function PopularContainer() {
 
   // states
   const [posts, postsError] = popularPageServer(postClass);
+  cleanPage();
   return (
     <OuterContainer>
       <MainContainer>
