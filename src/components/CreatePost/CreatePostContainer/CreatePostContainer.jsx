@@ -1,7 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 import UserInfo from '../../MainProfile/Profile/MainContent/Sidebar/UserInfo/UserInfo';
-import RedditPremium from '../../HomePage/HomePageContainer/RedditPremium/RedditPremium';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
 import MainContent from '../../MainContent/MainContent';
 import SideBar from '../../SideBar/SideBar';
@@ -9,6 +8,7 @@ import CreatePostForm from './CreatePostForm/CreatePostForm';
 import { MainContainer, OuterContainer } from './styles';
 import { useCreatePostSidebarContext } from '../../../contexts/CreatePostSidebarContext';
 import SubredditSideBar from '../../SubReddit/SideBar/SideBar';
+import PostingToReddit from './PostingToReddit/PostingToReddit';
 /**
  * This component works as a container for all create post page components
  * and a repository the data fetched in
@@ -38,7 +38,7 @@ function CreatePostContainer() {
             <SideBar>
               {
               (communityToPostIn === null || ownerType === null) ? (
-                <RedditPremium />
+                <PostingToReddit />
               ) : (
                 <UserInfo username="nour" />
 
