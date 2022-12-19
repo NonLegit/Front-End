@@ -6,7 +6,7 @@ const ListingContext = createContext(null);
 
 function ListingContextProvider({ children }) {
   const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(11);
+  const [limit, setLimit] = useState(6);
   const value = useMemo(() => ({
     page, setPage, limit, setLimit,
   }), [page, setPage, limit, setLimit]);

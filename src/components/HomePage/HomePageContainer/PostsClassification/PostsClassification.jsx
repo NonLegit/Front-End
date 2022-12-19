@@ -92,7 +92,7 @@ function PostsClassification(props) {
             && (
             <CustomClassLink
               onClick={handleClick}
-              to={(subredditName) ? `/Subreddit/${subredditName}/${name}/` : `/${(allOrPopular || '') + name}/`}
+              to={(subredditName) ? `/r/${subredditName}/${name}/` : `/${(allOrPopular || '') + name}/`}
               key={name}
             >
               <ClassButton
@@ -113,7 +113,7 @@ function PostsClassification(props) {
                       const { name, nonActiveIcon } = innerEle;
                       return (
                         <PostClassSmButton
-                          to={(subredditName) ? `/Subreddit/${subredditName}/${name}/` : `/${(allOrPopular || '') + name}/`}
+                          to={(subredditName) ? `/r/${subredditName}/${name}/` : `/${(allOrPopular || '') + name}/`}
                           key={name}
                           active={activeClass === name}
                           onClick={handleChangeClass}

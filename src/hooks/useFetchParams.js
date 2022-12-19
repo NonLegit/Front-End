@@ -10,13 +10,18 @@ const useFetchParams = (url) => {
 
   useEffect(() => {
     axios.get(url, {
-      limit: limit - 5,
-      page,
+      params: {
+        limit,
+        page,
+      },
     }).then((response) => {
       console.log('el data yabbbbbbb', response);
       console.log('ana geeeet', page, limit);
       setData((data) => {
-        if (!data) { return response.data; }
+        if (page === 0) {
+          console.log('zero');
+          return response.data;
+        }
         const tempData = {
           ...data,
         };
@@ -32,7 +37,7 @@ const useFetchParams = (url) => {
       setStatusCode(error.response.status);
       console.log(error);
     });
-  }, [url, page, limit]);
+  }, [page, limit, url]);
 
   return [data, error, statusCode];
 };
