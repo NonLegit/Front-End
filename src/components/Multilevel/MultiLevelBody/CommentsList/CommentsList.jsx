@@ -82,6 +82,7 @@ function CommentsList() {
   const remainingSiblingsCount = (comments && moreRepliesFormat) ? comments[comments.length - 1]?.count : 0;
 
   return (
+    // <p>Comments List</p>
     commentsCount ? <NoComments />
       : (
         <MultilevelPostCommentsConatiner>
@@ -89,13 +90,13 @@ function CommentsList() {
           <SortComments sortName={sortName} setSortName={setSortName} />
           {/* Loop over   All array of comments on the post */}
           {
-          comments?.map((comment, i) => {
-            if (i === comments.length - 1 && moreRepliesFormat) { return null; }
-            // No problem with  i= comments.length - 1
-            return (<Comment key={comment?._id} comment={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
-            // loadMoreRepliesParentFun=this fucntion
-          })
-}
+            comments?.map((comment, i) => {
+              if (i === comments.length - 1 && moreRepliesFormat) { return null; }
+              // No problem with  i= comments.length - 1
+              return (<Comment key={comment?._id} comment={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
+              // loadMoreRepliesParentFun=this fucntion
+            })
+  }
         </MultilevelPostCommentsConatiner>
       )
   );

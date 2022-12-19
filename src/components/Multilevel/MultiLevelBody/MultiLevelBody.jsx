@@ -18,7 +18,7 @@ function MultiLevelBody({ Edit, Comment }) {
   useEffect(() => {
     console.log('MultiLevelBody.jsx', post);
     console.log('MultiLevelBody.jsx Edit', Edit);
-  }, [post]);
+  }, []);
 
   console.log(post);
   console.log('from multilevel', post?.postVoteStatus, post?._id);
@@ -33,6 +33,7 @@ function MultiLevelBody({ Edit, Comment }) {
           votes={post?.votes}
           postVoteStatus={post?.postVoteStatus}
           postId={post?._id}
+          viewpost
         />
         <MultiLevelPostContent Edit={Edit} Comment={Comment} />
       </PostContainer>

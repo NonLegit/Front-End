@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // MUI Components
 import { Box } from '@mui/material';
@@ -16,9 +16,13 @@ import { SaveButton } from '../styles';
 // Server
 import { editPost } from './editPostServer';
 
-function EditPost() {
+function EditPost({ setEdit }) {
   // Context
   const { post, setPost } = usePostContext();
+
+  useEffect(() => {
+    console.log('EditPost.jsx');
+  }, []);
 
   // States
   const [text, setText] = useState(post?.text || '');
@@ -39,6 +43,8 @@ function EditPost() {
     // console.log('save');
     // console.log(post);
     editPost(post?._id, text, setPost);
+    setEdit(false);
+    // window.location.reload();
   };
 
   return (
@@ -54,6 +60,10 @@ function EditPost() {
         >
           Cancel
         </RedditButton>
+        {/* <h1>
+          hee
+          {post?.text}
+        </h1> */}
 
         <SaveButton
           variant="contained"

@@ -49,7 +49,7 @@ function MultiLevelSideBar() {
         />
       )
         : (
-          <SideBar>
+          <SideBar responsive>
             {(post?.ownerType === 'User'
               ? ((cookies?.redditUser?.id === post?.owner?._id)
                 ? (
@@ -63,6 +63,7 @@ function MultiLevelSideBar() {
                   </UserProvider>
                 )
               ) : null)}
+            <div style={{ height: '50px' }} />
             <BackToTop />
           </SideBar>
         )

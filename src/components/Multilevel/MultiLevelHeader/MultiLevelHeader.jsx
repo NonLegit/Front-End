@@ -39,7 +39,7 @@ function MultiLevelHeader() {
     if (post !== null) {
       addPostToHistory(post);
     }
-  }, [post]);
+  }, []);
 
   const close = () => {
     // Backward

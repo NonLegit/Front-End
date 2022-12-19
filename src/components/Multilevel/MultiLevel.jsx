@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
@@ -32,8 +31,6 @@ function MultiLevel({ Edit, Comment }) {
   return (
     <PostContextProvider postID={postID}>
       <MultiLevelConatiner>
-        {/* <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}> */}
-        <h1>hhh</h1>
         <MultiLevelHeader />
         <MultiLevelContentConatiner>
           <MultiLevelBody Edit={Edit} Comment={Comment} />

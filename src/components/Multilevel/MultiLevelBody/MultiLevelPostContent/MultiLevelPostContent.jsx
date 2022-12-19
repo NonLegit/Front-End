@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 // MUI components
 import { Typography } from '@mui/material';
@@ -23,6 +23,10 @@ import calculateTime from '../../../../utils/calculateTime';
 function MultiLevelPostContent(props) {
   const { Edit, Comment } = props;
 
+  // useState
+  const [Editprop, setEdit] = useState();
+  const [Commentprop, setComment] = useState();
+
   // Context
   const { post } = usePostContext();
 
@@ -32,15 +36,16 @@ function MultiLevelPostContent(props) {
 
   const ref = useRef(null);
   useEffect(() => {
+    setEdit(Edit);
+    setComment(Comment);
     window.scrollTo(0, 0);
-    console.log('Edit', Edit);
-    if (Comment) {
+    if (Commentprop) {
       ref.current?.scrollIntoView({ behavior: 'smooth' });
     }
 
     console.log('Post text ', post?.text);
     console.log('Divvvvvvv', <div dangerouslySetInnerHTML={{ __html: post?.text }} />);
-  }, []);
+  }, [Edit, Comment]);
 
   return (
     <MultiLevelContentConatiner>
@@ -77,7 +82,11 @@ function MultiLevelPostContent(props) {
 
       {/* Title */}
       <Typography variant="h1" fontSize="20px" fontWeight="600">{post?.title}</Typography>
-      {Edit ? <EditPost />
+      {/* <h1>
+        Helooo
+        {post?.text}
+      </h1> */}
+      {Editprop ? <EditPost setEdit={setEdit} />
         : <div dangerouslySetInnerHTML={{ __html: post?.text }} />}
       {/* Post Actions Bar */}
       {/* Post Insights */}
