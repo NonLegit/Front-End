@@ -118,7 +118,7 @@ function Post(props) {
     });
   }, [images]);
 
-  console.log('for post ', postId, maxImagesHeight);
+  // console.log('for post ', postId, maxImagesHeight);
   return (
     <PostContainer my={2}>
       {matchSm && (

@@ -1,3 +1,5 @@
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useListingContext } from '../../../../contexts/ListingContext';
 import { useHiddenPostsContext } from '../../../../contexts/HiddenPostsContext';
 import Post from '../../../Post/Post';
 /**
@@ -12,9 +14,18 @@ function PostList(props) {
   const { posts, subredit } = props;
   const { hiddenPosts } = useHiddenPostsContext();
   console.log(subredit);
+  const { setPage } = useListingContext();
+  const fetchMoreData = () => {
+    // console.log('bazwed', page);
+    setPage((page) => page + 1);
+  };
 
   return (
-    <>
+    <InfiniteScroll
+      next={fetchMoreData}
+      hasMore
+      dataLength={posts.length}
+    >
       {posts.filter((post) => {
         const id = post?._id;
         return !hiddenPosts?.includes(id);
@@ -52,7 +63,7 @@ function PostList(props) {
           />
         );
       })}
-    </>
+    </InfiniteScroll>
   );
 }
 
