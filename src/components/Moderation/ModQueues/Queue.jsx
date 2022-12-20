@@ -38,7 +38,8 @@ function Queue() {
     setPage((page) => page + 1);
   };
 
-  const [posts] = modQueueServer(subReddit, subTitle, sort || 'all');
+  const [posts] = modQueueServer(subReddit, subTitle, sort || 'All');
+
   useEffect(() => {
     console.log(posts);
     setIsContent(false);

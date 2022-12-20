@@ -27,7 +27,6 @@ import ArrowList from './ArrowList/ArrowList';
 import { postReactionsServer } from '../../../../profileServer';
 import ModeratorList from '../../../../ModeratorList/ModeratorList';
 import { useEditPostContext } from '../../../../../../contexts/EditPostContext';
-import { usePostTypeContext } from '../../../../../../contexts/PostTypeContext';
 
 /**
  * Footer of the post that contain all icons
@@ -104,24 +103,8 @@ function PostFooter(props) {
     setModList(isModList);
   }, [saved, hidden, isModList, modList]);
 
-  const getPostUrl = () => {
-    const username = owner;
-    if (ownerType === 'User') {
-      if (username) {
-        return `user/${username}/comments/${postid}`;
-      }
-      return '';
-    }
-    return `r/${owner}/comments/${postid}`;
-  };
-
-  const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
-  const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
-
   const handleShare = () => {
-    setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
-    setInitialPostType(3);
-    navigate('/submit');
+    navigate(`/submit/${postid}`);
   };
 
   const moderator = [

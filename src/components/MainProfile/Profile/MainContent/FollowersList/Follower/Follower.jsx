@@ -10,8 +10,8 @@ function Follower({ follower }) {
   const [isFollowedUi, setIsFollowedUi] = useState(undefined);
 
   useEffect(() => {
-    setFollowing(follower.isFollowed === 'true');
-    setIsFollowedUi(follower.isFollowed === 'true');
+    setFollowing(follower.isFollowed);
+    setIsFollowedUi(follower.isFollowed);
   }, [follower]);
 
   followRequest(follower.userName, following, () => { setIsFollowedUi((prev) => !prev); });

@@ -1,6 +1,7 @@
 const {
   top, best, hot, newPosts,
 } = require('./homePagePosts.json');
+const { posts } = require('./submitPost.json');
 const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const homePageCommunities = require('./homePageCommunities.json');
@@ -79,7 +80,6 @@ module.exports = () => ({
   AddRule,
   EditFlair,
   AddFlair,
-  baned,
   UpdateFlair,
   userInfo,
   Subreddit,
@@ -145,5 +145,6 @@ module.exports = () => ({
   commentMod,
   SearchByPeople,
   SearchByCommunity,
+  posts,
   // Something more
 });

@@ -16,7 +16,6 @@ import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router-dom';
-import { usePostTypeContext } from '../../../../../../contexts/PostTypeContext';
 import {
   ElementBox, FooterBox, FooterText,
 } from './styles';
@@ -37,7 +36,7 @@ import ModeratorList from '../../../../ModeratorList/ModeratorList';
 function OtherProfilePostFooter(props) {
   const {
     postid, numComments, handleExpand, expand, saved, hidden, submitted,
-    points, postVoteStatus, owner, ownerType, isModList, modState, nsfw, spoiler, locked,
+    points, postVoteStatus, isModList, modState, nsfw, spoiler, locked,
     handleLock, handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
@@ -75,25 +74,9 @@ function OtherProfilePostFooter(props) {
     setIsSaved((prev) => !prev);
   };
 
-  const getPostUrl = () => {
-    const username = owner;
-    if (ownerType === 'User') {
-      if (username) {
-        return `user/${username}/comments/${postid}`;
-      }
-      return '';
-    }
-    return `r/${owner}/comments/${postid}`;
-  };
-
-  const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
-  const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
   const navigate = useNavigate();
-
   const handleShare = () => {
-    setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
-    setInitialPostType(3);
-    navigate('/submit');
+    navigate(`/submit/${postid}`);
   };
 
   useEffect(() => {
