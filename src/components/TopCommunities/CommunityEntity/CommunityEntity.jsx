@@ -1,7 +1,7 @@
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   CommunityName, CommunityImage, CommunityIndex, CommunityListItem, Joined,
 } from './styles';
@@ -14,6 +14,11 @@ function CommunityEntity(props) {
   } = props;
 
   const [joined, setJoined] = useState(isJoined);
+  const [showStatus, setShowStatus] = useState(true);
+
+  useEffect(() => {
+    setShowStatus(status);
+  }, [status]);
 
   const handleJoin = () => {
     PostJoin(`/subreddits/${subredditName}/subscribe`, joined ? 'unsub' : 'sub');
@@ -45,7 +50,7 @@ function CommunityEntity(props) {
         <CommunityIndex>
           {index}
         </CommunityIndex>
-        {status ? (
+        {showStatus ? (
           <KeyboardArrowUpIcon
             sx={{ color: '#46d160' }}
           />

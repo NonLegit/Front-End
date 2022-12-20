@@ -20,7 +20,7 @@ function TopContent() {
             index={index + 1}
             subredditName={item.fixedName}
             icon={item.icon}
-            status={item.status}
+            status={item?.status}
             isJoined={item.isJoined}
             members={item.membersCount}
           />

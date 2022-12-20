@@ -10,5 +10,5 @@ export const CommunitiesGetter = (category) => {
     }
     console.log(data);
   }, [data, dataError, statusCode]);
-  return [data?.subreddits];
+  return [data?.data];
 };
