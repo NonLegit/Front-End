@@ -1,8 +1,8 @@
-import useFetch from '../../../hooks/useFetch';
+import useFetchParams from '../../../hooks/useFetchParams';
 
 const popularPageServer = (postClass) => {
   const postsUrl = `/users/${postClass || 'best'}`;
-  const [data, postsError, statusCode] = useFetch(postsUrl);
+  const [data, postsError, statusCode] = useFetchParams(postsUrl);
   const dbPosts = data?.data;
   console.log('from home', statusCode);
   console.log('posts', dbPosts);

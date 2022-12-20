@@ -19,6 +19,8 @@ import { TfiQuoteRight } from 'react-icons/tfi';
 
 import { TextEditorWrapper } from './styles';
 
+import 'quill/dist/quill.snow.css';
+
 const BlockEmbed = Quill.import('blots/embed');
 
 class ImageBlot extends BlockEmbed {
@@ -63,7 +65,7 @@ Quill.register(Video);
 function TextEditor(props) {
   const {
     postText, handlePostTextChange,
-    commentPlaceholder,
+    commentPlaceholder, id,
   } = props;
   console.log('props from editor', props);
   console.log(
@@ -121,7 +123,7 @@ function TextEditor(props) {
   const modules = useMemo(() => ({
     syntax: true,
     toolbar: {
-      container: '#toolbar',
+      container: `#toolbar-${id}`,
       handlers: {
         video: () => {
           videoRef?.current?.click();
@@ -132,10 +134,10 @@ function TextEditor(props) {
       },
     },
 
-  }), []);
+  }), [id]);
   return (
     <TextEditorWrapper>
-      <div id="toolbar">
+      <div id={`toolbar-${id}`}>
         <button className="ql-bold">
           <FormatBoldIcon sx={{
             width: 30,

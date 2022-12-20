@@ -1,52 +1,45 @@
 import { useTheme } from '@mui/system';
 import { useReducer } from 'react';
-import millify from 'millify';
-import { ReactionIconButton, Votes, Voting } from './styles';
-import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
-import VotedIcon from '../../VoteIcons/VotedIcon/VotedIcon';
-import postReactionsServer from '../postReactionsServer';
-/**
- * This component is the container of reactions
- *
- * @component Reactions
- * @property {string} flexDirection -The direction of reactions (vertical or horizontal).
- * @property {number} votes -Number of post votes.
- * @property {number} postId -The Id of the current post.
- * @property {boolean} viewpost -To differentiate between post and view post.
- * @returns {React.Component}  Upvote and downvote only.
- */
 
-function Reactions(props) {
+// Styles
+import { ReactionIconButton, Votes, Voting } from './styles';
+import VoteIcon from '../../../../../../VoteIcons/VoteIcon/VoteIcon';
+import VotedIcon from '../../../../../../VoteIcons/VotedIcon/VotedIcon';
+
+// Server
+
+function CommentReactions(props) {
   const {
-    flexDirection, votes, postVoteStatus, postId, viewpost,
+    votes, commentVoteStatus,
   } = props;
-  // console.log('vote status', postVoteStatus, postId);
+  //   const {
+  //     votes, commentVoteStatus, commentId,
+  //   } = props;
+
   const theme = useTheme();
   const reducer = (state, action) => {
     switch (action) {
       case 'upvote':
-        postReactionsServer(postId, 'vote', 1);
+        // postReactionsServer(postId, 'vote', 1);
         return 1;
       case 'downvote':
-        postReactionsServer(postId, 'vote', -1);
+        // postReactionsServer(postId, 'vote', -1);
         return -1;
       default:
-        postReactionsServer(postId, 'vote', 0);
+        // postReactionsServer(postId, 'vote', 0);
         return 0;
     }
   };
-  const [reaction, dispatch] = useReducer(reducer, postVoteStatus);
+  const [reaction, dispatch] = useReducer(reducer, commentVoteStatus);
   return (
     <Voting
-      flexDirection={flexDirection}
+      flexDirection="row"
       gap={0.5}
-      viewpost={viewpost}
     >
       {(reaction === 1)
         ? (
           <ReactionIconButton
             onClick={() => dispatch('cancel upvote')}
-            data-testid="upvoted button"
           >
             <VotedIcon
               color={theme.palette.secondary?.main}
@@ -66,16 +59,12 @@ function Reactions(props) {
           </ReactionIconButton>
         )}
       <Votes color={(reaction === 0 ? '#000' : (reaction === 1 ? theme.palette.secondary?.main : theme.palette.primary?.main))}>
-        {millify(votes + reaction - postVoteStatus, {
-          units: ['', 'k', 'm', 'b'],
-          precision: 1,
-        })}
+        {votes + reaction - commentVoteStatus}
       </Votes>
       {(reaction === -1)
         ? (
           <ReactionIconButton
             onClick={() => dispatch('cancel downvote')}
-            data-testid="downvoted button"
           >
             <VotedIcon
               color={theme.palette.primary?.main}
@@ -99,4 +88,4 @@ function Reactions(props) {
   );
 }
 
-export default Reactions;
+export default CommentReactions;

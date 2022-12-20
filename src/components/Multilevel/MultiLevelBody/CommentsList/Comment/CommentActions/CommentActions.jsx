@@ -8,14 +8,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import { Box } from '@mui/system';
 
-// services
-import {
-  convertToRaw, EditorState,
-} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-
 // Components
-import Reactions from '../../../../../Post/Reactions/Reactions';
+import CommentReactions from './CommentReactions/CommentReactions';
 import DropDownList from '../../../../../DropDownList/DropDownList';
 import TextEditor from '../../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
 import RedditButton from '../../../../../RedditButton/RedditButton';
@@ -41,7 +35,7 @@ function CommentActions(props) {
   const { comment } = props;
 
   // States
-  const [reply, setReply] = useState(EditorState.createEmpty());
+  const [reply, setReply] = useState('');
   const [replyEditor, setReplyEditor] = useState(false);
 
   const dropDownListOptions = [{ value: 'Save', icon: 'Save' }];
@@ -51,8 +45,8 @@ function CommentActions(props) {
   const replyOnComment = () => {
     // call Reply endPoint
     console.log('Reply on Comment with Text', comment?.text);
-    if (saveComment(comment?._id, 'Comment', draftToHtml(convertToRaw(reply.getCurrentContent())))) {
-      setReply(EditorState.createEmpty());
+    if (saveComment(comment?._id, 'Comment', reply)) {
+      setReply('');
       setReplyEditor(false);
 
       // Need refresh post Component =>to pop comment
@@ -62,13 +56,14 @@ function CommentActions(props) {
   };
 
   const handleCommentReplyChange = (text) => {
-    // console.log(convertToRaw(text.getCurrentContent()));
     setReply(text);
   };
 
   const shareComment = () => {
     // call Share endPoint
     console.log('Share Comment with Text', comment?.text);
+    // navigator.clipboard.writeText(this.state.textToCopy);
+    navigator.clipboard.writeText('Basma');
   };
   const handleSelectEdit = (option) => {
     // Call Back API
@@ -93,13 +88,11 @@ function CommentActions(props) {
   return (
     <div>
       <CommentActionsContainer>
-        {post && (
-        <Reactions
-          flexDirection="row"
-          viewpost
-          votes={post?.votes}
-          postVoteStatus={post?.postVoteStatus}
-          postId={post?._id}
+        {comment && (
+        <CommentReactions
+          votes={comment?.votes}
+          commentVoteStatus={comment?.votes}
+          commentId={comment?._id}
         />
         )}
         <ElementBox onClick={() => setReplyEditor(true)}>
@@ -131,6 +124,7 @@ function CommentActions(props) {
             handlePostTextChange={handleCommentReplyChange}
             postText={reply}
             commentPlaceholder
+            id={comment?._id}
           />
           <Box m={2} gap={1} display="flex" justifyContent="flex-end">
             <RedditButton
@@ -140,7 +134,7 @@ function CommentActions(props) {
               type="submit"
               onClick={() => {
                 setReplyEditor(false);
-                setReply(EditorState.createEmpty());
+                setReply('');
               }}
             >
               Cancel
@@ -150,7 +144,7 @@ function CommentActions(props) {
               variant="contained"
               type="submit"
               onClick={replyOnComment}
-              disabled={draftToHtml(convertToRaw(reply.getCurrentContent())).length === 8}
+              disabled={reply?.length === 8}
             >
               Reply
             </SaveButton>

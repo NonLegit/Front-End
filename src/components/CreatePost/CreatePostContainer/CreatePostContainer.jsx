@@ -1,9 +1,16 @@
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { useCookies } from 'react-cookie';
+import { useEffect } from 'react';
+import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
+import UserInfo from '../../MainProfile/Profile/MainContent/Sidebar/UserInfo/UserInfo';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
 import MainContent from '../../MainContent/MainContent';
 import SideBar from '../../SideBar/SideBar';
 import CreatePostForm from './CreatePostForm/CreatePostForm';
 import { MainContainer, OuterContainer } from './styles';
+import { useCreatePostSidebarContext } from '../../../contexts/CreatePostSidebarContext';
+import SubredditSideBar from '../../SubReddit/SideBar/SideBar';
+import PostingToReddit from './PostingToReddit/PostingToReddit';
 /**
  * This component works as a container for all create post page components
  * and a repository the data fetched in
@@ -15,7 +22,26 @@ import { MainContainer, OuterContainer } from './styles';
 function CreatePostContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
+
+  // contexts
   const { communities, communitiesError } = useCommunitiesInCreatePostContext();
+  const {
+    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName,
+  } = useCreatePostSidebarContext();
+
+  console.log('oooowbbhdd', communityToPostIn, ownerType);
+  // cookies
+  const [cookies] = useCookies(['redditUser']);
+
+  // variables
+  const username = cookies.redditUser?.userName;
+  const [data] = getSubredditAllData(communityName);
+
+  useEffect(() => () => {
+    setCommunityToPostIn(null);
+    setOwnerType(null);
+    setCommunityName(null);
+  }, []);
   return (
     <OuterContainer>
       <MainContainer>
@@ -24,7 +50,39 @@ function CreatePostContainer() {
         </MainContent>
         {match
         && (
-        <SideBar />
+          (communityToPostIn === null || ownerType !== 'Subreddit') ? (
+            <SideBar>
+              {
+              (communityToPostIn === null || ownerType === null) ? (
+                <PostingToReddit />
+              ) : (
+                <>
+                  <Box
+                    margin={8}
+                  />
+                  <UserInfo
+                    username={username}
+                    createPost
+                  />
+
+                </>
+              )
+}
+            </SideBar>
+          ) : (
+            <SubredditSideBar
+              rules={data?.rules}
+              members={data?.membersCount}
+              Name={data?.fixedName}
+              username={username}
+              topics={data?.topics}
+              disc={data?.description}
+              primaryTopic={data?.primaryTopic}
+              createdAt={data?.createdAt}
+              moderatoesName={data?.moderators}
+              createPost
+            />
+          )
         )}
       </MainContainer>
     </OuterContainer>

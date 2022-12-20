@@ -1,3 +1,5 @@
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useListingContext } from '../../../../contexts/ListingContext';
 import { useHiddenPostsContext } from '../../../../contexts/HiddenPostsContext';
 import Post from '../../../Post/Post';
 /**
@@ -12,17 +14,25 @@ function PostList(props) {
   const { posts, subredit } = props;
   const { hiddenPosts } = useHiddenPostsContext();
   console.log(subredit);
+  const { setPage } = useListingContext();
+  const fetchMoreData = () => {
+    // console.log('bazwed', page);
+    setPage((page) => page + 1);
+  };
 
   return (
-    <>
+    <InfiniteScroll
+      next={fetchMoreData}
+      hasMore
+      dataLength={posts.length}
+    >
       {posts.filter((post) => {
         const id = post?._id;
         return !hiddenPosts?.includes(id);
-      }).map((post) => {
+      }).map((post, index) => {
         const {
           _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
-        console.log('koo', postVoteStatus);
         return (
 
           <Post
@@ -41,7 +51,8 @@ function PostList(props) {
             votes={votes}
             commentCount={commentCount}
             text={text}
-            key={id}
+            // eslint-disable-next-line react/no-array-index-key
+            key={id + index}
             ownerType={ownerType}
             isSaved={isSaved}
             postId={id}
@@ -52,7 +63,7 @@ function PostList(props) {
           />
         );
       })}
-    </>
+    </InfiniteScroll>
   );
 }
 

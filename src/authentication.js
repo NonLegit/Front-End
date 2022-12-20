@@ -7,6 +7,6 @@ export default function UserLogin(arr) {
   useEffect(() => { redditCookie(setCookies); }, []);
   const userName = (cookies.redditUser?.userName);
 
-  console.log(userName, arr);
+  // console.log(userName, arr);
   return arr?.indexOf(userName) !== -1;
 }

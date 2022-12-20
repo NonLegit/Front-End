@@ -13,7 +13,7 @@ export const CustomDialog = styled(Dialog)(({ theme }) => ({
     width: 360,
     marginTop: 110,
     [theme.breakpoints.down('sm')]: {
-      width: 200,
+      width: 250,
       margin: '5px 10px',
     },
   },
