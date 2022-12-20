@@ -40,11 +40,12 @@ function Search() {
   // fetching data
 
   // const qery = document.getElementById('nav_search').textContent;
+  const qery = searchParams.get('q');
 
-  const [data1] = GetSearchData('/search', 'post', 'posts', sort, t);
-  const [data2] = GetSearchData('/search', '4', 'comments', sort, t);
-  const [data3] = GetSearchData('/search', 'NonLegit', 'communities', sort, t);
-  const [data4] = GetSearchData('/search', 'Hosny', 'people', sort, t);
+  const [data1] = GetSearchData('/search', qery, 'posts', sort, t);
+  const [data2] = GetSearchData('/search', qery, 'comments', sort, t);
+  const [data3] = GetSearchData('/search', qery, 'communities', sort, t);
+  const [data4] = GetSearchData('/search', qery, 'people', sort, t);
 
   useEffect(() => {
     // if (data1?.length === 0) {

@@ -1,15 +1,8 @@
-import { useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import {
   Header, HeaderContainer, MyCategory,
 } from './style';
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return useMemo(() => new URLSearchParams(search), [search]);
-}
 
 /**
  * filter Search by its type
@@ -20,15 +13,18 @@ function useQuery() {
  * @returns {React.Component} filter Search by its type
  */
 function FilterSearch() {
-  const query = useQuery();
-  const type1 = query.get('type') || 'posts';
+  const [searchParams] = useSearchParams();
+
+  const type1 = searchParams.get('type') || 'posts';
   const type = type1.toLowerCase();
+
+  const qery = searchParams.get('q');
 
   const navigate = useNavigate();
 
   // navigate
   const handleClick = (subPage) => {
-    navigate(`?type=${subPage}`);
+    navigate(`?q=${qery}&type=${subPage}`);
   };
 
   return (

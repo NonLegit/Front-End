@@ -30,10 +30,11 @@ export default function TimeType() {
 
   const t = searchParams.get('t') || 'day';
   const navigate = useNavigate();
+  const qery = searchParams.get('q');
 
   // navigate
   const handleClick = (subPage) => {
-    navigate(`?type=${type}&sort=${sort}&t=${subPage}`);
+    navigate(`?q=${qery}&type=${type}&sort=${sort}&t=${subPage}`);
   };
 
   // show and hide the time list

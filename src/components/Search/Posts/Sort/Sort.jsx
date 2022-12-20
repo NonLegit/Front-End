@@ -30,10 +30,10 @@ export default function SortType() {
 
   const Sort = searchParams.get('sort') || 'new';
   const navigate = useNavigate();
-
+  const qery = searchParams.get('q');
   // navigate
   const handleClick = (subPage) => {
-    navigate(`?type=${type}&sort=${subPage}`);
+    navigate(`?q=${qery}&type=${type}&sort=${subPage}`);
   };
 
   // show and hide the sort list
