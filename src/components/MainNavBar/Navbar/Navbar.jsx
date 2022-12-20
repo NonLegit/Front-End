@@ -4,7 +4,7 @@ import MuiToolbar from '@mui/material/Toolbar';
 import StyledNavbar from './styles';
 import HomeList from './HomeList/HomeList';
 import UserList from './UserList/UserList';
-import SearchButton from './Search/Search';
+import SearchButton from '../Search/Search';
 import NavIcons from './NavIcons/NavIcons';
 import LogoIcon from './Logo/logoIcon';
 /**
