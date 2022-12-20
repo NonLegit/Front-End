@@ -11,7 +11,7 @@ import { usePostContext } from '../../../contexts/PostContext';
 // Styles
 import { MultiLevelBodyConatiner, PostContainer } from './styles';
 
-function MultiLevelBody({ Edit }) {
+function MultiLevelBody({ Edit, Comment }) {
   // Context
   const { post } = usePostContext();
 
@@ -34,7 +34,7 @@ function MultiLevelBody({ Edit }) {
           postVoteStatus={post?.postVoteStatus}
           postId={post?._id}
         />
-        <MultiLevelPostContent Edit={Edit} />
+        <MultiLevelPostContent Edit={Edit} Comment={Comment} />
       </PostContainer>
       <CommentsList />
     </MultiLevelBodyConatiner>

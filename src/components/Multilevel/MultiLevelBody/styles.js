@@ -4,11 +4,13 @@ import { styled } from '@mui/material/styles';
 import theme from '../../../styles/theme/index';
 
 export const MultiLevelBodyConatiner = styled(Box)(() => ({
-  maxWidth: '800px',
+  // Modifieb by Bsaaaaaaaa
+  // maxWidth: '800px',
   //   minWidth: '320px',
   // Modify min width
   // Margin used in te MultilLvel contsianter case small screen size
-  minWidth: '800px',
+  // minWidth: '800px',
+  width: '100%',
   padding: '2px 12px 0px 0px',
 
   display: 'flex',

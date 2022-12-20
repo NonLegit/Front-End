@@ -23,6 +23,7 @@ import PostJoin from './PostJoin';
 // import leave from './leaveServer';
 import SubredditNotification from './Notifications/SubriddetNotifications';
 import { useCreatePostInSubredditContext } from '../../contexts/CreatePostInSubredditContext';
+import cleanPage from '../../utils/cleanPage';
 /**
  * Subreddit page
  * @component
@@ -53,6 +54,8 @@ function Header() {
   const [nsfw, setNsfw] = useState();
   const [userNsfw, setUserNsfw] = useState();
   const [warning, setWarning] = useState(false);
+
+  cleanPage();
 
   const redirect = () => {
     window.location.pathname = '/';

@@ -15,6 +15,7 @@ import BackToTop from '../../BackToTop/BackToTop';
 import PostList from './PostList/PostList';
 import communities from './CommunitiesStaticData';
 import homePageServer from './homePageServer';
+import cleanPage from '../../../utils/cleanPage';
 
 /**
  * This component works as a container for all home page components
@@ -34,6 +35,8 @@ function HomePageContainer() {
 
   // Cookies
   const [cookies] = useCookies(['redditUser']);
+
+  cleanPage();
 
   return (
     <OuterContainer>

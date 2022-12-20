@@ -30,6 +30,9 @@ function Comment(props) {
   // Constants
   const authorProfilelink = `/user/${comment?.author?.userName}`;
 
+  // constants of tree Structure
+  const limitForMoreReplies = 2;
+
   // const replies = (comment) ? comment.replies : [];
 
   // state
@@ -53,7 +56,11 @@ function Comment(props) {
   // new Replies=>Array of strings of new repleis to be added to this replies
   const loadMoreReplies = () => {
     // replies here can't be empty because the butotn called by this fucntion won't appear if it is empty :)
-    getMoreChildren(replies[replies.length - 2]?.children, replies, setReplies);
+    // Call API of more Children
+    getMoreChildren({
+      children: replies[replies.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
+      limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
+    }, replies, setReplies);
   };
 
   const moreReplies = isLastChild && remainingSiblings > 0;
@@ -102,7 +109,7 @@ function Comment(props) {
         // <MoreCommentsLink onClick={loadMoreComments}>
         <MoreCommentsLink onClick={loadMoreRepliesParentFun}>
           {/* Only the First 10 Comments */}
-          {remainingSiblings > 10 ? 10 : remainingSiblings}
+          {remainingSiblings > limitForMoreReplies ? limitForMoreReplies : remainingSiblings}
           {' '}
           more replies
         </MoreCommentsLink>

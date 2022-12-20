@@ -1,12 +1,12 @@
-import useFetch from '../../../hooks/useFetch';
+import useFetchParams from '../../../hooks/useFetchParams';
 
 const homePageServer = (postClass) => {
   const postsUrl = `/users/${postClass || 'best'}`;
-  const [data, postsError, statusCode] = useFetch(postsUrl);
+  // eslint-disable-next-line no-unused-vars
+  const [data, postsError, statusCode] = useFetchParams(postsUrl);
   const dbPosts = data?.data;
-  console.log('from home', statusCode);
-  console.log('posts', dbPosts);
-
+  // console.log('from home', statusCode);
+  console.log('posts', dbPosts?.length);
   const posts = dbPosts?.map((post) => {
     // for backend bugs
     const temp = {
@@ -32,7 +32,7 @@ const homePageServer = (postClass) => {
       authorName,
     });
   });
-  console.log('posts final', posts);
+  // console.log('posts final', posts, posts?.length);
   return [posts, postsError];
 };
 

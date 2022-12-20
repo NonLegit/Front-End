@@ -15,6 +15,7 @@ import {
   UserInfoBox, UserName, InfoBox,
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog, LinkTo,
 } from './styles';
+// import { UserContext } from '../../../../../../contexts/UserProvider';
 import userInfoServer from './userInfoServer';
 import SocialLinks from '../../../../../SocialLinks/SocialLinks';
 import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
@@ -24,7 +25,7 @@ import { PlatformIcon, Text } from '../../../../../SocialLinks/styles';
  * @component UserInfo
  * @returns {React.Component} UserInfo
  */
-function UserInfo({ username }) {
+function UserInfo({ username, createPost }) {
   const [displayName, setDisplayName] = useState();
   const [about, setAbout] = useState();
   const [postKarma, setPostKarma] = useState();
@@ -160,7 +161,7 @@ function UserInfo({ username }) {
         </Box>
         {/* social link part */}
 
-        <AddPost variant="contained">Add Post</AddPost>
+        {!createPost && <AddPost variant="contained">Add Post</AddPost>}
 
         {/* popup component to add social link */}
         <BootstrapDialog
@@ -192,7 +193,6 @@ function UserInfo({ username }) {
             <>
               <OptionsButtons data-testid="option">Profile moderation</OptionsButtons>
               <OptionsButtons>Add to Custom Feed</OptionsButtons>
-              <OptionsButtons>Invite someone to chat</OptionsButtons>
               <MoreOptions onClick={() => { handleClickList(); }}>Fewer options</MoreOptions>
             </>
           ) : <MoreOptions data-testid="show-more" onClick={() => { handleClickList(); }}>More options</MoreOptions>}
