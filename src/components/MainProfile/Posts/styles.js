@@ -2,19 +2,15 @@ import { Box, IconButton, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import RedditButton from '../../RedditButton/RedditButton';
 
-export const PostsQueueBox = styled(Box)(({ condition }) => ({
+export const PostsQueueBox = styled(Box)(({ condition, nohover }) => ({
   minHeight: 120,
   display: 'flex',
   backgroundColor: 'white',
   marginTop: 10,
   borderRadius: 3,
-  zIndex: -1,
-  boxSizing: 'border-box',
   '&:hover': {
-    outline: '1px solid #898989',
-    borderRight: '1px solid #898989',
-    borderLeft: '1px solid #898989',
-    cursor: 'pointer',
+    outline: nohover ? 'none' : '1px solid #898989',
+    cursor: nohover ? 'arrow' : 'pointer',
   },
   ...((condition === 'true') && {
     marginBottom: 10,

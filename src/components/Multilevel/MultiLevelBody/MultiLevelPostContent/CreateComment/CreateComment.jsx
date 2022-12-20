@@ -20,27 +20,31 @@ import { AuthorLink } from '../../CommentsList/Comment/styles';
 
 function CreateComment() {
   // Context
-  const { post } = usePostContext();
+  const {
+    post, setPost, comments, setComments,
+  } = usePostContext();
 
   // Cookie
   const [cookies] = useCookies(['redditUser']);
 
   // States
   const [text, setText] = useState('');
-  // const [readyToSave, setReadyToSave] = useState(false);
+  const [readyToSave, setReadyToSave] = useState(false);
 
   // Constants
   const authorProfilelink = `/user/${cookies?.redditUser?.userName}`;
 
   const handleCommentTextChange = (text) => {
-    // console.log(convertToRaw(text.getCurrentContent()));
+    setReadyToSave(true);
+    console.log('hhhh', text);
     setText(text);
   };
 
   // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
-    if (saveComment(post?._id, 'Post', text)) {
+    console.log('Bosy');
+    if (saveComment(post?._id, 'Post', text, post, setPost, comments, setComments)) {
       setText('');
 
       // Need refresh post Component =>to pop comment
@@ -51,7 +55,7 @@ function CreateComment() {
 
   return (
     <div>
-      <Typography>
+      <Typography fontSize="12px">
         Comment as
         {' '}
         <AuthorLink href={authorProfilelink}>{cookies?.redditUser?.userName}</AuthorLink>
@@ -67,7 +71,7 @@ function CreateComment() {
           variant="contained"
           type="submit"
           onClick={comment}
-          disabled={text?.length === 8}
+          disabled={!readyToSave}
         >
           Comment
         </SaveButton>

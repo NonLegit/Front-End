@@ -25,6 +25,8 @@ import OtherProfileArrowList from './OtherProfileArrowList/OtherProfileArrowList
 import { postReactionsServer } from '../../../../profileServer';
 import ModeratorList from '../../../../ModeratorList/ModeratorList';
 
+import { useEditPostContext } from '../../../../../../contexts/EditPostContext';
+
 /**
  * Footer of the post that contain all icons
  *
@@ -45,6 +47,9 @@ function OtherProfilePostFooter(props) {
   const [showList2, setShowList2] = useState(false);
   const [modList, setModList] = useState(false);
   const [moderatorList, setModeratorList] = useState(false);
+
+  const navigate = useNavigate();
+  const { setEditPost, setCommentPost } = useEditPostContext();
 
   // handle disable the list when click away
   const handleClick2 = () => {
@@ -88,7 +93,6 @@ function OtherProfilePostFooter(props) {
 
   const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
   const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
-  const navigate = useNavigate();
 
   const handleShare = () => {
     setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
@@ -135,7 +139,8 @@ function OtherProfilePostFooter(props) {
       </ElementBox>
       <Divider orientation="vertical" variant="middle" flexItem />
       {/* number of comments and share section */}
-      <ElementBox>
+
+      <ElementBox onClick={() => { setCommentPost(true); setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}

@@ -10,20 +10,19 @@ export const MultiLevelBodyConatiner = styled(Box)(() => ({
   // Modify min width
   // Margin used in te MultilLvel contsianter case small screen size
   // minWidth: '800px',
-  width: '100%',
+  // width: '60%',
   padding: '2px 12px 0px 0px',
 
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: theme.palette.white.main,
   borderRadius: '5px',
+  flex: '1',
 
 }));
 
 // Post
 export const PostContainer = styled(Box)(() => ({
-  width: '100%',
-
   display: 'flex',
   flexDirection: 'row',
 

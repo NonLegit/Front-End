@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import { Typography } from '@mui/material';
 import { useCookies } from 'react-cookie';
@@ -9,7 +8,6 @@ import {
 } from '../../../../Authentication/styles';
 
 // server
-import { resetPassword, checkToken } from '../../../../Authentication/ResetPassword/resetPasswordserver';
 import AuthenticationHeader from '../../../../Authentication/AuthenticationHeader/AuthenticationHeader';
 // scripts
 import { checkPassword, matchPassword } from '../../../../Authentication/authenticationServer';
@@ -18,6 +16,7 @@ import { CheckBoxConatiner } from '../../../../Authentication/ResetPassword/styl
 import {
   Contanier, IconClose, AuthenticationBG, AuthenticationBody, AuthenticationConatiner,
 } from './styles';
+import { changePassword } from './changePasswordServer';
 // eslint-disable-next-line no-unused-vars
 function CahngePassword({ setOpenPass }) {
   const [oldPassword, setOldPassword] = useState({
@@ -33,27 +32,15 @@ function CahngePassword({ setOpenPass }) {
   const [buttonText, setbuttonText] = useState('set Password');
   const [loading, setLoading] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
-  const [expiredToken, setExpiredToken] = useState(false);
+  // const [expiredToken, setExpiredToken] = useState(false);
   // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookies] = useCookies(['redditUser']);
-
-  // useParams
-  const { token } = useParams();
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
   const caption = (
     <>
-      Choose a new password here, then log in to your account.
+      Choose a new password here
     </>
   );
-
-  // useEffect
-  useEffect(() => {
-    // check if valid
-    if (!checkToken(token)) {
-      // invalid Token Redirect to ForgetPassword
-      window.location.pathname = 'password';
-    }
-  }, []);
 
   useEffect(() => {
 
@@ -72,7 +59,23 @@ function CahngePassword({ setOpenPass }) {
         <AuthenticationBG />
         <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="resetpassword-test">
           <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-          <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, setOldPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken); }}>
+          <FirstPartyContainer
+            noValidate
+            onSubmit={(e) => {
+              e.preventDefault(); changePassword(
+                setLoading,
+                oldPassword,
+                setOldPassword,
+                password,
+                setPassword,
+                repassword,
+                setbuttonText,
+                setRedirectCaption,
+                removeCookie,
+                false,
+              );
+            }}
+          >
             <RedditTextField
               label="Old Password"
               variant="filled"
@@ -153,9 +156,6 @@ function CahngePassword({ setOpenPass }) {
             </RedditLoadingButton>
             {redirectCaption
               ? <Typography color="primary" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="20px 0px">you’ve successfully changed your password.You can now log in using your new password</Typography>
-              : null}
-            {expiredToken
-              ? <Typography color="error" fontSize="12px" fontFamily={fonts['system-ui']} fontWeight="600" margin="0px 0px">Token has expired</Typography>
               : null}
           </FirstPartyContainer>
 

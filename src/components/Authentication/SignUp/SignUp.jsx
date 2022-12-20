@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-// import Cookies from 'js-cookie';
 
 // components
 import SignUpEmail from './SignUpEmail/SignUpEmail';
@@ -14,9 +13,6 @@ import theme from '../../../styles/theme';
 // scripts
 
 import { redditCookie } from '../authenticationServer';
-
-// environment variables
-// const { REACT_APP_ENV } = process.env;
 
 /**
  * SignUp Page Main Componnet with 2 view one for the Email and the Other for the userName
@@ -67,7 +63,7 @@ function SignUp() {
   }, []);
 
   const signUpView = userNamePage
-    ? <SignUpUsername setUserNamePage={setUserNamePage} email={email} userName={userName} setUserName={setUserName} password={password} setPassword={setPassword} setCookies={setCookies} />
+    ? <SignUpUsername setUserNamePage={setUserNamePage} email={email} userName={userName} setUserName={setUserName} password={password} setPassword={setPassword} setCookies={setCookies} removeCookie={removeCookie} />
     : <SignUpEmail setUserNamePage={setUserNamePage} email={email} setEmail={setEmail} />;
 
   return (

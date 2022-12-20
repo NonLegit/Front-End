@@ -43,8 +43,16 @@ import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
 import { notificationToken } from './services/notificationToken';
+import MessageForm from './components/Messages/MessageForm/MessageForm';
+import MessageSent from './components/Messages/MessageSent/MessageSent';
+import MessagesAll from './components/Messages/MessagesAll/MessagesAll';
+import MessagesUnread from './components/Messages/MessagesUnread/MessagesUnread';
+import MessagesDrive from './components/Messages/MessagesDrive/MessagesDrive';
+import PostReplies from './components/Messages/PostReplies/PostReplies';
 import AllPage from './pages/AllPage';
 import CreatePostSidebarContextProvider from './contexts/CreatePostSidebarContext';
+import ErrorPage from './pages/ErrorPage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -75,6 +83,7 @@ function App() {
     <ThemeProvider theme={theme}>
 
       <CssBaseline />
+
       <CreatePostSidebarContextProvider>
         <ListingContextProvider>
           <PostTypeContextProvider>
@@ -89,19 +98,6 @@ function App() {
                         <HomePage data-testid="home page" />
                   }
                     />
-                    <Route
-                      path="/subreddits/leaderboard"
-                      element={
-                        <TopCommunitiesPage />
-                  }
-                    >
-                      <Route
-                        path=":category"
-                        element={
-                          <TopCommunitiesPage />
-                  }
-                      />
-                    </Route>
                     <Route
                       path="/r/popular"
                       element={
@@ -118,13 +114,13 @@ function App() {
                       path="/r/popular"
                       element={
                         <PopularPage />
-                  }
+                }
                     />
                     <Route
                       path="/r/popular/:postClass"
                       element={
                         <PopularPage />
-                    }
+                }
                     />
                     <Route
                       path="/r/all"
@@ -142,14 +138,14 @@ function App() {
                       path="/user/:username"
                       element={
                         <Profile />
-                  }
+                    }
                     >
 
                       <Route
                         path=""
                         element={
                           <MainProfile />
-                      }
+                    }
                       />
 
                       <Route
@@ -170,7 +166,7 @@ function App() {
                       path="/login"
                       element={
                         <LogInPage />
-                    }
+                  }
                     />
                     <Route
                       path="/register"
@@ -201,15 +197,51 @@ function App() {
                       path="/search"
                       element={
                         <Search />
-                    }
-                    />
-                    <Route
-                      path="/messages"
-                      element={
-                        <Messages />
                   }
                     />
-
+                    <Route
+                      path="messages"
+                      element={
+                        <Messages />
+          }
+                    >
+                      <Route
+                        path="inbox"
+                        element={
+                          <MessagesAll />
+          }
+                      />
+                      <Route
+                        path="unread"
+                        element={
+                          <MessagesUnread />
+          }
+                      />
+                      <Route
+                        path="compose"
+                        element={
+                          <MessageForm />
+          }
+                      />
+                      <Route
+                        path="selfreply"
+                        element={
+                          <PostReplies />
+          }
+                      />
+                      <Route
+                        path="messages"
+                        element={
+                          <MessagesDrive />
+          }
+                      />
+                      <Route
+                        path="sent"
+                        element={
+                          <MessageSent />
+          }
+                      />
+                    </Route>
                     <Route
                       path="/submit"
                       element={
@@ -219,18 +251,6 @@ function App() {
 
                     <Route
                       path="/submit/r/:subredditName"
-                      element={
-                        <CreatePost />
-                  }
-                    />
-                    <Route
-                      path="/submit/:source"
-                      element={
-                        <CreatePost />
-                  }
-                    />
-                    <Route
-                      path="/submit/:source/r/:subredditName"
                       element={
                         <CreatePost />
                   }
@@ -247,7 +267,7 @@ function App() {
                       path="/r/:Name"
                       element={
                         <SubReddit />
-                    }
+                  }
                     >
                       <Route
                         path=""
@@ -259,7 +279,7 @@ function App() {
                         path=":postClass"
                         element={
                           <Cover />
-                      }
+                    }
                       />
 
                       <Route
@@ -280,7 +300,7 @@ function App() {
                         path=""
                         element={
                           <SettingsAccount />
-                      }
+                    }
                       />
                       <Route
                         path="account"
@@ -318,43 +338,43 @@ function App() {
                         path=":subTitle"
                         element={
                           <Moderation />
-                      }
+                    }
                       />
                     </Route>
-
                     <Route
-                      path="/r"
-                      element={(
-                        <SubReddit />
-                    )}
+                      path="/subreddits/leaderboard"
+                      element={
+                        <TopCommunitiesPage />
+                  }
                     >
-
                       <Route
-                        path=":Name"
-                        element={
-                          <Cover />
-                    }
+                        path="/r"
+                        element={(
+                          <SubReddit />
+                  )}
                       >
+
                         <Route
-                          path=":postClass"
+                          path=":Name"
                           element={
                             <Cover />
                     }
-                        />
+                        >
 
-                        {/* <Route
-                      path="/about"
-                      element={
-                        <Moderation />
-                      }
-                      >
-                      <Route
-                      path=":subTitle"
-                      element={
-                        <Moderation />
-                      }
-                      />
-                    </Route> */}
+                          <Route
+                            path=":category"
+                            element={
+                              <TopCommunitiesPage />
+                  }
+                          />
+                        </Route>
+
+                        <Route
+                          path="/:postClass"
+                          element={
+                            <HomePage />
+                  }
+                        />
 
                         <Route
                           path="comments/:postID"
@@ -365,7 +385,18 @@ function App() {
                       </Route>
 
                     </Route>
-
+                    <Route
+                      path="/verification/:token"
+                      element={
+                        <VerifyEmailPage />
+                  }
+                    />
+                    <Route
+                      path="/*"
+                      element={
+                        <ErrorPage />
+                  }
+                    />
                   </Routes>
                 </Router>
               </EditPostContextProvider>

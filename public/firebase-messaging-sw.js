@@ -54,12 +54,18 @@ const follwed = (ele) => {
 messaging.onBackgroundMessage((payload) => {
   console.log('Received background message: ', payload);
   const { data: { val } } = payload;
-
+  const value = JSON.parse(val);
+  let notificationOptions;
   const notificationTitle = 'New Notifications !!';
+  if (value.type === 'postReply' || value.type === 'follow' || value.type === 'commentReply' || value.type === 'userMention' || value.type === 'firstPostUpVote' || value.type === 'firstCommentUpVote') {
+    notificationOptions = {
+      body: follwed(value),
 
-  const notificationOptions = {
-    body: follwed(JSON.parse(val)),
+    };
+  } else {
+    notificationOptions = {
+      body: 'you Have new message',
 
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
+    };
+  }self.registration.showNotification(notificationTitle, notificationOptions);
 });

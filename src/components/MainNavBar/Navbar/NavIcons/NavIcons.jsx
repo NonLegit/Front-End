@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import BeenhereOutlinedIcon from '@mui/icons-material/BeenhereOutlined';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { onForegroundNottification } from '../../../../lib/firebase';
 import {
   StyledTooltip, NotificationButton, NotificationContent, NotificationContanier,
@@ -19,6 +20,7 @@ import {
 import notificationsFetch from '../../../Notifications/notificationsServer';
 import NotificationCategories from '../../../Notifications/NotificationsBody/NotificationCategories/NotificationCategories';
 import { CategoriesContext } from '../../../Notifications/NotificationsBody/NotificationsBody';
+
 /**
  *  NavIcons
  * @component
@@ -30,7 +32,8 @@ function NavIcons() {
   const [dataToday, dataEarlier] = notificationsFetch();
   //  anchor element
   const [anchorEl, setAnchorEl] = useState(null);
-  const [unread, setUnread] = useState(1);
+  const [unread, setUnread] = useState(0);
+  const [message, setMessage] = useState(false);
   const [anchorElWindow, setAnchorElWindow] = useState(null);
   const openWindow = Boolean(anchorElWindow);
   const open = Boolean(anchorEl);
@@ -48,7 +51,13 @@ function NavIcons() {
     onForegroundNottification()
       .then((payload) => {
         const { data: { val } } = payload;
-        setToday((oldArray) => [JSON.parse(val), ...oldArray]);
+        const value = JSON.parse(val);
+        if (value.type === 'follow' || value.type === 'commentReply' || value.type === 'userMention' || value.type === 'firstPostUpVote' || value.type === 'firstCommentUpVote') { setToday((oldArray) => [value, ...oldArray]); } else {
+          setMessage(true);
+        }
+        if (value.type === 'postReply') {
+          setToday((oldArray) => [value, ...oldArray]);
+        }
         setUnread(unread + 1);
       })
       .catch((err) => console.log('An error occured while retrieving foreground message. ', err));
@@ -117,7 +126,9 @@ function NavIcons() {
         <NotificationContent disableRipple>
           Notifications
           <NotificationHeaderIcons>
-            <LinkTo to="/settings">
+            <LinkTo to="/messages/unread" sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              { (message) && <ErrorOutlineIcon fontWeight="bold" color="error" />}
+              {' '}
               Messages
             </LinkTo>
             <NotificationIcons>

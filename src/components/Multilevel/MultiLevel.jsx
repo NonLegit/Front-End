@@ -23,17 +23,16 @@ function MultiLevel({ Edit, Comment }) {
   const [cookies, setCookies] = useCookies(['redditUser']);
 
   // useParams
-  const { postID } = useParams();
+  const { postID, commentID } = useParams();
 
   useEffect(() => {
     redditCookie(setCookies);
-  }, []);
+    console.log('Boooosy', commentID);
+  }, [commentID]);
 
   return (
     <PostContextProvider postID={postID}>
       <MultiLevelConatiner>
-        {/* <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'column', paddingRight: '60px' }}> */}
-
         <MultiLevelHeader />
         <MultiLevelContentConatiner>
           <MultiLevelBody Edit={Edit} Comment={Comment} />

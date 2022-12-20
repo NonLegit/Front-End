@@ -11,12 +11,10 @@ import { StaticticsContainer, StatisticsCaption, StatisticsIcon } from './styles
 // Context
 import { usePostContext } from '../../../../../contexts/PostContext';
 
-function PostStatistics(props) {
-  // eslint-disable-next-line no-unused-vars
-  const { views, shareCount } = props;
-
+function PostStatistics() {
   // Context
   const { post } = usePostContext();
+
   return (
     <StaticticsContainer>
       <StatisticsIcon>

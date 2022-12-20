@@ -13,15 +13,14 @@ export const MultiLevelConatiner = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  // alignItems: 'space-around',
-  // justifyContent: 'flex-start',
-  // border: '10px solid black',
 
   '&': {
     [theme.breakpoints.down('sm')]: {
       padding: '0px 0px',
     },
   },
+
+  // border: '10px solid black',
 
 }));
 
@@ -30,12 +29,12 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   flexBasis: '100%',
   backgroundColor: theme.palette.offwhite.main,
 
-  // padding: '20px',
+  padding: '20px',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-around',
   flexWrap: 'wrap',
 
-  // border: '10px solid green',
+  // border: '10px solid pink',
 
 }));

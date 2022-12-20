@@ -1,109 +1,82 @@
 {
-  "status": "string",
+  "status": "success",
   "comments": [
     {
-      "_id": "1",
+      "_id": "63a045fd7e9602e5da79aee6",
       "author": {
-        "_id": "10",
-        "userName": "Basma Elhoseny",
-        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
+        "_id": "639f824cd9f48a8d75a21aa4",
+        "userName": "Basma",
+        "profilePicture": "users/default.png",
         "profileBackground": "users/defaultcover.png"
       },
-      "post": "string",
-      "mentions": [
-        "string"
-      ],
+      "post": "63a03f6d7e9602e5da79ad79",
+      "mentions": [],
       "replies": [
         {
-          "_id": "101",
+          "_id": "63a0460f7e9602e5da79af0b",
           "author": {
-            "_id": "639a5f0e995a7314c8c746c8",
-            "userName": "Eslam",
-            "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",            
-            "profileBackground": "users/defaultcover.png"
+            "_id": "639f824cd9f48a8d75a21aa4",
+            "userName": "Basma",
+            "profilePicture": "https://api.nonlegit.click/users/default.png",
+            "profileBackground": "https://api.nonlegit.click/users/defaultcover.png"
           },
-          "post": "string",
-          "mentions": [
-            "string"
-          ],
+          "post": "63a03f6d7e9602e5da79ad79",
+          "mentions": [],
           "replies": [
             {
-              "_id": "10101",
+              "_id": "63a0463d7e9602e5da79af52",
               "author": {
-                "_id": "639a5f0e995a7314c8c746c5",
-                "userName": "Eslam",
-                "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
-                "profileBackground": "users/defaultcover.png"
-            },
-            "post": "string",
-              "mentions": [
-                "string"
-              ],
-              "replies": [
-                "150",
-                "160",
-                "180"
-              ],
-              "parent": "string",
-              "parentType": "string",
-              "text": "Level 3 Eslam's Comment",
-              "createdAt": "2017-07-21T17:32:28Z",
+                "_id": "639f824cd9f48a8d75a21aa4",
+                "userName": "Basma",
+                "profilePicture": "https://api.nonlegit.click/users/default.png",
+                "profileBackground": "https://api.nonlegit.click/users/defaultcover.png"
+              },
+              "post": "63a03f6d7e9602e5da79ad79",
+              "mentions": [],
+              "replies": [],
+              "parent": "63a0460f7e9602e5da79af0b",
+              "parentType": "Comment",
+              "text": "<p>Reply 4 on comment 1</p>",
+              "createdAt": "2022-12-19T10:06:05.768Z",
+              "isDeleted": false,
               "votes": 0,
-              "repliesCount": 0
-            },
-            {
-              "Type": "moreReplies",
-              "count": 0,
-              "children": [
-                "10",
-                "11",
-                "12"
-              ]
+              "repliesCount": 0,
+              "locked": false,
+              "nsfw": false,
+              "spoiler": false,
+              "modState": "unmoderated",
+              "sortOnHot": 835722182884,
+              "__v": 0
             }
           ],
-          "parent": "string",
-          "parentType": "string",
-          "text": "Reply on Comment 1",
-          "createdAt": "2017-07-21T17:32:28Z",
+          "parent": "63a045fd7e9602e5da79aee6",
+          "parentType": "Comment",
+          "text": "<p>Reply 3 on comment 1</p>",
+          "createdAt": "2022-12-19T10:06:05.768Z",
+          "isDeleted": false,
           "votes": 0,
-          "repliesCount": 0
+          "repliesCount": 1,
+          "locked": false,
+          "nsfw": false,
+          "spoiler": false,
+          "modState": "unmoderated",
+          "sortOnHot": 835722182884,
+          "__v": 0
         }
       ],
-      "parent": "string",
-      "parentType": "string",
-      "text": "Basma's Comment",
-      "createdAt": "2017-07-21T17:32:28Z",
+      "parent": "63a045e97e9602e5da79aec3",
+      "parentType": "Comment",
+      "text": "<p>Repy 2 on Comment 1</p>",
+      "createdAt": "2022-12-19T10:06:05.768Z",
+      "isDeleted": false,
       "votes": 0,
-      "repliesCount": 0
-    },
-    {
-      "_id": "2",
-      "author": {
-        "_id": "639a5f0e995a7314c8c746a5",
-        "userName": "Eslam",
-        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
-        "profileBackground": "users/defaultcover.png"
-    },
-      "post": "string",
-      "mentions": [
-        "string"
-      ],
-      "replies": [],
-      "parent": "string",
-      "parentType": "string",
-      "text": "Eslam's Comment",
-      "createdAt": "2017-07-21T17:32:28Z",
-      "votes": 0,
-      "repliesCount": 0
-    },
-    {
-      "Type": "moreReplies",
-      "count": 100,
-      "children": [
-        "10",
-        "11",
-        "12"
-      ]
+      "repliesCount": 1,
+      "locked": false,
+      "nsfw": false,
+      "spoiler": false,
+      "modState": "unmoderated",
+      "sortOnHot": 835722182884,
+      "__v": 0
     }
   ]
 }

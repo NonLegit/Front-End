@@ -22,10 +22,7 @@ export const MultiLevelHeaderBox = styled(Box)(() => ({
   // position: 'sticky',
   position: 'sticky',
   top: '48px',
-  zIndex: 2,
-  // width: '100%',
-  // top: '48px',
-  // left: '0px',
+  zIndex: 100,
 
 }));
 

@@ -53,7 +53,7 @@ function PostFooter(props) {
   const [modList, setModList] = useState(false);
 
   const navigate = useNavigate();
-  const { setEditPost } = useEditPostContext();
+  const { setEditPost, setCommentPost } = useEditPostContext();
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -157,7 +157,7 @@ function PostFooter(props) {
       </ElementBox>
       <Divider orientation="vertical" variant="middle" flexItem />
 
-      <ElementBox>
+      <ElementBox onClick={() => { setCommentPost(true); setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}
@@ -171,32 +171,32 @@ function PostFooter(props) {
       </ElementBox>
 
       {(!postedByOthers && (!modList || !submitted)) && (
-      <ElementBox awardedit={true.toString()}>
-        <ModeEditOutlinedIcon />
-        <FooterText
-          variant="caption"
-          responsiveshare={true.toString()}
-          onClick={handleEditPost}
-        >
-          Edit Post
-        </FooterText>
-      </ElementBox>
+        <ElementBox awardedit={true.toString()}>
+          <ModeEditOutlinedIcon />
+          <FooterText
+            variant="caption"
+            responsiveshare={true.toString()}
+            onClick={handleEditPost}
+          >
+            Edit Post
+          </FooterText>
+        </ElementBox>
       )}
 
       {(!modList || !submitted) && (
-      <>
-        {common.map((entity) => (
-          <ElementBox
-            key={entity.id}
-            onClick={() => { entity.func(); }}
-            data-testid={(entity.id === 2) && 'hidden'}
-            condition={true.toString()}
-          >
-            {entity.icon}
-            <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
-          </ElementBox>
-        ))}
-      </>
+        <>
+          {common.map((entity) => (
+            <ElementBox
+              key={entity.id}
+              onClick={() => { entity.func(); }}
+              data-testid={(entity.id === 2) && 'hidden'}
+              condition={true.toString()}
+            >
+              {entity.icon}
+              <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
+            </ElementBox>
+          ))}
+        </>
       )}
 
       {(submitted && modList) && moderator.map((entity) => (
@@ -213,29 +213,29 @@ function PostFooter(props) {
       ))}
 
       {(submitted && modList) && (
-      <ClickAwayListener onClickAway={handleModListClickAway}>
-        <ElementBox>
-          <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
-          {moderatorList && (
-            <ModeratorList
-              postid={postid}
-              nsfw={nsfw}
-              spoiler={spoiler}
-              locked={locked}
-              handleNsfw={handleNsfw}
-              handleSpoiler={handleSpoiler}
-              handleLock={handleLock}
-            />
-          )}
-        </ElementBox>
-      </ClickAwayListener>
+        <ClickAwayListener onClickAway={handleModListClickAway}>
+          <ElementBox>
+            <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
+            {moderatorList && (
+              <ModeratorList
+                postid={postid}
+                nsfw={nsfw}
+                spoiler={spoiler}
+                locked={locked}
+                handleNsfw={handleNsfw}
+                handleSpoiler={handleSpoiler}
+                handleLock={handleLock}
+              />
+            )}
+          </ElementBox>
+        </ClickAwayListener>
       )}
 
       {(submitted) && (
-      <ElementBox condition2={true.toString()}>
-        <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
-        <FooterText variant="caption">Insights</FooterText>
-      </ElementBox>
+        <ElementBox condition2={true.toString()}>
+          <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
+          <FooterText variant="caption">Insights</FooterText>
+        </ElementBox>
       )}
 
       {postedByOthers ? (
@@ -264,14 +264,14 @@ function PostFooter(props) {
       )}
 
       {postedByOthers && (
-      <ClickAwayListener onClickAway={handleClickAway2}>
-        <ElementBox show={true.toString()}>
-          <MoreHorizOutlinedIcon onClick={handleClick2} />
-          {showList2 && (
-          <PostFooterListResponsive postid={postid} isSaved={isSaved} />
-          )}
-        </ElementBox>
-      </ClickAwayListener>
+        <ClickAwayListener onClickAway={handleClickAway2}>
+          <ElementBox show={true.toString()}>
+            <MoreHorizOutlinedIcon onClick={handleClick2} />
+            {showList2 && (
+              <PostFooterListResponsive postid={postid} isSaved={isSaved} />
+            )}
+          </ElementBox>
+        </ClickAwayListener>
 
       )}
 

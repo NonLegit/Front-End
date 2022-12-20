@@ -110,7 +110,7 @@ function PostFooter(props) {
 
   return (
     <FooterBox>
-      <ElementBox>
+      <ElementBox onClick={() => { setCommentPost(true); setEditPost(false); navigate(`/${subTitle === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}

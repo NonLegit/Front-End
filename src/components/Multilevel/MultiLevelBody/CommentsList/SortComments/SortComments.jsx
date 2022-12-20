@@ -30,7 +30,7 @@ function SortComments(props) {
     setSort(false);
   };
   return (
-    <Box position="relative" display="flex">
+    <Box position="relative" display="flex" margin="10px 0px">
       <ClickAwayListener onClickAway={handleClickAway}>
         <Fab
           variant="extended"
