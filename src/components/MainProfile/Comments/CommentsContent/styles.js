@@ -13,7 +13,9 @@ export const CommentsBoxContent = styled(Box)(() => ({
 
   '&:hover': {
     outline: '1px solid #898989',
-
+    borderRight: '1px solid #898989',
+    borderLeft: '1px solid #898989',
+    cursor: 'pointer',
   },
 }));
 

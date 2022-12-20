@@ -10,6 +10,7 @@ import PostsClassification from '../../HomePage/HomePageContainer/PostsClassific
 import BackToTop from '../../BackToTop/BackToTop';
 import PostList from '../../HomePage/HomePageContainer/PostList/PostList';
 import allPageServer from './allPageServer';
+import cleanPage from '../../../utils/cleanPage';
 
 /**
  * This component works as a container for all popular page components
@@ -26,6 +27,7 @@ function AllContainer() {
 
   // states
   const [posts, postsError] = allPageServer(postClass);
+  cleanPage();
   return (
     <OuterContainer>
       <MainContainer>

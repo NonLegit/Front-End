@@ -96,7 +96,6 @@ export const Fab = styled(Fa)(() => ({
   height: 24,
   outline: 'none',
   color: '#1a1a1b',
-  lineHeight: 18,
   fontWeight: 400,
   alignItems: 'center',
   '&:hover': {

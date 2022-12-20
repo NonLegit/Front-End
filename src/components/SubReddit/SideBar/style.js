@@ -5,7 +5,6 @@ export const SideBarContainer = styled('div')(({ theme }) => ({
     display: 'none',
   },
   width: 312,
-  height: 4000,
   display: 'flex',
   flexDirection: 'column',
   marginLeft: 24,

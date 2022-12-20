@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import useFetch from '../../../../../hooks/useFetch';
+import useFetchSaved from '../../../../../hooks/useFetchSaved';
 
 const SavedTapServer = () => {
-  const [data, dataError, statusCode] = useFetch('users/saved');
+  const [data, dataError, statusCode] = useFetchSaved('users/saved');
 
   useEffect(() => {
     if (statusCode === 401) {

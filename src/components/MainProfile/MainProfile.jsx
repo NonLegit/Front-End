@@ -11,6 +11,7 @@ import ProfileMainContent from './Profile/MainContent/ProfileMainContent';
 import ProfileNotFound from './ProfileNotFound/ProfileNotFound';
 import UserLogin from '../../authentication';
 import ProfileBlocked from './ProfileBlocked/ProfileBlocked';
+import cleanPage from '../../utils/cleanPage';
 
 function MainProfile() {
   const [cookies] = useCookies(['redditUser']);
@@ -19,12 +20,13 @@ function MainProfile() {
   const [warning, setWarning] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState('');
   const { username } = useParams();
-
   const [info, statusCode] = UserInfoServer(username);
   const isLoggedIn = UserLogin([username]);
 
   const [nsfw, setNsfw] = useState();
   const [userNsfw, setUserNsfw] = useState();
+
+  cleanPage();
 
   useEffect(() => {
     console.log(username);

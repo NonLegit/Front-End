@@ -52,6 +52,7 @@ function Post(props) {
     setExpand((prev) => !prev);
   };
   useEffect(() => {
+    console.log(entity?.postVoteStatus);
     setSubTitle(type);
     if (communitiesSubscriber?.filter((element) => element.fixedName === entity.owner.name).length === 0) {
       setNotJoined(true);
@@ -132,6 +133,7 @@ function Post(props) {
                 locked={isLocked}
                 modState={modState}
                 notJoined={notJoined}
+                sharedFrom={entity?.sharedFrom}
               />
               <PostFooter
                 postid={entity?._id}
