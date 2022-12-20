@@ -7,7 +7,7 @@ function EmptyBanned() {
   const { subReddit } = useParams();
   return (
     <EmptyBox>
-      <NotInterestedIcon sx={{ color: '#7c7c7c' }} fonstSize="large" />
+      <NotInterestedIcon sx={{ color: '#7c7c7c' }} fontSize="large" />
       <Typography variant="h6" color="#7c7c7c">
         No banned users in r/
         {subReddit}

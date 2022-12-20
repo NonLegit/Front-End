@@ -8,7 +8,7 @@ function EmptyApproved() {
   const { subReddit } = useParams();
   return (
     <EmptyBox>
-      <CreateOutlinedIcon sx={{ color: '#7c7c7c' }} fonstSize="large" />
+      <CreateOutlinedIcon sx={{ color: '#7c7c7c' }} fontSize="large" />
       <Typography variant="h6" color="#7c7c7c">
         No approved users in r/
         {' '}

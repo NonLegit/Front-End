@@ -7,7 +7,7 @@ function EmptyMuted() {
   const { subReddit } = useParams();
   return (
     <EmptyBox>
-      <VolumeOffOutlinedIcon sx={{ color: '#7c7c7c' }} fonstSize="large" />
+      <VolumeOffOutlinedIcon sx={{ color: '#7c7c7c' }} fontSize="large" />
       <Typography variant="h6" color="#7c7c7c">
         No muted users in r/
         {subReddit}

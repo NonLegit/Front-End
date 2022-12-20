@@ -41,13 +41,14 @@ function ModeratorsList() {
       }
       <ModeratorsTypeContainer>
         {
-      filteredData.map((users) => {
+      filteredData.map((users, index) => {
         const {
           user, moderatorPermissions,
         } = users;
         console.log(user);
         return (
           <NonEmptyModerator
+            key={`${index + 0}`}
             userName={user.userName}
             profilePicture={user.profilePicture}
             modDate={calculateTime(user.joinDate)}
@@ -73,12 +74,13 @@ function ModeratorsList() {
             Invited moderators
           </Typography>
           {
-      invitedModerators.map((users) => {
+      invitedModerators.map((users, index) => {
         const {
           user, moderatorPermissions,
         } = users;
         return (
           <NonEmptyModerator
+            key={`${index + 0}`}
             userName={user.userName}
             profilePicture={user.profilePicture}
             modDate={calculateTime(user.joinDate)}

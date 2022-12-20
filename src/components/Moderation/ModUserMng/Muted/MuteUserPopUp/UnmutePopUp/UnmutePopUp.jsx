@@ -30,7 +30,7 @@ function UnmutePopUp(props) {
         <Divider />
       </Box>
       <Box sx={{ padding: '16px' }}>
-        <Typography fonstSize="14px" sx={{ margin: '10px 0px' }}>
+        <Typography fontSize="14px" sx={{ margin: '10px 0px' }}>
           Are you sure you want to unmute
           {' '}
           {userName}

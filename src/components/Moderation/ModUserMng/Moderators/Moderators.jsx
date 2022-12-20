@@ -3,6 +3,7 @@
 import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
+import { useParams } from 'react-router-dom';
 import {
   QueueBox, QueueText, ControlBar,
 } from '../styles';
@@ -15,8 +16,8 @@ import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
 export const LeaveContext = React.createContext();
 export const InvitationContext = React.createContext();
 
-function Moderator(props) {
-  const { subReddit } = props;
+function Moderator() {
+  const { subReddit } = useParams();
 
   const [openLeave, setOpenLeave] = React.useState(false);
   const handleClickOpenLeave = () => { setOpenLeave(true); };

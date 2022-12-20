@@ -39,12 +39,13 @@ function BannedUserList() {
         (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
         }
         {
-      filteredData.map((users) => {
+      filteredData.map((users, index) => {
         const {
           user, banInfo,
         } = users;
         return (
           <BannedUser
+            key={`${index + 0}`}
             userName={user.userName}
             profilePicture={user.profilePicture}
             banDate={calculateTime(banInfo.banDate)}

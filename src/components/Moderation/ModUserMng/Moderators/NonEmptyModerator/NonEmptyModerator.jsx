@@ -90,8 +90,8 @@ function NonEmptyModerator(props) {
                 >
                   {handlePermissions()}
                 </Typography>
-                <IconButton disableRipple disableTouchRipple>
-                  <DeleteIcon fontSize="small" onClick={handleClickOpenRemove} />
+                <IconButton disableRipple disableTouchRipple onClick={handleClickOpenRemove}>
+                  <DeleteIcon fontSize="small" />
                 </IconButton>
               </>
             );
@@ -104,8 +104,8 @@ function NonEmptyModerator(props) {
                 >
                   {handlePermissions()}
                 </Typography>
-                <IconButton disableRipple disableTouchRipple>
-                  <EditIcon fontSize="small" onClick={handleClickOpenEdit} />
+                <IconButton disableRipple disableTouchRipple onClick={handleClickOpenEdit}>
+                  <EditIcon fontSize="small" />
                 </IconButton>
               </>
             );
