@@ -67,7 +67,7 @@ Array [
     >
       Created
        
-      December 04, 2022
+      December 20, 2022
     </h2>
   </div>,
   <hr
@@ -116,6 +116,7 @@ Array [
     className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
     onBlur={[Function]}
     onFocus={[Function]}
+    to="/submit/r/undefined"
   >
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1anzha9-MuiButtonBase-root-MuiButton-root"

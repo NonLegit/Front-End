@@ -48,7 +48,11 @@ function HomePageContainer() {
         <SideBar>
           <Communities communities={communities} />
           <RedditPremium />
-          <PersonalReddit />
+          <PersonalReddit
+            title="Home"
+            paragraph="Your personal Reddit frontpage. Come here to check in with your favorite communities."
+            image="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png"
+          />
           <HomePageFooter />
           <BackToTop />
         </SideBar>

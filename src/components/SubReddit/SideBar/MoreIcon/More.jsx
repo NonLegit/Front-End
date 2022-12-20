@@ -7,6 +7,11 @@ import {
 } from './style';
 /**
  * More icon
+ * @component
+ * @property  {function} handleClick1 toggle showList or not
+ * @property  {function} handleClickAway1 handle disable the list when click away
+ * @property  {function} changeFavourit toggle favourit community
+
  * @return {React.Component} - More icon
  */
 export default function Sort(props) {

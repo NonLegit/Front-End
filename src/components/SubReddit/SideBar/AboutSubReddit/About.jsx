@@ -13,7 +13,9 @@ import {
  * @return {React.Component} - About Section for normal user
  */
 function About(props) {
-  const { disc, createdAt, num } = props;
+  const {
+    disc, createdAt, num, Name,
+  } = props;
   return (
     <>
       <AboutCountainer>
@@ -57,7 +59,7 @@ function About(props) {
         </span>
         <div />
       </Box>
-      <CustomLink>
+      <CustomLink to={`/submit/r/${Name}`}>
         <CreatPost variant="outlined" padding="4px" fontSize={15} fontWeight="bold">
           create Post
         </CreatPost>

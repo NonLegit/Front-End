@@ -11,6 +11,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { Join, JoinCommunity } from './style';
 
+/**
+ * Alert when left list of topics input and change it
+ * @component
+ *
+ * @return {React.Component} - Alert when left list of topics input and change it
+ */
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),

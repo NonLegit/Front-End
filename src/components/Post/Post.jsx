@@ -9,6 +9,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 // styles
 import { useRef, useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import {
   PostContainer, PostMedia, CustomImage, PostText, PostTextContainer, ControlsIcon, PostUrl, PostUrlLink, LinkIcon,
 
@@ -47,9 +48,12 @@ import PostHeader from './PostHeader/PostHeader';
 
 function Post(props) {
   const {
-    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos,
+    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video,
     subredit, postVoteStatus, isSaved, postId, url, nsfw, spoiler,
   } = props;
+
+  // routes
+  const navigate = useNavigate();
 
   // styles
   const theme = useTheme();
@@ -68,8 +72,24 @@ function Post(props) {
   const postTextRef = useRef();
   const postMediaRef = useRef();
 
+  // handlers
   const handleDirection = (dir) => {
     setIndex(index + dir);
+  };
+
+  const redirectToPost = (redirect) => {
+    if (redirect) {
+      const username = ownerName;
+      if (ownerType === 'User') {
+        if (username) {
+          navigate(`/user/${username}/comments/${postId}`);
+        } else {
+          navigate('/');
+        }
+      } else {
+        navigate(`/r/${ownerName}/comments/${postId}`);
+      }
+    }
   };
 
   // effects
@@ -127,6 +147,7 @@ function Post(props) {
           ownerType={ownerType}
           nsfw={nsfw}
           spoiler={spoiler}
+          redirectToPost={redirectToPost}
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}
@@ -136,17 +157,20 @@ function Post(props) {
           kind={kind}
           ref={postMediaRef}
           spoiler={spoiler}
+          onClick={() => redirectToPost(kind !== 'link')}
         >
           {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
-              <source src={videos[0]} type="video/mp4" />
+              <source src={video} type="video/mp4" />
             </video>
           ) : (
             (kind === 'image')
               ? (
                 <>
-                  {images.map((image, imageIndex) => (
-                    imageIndex === index
+                  {images?.map((image, imageIndex) => {
+                    console.log('my imageshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkkkkk', image);
+                    return (
+                      imageIndex === index
                     && (
                     <CustomImage
                       src={image}
@@ -155,12 +179,13 @@ function Post(props) {
                       maxHeight={maxImagesHeight}
                     />
                     )
-                  ))}
+                    );
+                  })}
                   <>
                     <ControlsIcon
                       disableRipple
                       left={10}
-                      display={index === 0 ? 'none' : 'flex'}
+                      display={index <= 0 ? 'none' : 'flex'}
                       sx={{
                         boxShadow: 10,
                       }}
@@ -175,7 +200,7 @@ function Post(props) {
                     <ControlsIcon
                       disableRipple
                       right={10}
-                      display={index === images.length - 1 ? 'none' : 'flex'}
+                      display={index >= images.length - 1 ? 'none' : 'flex'}
                       sx={{
                         boxShadow: 10,
                       }}

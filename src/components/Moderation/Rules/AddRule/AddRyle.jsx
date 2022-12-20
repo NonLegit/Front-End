@@ -6,20 +6,26 @@ import { Divider, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useParams } from 'react-router-dom';
 import {
-  Add,
-  Cancel,
-  Container,
-  Count,
-  Dial,
-  DialCont,
-  Disc,
-  FullDiscTextArea,
-  Lable, TextArea, Title, TitleString,
+  Add, Cancel, Container, Count, Dial, DialCont, Disc, FullDiscTextArea, Lable, TextArea, Title, TitleString,
 } from './style';
 import RadioBtn from './Radio/Radio';
 import PostRule from './PostRuleServer';
 import EditRule from './EditRuleServer';
 import DeleteRule from './DeleteServer';
+
+/**
+ * Add Rule
+ * @component
+ * @property  {function} handleClickOpen open rule form
+ * @property  {function} handleClose close rule form
+ * @property  {function} myType set the rule type
+ * @property  {function} check check the title length
+ * @property  {function} check2 check the default name length
+ * @property  {function} check3 check the description length
+ * @property  {function} SendData send data to backend
+ *
+ * @return {React.Component} - Add Rule
+ */
 
 export default function AddRule(props) {
   const { rule } = props;

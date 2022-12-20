@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unstable-nested-components */
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -6,6 +8,8 @@ import { useCookies } from 'react-cookie';
 
 import { redditCookie } from './components/Authentication/authenticationServer';
 
+import 'quill/dist/quill.snow.css';
+import PopularPage from './pages/PopularPage';
 import HiddenPostsContextProvider from './contexts/HiddenPostsContext';
 import MainNavBar from './components/MainNavBar/MainNavBar';
 import SettingsProfile from './components/Settings/SettingsProfile/SettingsProfile';
@@ -36,19 +40,21 @@ import PostPage from './pages/PostPage';
 import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
+import { notificationToken } from './services/notificationToken';
+import AllPage from './pages/AllPage';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
-  const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
+  const [showNotificationBanner, setShowNotificationBanner] = useState(false);// Notification.permission === 'default'
   const handleGetFirebaseToken = () => {
     if (showNotificationBanner) {
       getFirebaseToken()
         .then((firebaseToken) => {
           console.log('Firebase token: ', firebaseToken);
-
           setShowNotificationBanner(false);
+          notificationToken(firebaseToken);
         })
         .catch((err) => console.error('An error occured while retrieving firebase token. ', err));
     }
@@ -79,17 +85,48 @@ function App() {
                   }
                 />
                 <Route
+                  path="/r/popular"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
                   path="/:postClass"
                   element={
                     <HomePage />
                   }
                 />
                 <Route
+                  path="/r/popular"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
+                  path="/r/popular/:postClass"
+                  element={
+                    <PopularPage />
+                }
+                />
+                <Route
+                  path="/r/all"
+                  element={
+                    <AllPage />
+                }
+                />
+                <Route
+                  path="/r/all/:postClass"
+                  element={
+                    <AllPage />
+                }
+                />
+                <Route
                   path="/user/:username"
                   element={
                     <Profile />
-                  }
+                    }
                 >
+
                   <Route
                     path=""
                     element={

@@ -8,6 +8,14 @@ import {
   Details, ElementBox, MoreData, MoreDetails, MoreDetailsHeader, Num, Row, Text,
 } from './style';
 
+/**
+ * Entity of Rule
+ * @component
+ * @property  {function} handleExpand show more details
+ *
+ * @return {React.Component} - Entity of Rule
+ */
+
 function Entity(props) {
   const {
     row, index, setefitRule,

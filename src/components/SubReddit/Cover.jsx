@@ -2,11 +2,12 @@ import { Box, ThemeProvider, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import PostList from '../HomePage/HomePageContainer/PostList/PostList';
 import { redditCookie } from '../Authentication/authenticationServer';
 import Nsfw from '../NSFW/Nsfw';
 import FormDialog from '../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
 import MainContent from '../MainContent/MainContent';
-import PostSubreddit from '../Post/Post';
+// import PostSubreddit from '../Post/Post';
 import CreatePostInSubreddit from '../HomePage/HomePageContainer/CreatePostInHome/CreatePostInHome';
 import SideBar from './SideBar/SideBar';
 import {
@@ -25,6 +26,10 @@ import { useCreatePostInSubredditContext } from '../../contexts/CreatePostInSubr
 /**
  * Subreddit page
  * @component
+ * @property  {function} redirect redirect to homepage
+ * @property  {function} createCommunity open create community form
+ * @property  {function} sendData send data to backend
+
  * @return {React.Component} - Subreddit page
  */
 
@@ -43,7 +48,6 @@ function Header() {
   const [members, setMembers] = useState();
   const [exist, setExist] = useState(true);
   const [showPopUp, setShowPopUp] = useState(false);
-  const [name, setName] = useState();
   const [rules, setRules] = useState([]);
 
   const [nsfw, setNsfw] = useState();
@@ -81,7 +85,6 @@ function Header() {
     if (statusCode === 404) {
       setExist(false);
     }
-    setName(data?.name);
     setIcon(data?.icon);
     setRules(data?.rules);
     setDisc(data?.description);
@@ -96,7 +99,7 @@ function Header() {
     setSubredditIcon(data?.icon);
     console.log(data?._id);
     setPosts(data3?.data);
-
+    console.log(data3?.data);
     // join and comment another endpoint line 95
     // setJoin(data?.isJoined);
   }, [data, postClass, data3, statusCode]);
@@ -130,7 +133,7 @@ function Header() {
 
   // subscribr or unsubscribe
   const sendData = (b) => {
-    PostJoin(`/subreddits/${name}/subscribe`, b);
+    PostJoin(`/subreddits/${Name}/subscribe`, b);
     // leave(Name, { isJoined: b });
   };
   // const leaveCommunity = (b) => {
@@ -152,7 +155,7 @@ function Header() {
                     <Desc>
                       <Namee>
                         r/
-                        { Name }
+                        {Name}
                       </Namee>
                       <Com>
                         r/
@@ -192,27 +195,8 @@ function Header() {
                     <CreatePostInSubreddit subredditName={Name} />
                   </ThemeProvider>
                   <PostsClassificationSubreddit subredditName={Name} />
-                  { posts?.map((posts) => (
-                    <PostSubreddit
-                      createdAt={createdAt}
-                      title={posts?.title}
-                      ownerIcon={icon}
-                      ownerName={Name}
-                      authorName={posts?.author?.name}
-                      flairText={posts?.flairId?.flairText}
-                      flairBackgroundColor={posts?.flairId?.flairBackgroundColor}
-                      flairColor={posts?.flairId?.flairColor}
-                      images={posts?.images}
-                      videos={posts?.videos}
-                      kind={posts?.kind}
-                      votes={posts?.votes}
-                      postVoteStatus={posts?.postVoteStatus}
-                      commentCount={posts?.commentCount}
-                      text={posts?.text}
-                      key={posts?.id}
-                      subredit
-                    />
-                  ))}
+                  {posts
+                  && <PostList posts={posts} subredit />}
                 </MainContent>
                 <SideBar rules={rules} members={members} Name={Name} username={username} topics={topics} disc={disc} primaryTopic={primaryTopic} createdAt={createdAt} moderatoesName={moderatoesName} />
               </Box>

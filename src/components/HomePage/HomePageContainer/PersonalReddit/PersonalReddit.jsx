@@ -9,30 +9,33 @@ import FormDialog from './PopUpSubReddit/PopUp';
  * Reddit frontpage.
  *
  * @component PersonalReddit
+ * @property {string} title -Title of personal reddit
+ * @property {string} paragraph -Paragraph of personal reddit
+ * @property {string} image -Image of personal reddit
  * @returns {React.Component}  Buttons to show info about communities
  */
 
-function PersonalReddit() {
+function PersonalReddit(props) {
+  const { title, paragraph, image } = props;
   return (
     <RedditPersonal>
-      <UpperImage src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" />
+      <UpperImage src={image} />
       <MiddleBox>
         <RedditImage src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" />
         <Typography
           component="p"
           sx={{
             fontWeight: 500,
-            textTransform: 'capitalize',
             marginLeft: 7,
             pb: 0.8,
             pt: 3,
           }}
         >
-          home
+          {title}
         </Typography>
       </MiddleBox>
       <Paragraph>
-        Your personal Reddit frontpage. Come here to check in with your favorite communities.
+        {paragraph}
       </Paragraph>
       <Divider sx={{ mt: 1.5 }} />
       <CustomLink to="/submit">

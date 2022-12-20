@@ -23,22 +23,21 @@ export const blockuser = async (user, type) => {
   await axios.post(`${api}`)
     .then((response) => {
       console.log(response);
-      if (response.status === 304) {
-        message = 'already blocked';
-      } else {
-        flag = 'success';
-        message = 'operation done successfully';
-      }
+
+      flag = 'success';
+      message = 'operation done successfully';
     }).catch((error) => {
       console.log(error);
-      if (error?.response.status === 401) {
+      if (error?.response?.status === 401) {
         redirectLogin();
-      } else if (error?.response.status === 400) {
+      } else if (error?.response?.status === 400) {
         message = 'try blocking yourself';
-      } else if (error?.response.status === 404) {
+      } else if (error?.response?.status === 404) {
         message = 'user not found';
-      } else {
+      } else if (error?.response?.status === 405) {
         message = 'other user has blocked you';
+      } else {
+        message = 'already blocked';
       }
     });
   return [message, flag];
