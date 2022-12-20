@@ -39,7 +39,6 @@ export const FilteButton = styled(Button)(({ condition, theme }) => ({
 }));
 
 export const SelectBox = styled(Box)(() => ({
-//   width: 180,
   border: ' 1px solid #eee',
   marginTop: 60,
   marginLeft: 60,

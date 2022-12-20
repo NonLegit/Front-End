@@ -16,12 +16,11 @@ import Mute from '../components/Moderation/ModUserMng/Muted/MuteUser';
 import Moderators from '../components/Moderation/ModUserMng/Moderators/Moderators';
 
 const renderSwitch = (param) => {
-  console.log(param);
   switch (param) {
     case 'Spam':
     case 'Edited':
     case 'Unmoderated':
-      return <Queue subTitle={param} />;
+      return <Queue />;
     case 'Post flair':
       return <PostFlair />;
     case 'Rules':

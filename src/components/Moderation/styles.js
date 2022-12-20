@@ -12,7 +12,7 @@ export const SelectBox = styled(Box)(() => ({
 
 }));
 
-export const SelectItem = styled(Button)(() => ({
+export const SelectItem = styled(Button)(({ condition, theme }) => ({
   padding: 5,
   color: '#878a8c',
   fontSize: 14,
@@ -25,6 +25,9 @@ export const SelectItem = styled(Button)(() => ({
     color: 'black',
     backgroundColor: '#d7d7d7',
   },
+  ...((condition === 'true') && {
+    color: theme.palette.primary.main,
+  }),
 }));
 
 export const RedditButton = styled(Button)(({

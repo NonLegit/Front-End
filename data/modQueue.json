@@ -1,0 +1,161 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "_id": "639f8250d9f48a8d75a21b22",
+      "owner": {
+        "_id": "639f8250d9f48a8d75a21b05",
+        "fixedName": "Nonlegit",
+        "icon": "https://api.nonlegit.click/subreddits/default.png",
+        "rules": [
+          {
+            "createdAt": "2022-12-18T21:12:42.971Z"
+          }
+        ],
+        "backgroundImage": "https://api.nonlegit.click/undefined"
+      },
+      "ownerType": "Subreddit",
+      "author": {
+        "_id": "639f824cd9f48a8d75a21aa2",
+        "userName": "Nour",
+        "profilePicture": "users/default.png",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "replies": [],
+      "flairId": {
+        "_id": "639f8250d9f48a8d75a21ac4",
+        "text": "first flair",
+        "textColor": "#ffffff",
+        "backgroundColor": "#111111",
+        "permissions": "modOnly",
+        "__v": 0
+      },
+      "title": "subreddit Post",
+      "kind": "self",
+      "text": "this subreddit post on NONLEGIT",
+      "images": [],
+      "createdAt": "2022-12-18T21:12:42.966Z",
+      "locked": false,
+      "isDeleted": false,
+      "sendReplies": true,
+      "nsfw": true,
+      "spoiler": false,
+      "votes": 50,
+      "views": 300,
+      "commentCount": 9,
+      "shareCount": 30,
+      "suggestedSort": "top",
+      "scheduled": false,
+      "modState": "spammed",
+      "spamCount": 0,
+      "spammedBy": [],
+      "sortOnHot": 835698981499.8,
+      "sortOnBest": 668559185205.2001,
+      "__v": 0
+    },
+    {
+      "_id": "639f8250d9f48a8d75a21b22",
+      "owner": {
+        "_id": "639f8250d9f48a8d75a21b05",
+        "fixedName": "kalba222",
+        "icon": "https://api.nonlegit.click/subreddits/default.png",
+        "rules": [
+          {
+            "createdAt": "2022-12-18T21:12:42.971Z"
+          }
+        ],
+        "backgroundImage": "https://api.nonlegit.click/undefined"
+      },
+      "ownerType": "Subreddit",
+      "author": {
+        "_id": "639f824cd9f48a8d75a21aa2",
+        "userName": "Nour",
+        "profilePicture": "users/default.png",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "replies": [],
+      "flairId": {
+        "_id": "639f8250d9f48a8d75a21ac4",
+        "text": "first flair",
+        "textColor": "#ffffff",
+        "backgroundColor": "#111111",
+        "permissions": "modOnly",
+        "__v": 0
+      },
+      "title": "subreddit Post",
+      "kind": "self",
+      "text": "this subreddit post on NONLEGIT",
+      "images": [],
+      "createdAt": "2022-12-18T21:12:42.966Z",
+      "locked": true,
+      "isDeleted": false,
+      "sendReplies": true,
+      "nsfw": true,
+      "spoiler": false,
+      "votes": 50,
+      "views": 300,
+      "commentCount": 9,
+      "shareCount": 30,
+      "suggestedSort": "top",
+      "scheduled": false,
+      "modState": "approved",
+      "spamCount": 0,
+      "spammedBy": [],
+      "sortOnHot": 835698981499.8,
+      "sortOnBest": 668559185205.2001,
+      "__v": 0
+    },
+    {
+      "_id": "639f8250d9f48a8d75a21b22",
+      "owner": {
+        "_id": "639f8250d9f48a8d75a21b05",
+        "fixedName": "Nonlegit",
+        "icon": "https://api.nonlegit.click/subreddits/default.png",
+        "rules": [
+          {
+            "createdAt": "2022-12-18T21:12:42.971Z"
+          }
+        ],
+        "backgroundImage": "https://api.nonlegit.click/undefined"
+      },
+      "ownerType": "Subreddit",
+      "author": {
+        "_id": "639f824cd9f48a8d75a21aa2",
+        "userName": "Nour",
+        "profilePicture": "users/default.png",
+        "profileBackground": "users/defaultcover.png"
+      },
+      "replies": [],
+      "flairId": {
+        "_id": "639f8250d9f48a8d75a21ac4",
+        "text": "first flair",
+        "textColor": "#ffffff",
+        "backgroundColor": "#111111",
+        "permissions": "modOnly",
+        "__v": 0
+      },
+      "title": "subreddit Post",
+      "kind": "self",
+      "text": "this subreddit post on NONLEGIT",
+      "images": [],
+      "createdAt": "2022-12-18T21:12:42.966Z",
+      "locked": false,
+      "isDeleted": false,
+      "sendReplies": true,
+      "nsfw": false,
+      "spoiler": true,
+      "votes": 50,
+      "views": 300,
+      "commentCount": 9,
+      "shareCount": 30,
+      "suggestedSort": "top",
+      "scheduled": false,
+      "modState": "spammed",
+      "spamCount": 0,
+      "spammedBy": [],
+      "sortOnHot": 835698981499.8,
+      "sortOnBest": 668559185205.2001,
+      "__v": 0
+    }
+  ]
+}

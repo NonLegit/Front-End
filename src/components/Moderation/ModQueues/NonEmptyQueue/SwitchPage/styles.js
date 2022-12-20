@@ -8,6 +8,7 @@ export const SwitchPagesBox = styled(Box)(() => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   marginTop: 10,
+  marginBottom: 30,
 }));
 export const SwitchButton = styled(Button)(() => ({
   textTransform: 'none',
