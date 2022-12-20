@@ -19,13 +19,13 @@ import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentati
 import {
   FooterBox, FooterButton, MoreList, SelectItem,
 } from './styles';
-import { postReactionsServer } from '../../../../MainProfile/profileServer';
 
 function FooterQueue(props) {
   const {
     modState,
-    postid,
     locked,
+    hidden,
+    handleHide,
     handleLock, handleNsfw, handleApprove, handleRemove, handleSpam,
   } = props;
 
@@ -38,10 +38,6 @@ function FooterQueue(props) {
 
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const handleHide = () => {
-    postReactionsServer(postid, 'hide', 1);
   };
 
   // const handleShare = () => {
@@ -131,12 +127,10 @@ function FooterQueue(props) {
         </MenuItem> */}
 
         <MenuItem>
-
           <SelectItem onClick={handleHide}>
             <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} fontSize="small" />
-            Hide
+            {hidden ? 'Unhide' : 'Hide'}
           </SelectItem>
-
         </MenuItem>
 
       </Menu>

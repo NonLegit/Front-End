@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import PostHeader from '../../../MainProfile/Posts/PostHeader/PostHeader';
-import { actionOnPost, moderationAction } from '../../../MainProfile/profileServer';
+import { actionOnPost, moderationAction, postReactionsServer } from '../../../MainProfile/profileServer';
 
 import { CommunitiesSubscriberContext } from '../../../../contexts/CommunitiesSubscriberContext';
 import { useEditPostContext } from '../../../../contexts/EditPostContext';
@@ -38,6 +38,7 @@ function NonEmptyQueue(props) {
   const [isSpoiler, setIsSpoiler] = useState(post?.spoiler);
   const [isLocked, setIsLocked] = useState(post?.locked);
   const [modState, setModState] = useState(post?.modState);
+  const [hidden, setHidden] = useState(post?.isHidden);
 
   const { communitiesSubscriber } = useContext(CommunitiesSubscriberContext);
 
@@ -71,6 +72,11 @@ function NonEmptyQueue(props) {
   const handleSpam = () => {
     moderationAction(post?._id, 'spam');
     setModState('spammed');
+  };
+
+  const handleHide = () => {
+    postReactionsServer(post?._id, !hidden ? 'hide' : 'unhide', 1);
+    setHidden((prev) => !prev);
   };
 
   const [maxImagesHeight, setMaxImagesHeight] = useState(450);
@@ -237,6 +243,7 @@ function NonEmptyQueue(props) {
             handleApprove={handleApprove}
             handleRemove={handleRemove}
             handleSpam={handleSpam}
+            handleHide={handleHide}
           />
         </Box>
       </PostContentBox>
