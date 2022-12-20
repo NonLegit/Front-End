@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const PostsQueueBox = styled(Box)(() => ({
@@ -10,7 +10,7 @@ export const PostsQueueBox = styled(Box)(() => ({
   position: 'relative',
 }));
 
-export const CommentText = styled(Typography)(({ theme, coloring, hover }) => ({
+export const CommentText = styled(Box)(({ theme, coloring, hover }) => ({
   marginRight: 5,
   color: coloring,
   ...((coloring === undefined) && {
