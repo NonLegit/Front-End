@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
 // MUI Compoents
@@ -44,10 +44,16 @@ function CommentActions(props) {
   // States
   const [reply, setReply] = useState('');
   const [replyEditor, setReplyEditor] = useState(false);
+  const [saved, setSaved] = useState(comment?.isSaved);
 
-  const dropDownListOptions = [{ value: 'Save', icon: 'Save' }];
-  const dropDownListOptionsAuthor = [{ value: 'Edit', icon: 'Edit' }, { value: 'Save', icon: 'Save' }, { value: 'Delete', icon: 'Delete' }];
-  const dropDownListOptionsMod = [{ value: 'Approve', icon: 'Approve' }, { value: 'Remove', icon: 'Remove' }, { value: 'Remove as spam', icon: 'Remove as spam' }, { value: 'Lock comment', icon: 'Lock comment' }];
+  useEffect(() => {
+    // setSaved(comment?.isSaved);
+    setSaved(false);
+  }, [comment]);
+
+  const dropDownListOptions = [{ value: !saved ? 'Save' : 'unSave', icon: !saved ? 'Save' : 'unSave' }];
+  const dropDownListOptionsAuthor = [{ value: 'Edit', icon: 'Edit' }, { value: !saved ? 'Save' : 'unSave', icon: !saved ? 'Save' : 'unSave' }, { value: 'Delete', icon: 'Delete' }];
+  // const dropDownListOptionsMod = [{ value: 'Approve', icon: 'Approve' }, { value: 'Remove', icon: 'Remove' }, { value: 'Remove as spam', icon: 'Remove as spam' }, { value: 'Lock comment', icon: 'Lock comment' }];
 
   const replyOnComment = () => {
     // call Reply endPoint
@@ -78,7 +84,7 @@ function CommentActions(props) {
     } else if (option === 'Save') {
       // call Save endPoint
       console.log('Save Comment with Text', comment?.text);
-      saveCommenttoDB(comment?._id, comment, setComment);
+      saveCommenttoDB(comment?._id, comment, setComment, saved, setSaved);
     } else if (option === 'Delete') {
       // call Delete endPoint
       console.log('Delete Comment with Text', comment?.text);
@@ -117,10 +123,10 @@ function CommentActions(props) {
           <MoreVertIcon />
         </DropDownList>
 
-        {/* Add cONDION ON THIS PREVIEW */}
+        {/* Add cONDION ON THIS PREVIEW
         <DropDownList handleSelectionFun={handleSelectMod} options={dropDownListOptionsMod}>
           <ShieldOutlinedIcon />
-        </DropDownList>
+        </DropDownList> */}
 
       </CommentActionsContainer>
       {replyEditor ? (
