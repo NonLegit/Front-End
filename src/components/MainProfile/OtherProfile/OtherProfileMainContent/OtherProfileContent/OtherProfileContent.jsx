@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 import { overviewServer } from '../../../profileServer';
 import EmptyContent from '../OtherProfileEmptyContent/OtherProfileEmptyContent';
 import Filter from '../OtherProfileFilter/OtherProfileFilter';
@@ -8,7 +8,7 @@ import ContentBox from './styles';
 import Posts from '../../../Posts/Posts';
 import Comments from '../../../Comments/Comments';
 import mergeTwo from '../../../../../utils/mergeSort';
-import { useListingContext } from '../../../../../contexts/ListingContext';
+// import { useListingContext } from '../../../../../contexts/ListingContext';
 
 function useQuery() {
   const { search } = useLocation();
@@ -32,10 +32,10 @@ function OtherProfileContent() {
   const sort = query.get('sort');
   const [posts, comments] = overviewServer(username, sort);
 
-  const { setPage } = useListingContext();
-  const fetchMoreData = () => {
-    setPage((page) => page + 1);
-  };
+  // const { setPage } = useListingContext();
+  // const fetchMoreData = () => {
+  //   setPage((page) => page + 1);
+  // };
 
   useEffect(() => {
     setIsContent(false);
@@ -51,17 +51,11 @@ function OtherProfileContent() {
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
           && (
-          <InfiniteScroll
-            next={fetchMoreData}
-            hasMore
-            dataLength={posts.length}
-          >
-            {mergeTwo(posts, comments, sort).map((entity, index) => (
+            mergeTwo(posts, comments, sort).map((entity, index) => (
               (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" />
                 : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" />
                   : <Comments key={`${index + 0}`} entity={entity} overview="true" profile={false} />
-            ))}
-          </InfiniteScroll>
+            ))
           )}
     </ContentBox>
   );

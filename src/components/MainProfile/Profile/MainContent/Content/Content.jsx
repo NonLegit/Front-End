@@ -1,7 +1,7 @@
 import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAltOutlined';
 import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState, useMemo } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 import mergeTwo from '../../../../../utils/mergeSort';
 import EmptyContent from '../../../EmptyContent/EmptyContent';
 import Filter from '../Filter/Filter';
@@ -10,7 +10,7 @@ import ContentBox from './styles';
 import Posts from '../../../Posts/Posts';
 import Comments from '../../../Comments/Comments';
 import { overviewServer } from '../../../profileServer';
-import { useListingContext } from '../../../../../contexts/ListingContext';
+// import { useListingContext } from '../../../../../contexts/ListingContext';
 
 function useQuery() {
   const { search } = useLocation();
@@ -34,10 +34,10 @@ function Content() {
   const sort = query.get('sort');
   const [posts, comments] = overviewServer(username, sort);
 
-  const { setPage } = useListingContext();
-  const fetchMoreData = () => {
-    setPage((page) => page + 1);
-  };
+  // const { setPage } = useListingContext();
+  // const fetchMoreData = () => {
+  //   setPage((page) => page + 1);
+  // };
 
   useEffect(() => {
     console.log(posts);
@@ -61,17 +61,17 @@ function Content() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            <InfiniteScroll
+            {/* <InfiniteScroll
               next={fetchMoreData}
               hasMore
               dataLength={posts.length}
-            >
+            > */}
               {mergeTwo(posts, comments, sort).map((entity, index) => (
                 (!entity.comments) ? <Posts key={`${index + 0}`} post={entity} condition="true" profile />
                   : (entity.author.name === username) ? <Posts key={`${index + 0}`} post={entity} condition="false" profile />
                     : <Comments key={`${index + 0}`} entity={entity} overview="true" profile />
               ))}
-            </InfiniteScroll>
+            {/* </InfiniteScroll> */}
           </>
           )}
     </ContentBox>
