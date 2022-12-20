@@ -38,7 +38,7 @@ function CreateComment() {
   // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
-    if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
+    if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text?.getCurrentContent())))) {
       setText(EditorState.createEmpty());
 
       // Need refresh post Component =>to pop comment
@@ -60,7 +60,7 @@ function CreateComment() {
           variant="contained"
           type="submit"
           onClick={comment}
-          disabled={draftToHtml(convertToRaw(text.getCurrentContent())).length === 8}
+          disabled={draftToHtml(convertToRaw(text?.getCurrentContent())).length === 8}
         >
           Comment
         </SaveButton>

@@ -2,6 +2,7 @@ import moment from 'moment/moment';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { deleteMessage } from '../../PostRepliesServer';
+import { AcceptServer } from '../MessagesDriveServer';
 import
 {
   Body, MessageBoddy, ReplayButton, Error,
@@ -29,18 +30,22 @@ function MessageBody({
   const handleUnread = () => {
     setUnread(true);
   };
-  const getBody = (type, user, subreddit, fixed) => {
+  const handleAccept = () => {
+    console.log('sa');
+    AcceptServer(Message?.subreddit.fixedName);
+  };
+  const getBody = (type, user, subreddit) => {
     let body = '';
     if (type === 'subredditBan') {
-      body = `u/${user} have been banned from participating in r/$subreddit.You can still view and subscribe to r/$subreddit,but you won't be able to post or comment.If you have a question regarding your ban,you can contact moderator theam for r/${subreddit}.`;
+      body = `u/${user} have been banned from participating in r/${subreddit}.You can still view and subscribe to r/${subreddit},but you won't be able to post or comment.If you have a question regarding your ban,you can contact moderator theam for r/${subreddit}.`;
     } else if (type === 'subredditMute') {
       body = `u/${user} have been muted from r/${subreddit}. You will not be able to message the moderators of r/${subreddit} for 3 days`;
     } else if (type === 'subredditModeratorInvite') {
-      body = `u/${user} is invited to become a moderator of r/$subreddit : r/${fixed}! \n to accept,visit the moderators page for r/${subreddit}.Otherwise if you did not expect to recieve this,you can simply ignore this invitation or report it. `;
+      body = `u/${user} is invited to become a moderator of r/${subreddit} : r/${subreddit}! \n to accept,visit the moderators page for r/${subreddit}.Otherwise if you did not expect to recieve this,you can simply ignore this invitation or report it. `;
     } else if (type === 'subredditModeratorRemove') {
-      body = `u/${user}: You have been removed as a moderator from r/$subreddit.If you have a question regarding your removal,tou can contact moderator of r/${subreddit}`;
+      body = `u/${user}: You have been removed as a moderator from r${subreddit}.If you have a question regarding your removal,tou can contact moderator of r/${subreddit}`;
     } else if (type === 'subredditApprove') {
-      body = `u/${user} have been added as an approved user to r/$subreddit : r/${fixed}`;
+      body = `u/${user} have been added as an approved user to r/${subreddit} : r/${subreddit}`;
     }
     return body;
   };
@@ -86,6 +91,8 @@ function MessageBody({
         <MessageContent>{ getBody(Message?.type, Message?.to.userName, Message?.subreddit.fixedName, Message?.subreddit.names)}</MessageContent>
         <Footer>
           <ReplayButton onClick={() => { handleDelete(); }}>Remove</ReplayButton>
+          { Message?.type === 'subredditModeratorInvite'
+          && <ReplayButton onClick={() => { handleAccept(); }}>Accept</ReplayButton>}
           {!unread && <ReplayButton onClick={() => { handleUnread(); }}>Mark Unread</ReplayButton>}
         </Footer>
       </MessageBoddy>
