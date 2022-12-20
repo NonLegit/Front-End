@@ -7,7 +7,7 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import {
   IconButton, Zoom, Box, Button,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import BeenhereOutlinedIcon from '@mui/icons-material/BeenhereOutlined';
@@ -19,12 +19,17 @@ import {
 import notificationsFetch from '../../../Notifications/notificationsServer';
 import NotificationCategories from '../../../Notifications/NotificationsBody/NotificationCategories/NotificationCategories';
 import { CategoriesContext } from '../../../Notifications/NotificationsBody/NotificationsBody';
+
 /**
  *  NavIcons
  * @component
  * @returns {React.Component} the three icons in the navbar (Popular - notifications - create post)
  */
 function NavIcons() {
+  const navigate = useNavigate();
+  const handleRoutePopular = () => {
+    navigate('/r/popular');
+  };
   const [today, setToday] = useState([]);
   const [select, setSelect] = useState(null);
   const [dataToday, dataEarlier] = notificationsFetch();
@@ -76,6 +81,7 @@ function NavIcons() {
           aria-label="show 17 new notifications"
           color="inherit"
           sx={{ '&:hover': { backgroundColor: 'transparent' } }}
+          onClick={handleRoutePopular}
         >
           <OutboundOutlinedIcon sx={{ color: grey[600], fontSize: 25 }} />
         </IconButton>

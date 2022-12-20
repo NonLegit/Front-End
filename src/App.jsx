@@ -313,15 +313,22 @@ function App() {
                       path="/r/:subReddit/about/"
                       element={
                         <Moderation />
-                  }
+                        }
                     >
                       <Route
                         path=":subTitle"
                         element={
                           <Moderation />
-                      }
+                          }
                       />
                     </Route>
+
+                    <Route
+                      path="t/:title"
+                      element={
+                        <Explore />
+                            }
+                    />
 
                     <Route
                       path="/r"
