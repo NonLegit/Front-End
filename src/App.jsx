@@ -27,8 +27,14 @@ import ForgetPasswordPage from './pages/ForgetPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 
 import HomePage from './pages/HomePage';
-import Messages from './pages/Messages';
+import MessageForm from './components/Messages/MessageForm/MessageForm';
+import MessageSent from './components/Messages/MessageSent/MessageSent';
+import MessagesAll from './components/Messages/MessagesAll/MessagesAll';
+import MessagesUnread from './components/Messages/MessagesUnread/MessagesUnread';
+import MessagesDrive from './components/Messages/MessagesDrive/MessagesDrive';
+import PostReplies from './components/Messages/PostReplies/PostReplies';
 import Moderation from './pages/Moderation';
+import Messages from './pages/Messages';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import CreatePost from './pages/CreatePost';
@@ -43,12 +49,6 @@ import theme from './styles/theme';
 import Cover from './components/SubReddit/Cover';
 import EditPostContextProvider from './contexts/EditPostContext';
 import { notificationToken } from './services/notificationToken';
-import MessageForm from './components/Messages/MessageForm/MessageForm';
-import MessageSent from './components/Messages/MessageSent/MessageSent';
-import MessagesAll from './components/Messages/MessagesAll/MessagesAll';
-import MessagesUnread from './components/Messages/MessagesUnread/MessagesUnread';
-import MessagesDrive from './components/Messages/MessagesDrive/MessagesDrive';
-import PostReplies from './components/Messages/PostReplies/PostReplies';
 import AllPage from './pages/AllPage';
 import CreatePostSidebarContextProvider from './contexts/CreatePostSidebarContext';
 import ErrorPage from './pages/ErrorPage';
@@ -58,7 +58,7 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
-  const [showNotificationBanner, setShowNotificationBanner] = useState(false);// Notification.permission === 'default'
+  const [showNotificationBanner, setShowNotificationBanner] = useState(false); // Notification.permission === 'default'
   const handleGetFirebaseToken = () => {
     if (showNotificationBanner) {
       getFirebaseToken()
@@ -81,9 +81,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-
       <CssBaseline />
-
       <CreatePostSidebarContextProvider>
         <ListingContextProvider>
           <PostTypeContextProvider>
@@ -92,311 +90,125 @@ function App() {
                 <Router className="App">
                   <MainNavBar />
                   <Routes>
-                    <Route
-                      path="/"
-                      element={
-                        <HomePage data-testid="home page" />
-                  }
-                    />
-                    <Route
-                      path="/r/popular"
-                      element={
-                        <PopularPage />
-                }
-                    />
-                    <Route
-                      path="/:postClass"
-                      element={
-                        <HomePage />
-                  }
-                    />
-                    <Route
-                      path="/r/popular"
-                      element={
-                        <PopularPage />
-                }
-                    />
-                    <Route
-                      path="/r/popular/:postClass"
-                      element={
-                        <PopularPage />
-                }
-                    />
-                    <Route
-                      path="/r/all"
-                      element={
-                        <AllPage />
-                }
-                    />
-                    <Route
-                      path="/r/all/:postClass"
-                      element={
-                        <AllPage />
-                }
-                    />
-                    <Route
-                      path="/user/:username"
-                      element={
-                        <Profile />
-                    }
-                    >
+                    <Route path="/" element={<HomePage data-testid="home page" />} />
+                    <Route path="/subreddits/leaderboard" element={<TopCommunitiesPage />}>
+                      <Route path=":category" element={<TopCommunitiesPage />} />
+                    </Route>
+                    <Route path="/r/popular" element={<PopularPage />} />
+                    <Route path="/:postClass" element={<HomePage />} />
+                    <Route path="/r/popular" element={<PopularPage />} />
+                    <Route path="/r/popular/:postClass" element={<PopularPage />} />
+                    <Route path="/r/all" element={<AllPage />} />
+                    <Route path="/r/all/:postClass" element={<AllPage />} />
+                    <Route path="/user/:username" element={<Profile />}>
+                      <Route path="" element={<MainProfile />} />
 
-                      <Route
-                        path=""
-                        element={
-                          <MainProfile />
-                    }
-                      />
-
-                      <Route
-                        path=":subTitle"
-                        element={
-                          <MainProfile />
-                    }
-                      />
-                      <Route
-                        path="comments/:postID"
-                        element={
-                          <PostPage />
-                    }
-                      />
+                      <Route path=":subTitle" element={<MainProfile />} />
+                      <Route path="comments/:postID" element={<PostPage />} />
                     </Route>
 
-                    <Route
-                      path="/login"
-                      element={
-                        <LogInPage />
-                  }
-                    />
-                    <Route
-                      path="/register"
-                      element={
-                        <SignUpPage />
-                  }
-                    />
-                    <Route
-                      path="/password"
-                      element={
-                        <ForgetPasswordPage />
-                  }
-                    />
-                    <Route
-                      path="/resetpassword/:token"
-                      element={
-                        <ResetPasswordPage />
-                  }
-                    />
+                    <Route path="/login" element={<LogInPage />} />
+                    <Route path="/register" element={<SignUpPage />} />
+                    <Route path="/password" element={<ForgetPasswordPage />} />
+                    <Route path="/resetpassword/:token" element={<ResetPasswordPage />} />
 
-                    <Route
-                      path="/username"
-                      element={
-                        <ForgetUsernamePage />
-                  }
-                    />
-                    <Route
-                      path="/search"
-                      element={
-                        <Search />
-                  }
-                    />
+                    <Route path="/username" element={<ForgetUsernamePage />} />
+                    <Route path="/search" element={<Search />} />
                     <Route
                       path="messages"
                       element={
                         <Messages />
-          }
+                                          }
                     >
                       <Route
                         path="inbox"
                         element={
                           <MessagesAll />
-          }
+                                              }
                       />
                       <Route
                         path="unread"
                         element={
                           <MessagesUnread />
-          }
+                                              }
                       />
                       <Route
                         path="compose"
                         element={
                           <MessageForm />
-          }
+                                              }
                       />
                       <Route
                         path="selfreply"
                         element={
                           <PostReplies />
-          }
+                                              }
                       />
                       <Route
                         path="messages"
                         element={
                           <MessagesDrive />
-          }
+                                              }
                       />
                       <Route
                         path="sent"
                         element={
                           <MessageSent />
-          }
-                      />
-                    </Route>
-                    <Route
-                      path="/submit"
-                      element={
-                        <CreatePost />
-                  }
-                    />
-
-                    <Route
-                      path="/submit/r/:subredditName"
-                      element={
-                        <CreatePost />
-                  }
-                    />
-
-                    <Route
-                      path="/notifications"
-                      element={
-                        <Notifications />
-                  }
-                    />
-
-                    <Route
-                      path="/r/:Name"
-                      element={
-                        <SubReddit />
-                  }
-                    >
-                      <Route
-                        path=""
-                        element={
-                          <Cover />
-                    }
-                      />
-                      <Route
-                        path=":postClass"
-                        element={
-                          <Cover />
-                    }
-                      />
-
-                      <Route
-                        path="comments/:postID"
-                        element={
-                          <PostPage />
-                    }
+                                              }
                       />
                     </Route>
 
-                    <Route
-                      path="/settings"
-                      element={
-                        <Settings />
-                  }
-                    >
-                      <Route
-                        path=""
-                        element={
-                          <SettingsAccount />
-                    }
-                      />
-                      <Route
-                        path="account"
-                        element={
-                          <SettingsAccount />
-                    }
-                      />
-                      <Route
-                        path="profile"
-                        element={
-                          <SettingsProfile />
-                    }
-                      />
-                      <Route
-                        path="privacy"
-                        element={
-                          <SettingsPrivacy />
-                    }
-                      />
-                      <Route
-                        path="feed"
-                        element={
-                          <SettingsFeed />
-                    }
-                      />
+                    <Route path="/submit" element={<CreatePost />} />
+
+                    <Route path="/submit/r/:subredditName" element={<CreatePost />} />
+                    <Route path="/submit/:source" element={<CreatePost />} />
+                    <Route path="/submit/:source/r/:subredditName" element={<CreatePost />} />
+
+                    <Route path="/notifications" element={<Notifications />} />
+
+                    <Route path="/r/:Name" element={<SubReddit />}>
+                      <Route path="" element={<Cover />} />
+                      <Route path=":postClass" element={<Cover />} />
+
+                      <Route path="comments/:postID" element={<PostPage />} />
                     </Route>
 
-                    <Route
-                      path="/r/:subReddit/about/"
-                      element={
-                        <Moderation />
-                  }
-                    >
-                      <Route
-                        path=":subTitle"
-                        element={
-                          <Moderation />
-                    }
-                      />
+                    <Route path="/settings" element={<Settings />}>
+                      <Route path="" element={<SettingsAccount />} />
+                      <Route path="account" element={<SettingsAccount />} />
+                      <Route path="profile" element={<SettingsProfile />} />
+                      <Route path="privacy" element={<SettingsPrivacy />} />
+                      <Route path="feed" element={<SettingsFeed />} />
                     </Route>
-                    <Route
-                      path="/subreddits/leaderboard"
-                      element={
-                        <TopCommunitiesPage />
-                  }
-                    >
-                      <Route
-                        path="/r"
-                        element={(
-                          <SubReddit />
-                  )}
-                      >
 
-                        <Route
-                          path=":Name"
-                          element={
-                            <Cover />
-                    }
-                        >
+                    <Route path="/r/:subReddit/about/" element={<Moderation />}>
+                      <Route path=":subTitle" element={<Moderation />} />
+                    </Route>
 
-                          <Route
-                            path=":category"
-                            element={
-                              <TopCommunitiesPage />
-                  }
-                          />
+                    <Route path="/r" element={<SubReddit />}>
+                      <Route path=":Name" element={<Cover />}>
+                        <Route path=":postClass" element={<Cover />} />
+
+                        <Route path="comments/:postID" element={<PostPage />}>
+                          <Route path="" element={<PostPage />} />
+                          <Route path=":commentID" element={<PostPage />} />
                         </Route>
-
-                        <Route
-                          path="/:postClass"
-                          element={
-                            <HomePage />
-                  }
-                        />
-
-                        <Route
-                          path="comments/:postID"
-                          element={
-                            <PostPage />
-                      }
-                        />
                       </Route>
-
                     </Route>
-                    <Route
-                      path="/verification/:token"
-                      element={
-                        <VerifyEmailPage />
-                  }
-                    />
+
                     <Route
                       path="/*"
                       element={
                         <ErrorPage />
-                  }
+                                          }
                     />
+                    <Route
+                      path="/verification/:token"
+                      element={
+                        <VerifyEmailPage />
+                                          }
+                    />
+
                   </Routes>
                 </Router>
               </EditPostContextProvider>
@@ -404,7 +216,6 @@ function App() {
           </PostTypeContextProvider>
         </ListingContextProvider>
       </CreatePostSidebarContextProvider>
-
     </ThemeProvider>
   );
 }

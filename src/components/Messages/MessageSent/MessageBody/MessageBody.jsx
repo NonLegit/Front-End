@@ -49,7 +49,7 @@ function MessageBody({
   return (
     <Body index={index}>
       <MessageHeader>
-        {Message?.subject.text}
+        {Message?.subject?.text}
         :
       </MessageHeader>
       <MessageBoddy>
