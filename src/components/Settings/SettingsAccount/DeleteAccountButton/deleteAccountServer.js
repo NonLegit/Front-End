@@ -1,28 +1,26 @@
+import { removeRedditCookie } from '../../../Authentication/authenticationServer';
 import axios from '../../../../services/instance';
 import { redirectLogin } from '../../../../utils/Redirect';
 
-export const deleteAccount = async (prefs) => {
-  const api = '/users/me/prefs';
-  let message = '';
-  let flag = 'error';
-  console.log(prefs);
-  await axios.patch(`${api}`, prefs)
-    .then((response) => {
-      console.log(response);
-
-      flag = 'success';
-      message = 'operation done successfully';
-    }).catch((error) => {
-      console.log(error);
-      message = 'Operation failed';
-
-      if (error.message !== 'Network Error') {
-        if (error?.response.status === 401) {
-          redirectLogin();
-        } else {
-          message = 'Operation failed';
-        }
-      }
-    });
-  return [message, flag];
+export const deleteAccount = (userName, password) => {
+  console.log('deleteAccount', userName, password);
+  axios.post(
+    '/users/delete_account',
+    {
+      userName,
+      password,
+    },
+  ).then((response) => {
+    console.log('users/delete_account', response);
+    if (response?.status === 204) {
+      // Deteletd Sucessfully
+      alert('User Deleted Sucessfully');
+      removeRedditCookie();
+      redirectLogin(10);
+    }
+  }).catch((error) => {
+    // 404
+    console.log(error);
+    alert(error?.response?.data?.message);
+  });
 };

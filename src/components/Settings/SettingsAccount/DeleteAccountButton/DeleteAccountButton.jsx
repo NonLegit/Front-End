@@ -6,14 +6,26 @@ import {
   PargraphSmall, TeaxArea, CancelButton,
   Input, CheckBox, CheckText, Footer, SaveBtn,
 } from './styles';
+import { deleteAccount } from './deleteAccountServer';
 
 function DeleteAccountButton({ setOpenPass }) {
   const [checked, setChecked] = useState(false);
-  const [condition, setCondition] = useState(false);
+  // const [condition, setCondition] = useState(false);
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const checkSubmission = () => {
-    if (condition) {
-      setCondition(true);
-    }
+    deleteAccount(username, password);
+    // console.log(condition);
+    // if (condition && username?.length > 0 && password?.length > 0) {
+    //   setCondition(true);
+    // }
+    console.log('checkSubmission');
+    console.log(username);
+    console.log(password);
+    console.log(checked);
+    // Call End Point
   };
 
   return (
@@ -38,8 +50,19 @@ function DeleteAccountButton({ setOpenPass }) {
       <PargraphSmall>
         VERIFY YOUR IDENTITY
       </PargraphSmall>
-      <Input placeholder="UserName" />
-      <Input placeholder="Password" />
+      <Input
+        placeholder="UserName"
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      />
+      <Input
+        placeholder="Password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+
       <CheckBox>
         <Checkbox
           disableRipple
@@ -53,7 +76,17 @@ function DeleteAccountButton({ setOpenPass }) {
       </CheckBox>
       <Footer>
         <CancelButton>Cancel</CancelButton>
-        <SaveBtn variant="contained" condition={condition} onClick={() => { checkSubmission(); }}>Save email</SaveBtn>
+        <SaveBtn
+          variant="contained"
+          condition={checked && username?.length > 0 && password?.length > 0}
+          onClick={() => {
+            console.log(username);
+            console.log(password);
+            checkSubmission();
+          }}
+        >
+          Delete Account
+        </SaveBtn>
       </Footer>
     </Contanier>
   );
