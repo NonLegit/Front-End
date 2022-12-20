@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import useFetch from '../../hooks/useFetch';
 import axios from '../../services/instance';
+import useFetchProfile from '../../hooks/useFetchProfile';
 
 export const postsCommentsServer = (name, type, sortType) => {
   const [data, dataError, statusCode] = useFetch(`users/${name}/${type}/?sort=${sortType}`);
@@ -13,9 +14,9 @@ export const postsCommentsServer = (name, type, sortType) => {
   return [data?.posts];
 };
 
-export const overviewServer = (name, sortType) => {
+export const overviewServer = (name, sort) => {
   if (name === ' ') { return null; }
-  const [data, dataError, statusCode] = useFetch(`users/${name}/overview/?sort=${sortType}`);
+  const [data, dataError, statusCode] = useFetchProfile(`users/${name}/overview`, sort);
   useEffect(() => {
     if (statusCode === 401) {
       window.location.pathname = 'login';

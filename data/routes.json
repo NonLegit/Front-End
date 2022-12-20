@@ -19,7 +19,7 @@
     "/users/me/prefs": "/settings",
     "/subreddits/mine/moderator": "/subreddits",
     "/subreddits/moderator/:name": "/userSubreddits",
-    "/users/:name/overview": "/overview",
+    "/users/:name/overview?sort=:sortType&limit=:limit&page=:page": "/overview",
     "/users/:name/posts": "/postsTap",
     "/users/:name/comments": "/commentsTap",
     "/users/upvoted": "/upvoted",
