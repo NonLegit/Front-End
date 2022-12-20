@@ -116,6 +116,9 @@ function Post(props) {
       };
     });
   }, [images]);
+  if (sharedFrom) {
+    console.log('posty shared', props);
+  }
 
   // console.log('for post ', postId, maxImagesHeight);
   return (

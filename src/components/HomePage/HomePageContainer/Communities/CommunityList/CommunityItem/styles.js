@@ -3,6 +3,7 @@ import { styled } from '@mui/system';
 
 export const CommunityListItem = styled(ListItem)(() => ({
   padding: 8,
+  cursor: 'pointer',
 }));
 export const CommunityName = styled(Typography)(() => ({
   fontSize: 14,
