@@ -5,7 +5,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
 import {
-  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer,
+  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer, TextContainer,
 } from '../../../styles';
 
 import MoreDetails from '../MoreDetails/MoreDetails';
@@ -53,7 +53,7 @@ function BannedUser(props) {
             </Typography>
           </Box>
         </UserContainer>
-        <Box sx={{ display: 'flex', width: '100%' }}>
+        <TextContainer>
           <Typography
             padding="8px"
             fontSize="12px"
@@ -79,7 +79,7 @@ function BannedUser(props) {
           >
             {punishType}
           </Typography>
-        </Box>
+        </TextContainer>
         <UsermngButtonContainer>
           <UserMngButton
             disableRipple

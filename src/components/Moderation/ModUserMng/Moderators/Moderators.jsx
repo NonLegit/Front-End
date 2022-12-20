@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
-  QueueBox, QueueText, ControlBar, InstanceContainer,
+  QueueBox, QueueText, ControlBar, ModeratorsTypeContainer,
 } from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import LeavePopUp from './LeavePopUp/LeavePopUp';
@@ -73,9 +73,9 @@ function Moderator(props) {
         </QueueText>
       </QueueBox>
       <SearchBar />
-      <InstanceContainer>
+      <ModeratorsTypeContainer>
         <ModeratorsList />
-      </InstanceContainer>
+      </ModeratorsTypeContainer>
     </ModMainPage>
   );
 }

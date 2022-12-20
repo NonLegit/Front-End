@@ -15,11 +15,12 @@ function BanNote(props) {
     <StyledBox>
       <StyledFont>MOD NOTE</StyledFont>
       <TextField
+        id="banNote"
         placeholder="Mod Note"
         size="small"
         fullWidth
         inputProps={{
-          maxlength: CHARACTER_LIMIT,
+          maxLength: CHARACTER_LIMIT,
         }}
         value={values.name}
         helperText={`${CHARACTER_LIMIT - values.name.length} Characters remaining`}

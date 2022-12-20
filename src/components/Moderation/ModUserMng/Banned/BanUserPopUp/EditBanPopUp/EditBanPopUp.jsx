@@ -22,7 +22,7 @@ function EditBanPopUp(props) {
       fullScreen
       open={openEditBan}
       width="538px"
-      height="525px"
+      height="545px"
     >
       <Box>
         <EditBanHeader handleClickCloseBan={handleClickCloseEditBan} userName={userName} />

@@ -32,7 +32,7 @@ function RemovePopUp(props) {
         </Typography>
       </Box>
       <FooterContainer>
-        <Footer buttonFunction={handleClickCloseRemove} firstButtonText="Cancel" secondButtonText="Remove" />
+        <Footer firstButtonFunction={handleClickCloseRemove} firstButtonText="Cancel" secondButtonText="Remove" />
       </FooterContainer>
     </StyledDialog>
   );

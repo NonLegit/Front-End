@@ -25,7 +25,7 @@ function ModerationList() {
   const navigate = useNavigate();
 
   // navigate
-  const handleClick = (subPage) => {
+  const handleClick = (e, subPage) => {
     navigate(`${subPage}`);
   };
 
@@ -34,7 +34,7 @@ function ModerationList() {
       <ListItemButton disableTouchRipple onClick={handleClickModList}>
         {/* <ListItemText primary="Mod" sx={{ color: 'black', paddingLeft: '5px' }} /> */}
         <HeaderText>
-          <HeaderLink href="/" underline="none">
+          <HeaderLink underline="none">
             r/
             {subReddit}
           </HeaderLink>
@@ -59,7 +59,7 @@ function ModerationList() {
             <ListItemText primary="QUEUES" sx={{ color: 'black', paddingLeft: '5px' }} />
           </ListItemButton>
           {['Spam', 'Edited', 'Unmoderated'].map((items, index) => (
-            <ListItemButton key={`${index + 0}`} onClick={() => { handleClick(`${items}`); }}>
+            <ListItemButton key={`${index + 0}`} onClick={(e) => { handleClick(e, `${items}`); }}>
               <ListItemText primary={items} />
             </ListItemButton>
           ))}
@@ -68,7 +68,7 @@ function ModerationList() {
             <ListItemText primary="USER MANAGEMENT" sx={{ color: 'black', paddingLeft: '5px' }} />
           </ListItemButton>
           {['Banned', 'Muted', 'Approved', 'Moderators'].map((items, index) => (
-            <ListItemButton key={`${index + 0}`} onClick={() => { handleClick(`${items}`); }}>
+            <ListItemButton key={`${index + 0}`} onClick={(e) => { handleClick(e, `${items}`); }}>
               <ListItemText primary={items} />
             </ListItemButton>
           ))}
@@ -77,7 +77,7 @@ function ModerationList() {
             <ListItemText primary="FLAIR & EMOJIES" sx={{ color: 'black', paddingLeft: '5px' }} />
           </ListItemButton>
           {['Post flair'].map((items, index) => (
-            <ListItemButton key={`${index + 0}`} onClick={() => { handleClick(`${items}`); }}>
+            <ListItemButton key={`${index + 0}`} onClick={(e) => { handleClick(e, `${items}`); }}>
               <ListItemText primary={items} />
             </ListItemButton>
           ))}
@@ -86,7 +86,7 @@ function ModerationList() {
             <ListItemText primary="RULES AND REGULATIONS" sx={{ color: 'black', paddingLeft: '5px' }} />
           </ListItemButton>
           {['Rules', 'Removal reasons', 'Content controls'].map((items, index) => (
-            <ListItemButton key={`${index + 0}`} onClick={() => { handleClick(`${items}`); }}>
+            <ListItemButton key={`${index + 0}`} onClick={(e) => { handleClick(e, `${items}`); }}>
               <ListItemText primary={items} />
             </ListItemButton>
           ))}

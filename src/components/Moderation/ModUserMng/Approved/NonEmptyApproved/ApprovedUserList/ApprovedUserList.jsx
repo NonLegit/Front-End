@@ -1,22 +1,29 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { mutedFetch } from './MutedServer';
-import MutedUser from '../MutedUser/MutedUser';
+import { ApprovedFetch } from './ApprovedServer';
+import ApprovedUser from '../ApprovedUser/ApprovedUser';
+import calculateTime from '../../../../../../utils/calculateTime';
 import SearchBar from '../../../SearchBar/SearchBar';
 import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
 
-function MutedUserList() {
+function ApprovedUserList() {
   const [data, setData] = React.useState('');
   const childToParent = (childData) => {
     setData(childData);
   };
+
   const { subReddit } = useParams();
-  const [MutedUsers] = mutedFetch(subReddit);
+  const [ApprovedUsers] = ApprovedFetch(subReddit);
+
   const [filteredData, setfilteredData] = React.useState([]);
+
   React.useEffect(() => {
-    setfilteredData(MutedUsers?.filter((user) => user.userName.toLowerCase().includes(data)));
-  }, [data, MutedUsers]);
+    setfilteredData(ApprovedUsers.filter((user) => user.userName.toLowerCase().includes(data)));
+    return () => {
+
+    };
+  }, [data, ApprovedUsers]);
 
   return (
     <>
@@ -34,14 +41,22 @@ function MutedUserList() {
        (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
       }
       {
-        filteredData?.map((user) => (
-          <MutedUser
-            user={user}
-          />
-        ))
+        filteredData.map((user) => {
+          const {
+            id, userName, profilePicture, joiningDate,
+          } = user;
+          console.log(id);
+          return (
+            <ApprovedUser
+              userName={userName}
+              profilePicture={profilePicture}
+              joiningDate={calculateTime(joiningDate)}
+            />
+          );
+        })
       }
     </>
   );
 }
 
-export default MutedUserList;
+export default ApprovedUserList;

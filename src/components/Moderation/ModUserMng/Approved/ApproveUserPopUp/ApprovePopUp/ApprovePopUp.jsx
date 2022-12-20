@@ -14,7 +14,7 @@ function ApprovePopUp() {
   return (
     <StyledDialog
       fullScreen
-      height="168px"
+      height="185px"
       width="410px"
       open={openApprove}
     >
@@ -24,7 +24,7 @@ function ApprovePopUp() {
         <Username placeholder="Enter username" />
       </Box>
       <FooterContainer>
-        <Footer buttonFunction={handleClickCloseApprove} firstButtonText="Cancel" secondButtonText="Add user" />
+        <Footer firstButtonFunction={handleClickCloseApprove} firstButtonText="Cancel" secondButtonText="Add user" />
       </FooterContainer>
     </StyledDialog>
   );

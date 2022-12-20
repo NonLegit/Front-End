@@ -12,7 +12,7 @@ function MoreDetails(props) {
           fontSize="14px"
           color="#878A8C"
         >
-          {modNote}
+          {modNote.muteMessage}
         </Typography>
       </Box>
     </StyledDetails>

@@ -1,4 +1,4 @@
-export const MutedUsers = JSON.parse(`[
+[
     {
       "_id": "0",
       "userName": "fady",
@@ -53,4 +53,4 @@ export const MutedUsers = JSON.parse(`[
         "muteMessage": "muted6"
       }
     }
-]`);
+]

@@ -6,7 +6,7 @@ import { InvitationContext } from '../Moderators';
 import Header from '../../Header/Header';
 import Username from '../../Username/Username';
 import Foooter from '../../Footer/Footer';
-import Permissions from './Permissions/Persmissions';
+import Permissions from '../Permissions/Persmissions';
 
 function InvitationPopUp() {
   const {

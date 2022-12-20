@@ -56,7 +56,13 @@ const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
-const baned = require('./banedList.json');
+const banned = require('./bannedList.json');
+const muted = require('./mutedList.json');
+const moderators = require('./moderatorsList.json');
+const approved = require('./approvedList.json');
+const muteUnmute = require('./muteUnmuteList.json');
+const approvedUnapproved = require('./approvedUnapprovedList.json');
+const banUnban = require('./banUnban.json');
 // Something more
 
 module.exports = () => ({
@@ -120,6 +126,12 @@ module.exports = () => ({
   listBlock,
   notificationToken,
   moderatorAction,
-  baned,
+  banned,
+  muted,
+  moderators,
+  approved,
+  muteUnmute,
+  approvedUnapproved,
+  banUnban,
   // Something more
 });

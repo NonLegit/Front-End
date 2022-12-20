@@ -1,13 +1,20 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
+import { useParams } from 'react-router';
 import { StyledDialog, FooterContainer } from '../../../styles';
 import { UnmuteContext } from '../../NonEmptyMuted/MutedUser/MutedUser';
 import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
+import { MuteUnmuteUser } from '../MuteServer';
 
 function UnmutePopUp(props) {
+  const { subReddit } = useParams();
   const { userName } = props;
+  const handleUnmute = () => {
+    MuteUnmuteUser(userName, '', subReddit, 'unmute');
+  };
+
   const {
     openUnmute, handleClickCloseUnmute,
   } = React.useContext(UnmuteContext);
@@ -31,7 +38,7 @@ function UnmutePopUp(props) {
         </Typography>
       </Box>
       <FooterContainer>
-        <Footer buttonFunction={handleClickCloseUnmute} firstButtonText="Cancel" secondButtonText="Unmute" />
+        <Footer firstButtonFunction={handleClickCloseUnmute} firstButtonText="Cancel" secondButtonFunction={handleUnmute} secondButtonText="Unmute" />
       </FooterContainer>
     </StyledDialog>
   );

@@ -10,7 +10,11 @@ import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
 
-function ApprovedUser() {
+function ApprovedUser(props) {
+  const {
+    userName, profilePicture, joiningDate,
+  } = props;
+
   const [openRemove, setOpenRemove] = React.useState(false);
 
   const handleClickOpenRemove = () => { setOpenRemove(true); };
@@ -25,14 +29,14 @@ function ApprovedUser() {
         <RemovePopUp />
       </RemoveContext.Provider>
       <UserContainer>
-        <StyledAvatar variant="square" />
+        <StyledAvatar variant="square" src={profilePicture} />
         <Box>
           <Typography
             padding="8px"
             fontSize="15px"
             fontWeight="bold"
           >
-            username
+            {userName}
           </Typography>
         </Box>
       </UserContainer>
@@ -42,7 +46,7 @@ function ApprovedUser() {
           fontSize="12px"
           color="#878A8C"
         >
-          2 hours ago
+          {joiningDate}
         </Typography>
       </Box>
       <UsermngButtonContainer>

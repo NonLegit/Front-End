@@ -2,7 +2,9 @@ import { StyledBox } from './styles';
 import { RedditButton } from '../../styles';
 
 function Footer(props) {
-  const { buttonFunction, firstButtonText, secondButtonText } = props;
+  const {
+    firstButtonFunction, firstButtonText, secondButtonFunction, secondButtonText,
+  } = props;
   return (
     <StyledBox>
       <RedditButton
@@ -10,7 +12,7 @@ function Footer(props) {
         padding="0px 24px 0px 24px"
         fontWeight="bold"
         variant="outlined"
-        onClick={buttonFunction}
+        onClick={firstButtonFunction}
         disableRipple
         disableFocusRipple
       >
@@ -24,6 +26,7 @@ function Footer(props) {
         variant="contained"
         disableRipple
         disableFocusRipple
+        onClick={secondButtonFunction}
       >
         {secondButtonText}
       </RedditButton>

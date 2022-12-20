@@ -1,10 +1,9 @@
 import React from 'react';
-// import { BannedUsers } from '../../List';
 import { useParams } from 'react-router-dom';
 import { bannedFetch } from './BannedServer';
 import BannedUser from '../BannedUser/BannedUser';
-import calculateTime from '../../../utils/calculateTime';
-import SearchBar from '../../../SearchBar/SearchBar';
+import calculateTime from '../../../../../../utils/calculateTime';
+// import SearchBar from '../../../SearchBar/SearchBar';
 import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
 
@@ -13,6 +12,7 @@ function BannedUserList() {
   const childToParent = (childData) => {
     setData(childData);
   };
+
   const { subReddit } = useParams();
   const [BannedUsers] = bannedFetch(subReddit);
   const [filteredData, setfilteredData] = React.useState([]);
@@ -23,7 +23,7 @@ function BannedUserList() {
 
   return (
     <>
-      <SearchBar childToParent={childToParent} />
+      {/* <SearchBar childToParent={childToParent} /> */}
       {
         (filteredData.length !== 0 && data !== '') && (
         <SearchResultBar
@@ -37,11 +37,10 @@ function BannedUserList() {
        (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
       }
       {
-      filteredData.map((user) => {
+      filteredData?.map((user) => {
         const {
-          id, userName, profilePicture, banDate, baninfo,
+          userName, profilePicture, banDate, baninfo,
         } = user;
-        console.log(id);
         return (
           <BannedUser
             userName={userName}

@@ -6,7 +6,7 @@ import {
 
 function BanReason(props) {
   const { punishType } = props;
-  const [punishTypeState, setpunishType] = React.useState('');
+  const [punishTypeState, setpunishType] = React.useState(punishType);
 
   const handleChangeComboBox = (event) => {
     setpunishType(event.target.value);
@@ -15,7 +15,7 @@ function BanReason(props) {
     <StyledBox>
       <StyledFont>REASON FOR BAN</StyledFont>
       <Select
-        defaultValue={punishType}
+        id="reason"
         fullWidth
         value={punishTypeState}
         onChange={handleChangeComboBox}

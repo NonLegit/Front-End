@@ -5,17 +5,16 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
 import {
-  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer,
+  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer, TextContainer,
 } from '../../../styles';
 import MoreDetails from '../MoreDetails/MoreDetails';
 import UnmutePopUp from '../../MuteUserPopUp/UnmutePopUp/UnmutePopUp';
+import calculateTime from '../../../../../../utils/calculateTime';
 
 export const UnmuteContext = React.createContext();
 
-function BannedUser(props) {
-  const {
-    userName, profilePicture, joiningDate, modNote,
-  } = props;
+function MutedUser(props) {
+  const { user } = props;
 
   const [openUnmute, setOpenUnmute] = React.useState(false);
 
@@ -33,29 +32,29 @@ function BannedUser(props) {
           openUnmute, handleClickCloseUnmute,
         }}
         >
-          <UnmutePopUp userName={userName} />
+          <UnmutePopUp userName={user.userName} />
         </UnmuteContext.Provider>
         <UserContainer>
-          <StyledAvatar src={profilePicture} variant="square" sx={{ width: '32px', height: '32px' }} />
+          <StyledAvatar src={user.profilePicture} variant="square" sx={{ width: '32px', height: '32px' }} />
           <Box>
             <Typography
               padding="8px"
               fontSize="15px"
               fontWeight="bold"
             >
-              {userName}
+              {user.userName}
             </Typography>
           </Box>
         </UserContainer>
-        <Box sx={{ display: 'flex', width: '100%' }}>
+        <TextContainer>
           <Typography
             padding="8px"
             fontSize="12px"
             color="#878A8C"
           >
-            {joiningDate}
+            {calculateTime(user.joiningDate)}
           </Typography>
-        </Box>
+        </TextContainer>
         <UsermngButtonContainer>
           <UserMngButton
             disableRipple
@@ -74,8 +73,8 @@ function BannedUser(props) {
           </UserMngButton>
         </UsermngButtonContainer>
       </UserBar>
-      <MoreDetails modNote={modNote} isOpened={isOpened} />
+      <MoreDetails modNote={user.muteInfo} isOpened={isOpened} />
     </>
   );
 }
-export default BannedUser;
+export default MutedUser;

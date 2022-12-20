@@ -1,13 +1,16 @@
-import { Moderators } from '../../List';
+// import { Moderators } from '../../List';
+import { useParams } from 'react-router-dom';
+import { moderatorsFetch } from './moderatorsServer';
 import NonEmptyModerator from '../NonEmptyModerator';
-import calculateTime from '../../../utils/calculateTime';
+import calculateTime from '../../../../../../utils/calculateTime';
 
 function ModeratorsList() {
+  const { subReddit } = useParams();
+  const [moderators] = moderatorsFetch(subReddit);
   return (
     <>
-
       {
-      Moderators.map((user) => {
+      moderators.map((user) => {
         const {
           id, userName, joiningDate, profilePicture, moderatorPermissions,
         } = user;
@@ -28,7 +31,7 @@ function ModeratorsList() {
       })
     }
       {
-      Moderators.map((user) => {
+      moderators.map((user) => {
         const {
           id, userName, joiningDate, profilePicture, moderatorPermissions,
         } = user;
@@ -49,7 +52,7 @@ function ModeratorsList() {
       })
     }
       {
-      Moderators.map((user) => {
+      moderators.map((user) => {
         const {
           id, userName, joiningDate, profilePicture, moderatorPermissions,
         } = user;

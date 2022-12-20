@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from '../../../../../../services/instance';
 
-export const bannedFetch = (subredditName) => {
+export const ApprovedFetch = (subredditName) => {
   const [data, setData] = useState([]);
 
-  const api = `/subreddits/${subredditName}/banned`;
+  const api = `/subreddits/${subredditName}/approved`;
   useEffect(() => {
     axios.get(api) // fetch api
       .then((actualData) => {

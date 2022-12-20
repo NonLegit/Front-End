@@ -40,7 +40,7 @@ function EditBanFooter(props) {
           disableRipple
           disableFocusRipple
         >
-          Ban user
+          Edit
         </RedditButton>
       </Box>
     </StyledBox>
