@@ -85,8 +85,8 @@ function OtherProfilePostHeader(props) {
         <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
           cross posted by
           {' '}
-          <LinkCross to={`/user/${sharedFrom.author.name}`}>
-            {sharedFrom.author.name}
+          <LinkCross to={`/user/${sharedFrom?.author?.name}`}>
+            {sharedFrom?.author?.name}
           </LinkCross>
         </Typography>
       </>

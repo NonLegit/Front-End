@@ -54,6 +54,7 @@ function Posts(props) {
   }, [post, communitiesSubscriber]);
 
   useEffect(() => {
+    console.log(post?.sharedFrom);
     if (post.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === post.owner.name).length > 0) {
       setMod(true);
     }
@@ -127,7 +128,6 @@ function Posts(props) {
             ) : !isNsfw && post?.sharedFrom && (
             <CrossPost
               post={post?.sharedFrom}
-
             />
             )}
 

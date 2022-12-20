@@ -56,6 +56,8 @@
     "/comments":"/createcomment",
     "/comments/comment_tree/:postID":"/postcomments",
     "/comments/more_children":"/morecomments",
+    "/comments/:id/:action":"/commentMod",
+    "/comments/:id/moderate/:action":"/commentMod",
     "/posts/:postId/save":"/save",
     "/posts/:postId/unsave":"/unsave",
     "/posts/:postId/hide":"/hide",

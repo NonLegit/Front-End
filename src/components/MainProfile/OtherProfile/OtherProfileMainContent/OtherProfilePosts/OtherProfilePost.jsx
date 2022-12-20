@@ -3,6 +3,7 @@ import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { useState, useContext, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import { CommunitiesContext } from '../../../../../contexts/CommunitiesModeratorContext';
 import { useEditPostContext } from '../../../../../contexts/EditPostContext';
 import {
   EmptyImage,
@@ -19,6 +20,7 @@ import OtherProfilePostHeader from './OtherProfilePostHeader/OtherProfilePostHea
 import OtherProfilePostFooter from './OtherProfileFooter/OtherProfilePostFooter';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import { CommunitiesSubscriberContext } from '../../../../../contexts/CommunitiesSubscriberContext';
+import { actionOnPost, moderationAction } from '../../../profileServer';
 
 /**
  * the post that appear in posts - saved - hidden - upvoted - downvotep taps
@@ -37,18 +39,53 @@ function OtherProfilePost(props) {
   const [subTitle, setSubTitle] = useState(type);
   const [notJoined, setNotJoined] = useState(false);
   const { username } = useContext(UserContext);
-  const { communities } = useContext(CommunitiesSubscriberContext);
+  const { communities } = useContext(CommunitiesContext);
+  const { communitiesSubscriber } = useContext(CommunitiesSubscriberContext);
+  const [modList, setModList] = useState(false);
+  const [isNsfw, setIsNsfw] = useState(entity?.nsfw);
+  const [isSpoiler, setIsSpoiler] = useState(entity?.spoiler);
+  const [isLocked, setIsLocked] = useState(entity?.locked);
+  const [modState, setModState] = useState(entity?.modState);
 
   const handleExpand = () => {
     setExpand((prev) => !prev);
   };
+
   useEffect(() => {
-    if (communities?.filter((element) => element.fixedName === entity.owner.name).length === 0) { setNotJoined(true); }
+    if (communitiesSubscriber?.filter((element) => element.fixedName === entity.owner.name).length === 0) { setNotJoined(true); }
+    if (entity.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === entity.owner.name).length > 0) {
+      setModList(true);
+    }
     setSubTitle(type);
-  }, [type, communities]);
+  }, [type, communitiesSubscriber, entity]);
 
   const navigate = useNavigate();
   const { setEditPost } = useEditPostContext();
+
+  const handleNsfw = () => {
+    actionOnPost(entity?.postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
+    setIsNsfw((prev) => !prev);
+  };
+  const handleSpoiler = () => {
+    actionOnPost(entity?.postid, isSpoiler ? 'unspoiler' : 'spoiler');
+    setIsSpoiler((prev) => !prev);
+  };
+  const handleLock = () => {
+    actionOnPost(entity?.postid, isLocked ? 'unlock_comments' : 'lock_comments');
+    setIsLocked((prev) => !prev);
+  };
+  const handleApprove = () => {
+    moderationAction(entity?.postid, 'approve');
+    setModState('approved');
+  };
+  const handleRemove = () => {
+    moderationAction(entity?.postid, 'remove');
+    setModState('removed');
+  };
+  const handleSpam = () => {
+    moderationAction(entity?.postid, 'spam');
+    setModState('spammed');
+  };
 
   return (
     <PostsQueueBox>
@@ -106,6 +143,19 @@ function OtherProfilePost(props) {
                 numComments={entity.commentCount}
                 points={entity.votes}
                 postVoteStatus={entity.postVoteStatus}
+                owner={entity.owner.name}
+                ownerType={entity.ownerType}
+                nsfw={isNsfw}
+                spoiler={isSpoiler}
+                locked={isLocked}
+                isModList={modList}
+                modState={modState}
+                handleLock={handleLock}
+                handleSpoiler={handleSpoiler}
+                handleNsfw={handleNsfw}
+                handleApprove={handleApprove}
+                handleRemove={handleRemove}
+                handleSpam={handleSpam}
               />
             </Box>
           </PostContentBox>
