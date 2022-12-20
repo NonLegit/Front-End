@@ -167,7 +167,7 @@ function CreatePostForm(props) {
                   onKeyDown={handleEnter}
                 />
                 <WordCounter>
-                  {title.length}
+                  {title?.length}
                   /300
                 </WordCounter>
               </Box>

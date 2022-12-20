@@ -7,7 +7,7 @@ function getPostServer(postId) {
   } else {
     console.log('failed wl responseaho', data, statusCode);
   }
-  return [data, error];
+  return [data?.data, error];
 }
 
 export default getPostServer;
