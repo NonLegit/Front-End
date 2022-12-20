@@ -384,7 +384,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="/Error"
+                  path="/*"
                   element={
                     <ErrorPage />
                   }
