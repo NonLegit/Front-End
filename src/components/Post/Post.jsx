@@ -150,6 +150,7 @@ function Post(props) {
           nsfw={nsfw}
           spoiler={spoiler}
           redirectToPost={redirectToPost}
+          sharedFrom={!!sharedFrom}
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}
