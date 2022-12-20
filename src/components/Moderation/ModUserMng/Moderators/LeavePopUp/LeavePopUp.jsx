@@ -1,12 +1,19 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import { StyledDialog, FooterContainer } from '../../styles';
 import { LeaveContext } from '../Moderators';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
+import { LeaveMod } from './LeaveServer';
 
 function LeavePopUp() {
+  // Cookies
+  const { subReddit } = useParams();
+  const handleClickLeave = () => {
+    LeaveMod(subReddit);
+  };
   const {
     openLeave, handleClickCloseLeave,
   } = React.useContext(LeaveContext);
@@ -29,7 +36,7 @@ function LeavePopUp() {
         </Typography>
       </Box>
       <FooterContainer>
-        <Footer buttonFunction={handleClickCloseLeave} firstButtonText="Cancel" secondButtonText="Leave" />
+        <Footer buttonFunction={handleClickCloseLeave} firstButtonText="Cancel" secondButtonFunction={handleClickLeave} secondButtonText="Leave" />
       </FooterContainer>
     </StyledDialog>
   );

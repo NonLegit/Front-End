@@ -20,3 +20,15 @@ export const editMod = (userName, subReddit, everything, manageUsers, manageSett
     console.log(error.response.data.errorMessage);
   });
 };
+
+export const removeMod = (userName, subReddit) => {
+  axios.delete(`/subreddits/${subReddit}/moderators/${userName}`).then((response) => {
+    console.log(response);
+    if (response.status === 200 || response.status === 201) {
+      console.log('sucess');
+    }
+  }).catch((error) => {
+    console.log(error);
+    console.log(error.response.data.errorMessage);
+  });
+};

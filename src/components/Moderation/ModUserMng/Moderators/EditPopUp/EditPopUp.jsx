@@ -5,9 +5,10 @@ import { useParams } from 'react-router-dom';
 import { StyledDialog, FooterContainer } from '../../styles';
 import { EditContext } from '../NonEmptyModerator/NonEmptyModerator';
 import Header from '../../Header/Header';
-import Foooter from '../../Footer/Footer';
+// import Foooter from '../../Footer/Footer';
 import Permissions from '../Permissions/Persmissions';
-import { editMod } from './editServer';
+import { editMod, removeMod } from './editServer';
+import EditFooter from './EditFooter/EditFooter';
 
 function EditPopUp(props) {
   const { userName } = props;
@@ -20,6 +21,10 @@ function EditPopUp(props) {
     const manageFlair = document.getElementById('manage_flair').checked;
     const managePost = document.getElementById('manage_post').checked;
     editMod(userName, subReddit, everything, manageUsers, manageSettings, manageFlair, managePost);
+  };
+
+  const handleRemove = async () => {
+    removeMod(userName, subReddit);
   };
 
   const {
@@ -46,11 +51,10 @@ function EditPopUp(props) {
       </Box>
       <Permissions />
       <FooterContainer>
-        <Foooter
-          firstButtonFunction={handleClickCloseEdit}
-          firstButtonText="Cancel"
-          secondButtonFunction={handleEdit}
-          secondButtonText="Save"
+        <EditFooter
+          handleClickCloseEdit={handleClickCloseEdit}
+          handleRemove={handleRemove}
+          handleEditBan={handleEdit}
         />
       </FooterContainer>
     </StyledDialog>
