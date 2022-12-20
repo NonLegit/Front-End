@@ -249,6 +249,7 @@ function Post(props) {
           postId={postId}
           redirectToPost={redirectToPost}
           authorName={authorName}
+          subredit={subredit}
         />
       </Box>
     </PostContainer>

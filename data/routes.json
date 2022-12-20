@@ -66,5 +66,5 @@
     "subreddits/:Name/flairs/:id":"/UpdateFlair",
     "/notifications/token":"/notificationToken",
     "/subreddits/:subredditName/banned":"/baned",
-    "/subreddits/random/leaderboard":"/homePageCommunities"
+    "/subreddits/random/leaderboard?limit=4&page=0":"/homePageCommunities"
 }

@@ -45,9 +45,9 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
             alert('somethig went wrong with creating images');
           });
         });
-        // navigate('/');
+        alert('posted successfully');
+        navigate('/');
       }
-      alert('posted successfully');
     }
   }).catch((e) => {
     console.log(e.response);

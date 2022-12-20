@@ -2,7 +2,8 @@
     "post": {
         "attr": 2
     },
-    "_id": "string0yuwedgdgeyurf84848erfe3487100",
+    "data":{
+        "_id": "string0yuwedgdgeyurf84848erfe3487100",
     "author": {
         "_id": "string0",
         "name": "nour"
@@ -49,4 +50,5 @@
     "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
     "isSaved": true,
     "postVoteStatus": 0
+    }
 }

@@ -40,6 +40,7 @@ const homePageServer = (postClass) => {
   if (communitiesStatusCode === 401) {
     redirectLogin();
   }
+  console.log('el communities', communitiesData);
   return [posts, postsError, communitiesData?.data, communitiesError];
 };
 

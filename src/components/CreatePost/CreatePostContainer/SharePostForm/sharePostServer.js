@@ -27,8 +27,8 @@ const sharePostServer = (post, navigate) => {
       console.log('post from response', post);
       const postId = post?._id;
       console.log('post from response', postId);
-      // navigate('/');
       alert('posted successfully');
+      navigate('/');
     }
   }).catch((e) => {
     console.log(e.response);

@@ -17,7 +17,7 @@ import {
 
 // styles
 import { useTheme } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEditPostContext } from '../../../contexts/EditPostContext';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
@@ -43,7 +43,7 @@ import UserLogin from '../../../authentication';
 
 function PostReactions(props) {
   const {
-    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName,
+    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName, subredit,
   } = props;
 
   const [showMore, setShowMore] = useState(false);
@@ -55,6 +55,7 @@ function PostReactions(props) {
 
   // routes
   const navigate = useNavigate();
+  const { Name } = useParams();
 
   // handlers
   const handleShowMore = () => {
@@ -76,7 +77,11 @@ function PostReactions(props) {
   };
 
   const handleShare = () => {
-    navigate(`/submit/${postId}`);
+    if (!subredit) {
+      navigate(`/submit/${postId}`);
+    } else {
+      navigate(`/submit/${postId}/r/${Name}`);
+    }
   };
   // contexts
   const { setEditPost, setCommentPost } = useEditPostContext();
