@@ -51,6 +51,7 @@ function SearchField() {
       <SearchIcon />
       <StyledChip chipShow={chipShow} label={chipLabel} onDelete={handleDelete} />
       <InputBase
+        id="nav_search"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         placeholder="Search nonlegit"
