@@ -4,29 +4,30 @@ import {
   StyledBox, StyledFont, StyledMenuItem,
 } from './styles';
 
-function BanReason() {
-  const [Note, setNote] = React.useState('');
+function BanReason(props) {
+  const { punishType } = props;
+  const [punishTypeState, setpunishType] = React.useState(punishType);
 
   const handleChangeComboBox = (event) => {
-    setNote(event.target.value);
+    setpunishType(event.target.value);
   };
   return (
     <StyledBox>
       <StyledFont>REASON FOR BAN</StyledFont>
       <Select
-        defaultValue="NONE"
+        id="reason"
         fullWidth
-        value={Note}
+        value={punishTypeState}
         onChange={handleChangeComboBox}
         size="small"
       >
-        <StyledMenuItem value={10}>Spam</StyledMenuItem>
+        <StyledMenuItem value="Spam">Spam</StyledMenuItem>
         <Divider sx={{ margin: '0px !important' }} />
-        <StyledMenuItem value={20}>Personal And Confidential Information</StyledMenuItem>
+        <StyledMenuItem value="Personal And Confidential Information">Personal And Confidential Information</StyledMenuItem>
         <Divider sx={{ margin: '0px !important' }} />
-        <StyledMenuItem value={30}>Threatening, Harassing, Or Inciting Violence</StyledMenuItem>
+        <StyledMenuItem value="Threatening, Harassing, Or Inciting Violence">Threatening, Harassing, Or Inciting Violence</StyledMenuItem>
         <Divider sx={{ margin: '0px !important' }} />
-        <StyledMenuItem value={40}>Other</StyledMenuItem>
+        <StyledMenuItem value="Other">Other</StyledMenuItem>
       </Select>
     </StyledBox>
   );

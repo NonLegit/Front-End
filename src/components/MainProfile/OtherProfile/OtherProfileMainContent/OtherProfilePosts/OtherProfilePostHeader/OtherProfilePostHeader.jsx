@@ -48,7 +48,7 @@ function OtherProfilePostHeader(props) {
   return (
     <HeaderPost>
 
-      <LinkTo to={(type === 'Subreddit') ? `/Subreddit/${subReddit}` : `/user/${subReddit}`}>
+      <LinkTo to={(type === 'Subreddit') ? `/r/${subReddit}` : `/user/${subReddit}`}>
         <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
           {type === 'Subreddit' ? 'r/' : 'u/'}
           {subReddit}

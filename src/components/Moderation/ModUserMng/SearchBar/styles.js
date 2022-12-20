@@ -6,7 +6,7 @@ export const StyledInputBase = styled(InputBase)(() => ({
     borderRadius: '4px 0 0 4px',
     border: '1px solid #878a8c',
     padding: '8px',
-    width: '248px',
+    width: '100%',
     height: '13px',
     color: '#616364',
     '&:focus': {
@@ -32,6 +32,7 @@ export const StyledSearchBar = styled(Box)(() => ({
   backgroundColor: '#edeff1',
   borderRadius: '4px 4px 0 0',
   height: '48px',
+  margin: '0px 24px',
 }));
 
 export const StyledSearchContainer = styled(Box)(() => ({

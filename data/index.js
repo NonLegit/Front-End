@@ -62,6 +62,13 @@ const messageRemove = require('./messageRemove.json');
 const MessageDrive = require('./MessageDrive.json');
 const MessageReplay = require('./messageReplay.json');
 const messagesAll = require('./messagesAll.json');
+const banned = require('./bannedList.json');
+const muted = require('./mutedList.json');
+const moderators = require('./moderatorsList.json');
+const approved = require('./approvedList.json');
+const muteUnmute = require('./muteUnmuteList.json');
+const approvedUnapproved = require('./approvedUnapprovedList.json');
+const banUnban = require('./banUnban.json');
 // Something more
 
 module.exports = () => ({
@@ -131,5 +138,12 @@ module.exports = () => ({
   MessageDrive,
   MessageReplay,
   messagesAll,
+  banned,
+  muted,
+  moderators,
+  approved,
+  muteUnmute,
+  approvedUnapproved,
+  banUnban,
   // Something more
 });

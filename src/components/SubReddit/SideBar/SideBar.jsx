@@ -34,7 +34,7 @@ function SideBar(props) {
       {!moderate
       && (
       <CommunityContainer>
-        <About disc={disc} createdAt={createdAt} num={num} />
+        <About disc={disc} createdAt={createdAt} num={num} Name={Name} />
       </CommunityContainer>
       )}
       {moderate && (

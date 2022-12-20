@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog, FooterContainer } from '../../../styles';
 import { ApproveContext } from '../../ApproveUser';
 import Username from '../../../Username/Username';
 import Header from '../../../Header/Header';
@@ -14,6 +14,8 @@ function ApprovePopUp() {
   return (
     <StyledDialog
       fullScreen
+      height="185px"
+      width="410px"
       open={openApprove}
     >
       <Box>
@@ -21,9 +23,9 @@ function ApprovePopUp() {
         <Divider />
         <Username placeholder="Enter username" />
       </Box>
-      <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
-        <Footer buttonFunction={handleClickCloseApprove} firstButtonText="Cancel" secondButtonText="Add user" />
-      </Box>
+      <FooterContainer>
+        <Footer firstButtonFunction={handleClickCloseApprove} firstButtonText="Cancel" secondButtonText="Add user" />
+      </FooterContainer>
     </StyledDialog>
   );
 }

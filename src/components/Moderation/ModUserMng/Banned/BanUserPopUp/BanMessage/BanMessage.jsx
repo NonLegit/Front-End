@@ -1,28 +1,35 @@
 import * as React from 'react';
 import { Typography } from '@mui/material';
-import { StyledBox, StyledTextareaAutosize } from './styles';
+import { StyledBox } from './styles';
+import { FullDiscTextArea, Count } from '../../../../Rules/AddRule/style';
 
-function BanMessage() {
-  const CHARACTER_LIMIT = 5000;
-  const [values, setValues] = React.useState({
-    name: '',
-  });
-  const handleChangeCharNum = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.value });
+function BanMessage(props) {
+  const { punishReason } = props;
+  const [count, setCount] = React.useState(5000);
+  const check = (e) => {
+    const ele = e?.target?.value;
+    if (5000 - ele.length >= 0) { setCount(5000 - ele.length); }
   };
   return (
     <StyledBox>
       <Typography>Note to include in ban message •</Typography>
-      <StyledTextareaAutosize
+      <FullDiscTextArea
+        defaultValue={punishReason}
+        id="banMessage"
         placeholder="Reason they were banned"
-        inputProps={{
-          maxlength: CHARACTER_LIMIT,
+        onChange={check}
+        onInput={(e) => {
+          // eslint-disable-next-line radix
+          e.target.value = e.target.value.slice(0, 5000);
         }}
-        value={values.name}
-        helperText={`${CHARACTER_LIMIT - values.name.length} Characters remaining`}
-        onChange={handleChangeCharNum('name')}
-        margin="normal"
       />
+      <Count
+        condition={(count === 0).toString()}
+      >
+        {count}
+        {' '}
+        Characters remaining
+      </Count>
     </StyledBox>
   );
 }

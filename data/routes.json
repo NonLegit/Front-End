@@ -69,5 +69,12 @@
     "/messages":"/MessageDrive",
     "/messages/:parentMessageId/reply":"/MessageReplay",
     "/messages/all":"/messagesAll",
-    "/messages/:messageId":"/messageRemove"
+    "/messages/:messageId":"/messageRemove",
+    "/subreddits/:subredditName/banned":"/banned",
+    "/subreddits/:subredditName/muted":"/muted",
+    "/subreddits/:subredditName/moderators":"/moderators",
+    "/subreddits/:subredditName/approved":"/approved",
+    "/subreddits/:subredditName/mute_settings/:action/:userName":"/muteUnmute",
+    "/subreddits/:subredditName/approve_settings/:action/:userName":"/approvedUnapproved",
+    "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban"
 }

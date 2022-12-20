@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog } from '../../../styles';
 import EditBanHeader from '../EditBanHeader/EditBanHeader';
 import BanReason from '../BanReason/BanReason';
 import BanNote from '../BanNote/BanNote';
@@ -11,7 +11,9 @@ import EditBanFooter from '../EditBanFooter/EditBanFooter';
 import { EditBanContext } from '../../NonEmptyBanned/BannedUser/BannedUser';
 
 function EditBanPopUp(props) {
-  const { userName } = props;
+  const {
+    userName, note, punishReason, punishType, duration,
+  } = props;
   const {
     openEditBan, handleClickCloseEditBan,
   } = React.useContext(EditBanContext);
@@ -19,16 +21,18 @@ function EditBanPopUp(props) {
     <StyledDialog
       fullScreen
       open={openEditBan}
+      width="538px"
+      height="545px"
     >
       <Box>
         <EditBanHeader handleClickCloseBan={handleClickCloseEditBan} userName={userName} />
         <Divider />
-        <BanReason />
-        <BanNote />
-        <BanPeriod />
+        <BanReason punishType={punishType} />
+        <BanNote note={note} />
+        <BanPeriod duration={duration} />
       </Box>
       <Box sx={{ backgroundColor: '#edeff1 ', height: '100%' }}>
-        <BanMessage />
+        <BanMessage punishReason={punishReason} />
         <EditBanFooter handleClickCloseBan={handleClickCloseEditBan} />
       </Box>
     </StyledDialog>

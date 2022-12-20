@@ -1,6 +1,7 @@
 {
   "posts": [
     {
+      "_id": "198725",
       "author": {
         "_id": "string",
         "name": "NourZiad122"
@@ -10,7 +11,7 @@
         "name": "kalba222",
         "icon": "https://www.redditstatic.com/notifications/default_subreddit_avatar.png"
       },
-      "ownerType": "Subreddit",
+      "ownerType": "User",
       "title": "string1",
       "kind": "self",
       "text": "string",

@@ -21,7 +21,12 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
   /**
    * AddList(community topics)
    * @component
-   * @return {React.Component} - community topics
+   * @property  {function} handleKeyDown handel on press enter to add the community topic
+   * @property  {function} removeItem to remove element from list of topics
+   * @property  {function} ListSelected add item when select from list
+   * @property  {function} trueShawList show list
+   * @property  {function} handleClickAway close list a
+   * @return {React.Component} - AddList(community topics)
    */
 function AddList(props) {
   const {

@@ -6,6 +6,7 @@ function Username(props) {
   return (
     <StyledBox>
       <TextField
+        id="username"
         placeholder={placeholder}
         size="small"
         fullWidth

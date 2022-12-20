@@ -3,7 +3,8 @@ import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
 
 function BanFooter(props) {
-  const { handleClickCloseBan } = props;
+  const { handleClickCloseBan, handleBan } = props;
+
   return (
     <StyledBox>
       <Typography>
@@ -29,6 +30,7 @@ function BanFooter(props) {
           variant="contained"
           disableRipple
           disableFocusRipple
+          onClick={handleBan}
         >
           Ban user
         </RedditButton>

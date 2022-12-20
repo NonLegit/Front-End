@@ -9,6 +9,17 @@ import {
   Container, Count, FieldData, FormCont, Input, Lable, Save, SecondLable,
 } from './style';
 
+/**
+ * Edit Entity of Flair
+ * @component
+ * @property  {function} check copy id
+ * @property  {function} notEmpty check if input feild is empty or not
+ * @property  {function} SendData send data to backend
+ * @property  {function} EditFlair send edited data to backend
+ *
+ * @return {React.Component} - Edit Entity of Flair
+ */
+
 export default function Edit(props) {
   const { flair, save, cancel } = props;
   const [count, setCount] = useState(64 - flair.text.length);

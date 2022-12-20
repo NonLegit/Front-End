@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog, FooterContainer } from '../../styles';
 import { LeaveContext } from '../Moderators';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
@@ -12,6 +12,8 @@ function LeavePopUp() {
   } = React.useContext(LeaveContext);
   return (
     <StyledDialog
+      width="538px"
+      height="213px"
       fullScreen
       open={openLeave}
     >
@@ -26,9 +28,9 @@ function LeavePopUp() {
           as a mod of this community?
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
+      <FooterContainer>
         <Footer buttonFunction={handleClickCloseLeave} firstButtonText="Cancel" secondButtonText="Leave" />
-      </Box>
+      </FooterContainer>
     </StyledDialog>
   );
 }

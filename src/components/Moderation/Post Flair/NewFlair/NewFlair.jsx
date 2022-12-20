@@ -2,12 +2,18 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PostFlair from './PostFlair';
 import {
-  AddFlair,
-  Cancel,
-  Color,
-  ColorData,
+  AddFlair, Cancel, Color, ColorData,
   Container, Count, FieldData, FormCont, Input, Lable, Save, SecondLable, SplitArea,
 } from './style';
+
+/**
+ * New Flair
+ * @component
+ * @property  {function} notEmpty check if the input feild is empty or not
+ * @property  {function} SendData send data to backend
+ *
+ * @return {React.Component} - New Flair
+ */
 
 export default function NewFlair(props) {
   const { save, cancel } = props;

@@ -1,17 +1,21 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
-import { Box, Avatar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
-import { UserBar } from './styles';
-import { UserMngButton } from '../../../styles';
+import {
+  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer, TextContainer,
+} from '../../../styles';
 import MoreDetails from '../MoreDetails/MoreDetails';
 import UnmutePopUp from '../../MuteUserPopUp/UnmutePopUp/UnmutePopUp';
+import calculateTime from '../../../../../../utils/calculateTime';
 
 export const UnmuteContext = React.createContext();
 
-function BannedUser() {
+function MutedUser(props) {
+  const { user } = props;
+
   const [openUnmute, setOpenUnmute] = React.useState(false);
 
   const handleClickOpenUnmute = () => { setOpenUnmute(true); };
@@ -28,39 +32,36 @@ function BannedUser() {
           openUnmute, handleClickCloseUnmute,
         }}
         >
-          <UnmutePopUp />
+          <UnmutePopUp userName={user.userName} />
         </UnmuteContext.Provider>
-        <Box sx={{
-          display: 'flex', alignItems: 'center', padding: '8px 16px', minWidth: '220px',
-        }}
-        >
-          <Avatar />
+        <UserContainer>
+          <StyledAvatar src={user.profilePicture} variant="square" sx={{ width: '32px', height: '32px' }} />
           <Box>
             <Typography
               padding="8px"
               fontSize="15px"
               fontWeight="bold"
             >
-              username
+              {user.userName}
             </Typography>
           </Box>
-        </Box>
-        <Box sx={{ display: 'flex', width: '100%' }}>
+        </UserContainer>
+        <TextContainer>
           <Typography
             padding="8px"
             fontSize="12px"
             color="#878A8C"
           >
-            2 hours ago
+            {calculateTime(user.joiningDate)}
           </Typography>
-        </Box>
-        <Box sx={{ display: 'flex', padding: '8px 16px', width: '30%' }}>
+        </TextContainer>
+        <UsermngButtonContainer>
           <UserMngButton
             disableRipple
             disableFocusRipple
             onClick={handleClickOpenUnmute}
           >
-            Edit
+            Unmute
           </UserMngButton>
           <UserMngButton
             disableRipple
@@ -70,10 +71,10 @@ function BannedUser() {
           >
             More Details
           </UserMngButton>
-        </Box>
+        </UsermngButtonContainer>
       </UserBar>
-      <MoreDetails modNote="blabla" isOpened={isOpened} />
+      <MoreDetails modNote={user.muteInfo} isOpened={isOpened} />
     </>
   );
 }
-export default BannedUser;
+export default MutedUser;

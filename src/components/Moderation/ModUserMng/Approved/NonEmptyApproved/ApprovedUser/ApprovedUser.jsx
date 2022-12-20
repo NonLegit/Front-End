@@ -1,14 +1,20 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
-import { Box, Avatar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as React from 'react';
-import { UserBar } from './styles';
-import { UserMngButton } from '../../../styles';
+import {
+  StyledAvatar, UserBar, UserContainer, UserMngButton, UsermngButtonContainer,
+} from '../../../styles';
+
 import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
 
-function ApprovedUser() {
+function ApprovedUser(props) {
+  const {
+    userName, profilePicture, joiningDate,
+  } = props;
+
   const [openRemove, setOpenRemove] = React.useState(false);
 
   const handleClickOpenRemove = () => { setOpenRemove(true); };
@@ -22,31 +28,28 @@ function ApprovedUser() {
       >
         <RemovePopUp />
       </RemoveContext.Provider>
-      <Box sx={{
-        display: 'flex', alignItems: 'center', padding: '8px 16px', minWidth: '220px',
-      }}
-      >
-        <Avatar />
+      <UserContainer>
+        <StyledAvatar variant="square" src={profilePicture} />
         <Box>
           <Typography
             padding="8px"
             fontSize="15px"
             fontWeight="bold"
           >
-            username
+            {userName}
           </Typography>
         </Box>
-      </Box>
+      </UserContainer>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <Typography
           padding="8px"
           fontSize="12px"
           color="#878A8C"
         >
-          2 hours ago
+          {joiningDate}
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', padding: '8px 16px', width: '30%' }}>
+      <UsermngButtonContainer>
         <UserMngButton
           disableRipple
           disableFocusRipple
@@ -60,7 +63,7 @@ function ApprovedUser() {
         >
           Remove
         </UserMngButton>
-      </Box>
+      </UsermngButtonContainer>
     </UserBar>
   );
 }

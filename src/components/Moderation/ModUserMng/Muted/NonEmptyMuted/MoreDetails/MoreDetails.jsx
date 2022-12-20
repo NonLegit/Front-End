@@ -1,22 +1,21 @@
 import { Box, Typography } from '@mui/material';
+import { StyledDetails } from '../../../styles';
 
 function MoreDetails(props) {
   const { modNote, isOpened } = props;
   return (
-    <Box
+    <StyledDetails
       display={(isOpened) ? 'flex' : 'none'}
-      backgroundColor="#edeff1"
-      flexDirection="column"
     >
       <Box padding="16px" display="flex" alignItems="center" paddingBottom="10px">
         <Typography
-          fontSize="12px"
-          color="#1C1C1C"
+          fontSize="14px"
+          color="#878A8C"
         >
-          {modNote}
+          {modNote.muteMessage}
         </Typography>
       </Box>
-    </Box>
+    </StyledDetails>
   );
 }
 

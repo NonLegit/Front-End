@@ -1,12 +1,12 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog, FooterContainer } from '../../styles';
 import { InvitationContext } from '../Moderators';
 import Header from '../../Header/Header';
 import Username from '../../Username/Username';
 import Foooter from '../../Footer/Footer';
-import Permissions from './Permissions/Persmissions';
+import Permissions from '../Permissions/Persmissions';
 
 function InvitationPopUp() {
   const {
@@ -14,6 +14,8 @@ function InvitationPopUp() {
   } = React.useContext(InvitationContext);
   return (
     <StyledDialog
+      width="538px"
+      height="520px"
       fullScreen
       open={openInvitation}
     >
@@ -31,9 +33,9 @@ function InvitationPopUp() {
         </Typography>
       </Box>
       <Permissions />
-      <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
+      <FooterContainer>
         <Foooter buttonFunction={handleClickCloseInvitation} firstButtonText="Cancel" secondButtonText="Invite" />
-      </Box>
+      </FooterContainer>
     </StyledDialog>
   );
 }

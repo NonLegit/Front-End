@@ -17,6 +17,8 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../../contexts/EditPostContext';
 import {
   ElementBox, FooterBox, FooterText, SelectBox, SelectItem,
 } from './styles';
@@ -35,8 +37,8 @@ import ModeratorList from '../../ModeratorList/ModeratorList';
  */
 function PostFooter(props) {
   const {
-    postid, numComments, isSaved,
-    nsfw, spoiler, locked,
+    postid, numComments, isSaved, subTitle,
+    nsfw, spoiler, locked, owner,
     modState, sendReplies, handleLock,
     handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
     mod, profile,
@@ -81,6 +83,10 @@ function PostFooter(props) {
   const handleModList = () => {
     setModeratorList((prev) => !prev);
   };
+
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
     <FooterBox>
       <ElementBox>
@@ -150,16 +156,13 @@ function PostFooter(props) {
       <ClickAwayListener onClickAway={handleClickAway}>
         <ElementBox>
           <MoreHorizOutlinedIcon onClick={handleClick} data-testid="show-more" />
-          {showList && (
-          <SelectBox data-testid="more-menu">
-            {profile && !mod && (
-            <>
-              <SelectItem>
-                <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
-                Edit Post
-              </SelectItem>
-              <Divider />
-            </>
+          {(showList && profile) && (
+          <SelectBox data-testid="more-menu" profile="false">
+            {!mod && (
+            <SelectItem onClick={() => { setEditPost(true); navigate(`/${subTitle === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
+              <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
+              Edit Post
+            </SelectItem>
             )}
             {mod && (
               <SelectItem condition={!saved && 'true'} onClick={() => { handleSave(); }}>
@@ -177,54 +180,64 @@ function PostFooter(props) {
                   )}
               </SelectItem>
             )}
-
             <Divider />
-            {/* <SelectItem>
-              <PushPinOutlinedIcon sx={{ marginRight: 1 }} />
-              Pin Post To Profile
-            </SelectItem>
-            <Divider /> */}
             <SelectItem onClick={() => { handleClickHide(); }}>
               <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
               Hide
             </SelectItem>
             <Divider />
-            {profile ? (
-              <>
-                <SelectItem onClick={() => { handleDelete(); }}>
-                  <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
-                  Delete
-                </SelectItem>
-                <Divider />
-              </>
-            ) : (
-              <>
-                <Divider />
-                <SelectItem>
-                  <FlagOutlinedIcon sx={{ marginRight: 1 }} />
-                  Report
-                </SelectItem>
-              </>
-            )}
-            {profile && (
-            <>
-              <SelectItem onClick={() => { handleSpoiler(); }}>
-                {!spoiler ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
-                Mark As Spoiler
-              </SelectItem>
-              <Divider />
-              <SelectItem onClick={() => { handleNsfw(); }}>
-                {!nsfw ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
-                Mark As NSFW
-              </SelectItem>
+            <SelectItem onClick={() => { handleDelete(); }}>
+              <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
+              Delete
+            </SelectItem>
+            <Divider />
+            <SelectItem onClick={() => { handleSpoiler(); }}>
+              {!spoiler ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
+              Mark As Spoiler
+            </SelectItem>
+            <Divider />
+            <SelectItem onClick={() => { handleNsfw(); }}>
+              {!nsfw ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
+              Mark As NSFW
+            </SelectItem>
 
-              <Divider />
-              <SelectItem onClick={() => { handleSendReplies(); }}>
-                {!isSendReplies ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
-                Send Me Reply Notifications
+            <Divider />
+            <SelectItem onClick={() => { handleSendReplies(); }}>
+              {!isSendReplies ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
+              Send Me Reply Notifications
+            </SelectItem>
+
+          </SelectBox>
+          )}
+          {(showList && !profile) && (
+          <SelectBox data-testid="more-menu" profile="true">
+            {mod && (
+              <SelectItem condition={!saved && 'true'} onClick={() => { handleSave(); }}>
+                {!saved
+                  ? (
+                    <>
+                      <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
+                      Save
+                    </>
+                  ) : (
+                    <>
+                      <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
+                      Unsave
+                    </>
+                  )}
               </SelectItem>
-            </>
             )}
+            <Divider />
+            <SelectItem onClick={() => { handleClickHide(); }}>
+              <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
+              Hide
+            </SelectItem>
+            <Divider />
+            <Divider />
+            <SelectItem>
+              <FlagOutlinedIcon sx={{ marginRight: 1 }} />
+              Report
+            </SelectItem>
 
           </SelectBox>
           )}

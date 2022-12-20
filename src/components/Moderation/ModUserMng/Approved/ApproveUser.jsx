@@ -5,11 +5,11 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
   QueueBox, QueueText, ControlBar,
-} from './styles';
+} from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import ApprovePopUp from './ApproveUserPopUp/ApprovePopUp/ApprovePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyApproved from './NonEmptyApproved/NonEmptyApproved';
+import ApprovedUserList from './NonEmptyApproved/ApprovedUserList/ApprovedUserList';
 
 export const ApproveContext = React.createContext();
 
@@ -43,7 +43,7 @@ function Aprrove() {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyApproved />
+      <ApprovedUserList />
     </ModMainPage>
   );
 }
