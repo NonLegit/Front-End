@@ -15,8 +15,7 @@ import { recoverUsername } from './server';
 import { redditCookie } from '../../../Authentication/authenticationServer';
 
 import theme, { fonts } from '../../../../styles/theme';
-// utlis
-import { redirectHome } from '../../../../utils/Redirect';
+
 // // environment variables
 // const { REACT_APP_ENV } = process.env;
 /**
@@ -36,6 +35,7 @@ function ForgetUsername() {
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
   // cookies
+  // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
   const {
@@ -50,23 +50,25 @@ function ForgetUsername() {
     // Check on Cookies
     // developememt
     /// Ask if this user already loggied in the back
+    // Remove Old Cookie :)==>Of course he is signed out
     redditCookie(setCookies, removeCookie);
     // if logged in in the back end
-    if (cookies.redditUser !== undefined) {
-      // production
-      // Update Cookie
-      // redditCookie(setCookies);
-      // check on Reddit cookie
-      // if (cookies.redditUser === undefined) {
-      //   redditCookie(setCookies);
-      // }
-      // Redirect to loading page
-      console.log('Remember me is set to true');
-      redirectHome(2);
-    } else {
-      // No Cookie by Back End
-      console.log('Remember me is set to false');
-    }
+    // if (cookies.redditUser !== undefined) {
+    //   // production
+    //   // Update Cookie
+    //   // redditCookie(setCookies);
+    //   // check on Reddit cookie
+    //   // if (cookies.redditUser === undefined) {
+    //   //   redditCookie(setCookies);
+    //   // }
+    //   // Redirect to loading page
+    //   console.log('Remember me is set to true');
+    //   handleClose();
+    //   redirectHome(100);
+    // } else {
+    //   // No Cookie by Back End
+    //   console.log('Remember me is set to false');
+    // }
   }, []);
 
   const caption = (

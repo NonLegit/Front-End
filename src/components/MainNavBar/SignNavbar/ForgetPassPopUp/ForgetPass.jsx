@@ -53,6 +53,7 @@ function ForgetPassword() {
     // Check on Cookies
     // developememt
     /// Ask if this user already loggied in the back
+    // Remove Old Cookie :)==>Of course he is signed out
     redditCookie(setCookies, removeCookie);
     // if logged in in the back end
     if (cookies.redditUser !== undefined) {
