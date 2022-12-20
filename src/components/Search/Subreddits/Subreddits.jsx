@@ -22,8 +22,15 @@ import {
 function Subreddits(props) {
   const { subreddit } = props;
   const [joined, setJoined] = useState(true);
+  const [action, setaction] = useState('');
+  console.log(action);
   const handleJoin = () => {
-    PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, !joined);
+    if (!joined) {
+      setaction('unsub');
+    } else {
+      setaction('sub');
+    }
+    PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, action);
 
     setJoined((prev) => !prev);
   };
@@ -79,7 +86,7 @@ function Subreddits(props) {
           onMouseEnter={handleMouseIn}
           onMouseLeave={handleMouseOut}
         >
-          {(joined ? (hover ? 'leave' : 'joined') : 'join')}
+          {((joined) ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
       </Box>
     </PostContainer>

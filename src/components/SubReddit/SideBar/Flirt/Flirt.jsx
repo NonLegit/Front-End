@@ -27,7 +27,7 @@ function Flirt() {
 
   return (
     <div>
-      { flair
+      { (flair?.length > 0)
         && (
         <>
           <Container>

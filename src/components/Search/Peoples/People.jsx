@@ -43,13 +43,13 @@ function Peoples(props) {
           <TextContainer>
             <Text to={`/user/${people?.userName}`}>
               U/
-              {people?.displayName}
+              {people?.userName}
             </Text>
             <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
               •
             </Typography>
             <TextP>
-              {numFormatter(people.postKarma + people.commentKarma)}
+              {numFormatter((people.postKarma * 1) + (people.commentKarma * 1))}
               {' '}
               karma
             </TextP>
@@ -66,7 +66,7 @@ function Peoples(props) {
         onMouseEnter={handleMouseIn}
         onMouseLeave={handleMouseOut}
       >
-        {(people?.isFollowed) ? (hover ? 'Unfollow' : 'Following') : 'follow'}
+        {(follow) ? ((hover) ? 'Unfollow' : 'Following') : 'follow'}
       </Joined>
     </OneSuggeest>
   );

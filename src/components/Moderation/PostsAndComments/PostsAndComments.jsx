@@ -11,6 +11,7 @@ import {
   Disc, FlexBox, FlexBoxColumn, LeftAlighne, NotFoundBox, NotFountImage, SortString, TotalContainer,
 } from './style';
 import SuggestionSort from './SuggestionSort/SuggestionSort';
+import Done from '../../AlertMessage';
 
 /**
  * Posts And Comments
@@ -61,6 +62,7 @@ function PostsAndComments() {
       allowLinks,
       suggestedSort,
     }); // fetch api
+    Done('Chnges Saved');
   };
   return (
     exist

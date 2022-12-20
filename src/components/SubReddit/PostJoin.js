@@ -1,3 +1,4 @@
+import Done from '../AlertMessage';
 import axios from '../../services/instance';
 /**
  * Join to subreddit
@@ -16,6 +17,9 @@ const PostJoin = async (url, action) => {
     },
   }).then((response) => {
     console.log(response);
+    if (response?.status === 200 || response?.status === 200) {
+      Done('Done');
+    }
     return true;
   }).catch((error) => {
     console.log(error);

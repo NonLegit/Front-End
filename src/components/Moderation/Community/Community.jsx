@@ -12,6 +12,7 @@ import {
   AboutString, AboutSubString, Add, AddFlair, Adult, BackHomeButton, Container, Count, Disc, FlexBox, FlexBoxColumn, InputName, LeftAlighne,
   NotFoundBox, NotFountImage, NSFWs, Section, SmallDisc, TextArea, TotalContainer, Warning,
 } from './style';
+import Done from '../../AlertMessage';
 
 /**
  * Community
@@ -36,7 +37,7 @@ export default function Community() {
   const [primaryTopic, setPrimaryTopic] = useState('');
   const [disc, setDisc] = useState('');
   const [name, setName] = useState('');
-  const [region, setRegion] = useState('');
+  const [Location, setRegion] = useState('');
   const [nsfw, setNsfw] = useState();
   const [topics, setTopics] = useState([]);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -72,7 +73,7 @@ export default function Community() {
   useEffect(() => {
     console.log(type);
     console.log(nsfw === true);
-    console.log(region);
+    console.log(Location);
   }, [nsfw]);
   const myType = (t) => {
     setType(t);
@@ -97,6 +98,7 @@ export default function Community() {
     ele.click();
   };
   const SendData = () => {
+    const region = document.getElementById('country-select-demo').value;
     patchData(subReddit, {
       topics,
       primaryTopic,
@@ -106,6 +108,7 @@ export default function Community() {
       region,
       type,
     }); // fetch api
+    Done('Chnges Saved');
   };
   return (
 
@@ -192,7 +195,7 @@ export default function Community() {
                   Region
                 </AboutSubString>
                 <Box sx={{ marginLeft: '17px' }}>
-                  <CountrySelect Location={region} />
+                  <CountrySelect Location={Location?.toString()} />
                 </Box>
               </Section>
               <Section>

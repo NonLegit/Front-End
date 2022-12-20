@@ -41,7 +41,7 @@ const GetSearchData = (url, q, type, sort, time) => {
       console.log(response.data);
       // setData((data) => {
       //   console.log('zzzzzzzzzzz');
-      //   if (page === 0 || !data.data) {
+      //   if (page === 0 || !data) {
       //     console.log('aaaaaaaaa');
       //     return response.data.data;
       //   }

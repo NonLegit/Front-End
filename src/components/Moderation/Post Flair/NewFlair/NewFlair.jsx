@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Done from '../../../AlertMessage';
 import PostFlair from './PostFlair';
 import {
   AddFlair, Cancel, Color, ColorData,
@@ -42,6 +43,7 @@ export default function NewFlair(props) {
     console.log(text, backgroundColor, textColor);
     PostFlair(`subreddits/${subReddit}/flair`, text, backgroundColor, textColor);
     save();
+    Done('Flair Added');
   };
   return (
     <>

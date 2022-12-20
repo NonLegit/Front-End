@@ -1,4 +1,5 @@
 import axios from '../../../../services/instance';
+import Done from '../../../AlertMessage';
 
 /**
  * Post new rule
@@ -22,6 +23,9 @@ const PostRule = async (url, defaultName, description, appliesTo) => {
     console.log(response.status);
     if (response?.status === 401) {
       window.location.pathname = 'login';
+    }
+    if (response?.status === 200 || response?.status === 204) {
+      Done('Rule Added');
     }
     return response.status;
   }).catch((error) => {

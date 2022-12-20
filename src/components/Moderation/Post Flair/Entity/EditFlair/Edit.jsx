@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Done from '../../../../AlertMessage';
 import EditFlair from './EditFlair';
 import {
   AddFlair,
@@ -51,6 +52,7 @@ export default function Edit(props) {
       textColor,
     });
     save();
+    Done('Chndes Save');
   };
   return (
     <>

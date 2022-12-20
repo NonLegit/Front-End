@@ -1,3 +1,4 @@
+import Done from '../../../AlertMessage';
 import axios from '../../../../services/instance';
 /**
  * Edit rule
@@ -14,6 +15,9 @@ const EditRule = async (Name, id, prefs) => {
     statusCode = error.response.status;
     console.log(error);
   });
+  if (statusCode === 200 || statusCode === 204) {
+    Done('Rule Edited');
+  }
   if (statusCode === 401) {
     window.location.pathname = 'login';
   }

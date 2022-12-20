@@ -1,3 +1,4 @@
+import Done from '../../../AlertMessage';
 import axios from '../../../../services/instance';
 /**
  * edit data for moderation
@@ -14,6 +15,9 @@ const patchData = async (Name, prefs) => {
     statusCode = error.response.status;
     console.log(error);
   });
+  if (statusCode === 200 || statusCode === 200) {
+    Done('Chanes Save');
+  }
   if (statusCode === 401) {
     window.location.pathname = 'login';
   }

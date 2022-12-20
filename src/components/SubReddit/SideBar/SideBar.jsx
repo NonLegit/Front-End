@@ -45,9 +45,12 @@ function SideBar(props) {
         <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} createPost={createPost} />
       </CommunityContainer>
       )}
-      <CommunityContainer>
-        <Rules Name={Name} rules={rules} />
-      </CommunityContainer>
+      { (rules?.length > 0)
+     && (
+     <CommunityContainer>
+       <Rules Name={Name} rules={rules} />
+     </CommunityContainer>
+     )}
       <CommunityContainer>
         <Flirt />
       </CommunityContainer>

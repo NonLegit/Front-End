@@ -42,9 +42,9 @@ function Search() {
   // const qery = document.getElementById('nav_search').textContent;
 
   const [data1] = GetSearchData('/search', 'post', 'posts', sort, t);
-  const [data2] = GetSearchData('/search', 'post', 'communities', sort, t);
-  const [data3] = GetSearchData('/search', 'el3nab el3nab el3nab', 'people', sort, t);
-  const [data4] = GetSearchData('/search', 'Hosny', 'comments', sort, t);
+  const [data2] = GetSearchData('/search', '4', 'comments', sort, t);
+  const [data3] = GetSearchData('/search', 'NonLegit', 'communities', sort, t);
+  const [data4] = GetSearchData('/search', 'Hosny', 'people', sort, t);
 
   useEffect(() => {
     // if (data1?.length === 0) {
