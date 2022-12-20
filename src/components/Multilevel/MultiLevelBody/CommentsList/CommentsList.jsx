@@ -43,7 +43,7 @@ function CommentsList() {
   const depth = 8;
 
   const threadLimit = 2;
-  const threadDepth = 2;
+  const threadDepth = 8;
 
   const limitForMoreReplies = (moreRepliesFormat === true) ? (comments[comments.length - 1]?.children?.length > 10 ? 10 : comments[comments.length - 1]?.children?.length) : (0);
   const depthforMoreReplies = 8;
