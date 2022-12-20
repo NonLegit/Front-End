@@ -1,22 +1,23 @@
-/* eslint-disable import/no-cycle */
-import * as React from 'react';
+import { useEffect } from 'react';
+import { useHeaderSubtitleContext } from '../../../contexts/HeaderSubtitleContext';
 import CommunitiesHeader from '../CommunitiesHeader/CommunitiesHeader';
 import Community from '../Community/Community';
 import { StyledCommunitiesContainer } from './styles';
 import { exploreCommunities } from './CommunitiesTabServer';
-import ExploreHeader from '../ExploreHeader/ExploreHeader';
-
-export const headerSubTitleContext = React.createContext();
 
 function CommunitiesContainer(props) {
   const { title } = props;
   const [communities] = exploreCommunities(title);
-  const { headerSubTitle } = communities.type;
+  const { setHeaderSubtitle } = useHeaderSubtitleContext();
+  useEffect(() => {
+    setHeaderSubtitle(communities?.type);
+    console.log('fady', communities?.type);
+  }, [communities]);
   return (
     <StyledCommunitiesContainer>
       <CommunitiesHeader explore={title} />
       {
-      communities.map((commuity) => {
+      communities?.data?.map((commuity) => {
         console.log(commuity);
         const {
           _id, name, picture, membersCount, description,

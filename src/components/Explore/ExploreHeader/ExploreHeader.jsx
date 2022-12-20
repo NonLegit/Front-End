@@ -1,14 +1,13 @@
 /* eslint-disable import/no-cycle */
 import { Typography, Box } from '@mui/material';
-import * as React from 'react';
 import { HeaderContainer, StyledLink } from './styles';
 import NavButtons from '../NavButtons/NavButtons';
-import { headerSubTitleContext } from '../CommunitiesContainer/CommunitiesContainer';
+import { useHeaderSubtitleContext } from '../../../contexts/HeaderSubtitleContext';
 
 function ExploreHeader(props) {
   const {
-    headerSubTitle,
-  } = React.useContext(headerSubTitleContext);
+    headerSubtitle,
+  } = useHeaderSubtitleContext();
   const { title } = props;
   return (
     <HeaderContainer>
@@ -22,7 +21,7 @@ function ExploreHeader(props) {
           {title}
         </Typography>
         <StyledLink>
-          {headerSubTitle}
+          {headerSubtitle}
         </StyledLink>
       </Box>
       <NavButtons title={title} />
