@@ -1,8 +1,13 @@
-import useFetch from "hooks/useFetch";
-
+import useFetch from '../../../../hooks/useFetch';
 
 function getPostServer(postId) {
-  [data,error,statusCode]=useFetch()
+  const [data, error, statusCode] = useFetch(`/posts/${postId}`);
+  if (statusCode === 200) {
+    console.log('el post aho', data);
+  } else {
+    console.log('failed wl responseaho', data, statusCode);
+  }
+  return [data, error];
 }
 
 export default getPostServer;

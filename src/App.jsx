@@ -215,6 +215,12 @@ function App() {
                         <CreatePost />
                   }
                     />
+                    <Route
+                      path="/submit/:source/r/:subredditName"
+                      element={
+                        <CreatePost />
+                  }
+                    />
 
                     <Route
                       path="/notifications"

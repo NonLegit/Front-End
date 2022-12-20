@@ -26,7 +26,6 @@ import Reactions from '../Reactions/Reactions';
 import postReactionsServer from '../postReactionsServer';
 import { useHiddenPostsContext } from '../../../contexts/HiddenPostsContext';
 import UserLogin from '../../../authentication';
-import { usePostTypeContext } from '../../../contexts/PostTypeContext';
 
 /**
  * This component is the container of post reactions
@@ -44,7 +43,7 @@ import { usePostTypeContext } from '../../../contexts/PostTypeContext';
 
 function PostReactions(props) {
   const {
-    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName, getPostUrl,
+    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName,
   } = props;
 
   const [showMore, setShowMore] = useState(false);
@@ -53,8 +52,6 @@ function PostReactions(props) {
   const matchXs = useMediaQuery(theme.breakpoints.down('xs'));
   const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
   const { setHiddenPosts } = useHiddenPostsContext();
-  const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
-  const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
 
   // routes
   const navigate = useNavigate();
@@ -79,9 +76,7 @@ function PostReactions(props) {
   };
 
   const handleShare = () => {
-    setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
-    setInitialPostType(3);
-    navigate('/submit');
+    navigate(`/submit/${postId}`);
   };
   // contexts
   const { setEditPost, setCommentPost } = useEditPostContext();

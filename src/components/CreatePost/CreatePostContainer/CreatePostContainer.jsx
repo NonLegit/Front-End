@@ -8,6 +8,7 @@ import { useCommunitiesInCreatePostContext } from '../../../contexts/Communities
 import MainContent from '../../MainContent/MainContent';
 import SideBar from '../../SideBar/SideBar';
 import CreatePostForm from './CreatePostForm/CreatePostForm';
+import SharePostForm from './SharePostForm/SharePostForm';
 import { MainContainer, OuterContainer } from './styles';
 import { useCreatePostSidebarContext } from '../../../contexts/CreatePostSidebarContext';
 import SubredditSideBar from '../../SubReddit/SideBar/SideBar';
@@ -52,7 +53,7 @@ function CreatePostContainer() {
     <OuterContainer>
       <MainContainer>
         <MainContent width={740}>
-          {!communitiesError ? (communities && (source ? <div>adham</div> : <CreatePostForm />)) : 'error in communities fetching'}
+          {!communitiesError ? (communities && (source ? <SharePostForm postId={source} /> : <CreatePostForm />)) : 'error in communities fetching'}
         </MainContent>
         {match
         && (
