@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { useSearchParams } from 'react-router-dom';
-import { Typography } from '@mui/material';
-import cleanPage from '../../../utils/cleanPage';
-import { useListingContext } from '../../../contexts/ListingContext';
+// import { useEffect, useState } from 'react';
+// import InfiniteScroll from 'react-infinite-scroll-component';
+// import { useSearchParams } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
+// import cleanPage from '../../../utils/cleanPage';
+// import { useListingContext } from '../../../contexts/ListingContext';
 import Comments from '../Comments/Comments';
 
-import GetSearchData from '../Server';
+// import GetSearchData from '../Server';
 // import GetSearchData from '../Server2';
 
-import { NotFoundBox, NotFountImage, SearchByCommunitiesHeader } from './style';
+import {
+  NotFoundBox, NotFountImage,
+  // SearchByCommunitiesHeader
+} from './style';
 
 /**
  *  Search by comments container
@@ -18,46 +21,46 @@ import { NotFoundBox, NotFountImage, SearchByCommunitiesHeader } from './style';
  * @return {React.Component} -  Search by comments container
  */
 function SearchByComments(props) {
-  const { q } = props;
-  const [searchParams] = useSearchParams();
-  const sort = searchParams.get('sort') || 'new';
-  const t = searchParams.get('t') || 'day';
-  const [comments, setComments] = useState([]);
-  const [data] = GetSearchData('/search', q, 'comments', sort, t);
-  const [exist, setExist] = useState(true);
+  const { exist, communities } = props;
+  // const [searchParams] = useSearchParams();
+  // const sort = searchParams.get('sort') || 'new';
+  // const t = searchParams.get('t') || 'day';
+  // const [comments, setComments] = useState([]);
+  // const [data] = GetSearchData('/search', q, 'comments', sort, t);
+  // const [exist, setExist] = useState(true);
 
-  useEffect(() => {
-    if (data?.length === 0 || !data) {
-      setExist(true);
-    }
-    setComments(data);
-  }, [data]);
+  // useEffect(() => {
+  //   if (data?.length === 0 || !data) {
+  //     setExist(true);
+  //   }
+  //   setComments(data);
+  // }, [data]);
 
-  const { setPage } = useListingContext();
+  // const { setPage } = useListingContext();
 
-  const fetchMoreData = () => {
-    // console.log('bazwed', page);
-    setPage((page) => page + 1);
-  };
-  cleanPage();
+  // const fetchMoreData = () => {
+  //   // console.log('bazwed', page);
+  //   setPage((page) => page + 1);
+  // };
+  // cleanPage();
 
   return (
     exist
       ? (
-        <SearchByCommunitiesHeader>
-          <InfiniteScroll
-            next={fetchMoreData}
-            hasMore
-            dataLength={comments?.length}
-          >
+    // <SearchByCommunitiesHeader>
+    //   <InfiniteScroll
+    //     next={fetchMoreData}
+    //     hasMore
+    //     dataLength={communities?.length}
+    //   >
+        <Box>
+          {communities?.map((comm) => (
 
-            {comments?.map((comm) => (
-
-              <Comments Comment={comm} />
-            ))}
-
-          </InfiniteScroll>
-        </SearchByCommunitiesHeader>
+            <Comments Comment={comm} />
+          ))}
+        </Box>
+    //   </InfiniteScroll>
+    // </SearchByCommunitiesHeader>
       )
       : (
         <NotFoundBox>

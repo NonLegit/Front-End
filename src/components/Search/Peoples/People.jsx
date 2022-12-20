@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import numFormatter from '../../../utils/MembersNum';
 import { followRequest } from './FollowServer';
 import {
@@ -17,7 +17,7 @@ import {
  */
 function Peoples(props) {
   const { people } = props;
-  const [follow, setFollow] = useState(people?.isFollowed);
+  const [follow, setFollow] = useState(true);
   const handleJoin = () => {
     followRequest(people?.fixedName, follow);
     setFollow((prev) => !prev);
@@ -31,6 +31,9 @@ function Peoples(props) {
   const handleMouseOut = () => {
     setHover(false);
   };
+  useEffect(() => {
+    setFollow(people?.isFollowed);
+  }, []);
   return (
     <OneSuggeest sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex' }}>

@@ -1,7 +1,7 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import numFormatter from '../../../utils/MembersNum';
 import PostJoin from '../../SubReddit/PostJoin';
 import {
@@ -21,7 +21,7 @@ import {
 
 function Subreddits(props) {
   const { subreddit } = props;
-  const [joined, setJoined] = useState(subreddit?.isJoined);
+  const [joined, setJoined] = useState(true);
   const handleJoin = () => {
     PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, !joined);
 
@@ -36,7 +36,9 @@ function Subreddits(props) {
   const handleMouseOut = () => {
     setHover(false);
   };
-
+  useEffect(() => {
+    setJoined(subreddit?.isJoined);
+  }, []);
   return (
     <PostContainer my={2} sx={{ padding: '16px' }}>
       <Box width="100%" sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -77,7 +79,7 @@ function Subreddits(props) {
           onMouseEnter={handleMouseIn}
           onMouseLeave={handleMouseOut}
         >
-          {(subreddit?.isJoined ? (hover ? 'leave' : 'joined') : 'join')}
+          {(joined ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
       </Box>
     </PostContainer>
