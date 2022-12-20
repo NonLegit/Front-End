@@ -3,20 +3,24 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const CommunityListItem = styled(ListItem)(({ sidebar }) => ({
+export const CommunityListItem = styled(ListItem)(({ sidebar, theme }) => ({
   padding: '8px 8px 8px 16px',
   display: 'flex',
   justifyContent: 'space-between',
   ...((sidebar !== 'true') && {
-    height: 64,
+    minHeight: 64,
     padding: '8px 15px 8px 25px',
   }),
+  [theme.breakpoints.between('0', '450')]: {
+    flexDirection: 'column',
+    alignItems: 'baseline',
+  },
 }));
 export const CommunityName = styled(Typography)(() => ({
   fontSize: 14,
   color: '#1c1c1c',
   fontWeight: 'bold',
-  maxWidth: 123,
+  maxWidth: 200,
   overflow: 'hidden',
   textOverflow: 'ellipsis',
 }));
@@ -39,7 +43,7 @@ export const CommunityIndex = styled(Box)(() => ({
   fontWeight: 'bold',
 }));
 
-export const Joined = styled(Button)(() => ({
+export const Joined = styled(Button)(({ theme }) => ({
   textTransform: 'unset',
   borderRadius: 999,
   boxShadow: 'none',
@@ -49,4 +53,18 @@ export const Joined = styled(Button)(() => ({
   fontSize: 12,
   padding: '2px 16px',
   fontWeight: 'bold',
+  position: 'absolute',
+  right: 100,
+  [theme.breakpoints.between('0', '450')]: {
+    position: 'relative',
+    right: 0,
+
+  },
+}));
+
+export const ResposiveBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.between('0', '450')]: {
+    marginTop: 20,
+    display: 'flex',
+  },
 }));

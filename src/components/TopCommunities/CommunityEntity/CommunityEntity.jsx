@@ -3,7 +3,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 import {
-  CommunityName, CommunityImage, CommunityIndex, CommunityListItem, Joined,
+  CommunityName, CommunityImage, CommunityIndex, CommunityListItem, Joined, ResposiveBox,
 } from './styles';
 import numFormatter from '../../../utils/MembersNum';
 import PostJoin from '../../SubReddit/PostJoin';
@@ -17,12 +17,11 @@ function CommunityEntity(props) {
   const [showStatus, setShowStatus] = useState(true);
 
   useEffect(() => {
-    setShowStatus(status);
+    if (status) { setShowStatus(status); }
   }, [status]);
 
   const handleJoin = () => {
     PostJoin(`/subreddits/${subredditName}/subscribe`, joined ? 'unsub' : 'sub');
-
     setJoined((prev) => !prev);
   };
 
@@ -70,8 +69,8 @@ function CommunityEntity(props) {
 
       </Box>
       {!sidebar && (
-      <>
-        <Box sx={{ position: 'absolute', right: 100 }}>
+      <ResposiveBox>
+        <Box>
           {!isJoined && (
           <Joined
             variant="contained"
@@ -83,10 +82,13 @@ function CommunityEntity(props) {
           </Joined>
           )}
         </Box>
-        <CommunityIndex sx={{ display: 'flex', justifyContent: 'flex-end', flexGrow: '1' }}>
+        <CommunityIndex sx={{
+          display: 'flex', justifyContent: 'flex-end', flexGrow: '1', height: 'fit-content',
+        }}
+        >
           {numFormatter(members) }
         </CommunityIndex>
-      </>
+      </ResposiveBox>
       )}
 
     </CommunityListItem>
