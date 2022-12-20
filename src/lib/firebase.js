@@ -5,7 +5,7 @@
 /* eslint-disable no-restricted-globals */
 import { initializeApp } from 'firebase/app';
 
-// import { getFirestore } from '@firebase/firestore';
+import { getFirestore } from '@firebase/firestore';
 import { getMessaging, onMessage, getToken } from 'firebase/messaging';
 
 const firebaseConfig = {
@@ -21,7 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const appNottification = initializeApp(firebaseConfig);
-// export const firestore = getFirestore(app);
+export const firestore = getFirestore(app);
 export let messaging;//= getMessaging(app);
 // export const messagingNottification = getMessaging(appNottification);
 

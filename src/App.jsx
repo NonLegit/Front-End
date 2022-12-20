@@ -58,7 +58,7 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
-  const [showNotificationBanner, setShowNotificationBanner] = useState(false); // Notification.permission === 'default'
+  const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
   const handleGetFirebaseToken = () => {
     if (showNotificationBanner) {
       getFirebaseToken()
