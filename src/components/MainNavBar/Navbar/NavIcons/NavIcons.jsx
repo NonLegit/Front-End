@@ -43,14 +43,10 @@ function NavIcons() {
   useEffect(() => {
     const data = dataToday.concat(dataEarlier);
     setToday(data.slice(0, 5));
-    console.log(dataToday);
-    console.log(dataEarlier);
   }, [dataEarlier, dataToday]);
   useEffect(() => {
-    console.log('doaa');
     onForegroundNottification()
       .then((payload) => {
-        console.log('Received foreground message: ', payload);
         const { data: { val } } = payload;
         setToday((oldArray) => [JSON.parse(val), ...oldArray]);
         setUnread(unread + 1);

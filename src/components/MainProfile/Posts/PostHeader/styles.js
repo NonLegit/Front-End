@@ -46,3 +46,11 @@ export const Joined = styled(Button)(() => ({
     boxShadow: 'none',
   },
 }));
+
+export const LinkCross = styled(Link)(() => ({
+  color: '#787c7e',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+}));

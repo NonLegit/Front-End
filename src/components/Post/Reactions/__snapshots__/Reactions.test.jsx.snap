@@ -58,9 +58,9 @@ exports[`Reactions Reactions renders correctly 1`] = `
     </svg>
   </button>
   <div
-    className="MuiBox-root css-1py4uq7"
+    className="MuiBox-root css-vzjzqy"
   >
-    100
+    NaN
   </div>
   <button
     className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-xv33dv-MuiButtonBase-root-MuiIconButton-root"

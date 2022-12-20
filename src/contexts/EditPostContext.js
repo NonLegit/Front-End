@@ -6,7 +6,11 @@ const EditPostContext = createContext(null);
 
 function EditPostContextProvider({ children }) {
   const [editPost, setEditPost] = useState(false);
-  const value = useMemo(() => ({ editPost, setEditPost }), [editPost, setEditPost]);
+  const [commentPost, setCommentPost] = useState(false);
+
+  const value = useMemo(() => ({
+    editPost, setEditPost, commentPost, setCommentPost,
+  }), [editPost, setEditPost, commentPost, setCommentPost]);
   return (
     <EditPostContext.Provider
       value={value}

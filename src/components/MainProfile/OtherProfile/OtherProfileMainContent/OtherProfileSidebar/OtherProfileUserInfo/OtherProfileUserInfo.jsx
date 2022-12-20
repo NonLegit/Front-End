@@ -4,13 +4,13 @@ import CakeIcon from '@mui/icons-material/Cake';
 import { useEffect, useState } from 'react';
 import moment from 'moment/moment';
 
-import UserInfoServer from '../../../../mainProfileServer';
+import UserInfoServer, { followRequest } from '../../../../mainProfileServer';
 import {
   ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, MoreOptions, OptionsButtons, UserInfoButton, LinkTo, Text, PlatformIcon, BlockButton, BootstrapDialog,
 } from './styles';
-import { blockRequest, followRequest } from './userActionServer';
+import { blockRequest } from './userActionServer';
 import Block from './Block/Block';
 
 /**

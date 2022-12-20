@@ -20,7 +20,7 @@ function Reactions(props) {
   const {
     flexDirection, votes, postVoteStatus, postId, viewpost,
   } = props;
-  console.log('vote status', postVoteStatus, postId);
+  // console.log('vote status', postVoteStatus, postId);
   const theme = useTheme();
   const reducer = (state, action) => {
     switch (action) {

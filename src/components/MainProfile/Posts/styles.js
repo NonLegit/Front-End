@@ -9,8 +9,11 @@ export const PostsQueueBox = styled(Box)(({ condition }) => ({
   marginTop: 10,
   borderRadius: 3,
   zIndex: -1,
+  boxSizing: 'border-box',
   '&:hover': {
     outline: '1px solid #898989',
+    borderRight: '1px solid #898989',
+    borderLeft: '1px solid #898989',
     cursor: 'pointer',
   },
   ...((condition === 'true') && {

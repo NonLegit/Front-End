@@ -92,20 +92,29 @@ function Post(props) {
     }
   };
 
+  const getPostUrl = () => {
+    const username = ownerName;
+    if (ownerType === 'User') {
+      if (username) {
+        return `user/${username}/comments/${postId}`;
+      }
+      return '';
+    }
+    return `r/${ownerName}/comments/${postId}`;
+  };
+
   // effects
   useEffect(() => {
-    // console.log('height', postTextRef?.current?.offsetHeight);
     setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
   }, [text]);
 
   useEffect(() => {
     images?.forEach((image) => {
       const img = new Image();
-      // console.log(img);
+
       img.src = image;
       img.onload = () => {
         setMaxImagesHeight((maxImagesHeight) => {
-          console.log('rakam', postMediaRef?.current?.offsetWidth);
           const maxValue = Math.min(maxImagesHeight, img.height);
           const postWidth = postMediaRef?.current?.offsetWidth;
           if (maxImagesHeight > img.height && img.width > postWidth) {
@@ -113,12 +122,11 @@ function Post(props) {
           }
           return maxValue;
         });
-        console.log('my img height', img.height);
       };
     });
   }, [images]);
 
-  console.log('for post ', postId, maxImagesHeight);
+  // console.log('for post ', postId, maxImagesHeight);
   return (
     <PostContainer my={2}>
       {matchSm && (
@@ -167,10 +175,8 @@ function Post(props) {
             (kind === 'image')
               ? (
                 <>
-                  {images.map((image, imageIndex) => {
-                    console.log('my imageshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkkkkkkkkkkkkkk', image);
-                    return (
-                      imageIndex === index
+                  {images.map((image, imageIndex) => (
+                    imageIndex === index
                     && (
                     <CustomImage
                       src={image}
@@ -179,8 +185,7 @@ function Post(props) {
                       maxHeight={maxImagesHeight}
                     />
                     )
-                    );
-                  })}
+                  ))}
                   <>
                     <ControlsIcon
                       disableRipple
@@ -242,6 +247,9 @@ function Post(props) {
           postVoteStatus={postVoteStatus}
           isSaved={isSaved}
           postId={postId}
+          redirectToPost={redirectToPost}
+          getPostUrl={getPostUrl}
+          authorName={authorName}
         />
       </Box>
     </PostContainer>

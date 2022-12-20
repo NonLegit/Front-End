@@ -12,6 +12,9 @@ export const CommentsBoxHeader = styled(Box)(({ theme, noheader }) => ({
   padding: '8px 8px',
   '&:hover': {
     outline: '1px solid #898989',
+    borderRight: '1px solid #898989',
+    borderLeft: '1px solid #898989',
+    cursor: 'pointer',
   },
   ...((noheader === 'false') && {
     display: 'none',

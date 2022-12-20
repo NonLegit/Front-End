@@ -1,13 +1,8 @@
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 // MUI Components
 import { Box } from '@mui/system';
-
-// services
-import {
-  convertToRaw, EditorState,
-} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
 
 // components
 import { Typography } from '@mui/material';
@@ -21,14 +16,21 @@ import { SaveButton } from '../styles';
 
 // Server
 import { saveComment } from '../../CommentsList/commentsListServer';
+import { AuthorLink } from '../../CommentsList/Comment/styles';
 
 function CreateComment() {
   // Context
   const { post } = usePostContext();
 
+  // Cookie
+  const [cookies] = useCookies(['redditUser']);
+
   // States
-  const [text, setText] = useState(EditorState.createEmpty());
+  const [text, setText] = useState('');
   // const [readyToSave, setReadyToSave] = useState(false);
+
+  // Constants
+  const authorProfilelink = `/user/${cookies?.redditUser?.userName}`;
 
   const handleCommentTextChange = (text) => {
     // console.log(convertToRaw(text.getCurrentContent()));
@@ -38,8 +40,8 @@ function CreateComment() {
   // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
-    if (saveComment(post?._id, 'Post', draftToHtml(convertToRaw(text.getCurrentContent())))) {
-      setText(EditorState.createEmpty());
+    if (saveComment(post?._id, 'Post', text)) {
+      setText('');
 
       // Need refresh post Component =>to pop comment
       // UpdatePost();
@@ -49,7 +51,12 @@ function CreateComment() {
 
   return (
     <div>
-      <Typography>Comment as BasmaElhoseny01</Typography>
+      <Typography>
+        Comment as
+        {' '}
+        <AuthorLink href={authorProfilelink}>{cookies?.redditUser?.userName}</AuthorLink>
+      </Typography>
+
       <TextEditor
         handlePostTextChange={handleCommentTextChange}
         postText={text}
@@ -60,7 +67,7 @@ function CreateComment() {
           variant="contained"
           type="submit"
           onClick={comment}
-          disabled={draftToHtml(convertToRaw(text.getCurrentContent())).length === 8}
+          disabled={text?.length === 8}
         >
           Comment
         </SaveButton>

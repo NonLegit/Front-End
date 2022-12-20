@@ -4,12 +4,14 @@ import {
 } from '@mui/material';
 import { StyledBox, StyledFont } from './styles';
 
-function BanPeriod() {
+function BanPeriod(props) {
+  const { duration } = props;
   const [checked, setChecked] = React.useState(true);
 
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
+  // const handleChange = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+
   return (
     <>
       <StyledFont>HOW LONG?</StyledFont>
@@ -19,6 +21,7 @@ function BanPeriod() {
             type="number"
             inputProps={{ min: 0, max: 999 }}
             disabled={checked}
+            defaultValue={(duration === -1) ? '' : duration}
             size="small"
             sx={{ width: '75px' }}
             focused
@@ -34,8 +37,8 @@ function BanPeriod() {
           <FormControlLabel
             control={(
               <Checkbox
-                checked={checked}
-                onChange={handleChange}
+                defaultChecked={checked || duration === -1}
+                onClick={() => { setChecked(!checked); }}
                 disableRipple
                 disableFocusRipple
               />

@@ -31,3 +31,12 @@ export const LinkTo = styled(Link)(() => ({
   display: 'flex',
   alignItems: 'center',
 }));
+
+export const LinkCross = styled(Link)(() => ({
+  color: '#787c7e',
+  textDecoration: 'none',
+  '&:hover': {
+    color: 'black',
+    textDecoration: 'underline',
+  },
+}));

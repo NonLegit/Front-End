@@ -5,9 +5,10 @@ import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CallSplitIcon from '@mui/icons-material/CallSplit';
 
 import {
-  HeaderPost, Joined, LinkTo,
+  HeaderPost, Joined, LinkCross, LinkTo,
 } from './styles';
 
 /**
@@ -29,6 +30,8 @@ function OtherProfilePostHeader(props) {
     locked,
     notJoined,
     type,
+    sharedFrom,
+
   } = props;
 
   const [joined, setJoined] = useState(false);
@@ -76,6 +79,18 @@ function OtherProfilePostHeader(props) {
           {nameUser}
         </Typography>
       </LinkTo>
+      {sharedFrom && (
+      <>
+        <CallSplitIcon sx={{ color: '#0079D3', marginLeft: '3px', transform: 'rotate(90deg)' }} fontSize="string" />
+        <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
+          cross posted by
+          {' '}
+          <LinkCross to={`/user/${sharedFrom?.author?.name}`}>
+            {sharedFrom?.author?.name}
+          </LinkCross>
+        </Typography>
+      </>
+      )}
       <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
         {' '}
         {(moment.utc(Time).local().startOf('seconds')

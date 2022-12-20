@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { UserContext } from '../../../../../contexts/UserProvider';
+// import { useParams } from 'react-router';
 import BackHomeBottun from './BackHomeBottun/BackHome';
 import Communities from './Communities/Communities';
 import { SidebarBox } from './styles';
@@ -10,9 +13,12 @@ import UserInfo from './UserInfo/UserInfo';
  * @returns {React.Component} Sidebar
  */
 function Sidebar() {
+  // const { username } = useParams();
+  const { username } = useContext(UserContext);
+
   return (
     <SidebarBox>
-      <UserInfo />
+      <UserInfo username={username} />
       <Communities />
       <BackHomeBottun />
     </SidebarBox>

@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useState, useEffect } from 'react';
 import { followersServer } from './followersServer';
 import {
   ContentBox, FollowersBox, Search, SearchBox, SearchIconButton,
@@ -11,6 +12,17 @@ import Follower from './Follower/Follower';
 
 function FollowersList() {
   const [data] = followersServer();
+  const [filter, setFilter] = useState(data);
+
+  useEffect(() => {
+    setFilter(data);
+  }, [data]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setFilter(data.filter((x) => x.userName === e.target[0].value));
+  };
 
   return (
     <ContentBox>
@@ -22,6 +34,7 @@ function FollowersList() {
         <Box sx={{ flex: 1 }}>
           <Search
             component="form"
+            onSubmit={(e) => { handleSubmit(e); }}
           >
             <InputBase
               sx={{
@@ -41,7 +54,8 @@ function FollowersList() {
         </Box>
       </SearchBox>
       <FollowersBox>
-        { data?.map((following, index) => (
+
+        { filter?.map((following, index) => (
           <Follower key={`${index + 0}`} follower={following} />
         ))}
       </FollowersBox>
