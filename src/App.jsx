@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unstable-nested-components */
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -45,7 +47,7 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
-  const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
+  const [showNotificationBanner, setShowNotificationBanner] = useState(false);// Notification.permission === 'default'
   const handleGetFirebaseToken = () => {
     if (showNotificationBanner) {
       getFirebaseToken()

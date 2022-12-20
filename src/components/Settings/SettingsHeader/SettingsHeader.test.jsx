@@ -6,6 +6,7 @@ import {
 } from '@testing-library/react';
 import SettingsHeader from './SettingsHeader';
 import App from '../../../App';
+
 // test snapshot
 test('test snapshot', async () => {
   const tree = renderer.create(

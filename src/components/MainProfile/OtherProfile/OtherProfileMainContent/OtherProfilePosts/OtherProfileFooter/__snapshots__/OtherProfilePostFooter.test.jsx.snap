@@ -72,7 +72,8 @@ exports[`test snapshot 1`] = `
       className="MuiTypography-root MuiTypography-caption css-1052m2m-MuiTypography-root"
       responsiveshare="true"
     >
-       Comments
+       
+      Comments
     </span>
   </div>
   <div

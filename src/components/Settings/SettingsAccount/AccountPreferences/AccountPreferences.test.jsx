@@ -4,6 +4,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AccountPreferences from './AccountPreferences';
 import SettingsAccount from '../SettingsAccount';
 
+const mockAlert = jest.fn();
+jest.mock('react-alert', () => ({
+  ...jest.requireActual('react-alert'),
+  useAlert: () => mockAlert,
+}));
 // test snapshot
 test('test snapshot', async () => {
   const tree = renderer.create(

@@ -6,6 +6,12 @@ import {
 } from '@testing-library/react';
 import SettingsProfile from './SettingsProfile';
 import App from '../../../App';
+
+const mockAlert = jest.fn();
+jest.mock('react-alert', () => ({
+  ...jest.requireActual('react-alert'),
+  useAlert: () => mockAlert,
+}));
 // test snapshot
 test('test snapshot', async () => {
   const tree = renderer.create(

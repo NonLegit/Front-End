@@ -56,11 +56,13 @@ Array [
   <div
     className="css-e3tcub"
   >
-    <div
+    <a
       className="css-qq790j"
+      href="/"
+      onClick={[Function]}
     >
       VIEW ALL MODERATORS
-    </div>
+    </a>
   </div>,
 ]
 `;

@@ -71,11 +71,13 @@ exports[`test snapshot 1`] = `
               onFocus={[Function]}
               required={false}
               type="text"
+              value=""
             />
           </div>
         </div>
         <div
-          className="css-t7v2ja"
+          className="css-1jpzxrp"
+          onClick={[Function]}
         >
           ADD
         </div>
