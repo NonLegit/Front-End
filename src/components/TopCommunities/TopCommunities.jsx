@@ -3,6 +3,8 @@ import { CommunitiesBox, TopCommunitiesHeader } from './styles';
 import TopContent from './TopContent/TopContent';
 import Categories from './Categories/Categories';
 import TopSidebar from './TopSidebar/TopSidebar';
+import cleanPage from '../../utils/cleanPage';
+import CommunitiesProvider from '../../contexts/CommunitiesModeratorContext';
 
 function TopCommunities() {
   const allCategories = [
@@ -13,11 +15,11 @@ function TopCommunities() {
     { id: 5, text: 'Aww', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
     { id: 6, text: 'Memes', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
     { id: 7, text: 'Travel', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
-    { id: 8, text: 'Tech', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
-    { id: 9, text: 'Music', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
-    { id: 10, text: 'Food', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
+    { id: 8, text: 'Crypto', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
+    { id: 9, text: 'Television', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
+    { id: 10, text: 'Celebrity', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },
   ];
-
+  cleanPage();
   return (
     <>
       <TopCommunitiesHeader>
@@ -26,7 +28,9 @@ function TopCommunities() {
       </TopCommunitiesHeader>
       <CommunitiesBox>
         <Categories allCategories={allCategories} />
-        <TopContent />
+        <CommunitiesProvider>
+          <TopContent />
+        </CommunitiesProvider>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <TopSidebar allCategories={allCategories} />
           <TopSidebar allCategories={allCategories} />

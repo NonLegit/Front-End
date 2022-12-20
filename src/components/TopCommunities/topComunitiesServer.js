@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import useFetch from '../../hooks/useFetch';
+import useFetchTop from '../../hooks/useFetchTop';
 
 export const CommunitiesGetter = (category) => {
-  const [data, dataError, statusCode] = useFetch(`/subreddits/leaderboard/${category}`);
+  const [data, dataError, statusCode] = useFetchTop(`/subreddits/leaderboard/${category}`);
 
   useEffect(() => {
     if (statusCode === 401) {
