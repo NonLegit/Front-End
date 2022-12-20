@@ -53,6 +53,7 @@ import AllPage from './pages/AllPage';
 import CreatePostSidebarContextProvider from './contexts/CreatePostSidebarContext';
 import ErrorPage from './pages/ErrorPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
+import Explore from './pages/Explore';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -118,43 +119,43 @@ function App() {
                       path="messages"
                       element={
                         <Messages />
-                                          }
+                                            }
                     >
                       <Route
                         path="inbox"
                         element={
                           <MessagesAll />
-                                              }
+                                                }
                       />
                       <Route
                         path="unread"
                         element={
                           <MessagesUnread />
-                                              }
+                                                }
                       />
                       <Route
                         path="compose"
                         element={
                           <MessageForm />
-                                              }
+                                                }
                       />
                       <Route
                         path="selfreply"
                         element={
                           <PostReplies />
-                                              }
+                                                }
                       />
                       <Route
                         path="messages"
                         element={
                           <MessagesDrive />
-                                              }
+                                                }
                       />
                       <Route
                         path="sent"
                         element={
                           <MessageSent />
-                                              }
+                                                }
                       />
                     </Route>
 
@@ -200,15 +201,20 @@ function App() {
                       path="/*"
                       element={
                         <ErrorPage />
-                                          }
+                                            }
                     />
                     <Route
                       path="/verification/:token"
                       element={
                         <VerifyEmailPage />
+                                            }
+                    />
+                    <Route
+                      path="t/:title"
+                      element={
+                        <Explore />
                                           }
                     />
-
                   </Routes>
                 </Router>
               </EditPostContextProvider>

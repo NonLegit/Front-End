@@ -54,6 +54,7 @@ const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
 const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
+const exploreCommunities = require('./exploreCommunities.json');
 const TopCommunities = require('./topCommunities.json');
 const SearchByPeople = require('./SearchByPeople.json');
 const SearchByPost = require('./SearchByPost.json');
@@ -144,6 +145,7 @@ module.exports = () => ({
   listBlock,
   notificationToken,
   moderatorAction,
+  exploreCommunities,
   TopCommunities,
   messageSent,
   MessagePostReplay,

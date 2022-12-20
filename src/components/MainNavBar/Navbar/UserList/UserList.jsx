@@ -3,6 +3,7 @@
 import {
   List, ListItemButton, ListItemIcon, Collapse, Box, Typography, Divider, ListItemText, ClickAwayListener,
 } from '@mui/material';
+import { useNavigate, Link } from 'react-router-dom';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import Avatar from '@mui/material/Avatar';
@@ -10,7 +11,7 @@ import * as React from 'react';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
-import { Link } from 'react-router-dom';
+
 import { useCookies } from 'react-cookie';
 import { redditCookie } from '../../../Authentication/authenticationServer';
 import FormDialog from '../../../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
@@ -27,6 +28,11 @@ import { logOut } from './server';
  */
 
 function UserList() {
+  // navigate
+  const navigate = useNavigate();
+  const handleClick = (subPage) => {
+    navigate(`/t/${subPage}/`);
+  };
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie, removeCookie] = useCookies(['redditUser']);
   React.useEffect(() => {
@@ -152,7 +158,7 @@ function UserList() {
                     </ListItemButton>
                     <Collapse in={Boolean(openSubList[index])} timeout="auto" unmountOnExit>
                       {Sub.Content.map((items) => (
-                        <ListItemButton key={`${index + 0}`}>
+                        <ListItemButton key={`${index + 0}`} onClick={() => handleClick(items)}>
                           <ListItemText primary={items} />
                         </ListItemButton>
                       ))}

@@ -64,6 +64,9 @@
   "/posts/:postId/vote": "/vote",
   "/posts/:postId/images": "/addImagesToPost",
   "/posts/:postId/moderate/:action": "/moderatorAction",
+
+  "/t/:name/":"/exploreCommunities",
+
   "subreddits/:Name/flairs/:id": "/UpdateFlair",
   "/search?limit=6&page=0&type=people&sort=:new&time=:day&q=:ahmed": "/SearchByPeople",
   "/search?limit=6&page=0&type=communities&sort=:new&time=:day&q=:ahmed": "/SearchByCommunity",

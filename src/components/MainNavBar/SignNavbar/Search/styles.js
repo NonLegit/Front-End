@@ -1,6 +1,6 @@
-import { Box, styled } from '@mui/material';
+import { Box, styled, Chip } from '@mui/material';
 
-const Search = styled(Box)(({ theme }) => ({
+export const Search = styled(Box)(({ theme }) => ({
   position: 'relative',
   marginLeft: '34px',
   marginRight: '34px',
@@ -48,7 +48,13 @@ const Search = styled(Box)(({ theme }) => ({
       display: 'none',
     },
   },
-
 }));
 
-export default Search;
+export const StyledChip = styled(Chip)(({ chipShow }) => ({
+  marginRight: '5px',
+  display: (chipShow) ? 'flex' : 'none',
+  '& .MuiSvgIcon-root': {
+    padding: '0px',
+    width: 'fit-content',
+  },
+}));

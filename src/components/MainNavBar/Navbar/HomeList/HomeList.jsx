@@ -63,13 +63,25 @@ function HomeList() {
                   </Link>
                 </ListItemButton>
 
-              )
+              ) : (items.label === 'popular')
+                ? (
+                  <ListItemButton key={`${index + 0}`}>
+                    <Link to="/r/popular" style={{ textDecoration: 'none', display: 'flex' }}>
+                      <ListItemIcon>
+                        {items.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={items.label} />
+                    </Link>
+                  </ListItemButton>
+                )
                 : (
                   <ListItemButton key={`${index + 0}`}>
-                    <ListItemIcon>
-                      {items.icon}
-                    </ListItemIcon>
-                    <ListItemText primary={items.label} />
+                    <Link to="/r/all" style={{ textDecoration: 'none', display: 'flex' }}>
+                      <ListItemIcon>
+                        {items.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={items.label} />
+                    </Link>
                   </ListItemButton>
                 )
             ))}
@@ -127,14 +139,26 @@ function HomeList() {
                           </Link>
                         </ListItemButton>
                       )
-                      : (
-                        <ListItemButton key={`${index + 0}`}>
-                          <ListItemIcon>
-                            {items.icon}
-                          </ListItemIcon>
-                          <ListItemText primary={items.label} />
-                        </ListItemButton>
-                      )
+                      : (items.label === 'user settings')
+                        ? (
+                          <ListItemButton key={`${index + 0}`}>
+                            <Link to="/settings" style={{ textDecoration: 'none', display: 'flex' }}>
+                              <ListItemIcon>
+                                {items.icon}
+                              </ListItemIcon>
+                              <ListItemText primary={items.label} />
+                            </Link>
+                          </ListItemButton>
+                        ) : (
+                          <ListItemButton key={`${index + 0}`}>
+                            <Link to="/messages" style={{ textDecoration: 'none', display: 'flex' }}>
+                              <ListItemIcon>
+                                {items.icon}
+                              </ListItemIcon>
+                              <ListItemText primary={items.label} />
+                            </Link>
+                          </ListItemButton>
+                        )
             ))
             }
           </List>
