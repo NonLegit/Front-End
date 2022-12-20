@@ -9,6 +9,13 @@ import CustomizedDialogs from './ListAlert/Alert';
 
 const { ClickAwayListener, Box } = require('@mui/material');
 
+/**
+ * Add item to list of topics
+ * @component
+ * @property  {function} SaveAction save new data and send to backend
+ *
+ * @return {React.Component} -  Add item to list of topics
+ */
 function AddBtn(props) {
   const { sendData } = props;
   const {

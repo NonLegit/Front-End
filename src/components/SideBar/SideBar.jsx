@@ -8,9 +8,9 @@ import { SideBarContainer } from './styles';
  * @returns {React.Component} Container represents its children
  */
 
-function SideBar({ children }) {
+function SideBar({ children, responsive }) {
   return (
-    <SideBarContainer>
+    <SideBarContainer responsive={responsive}>
       {children}
     </SideBarContainer>
   );

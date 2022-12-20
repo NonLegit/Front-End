@@ -11,12 +11,15 @@ import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useNavigate } from 'react-router-dom';
 import {
   ElementBox, FooterBox, FooterText,
 } from './styles';
 import OtherProfilePostFooterListResponsive from './OtherProfilePostFooterListResponsive/OtherProfilePostFooterListResponsive';
 import OtherProfileArrowList from './OtherProfileArrowList/OtherProfileArrowList';
 import { postReactionsServer } from '../../../../profileServer';
+
+import { useEditPostContext } from '../../../../../../contexts/EditPostContext';
 
 /**
  * Footer of the post that contain all icons
@@ -30,11 +33,14 @@ import { postReactionsServer } from '../../../../profileServer';
 function OtherProfilePostFooter(props) {
   const {
     postid, numComments, handleExpand, expand, saved, hidden, submitted,
-    points, postVoteStatus,
+    points, postVoteStatus, ownerType, owner,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
   const [showList2, setShowList2] = useState(false);
+
+  const navigate = useNavigate();
+  const { setEditPost, setCommentPost } = useEditPostContext();
 
   // handle disable the list when click away
   const handleClick2 = () => {
@@ -80,7 +86,8 @@ function OtherProfilePostFooter(props) {
       </ElementBox>
       <Divider orientation="vertical" variant="middle" flexItem />
       {/* number of comments and share section */}
-      <ElementBox>
+
+      <ElementBox onClick={() => { setCommentPost(true); setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}
@@ -115,7 +122,7 @@ function OtherProfilePostFooter(props) {
       <ElementBox show={true.toString()}>
         <MoreHorizOutlinedIcon onClick={handleClick2} />
         {showList2 && (
-        <OtherProfilePostFooterListResponsive isSaved={isSaved} postid={postid} />
+          <OtherProfilePostFooterListResponsive isSaved={isSaved} postid={postid} />
         )}
       </ElementBox>
 

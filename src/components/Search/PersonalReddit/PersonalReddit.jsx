@@ -3,6 +3,12 @@ import {
   RedditPersonal, Paragraph, RedditImage, MiddleBox, UpperImage, CustomLink,
 } from './styles';
 
+/**
+ * pesronal reddit in search by posts sidebar
+ * @component
+
+ * @return {React.Component} - pesronal reddit in search by posts sidebar
+ */
 function PersonalReddit() {
   return (
     <RedditPersonal>

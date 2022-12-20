@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
 // MUI Compoents
@@ -8,14 +8,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import { Box } from '@mui/system';
 
-// services
-import {
-  convertToRaw, EditorState,
-} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-
 // Components
-import Reactions from '../../../../../Post/Reactions/Reactions';
+import CommentReactions from './CommentReactions/CommentReactions';
 import DropDownList from '../../../../../DropDownList/DropDownList';
 import TextEditor from '../../../../../CreatePost/CreatePostContainer/CreatePostForm/TextEditor/TextEditor';
 import RedditButton from '../../../../../RedditButton/RedditButton';
@@ -29,6 +23,7 @@ import { ElementBox, FooterText } from '../../../../../MainProfile/Posts/PostFoo
 import { SaveButton } from '../../../MultiLevelPostContent/styles';
 
 // Server
+import { saveCommenttoDB } from './commentActionsServer';
 import { saveComment } from '../../commentsListServer';
 
 function CommentActions(props) {
@@ -37,48 +32,59 @@ function CommentActions(props) {
   const [cookies, setCookies] = useCookies(['redditUser']);
 
   // Context
-  const { post } = usePostContext();
-  const { comment } = props;
+  const {
+    post, setPost, comments, setComments,
+  } = usePostContext();
+
+  // props
+  const {
+    comment, setComment, replies, setReplies, setEditComment,
+  } = props;
 
   // States
-  const [reply, setReply] = useState(EditorState.createEmpty());
+  const [reply, setReply] = useState('');
   const [replyEditor, setReplyEditor] = useState(false);
+  const [saved, setSaved] = useState(comment?.isSaved);
 
-  const dropDownListOptions = [{ value: 'Save', icon: 'Save' }];
-  const dropDownListOptionsAuthor = [{ value: 'Edit', icon: 'Edit' }, { value: 'Save', icon: 'Save' }, { value: 'Delete', icon: 'Delete' }];
-  const dropDownListOptionsMod = [{ value: 'Approve', icon: 'Approve' }, { value: 'Remove', icon: 'Remove' }, { value: 'Remove as spam', icon: 'Remove as spam' }, { value: 'Lock comment', icon: 'Lock comment' }];
+  useEffect(() => {
+    // setSaved(comment?.isSaved);
+    setSaved(false);
+  }, [comment]);
+
+  const dropDownListOptions = [{ value: !saved ? 'Save' : 'unSave', icon: !saved ? 'Save' : 'unSave' }];
+  const dropDownListOptionsAuthor = [{ value: 'Edit', icon: 'Edit' }, { value: !saved ? 'Save' : 'unSave', icon: !saved ? 'Save' : 'unSave' }, { value: 'Delete', icon: 'Delete' }];
+  // const dropDownListOptionsMod = [{ value: 'Approve', icon: 'Approve' }, { value: 'Remove', icon: 'Remove' }, { value: 'Remove as spam', icon: 'Remove as spam' }, { value: 'Lock comment', icon: 'Lock comment' }];
 
   const replyOnComment = () => {
     // call Reply endPoint
     console.log('Reply on Comment with Text', comment?.text);
-    if (saveComment(comment?._id, 'Comment', draftToHtml(convertToRaw(reply.getCurrentContent())))) {
-      setReply(EditorState.createEmpty());
+    if (saveComment(comment?._id, 'Comment', reply, post, setPost, replies, setReplies)) {
+      setReply('');
       setReplyEditor(false);
-
-      // Need refresh post Component =>to pop comment
-      // UpdatePost();
-      // Refetch post
     }
   };
 
   const handleCommentReplyChange = (text) => {
-    // console.log(convertToRaw(text.getCurrentContent()));
     setReply(text);
   };
 
   const shareComment = () => {
     // call Share endPoint
     console.log('Share Comment with Text', comment?.text);
+    // navigator.clipboard.writeText(this.state.textToCopy);
+    const navigationLink = `${window.location.origin}/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?._id}/comments/${post?._id}/${comment?._id}`;
+    navigator.clipboard.writeText(navigationLink);
   };
   const handleSelectEdit = (option) => {
     // Call Back API
     console.log('Option Selected', option);
     if (option === 'Edit') {
-      // call Edit endPoint
       console.log('Edit Comment with Text', comment?.text);
+      setEditComment(true);
     } else if (option === 'Save') {
       // call Save endPoint
       console.log('Save Comment with Text', comment?.text);
+      saveCommenttoDB(comment?._id, comment, setComment, saved, setSaved);
     } else if (option === 'Delete') {
       // call Delete endPoint
       console.log('Delete Comment with Text', comment?.text);
@@ -93,14 +99,12 @@ function CommentActions(props) {
   return (
     <div>
       <CommentActionsContainer>
-        {post && (
-        <Reactions
-          flexDirection="row"
-          viewpost
-          votes={post?.votes}
-          postVoteStatus={post?.postVoteStatus}
-          postId={post?._id}
-        />
+        {comment && (
+          <CommentReactions
+            votes={comment?.votes}
+            commentVoteStatus={comment?.votes}
+            commentId={comment?._id}
+          />
         )}
         <ElementBox onClick={() => setReplyEditor(true)}>
           <ChatBubbleOutlineOutlinedIcon />
@@ -119,10 +123,10 @@ function CommentActions(props) {
           <MoreVertIcon />
         </DropDownList>
 
-        {/* Add cONDION ON THIS PREVIEW */}
+        {/* Add cONDION ON THIS PREVIEW
         <DropDownList handleSelectionFun={handleSelectMod} options={dropDownListOptionsMod}>
           <ShieldOutlinedIcon />
-        </DropDownList>
+        </DropDownList> */}
 
       </CommentActionsContainer>
       {replyEditor ? (
@@ -131,6 +135,7 @@ function CommentActions(props) {
             handlePostTextChange={handleCommentReplyChange}
             postText={reply}
             commentPlaceholder
+            id={comment?._id}
           />
           <Box m={2} gap={1} display="flex" justifyContent="flex-end">
             <RedditButton
@@ -140,7 +145,7 @@ function CommentActions(props) {
               type="submit"
               onClick={() => {
                 setReplyEditor(false);
-                setReply(EditorState.createEmpty());
+                setReply('');
               }}
             >
               Cancel
@@ -150,7 +155,7 @@ function CommentActions(props) {
               variant="contained"
               type="submit"
               onClick={replyOnComment}
-              disabled={draftToHtml(convertToRaw(reply.getCurrentContent())).length === 8}
+              disabled={reply?.length === 8}
             >
               Reply
             </SaveButton>

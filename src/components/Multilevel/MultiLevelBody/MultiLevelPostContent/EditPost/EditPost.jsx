@@ -1,12 +1,4 @@
-import { useState } from 'react';
-
-// services
-import {
-  // eslint-disable-next-line no-unused-vars
-  convertToRaw, EditorState, ContentState, convertFromHTML,
-} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-// draftToHtml(convertToRaw(postText.getCurrentContent()))
+import { useEffect, useState } from 'react';
 
 // MUI Components
 import { Box } from '@mui/material';
@@ -24,35 +16,38 @@ import { SaveButton } from '../styles';
 // Server
 import { editPost } from './editPostServer';
 
-function EditPost() {
+function EditPost({ setEdit }) {
   // Context
   const { post, setPost } = usePostContext();
 
+  useEffect(() => {
+    console.log('EditPost.jsx');
+  }, []);
+
   // States
-  const [text, setText] = useState(EditorState.createWithContent(ContentState.createFromBlockArray(
-    convertFromHTML(post?.text),
-  )));
+  const [text, setText] = useState(post?.text || '');
   const [readyToSave, setReadyToSave] = useState(false);
 
   const handlePostTextChange = (text) => {
     setReadyToSave(true);
     setText(text);
-    // console.log(draftToHtml(convertToRaw(text.getCurrentContent())));
   };
 
   const cancel = () => {
+    setEdit(false);
     console.log('cancel');
   };
 
   const save = () => {
     // console.log('save');
     // console.log(post);
-    editPost(post?._id, draftToHtml(convertToRaw(text.getCurrentContent())), setPost);
+    editPost(post?._id, text, setPost);
+    setEdit(false);
   };
 
   return (
     <div>
-      <TextEditor handlePostTextChange={handlePostTextChange} postText={text} Edit />
+      <TextEditor handlePostTextChange={handlePostTextChange} postText={text} Edit id="edit" />
       <Box m={2} gap={1} display="flex" justifyContent="flex-end">
         <RedditButton
           padding="3px 16px"

@@ -2,6 +2,8 @@ import { Box } from '@mui/material';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { useState, useContext, useEffect } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../../../contexts/EditPostContext';
 import {
   EmptyImage,
   Flair,
@@ -44,28 +46,32 @@ function OtherProfilePost(props) {
     if (communities?.filter((element) => element.fixedName === entity.owner.name).length === 0) { setNotJoined(true); }
     setSubTitle(type);
   }, [type, communities]);
+
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
     <PostsQueueBox>
       <OtherProfilePostSide postid={entity?._id} points={entity.votes} postVoteStatus={entity.postVoteStatus} spam={entity.modState === 'spam'} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
-          {entity.images.length === 0 ? (
-            <EmptyImage>
+          <EmptyImage onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
+            {entity.images.length === 0 ? (
+
               <ArticleOutlinedIcon fontSize="small" color="disabled" />
-            </EmptyImage>
-          )
-            : (
-              <EmptyImage>
+            )
+              : (
                 <PostImage src={entity.images[0]} alt="post pic" />
-              </EmptyImage>
-            )}
+              )}
+          </EmptyImage>
+
           <PostContentBox>
             <Box sx={{ marginLeft: 1 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
                 <TitlePost variant="h6">{entity.title}</TitlePost>
                 {
-              entity?.flairId?.text
+                entity?.flairId?.text
                     && (
                     <Flair
                       disableRipple
@@ -98,6 +104,8 @@ function OtherProfilePost(props) {
                 numComments={entity.commentCount}
                 points={entity.votes}
                 postVoteStatus={entity.postVoteStatus}
+                ownerType={entity.ownerType}
+                owner={entity.owner.name}
               />
             </Box>
           </PostContentBox>

@@ -28,16 +28,19 @@ export const removeRedditCookie = (removeCookie) => {
  */
 export const redditCookie = async (setCookie, removeCookie) => {
   await axios.get('/users/me/').then((response) => {
+    console.log('Me in RedditCookie Response', response);
     if (response.status === 200) {
-    // set cookie
+      console.log('Reddit Cokkie Added Again');
+      // set cookie
       const date = new Date();
       date.setDate(date.getDate() + 90);
       setCookie('redditUser', response.data.user, { path: '/', expires: date });
     }
     // unauthorized(invalid JWT) =>Redirect to login page
-  }).catch(() => {
+  }).catch((e) => {
     // redirectLogin(20);
     console.log('In Valid jwt');
+    console.log(e);
     // Remove Reddit Cokkie if avaliable before
     removeRedditCookie(removeCookie);
   });

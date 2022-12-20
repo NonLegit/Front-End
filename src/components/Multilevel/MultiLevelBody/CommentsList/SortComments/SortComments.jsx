@@ -30,7 +30,7 @@ function SortComments(props) {
     setSort(false);
   };
   return (
-    <Box position="relative" display="flex">
+    <Box position="relative" display="flex" margin="10px 0px">
       <ClickAwayListener onClickAway={handleClickAway}>
         <Fab
           variant="extended"
@@ -83,17 +83,12 @@ function SortComments(props) {
           </ShowMoreListItemText>
         </ListItemButton>
 
-        <ListItemButton onClick={() => { setSortName('Best'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(sortName === 'Best').toString()}>
-            Best
+        <ListItemButton onClick={() => { setSortName('Hot'); setSort(!Sort); }}>
+          <ShowMoreListItemText Condition={(sortName === 'Hot').toString()}>
+            Hot
           </ShowMoreListItemText>
         </ListItemButton>
 
-        <ListItemButton onClick={() => { setSortName('Old'); setSort(!Sort); }}>
-          <ShowMoreListItemText Condition={(sortName === 'Old').toString()}>
-            Old
-          </ShowMoreListItemText>
-        </ListItemButton>
       </ShowMoreList>
     </Box>
 

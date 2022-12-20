@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog, FooterContainer } from '../../../styles';
 import { MuteContext } from '../../MuteUser';
 import Username from '../../../Username/Username';
 import MuteMessage from '../MuteMessage/MuteMessage';
@@ -16,6 +16,8 @@ function MutePopUp() {
     <StyledDialog
       fullScreen
       open={openMute}
+      width="410px"
+      height="355px"
     >
       <Box>
         <Header buttonFunction={handleClickCloseMute} headerText="Mute user" />
@@ -25,12 +27,9 @@ function MutePopUp() {
         <Typography fontSize="12px" fontWeight={400} color="#878A8C" paddingLeft="16px">Only visible to other moderators. Not visible to user</Typography>
       </Box>
       <MuteMessage />
-      <Box sx={{
-        display: 'flex', backgroundColor: '#edeff1 ', height: '100%',
-      }}
-      >
+      <FooterContainer>
         <Footer buttonFunction={handleClickCloseMute} firstButtonText="Cancel" secondButtonText="Mute user" />
-      </Box>
+      </FooterContainer>
     </StyledDialog>
   );
 }

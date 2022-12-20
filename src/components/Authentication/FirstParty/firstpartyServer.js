@@ -56,6 +56,7 @@ export const logIn = async (
   setDisabled,
   setRedirectCaption,
   setCookies,
+  removeCookie,
   setUserName,
   popUp = false,
   // eslint-disable-next-line no-unused-vars
@@ -92,18 +93,22 @@ export const logIn = async (
   axios.post('/users/login', {
     userName: userName.input, password: password.input,
   }).then(async (response) => {
-    console.log(response);
+    console.log('login Response', response);
     if (response.status === 200 || response.status === 201) {
       setLoading(false);
       setButtonText(<DoneIcon />);
       setDisabled(true);
       setRedirectCaption(true);
       // Add Reddit Cookie
-      if (popUp === false) { console.log('popup'); redditCookie(setCookies); redirectHome(1000); } else {
+      if (popUp === false) {
+        console.log('popup');
+        redditCookie(setCookies, removeCookie);
+        redirectHome(1000);
+      } else {
         // PopUp window
         const interval = setInterval(() => {
           handleClose();
-          redditCookie(setCookies);
+          redditCookie(setCookies, removeCookie);
           clearInterval(interval);
         }, 1000);
       }

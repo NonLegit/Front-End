@@ -10,7 +10,6 @@ import BackToTop from '../../BackToTop/BackToTop';
 
 // Contexts
 import { usePostContext } from '../../../contexts/PostContext';
-import UserProvider from '../../../contexts/UserProvider';
 
 // Server
 import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
@@ -49,18 +48,14 @@ function MultiLevelSideBar() {
         />
       )
         : (
-          <SideBar>
+          <SideBar responsive>
             {(post?.ownerType === 'User'
               ? ((cookies?.redditUser?.id === post?.owner?._id)
                 ? (
-                  <UserProvider name={post?.owner?.name}>
-                    <UserInfo />
-                  </UserProvider>
+                  <UserInfo username={post?.owner?.name} />
                 )
                 : (
-                  <UserProvider name={post?.owner?.name}>
-                    <OtherProfileUserInfo />
-                  </UserProvider>
+                  <OtherProfileUserInfo username={post?.owner?.name} />
                 )
               ) : null)}
             <BackToTop />

@@ -13,9 +13,15 @@ export const MultiLevelConatiner = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  // alignItems: 'space-around',
-  // justifyContent: 'flex-start',
+
+  '&': {
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 0px',
+    },
+  },
+
   // border: '10px solid black',
+
 }));
 
 // MultiLevelBody Left Container
@@ -27,8 +33,8 @@ export const MultiLevelContentConatiner = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-around',
-  flexWrap: 'nowrap',
+  flexWrap: 'wrap',
 
-  // border: '10px solid green',
+  // border: '10px solid pink',
 
 }));

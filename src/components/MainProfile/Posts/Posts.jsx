@@ -4,6 +4,8 @@ import {
 } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { useNavigate } from 'react-router-dom';
+import { useEditPostContext } from '../../../contexts/EditPostContext';
 import Comments from '../Comments/Comments';
 import PostFooter from './PostFooter/PostFooter';
 import PostHeader from './PostHeader/PostHeader';
@@ -35,7 +37,9 @@ import { CommunitiesSubscriberContext } from '../../../contexts/CommunitiesSubsc
  * @returns {React.Component} Posts
  */
 function Posts(props) {
-  const { post, condition, profile } = props;
+  const {
+    post, condition, profile, nohover,
+  } = props;
 
   const [isNsfw, setIsNsfw] = useState(post?.nsfw);
   const [isSpoiler, setIsSpoiler] = useState(post?.spoiler);
@@ -51,13 +55,13 @@ function Posts(props) {
 
   useEffect(() => {
     console.log(post?.kind);
-    if (communitiesSubscriber?.filter((element) => element.fixedName === post.owner.name).length === 0) {
+    if (communitiesSubscriber?.filter((element) => element.fixedName === post?.owner.name).length === 0) {
       setNotJoined(true);
     }
   }, [post, communitiesSubscriber]);
 
   useEffect(() => {
-    if (post.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === post.owner.name).length > 0) {
+    if (post?.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === post?.owner.name).length > 0) {
       setMod(true);
     }
   }, [communities, post]);
@@ -100,7 +104,7 @@ function Posts(props) {
   };
 
   useEffect(() => {
-    post.images?.forEach((image) => {
+    post?.images?.forEach((image) => {
       const img = new Image();
       img.src = image;
       img.onload = () => {
@@ -118,9 +122,12 @@ function Posts(props) {
     });
   }, []);
 
+  const navigate = useNavigate();
+  const { setEditPost } = useEditPostContext();
+
   return (
     <>
-      <PostsQueueBox condition={condition}>
+      <PostsQueueBox condition={condition} nohover={nohover}>
         <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
         <PostContentBox>
           <Box sx={{ marginLeft: 1 }}>
@@ -134,7 +141,7 @@ function Posts(props) {
               modState={modState}
               notJoined={notJoined}
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
               <TitlePost variant="h6">{post?.title}</TitlePost>
               {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
               {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
@@ -161,7 +168,7 @@ function Posts(props) {
               sx={{ marginLeft: 2, maxWidth: '90%' }}
             >
               {post?.kind === 'video' ? (
-                <video controls style={{ width: '1000%', maxHeight: '512px' }}>
+                <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
                   <source src={post?.videos} type="video/mp4" />
                 </video>
               ) : (
@@ -172,10 +179,11 @@ function Posts(props) {
                         imageIndex === index
                     && (
                     <CustomImage
-                      src={image}
+                      src={image.path}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     />
                     )
                       ))}
@@ -213,9 +221,10 @@ function Posts(props) {
                         </ControlsIcon>
                       </>
                     </>
-                  ) : ((post.kind === 'self') && (
+                  ) : ((post?.kind === 'self') && (
                     <ParagraphBox
                       ref={postTextRef}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     >
                       <ParagraphWhite />
                       <ParagraphPost
@@ -239,6 +248,7 @@ function Posts(props) {
               postid={post?._id}
               isSaved={post?.isSaved}
               subTitle={post?.ownerType}
+              owner={post?.owner?.name}
               numComments={post?.commentCount}
               sendReplies={post?.sendReplies}
               mod={mod}

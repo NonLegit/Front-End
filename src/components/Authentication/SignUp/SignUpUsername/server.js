@@ -12,7 +12,7 @@ import { wrongIcon, rightIcon } from '../../styles';
 import theme from '../../../../styles/theme/index';
 
 // Scripts
-import { redditCookie } from '../../scripts';
+import { redditCookie } from '../../authenticationServer';
 import { redirectHome } from '../../../../utils/Redirect';
 
 // utils
@@ -104,6 +104,7 @@ export const signUp = (
   setDisabled,
   setRedirectCaption,
   setCookies,
+  removeCookie,
   popUp = false,
   handleClose = null,
 ) => {
@@ -155,10 +156,10 @@ export const signUp = (
       setRedirectCaption(true);
       // Add Reddit Cookie
 
-      if (popUp === false) { redirectHome(1000); redditCookie(setCookies); } else {
+      if (popUp === false) { redirectHome(1000); redditCookie(setCookies, removeCookie); } else {
         // PopUp window
         setTimeout(() => {
-          redditCookie(setCookies);
+          redditCookie(setCookies, removeCookie);
           handleClose();
         }, 1000);
       }

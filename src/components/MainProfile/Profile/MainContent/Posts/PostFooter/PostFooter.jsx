@@ -17,6 +17,7 @@ import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useNavigate } from 'react-router-dom';
 import {
   ElementBox, FooterBox, FooterText,
 } from './styles';
@@ -25,6 +26,7 @@ import PostFooterListResponsive from './PostFooterListResponsive/PostFooterListR
 import ArrowList from './ArrowList/ArrowList';
 import { postReactionsServer } from '../../../../profileServer';
 import ModeratorList from '../../../../ModeratorList/ModeratorList';
+import { useEditPostContext } from '../../../../../../contexts/EditPostContext';
 
 /**
  * Footer of the post that contain all icons
@@ -40,6 +42,7 @@ function PostFooter(props) {
     postid, numComments, modState, handleExpand, expand, postedByOthers,
     saved, hidden, submitted, isModList, points, postVoteStatus, nsfw, spoiler, sendReplies, locked,
     handleLock, handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
+    ownerType, owner,
   } = props;
   const [isHidden, setIsHidden] = useState(hidden);
   const [isSaved, setIsSaved] = useState(saved);
@@ -47,6 +50,9 @@ function PostFooter(props) {
   const [showList2, setShowList2] = useState(false);
   const [moderatorList, setModeratorList] = useState(false);
   const [modList, setModList] = useState(false);
+
+  const navigate = useNavigate();
+  const { setEditPost, setCommentPost } = useEditPostContext();
 
   // handle disable the list when click away
   const handleClick = () => {
@@ -84,6 +90,11 @@ function PostFooter(props) {
   const handleClickSave = () => {
     postReactionsServer(postid, isSaved ? 'unsave' : 'save', isSaved);
     setIsSaved((prev) => !prev);
+  };
+
+  const handleEditPost = () => {
+    setEditPost(true);
+    navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`);
   };
 
   useEffect(() => {
@@ -125,7 +136,7 @@ function PostFooter(props) {
       </ElementBox>
       <Divider orientation="vertical" variant="middle" flexItem />
 
-      <ElementBox>
+      <ElementBox onClick={() => { setCommentPost(true); setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
         <ChatBubbleOutlineOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>
           {numComments}
@@ -139,26 +150,32 @@ function PostFooter(props) {
       </ElementBox>
 
       {(!postedByOthers && (!modList || !submitted)) && (
-      <ElementBox awardedit={true.toString()}>
-        <ModeEditOutlinedIcon />
-        <FooterText variant="caption" responsiveshare={true.toString()}>Edit Post</FooterText>
-      </ElementBox>
+        <ElementBox awardedit={true.toString()}>
+          <ModeEditOutlinedIcon />
+          <FooterText
+            variant="caption"
+            responsiveshare={true.toString()}
+            onClick={handleEditPost}
+          >
+            Edit Post
+          </FooterText>
+        </ElementBox>
       )}
 
       {(!modList || !submitted) && (
-      <>
-        {common.map((entity) => (
-          <ElementBox
-            key={entity.id}
-            onClick={() => { entity.func(); }}
-            data-testid={(entity.id === 2) && 'hidden'}
-            condition={true.toString()}
-          >
-            {entity.icon}
-            <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
-          </ElementBox>
-        ))}
-      </>
+        <>
+          {common.map((entity) => (
+            <ElementBox
+              key={entity.id}
+              onClick={() => { entity.func(); }}
+              data-testid={(entity.id === 2) && 'hidden'}
+              condition={true.toString()}
+            >
+              {entity.icon}
+              <FooterText variant="caption" condition={true.toString()} data-testid={(entity.id === 2) && 'text-hide'}>{entity.text}</FooterText>
+            </ElementBox>
+          ))}
+        </>
       )}
 
       {(submitted && modList) && moderator.map((entity) => (
@@ -175,29 +192,29 @@ function PostFooter(props) {
       ))}
 
       {(submitted && modList) && (
-      <ClickAwayListener onClickAway={handleModListClickAway}>
-        <ElementBox>
-          <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
-          {moderatorList && (
-            <ModeratorList
-              postid={postid}
-              nsfw={nsfw}
-              spoiler={spoiler}
-              locked={locked}
-              handleNsfw={handleNsfw}
-              handleSpoiler={handleSpoiler}
-              handleLock={handleLock}
-            />
-          )}
-        </ElementBox>
-      </ClickAwayListener>
+        <ClickAwayListener onClickAway={handleModListClickAway}>
+          <ElementBox>
+            <AdminPanelSettingsOutlinedIcon onClick={handleModList} />
+            {moderatorList && (
+              <ModeratorList
+                postid={postid}
+                nsfw={nsfw}
+                spoiler={spoiler}
+                locked={locked}
+                handleNsfw={handleNsfw}
+                handleSpoiler={handleSpoiler}
+                handleLock={handleLock}
+              />
+            )}
+          </ElementBox>
+        </ClickAwayListener>
       )}
 
       {(submitted) && (
-      <ElementBox condition2={true.toString()}>
-        <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
-        <FooterText variant="caption">Insights</FooterText>
-      </ElementBox>
+        <ElementBox condition2={true.toString()}>
+          <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
+          <FooterText variant="caption">Insights</FooterText>
+        </ElementBox>
       )}
 
       {postedByOthers ? (
@@ -212,6 +229,7 @@ function PostFooter(props) {
             {showList && (
               <PostFooterList
                 postid={postid}
+                handleEditPost={handleEditPost}
                 isSaved={saved}
                 nsfw={nsfw}
                 spoiler={spoiler}
@@ -225,14 +243,14 @@ function PostFooter(props) {
       )}
 
       {postedByOthers && (
-      <ClickAwayListener onClickAway={handleClickAway2}>
-        <ElementBox show={true.toString()}>
-          <MoreHorizOutlinedIcon onClick={handleClick2} />
-          {showList2 && (
-          <PostFooterListResponsive postid={postid} isSaved={isSaved} />
-          )}
-        </ElementBox>
-      </ClickAwayListener>
+        <ClickAwayListener onClickAway={handleClickAway2}>
+          <ElementBox show={true.toString()}>
+            <MoreHorizOutlinedIcon onClick={handleClick2} />
+            {showList2 && (
+              <PostFooterListResponsive postid={postid} isSaved={isSaved} />
+            )}
+          </ElementBox>
+        </ClickAwayListener>
 
       )}
 

@@ -17,25 +17,26 @@ import PostContextProvider from '../../contexts/PostContext';
 // scripts
 import { redditCookie } from '../Authentication/authenticationServer';
 
-function MultiLevel({ Edit }) {
+function MultiLevel({ Edit, Comment }) {
   // cookies
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies] = useCookies(['redditUser']);
 
   // useParams
-  const { postID } = useParams();
+  const { postID, commentID } = useParams();
 
   useEffect(() => {
     redditCookie(setCookies);
-  }, []);
+    console.log('Boooosy', commentID);
+  }, [commentID]);
 
   return (
     <PostContextProvider postID={postID}>
       <MultiLevelConatiner>
         <MultiLevelHeader />
         <MultiLevelContentConatiner>
-          <MultiLevelBody Edit={Edit} />
-          {/* <MultiLevelSideBar /> */}
+          <MultiLevelBody Edit={Edit} Comment={Comment} />
+          <MultiLevelSideBar />
         </MultiLevelContentConatiner>
       </MultiLevelConatiner>
     </PostContextProvider>

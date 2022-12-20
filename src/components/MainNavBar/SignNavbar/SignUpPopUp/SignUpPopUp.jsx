@@ -24,10 +24,10 @@ function SignUpPopUp() {
 
   // cookies
   // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
   const signUpView = userNamePage
-    ? <SignUpPopUpUserName setUserNamePage={setUserNamePage} email={email} userName={userName} setUserName={setUserName} password={password} setPassword={setPassword} setCookies={setCookies} />
+    ? <SignUpPopUpUserName setUserNamePage={setUserNamePage} email={email} userName={userName} setUserName={setUserName} password={password} setPassword={setPassword} setCookies={setCookies} removeCookie={removeCookie} />
     : <SignUpPopUpEmail setUserNamePage={setUserNamePage} email={email} setEmail={setEmail} />;
 
   return (

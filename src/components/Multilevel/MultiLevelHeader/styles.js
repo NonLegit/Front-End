@@ -22,10 +22,7 @@ export const MultiLevelHeaderBox = styled(Box)(() => ({
   // position: 'sticky',
   position: 'sticky',
   top: '48px',
-  zIndex: 2,
-  // width: '100%',
-  // top: '48px',
-  // left: '0px',
+  zIndex: 100,
 
 }));
 
@@ -42,6 +39,28 @@ export const HeaderVerticalDivider = styled(Divider)(() => ({
 }
 ));
 
+export const TopPostVotesConatiner = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'row',
+  // justifyContent: 'space-between',
+  alignItems: 'center',
+  marginLeft: '5px',
+
+  '& > *': {
+    margin: '0px 5px',
+    color: theme.palette.white.main,
+  },
+
+  '& > .MuiDivider-root': {
+    backgroundColor: theme.palette.white.main,
+  },
+
+  '&': {
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+}));
 export const MultiLevelHeaderVotes = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
@@ -50,13 +69,14 @@ export const MultiLevelHeaderVotes = styled(Box)(() => ({
   marginLeft: '5px',
 
   '& > *': {
-    margin: '0px 10px',
+    margin: '0px 5px',
     color: theme.palette.white.main,
   },
 
   '& > .MuiDivider-root': {
     backgroundColor: theme.palette.white.main,
   },
+
 }));
 
 export const CloseButton = styled(Box)(() => ({

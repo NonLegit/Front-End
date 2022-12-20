@@ -23,7 +23,8 @@ function Comments(props) {
   const [modList, setModList] = useState(false);
 
   useEffect(() => {
-    if (entity.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === entity.owner.name).length > 0) {
+    console.log(entity);
+    if (entity?.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === entity?.owner.name).length > 0) {
       setModList(true);
     }
   }, [communities]);
@@ -38,12 +39,15 @@ function Comments(props) {
       { entity?.comments?.map((comment, index) => (
         <>
           <CommentsContent
+            postid={entity?._id}
             key={`${index + 0}`}
             comment={comment}
             op={entity?.author?.name === username}
             modList={modList}
             profile={profile}
             overview={overview}
+            ownerType={entity?.ownerType}
+            owner={entity?.owner.name}
           />
           <Divider variant="middle" />
         </>

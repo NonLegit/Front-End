@@ -9,20 +9,24 @@ import Post from '../../../Post/Post';
  */
 
 function PostList(props) {
-  const { posts } = props;
+  const { posts, subredit } = props;
   const { hiddenPosts } = useHiddenPostsContext();
+  console.log(subredit);
+
   return (
     <>
       {posts.filter((post) => {
-        const id = post._id;
-        return !hiddenPosts.includes(id);
+        const id = post?._id;
+        return !hiddenPosts?.includes(id);
       }).map((post) => {
         const {
-          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
+          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
         } = post;
+        console.log('koo', postVoteStatus);
         return (
+
           <Post
-            postVoteStatus={postVoteStatus}
+            postVoteStatus={postVoteStatus || 0}
             createdAt={createdAt}
             title={title}
             ownerIcon={ownerIcon}
@@ -32,7 +36,7 @@ function PostList(props) {
             flairBackgroundColor={flairBackgroundColor}
             flairColor={flairColor}
             images={images}
-            videos={videos}
+            video={video}
             kind={kind}
             votes={votes}
             commentCount={commentCount}
@@ -44,6 +48,7 @@ function PostList(props) {
             url={url}
             nsfw={nsfw}
             spoiler={spoiler}
+            subredit={subredit}
           />
         );
       })}

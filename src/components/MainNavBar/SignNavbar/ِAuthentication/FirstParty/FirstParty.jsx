@@ -33,7 +33,7 @@ function FirstParty({ handleClose }) {
 
   // useCookies
   // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
   return (
 
     <FirstPartyContainer
@@ -51,6 +51,7 @@ function FirstParty({ handleClose }) {
           setDisabled,
           setRedirectCaption,
           setCookies,
+          removeCookie,
           setUserName,
           true,
           handleClose,

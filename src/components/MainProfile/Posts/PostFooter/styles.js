@@ -71,7 +71,7 @@ export const ElementBox = styled(Box)(({
   }),
 }));
 
-export const SelectBox = styled(Box)(({ theme }) => ({
+export const SelectBox = styled(Box)(({ theme, profile }) => ({
   width: 260,
   marginTop: 240,
   // marginLeft: 500,
@@ -88,6 +88,9 @@ export const SelectBox = styled(Box)(({ theme }) => ({
     marginTop: 270,
     width: 200,
   },
+  ...((profile === 'true') && {
+    marginTop: 100,
+  }),
 }));
 
 export const SelectItem = styled(Button)(({ theme, condition }) => ({
