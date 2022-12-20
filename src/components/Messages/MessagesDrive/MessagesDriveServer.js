@@ -34,3 +34,21 @@ export const messagesServer = () => {
   }, [api]);
   return [data, message];
 };
+
+export const AcceptServer = (subredditName) => {
+  const api = `/subreddits/${subredditName}/accept/invitation`;
+
+  axios.post(api)
+    .then((actualData) => {
+      // const All = actualData.data.data.filter((e) => e.type !== 'userMessage');
+
+      // setData(actualData.data.data);
+
+      console.log(actualData.data);
+    }).catch((error) => {
+      console.log(error);
+      if (error?.response?.status === 401) {
+        redirectLogin();
+      }
+    });
+};

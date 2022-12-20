@@ -213,7 +213,7 @@ function App() {
                       path="t/:title"
                       element={
                         <Explore />
-                                          }
+                                            }
                     />
                   </Routes>
                 </Router>

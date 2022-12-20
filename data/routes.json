@@ -90,11 +90,6 @@
     "/posts/:postId/:action":"/postAction",
     "/comments/:commentId": "/editcomment",
     "/messages/sent":"/messageSent",
-    "/messages/post_replies":"/MessagePostReplay",
-    "/messages":"/MessageDrive",
-    "/messages/:parentMessageId/reply":"/MessageReplay",
-    "/messages/all":"/messagesAll",
-    "/messages/:messageId":"/messageRemove",
     "/posts/:postId":"/deleteAction",
     "/posts/:postId/actions/:action":"/actionOnPost",
     "/subreddits/:subreddit/flair":"/subredditFlairs",
@@ -111,13 +106,22 @@
     "/posts/:postId/images":"/addImagesToPost",
     "subreddits/:Name/flairs/:id":"/UpdateFlair",
     "/notifications/token":"/notificationToken",
+    "/messages/post_replies":"/MessagePostReplay",
+    "/messages":"/MessageDrive",
+    "/messages/:parentMessageId/reply":"/MessageReplay",
+    "/messages/all":"/messagesAll",
+    "/messages/:messageId":"/messageRemove",
     "/subreddits/:subredditName/banned":"/banned",
     "/subreddits/:subredditName/muted":"/muted",
     "/subreddits/:subredditName/moderators":"/moderators",
     "/subreddits/:subredditName/approved_users":"/approved",
     "/subreddits/:subredditName/mute_settings/:action/:userName":"/muteUnmute",
+
     "/subreddits/:subredditName/:userName/:action/approve_user":"/approvedUnapproved",
-    "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban",
     "/subreddits/:subredditName/invited_moderators":"/invitedModerators",
-    "/subreddits/{subredditName}/moderators/{moderatorName}":"/edit"
+    "/subreddits/{subredditName}/moderators/{moderatorName}":"/edit",
+
+    "/subreddits/:subredditName/approve_settings/:action/:userName":"/approvedUnapproved",
+    "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban"
+
 }
