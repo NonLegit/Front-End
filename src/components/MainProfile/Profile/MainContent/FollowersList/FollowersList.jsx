@@ -54,6 +54,7 @@ function FollowersList() {
         </Box>
       </SearchBox>
       <FollowersBox>
+
         { filter?.map((following, index) => (
           <Follower key={`${index + 0}`} follower={following} />
         ))}

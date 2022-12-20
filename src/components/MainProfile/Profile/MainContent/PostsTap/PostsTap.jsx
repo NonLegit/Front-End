@@ -3,12 +3,14 @@ import SignalCellularAltOutlinedIcon from '@mui/icons-material/SignalCellularAlt
 import {
   useContext, useEffect, useState, useMemo,
 } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { postsCommentsServer } from '../../../profileServer';
 import Filter from '../Filter/Filter';
 import { NEW, NewBox, WideBox } from '../styles';
 import EmptyContent from '../../../EmptyContent/EmptyContent';
 import { UserContext } from '../../../../../contexts/UserProvider';
 import Post from '../Posts/Post';
+import { useListingContext } from '../../../../../contexts/ListingContext';
 
 function useQuery() {
   const { search } = useLocation();
@@ -29,6 +31,11 @@ function PostsTap() {
   const { username } = useContext(UserContext);
   const [posts] = postsCommentsServer(username, 'posts', sort);
   const [isContent, setIsContent] = useState(false);
+
+  const { setPage } = useListingContext();
+  const fetchMoreData = () => {
+    setPage((page) => page + 1);
+  };
 
   // check if the page have any content posts to show
   useEffect(() => {
@@ -51,9 +58,14 @@ function PostsTap() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
-            { posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} />))}
+            <InfiniteScroll
+              next={fetchMoreData}
+              hasMore
+              dataLength={posts.length}
+            >
+              { posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} />))}
+            </InfiniteScroll>
           </>
-
           )}
 
     </WideBox>

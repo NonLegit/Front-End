@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import useFetch from '../../hooks/useFetch';
+import useFetchPosts from '../../hooks/useFetchPosts';
 import axios from '../../services/instance';
 import useFetchProfile from '../../hooks/useFetchProfile';
 
+// not working using use fetch posts
 export const postsCommentsServer = (name, type, sortType) => {
-  const [data, dataError, statusCode] = useFetch(`users/${name}/${type}/?sort=${sortType}`);
+  const [data, dataError, statusCode] = useFetchPosts(`users/${name}/${type}`, sortType);
 
   useEffect(() => {
     if (statusCode === 401) {
