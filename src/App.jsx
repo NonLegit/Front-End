@@ -6,6 +6,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
+import TopCommunitiesPage from './pages/TopCommunitiesPage';
 import ListingContextProvider from './contexts/ListingContext';
 import { redditCookie } from './components/Authentication/authenticationServer';
 
@@ -88,6 +89,19 @@ function App() {
                         <HomePage data-testid="home page" />
                   }
                     />
+                    <Route
+                      path="/subreddits/leaderboard"
+                      element={
+                        <TopCommunitiesPage />
+                  }
+                    >
+                      <Route
+                        path=":category"
+                        element={
+                          <TopCommunitiesPage />
+                  }
+                      />
+                    </Route>
                     <Route
                       path="/r/popular"
                       element={

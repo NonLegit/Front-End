@@ -54,6 +54,7 @@ const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
 const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
+const TopCommunities = require('./topCommunities.json');
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
 const baned = require('./banedList.json');
@@ -121,6 +122,7 @@ module.exports = () => ({
   listBlock,
   notificationToken,
   moderatorAction,
+  TopCommunities,
   baned,
   homePageCommunities,
   modQueue,
