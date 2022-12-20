@@ -101,7 +101,7 @@ function CommentsList() {
             comments?.map((comment, i) => {
               if (i === comments.length - 1 && moreRepliesFormat) { return null; }
               // No problem with  i= comments.length - 1
-              return (<Comment key={comment?._id} comment={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
+              return (<Comment key={comment?._id} commentprop={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
               // loadMoreRepliesParentFun=this fucntion
             })
           }

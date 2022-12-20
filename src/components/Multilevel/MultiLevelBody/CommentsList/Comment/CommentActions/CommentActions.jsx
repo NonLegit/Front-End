@@ -36,7 +36,9 @@ function CommentActions(props) {
   } = usePostContext();
 
   // props
-  const { comment, replies, setReplies } = props;
+  const {
+    comment, replies, setReplies, setEditComment,
+  } = props;
 
   // States
   const [reply, setReply] = useState('');
@@ -74,8 +76,8 @@ function CommentActions(props) {
     // Call Back API
     console.log('Option Selected', option);
     if (option === 'Edit') {
-      // call Edit endPoint
       console.log('Edit Comment with Text', comment?.text);
+      setEditComment(true);
     } else if (option === 'Save') {
       // call Save endPoint
       console.log('Save Comment with Text', comment?.text);

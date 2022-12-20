@@ -1,0 +1,23 @@
+{
+    "status": "success",
+    "data": {
+        "_id": "63a1703ad69246cab0748074",
+        "author": "63a102c18222a98c51dbe67a",
+        "post": "63a17023d69246cab0748050",
+        "mentions": [],
+        "replies": [],
+        "parent": "63a17023d69246cab0748050",
+        "parentType": "Post",
+        "text": "<p>Edited Sucessfully</p>",
+        "createdAt": "2022-12-20T03:27:01.352Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 0,
+        "locked": false,
+        "nsfw": false,
+        "spoiler": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835753410676,
+        "__v": 0
+    }
+}

@@ -1,11 +1,11 @@
-/* eslint-disable no-bitwise */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // MUI Components
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 
 // Components
 import CommentActions from './CommentActions/CommentActions';
+import EditComment from './EditComment/EditComment';
 
 // Utlis
 import calculateTime from '../../../../../utils/calculateTime';
@@ -27,13 +27,19 @@ import { getMoreChildren } from '../commentsListServer';
 function Comment(props) {
   // props
   const {
-    comment, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
+    commentprop, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
   } = props;
 
   // states
   const [collpase, setCollapse] = useState(false);
+  const [comment, setComment] = useState(commentprop);
   const [replies, setReplies] = useState(comment?.replies);
+  const [editComment, setEditComment] = useState(false);
 
+  // useEffect
+  useEffect(() => {
+    setComment(commentprop);
+  }, [commentprop]);
   // Constants
   const authorProfilelink = `/user/${comment?.author?.userName}`;
 
@@ -111,7 +117,7 @@ function Comment(props) {
             : (
               <>
                 <CommentText><div dangerouslySetInnerHTML={{ __html: comment?.text }} /></CommentText>
-                <CommentActions comment={comment} replies={replies} setReplies={setReplies} />
+                {editComment ? <EditComment comment={comment} setComment={setComment} setEditComment={setEditComment} /> : <CommentActions comment={comment} replies={replies} setReplies={setReplies} setEditComment={setEditComment} />}
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
                   : replies?.map((reply, i) => {
