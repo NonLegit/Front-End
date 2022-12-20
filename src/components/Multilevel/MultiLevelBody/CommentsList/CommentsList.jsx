@@ -39,10 +39,10 @@ function CommentsList() {
   const remainingSiblingsCount = (comments && moreRepliesFormat) ? comments[comments.length - 1]?.count : 0;
 
   // constants of tree Structure
-  const limit = 2;
+  const limit = 10;
   const depth = 8;
 
-  const threadLimit = 2;
+  const threadLimit = 10;
   const threadDepth = 8;
 
   // const limitForMoreReplies = (moreRepliesFormat === true) ? (comments[comments.length - 1]?.children?.length > 10 ? 10 : comments[comments.length - 1]?.children?.length) : (0);

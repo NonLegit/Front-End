@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -18,7 +19,7 @@ function VerifyEmail() {
   return (
     <Box>
       <p>{verified}</p>
-      {verified === 'Error' ? <h1>Errooooo</h1> : null}
+      {verified === 'Error' ? <img src="https://s.clipartkey.com/mpngs/s/192-1921872_of-way-eighth-shield-shield-street-sign-risk.png" alt="Unverified" /> : null}
     </Box>
   );
 }
