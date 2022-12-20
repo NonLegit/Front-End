@@ -106,7 +106,7 @@ function PostFooter(props) {
     navigate('/submit');
   };
 
-  const { setEditPost } = useEditPostContext();
+  const { setEditPost, setCommentPost } = useEditPostContext();
 
   return (
     <FooterBox>

@@ -12,14 +12,13 @@ function VerifyEmail() {
   const [verified, setverified] = useState('unVerfied');
 
   useEffect(() => {
-    console.log('herrrrrrrrrrrr');
+    // console.log('herrrrrrrrrrrr');
     // Call BE
-    setverified(checkEmailToken(token));
+    checkEmailToken(token, setverified);
   }, []);
   return (
     <Box>
-      <p>{verified}</p>
-      {verified === 'Error' ? <img src="https://s.clipartkey.com/mpngs/s/192-1921872_of-way-eighth-shield-shield-street-sign-risk.png" alt="Unverified" /> : null}
+      { verified === 'Error' ? <img src="https://s.clipartkey.com/mpngs/s/192-1921872_of-way-eighth-shield-shield-street-sign-risk.png" alt="Unverified" /> : null }
     </Box>
   );
 }

@@ -15,13 +15,12 @@ import { redirectHome } from '../../../../utils/Redirect';
  * @param {string} token
  * @returns bool if valid is true else false
  */
-export const checkEmailToken = async (token) => {
-  let Verified = 'unVerified';
+export const checkEmailToken = (token, setVerified) => {
   // Check Token Endpoint
   axios.post(`/users/verify_email/${token}`).then((response) => {
-    if (response.status === 200) {
-      alert('Email Verified');
-      Verified = 'Verified';
+    if (response.status === 204) {
+      // alert('Email Verified');
+      // setVerified('Verified');
       redirectHome(100);
     }
   }).catch((error) => {
@@ -29,7 +28,6 @@ export const checkEmailToken = async (token) => {
     if (error?.response?.status === 400) {
       alert(error?.response?.data?.errorMessage);
     }
-    Verified = 'Error';
+    setVerified('Error');
   });
-  return Verified;
 };
