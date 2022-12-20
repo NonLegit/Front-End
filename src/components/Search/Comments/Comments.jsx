@@ -9,6 +9,7 @@ import {
   CommentContainer,
   CommentReach,
   GoToThread,
+  PostLink,
 } from './style';
 
 /**
@@ -41,16 +42,16 @@ function Comments(props) {
               </span>
               <div>Posted By</div>
               <Avatar
-                src={Comment.post.owner.profilePicture}
+                src={Comment.post.author.profilePicture}
                 sx={{
                   width: 20,
                   height: 20,
                 }}
                 alt="Profile Image"
               />
-              <PostInfoLink to={`/user/${Comment.post.owner.userName}`} color="inherit" fontWeight="normal">
+              <PostInfoLink to={`/user/${Comment.post.author.userName}`} color="inherit" fontWeight="normal">
                 u/
-                {Comment.post.owner.displayName}
+                {Comment.post.author.displayName}
                 {' '}
                 {calculateTime(Comment.post.createdAt)}
               </PostInfoLink>
@@ -58,20 +59,21 @@ function Comments(props) {
           </PostInfo>
         </Box>
 
-        <PostTitle to="/">
-          <Typography
-            variant="h6"
-            component="h3"
-            sx={{
-              fontSize: 12, marginBottom: '12px', fontWeight: '400',
-            }}
-          >
-            {Comment.post.owner.title}
-
-          </Typography>
-          <CommentContainer>
+        <PostTitle>
+          <PostLink to={`../r/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}`}>
+            <Typography
+              variant="h6"
+              component="h3"
+              sx={{
+                fontSize: 12, marginBottom: '12px', fontWeight: '400',
+              }}
+            >
+              {Comment.post.title.replace(/<[^>]+>/g, '')}
+            </Typography>
+          </PostLink>
+          <CommentContainer to={`../r/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
             <Avatar
-              src={Comment.auther.profilePicture}
+              src={Comment.author.profilePicture}
               sx={{
                 width: 20,
                 height: 20,
@@ -82,8 +84,8 @@ function Comments(props) {
             <Box>
               <PostInfo py={1}>
 
-                <PostInfoLink to={`/user/${Comment.auther.userName}`} color="#000" fontWeight="bolder">
-                  {Comment.auther.displayName}
+                <PostInfoLink to={`/user/${Comment.author.userName}`} color="#000" fontWeight="bolder">
+                  {Comment.author.displayName}
                 </PostInfoLink>
                 <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
                   <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
@@ -96,7 +98,7 @@ function Comments(props) {
               </PostInfo>
               {/* question */}
               <Typography variant="h6" component="h3" sx={{ fontSize: 14, marginBottom: '12px', fontWeight: '400' }}>
-                {Comment.text}
+                {Comment.text.replace(/<[^>]+>/g, '')}
               </Typography>
               <CommentReach>
                 <Typography variant="span" sx={{ marginRight: 3, padding: 0 }}>
@@ -115,7 +117,7 @@ function Comments(props) {
             </Box>
           </CommentContainer>
         </PostTitle>
-        <GoToThread>
+        <GoToThread to={`../r/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
           Go to thread
         </GoToThread>
         <PostRich mt={5}>

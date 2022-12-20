@@ -12,7 +12,7 @@ import {
 function People(props) {
   const { peoples } = props;
   return (
-    <Box sx={{ height: 284, width: 310 }}>
+    <Box sx={{ width: 310 }}>
       <PeopleString>People</PeopleString>
       <Suggestion>
         {peoples?.map((people) => (

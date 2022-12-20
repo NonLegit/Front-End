@@ -34,24 +34,28 @@ function Peoples(props) {
   return (
     <OneSuggeest sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex' }}>
+
         <Avatar alt="Remy Sharp" src={people?.profilePicture} />
-        <TextContainer>
-          <Text to={`/user/${people?.userName}`}>
-            U/
-            {people?.displayName}
-          </Text>
-          <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
-            •
-          </Typography>
-          <TextP>
-            {numFormatter(people.postKarma + people.commentKarma)}
-            {' '}
-            karma
-          </TextP>
-          <div>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <TextContainer>
+            <Text to={`/user/${people?.userName}`}>
+              U/
+              {people?.displayName}
+            </Text>
+            <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
+              •
+            </Typography>
+            <TextP>
+              {numFormatter(people.postKarma + people.commentKarma)}
+              {' '}
+              karma
+            </TextP>
+          </TextContainer>
+          <Typography component="span" mx="4px" sx={{ fontSize: '12px', display: 'flex', alignItems: 'center' }}>
             {people?.description}
-          </div>
-        </TextContainer>
+          </Typography>
+
+        </Box>
       </Box>
       <Joined
         variant="outlined"

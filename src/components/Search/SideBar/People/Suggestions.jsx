@@ -16,9 +16,9 @@ import {
  */
 function Suggestions(props) {
   const { people } = props;
-  const [follow, setFollow] = useState(true);
+  const [follow, setFollow] = useState(people?.isFollowed);
   const handleJoin = () => {
-    followRequest(people?.fixedName, follow);
+    followRequest(people?.userName, follow);
     setFollow((prev) => !prev);
   };
   const [hover, setHover] = useState(false);
@@ -30,35 +30,28 @@ function Suggestions(props) {
     setHover(false);
   };
   return (
-    {
-      icon: '/static/images/avatar/1.jpg',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      karma: 10000,
-      description: 'welcome to subreddit',
-    },
-      <OneSuggeest>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        <TextContainer>
-          <Text to={`/user/${people?.fixedName}`}>
-            U/
-            {people?.fixedName}
-          </Text>
-          <TextP>
-            {numFormatter(people?.karma)}
-            {' '}
-            karma
-          </TextP>
-        </TextContainer>
-        <Joined
-          variant="outlined"
-          onClick={handleJoin}
-          onMouseEnter={handleMouseIn}
-          onMouseLeave={handleMouseOut}
-        >
-          {(follow ? (hover ? 'Unfollow' : 'Following') : 'follow')}
-        </Joined>
-      </OneSuggeest>
+    <OneSuggeest>
+      <Avatar alt="Remy Sharp" src={people?.profilePicture} />
+      <TextContainer>
+        <Text to={`/user/${people?.userName}`}>
+          U/
+          {people?.displayName}
+        </Text>
+        <TextP>
+          {numFormatter(people.postKarma + people.commentKarma)}
+          {' '}
+          karma
+        </TextP>
+      </TextContainer>
+      <Joined
+        variant="outlined"
+        onClick={handleJoin}
+        onMouseEnter={handleMouseIn}
+        onMouseLeave={handleMouseOut}
+      >
+        {(follow ? (hover ? 'Unfollow' : 'Following') : 'follow')}
+      </Joined>
+    </OneSuggeest>
   );
 }
 export default Suggestions;

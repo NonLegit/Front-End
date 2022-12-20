@@ -63,8 +63,10 @@
   "/posts/:postId/images": "/addImagesToPost",
   "/posts/:postId/moderate/:action": "/moderatorAction",
   "subreddits/:Name/flairs/:id": "/UpdateFlair",
-  "/search?type=People": "/SearchByPeople",
-  "/search?type=Community": "/SearchByCommunity",
+  "/search?limit=6&page=0&type=people&sort=:new&time=:day&q=:ahmed": "/SearchByPeople",
+  "/search?limit=6&page=0&type=communities&sort=:new&time=:day&q=:ahmed": "/SearchByCommunity",
+  "/search?limit=6&page=0&type=posts&sort=:new&time=:day&q=:ahmed": "/SearchByPost",
+  "/search?limit=6&page=0&type=comments&sort=:new&time=:day&q=:ahmed": "/SearchByComments",
 
     "/subreddits/:subredditName/:name/hot?limit=:limit&page=:page":"/hot",
     "/subreddits/:Name/top?limit=:limit&page=:page":"/top",
@@ -79,5 +81,9 @@
     "/posts/:postId/:action":"/postAction",
     "/posts/:postId/delete":"/delete",
     "/notifications/token":"/notificationToken",
-    "/subreddits/:subredditName/banned":"/baned"
-}
+    "/subreddits/:subredditName/banned":"/baned",
+    "subreddits/:subredditName/flairs":"/AddFlair",
+    "subreddits/:subredditName/flairs/:flairId":"/EditFlair",
+    "subreddits/:subredditName/rules/:title":"/AddRule"
+
+  }

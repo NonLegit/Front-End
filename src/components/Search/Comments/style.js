@@ -43,6 +43,9 @@ export const PostTitle = styled(Link)(() => ({
     lineHeight: 1.2,
     fontWeight: 500,
   },
+  '&:hover': {
+    textDecoration: 'none',
+  },
 }));
 
 export const PostMedia = styled(Box)(() => ({
@@ -81,17 +84,24 @@ export const Image = styled('img')(({ src }) => ({
   src,
 }));
 
-export const CommentContainer = styled('div')({
+export const CommentContainer = styled(Link)({
   borderRadius: 4,
   backgroundColor: '#e9f5fd',
   fontSize: 14,
   margin: '0 12px 12px',
   padding: '4px 8px 8px',
   display: 'flex',
+  fontWeight: 400,
+  textAlign: 'left',
+  color: 'black',
   flexDirection: 'row',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+  },
 });
 
-export const GoToThread = styled(Box)(() => ({
+export const GoToThread = styled(Link)(() => ({
   display: 'block',
   fontSize: '12px',
   fontWeight: 400,
@@ -101,4 +111,17 @@ export const GoToThread = styled(Box)(() => ({
   color: '#0079d3',
   paddingRight: 16,
   paddingLeft: 16,
+  '&:hover': {
+    textDecoration: 'none',
+  },
+}));
+export const PostLink = styled(Link)(() => ({
+  fontSize: '12px',
+  fontWeight: 400,
+  textAlign: 'left',
+  color: 'black',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+  },
 }));

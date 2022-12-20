@@ -55,7 +55,14 @@ const addImagesToPost = require('./addImagesToPost.json');
 const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
 const SearchByPeople = require('./SearchByPeople.json');
+const SearchByPost = require('./SearchByPost.json');
+const SearchByComments = require('./SearchByComments.json');
+
 const SearchByCommunity = require('./SearchByCommunty.json');
+const AddFlair = require('./AddFlair.json');
+const EditFlair = require('./EditFliar.json');
+const AddRule = require('./AddRule.json');
+const EditRule = require('./AddRule.json');
 
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
@@ -63,6 +70,12 @@ const baned = require('./banedList.json');
 // Something more
 
 module.exports = () => ({
+  SearchByComments,
+  SearchByPost,
+  EditRule,
+  AddRule,
+  EditFlair,
+  AddFlair,
   baned,
   UpdateFlair,
   userInfo,

@@ -40,7 +40,6 @@ export const PostTitle = styled(Link)(() => ({
   alignItems: 'spacebetween',
   color: '#000',
   '& .MuiTypography-root': {
-    lineHeight: 1.2,
     fontWeight: 500,
   },
 }));
@@ -79,6 +78,7 @@ export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => (
   '&:hover': {
     backgroundColor,
   },
+  marginLeft: 10,
 }));
 
 export const PostUrlLink = styled(Box)(() => ({
@@ -92,7 +92,7 @@ export const PostUrlLink = styled(Box)(() => ({
 export const PostUrl = styled('a')(({ theme }) => ({
   fontSize: 13,
   color: theme?.palette?.primary?.light,
-  height: 22,
+  // height: 22,
   display: 'flex',
   alignItems: 'center',
   '&:visited ': {
@@ -102,7 +102,7 @@ export const PostUrl = styled('a')(({ theme }) => ({
   '&:hover': {
     textDecoration: 'underline',
   },
-  marginBottom: 10,
+  // marginBottom: 10,
 }));
 
 export const LinkIcon = styled(LaunchIcon)(() => ({

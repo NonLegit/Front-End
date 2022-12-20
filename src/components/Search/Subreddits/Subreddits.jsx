@@ -60,9 +60,9 @@ function Subreddits(props) {
                   •
                 </Typography>
                 <div>
-                  2.3m
-                  {' '}
                   {numFormatter(subreddit?.membersCount)}
+                  {' '}
+                  member
                 </div>
               </Box>
             </Box>

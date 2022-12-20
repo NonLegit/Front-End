@@ -21,7 +21,9 @@ function useQuery() {
  */
 function FilterSearch() {
   const query = useQuery();
-  const type = query.get('type') || 'posts';
+  const type1 = query.get('type') || 'posts';
+  const type = type1.toLowerCase();
+
   const navigate = useNavigate();
 
   // navigate

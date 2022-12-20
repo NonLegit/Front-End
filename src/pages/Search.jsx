@@ -1,121 +1,49 @@
 import { useSearchParams } from 'react-router-dom';
-import Comments from '../components/Search/Comments/Comments';
-import Peoples from '../components/Search/Peoples/People';
-import { SearchByCommunitiesHeader } from '../components/Search/Subreddits/style';
-import Subreddits from '../components/Search/Subreddits/Subreddits';
+import SearchByCommunity from '../components/Search/SearchByCommunity/SearchByCommunity';
+import SearchByPosts from '../components/Search/SearchByPosts/SearchByPosts';
 import FilterSearch from '../components/Search/Header/Filter';
 import Posts from '../components/Search/Posts/Posts';
 import {
-  TotalHeader, SearchContainer, PostsContainer, SearchHeadderContainer, PostsContainer2,
+  TotalHeader, SearchContainer, SearchHeadderContainer,
 } from '../components/Search/Header/style';
-import SideBar from '../components/Search/SideBar/SideBar';
-import Post from '../components/Search/Post/Post';
+
+import SearchByPeople from '../components/Search/SearchByPeople/SearchByPeople';
+import SearchByComments from '../components/Search/SearchByComments/SearchByComments';
 
 function Search() {
   const [searchParams] = useSearchParams();
-  const type = searchParams.get('type') || 'Posts';
-  // const sort = searchParams.get('sort') || 'Posts';
-  // const t = searchParams.get('t') || 'Posts';
+  const type1 = searchParams.get('type') || 'posts';
+  const type = type1.toLowerCase();
 
-  console.log(type);
-
-  // const subreddits = [
-  //   {
-  //     icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-  //     _id: 10,
-  //     fixedName: 'uniquesubreddit',
-  //     membersCount: 10000,
-  //     description: 'welcome to subreddit',
-  //   },
-  //   {
-  //     icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-  //     _id: 10,
-  //     fixedName: 'uniquesubreddit',
-  //     membersCount: 10000,
-  //     description: 'welcome to subreddit',
-  //   },
-  //   {
-  //     icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-  //     _id: 10,
-  //     fixedName: 'uniquesubreddit',
-  //     membersCount: 10000,
-  //     description: 'welcome to subreddit',
-  //   },
-  // ];
-  // const peoples = [
-  //   {
-  //     icon: '/static/images/avatar/1.jpg',
-  //     _id: 10,
-  //     fixedName: 'uniquesubreddit',
-  //     karma: 10000,
-  //     description: 'welcome to subreddit',
-  //   },
-  //   {
-  //     icon: '/static/images/avatar/1.jpg',
-  //     _id: 10,
-  //     fixedName: 'uniquesubreddit',
-  //     karma: 10000,
-  //     description: 'welcome to subreddit',
-  //   },
-  //   {
-  //     icon: '/static/images/avatar/1.jpg',
-  //     _id: 10,
-  //     fixedName: 'uniquesubreddit',
-  //     karma: 10000,
-  //     description: 'welcome to subreddit',
-  //   },
-  // ];
-
+  // const qery = document.getElementById('nav_search').textContent;
   return (
 
     <TotalHeader>
       <SearchContainer>
         <SearchHeadderContainer>
           <FilterSearch />
-          {type === 'Posts'
+          {type === 'posts'
           && <Posts />}
         </SearchHeadderContainer>
-        { type === 'Posts'
+
+        { type === 'posts'
        && (
-       <PostsContainer2>
-         <PostsContainer>
-           <Post />
-           <Post />
-           <Post />
-         </PostsContainer>
-         <SideBar peoples={peoples} subreddits={subreddits} />
-       </PostsContainer2>
+       <SearchByPosts q="post" />
        )}
-        { type === 'Communities'
-        && (
-          <SearchByCommunitiesHeader>
-            {subreddits?.map((subreddit) => (
 
-              <Subreddits subreddit={subreddit} />
-            ))}
-          </SearchByCommunitiesHeader>
-        )}
-        { type === 'People'
+        { type === 'communities'
         && (
-          <SearchByCommunitiesHeader>
-            {peoples?.map((people) => (
+          <SearchByCommunity q="al3enb al3enb al3enb" />
+        )}
 
-              <Peoples people={people} />
-            ))}
-            {/* <Peoples />
-            <Peoples />
-            <Peoples /> */}
-          </SearchByCommunitiesHeader>
-        )}
-        { type === 'Comments'
+        { type === 'people'
         && (
-          <SearchByCommunitiesHeader>
-            <Comments />
-            <Comments />
-            <Comments />
-            <Comments />
-            <Comments />
-          </SearchByCommunitiesHeader>
+          <SearchByPeople q="Hosny" />
+        )}
+
+        { type === 'comments'
+        && (
+          <SearchByComments q="ahmed" />
         )}
       </SearchContainer>
     </TotalHeader>
