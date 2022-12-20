@@ -45,7 +45,7 @@ function CommentsList() {
   const threadLimit = 2;
   const threadDepth = 8;
 
-  const limitForMoreReplies = (moreRepliesFormat === true) ? (comments[comments.length - 1]?.children?.length > 10 ? 10 : comments[comments.length - 1]?.children?.length) : (0);
+  // const limitForMoreReplies = (moreRepliesFormat === true) ? (comments[comments.length - 1]?.children?.length > 10 ? 10 : comments[comments.length - 1]?.children?.length) : (0);
   const depthforMoreReplies = 8;
 
   // useEffect
@@ -58,15 +58,15 @@ function CommentsList() {
   }, [postID, post, sortName]);
 
   // Load More Comments on This post Vertical Limit
-  const loadMoreComments = (limitForMoreReplies) => {
+  const loadMoreComments = () => {
     console.log('More Comemts on the Parent Post');
     console.log('Comments List ::::::)', comments);
     console.log('Comments List ::::::)', comments[2]);
 
     // Call API of more Children
     getMoreChildren({
-      children: comments[comments.length - 1]?.children?.slice(0, 2), // Remaining Children IDs (Level 0 Comments)
-      limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
+      children: comments[comments.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
+      // limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
       depth: depthforMoreReplies, // how deep are more replies
     }, comments, setComments);
   };
@@ -101,7 +101,7 @@ function CommentsList() {
             comments?.map((comment, i) => {
               if (i === comments.length - 1 && moreRepliesFormat) { return null; }
               // No problem with  i= comments.length - 1
-              return (<Comment key={comment?._id} commentprop={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
+              return (<Comment key={comment?._id} commentprop={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} moreRepliesFormatPar={moreRepliesFormat} />);
               // loadMoreRepliesParentFun=this fucntion
             })
           }

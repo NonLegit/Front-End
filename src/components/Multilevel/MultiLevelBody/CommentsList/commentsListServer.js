@@ -63,24 +63,23 @@ export const getMoreChildren = (props, comments, setComments) => {
     console.log('Old Comments Array:');
     console.log(comments);
 
-    const MoreRepliesObject = comments.pop();
+    // Remove More Repleis Object
+    comments.pop();
 
-    console.log('After  Comments Array Pop:');
-    console.log(comments);
-    let newComments = comments.concat(response?.data?.comments);
-
+    const newComments = comments.concat(response?.data?.comments);
     console.log('Adding new Comment');
     console.log(response.data.comments);
 
-    // eslint-disable-next-line no-unsafe-optional-chaining
-    MoreRepliesObject.count -= response?.data?.comments?.length;
-    console.log('Comments Array:');
-    console.log(newComments);
-    if (MoreRepliesObject.count > 0) {
-      // add back to the end
-      newComments = newComments.concat(MoreRepliesObject);
-    }
+    // // eslint-disable-next-line no-unsafe-optional-chaining
+    // MoreRepliesObject.count -= response?.data?.comments?.length;
+    // console.log('Comments Array:');
+    // console.log(newComments);
+    // if (MoreRepliesObject.count > 0) {
+    //   // add back to the end
+    //   newComments = newComments.concat(MoreRepliesObject);
+    // }
 
+    // Update Array
     console.log('Final Array:');
     console.log(newComments);
     setComments(newComments);

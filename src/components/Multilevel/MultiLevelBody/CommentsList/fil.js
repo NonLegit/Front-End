@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // MUI Components
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 
 // Components
 import CommentActions from './CommentActions/CommentActions';
-import EditComment from './EditComment/EditComment';
 
 // Utlis
 import calculateTime from '../../../../../utils/calculateTime';
@@ -17,7 +16,6 @@ import {
   CommentBody,
   CommentContainer, CommentHeader, CommentLeftSideBar, Duration, ImgAvatar,
   CommentText,
-  ImgAvatarSmall,
 } from './styles';
 import { MoreCommentsLink } from '../styles';
 
@@ -25,33 +23,29 @@ import { MoreCommentsLink } from '../styles';
 import { getMoreChildren } from '../commentsListServer';
 
 function Comment(props) {
-  // props
   const {
-    commentprop, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun, moreRepliesFormatPar,
+    comment, isLastChild, remainingSiblings, loadMoreRepliesParentFun, continueThreadParentFun,
   } = props;
 
-  // states
-  const [collpase, setCollapse] = useState(false);
-  const [comment, setComment] = useState(commentprop);
-  const [replies, setReplies] = useState(comment?.replies);
-  const [editComment, setEditComment] = useState(false);
-
-  // useEffect
-  useEffect(() => {
-    setComment(commentprop);
-    console.log('commentPrp', commentprop);
-  }, [commentprop]);
   // Constants
   const authorProfilelink = `/user/${comment?.author?.userName}`;
 
-  // True if there is moreReplies object
+  // constants of tree Structure
+  const limitForMoreReplies = 2;
+
+  // const replies = (comment) ? comment.replies : [];
+
+  // state
+  const [collpase, setCollapse] = useState(false);
+  const [replies, setReplies] = useState(comment.replies);
+
   const moreRepliesFormat = (replies) ? replies[replies.length - 1]?.Type === 'moreReplies' : false;
   const lastChild = (replies) ? (moreRepliesFormat ? replies.length - 2 : replies.length - 1) : -1;
   const remainingSiblingsCountVar = (replies && moreRepliesFormat) ? replies[replies.length - 1]?.count : 0;
 
-  // constants of tree Structure
-  const limitForMoreReplies = (moreRepliesFormatPar === true) ? remainingSiblings : (0);
-  const depthforMoreReplies = 8;
+  useEffect(() => {
+    // setReplies(repliesProp);
+  }, []);
 
   // Functions
   const toggleComment = () => {
@@ -61,15 +55,11 @@ function Comment(props) {
   // The parent Comment refreshes his replies
   // new Replies=>Array of strings of new repleis to be added to this replies
   const loadMoreReplies = () => {
-    console.log('More Comemts on the Parent Post');
-    console.log('Comments List ::::::)', replies);
-
     // replies here can't be empty because the butotn called by this fucntion won't appear if it is empty :)
     // Call API of more Children
     getMoreChildren({
       children: replies[replies.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
-      // limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
-      depth: depthforMoreReplies,
+      limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
     }, replies, setReplies);
   };
 
@@ -89,22 +79,19 @@ function Comment(props) {
 
         <CommentBody>
           <CommentHeader>
-            <ImgAvatarSmall alt={comment?.author?.userName} src={comment?.author?.profilePicture} />
-            <AuthorLink href={authorProfilelink}>
-              {comment?.author?.userName}
-            </AuthorLink>
+            <AuthorLink href={authorProfilelink}>{comment?.author?.userName}</AuthorLink>
             <Duration>{comment ? calculateTime(comment?.createdAt) : null}</Duration>
           </CommentHeader>
           {collpase ? null
             : (
               <>
                 <CommentText><div dangerouslySetInnerHTML={{ __html: comment?.text }} /></CommentText>
-                {editComment ? <EditComment comment={comment} setComment={setComment} setEditComment={setEditComment} /> : <CommentActions comment={comment} setComment={setComment} replies={replies} setReplies={setReplies} setEditComment={setEditComment} />}
+                <CommentActions comment={comment} />
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
                   : replies?.map((reply, i) => {
                     if (i === replies.length - 1 && moreRepliesFormat) { return null; }
-                    return (<Comment key={reply?._id} commentprop={reply} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCountVar} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} moreRepliesFormatPar={moreRepliesFormat} />);
+                    return (<Comment key={reply?._id} comment={reply} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCountVar} loadMoreRepliesParentFun={loadMoreReplies} continueThreadParentFun={continueThreadParentFun} />);
                   })}
                 {continueThread
                   ? (
@@ -122,7 +109,7 @@ function Comment(props) {
         // <MoreCommentsLink onClick={loadMoreComments}>
         <MoreCommentsLink onClick={loadMoreRepliesParentFun}>
           {/* Only the First 10 Comments */}
-          {limitForMoreReplies}
+          {remainingSiblings > limitForMoreReplies ? limitForMoreReplies : remainingSiblings}
           {' '}
           more replies
         </MoreCommentsLink>

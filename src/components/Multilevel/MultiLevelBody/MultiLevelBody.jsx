@@ -26,10 +26,10 @@ function MultiLevelBody({ Edit, Comment }) {
   return (
     post
     && (
-    <MultiLevelBodyConatiner>
-      <PostContainer>
-        {/* Reactions */}
-        {/* <Reactions
+      <MultiLevelBodyConatiner>
+        <PostContainer>
+          {/* Reactions */}
+          {/* <Reactions
           flexDirection="column"
           votes={post?.votes}
           postVoteStatus={post?.postVoteStatus}
@@ -37,13 +37,13 @@ function MultiLevelBody({ Edit, Comment }) {
           viewpost
         /> */}
 
-        <Box width="42px" height="100%" />
+          <Box width="42px" height="100%" />
 
-        <MultiLevelPostContent Edit={Edit} Comment={Comment} />
-      </PostContainer>
-      <CommentsList />
+          <MultiLevelPostContent Edit={Edit} Comment={Comment} />
+        </PostContainer>
+        <CommentsList />
 
-    </MultiLevelBodyConatiner>
+      </MultiLevelBodyConatiner>
     )
   );
 }
