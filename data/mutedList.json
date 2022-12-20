@@ -1,56 +1,119 @@
-[
+{
+  "status": "success",
+  "data": [
     {
-      "_id": "0",
-      "userName": "fady",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z",
+      "banInfo": {
+        "punishReason": "No reason",
+        "punish_type": "No Spoiler",
+        "Note": "he is bad person",
+        "duration": 20
+      },
       "muteInfo": {
-        "muteMessage": "muted1"
-      }
+        "muteMessage": "Spammer"
+      },
+      "user": {
+        "_id": "63a107a3e72289e28e6b760d",
+        "userName": "Nour",
+        "joinDate": "2022-12-20T00:53:55.071Z",
+        "profilePicture": "users/default.png"
+      },
+      "type": "banned",
+      "_id": "63a16ea36cdd7a6f4e7ace09"
     },
     {
-      "_id": "1",
-      "userName": "Eslam",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z",
+      "banInfo": {
+        "punishReason": "No reason",
+        "punish_type": "No Spoiler",
+        "Note": "he is bad person",
+        "duration": 20
+      },
       "muteInfo": {
-        "muteMessage": "muted2"
-      }
+        "muteMessage": "Spammer"
+      },
+      "user": {
+        "_id": "63a107a3e72289e28e6b760d",
+        "userName": "Nour",
+        "joinDate": "2022-12-20T00:53:55.071Z",
+        "profilePicture": "users/default.png"
+      },
+      "type": "banned",
+      "_id": "63a16ea36cdd7a6f4e7ace09"
     },
     {
-      "_id": "2",
-      "userName": "basma",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z",
+      "banInfo": {
+        "punishReason": "No reason",
+        "punish_type": "No Spoiler",
+        "Note": "he is bad person",
+        "duration": 20
+      },
       "muteInfo": {
-        "muteMessage": "muted3"
-      }
+        "muteMessage": "Spammer"
+      },
+      "user": {
+        "_id": "63a107a3e72289e28e6b760d",
+        "userName": "Nour",
+        "joinDate": "2022-12-20T00:53:55.071Z",
+        "profilePicture": "users/default.png"
+      },
+      "type": "banned",
+      "_id": "63a16ea36cdd7a6f4e7ace09"
     },
     {
-      "_id": "3",
-      "userName": "nor",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z",
+      "banInfo": {
+        "punishReason": "No reason",
+        "punish_type": "No Spoiler",
+        "Note": "he is bad person",
+        "duration": 20
+      },
       "muteInfo": {
-        "muteMessage": "muted4"
-      }
+        "muteMessage": "Spammer"
+      },
+      "user": {
+        "_id": "63a107a3e72289e28e6b760d",
+        "userName": "Nour",
+        "joinDate": "2022-12-20T00:53:55.071Z",
+        "profilePicture": "users/default.png"
+      },
+      "type": "muted",
+      "_id": "63a16ea36cdd7a6f4e7ace09"
     },
     {
-      "_id": "4",
-      "userName": "hosny",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z",
+      "banInfo": {
+        "punishReason": "No reason",
+        "punish_type": "No Spoiler",
+        "Note": "he is bad person",
+        "duration": 20
+      },
       "muteInfo": {
-        "muteMessage": "muted5"
-      }
+        "muteMessage": "Spammer"
+      },
+      "user": {
+        "_id": "63a107a3e72289e28e6b760d",
+        "userName": "Nour",
+        "joinDate": "2022-12-20T00:53:55.071Z",
+        "profilePicture": "users/default.png"
+      },
+      "type": "muted",
+      "_id": "63a16ea36cdd7a6f4e7ace09"
     },
     {
-      "_id": "5",
-      "userName": "adham",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z",
+      "banInfo": {
+        "punishReason": "No reason",
+        "punish_type": "No Spoiler",
+        "Note": "he is bad person",
+        "duration": 20
+      },
       "muteInfo": {
-        "muteMessage": "muted6"
-      }
+        "muteMessage": "Spammer"
+      },
+      "user": {
+        "_id": "63a107a3e72289e28e6b760d",
+        "userName": "Nour",
+        "joinDate": "2022-12-20T00:53:55.071Z",
+        "profilePicture": "users/default.png"
+      },
+      "type": "muted",
+      "_id": "63a16ea36cdd7a6f4e7ace09"
     }
-]
+  ]
+}

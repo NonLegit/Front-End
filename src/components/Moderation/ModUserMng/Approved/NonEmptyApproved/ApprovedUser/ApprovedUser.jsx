@@ -26,7 +26,7 @@ function ApprovedUser(props) {
         openRemove, handleClickCloseRemove,
       }}
       >
-        <RemovePopUp />
+        <RemovePopUp userName={userName} />
       </RemoveContext.Provider>
       <UserContainer>
         <StyledAvatar variant="square" src={profilePicture} />

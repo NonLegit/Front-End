@@ -5,7 +5,7 @@ import { RedditButton } from '../../../../styles';
 import { UserMngButton } from '../../../styles';
 
 function EditBanFooter(props) {
-  const { handleClickCloseBan } = props;
+  const { handleClickCloseBan, handleUnban, handleEditBan } = props;
   return (
     <StyledBox>
       <UserMngButton
@@ -15,6 +15,7 @@ function EditBanFooter(props) {
         disableRipple
         disableFocusRipple
         sx={{ color: 'red' }}
+        onClick={handleUnban}
         startIcon={<CheckCircleIcon sx={{ color: 'Red' }} />}
       >
         Unban
@@ -39,6 +40,7 @@ function EditBanFooter(props) {
           variant="contained"
           disableRipple
           disableFocusRipple
+          onClick={handleEditBan}
         >
           Edit
         </RedditButton>

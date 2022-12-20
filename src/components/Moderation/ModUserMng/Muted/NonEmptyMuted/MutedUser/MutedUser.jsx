@@ -14,7 +14,7 @@ import calculateTime from '../../../../../../utils/calculateTime';
 export const UnmuteContext = React.createContext();
 
 function MutedUser(props) {
-  const { user } = props;
+  const { user, muteInfo } = props;
 
   const [openUnmute, setOpenUnmute] = React.useState(false);
 
@@ -52,7 +52,7 @@ function MutedUser(props) {
             fontSize="12px"
             color="#878A8C"
           >
-            {calculateTime(user.joiningDate)}
+            {calculateTime(user.joinDate)}
           </Typography>
         </TextContainer>
         <UsermngButtonContainer>
@@ -73,7 +73,7 @@ function MutedUser(props) {
           </UserMngButton>
         </UsermngButtonContainer>
       </UserBar>
-      <MoreDetails modNote={user.muteInfo} isOpened={isOpened} />
+      <MoreDetails modNote={muteInfo.muteMessage} isOpened={isOpened} />
     </>
   );
 }

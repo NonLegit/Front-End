@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { ApprovedFetch } from './ApprovedServer';
+import { ApprovedFetch } from '../../ApprovedServer';
 import ApprovedUser from '../ApprovedUser/ApprovedUser';
 import calculateTime from '../../../../../../utils/calculateTime';
 import SearchBar from '../../../SearchBar/SearchBar';
 import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
+import EmptyApproved from '../../EmptyApproved/EmptyApproved';
 
 function ApprovedUserList() {
   const [data, setData] = React.useState('');
@@ -19,16 +20,14 @@ function ApprovedUserList() {
   const [filteredData, setfilteredData] = React.useState([]);
 
   React.useEffect(() => {
-    setfilteredData(ApprovedUsers.filter((user) => user.userName.toLowerCase().includes(data)));
-    return () => {
-
-    };
+    setfilteredData(ApprovedUsers.filter((user) => user.user.userName.toLowerCase().includes(data)));
   }, [data, ApprovedUsers]);
 
   return (
-    <>
-      <SearchBar childToParent={childToParent} />
-      {
+    (ApprovedUsers.length === 0) ? (<EmptyApproved />) : (
+      <>
+        <SearchBar childToParent={childToParent} />
+        {
         (filteredData.length !== 0 && data !== '') && (
         <SearchResultBar
           resultNumber={filteredData.length}
@@ -37,25 +36,25 @@ function ApprovedUserList() {
         />
         )
       }
-      {
+        {
        (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
       }
-      {
-        filteredData.map((user) => {
+        {
+        filteredData.map((users) => {
           const {
-            id, userName, profilePicture, joiningDate,
-          } = user;
-          console.log(id);
+            user, approvedDate,
+          } = users;
           return (
             <ApprovedUser
-              userName={userName}
-              profilePicture={profilePicture}
-              joiningDate={calculateTime(joiningDate)}
+              userName={user.userName}
+              profilePicture={user.profilePicture}
+              joiningDate={calculateTime(approvedDate)}
             />
           );
         })
       }
-    </>
+      </>
+    )
   );
 }
 

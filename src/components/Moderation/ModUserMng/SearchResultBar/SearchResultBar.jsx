@@ -22,15 +22,15 @@ function SearchResultBar(props) {
         </Typography>
         <Box display="flex">
           {
-              filteredData.map((user) => {
-                const { userName } = user;
+              filteredData.map((users) => {
+                const { user } = users;
                 return (
                   <Typography
                     color="#0079D3"
                     fontSize="14px"
                     fontWeight={500}
                   >
-                    {`'${userName}'`}
+                    {`'${user.userName}'`}
                     &nbsp;
                   </Typography>
                 );

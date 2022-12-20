@@ -93,7 +93,7 @@ export const EmptyBox = styled(Box)(() => ({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: 'white',
-  marginTop: 10,
+  margin: '10px 24px 0px 24px',
   padding: 85,
   flexDirection: 'column',
 }));

@@ -5,6 +5,7 @@ import MutedUser from '../MutedUser/MutedUser';
 import SearchBar from '../../../SearchBar/SearchBar';
 import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
+import EmptyMuted from '../../EmptyMuted/EmptyMuted';
 
 function MutedUserList() {
   const [data, setData] = React.useState('');
@@ -15,13 +16,14 @@ function MutedUserList() {
   const [MutedUsers] = mutedFetch(subReddit);
   const [filteredData, setfilteredData] = React.useState([]);
   React.useEffect(() => {
-    setfilteredData(MutedUsers?.filter((user) => user.userName.toLowerCase().includes(data)));
+    setfilteredData(MutedUsers?.filter((users) => users.user.userName.toLowerCase().includes(data)));
   }, [data, MutedUsers]);
 
   return (
-    <>
-      <SearchBar childToParent={childToParent} />
-      {
+    (MutedUsers.length === 0) ? (<EmptyMuted />) : (
+      <>
+        <SearchBar childToParent={childToParent} />
+        {
         (filteredData.length !== 0 && data !== '') && (
         <SearchResultBar
           resultNumber={filteredData.length}
@@ -30,17 +32,24 @@ function MutedUserList() {
         />
         )
       }
-      {
+        {
        (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
       }
-      {
-        filteredData?.map((user) => (
-          <MutedUser
-            user={user}
-          />
-        ))
+        {
+        filteredData.map((users) => {
+          const {
+            user, muteInfo,
+          } = users;
+          return (
+            <MutedUser
+              user={user}
+              muteInfo={muteInfo}
+            />
+          );
+        })
       }
-    </>
+      </>
+    )
   );
 }
 

@@ -63,6 +63,7 @@ const approved = require('./approvedList.json');
 const muteUnmute = require('./muteUnmuteList.json');
 const approvedUnapproved = require('./approvedUnapprovedList.json');
 const banUnban = require('./banUnban.json');
+const invitedModerators = require('./invitedModerators.json');
 // Something more
 
 module.exports = () => ({
@@ -133,5 +134,6 @@ module.exports = () => ({
   muteUnmute,
   approvedUnapproved,
   banUnban,
+  invitedModerators,
   // Something more
 });

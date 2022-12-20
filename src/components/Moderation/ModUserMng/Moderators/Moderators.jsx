@@ -4,12 +4,11 @@ import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
-  QueueBox, QueueText, ControlBar, ModeratorsTypeContainer,
+  QueueBox, QueueText, ControlBar,
 } from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import LeavePopUp from './LeavePopUp/LeavePopUp';
 import { RedditButton } from '../../styles';
-// import NonEmptyModerator from './NonEmptyModerator/NonEmptyModerator';
 import Invitation from './InvitationPopUp/InvitationPopUp';
 import SearchBar from '../SearchBar/SearchBar';
 import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
@@ -73,9 +72,7 @@ function Moderator(props) {
         </QueueText>
       </QueueBox>
       <SearchBar />
-      <ModeratorsTypeContainer>
-        <ModeratorsList />
-      </ModeratorsTypeContainer>
+      <ModeratorsList />
     </ModMainPage>
   );
 }

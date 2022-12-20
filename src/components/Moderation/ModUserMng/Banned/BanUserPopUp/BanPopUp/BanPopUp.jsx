@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box } from '@mui/material';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { StyledDialog } from '../../../styles';
 import { BanContext } from '../../BanUser';
 import Header from '../../../Header/Header';
@@ -11,7 +11,7 @@ import BanNote from '../BanNote/BanNote';
 import BanPeriod from '../BanPeriod/BanPeriod';
 import BanMessage from '../BanMessage/BanMessage';
 import BanFooter from '../BanFooter/BanFooter';
-import { banUnanUser } from '../banServer';
+import { banUnbanUser } from '../banServer';
 
 function BanPopUp() {
   const { subReddit } = useParams();
@@ -25,7 +25,7 @@ function BanPopUp() {
     const banNote = document.getElementById('banNote').value;
     const banMessage = document.getElementById('banMessage').value;
     const duration = document.getElementById('duration').value;
-    banUnanUser(userName, subReddit, 'ban', reason, banNote, banMessage, duration);
+    banUnbanUser(userName, subReddit, 'ban', reason, banNote, banMessage, duration);
   };
   return (
     <StyledDialog

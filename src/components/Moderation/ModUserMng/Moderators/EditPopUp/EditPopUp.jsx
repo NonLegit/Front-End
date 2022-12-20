@@ -3,60 +3,58 @@ import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { StyledDialog, FooterContainer } from '../../styles';
-import { InvitationContext } from '../Moderators';
+import { EditContext } from '../NonEmptyModerator/NonEmptyModerator';
 import Header from '../../Header/Header';
-import Username from '../../Username/Username';
 import Foooter from '../../Footer/Footer';
 import Permissions from '../Permissions/Persmissions';
-import { inviteMod } from './invitationServer';
+import { editMod } from './editServer';
 
-function InvitationPopUp() {
+function EditPopUp(props) {
+  const { userName } = props;
   const { subReddit } = useParams();
 
-  const handleInvite = async () => {
-    const userName = document.getElementById('username').value;
+  const handleEdit = async () => {
     const everything = document.getElementById('everything').checked;
     const manageUsers = document.getElementById('manage_users').checked;
     const manageSettings = document.getElementById('manage_settings').checked;
     const manageFlair = document.getElementById('manage_flair').checked;
     const managePost = document.getElementById('manage_post').checked;
-    inviteMod(userName, subReddit, everything, manageUsers, manageSettings, manageFlair, managePost);
+    editMod(userName, subReddit, everything, manageUsers, manageSettings, manageFlair, managePost);
   };
 
   const {
-    openInvitation, handleClickCloseInvitation,
-  } = React.useContext(InvitationContext);
+    openEdit, handleClickCloseEdit,
+  } = React.useContext(EditContext);
   return (
     <StyledDialog
       width="538px"
-      height="520px"
+      height="450px"
       fullScreen
-      open={openInvitation}
+      open={openEdit}
     >
       <Box>
-        <Header buttonFunction={handleClickCloseInvitation} headerText="Invite moderators" />
+        <Header buttonFunction={handleClickCloseEdit} headerText={`Edit u/${userName}`} />
         <Divider />
-        <Username placeholder="Enter username" />
         <Typography
           color="#1C1C1C"
           fontSize="16px"
           fontWeight={600}
-          paddingLeft="16px"
+          margin="5px 16px"
         >
-          Give them access to...
+          Access
         </Typography>
       </Box>
       <Permissions />
       <FooterContainer>
         <Foooter
-          firstButtonFunction={handleClickCloseInvitation}
+          firstButtonFunction={handleClickCloseEdit}
           firstButtonText="Cancel"
-          secondButtonFunction={handleInvite}
-          secondButtonText="Invite"
+          secondButtonFunction={handleEdit}
+          secondButtonText="Save"
         />
       </FooterContainer>
     </StyledDialog>
   );
 }
 
-export default InvitationPopUp;
+export default EditPopUp;

@@ -1,38 +1,35 @@
-[
+{
+  "status": "success",
+  "data": [
     {
-      "_id": "0",
-      "userName": "fady",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z"
+      "user": {
+        "_id": "0",
+        "userName": "fady",
+        "joinDate": "2019-08-24T14:15:22Z",
+        "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797"
+      },
+      "approvedDate": "2022-12-20T07:58:23.377Z",
+      "_id": "63a16b1f5de58d167a0d0c82"
     },
     {
-      "_id": "1",
-      "userName": "Eslam",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z"
+      "user": {
+        "_id": "0",
+        "userName": "fady",
+        "joinDate": "2019-08-24T14:15:22Z",
+        "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797"
+      },
+      "approvedDate": "2022-12-20T07:58:23.377Z",
+      "_id": "63a16b1f5de58d167a0d0c82"
     },
     {
-      "_id": "2",
-      "userName": "basma",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z"
-    },
-    {
-      "_id": "3",
-      "userName": "nor",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z"
-    },
-    {
-      "_id": "4",
-      "userName": "hosny",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z"
-    },
-    {
-      "_id": "5",
-      "userName": "adham",
-      "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797",
-      "joiningDate": "2019-08-24T14:15:22Z"
+      "user": {
+        "_id": "0",
+        "userName": "fady",
+        "joinDate": "2019-08-24T14:15:22Z",
+        "profilePicture": "https://styles.redditmedia.com/t5_2ql2m/styles/communityIcon_vr02expkpl391.jpg?format=pjpg&s=6fc537d22ab75feda2ea15985e89da63c7564797"
+      },
+      "approvedDate": "2022-12-20T07:58:23.377Z",
+      "_id": "63a16b1f5de58d167a0d0c82"
     }
-]
+  ]
+}

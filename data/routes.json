@@ -67,8 +67,9 @@
     "/subreddits/:subredditName/banned":"/banned",
     "/subreddits/:subredditName/muted":"/muted",
     "/subreddits/:subredditName/moderators":"/moderators",
-    "/subreddits/:subredditName/approved":"/approved",
+    "/subreddits/:subredditName/approved_users":"/approved",
     "/subreddits/:subredditName/mute_settings/:action/:userName":"/muteUnmute",
-    "/subreddits/:subredditName/approve_settings/:action/:userName":"/approvedUnapproved",
-    "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban"
+    "/subreddits/:subredditName/:userName/:action/approve_user":"/approvedUnapproved",
+    "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban",
+    "/subreddits/:subredditName/invited_moderators":"/invitedModerators"
 }
