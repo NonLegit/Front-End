@@ -143,8 +143,6 @@ function OtherProfilePost(props) {
                 numComments={entity.commentCount}
                 points={entity.votes}
                 postVoteStatus={entity.postVoteStatus}
-                owner={entity.owner.name}
-                ownerType={entity.ownerType}
                 nsfw={isNsfw}
                 spoiler={isSpoiler}
                 locked={isLocked}

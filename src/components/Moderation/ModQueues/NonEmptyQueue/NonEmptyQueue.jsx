@@ -168,7 +168,7 @@ function NonEmptyQueue(props) {
                       imageIndex === index
                     && (
                     <CustomImage
-                      src={image.path}
+                      src={image}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}

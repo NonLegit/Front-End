@@ -24,6 +24,7 @@ function PostBody({ post, isSpoiler }) {
   const { setEditPost } = useEditPostContext();
 
   useEffect(() => {
+    console.log(post.images);
     post.images?.forEach((image) => {
       const img = new Image();
       img.src = image;
@@ -68,7 +69,7 @@ function PostBody({ post, isSpoiler }) {
                 imageIndex === index
                     && (
                     <CustomImage
-                      src={image.path}
+                      src={image}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}

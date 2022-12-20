@@ -48,7 +48,7 @@ function HomePageContainer() {
         {match
         && (
         <SideBar>
-          {!communitiesError ? (communities && <Communities communities={communities} />) : 'error in fetching commmunities'}
+          {cookies.redditUser && (!communitiesError ? (communities && <Communities communities={communities} />) : 'error in fetching commmunities')}
           <RedditPremium />
           <PersonalReddit
             title="Home"

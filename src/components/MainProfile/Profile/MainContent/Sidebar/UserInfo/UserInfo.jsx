@@ -161,7 +161,7 @@ function UserInfo({ username, createPost }) {
         </Box>
         {/* social link part */}
 
-        {!createPost && <AddPost variant="contained">Add Post</AddPost>}
+        {!createPost && <AddPost variant="contained" onClick={() => { navigate('/submit'); }}>Add Post</AddPost>}
 
         {/* popup component to add social link */}
         <BootstrapDialog

@@ -26,7 +26,6 @@ import {
   deletePostComment, postReactionsServer,
 } from '../../profileServer';
 import ModeratorList from '../../ModeratorList/ModeratorList';
-import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 
 /**
  * footer for a post conatining all icons
@@ -85,25 +84,9 @@ function PostFooter(props) {
     setModeratorList((prev) => !prev);
   };
 
-  const getPostUrl = () => {
-    const username = owner;
-    if (subTitle === 'User') {
-      if (username) {
-        return `user/${username}/comments/${postid}`;
-      }
-      return '';
-    }
-    return `r/${owner}/comments/${postid}`;
-  };
-
-  const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
-  const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
   const navigate = useNavigate();
-
   const handleShare = () => {
-    setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
-    setInitialPostType(3);
-    navigate('/submit');
+    navigate(`/submit/${postid}`);
   };
 
   const { setEditPost, setCommentPost } = useEditPostContext();

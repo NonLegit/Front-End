@@ -1,6 +1,7 @@
 const {
   top, best, hot, newPosts,
 } = require('./homePagePosts.json');
+const { posts } = require('./submitPost.json');
 const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const homePageCommunities = require('./homePageCommunities.json');
@@ -74,7 +75,6 @@ const messageRemove = require('./messageRemove.json');
 const MessageDrive = require('./MessageDrive.json');
 const MessageReplay = require('./messageReplay.json');
 const messagesAll = require('./messagesAll.json');
-const baned = require('./bannedList.json');
 const modQueue = require('./modQueue.json');
 const commentMod = require('./commentMod.json');
 const banned = require('./bannedList.json');
@@ -94,7 +94,6 @@ module.exports = () => ({
   AddRule,
   EditFlair,
   AddFlair,
-  baned,
   UpdateFlair,
   userInfo,
   Subreddit,
@@ -176,5 +175,6 @@ module.exports = () => ({
   approvedUnapproved,
   banUnban,
   invitedModerators,
+  posts,
   // Something more
 });
