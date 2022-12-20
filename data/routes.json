@@ -71,5 +71,6 @@
     "/subreddits/:subredditName/mute_settings/:action/:userName":"/muteUnmute",
     "/subreddits/:subredditName/:userName/:action/approve_user":"/approvedUnapproved",
     "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban",
-    "/subreddits/:subredditName/invited_moderators":"/invitedModerators"
+    "/subreddits/:subredditName/invited_moderators":"/invitedModerators",
+    "/subreddits/{subredditName}/moderators/{moderatorName}":"/edit"
 }

@@ -34,10 +34,10 @@ function BannedUserList() {
           childToParent={childToParent}
         />
         )
-      }
+        }
         {
-       (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
-      }
+        (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
+        }
         {
       filteredData.map((users) => {
         const {

@@ -104,8 +104,8 @@ function NonEmptyModerator(props) {
                 >
                   {handlePermissions()}
                 </Typography>
-                <IconButton disableRipple disableTouchRipple onClick={handleClickOpenEdit}>
-                  <EditIcon fontSize="small" />
+                <IconButton disableRipple disableTouchRipple>
+                  <EditIcon fontSize="small" onClick={handleClickOpenEdit} />
                 </IconButton>
               </>
             );

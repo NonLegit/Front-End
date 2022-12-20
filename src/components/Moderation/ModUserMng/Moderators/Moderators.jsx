@@ -10,7 +10,6 @@ import { ModMainPage } from '../../ModerationMainPage/styles';
 import LeavePopUp from './LeavePopUp/LeavePopUp';
 import { RedditButton } from '../../styles';
 import Invitation from './InvitationPopUp/InvitationPopUp';
-import SearchBar from '../SearchBar/SearchBar';
 import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
 
 export const LeaveContext = React.createContext();
@@ -71,7 +70,6 @@ function Moderator(props) {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <SearchBar />
       <ModeratorsList />
     </ModMainPage>
   );
