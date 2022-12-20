@@ -32,7 +32,7 @@ export default function NavButtons(props) {
           />
         </StyledTabs>
         <TabPanel value="1">Posts</TabPanel>
-        <TabPanel value="2" sx={{ padding: '20px 0px 0px 0px' }}>
+        <TabPanel value="2" sx={{ width: '100%', padding: '20px 0px 0px 0px', display: 'flex' }}>
           <CommunitiesTab title={title} />
         </TabPanel>
       </TabContext>

@@ -257,7 +257,7 @@ function App() {
                 </Route>
 
                 <Route
-                  path="/t/:title"
+                  path="/t/:title/"
                   element={
                     <Explore />
                   }

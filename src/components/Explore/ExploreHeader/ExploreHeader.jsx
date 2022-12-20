@@ -1,8 +1,14 @@
+/* eslint-disable import/no-cycle */
 import { Typography, Box } from '@mui/material';
+import * as React from 'react';
 import { HeaderContainer, StyledLink } from './styles';
 import NavButtons from '../NavButtons/NavButtons';
+import { headerSubTitleContext } from '../CommunitiesContainer/CommunitiesContainer';
 
 function ExploreHeader(props) {
+  const {
+    headerSubTitle,
+  } = React.useContext(headerSubTitleContext);
   const { title } = props;
   return (
     <HeaderContainer>
@@ -16,7 +22,7 @@ function ExploreHeader(props) {
           {title}
         </Typography>
         <StyledLink>
-          fady
+          {headerSubTitle}
         </StyledLink>
       </Box>
       <NavButtons title={title} />

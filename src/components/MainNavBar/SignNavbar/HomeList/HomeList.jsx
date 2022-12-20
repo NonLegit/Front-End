@@ -20,7 +20,7 @@ function HomeList() {
   // navigate
   const navigate = useNavigate();
   const handleClick = (subPage) => {
-    navigate(`/t/${subPage}`);
+    navigate(`/t/${subPage}/`);
   };
   const [openHomeList, setOpenHomeList] = React.useState(0);
   const handleClickHomeList = () => {

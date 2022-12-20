@@ -4,6 +4,6 @@ export const ExpMainPage = styled(Box)(() => ({
   backgroundColor: '#dae0e6',
   minHeight: '100vh',
   display: 'flex',
-  margin: 'auto',
-  flexDirection: 'column',
+  width: '100%',
+  justifyContent: 'center',
 }));

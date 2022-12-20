@@ -31,7 +31,7 @@ function UserList() {
   // navigate
   const navigate = useNavigate();
   const handleClick = (subPage) => {
-    navigate(`/t/${subPage}`);
+    navigate(`/t/${subPage}/`);
   };
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie, removeCookie] = useCookies(['redditUser']);

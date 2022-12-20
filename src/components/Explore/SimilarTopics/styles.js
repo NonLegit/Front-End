@@ -6,7 +6,8 @@ export const SimilarTopicsContainer = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
   marginLeft: '20px',
   minWidth: '312px',
-  [theme.breakpoints.down('md')]: {
+  height: 'fit-content',
+  [theme.breakpoints.down('lg')]: {
     display: 'none',
   },
 }));

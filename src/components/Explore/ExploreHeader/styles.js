@@ -8,7 +8,6 @@ export const HeaderContainer = styled(Box)(() => ({
   alignItems: 'flex-start',
   flexDirection: 'column',
   padding: '16px 0px',
-  minWidth: '640px',
   margin: 'auto',
 }));
 

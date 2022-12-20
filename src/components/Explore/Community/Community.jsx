@@ -5,11 +5,13 @@ import {
 import JoinButton from '../../JoinButton/JoinButton';
 
 function Community(props) {
-  const { communityName, numOfMembers } = props;
+  const {
+    communityName, communityPicture, numOfMembers, description,
+  } = props;
   return (
     <StyledCommunityContainer>
       <StyledCommunity>
-        <Avatar sx={{ marginRight: '12px' }} />
+        <Avatar sx={{ marginRight: '12px' }} src={communityPicture} />
         <StyledDiscription>
           <Typography
             color="#1C1C1C"
@@ -33,9 +35,7 @@ function Community(props) {
             fontSize="12px"
             fontFamily="Sans-Serif"
           >
-            Valheim is a brutal exploration and survival game for solo play or 2-10 (Co-op PvE) players,
-            set in a procedurally-generated purgatory
-            inspired by viking culture.It is developed by Iron Gate and published by Coffee Stain.
+            {description}
           </Typography>
           <VisitButton
             disableRipple
