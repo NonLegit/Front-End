@@ -15,10 +15,7 @@ import {
 
 } from './styles';
 
-import Reactions from './Reactions/Reactions';
-import PostReactions from './PostReactions/PostReactions';
 import PostHeader from './PostHeader/PostHeader';
-import SharedPost from './SharedPost/SharedPost';
 /**
  * This component is the view of the post in home page.
  *
@@ -44,23 +41,39 @@ import SharedPost from './SharedPost/SharedPost';
  * @property {string} url -The post url.
  * @property {boolean} nsfw -Whether the post is not safe for work or not.
  * @property {boolean} spoiler -Whether the post is spoiler or not.
- * @property {Post} sharedFrom -the Parent post of the current one.
  * @returns {React.Component} Post
  */
 
 function Post(props) {
+  const { sharedFrom, subredit } = props;
+  const temp = {
+    _id: 1,
+    text: '',
+    backgroundColor: '',
+    textColor: '',
+  };
   const {
-    createdAt, title, images, ownerType, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video,
-    subredit, postVoteStatus, isSaved, postId, url, nsfw, spoiler, sharedFrom,
-  } = props;
+    text: flairText,
+    backgroundColor: flairBackgroundColor,
+    textColor: flairColor,
+  } = (sharedFrom?.flairId) || temp;
+  const { name: ownerName, icon: ownerIcon } = sharedFrom?.owner || {};
+  const { name: authorName } = sharedFrom?.author || {};
 
+  console.log('sharedfrom', sharedFrom);
+  const {
+    _id: postId, createdAt, title, images, kind, text, video, ownerType, url, nsfw, spoiler,
+  } = sharedFrom;
+
+  console.log('wow', {
+    _id: postId, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, text, video, ownerType, url, nsfw, spoiler,
+  });
   // routes
   const navigate = useNavigate();
 
   // styles
   const theme = useTheme();
   const matchSm = useMediaQuery(theme.breakpoints.up('sm'));
-  const matchMd = useMediaQuery(theme.breakpoints.up('md'));
 
   // variables
   const maxTextHeight = 180;
@@ -94,17 +107,6 @@ function Post(props) {
     }
   };
 
-  const getPostUrl = () => {
-    const username = ownerName;
-    if (ownerType === 'User') {
-      if (username) {
-        return `user/${username}/comments/${postId}`;
-      }
-      return '';
-    }
-    return `r/${ownerName}/comments/${postId}`;
-  };
-
   // effects
   useEffect(() => {
     setDisplayShadow(postTextRef?.current?.offsetHeight > maxTextHeight);
@@ -130,15 +132,7 @@ function Post(props) {
 
   // console.log('for post ', postId, maxImagesHeight);
   return (
-    <PostContainer my={2}>
-      {matchSm && (
-        <Reactions
-          flexDirection="column"
-          votes={votes}
-          postVoteStatus={postVoteStatus}
-          postId={postId}
-        />
-      )}
+    <PostContainer>
       <Box
         p={1}
         flexGrow={1}
@@ -169,7 +163,7 @@ function Post(props) {
           spoiler={spoiler}
           onClick={() => redirectToPost(kind !== 'link')}
         >
-          {!sharedFrom ? (kind === 'video' ? (
+          {kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>
               <source src={video} type="video/mp4" />
             </video>
@@ -238,27 +232,9 @@ function Post(props) {
                     <LinkIcon />
                   </PostUrl>
                 ))
-          ))
-            : (
-              <SharedPost
-                sharedFrom={sharedFrom}
-                subredit={subredit}
-              />
-            )}
+          )}
         </PostMedia>
         )}
-        <PostReactions
-          votes={votes}
-          matchSm={matchSm}
-          matchMd={matchMd}
-          comments={commentCount}
-          postVoteStatus={postVoteStatus}
-          isSaved={isSaved}
-          postId={postId}
-          redirectToPost={redirectToPost}
-          getPostUrl={getPostUrl}
-          authorName={authorName}
-        />
       </Box>
     </PostContainer>
   );

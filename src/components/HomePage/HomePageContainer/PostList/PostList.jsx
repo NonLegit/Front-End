@@ -32,6 +32,7 @@ function PostList(props) {
       }).map((post, index) => {
         const {
           _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
+          sharedFrom,
         } = post;
         return (
 
@@ -60,6 +61,7 @@ function PostList(props) {
             nsfw={nsfw}
             spoiler={spoiler}
             subredit={subredit}
+            sharedFrom={sharedFrom}
           />
         );
       })}
