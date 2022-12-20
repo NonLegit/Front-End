@@ -23,6 +23,7 @@ import { ElementBox, FooterText } from '../../../../../MainProfile/Posts/PostFoo
 import { SaveButton } from '../../../MultiLevelPostContent/styles';
 
 // Server
+import { saveCommenttoDB } from './commentActionsServer';
 import { saveComment } from '../../commentsListServer';
 
 function CommentActions(props) {
@@ -37,7 +38,7 @@ function CommentActions(props) {
 
   // props
   const {
-    comment, replies, setReplies, setEditComment,
+    comment, setComment, replies, setReplies, setEditComment,
   } = props;
 
   // States
@@ -54,10 +55,6 @@ function CommentActions(props) {
     if (saveComment(comment?._id, 'Comment', reply, post, setPost, replies, setReplies)) {
       setReply('');
       setReplyEditor(false);
-
-      // Need refresh post Component =>to pop comment
-      // UpdatePost();
-      // Refetch post
     }
   };
 
@@ -81,6 +78,7 @@ function CommentActions(props) {
     } else if (option === 'Save') {
       // call Save endPoint
       console.log('Save Comment with Text', comment?.text);
+      saveCommenttoDB(comment?._id, comment, setComment);
     } else if (option === 'Delete') {
       // call Delete endPoint
       console.log('Delete Comment with Text', comment?.text);

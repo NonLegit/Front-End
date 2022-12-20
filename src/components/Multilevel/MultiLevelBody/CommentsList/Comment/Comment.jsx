@@ -117,7 +117,7 @@ function Comment(props) {
             : (
               <>
                 <CommentText><div dangerouslySetInnerHTML={{ __html: comment?.text }} /></CommentText>
-                {editComment ? <EditComment comment={comment} setComment={setComment} setEditComment={setEditComment} /> : <CommentActions comment={comment} replies={replies} setReplies={setReplies} setEditComment={setEditComment} />}
+                {editComment ? <EditComment comment={comment} setComment={setComment} setEditComment={setEditComment} /> : <CommentActions comment={comment} setComment={setComment} replies={replies} setReplies={setReplies} setEditComment={setEditComment} />}
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
                   : replies?.map((reply, i) => {
