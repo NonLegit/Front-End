@@ -33,12 +33,20 @@ function CommentsList() {
 
   const commentsCount = (post?.commentCount <= 0);
 
+  // True if there is moreReplies object
+  const moreRepliesFormat = (comments) ? comments[comments.length - 1]?.Type === 'moreReplies' : false;
+  const lastChild = (comments) ? (moreRepliesFormat ? comments.length - 2 : comments.length - 1) : -1;
+  const remainingSiblingsCount = (comments && moreRepliesFormat) ? comments[comments.length - 1]?.count : 0;
+
   // constants of tree Structure
   const limit = 2;
-  const depth = 20;
-  const limitForMoreReplies = 2;
+  const depth = 8;
+
   const threadLimit = 2;
   const threadDepth = 2;
+
+  const limitForMoreReplies = (moreRepliesFormat === true) ? (comments[comments.length - 1]?.children?.length > 10 ? 10 : comments[comments.length - 1]?.children?.length) : (0);
+  const depthforMoreReplies = 8;
 
   // useEffect
   useEffect(() => {
@@ -50,14 +58,16 @@ function CommentsList() {
   }, [postID, post, sortName]);
 
   // Load More Comments on This post Vertical Limit
-  const loadMoreComments = () => {
+  const loadMoreComments = (limitForMoreReplies) => {
     console.log('More Comemts on the Parent Post');
     console.log('Comments List ::::::)', comments);
+    console.log('Comments List ::::::)', comments[2]);
 
     // Call API of more Children
     getMoreChildren({
-      children: comments[comments.length - 1]?.children, // Remaining Children IDs (Level 0 Comments)
+      children: comments[comments.length - 1]?.children?.slice(0, 2), // Remaining Children IDs (Level 0 Comments)
       limit: limitForMoreReplies, // How many more commenets to be loaded Vertically
+      depth: depthforMoreReplies, // how deep are more replies
     }, comments, setComments);
   };
 
@@ -78,10 +88,6 @@ function CommentsList() {
   // const setSort = (e) => {
 
   // };
-  // True if there is moreReplies object
-  const moreRepliesFormat = (comments) ? comments[comments.length - 1]?.Type === 'moreReplies' : false;
-  const lastChild = (comments) ? (moreRepliesFormat ? comments.length - 2 : comments.length - 1) : -1;
-  const remainingSiblingsCount = (comments && moreRepliesFormat) ? comments[comments.length - 1]?.count : 0;
 
   return (
     // <p>Comments List</p>
@@ -98,7 +104,7 @@ function CommentsList() {
               return (<Comment key={comment?._id} comment={comment} isLastChild={i === lastChild} remainingSiblings={remainingSiblingsCount} loadMoreRepliesParentFun={loadMoreComments} continueThreadParentFun={continueThread} />);
               // loadMoreRepliesParentFun=this fucntion
             })
-  }
+          }
         </MultilevelPostCommentsConatiner>
       )
   );

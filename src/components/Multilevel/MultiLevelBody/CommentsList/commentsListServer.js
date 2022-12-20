@@ -42,7 +42,9 @@ export const getComments = (props, setComments) => {
 };
 
 export const getMoreChildren = (props, comments, setComments) => {
-  const { children, limit } = props;
+  const {
+    children, depth, limit, sort,
+  } = props;
   console.log('children sent to DB ', children);
   console.log('Comments Array to be Refilled ', comments);
   axios.get(
@@ -50,28 +52,37 @@ export const getMoreChildren = (props, comments, setComments) => {
     {
       params: {
         children: children?.toString(), // An array of comment IDs that need to be fetched
-        // depth, // The maximum depth of the comment subtrees
+        depth, // The maximum depth of the comment subtrees
         limit, // The maximum number of replies in each level
-        // sort: // Available values : top, new, best, old
+        sort, // Available values : top, new, best, old
       },
     },
   ).then((response) => {
     console.log('/comments/more_children', response);
     // remove last elememt of the array
-    // console.log('Old Comments Array:');
-    // console.log(comments);
+    console.log('Old Comments Array:');
+    console.log(comments);
 
-    comments.pop();
+    const MoreRepliesObject = comments.pop();
 
-    // console.log('After  Comments Array Pop:');
-    // console.log(comments);
-    // console.log(response.data.comments);
+    console.log('After  Comments Array Pop:');
+    console.log(comments);
+    let newComments = comments.concat(response?.data?.comments);
 
-    const newComments = comments.concat(response.data.comments);
-    // BEEEEEEEEEEEEEEEEECKKKKKKKKKKKKKK
-    // console.log('Comments Array:');
-    // console.log(newComments);
+    console.log('Adding new Comment');
+    console.log(response.data.comments);
 
+    // eslint-disable-next-line no-unsafe-optional-chaining
+    MoreRepliesObject.count -= response?.data?.comments?.length;
+    console.log('Comments Array:');
+    console.log(newComments);
+    if (MoreRepliesObject.count > 0) {
+      // add back to the end
+      newComments = newComments.concat(MoreRepliesObject);
+    }
+
+    console.log('Final Array:');
+    console.log(newComments);
     setComments(newComments);
   }).catch((error) => {
     // 404 Post Not found

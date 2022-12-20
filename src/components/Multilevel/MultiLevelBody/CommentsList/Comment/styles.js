@@ -54,14 +54,14 @@ export const ImgAvatar = styled(Avatar)(() => ({
 }));
 
 // Small Image Avatar for comment @ small screen
-export const ImgAvatarSmall = styled(Avatar)(() => ({
+export const ImgAvatarSmall = styled(Avatar)(({ theme }) => ({
   width: '30px',
   height: '30px',
   display: 'none',
 
   '&': {
-    [theme.breakpoints.down('750')]: {
-      display: 'inline',
+    [theme.breakpoints.down('785')]: {
+      display: 'center',
     },
   },
 }));
@@ -124,9 +124,9 @@ export const CommentHeader = styled(Box)(() => ({
 
 // Link to Author of the Comment
 export const AuthorLink = styled('a')(() => ({
-  color: 'black',
+  color: theme.palette.primary.main,
   textDecoration: 'none',
-  fontSize: '14px',
+  fontSize: '12px',
   fontWeight: '500',
 
   '&:hover': {
