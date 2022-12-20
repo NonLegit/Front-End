@@ -4,10 +4,12 @@ import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CallSplitIcon from '@mui/icons-material/CallSplit';
+
 import { useState } from 'react';
 import PostJoin from '../../../SubReddit/PostJoin';
 import {
-  HeaderAvatar, HeaderAvatarImage, HeaderPost, LinkTo, Joined,
+  HeaderAvatar, HeaderAvatarImage, HeaderPost, LinkTo, Joined, LinkCross,
 } from './styles';
 
 /**
@@ -22,7 +24,7 @@ import {
 
 function PostHeader(props) {
   const {
-    subReddit, nameUser, Time, type, icon, locked, modState, notJoined,
+    subReddit, nameUser, Time, type, icon, locked, modState, notJoined, sharedFrom,
   } = props;
 
   const [joined, setJoined] = useState(false);
@@ -71,6 +73,18 @@ function PostHeader(props) {
             {nameUser}
           </Typography>
         </LinkTo>
+        {sharedFrom && (
+        <>
+          <CallSplitIcon sx={{ color: '#0079D3', marginLeft: '3px', transform: 'rotate(90deg)' }} fontSize="string" />
+          <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
+            cross posted by
+            {' '}
+            <LinkCross to={`/user/${sharedFrom.author.name}`}>
+              {sharedFrom.author.name}
+            </LinkCross>
+          </Typography>
+        </>
+        )}
         <Box sx={{ flex: '1 1 auto', display: 'flex' }}>
           <Typography
             variant="caption"

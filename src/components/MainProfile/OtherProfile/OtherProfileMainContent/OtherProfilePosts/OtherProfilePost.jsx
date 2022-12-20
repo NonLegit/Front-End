@@ -93,6 +93,8 @@ function OtherProfilePost(props) {
                 modState={entity.modState}
                 locked={entity.locked}
                 notJoined={notJoined}
+                sharedFrom={entity?.sharedFrom}
+
               />
               <OtherProfilePostFooter
                 postid={entity?._id}
