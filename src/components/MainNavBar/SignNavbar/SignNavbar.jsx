@@ -12,7 +12,7 @@ import RedditButton from './RedditButton/RedditButton';
 import {
   StyledNavbar, HomeButton,
 } from './styles';
-import SearchButton from './Search/Search';
+import SearchButton from '../Search/Search';
 import LogoIcon from '../Navbar/Logo/logoIcon';
 // import SignUp from './SignUpPopUp/SignUp';
 import LogIn from './LogInPopUp/LogIn';
