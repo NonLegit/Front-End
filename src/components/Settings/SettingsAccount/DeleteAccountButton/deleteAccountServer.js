@@ -1,8 +1,11 @@
-import { removeRedditCookie } from '../../../Authentication/authenticationServer';
+// import { logOut } from '../..//MainNavBar/Navbar/UserList/server';
+import { logOut } from '../../../MainNavBar/Navbar/UserList/server';
+
+// import { removeRedditCookie } from '../../../Authentication/authenticationServer';
 import axios from '../../../../services/instance';
 import { redirectLogin } from '../../../../utils/Redirect';
 
-export const deleteAccount = (userName, password) => {
+export const deleteAccount = (userName, password, removeCookie) => {
   console.log('deleteAccount', userName, password);
   axios.post(
     '/users/delete_account',
@@ -15,12 +18,13 @@ export const deleteAccount = (userName, password) => {
     if (response?.status === 204) {
       // Deteletd Sucessfully
       alert('User Deleted Sucessfully');
-      removeRedditCookie();
-      redirectLogin(10);
+      // removeRedditCookie(removeCookie);
+      logOut(removeCookie);
+      redirectLogin(100);
     }
   }).catch((error) => {
     // 404
     console.log(error);
-    alert(error?.response?.data?.message);
+    alert(error?.response?.data?.errorMessage);
   });
 };

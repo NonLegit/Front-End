@@ -1,3 +1,4 @@
+import { useCookies } from 'react-cookie';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
@@ -9,6 +10,9 @@ import {
 import { deleteAccount } from './deleteAccountServer';
 
 function DeleteAccountButton({ setOpenPass }) {
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
+
   const [checked, setChecked] = useState(false);
   // const [condition, setCondition] = useState(false);
 
@@ -16,7 +20,7 @@ function DeleteAccountButton({ setOpenPass }) {
   const [password, setPassword] = useState('');
 
   const checkSubmission = () => {
-    deleteAccount(username, password);
+    deleteAccount(username, password, removeCookie);
     // console.log(condition);
     // if (condition && username?.length > 0 && password?.length > 0) {
     //   setCondition(true);
@@ -58,6 +62,7 @@ function DeleteAccountButton({ setOpenPass }) {
       />
       <Input
         placeholder="Password"
+        type="password"
         onChange={(e) => {
           setPassword(e.target.value);
         }}

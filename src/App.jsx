@@ -47,7 +47,7 @@ import MessagesDrive from './components/Messages/MessagesDrive/MessagesDrive';
 import PostReplies from './components/Messages/PostReplies/PostReplies';
 import AllPage from './pages/AllPage';
 import ErrorPage from './pages/ErrorPage';
-
+import VerifyEmailPage from './pages/VerifyEmailPage';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -377,6 +377,12 @@ function App() {
                   </Route>
 
                 </Route>
+                <Route
+                  path="/verification/:token"
+                  element={
+                    <VerifyEmailPage />
+                  }
+                />
                 <Route
                   path="/Error"
                   element={

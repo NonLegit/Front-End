@@ -9,6 +9,7 @@ import {
   IconClose, Header, HeaderIcon, IconError, Container,
   Pragraph, Input, Footer, SaveBtn, Error,
 } from './styles';
+import { changeEmail } from './changeEmailServer';
 
 function ChangeEmail({ setOpenEmail }) {
   const [condition, setCondition] = useState(false);
@@ -25,8 +26,9 @@ function ChangeEmail({ setOpenEmail }) {
     }
   }, [pass, email, checkEamil]);
   const checkSubmission = () => {
-    console.log(pass);
-    console.log(email);
+    // Call BackEd Point
+    console.log('Function called');
+    changeEmail(email, pass);
   };
   return (
     <Container>

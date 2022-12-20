@@ -21,6 +21,7 @@ function Navbar() {
     && window.location.pathname !== '/register'
     && window.location.pathname !== '/username'
     && pathArray[1] !== 'resetpassword'
+    && pathArray[1] !== 'verification'
     && (
     <StyledNavbar>
       <MuiToolbar>
