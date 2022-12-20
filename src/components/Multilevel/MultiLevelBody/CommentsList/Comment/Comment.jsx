@@ -38,7 +38,7 @@ function Comment(props) {
 
   // state
   const [collpase, setCollapse] = useState(false);
-  const [replies, setReplies] = useState(comment.replies);
+  const [replies, setReplies] = useState(comment?.replies);
 
   const moreRepliesFormat = (replies) ? replies[replies.length - 1]?.Type === 'moreReplies' : false;
   const lastChild = (replies) ? (moreRepliesFormat ? replies.length - 2 : replies.length - 1) : -1;
@@ -88,7 +88,7 @@ function Comment(props) {
             : (
               <>
                 <CommentText><div dangerouslySetInnerHTML={{ __html: comment?.text }} /></CommentText>
-                <CommentActions comment={comment} />
+                <CommentActions comment={comment} replies={replies} setReplies={setReplies} />
                 {/* Loop Over All array of Replies on This Comment */}
                 {continueThread ? null
                   : replies?.map((reply, i) => {

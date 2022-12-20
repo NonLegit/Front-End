@@ -97,8 +97,7 @@ function MultiLevelPostContent(props) {
         Helooo
         {post?.text}
       </h1> */}
-      {Editprop ? <EditPost setEdit={setEdit} />
-        : <div dangerouslySetInnerHTML={{ __html: post?.text }} />}
+      {Editprop ? <EditPost setEdit={setEdit} /> : null}
       {/* Post Actions Bar */}
       {/* Post Insights */}
       {/* Post Statistics */}

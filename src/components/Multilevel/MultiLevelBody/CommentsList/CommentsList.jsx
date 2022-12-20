@@ -23,16 +23,18 @@ function CommentsList() {
   const { postID } = useParams();
 
   // Context
-  const { post } = usePostContext();
+  const {
+    post, comments, setComments, commentID,
+  } = usePostContext();
 
   // State
-  const [comments, setComments] = useState(null);
+  // const [comments, setComments] = useState(null);
   const [sortName, setSortName] = useState('new');
 
   const commentsCount = (post?.commentCount <= 0);
 
   // constants of tree Structure
-  const limit = 12;
+  const limit = 2;
   const depth = 20;
   const limitForMoreReplies = 2;
   const threadLimit = 2;
@@ -42,7 +44,7 @@ function CommentsList() {
   useEffect(() => {
     // Fetch Initial Comments with depth and limit
     getComments({
-      postID, depth, limit, sort: sortName,
+      postID, depth, limit, sort: sortName, commentId: commentID,
     }, setComments);
     console.log('CommentsList.jsx', post);
   }, [postID, post, sortName]);

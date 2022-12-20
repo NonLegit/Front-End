@@ -20,7 +20,9 @@ import { AuthorLink } from '../../CommentsList/Comment/styles';
 
 function CreateComment() {
   // Context
-  const { post } = usePostContext();
+  const {
+    post, setPost, comments, setComments,
+  } = usePostContext();
 
   // Cookie
   const [cookies] = useCookies(['redditUser']);
@@ -41,7 +43,8 @@ function CreateComment() {
   // console.log('text wl length', draftToHtml(convertToRaw(text.getCurrentContent())), draftToHtml(convertToRaw(text.getCurrentContent())).length);
 
   const comment = () => {
-    if (saveComment(post?._id, 'Post', text)) {
+    console.log('Bosy');
+    if (saveComment(post?._id, 'Post', text, post, setPost, comments, setComments)) {
       setText('');
 
       // Need refresh post Component =>to pop comment
@@ -52,7 +55,7 @@ function CreateComment() {
 
   return (
     <div>
-      <Typography>
+      <Typography fontSize="12px">
         Comment as
         {' '}
         <AuthorLink href={authorProfilelink}>{cookies?.redditUser?.userName}</AuthorLink>

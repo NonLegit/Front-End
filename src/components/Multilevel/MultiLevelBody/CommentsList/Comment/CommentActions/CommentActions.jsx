@@ -31,8 +31,12 @@ function CommentActions(props) {
   const [cookies, setCookies] = useCookies(['redditUser']);
 
   // Context
-  const { post } = usePostContext();
-  const { comment } = props;
+  const {
+    post, setPost, comments, setComments,
+  } = usePostContext();
+
+  // props
+  const { comment, replies, setReplies } = props;
 
   // States
   const [reply, setReply] = useState('');
@@ -45,7 +49,7 @@ function CommentActions(props) {
   const replyOnComment = () => {
     // call Reply endPoint
     console.log('Reply on Comment with Text', comment?.text);
-    if (saveComment(comment?._id, 'Comment', reply)) {
+    if (saveComment(comment?._id, 'Comment', reply, post, setPost, replies, setReplies)) {
       setReply('');
       setReplyEditor(false);
 
@@ -63,7 +67,8 @@ function CommentActions(props) {
     // call Share endPoint
     console.log('Share Comment with Text', comment?.text);
     // navigator.clipboard.writeText(this.state.textToCopy);
-    navigator.clipboard.writeText('Basma');
+    const navigationLink = `${window.location.origin}/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?._id}/comments/${post?._id}/${comment?._id}`;
+    navigator.clipboard.writeText(navigationLink);
   };
   const handleSelectEdit = (option) => {
     // Call Back API
@@ -89,11 +94,11 @@ function CommentActions(props) {
     <div>
       <CommentActionsContainer>
         {comment && (
-        <CommentReactions
-          votes={comment?.votes}
-          commentVoteStatus={comment?.votes}
-          commentId={comment?._id}
-        />
+          <CommentReactions
+            votes={comment?.votes}
+            commentVoteStatus={comment?.votes}
+            commentId={comment?._id}
+          />
         )}
         <ElementBox onClick={() => setReplyEditor(true)}>
           <ChatBubbleOutlineOutlinedIcon />

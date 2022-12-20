@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // services
 import axios from '../../../../services/instance';
 
@@ -82,7 +81,7 @@ export const getMoreChildren = (props, comments, setComments) => {
   });
 };
 
-export const saveComment = async (parentID, parentType, comment) => {
+export const saveComment = async (parentID, parentType, comment, post, setPost, comments, setComments) => {
   await axios.post(
     '/comments',
     {
@@ -95,6 +94,22 @@ export const saveComment = async (parentID, parentType, comment) => {
     // 201
     if (response.status === 201 || response.status === 200 || response.status === 304) {
       console.log('Comment Saved Sucessfully :)', comment, 'on Post', parentID);
+      console.log('old comments', comments);// New Added Comment
+
+      // concatinate this comment to beginning comment
+      let newComment = [response?.data?.data];
+      newComment = newComment.concat(comments);
+      console.log('new comments', newComment);// New Added Comment
+
+      setComments(newComment);
+      if (parentType === 'Post') {
+        console.log(post);
+        // increase Post Comments
+        const newPost = post;
+        newPost.commentCount += 1;
+        setPost(newPost);
+        console.log('Incremeted');
+      }
       return true;
     }
     return false;
