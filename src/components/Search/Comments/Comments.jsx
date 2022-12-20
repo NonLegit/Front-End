@@ -60,7 +60,7 @@ function Comments(props) {
         </Box>
 
         <PostTitle>
-          <PostLink to={`../r/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}`}>
+          <PostLink to={`../subreddit/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}`}>
             <Typography
               variant="h6"
               component="h3"
@@ -71,7 +71,7 @@ function Comments(props) {
               {Comment.post.title.replace(/<[^>]+>/g, '')}
             </Typography>
           </PostLink>
-          <CommentContainer to={`../r/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
+          <CommentContainer to={`../subreddit/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
             <Avatar
               src={Comment.author.profilePicture}
               sx={{
@@ -117,7 +117,7 @@ function Comments(props) {
             </Box>
           </CommentContainer>
         </PostTitle>
-        <GoToThread to={`../r/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
+        <GoToThread to={`../subreddit/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
           Go to thread
         </GoToThread>
         <PostRich mt={5}>

@@ -167,13 +167,6 @@ function App() {
 
                     <Route path="/notifications" element={<Notifications />} />
 
-                    <Route path="/r/:Name" element={<SubReddit />}>
-                      <Route path="" element={<Cover />} />
-                      <Route path=":postClass" element={<Cover />} />
-
-                      <Route path="comments/:postID" element={<PostPage />} />
-                    </Route>
-
                     <Route path="/settings" element={<Settings />}>
                       <Route path="" element={<SettingsAccount />} />
                       <Route path="account" element={<SettingsAccount />} />
@@ -188,15 +181,16 @@ function App() {
 
                     <Route path="/r" element={<SubReddit />}>
                       <Route path=":Name" element={<Cover />}>
+                        {/* <Route path="comments/:postID/:commentID" element={<PostPage />}>
+                            <Route path="" element={<PostPage />} />
+                          <Route path=":commentID" element={<PostPage />} /> }
+                        </Route> */}
                         <Route path=":postClass" element={<Cover />} />
 
-                        <Route path="comments/:postID" element={<PostPage />}>
-                          <Route path="" element={<PostPage />} />
-                          <Route path=":commentID" element={<PostPage />} />
-                        </Route>
                       </Route>
                     </Route>
-
+                    <Route path="/subreddit/:Name/comments/:postID/:commentID" element={<PostPage />} />
+                    <Route path="/subreddit/:Name/comments/:postID" element={<PostPage />} />
                     <Route
                       path="/*"
                       element={

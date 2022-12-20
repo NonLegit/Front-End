@@ -59,7 +59,7 @@ function Post(props) {
           </Box>
         </PostInfo>
 
-        <PostTitle to={`../r/${post?.owner?.fixedName}/comments/${post?._id}`}>
+        <PostTitle to={`../subreddit/${post?.owner?.fixedName}/comments/${post?._id}`}>
           <Typography variant="div" component="div" sx={{ fontSize: 18, wordBreak: 'break-all' }}>
             {post.title.replace(/<[^>]+>/g, '')}
             {/* {post?.title} */}

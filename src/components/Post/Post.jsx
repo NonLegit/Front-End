@@ -89,7 +89,7 @@ function Post(props) {
           navigate('/');
         }
       } else {
-        navigate(`/r/${ownerName}/comments/${shared ? sharedFrom?._id : postId}`);
+        navigate(`/subreddit/${ownerName}/comments/${shared ? sharedFrom?._id : postId}`);
       }
     }
   };

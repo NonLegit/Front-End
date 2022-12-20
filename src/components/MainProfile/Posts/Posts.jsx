@@ -108,7 +108,7 @@ function Posts(props) {
               sharedFrom={post?.sharedFrom}
 
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
               <TitlePost variant="h6">{post?.title}</TitlePost>
               {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
               {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}

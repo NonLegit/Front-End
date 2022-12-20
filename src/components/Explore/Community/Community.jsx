@@ -45,7 +45,7 @@ function Community(props) {
           </VisitButton>
         </StyledDiscription>
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
-          <JoinButton />
+          <JoinButton subreddit={communityName} />
         </Box>
       </StyledCommunity>
     </StyledCommunityContainer>

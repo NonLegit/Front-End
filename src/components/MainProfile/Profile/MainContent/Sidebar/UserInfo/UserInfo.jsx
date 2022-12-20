@@ -1,5 +1,4 @@
 import { Box, CardMedia, Typography } from '@mui/material';
-import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import PersonIcon from '@mui/icons-material/Person';
@@ -11,7 +10,7 @@ import {
 import moment from 'moment/moment';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  AddPhoto, WideButton, EngineIcon, ProfilePic, ProfileBox,
+  WideButton, EngineIcon, ProfilePic, ProfileBox,
   UserInfoBox, UserName, InfoBox,
   EntityBox, FollowersArrow, AddSocialLink, AddPost, MoreOptions, OptionsButtons, BootstrapDialog, LinkTo,
 } from './styles';
@@ -74,26 +73,11 @@ function UserInfo({ username, createPost }) {
         alt="cover image"
         data-testid="cover-photo"
       />
-      <AddPhoto sx={{
-        border: (theme) => `thin solid ${theme.palette.primary.main}`,
-        transform: 'translate(730% ,-130%)',
-      }}
-      >
-        <AddAPhotoOutlinedIcon color="primary" fontSize="small" disabled />
-      </AddPhoto>
 
       <ProfileBox>
         <Box sx={{ display: 'flex' }}>
           <Box>
             <ProfilePic src={profilePic} alt="user photo" />
-            <AddPhoto sx={{
-              border: (theme) => `thin solid ${theme.palette.primary.main}`,
-              position: 'absolute',
-              transform: 'translate(180% ,-100%)',
-            }}
-            >
-              <AddAPhotoOutlinedIcon color="primary" fontSize="small" />
-            </AddPhoto>
 
           </Box>
           <Link to="/settings">

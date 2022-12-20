@@ -58,7 +58,7 @@ function PostBody({ post, isSpoiler }) {
     >
       {post?.kind === 'video' ? (
         // eslint-disable-next-line jsx-a11y/media-has-caption
-        <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
+        <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
           <source src={post?.videos} type="video/mp4" />
         </video>
       ) : (
@@ -73,7 +73,7 @@ function PostBody({ post, isSpoiler }) {
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
-                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     />
                     )
               ))}
@@ -114,7 +114,7 @@ function PostBody({ post, isSpoiler }) {
           ) : ((post.kind === 'self') && (
           <ParagraphBox
             ref={postTextRef}
-            onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
+            onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
           >
             <ParagraphWhite />
             <ParagraphPost

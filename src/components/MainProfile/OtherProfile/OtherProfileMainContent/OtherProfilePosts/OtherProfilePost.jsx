@@ -93,7 +93,7 @@ function OtherProfilePost(props) {
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
-          <EmptyImage onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
+          <EmptyImage onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
             {entity.images.length === 0 ? (
 
               <ArticleOutlinedIcon fontSize="small" color="disabled" />
@@ -105,7 +105,7 @@ function OtherProfilePost(props) {
 
           <PostContentBox>
             <Box sx={{ marginLeft: 1 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
                 <TitlePost variant="h6">{entity.title}</TitlePost>
                 {
                 entity?.flairId?.text
