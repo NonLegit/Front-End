@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import { useState, useEffect, useMemo } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import CommunitiesSubscriberProvider from '../../../contexts/CommunitiesSubscriberContext';
 import {
   QueueBox, QueueText,
@@ -13,6 +14,8 @@ import Filter from './Filter/Filter';
 // import SwitchPage from './NonEmptyQueue/SwitchPage/SwitchPage';
 import EmptyQueue from './EmptyQueue/EmptyQueue';
 import { modQueueServer } from './modQueueServer';
+import cleanPage from '../../../utils/cleanPage';
+import { useListingContext } from '../../../contexts/ListingContext';
 
 function useQuery() {
   const { search } = useLocation();
@@ -28,7 +31,14 @@ function Queue() {
   const sort = query.get('sort');
   const [isContent, setIsContent] = useState(false);
 
-  const [posts] = modQueueServer(subReddit, subTitle, sort);
+  cleanPage();
+
+  const { setPage } = useListingContext();
+  const fetchMoreData = () => {
+    setPage((page) => page + 1);
+  };
+
+  const [posts] = modQueueServer(subReddit, subTitle, sort || 'all');
   useEffect(() => {
     console.log(posts);
     setIsContent(false);
@@ -57,14 +67,22 @@ function Queue() {
               selected={0}
             />
             <CommunitiesSubscriberProvider>
-              {posts.map((entity, index) => (
-                <NonEmptyQueue
-                  key={`${index + 0}`}
-                  post={entity}
-                  profile
-                />
+              {posts && (
+              <InfiniteScroll
+                next={fetchMoreData}
+                hasMore
+                dataLength={posts.length}
+              >
+                {posts.map((entity, index) => (
+                  <NonEmptyQueue
+                    key={`${index + 0}`}
+                    post={entity}
+                    profile
+                  />
 
-              ))}
+                ))}
+              </InfiniteScroll>
+              )}
             </CommunitiesSubscriberProvider>
 
           </>

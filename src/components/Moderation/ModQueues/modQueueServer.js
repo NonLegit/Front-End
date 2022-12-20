@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import useFetch from '../../../hooks/useFetch';
+import useFetchSort from '../../../hooks/useFetchSort';
 
 export const modQueueServer = (name, location, sortType) => {
-  const [data, dataError, statusCode] = useFetch(`/subreddits/${name}/about/posts/${location.toLowerCase()}?sort=${sortType}`);
+  const [data, dataError, statusCode] = useFetchSort(`/subreddits/${name}/about/posts/${location.toLowerCase()}`, sortType);
 
   useEffect(() => {
     if (statusCode === 401) {
