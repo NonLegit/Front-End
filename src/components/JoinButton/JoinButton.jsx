@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PostJoin from '../SubReddit/PostJoin';
 import { Button } from './styles';
 /**
  * This component is join button
@@ -9,7 +10,7 @@ import { Button } from './styles';
  */
 
 function JoinButton(props) {
-  const { isJoined } = props;
+  const { isJoined, subreddit } = props;
 
   const [joined, setJoined] = useState(isJoined);
   const [hover, setHover] = useState(false);
@@ -19,6 +20,7 @@ function JoinButton(props) {
    */
   const handleClick = (e) => {
     e.stopPropagation();
+    PostJoin(`/subreddits/${subreddit}/subscribe`, joined ? 'unsub' : 'sub');
     setJoined(!joined);
   };
 

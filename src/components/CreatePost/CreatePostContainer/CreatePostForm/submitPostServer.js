@@ -10,7 +10,7 @@ import { redirectLogin } from '../../../../utils/Redirect';
 
 // eslint-disable-next-line no-unused-vars
 const submitPostServer = (post, navigate, postType, postMedia) => {
-  console.log(JSON.stringify(post));
+  console.log('fawzy', JSON.stringify(post));
   axios.post('/posts', JSON.stringify(post)).then((response) => {
     console.log(response.data);
     console.log(response.status);
@@ -45,9 +45,9 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
             alert('somethig went wrong with creating images');
           });
         });
-        alert('posted successfully');
-        navigate('/');
       }
+      alert('posted successfully');
+      navigate('/');
     }
   }).catch((e) => {
     console.log(e.response);

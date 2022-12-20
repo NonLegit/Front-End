@@ -58,7 +58,7 @@ function CommunityItem(props) {
         {subredditName}
       </CommunityName>
       <Box flexGrow={1} display="flex" justifyContent="flex-end">
-        <JoinButton isJoined={isJoined} />
+        <JoinButton subreddit={subredditName} isJoined={isJoined} />
       </Box>
     </CommunityListItem>
   );
