@@ -21,7 +21,9 @@ function useQuery() {
  */
 function FilterSearch() {
   const query = useQuery();
-  const type = query.get('type') || 'Posts';
+  const type1 = query.get('type') || 'posts';
+  const type = type1.toLowerCase();
+
   const navigate = useNavigate();
 
   // navigate
@@ -33,26 +35,26 @@ function FilterSearch() {
     <HeaderContainer>
       <Header>
         <MyCategory
-          condition={(type === 'Posts').toString()}
-          onClick={() => { handleClick('Posts'); console.log((type === 'Posts').toString()); }}
+          condition={(type === 'posts').toString()}
+          onClick={() => { handleClick('posts'); console.log((type === 'posts').toString()); }}
         >
           Posts
         </MyCategory>
         <MyCategory
-          condition={(type === 'Comments').toString()}
-          onClick={() => { handleClick('Comments'); }}
+          condition={(type === 'comments').toString()}
+          onClick={() => { handleClick('comments'); }}
         >
           Comments
         </MyCategory>
         <MyCategory
-          condition={(type === 'Communities').toString()}
-          onClick={() => { handleClick('Communities'); }}
+          condition={(type === 'communities').toString()}
+          onClick={() => { handleClick('communities'); }}
         >
           Communities
         </MyCategory>
         <MyCategory
-          condition={(type === 'People').toString()}
-          onClick={() => { handleClick('People'); }}
+          condition={(type === 'people').toString()}
+          onClick={() => { handleClick('people'); }}
         >
           People
         </MyCategory>

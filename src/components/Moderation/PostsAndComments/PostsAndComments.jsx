@@ -11,6 +11,7 @@ import {
   Disc, FlexBox, FlexBoxColumn, LeftAlighne, NotFoundBox, NotFountImage, SortString, TotalContainer,
 } from './style';
 import SuggestionSort from './SuggestionSort/SuggestionSort';
+import Done from '../../AlertMessage';
 
 /**
  * Posts And Comments
@@ -29,6 +30,7 @@ function PostsAndComments() {
   const [allowImgs, setallowImgs] = useState(false);
   const [allowVideos, setallowVideos] = useState(false);
   const [allowLinks, setallowLinks] = useState(false);
+  const [suggestedSort, setSuggestedSort] = useState('');
 
   const [data, dataError, statusCode] = getSubredditAllData(subReddit);
   const value = useMemo(() => ({ data, dataError }), [data, dataError]);
@@ -40,6 +42,8 @@ function PostsAndComments() {
     setallowImgs(data?.allowImgs);
     setallowVideos(data?.allowVideos);
     setallowLinks(data?.allowLinks);
+    setSuggestedSort(data?.suggestedSort);
+    console.log(suggestedSort);
   }, [data, statusCode]);
 
   const redirect = () => {
@@ -56,7 +60,9 @@ function PostsAndComments() {
       allowImgs,
       allowVideos,
       allowLinks,
+      suggestedSort,
     }); // fetch api
+    Done('Chnges Saved');
   };
   return (
     exist
@@ -76,7 +82,8 @@ function PostsAndComments() {
                   </SortString>
                   <Disc>All comment feeds in community will default to this sort setting</Disc>
                 </FlexBoxColumn>
-                <SuggestionSort />
+                {suggestedSort
+                && <SuggestionSort suggestedSort={suggestedSort} setSuggestedSort={setSuggestedSort} />}
               </FlexBox>
               <Disc>posts</Disc>
 

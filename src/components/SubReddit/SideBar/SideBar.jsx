@@ -19,7 +19,9 @@ function SideBar(props) {
   } = props;
   console.log('create post flag', createPost);
   const [moderate, setModerate] = useState(false);
-  const finalArray = moderatoesName?.map((obj) => obj.userName);
+  const finalArray = moderatoesName?.map((obj) => obj.user.userName);
+  // const finalArray = moderatoesName?.map((obj) => obj.userName);
+
   const num = numFormatter(members);
   const mode = UserLogin(finalArray);
   console.log(mode);
@@ -43,9 +45,12 @@ function SideBar(props) {
         <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} createPost={createPost} />
       </CommunityContainer>
       )}
-      <CommunityContainer>
-        <Rules Name={Name} rules={rules} />
-      </CommunityContainer>
+      { (rules?.length > 0)
+     && (
+     <CommunityContainer>
+       <Rules Name={Name} rules={rules} />
+     </CommunityContainer>
+     )}
       <CommunityContainer>
         <Flirt />
       </CommunityContainer>

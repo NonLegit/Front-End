@@ -1,5 +1,11 @@
 import axios from '../../../../services/instance';
-
+/**
+ * Delete Flair
+ *
+ * @property {string} Name - name of subreddit
+ * @property {integer} id - id of flair
+ *
+ */
 const DeleteFlair = async (Name, id) => {
   let statusCode = '';
   await axios.delete(`subreddits/${Name}/flair/${id}`)

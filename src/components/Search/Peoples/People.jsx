@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import numFormatter from '../../../utils/MembersNum';
-import { followRequest } from './FollowServer';
+import followRequest from './FollowServer';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
@@ -18,9 +18,9 @@ import {
 function Peoples(props) {
   const { people } = props;
   const [follow, setFollow] = useState(true);
-  const handleJoin = () => {
-    followRequest(people?.fixedName, follow);
-    setFollow((prev) => !prev);
+  const handleJoin = async () => {
+    await setFollow((prev) => !prev);
+    followRequest(people?.userName, !follow);
   };
 
   const [hover, setHover] = useState(false);
@@ -31,24 +31,34 @@ function Peoples(props) {
   const handleMouseOut = () => {
     setHover(false);
   };
+  useEffect(() => {
+    setFollow(people?.isFollowed);
+  }, []);
   return (
     <OneSuggeest sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex' }}>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        <TextContainer>
-          <Text to={`/user/${people?.fixedName}`}>
-            U/
-            {people?.fixedName}
-          </Text>
-          <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
-            •
+
+        <Avatar alt="Remy Sharp" src={people?.profilePicture} />
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <TextContainer>
+            <Text to={`/user/${people?.userName}`}>
+              U/
+              {people?.userName}
+            </Text>
+            <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
+              •
+            </Typography>
+            <TextP>
+              {numFormatter((people.postKarma * 1) + (people.commentKarma * 1))}
+              {' '}
+              karma
+            </TextP>
+          </TextContainer>
+          <Typography component="span" mx="4px" sx={{ fontSize: '12px', display: 'flex', alignItems: 'center' }}>
+            {people?.description}
           </Typography>
-          <TextP>
-            {numFormatter(people?.karma)}
-            {' '}
-            karma
-          </TextP>
-        </TextContainer>
+
+        </Box>
       </Box>
       <Joined
         variant="outlined"
@@ -56,7 +66,7 @@ function Peoples(props) {
         onMouseEnter={handleMouseIn}
         onMouseLeave={handleMouseOut}
       >
-        {(follow ? (hover ? 'Unfollow' : 'Following') : 'follow')}
+        {(follow) ? ((hover) ? 'Unfollow' : 'Following') : 'follow'}
       </Joined>
     </OneSuggeest>
   );

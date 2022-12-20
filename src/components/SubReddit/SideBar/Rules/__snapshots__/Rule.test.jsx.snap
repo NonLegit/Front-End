@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-vmruv8"
+>
+  <h2
+    className="css-1radmrr"
+  >
+    r/
+  </h2>
+</div>
+`;
