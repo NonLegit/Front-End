@@ -41,6 +41,8 @@ import EditPostContextProvider from './contexts/EditPostContext';
 import { notificationToken } from './services/notificationToken';
 import AllPage from './pages/AllPage';
 
+import ErrorPage from './pages/ErrorPage';
+
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
@@ -333,7 +335,12 @@ function App() {
                   </Route>
 
                 </Route>
-
+                <Route
+                  path="/Error"
+                  element={
+                    <ErrorPage />
+                  }
+                />
               </Routes>
             </Router>
           </EditPostContextProvider>
