@@ -14,7 +14,9 @@ import {
  * @returns {React.Component} PostSidebar
  */
 function PostSide(props) {
-  const { postid, points, postVoteStatus } = props;
+  const {
+    postid, points, postVoteStatus,
+  } = props;
   const [postPoints, setPostPoints] = useState(points);
   const [status, setStatus] = useState(postVoteStatus);
 

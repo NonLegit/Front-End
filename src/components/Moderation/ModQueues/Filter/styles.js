@@ -8,6 +8,7 @@ export const FilterBox = styled(Box)(() => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   marginTop: 10,
+  flexDirection: 'row-reverse',
 }));
 
 export const FilterText = styled(Typography)(({ theme }) => ({

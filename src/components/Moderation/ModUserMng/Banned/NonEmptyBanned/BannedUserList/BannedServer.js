@@ -5,7 +5,7 @@ export const bannedFetch = (subredditName) => {
   const [data, setData] = useState([]);
 
   const api = `/subreddits/${subredditName}/banned`;
-  useEffect(async () => {
+  useEffect(() => {
     axios.get(api) // fetch api
       .then((actualData) => {
         console.log(actualData.data);

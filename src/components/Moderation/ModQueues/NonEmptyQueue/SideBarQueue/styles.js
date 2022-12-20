@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 import ForwardOutlinedIcon from '@mui/icons-material/ForwardOutlined';
 
 export const SidebarQueue = styled(Box)(({ theme, condition }) => ({
-  height: 120,
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -25,7 +24,6 @@ export const Arrow = styled(ForwardOutlinedIcon)(({ theme }) => ({
 }));
 
 export const SidebarQueueBox = styled(Box)(() => ({
-  height: '100%',
   width: 40,
   backgroundColor: '#f8f9fa',
 }));

@@ -1,16 +1,12 @@
-import CropSquareOutlinedIcon from '@mui/icons-material/CropSquareOutlined';
-import { IconButton, Typography } from '@mui/material';
-import { Arrow, SidebarQueue, SidebarQueueBox } from './styles';
+import PostSide from '../../../../MainProfile/Posts/PostSide/PostSide';
+import { SidebarQueue, SidebarQueueBox } from './styles';
 
 function SideBarQueue(props) {
-  const { subTitle } = props;
+  const { subTitle, postid, points } = props;
   return (
     <SidebarQueueBox>
-      <SidebarQueue condition={(subTitle === 'Spam').toString()}>
-        <IconButton size="large" sx={{ padding: 0, marginTop: 1 }}><CropSquareOutlinedIcon color="action" /></IconButton>
-        <Arrow sx={{ transform: 'rotate(-90deg)' }} />
-        <Typography variant="caption" sx={{ fontWeight: 700 }}>1</Typography>
-        <Arrow sx={{ transform: 'rotate(90deg)' }} />
+      <SidebarQueue condition={(subTitle === 'spammed').toString()}>
+        <PostSide postid={postid} points={points} postVoteStatus={subTitle} />
       </SidebarQueue>
 
     </SidebarQueueBox>

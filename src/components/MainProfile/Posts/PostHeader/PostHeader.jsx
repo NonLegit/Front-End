@@ -6,7 +6,7 @@ import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CallSplitIcon from '@mui/icons-material/CallSplit';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PostJoin from '../../../SubReddit/PostJoin';
 import {
   HeaderAvatar, HeaderAvatarImage, HeaderPost, LinkTo, Joined, LinkCross,
@@ -28,6 +28,7 @@ function PostHeader(props) {
   } = props;
 
   const [joined, setJoined] = useState(false);
+  const [joinedUI, setJoinedUI] = useState(false);
 
   const handleJoin = () => {
     PostJoin(`/subreddits/${subReddit}/subscribe`, joined ? 'unsub' : 'sub');
@@ -42,6 +43,11 @@ function PostHeader(props) {
   const handleMouseOut = () => {
     setHover(false);
   };
+
+  useEffect(() => {
+    setJoinedUI(!notJoined);
+    setJoined(!notJoined);
+  }, [notJoined]);
 
   return (
     <HeaderPost>
@@ -102,7 +108,7 @@ function PostHeader(props) {
           {modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="string" />}
           {modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
         </Box>
-        {(type === 'Subreddit' && notJoined) && (
+        {(type === 'Subreddit' && !joinedUI) && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
           onClick={handleJoin}
