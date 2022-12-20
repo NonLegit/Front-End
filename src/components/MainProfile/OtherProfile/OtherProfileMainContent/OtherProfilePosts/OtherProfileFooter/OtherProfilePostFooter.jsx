@@ -37,7 +37,7 @@ import { useEditPostContext } from '../../../../../../contexts/EditPostContext';
  */
 function OtherProfilePostFooter(props) {
   const {
-    postid, numComments, handleExpand, expand, saved, hidden, submitted,
+    postid, numComments, handleExpand, expand, saved, hidden, submitted, ownerType, owner,
     points, postVoteStatus, isModList, modState, nsfw, spoiler, locked,
     handleLock, handleSpoiler, handleNsfw, handleApprove, handleRemove, handleSpam,
   } = props;

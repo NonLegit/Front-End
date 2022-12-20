@@ -154,6 +154,8 @@ function OtherProfilePost(props) {
                 handleApprove={handleApprove}
                 handleRemove={handleRemove}
                 handleSpam={handleSpam}
+                ownerType={entity.ownerType}
+                owner={entity.owner.name}
               />
             </Box>
           </PostContentBox>
