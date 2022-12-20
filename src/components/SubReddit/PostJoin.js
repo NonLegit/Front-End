@@ -1,5 +1,11 @@
 import axios from '../../services/instance';
+/**
+ * Join to subreddit
+ *
+ * @property {string} url - url to send data
+ * @property {string} action - sub / unsub
 
+ */
 const PostJoin = async (url, action) => {
   // const [data, setData] = useState(null);
   // const [error, setError] = useState(null);

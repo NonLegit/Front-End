@@ -14,54 +14,58 @@ import Post from '../components/Search/Post/Post';
 function Search() {
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type') || 'Posts';
+  // const sort = searchParams.get('sort') || 'Posts';
+  // const t = searchParams.get('t') || 'Posts';
+
   console.log(type);
 
-  const subreddits = [
-    {
-      icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      membersCount: 10000,
-      description: 'welcome to subreddit',
-    },
-    {
-      icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      membersCount: 10000,
-      description: 'welcome to subreddit',
-    },
-    {
-      icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      membersCount: 10000,
-      description: 'welcome to subreddit',
-    },
-  ];
-  const peoples = [
-    {
-      icon: '/static/images/avatar/1.jpg',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      karma: 10000,
-      description: 'welcome to subreddit',
-    },
-    {
-      icon: '/static/images/avatar/1.jpg',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      karma: 10000,
-      description: 'welcome to subreddit',
-    },
-    {
-      icon: '/static/images/avatar/1.jpg',
-      _id: 10,
-      fixedName: 'uniquesubreddit',
-      karma: 10000,
-      description: 'welcome to subreddit',
-    },
-  ];
+  // const subreddits = [
+  //   {
+  //     icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
+  //     _id: 10,
+  //     fixedName: 'uniquesubreddit',
+  //     membersCount: 10000,
+  //     description: 'welcome to subreddit',
+  //   },
+  //   {
+  //     icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
+  //     _id: 10,
+  //     fixedName: 'uniquesubreddit',
+  //     membersCount: 10000,
+  //     description: 'welcome to subreddit',
+  //   },
+  //   {
+  //     icon: 'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
+  //     _id: 10,
+  //     fixedName: 'uniquesubreddit',
+  //     membersCount: 10000,
+  //     description: 'welcome to subreddit',
+  //   },
+  // ];
+  // const peoples = [
+  //   {
+  //     icon: '/static/images/avatar/1.jpg',
+  //     _id: 10,
+  //     fixedName: 'uniquesubreddit',
+  //     karma: 10000,
+  //     description: 'welcome to subreddit',
+  //   },
+  //   {
+  //     icon: '/static/images/avatar/1.jpg',
+  //     _id: 10,
+  //     fixedName: 'uniquesubreddit',
+  //     karma: 10000,
+  //     description: 'welcome to subreddit',
+  //   },
+  //   {
+  //     icon: '/static/images/avatar/1.jpg',
+  //     _id: 10,
+  //     fixedName: 'uniquesubreddit',
+  //     karma: 10000,
+  //     description: 'welcome to subreddit',
+  //   },
+  // ];
+
   return (
 
     <TotalHeader>

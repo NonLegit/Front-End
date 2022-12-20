@@ -1,0 +1,350 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-qu6rh0"
+>
+  <div
+    className="css-1tqkhmg"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-wh2t6m-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      Save Change
+    </button>
+  </div>
+  <div
+    className="css-graee"
+  >
+    <div
+      className="css-1mrkymd"
+    >
+      <div
+        className="css-udpovt"
+      >
+        Community settings
+      </div>
+      <p
+        className="css-p2esdq"
+      >
+        COMMUNITY PROFILE
+      </p>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <div
+          className="css-48xeho"
+        >
+          Community name
+        </div>
+        <input
+          className="css-5f4lmt"
+          onChange={[Function]}
+          onInput={[Function]}
+          type="text"
+        />
+        <p
+          className="css-plqmwn"
+        >
+          100
+           
+          Characters remaining
+        </p>
+      </div>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <div
+          className="css-65t9c5"
+        >
+          <div
+            className="css-1lxwves"
+          >
+            <div
+              className="css-48xeho"
+            >
+              Community topics
+            </div>
+            <div
+              className="MuiBox-root css-11rgmnm"
+            >
+              This will help Reddit recommend your community to relevant users and other discovery experiences.
+            </div>
+          </div>
+          <p
+            className="css-plqmwn"
+          >
+            0
+            / 25
+          </p>
+        </div>
+        <div
+          className="MuiBox-root css-1yj1mxk"
+          onClick={[Function]}
+        >
+          <p
+            className="css-1udx7t0"
+            data-testid="select"
+          />
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-1y0tgmx-MuiSvgIcon-root"
+            data-testid="ExpandMoreOutlinedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <div
+          className="css-48xeho"
+        >
+          Community description
+        </div>
+        <div
+          className="MuiBox-root css-11rgmnm"
+        >
+          This is how new members come to understand your community.
+        </div>
+        <textarea
+          className="css-1gkk7qu"
+          defaultValue=""
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <p
+          className="css-plqmwn"
+        >
+          100
+           
+          Characters remaining
+        </p>
+      </div>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <p
+          className="css-1h41h4j"
+        >
+          COMMUNITY LOCATION AND MAIN LANGUAGE
+        </p>
+        <div
+          className="MuiBox-root css-9egytn"
+        >
+          Adding a location helps your community show up in search results and recommendations and helps local redditors find it easier.
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <div
+          className="css-48xeho"
+        >
+          Region
+        </div>
+        <div
+          className="MuiBox-root css-1tfjysc"
+        >
+          <div
+            aria-owns={null}
+            className="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-gcwvw8-MuiAutocomplete-root"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+          >
+            <div
+              className="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+            >
+              <label
+                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+                data-shrink={false}
+                htmlFor="country-select-demo"
+                id="country-select-demo-label"
+              >
+                Choose a country
+              </label>
+              <div
+                className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root"
+                onClick={[Function]}
+              >
+                <input
+                  aria-activedescendant={null}
+                  aria-autocomplete="list"
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  autoCapitalize="none"
+                  autoComplete="new-password"
+                  autoFocus={false}
+                  className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+                  disabled={false}
+                  id="country-select-demo"
+                  onAnimationStart={[Function]}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  placeholder=""
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  spellCheck="false"
+                  type="text"
+                  value=""
+                />
+                <div
+                  className="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Open"
+                    className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onContextMenu={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex={-1}
+                    title="Open"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="ArrowDropDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden={true}
+                  className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    className="css-yjsfm1"
+                  >
+                    <span>
+                      Choose a country
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <p
+          className="css-isa99d"
+        >
+          COMMUNITY TYPE
+        </p>
+      </div>
+      <div
+        className="MuiBox-root css-19l4bzl"
+      />
+      <div
+        className="MuiBox-root css-19l4bzl"
+      >
+        <div
+          className="css-65t9c5"
+        >
+          <div
+            className="css-1lxwves"
+          >
+            <div
+              className="MuiBox-root css-vdrt1w"
+            >
+              <div
+                className="MuiBox-root css-1irk9gk"
+              >
+                18+ year old community
+              </div>
+              <div
+                className="MuiBox-root css-7552ir"
+              >
+                NSFW
+              </div>
+            </div>
+            <div
+              className="MuiBox-root css-11rgmnm"
+            >
+              When your community is marked as an 18+ community, users must be flagged as 18+ in their user settings
+            </div>
+          </div>
+          <span
+            className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+          >
+            <span
+              className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={null}
+            >
+              <input
+                className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                defaultChecked={false}
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+              />
+            </span>
+            <span
+              className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

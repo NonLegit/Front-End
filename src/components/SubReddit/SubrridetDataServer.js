@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from '../../services/instance';
+/**
+ * get all subreddit data
+ *
+ * @property {string} Name - name of subreddit
 
+ */
 const getSubredditAllData = (Name) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);

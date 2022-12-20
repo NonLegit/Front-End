@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import LaunchIcon from '@mui/icons-material/Launch';
 import RedditButton from '../RedditButton/RedditButton';
 
 export const PostContainer = styled(Box)(() => ({
@@ -78,4 +79,34 @@ export const Flair = styled(RedditButton)(({ backgroundColor, flairColor }) => (
   '&:hover': {
     backgroundColor,
   },
+}));
+
+export const PostUrlLink = styled(Box)(() => ({
+  width: 135,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: 'inherit',
+}));
+
+export const PostUrl = styled('a')(({ theme }) => ({
+  fontSize: 13,
+  color: theme?.palette?.primary?.light,
+  height: 22,
+  display: 'flex',
+  alignItems: 'center',
+  '&:visited ': {
+    color: theme?.palette?.primary?.light,
+  },
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+  marginBottom: 10,
+}));
+
+export const LinkIcon = styled(LaunchIcon)(() => ({
+  width: 13,
+  height: 13,
+  color: 'inherit',
 }));

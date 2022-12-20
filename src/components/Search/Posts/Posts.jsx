@@ -16,11 +16,11 @@ function SearchHeader() {
     return useMemo(() => new URLSearchParams(search), [search]);
   }
   const query = useQuery();
-  const Sort = query.get('sort') || 'Relevance';
+  const Sort = query.get('sort') || 'new';
   return (
     <Header>
       <SortType />
-      {(Sort === 'Relevance' || Sort === 'Top' || Sort === 'Most Comments')
+      {(Sort === 'top' || Sort === 'comments')
       && <TimeType />}
     </Header>
   );

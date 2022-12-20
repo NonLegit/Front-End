@@ -99,9 +99,10 @@ exports[`PostTags PostTags renders correctly 1`] = `
     onTouchStart={[Function]}
   >
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium Mui-disabled MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-ip0ak7-MuiButtonBase-root-MuiButton-root"
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium Mui-disabled MuiButton-root MuiButton-outlined MuiButton-outlinedThird MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ba1gwm-MuiButtonBase-root-MuiButton-root"
       disabled={true}
       onBlur={[Function]}
+      onClick={[Function]}
       onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}
@@ -132,7 +133,11 @@ exports[`PostTags PostTags renders correctly 1`] = `
           r="1.5"
         />
       </svg>
-      flair
+      <div
+        className="MuiBox-root css-sabxqz"
+      >
+        flair
+      </div>
       <svg
         aria-hidden={true}
         className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"

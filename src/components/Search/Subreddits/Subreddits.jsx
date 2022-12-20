@@ -21,7 +21,7 @@ import {
 
 function Subreddits(props) {
   const { subreddit } = props;
-  const [joined, setJoined] = useState(true);
+  const [joined, setJoined] = useState(subreddit?.isJoined);
   const handleJoin = () => {
     PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, !joined);
 
@@ -53,7 +53,7 @@ function Subreddits(props) {
             <Box sx={{ display: 'flex' }}>
               <PostInfoLink to={`/r/${subreddit?.fixedName}`} color="#000" fontWeight="bolder">
                 r/
-                {subreddit?.fixedName}
+                {subreddit?.name}
               </PostInfoLink>
               <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
                 <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
@@ -77,7 +77,7 @@ function Subreddits(props) {
           onMouseEnter={handleMouseIn}
           onMouseLeave={handleMouseOut}
         >
-          {(joined ? (hover ? 'leave' : 'joined') : 'join')}
+          {(subreddit?.isJoined ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
       </Box>
     </PostContainer>

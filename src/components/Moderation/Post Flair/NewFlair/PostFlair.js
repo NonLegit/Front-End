@@ -1,4 +1,14 @@
 import axios from '../../../../services/instance';
+/**
+ * Add New Flair
+ *
+ * @property {boolean} url - url to send data on
+ * @property {boolean} text - text flair
+ * @property {boolean} backgroundColor - background color for flair
+ * @property {boolean} textColor - text color
+ *
+ * @returns {object} provided response through backend
+ */
 
 const PostFlair = async (url, text, backgroundColor, textColor) => {
   // const [data, setData] = useState(null);

@@ -1,5 +1,11 @@
 import axios from '../../../../services/instance';
-
+/**
+ * Edit rule
+ *
+ * @property {string} Name - name of subreddit
+ * @property {integer} id - id of rule
+ *
+ */
 const EditRule = async (Name, id, prefs) => {
   let statusCode = '';
   await axios.patch(`subreddits/${Name}/rules/${id}`, prefs).then((response) => {

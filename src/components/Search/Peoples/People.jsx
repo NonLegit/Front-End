@@ -17,7 +17,7 @@ import {
  */
 function Peoples(props) {
   const { people } = props;
-  const [follow, setFollow] = useState(true);
+  const [follow, setFollow] = useState(people?.isFollowed);
   const handleJoin = () => {
     followRequest(people?.fixedName, follow);
     setFollow((prev) => !prev);
@@ -34,20 +34,23 @@ function Peoples(props) {
   return (
     <OneSuggeest sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex' }}>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Avatar alt="Remy Sharp" src={people?.profilePicture} />
         <TextContainer>
-          <Text to={`/user/${people?.fixedName}`}>
+          <Text to={`/user/${people?.userName}`}>
             U/
-            {people?.fixedName}
+            {people?.displayName}
           </Text>
           <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
             •
           </Typography>
           <TextP>
-            {numFormatter(people?.karma)}
+            {numFormatter(people.postKarma + people.commentKarma)}
             {' '}
             karma
           </TextP>
+          <div>
+            {people?.description}
+          </div>
         </TextContainer>
       </Box>
       <Joined
@@ -56,7 +59,7 @@ function Peoples(props) {
         onMouseEnter={handleMouseIn}
         onMouseLeave={handleMouseOut}
       >
-        {(follow ? (hover ? 'Unfollow' : 'Following') : 'follow')}
+        {(people?.isFollowed) ? (hover ? 'Unfollow' : 'Following') : 'follow'}
       </Joined>
     </OneSuggeest>
   );

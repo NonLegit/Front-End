@@ -1,5 +1,11 @@
 import axios from '../../../../services/instance';
+/**
+ * edit data for moderation
+ *
+ * @property {string} Name - name of subreddit
+ * @property {object} prefs - data to change
 
+ */
 const patchData = async (Name, prefs) => {
   let statusCode = '';
   await axios.patch(`subreddits/${Name}`, prefs).then((response) => {

@@ -1,9 +1,16 @@
 import axios from '../../../../services/instance';
 
-const PostRule = async (url, defaultName, description, appliesTo) => {
-  // const [data, setData] = useState(null);
-  // const [error, setError] = useState(null);
+/**
+ * Post new rule
+ *
+ * @property {string} url - url to post data
+ * @property {string} defaultName - name for rule
+ * @property {string} description - description of rule
+ * @property {string} appliesTo - applies to in rule
 
+ */
+
+const PostRule = async (url, defaultName, description, appliesTo) => {
   await axios.post(
     url,
     JSON.stringify({

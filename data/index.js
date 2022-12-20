@@ -54,6 +54,9 @@ const vote = require('./vote.json');
 const addImagesToPost = require('./addImagesToPost.json');
 const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
+const SearchByPeople = require('./SearchByPeople.json');
+const SearchByCommunity = require('./SearchByCommunty.json');
+
 // Something more
 
 module.exports = () => ({
@@ -115,5 +118,7 @@ module.exports = () => ({
   vote,
   addImagesToPost,
   moderatorAction,
+  SearchByPeople,
+  SearchByCommunity,
   // Something more
 });

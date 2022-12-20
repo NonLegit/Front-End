@@ -1,7 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
 
 import axios from '../../../services/instance';
+/**
+ * Follow
+ *
+ * @property {string} username - username to send
+ * @property {boolean} isFollowed - name for rule
 
+ */
 export const followRequest = (username, isFollowed) => {
   const [data, setData] = useState(null);
 

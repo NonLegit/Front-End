@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from '../../../../services/instance';
+/**
+ * Get flairs for subreddit
+ *
+ * @property {string} Name - name of subreddit
 
+ */
 const useFetch = (Name) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);

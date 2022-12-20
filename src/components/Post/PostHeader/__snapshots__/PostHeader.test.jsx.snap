@@ -24,7 +24,7 @@ Array [
       className="css-kqg5s"
       color="#000"
       fontWeight="bolder"
-      href="/Subreddit/undefined"
+      href="/user/undefined"
       onClick={[Function]}
     >
       u/
@@ -75,6 +75,7 @@ Array [
       className="MuiTypography-root MuiTypography-h6 css-6aghek-MuiTypography-root"
     >
       title
+       
        
     </h3>
   </a>,
