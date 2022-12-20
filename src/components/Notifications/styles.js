@@ -20,6 +20,31 @@ export const NotificationsHead = styled('h1')(() => ({
   margin: 0,
 
 }));
+export const CreateCommunity = styled('div')(() => ({
+  cursor: 'pointer',
+  background: '#0079D3',
+  color: 'white',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '10px',
+  width: 'fit-content',
+  borderRadius: '99px',
+  marginTop: '10px',
+}));
+export const TabText = styled('div')(() => ({
+  marginLeft: 6,
+}));
+export const Text = styled('div')(() => ({
+  fontSize: '14px',
+}));
+export const CreateCommunityContainer = styled('div')(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
 export const TabsContiner = styled('nav')(({ theme }) => ({
 
   display: 'flex',
@@ -32,9 +57,7 @@ export const TabsContiner = styled('nav')(({ theme }) => ({
     justifyContent: 'space-around',
   },
 }));
-export const TabText = styled('div')(() => ({
-  marginLeft: 6,
-}));
+
 export const Tab = styled('div')(({ theme, index, active }) => ({
   fontWeight: '700',
   fontSize: '14px',

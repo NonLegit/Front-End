@@ -81,7 +81,7 @@ function CommentsContent(props) {
       <DashedLine />
       {comment.parentType !== 'Post' ? <DashedLine /> : null}
       <CommentsBoxBlue overview={overview}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }} onClick={() => { setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
           <CommentText variant="caption" coloring="black">
             {username}
             {' '}
@@ -105,7 +105,9 @@ function CommentsContent(props) {
           {comment.modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="caption" />}
           {comment.modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="caption" />}
         </Box>
-        <Box><CommentText variant="body2" coloring="black">{comment.text}</CommentText></Box>
+        <Box onClick={() => { setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }} sx={{ width: '100%' }}>
+          <CommentText variant="body2" coloring="black">{comment.text}</CommentText>
+        </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', height: '24px' }}>
           <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Reply</CommentText>
           <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Share</CommentText>

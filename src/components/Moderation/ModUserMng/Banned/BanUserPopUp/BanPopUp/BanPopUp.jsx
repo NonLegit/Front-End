@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog } from '../../../styles';
 import { BanContext } from '../../BanUser';
 import Header from '../../../Header/Header';
 import Username from '../../../Username/Username';
@@ -19,13 +19,15 @@ function BanPopUp() {
     <StyledDialog
       fullScreen
       open={openBan}
+      width="538px"
+      height="620px"
     >
       <Box>
         <Header buttonFunction={handleClickCloseBan} headerText="Ban a user:" />
         <Divider />
         <Username placeholder="u/username" />
         <BanReason />
-        <BanNote />
+        <BanNote note="" />
         <BanPeriod />
       </Box>
       <Box sx={{ backgroundColor: '#edeff1 ', height: '100%' }}>

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -9,13 +10,13 @@ export const ToolbarStyleObject = {
   backgroundColor: '#f6f7f8',
 };
 
-export const TextEditorWrapper = {
-  borderRadius: 4,
+export const TextEditorWrapper = styled(Box)(() => ({
+  borderRadius: 5,
   border: '1px solid #edeff1',
   '&:focus-visible': {
     outline: '1px solid #1a1a1b',
   },
-};
+}));
 
 export const TextEditorField = (theme) => ({
   resize: 'vertical',

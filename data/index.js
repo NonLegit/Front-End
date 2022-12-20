@@ -57,10 +57,13 @@ const UpdateFlair = require('./UpdateFlair.json');
 const SearchByPeople = require('./SearchByPeople.json');
 const SearchByCommunity = require('./SearchByCommunty.json');
 
+const listBlock = require('./listBlock.json');
+const notificationToken = require('./notificationToken.json');
+const baned = require('./banedList.json');
 // Something more
 
 module.exports = () => ({
-
+  baned,
   UpdateFlair,
   userInfo,
   Subreddit,
@@ -117,6 +120,8 @@ module.exports = () => ({
   unhide,
   vote,
   addImagesToPost,
+  listBlock,
+  notificationToken,
   moderatorAction,
   SearchByPeople,
   SearchByCommunity,

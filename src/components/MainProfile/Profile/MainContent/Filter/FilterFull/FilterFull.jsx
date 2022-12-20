@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 // filled
@@ -39,15 +39,16 @@ function FilterFull(props) {
   const topCondition = (sort === 'top' || sort === 'top&t=day');
   const [showList, setShowList] = useState(false);
   const [allTime, setAllTime] = useState('All Time');
+  const { username } = useParams();
 
   // navigate
   const handleClick = (subPage) => {
     setAllTime('All Time');
-    navigate(`${subTitle2}?sort=${subPage}`);
+    navigate(`/user/${username}/${subTitle2}?sort=${subPage}`);
   };
   const handleClick2 = () => {
     setAllTime('Today');
-    navigate(`${subTitle2}?sort=top&t=day`);
+    navigate(`/user/${username}/${subTitle2}?sort=top&t=day`);
   };
   const handleClickList = () => {
     setShowList((prev) => !prev);

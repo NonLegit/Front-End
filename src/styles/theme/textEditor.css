@@ -1,16 +1,57 @@
-.rdw-option-wrapper {
-    background-color: #f6f7f8 !important;
-    padding: 5px 3px !important;
-    border-radius: 7px !important;
-    border-width: 0 !important;
-    margin: 0 3px !important;
-  }
-  .rdw-option-wrapper:hover,.rdw-option-active{
-    background-color: #1a1a1b1a !important;
-    box-shadow: none !important;
-  }
+.ql-snow.ql-toolbar button{
+  width:33px !important;
+  height:33px !important;
+  display: flex !important;
+  align-items: center;
+  color: #878a8c;
+  justify-content: center;
+  border-radius: 5px !important;
+  margin-right: 2px;
+}
 
-.public-DraftStyleDefault-block{
-    margin: 0 !important;
-    margin-top: 5px !important;
+.ql-snow.ql-toolbar button:hover{
+  background-color:#1a1a1b1a ;
+  color: #878a8c !important;
+}
+
+.ql-snow.ql-toolbar{
+  background-color: #f6f7f8;
+}
+
+.ql-active{
+  color:black !important;
+}
+
+.ql-script,.ql-blockquote{
+  margin-right: 11px !important;
+}
+
+.ql-editor{
+  resize: vertical;
+  padding: 10px 10px !important;
+  font-size: 14px !important;
+  caret-color: #0079D3;
+  font-weight: 400;
+  font-family: inherit !important;
+  min-height: 150px;
+  border: 0;
+}
+
+.ql-container{
+  border: 0 !important;
+}
+
+.ql-toolbar{
+  border: 0 !important;
+  padding: 5px !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: #898989 !important;
+  content: attr(data-placeholder);
+  font-style:normal !important;
+  left: 10px !important;
+  pointer-events: none;
+  position: absolute;
+  right: 15px;
 }

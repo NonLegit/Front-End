@@ -20,6 +20,9 @@ import {
 } from './styles';
 // eslint-disable-next-line no-unused-vars
 function CahngePassword({ setOpenPass }) {
+  const [oldPassword, setOldPassword] = useState({
+    input: '', color: theme.palette.neutral.main, icon: null, error: null,
+  });
   const [password, setPassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,
   });
@@ -51,6 +54,10 @@ function CahngePassword({ setOpenPass }) {
       window.location.pathname = 'password';
     }
   }, []);
+
+  useEffect(() => {
+
+  }, [oldPassword, repassword, password]);
   return (
     <Contanier>
 
@@ -65,29 +72,29 @@ function CahngePassword({ setOpenPass }) {
         <AuthenticationBG />
         <AuthenticationBody mnwidth="280px" mxwidth="440px" data-testid="resetpassword-test">
           <AuthenticationHeader reddit title="Reset your password" caption={caption} fontSize="14px" />
-          <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, setPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken); }}>
+          <FirstPartyContainer noValidate onSubmit={(e) => { e.preventDefault(); resetPassword(setLoading, password, setOldPassword, repassword, token, setbuttonText, setRedirectCaption, setCookies, setRePassword, setExpiredToken); }}>
             <RedditTextField
               label="Old Password"
               variant="filled"
               required
-              value={password.input}
+              value={oldPassword.input}
               InputProps={{
                 endAdornment: (
-                  password.icon
+                  oldPassword.icon
                 ),
                 disableUnderline: true,
               }}
-              clr={password.color}
+              clr={oldPassword.color}
               onChange={(e) => {
-                setPassword((prevState) => ({
+                setOldPassword((prevState) => ({
                   ...prevState,
                   input: e.target.value.trim(),
                 }));
-                checkPassword(e.target.value.trim(), setPassword, undefined);
-                matchPassword(repassword, e.target.value.trim(), setRePassword);
+                checkPassword(e.target.value.trim(), setOldPassword, undefined);
+                // matchPassword(repassword, e.target.value.trim(), setRePassword);
               }}
-              helperText={password.error}
-              data-testid="resetpassword-password-input"
+              helperText={oldPassword.error}
+
             />
             <RedditTextField
               label="New Password"
@@ -110,7 +117,6 @@ function CahngePassword({ setOpenPass }) {
                 matchPassword(repassword, e.target.value.trim(), setRePassword);
               }}
               helperText={password.error}
-              data-testid="resetpassword-password-input"
             />
             <RedditTextField
               label="Verify Password"
@@ -132,7 +138,7 @@ function CahngePassword({ setOpenPass }) {
                 }));
               }}
               helperText={repassword.error}
-              data-testid="resetpassword-repassword-input"
+
             />
             <CheckBoxConatiner>
               {/* <Checkbox sx={{ padding: '0px 5px 0px 0px' }} onChange={(event) => setLogOut(event.target.checked)} /> */}

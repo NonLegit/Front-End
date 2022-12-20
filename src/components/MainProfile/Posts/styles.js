@@ -8,6 +8,7 @@ export const PostsQueueBox = styled(Box)(({ condition }) => ({
   backgroundColor: 'white',
   marginTop: 10,
   borderRadius: 3,
+  zIndex: -1,
   '&:hover': {
     outline: '1px solid #898989',
     cursor: 'pointer',

@@ -64,6 +64,20 @@
   "/posts/:postId/moderate/:action": "/moderatorAction",
   "subreddits/:Name/flairs/:id": "/UpdateFlair",
   "/search?type=People": "/SearchByPeople",
-  "/search?type=Community": "/SearchByCommunity"
+  "/search?type=Community": "/SearchByCommunity",
 
+    "/subreddits/:subredditName/:name/hot?limit=:limit&page=:page":"/hot",
+    "/subreddits/:Name/top?limit=:limit&page=:page":"/top",
+    "/subreddits/:Name/new?limit=:limit&page=:page":"/new",
+    "/users/notifications": "/notifications",
+    "/users/:name/posts": "/postsTap",
+    "/users/:name/comments": "/commentsTap",
+    "/users/new?limit=:limit&page=:page":"/new",
+    "/users/hot?limit=:limit&page=:page":"/hot",
+    "/users/top?limit=:limit&page=:page":"/top",
+    "/users/best?limit=:limit&page=:page":"/best",
+    "/posts/:postId/:action":"/postAction",
+    "/posts/:postId/delete":"/delete",
+    "/notifications/token":"/notificationToken",
+    "/subreddits/:subredditName/banned":"/baned"
 }

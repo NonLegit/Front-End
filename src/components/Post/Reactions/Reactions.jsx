@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/system';
 import { useReducer } from 'react';
+import millify from 'millify';
 import { ReactionIconButton, Votes, Voting } from './styles';
 import VoteIcon from '../../VoteIcons/VoteIcon/VoteIcon';
 import VotedIcon from '../../VoteIcons/VotedIcon/VotedIcon';
@@ -19,7 +20,7 @@ function Reactions(props) {
   const {
     flexDirection, votes, postVoteStatus, postId, viewpost,
   } = props;
-  console.log('vote status', postVoteStatus, postId);
+  // console.log('vote status', postVoteStatus, postId);
   const theme = useTheme();
   const reducer = (state, action) => {
     switch (action) {
@@ -65,7 +66,10 @@ function Reactions(props) {
           </ReactionIconButton>
         )}
       <Votes color={(reaction === 0 ? '#000' : (reaction === 1 ? theme.palette.secondary?.main : theme.palette.primary?.main))}>
-        {votes + reaction - postVoteStatus}
+        {millify(votes + reaction - postVoteStatus, {
+          units: ['', 'k', 'm', 'b'],
+          precision: 1,
+        })}
       </Votes>
       {(reaction === -1)
         ? (

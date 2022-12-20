@@ -12,17 +12,18 @@ export const settingsPost = async (prefs) => {
   await axios.patch(`${api}`, prefs)
     .then((response) => {
       console.log(response);
-      if (response.status === 304) {
-        message = 'Operation failed';
-      } else {
-        flag = 'success';
-        message = 'operation done successfully';
-      }
+
+      flag = 'success';
+      message = 'operation done successfully';
     }).catch((error) => {
       console.log(error);
+      message = 'Operation failed';
+
       if (error.message !== 'Network Error') {
         if (error?.response.status === 401) {
           redirectLogin();
+        } else {
+          message = 'Operation failed';
         }
       }
     });
@@ -44,8 +45,8 @@ export const settingsFetch = () => {
 
 export const imagePost = async (data) => {
   const api = '/users/images';
-  console.log(data);
-  await axios.post(`${api}`, (data))
+  console.log('hh', data);
+  await axios.post(`${api}`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
     .then((response) => {
       console.log(response);
     }).catch((error) => {

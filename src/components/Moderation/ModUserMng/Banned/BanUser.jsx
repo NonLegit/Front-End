@@ -5,11 +5,11 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
 import {
   QueueBox, QueueText, ControlBar,
-} from './styles';
+} from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import BanPopUp from './BanUserPopUp/BanPopUp/BanPopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyBanned from './NonEmptyBanned/NonEmptyBanned';
+import BannedUserList from './NonEmptyBanned/BannedUserList/BannedUserList';
 
 export const BanContext = React.createContext();
 
@@ -43,7 +43,7 @@ function Ban() {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyBanned />
+      <BannedUserList />
     </ModMainPage>
   );
 }

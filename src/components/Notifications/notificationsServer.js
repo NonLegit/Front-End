@@ -10,7 +10,7 @@ const notificationsFetch = () => {
   const [earlier, setEarlier] = useState([]);
   // today data
   const [today, setToday] = useState([]);
-  const api = '/user/notifications';
+  const api = '/users/notifications';
   useEffect(() => {
     axios.get(api) // fetch api
       .then((actualData) => {
