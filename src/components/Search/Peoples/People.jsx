@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { useEffect, useState } from 'react';
 import numFormatter from '../../../utils/MembersNum';
-import { followRequest } from './FollowServer';
+import followRequest from './FollowServer';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
 } from './style';
@@ -18,9 +18,9 @@ import {
 function Peoples(props) {
   const { people } = props;
   const [follow, setFollow] = useState(true);
-  const handleJoin = () => {
-    followRequest(people?.fixedName, follow);
-    setFollow((prev) => !prev);
+  const handleJoin = async () => {
+    await setFollow((prev) => !prev);
+    followRequest(people?.userName, !follow);
   };
 
   const [hover, setHover] = useState(false);

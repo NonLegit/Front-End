@@ -1,6 +1,6 @@
 import Avatar from '@mui/material/Avatar';
 import { useState } from 'react';
-import { followRequest } from '../../Peoples/FollowServer';
+import followRequest from '../../Peoples/FollowServer';
 import numFormatter from '../../../../utils/MembersNum';
 import {
   TextP, Text, TextContainer, OneSuggeest, Joined,
