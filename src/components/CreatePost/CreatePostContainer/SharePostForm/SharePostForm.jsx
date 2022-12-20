@@ -87,7 +87,7 @@ function CreatePostForm(props) {
       sendReplies,
       flairId: flair?.id,
       flairText: flair?.text,
-      sharedFrom: parentPost,
+      sharedFrom: postId,
     };
     console.log('el post', post);
     sharePostServer(post, navigate);

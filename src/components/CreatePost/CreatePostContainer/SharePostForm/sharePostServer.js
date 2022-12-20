@@ -10,6 +10,7 @@ import { redirectLogin } from '../../../../utils/Redirect';
 // eslint-disable-next-line no-unused-vars
 const sharePostServer = (post, navigate) => {
   console.log(JSON.stringify(post));
+  console.log('kiro', post);
   axios.post('/posts', JSON.stringify(post)).then((response) => {
     console.log(response.data);
     console.log(response.status);
