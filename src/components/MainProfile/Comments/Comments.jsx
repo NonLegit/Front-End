@@ -39,8 +39,8 @@ function Comments(props) {
       { entity?.comments?.map((comment, index) => (
         <>
           <CommentsContent
-            postid={entity?._id}
             key={`${index + 0}`}
+            postid={entity?._id}
             comment={comment}
             op={entity?.author?.name === username}
             modList={modList}

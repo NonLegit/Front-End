@@ -2,7 +2,6 @@ const {
   top, best, hot, newPosts,
 } = require('./homePagePosts.json');
 const { subredditsHomePage } = require('./createPostSubreddits.json');
-const { posts } = require('./submitPost.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const homePageCommunities = require('./homePageCommunities.json');
 const Subreddit = require('./Subreddit.json');
@@ -58,6 +57,7 @@ const UpdateFlair = require('./UpdateFlair.json');
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
 const baned = require('./banedList.json');
+const commentMod = require('./commentMod.json');
 // Something more
 
 module.exports = () => ({
@@ -88,7 +88,6 @@ module.exports = () => ({
   postsTap,
   join,
   subredditsHomePage,
-  posts,
   usernameAvailable,
   top,
   best,
@@ -123,5 +122,6 @@ module.exports = () => ({
   moderatorAction,
   baned,
   homePageCommunities,
+  commentMod,
   // Something more
 });

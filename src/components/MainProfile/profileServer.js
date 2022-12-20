@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
-import useFetch from '../../hooks/useFetch';
+import useFetchPosts from '../../hooks/useFetchPosts';
 import axios from '../../services/instance';
+import useFetchProfile from '../../hooks/useFetchProfile';
 
+// not working using use fetch posts
 export const postsCommentsServer = (name, type, sortType) => {
-  const [data, dataError, statusCode] = useFetch(`users/${name}/${type}/?sort=${sortType}`);
+  const [data, dataError, statusCode] = useFetchPosts(`users/${name}/${type}`, sortType);
 
   useEffect(() => {
     if (statusCode === 401) {
@@ -13,9 +15,9 @@ export const postsCommentsServer = (name, type, sortType) => {
   return [data?.posts];
 };
 
-export const overviewServer = (name, sortType) => {
+export const overviewServer = (name, sort) => {
   if (name === ' ') { return null; }
-  const [data, dataError, statusCode] = useFetch(`users/${name}/overview/?sort=${sortType}`);
+  const [data, dataError, statusCode] = useFetchProfile(`users/${name}/overview`, sort);
   useEffect(() => {
     if (statusCode === 401) {
       window.location.pathname = 'login';
@@ -59,6 +61,17 @@ export const actionOnPost = (postId, action) => {
 
 export const actionComment = (commentsId, action) => {
   axios.post(`/comments/${commentsId}/${action}`).then((response) => {
+    if (response.status === 401) {
+      window.location.pathname = 'login';
+    }
+    console.log('action response', response, action);
+  }).catch((error) => {
+    console.log(error.response.status);
+  });
+};
+
+export const actionCommentModerate = (commentsId, action) => {
+  axios.post(`/comments/${commentsId}/moderate/${action}`).then((response) => {
     if (response.status === 401) {
       window.location.pathname = 'login';
     }

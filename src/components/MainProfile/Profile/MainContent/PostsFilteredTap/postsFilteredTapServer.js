@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import useFetch from '../../../../../hooks/useFetch';
+import useFetchPosts from '../../../../../hooks/useFetchPosts';
 
 const postsFilteredTapServer = (param) => {
-  const [data, dataError, statusCode] = useFetch(`users/${param}`);
+  const [data, dataError, statusCode] = useFetchPosts(`users/${param}`);
 
   useEffect(() => {
     if (statusCode === 401) {
