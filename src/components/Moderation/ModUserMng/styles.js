@@ -38,6 +38,10 @@ export const UserContainer = styled(Box)(() => ({
   alignItems: 'center',
   padding: '8px 16px',
   minWidth: '220px',
+  cursor: 'pointer',
+  '&:hover': {
+    backgroundColor: '#dcd6d6',
+  },
 }));
 
 export const TextContainer = styled(Box)(({ theme }) => ({

@@ -2,6 +2,7 @@
 /* eslint-disable import/no-cycle */
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   StyledAvatar, UserBar, UserContainer, UserMngButton, UsermngButtonContainer,
 } from '../../../styles';
@@ -14,6 +15,13 @@ function ApprovedUser(props) {
   const {
     userName, profilePicture, joiningDate,
   } = props;
+
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClickUser = (userName) => {
+    navigate(`/user/${userName}`);
+  };
 
   const [openRemove, setOpenRemove] = React.useState(false);
 
@@ -28,7 +36,7 @@ function ApprovedUser(props) {
       >
         <RemovePopUp userName={userName} />
       </RemoveContext.Provider>
-      <UserContainer>
+      <UserContainer onClick={() => handleClickUser(userName)}>
         <StyledAvatar variant="square" src={profilePicture} />
         <Box>
           <Typography

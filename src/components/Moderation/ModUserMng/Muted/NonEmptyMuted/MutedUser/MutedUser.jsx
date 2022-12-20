@@ -4,6 +4,7 @@ import { Box, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer, TextContainer,
 } from '../../../styles';
@@ -14,6 +15,12 @@ import calculateTime from '../../../../../../utils/calculateTime';
 export const UnmuteContext = React.createContext();
 
 function MutedUser(props) {
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClickUser = (userName) => {
+    navigate(`/user/${userName}`);
+  };
   const { user, muteInfo } = props;
 
   const [openUnmute, setOpenUnmute] = React.useState(false);
@@ -34,7 +41,7 @@ function MutedUser(props) {
         >
           <UnmutePopUp userName={user.userName} />
         </UnmuteContext.Provider>
-        <UserContainer>
+        <UserContainer onClick={() => handleClickUser(user.userName)}>
           <StyledAvatar src={user.profilePicture} variant="square" sx={{ width: '32px', height: '32px' }} />
           <Box>
             <Typography

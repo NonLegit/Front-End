@@ -6,6 +6,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import * as React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom';
 import { StyledAvatar, UserBar, UserContainer } from '../../styles';
 import RemovePopUp from '../RemovePopUp/RemovePopUp';
 import EditPopUp from '../EditPopUp/EditPopUp';
@@ -15,10 +16,17 @@ export const EditContext = React.createContext();
 function NonEmptyModerator(props) {
   // 0 stands for all moderators (marked as editable but handeled in database)
   // 1 stands for Invited moderators
-
   const {
     userName, profilePicture, modDate, all, access, config, flair, posts, type,
   } = props;
+
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClickUser = (userName) => {
+    navigate(`/user/${userName}`);
+  };
+
   const [openRemove, setOpenRemove] = React.useState(false);
   const handleClickOpenRemove = () => { setOpenRemove(true); };
   const handleClickCloseRemove = () => { setOpenRemove(false); };
@@ -55,7 +63,7 @@ function NonEmptyModerator(props) {
       >
         <EditPopUp userName={userName} />
       </EditContext.Provider>
-      <UserContainer>
+      <UserContainer onClick={() => handleClickUser(userName)}>
         <StyledAvatar src={profilePicture} variant="square" />
         <Typography
           padding="8px"
