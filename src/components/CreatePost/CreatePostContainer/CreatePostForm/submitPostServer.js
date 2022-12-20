@@ -35,8 +35,9 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
           formData.append('file', file);
           formData.append('kind', postType === 1 ? 'image' : 'video');
           console.log(formData);
+          console.log('data adddddddddddddddddddddddddddddddddddddddddd');
           axiosMedia.post(`/posts/${postId}/images`, formData).then((response) => {
-            console.log(response);
+            console.log('after media', response);
           }).catch((error) => {
             console.log(error.response);
             console.log(error.response.status);

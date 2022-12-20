@@ -96,11 +96,11 @@ function Post(props) {
     const username = ownerName;
     if (ownerType === 'User') {
       if (username) {
-        return `/user/${username}/comments/${postId}`;
+        return `user/${username}/comments/${postId}`;
       }
-      return '/';
+      return '';
     }
-    return `/r/${ownerName}/comments/${postId}`;
+    return `r/${ownerName}/comments/${postId}`;
   };
 
   // effects

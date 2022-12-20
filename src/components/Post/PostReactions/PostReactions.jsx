@@ -54,7 +54,7 @@ function PostReactions(props) {
   const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
   const { setHiddenPosts } = useHiddenPostsContext();
   const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
-  const { REACT_APP_ENV, REACT_APP_PROXY_DEVELOPMENT, REACT_APP_PROXY_PRODUCTION } = process.env;
+  const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
 
   // routes
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ function PostReactions(props) {
   };
 
   const handleShare = () => {
-    setInitialPostUrl(`${REACT_APP_ENV === 'development' ? REACT_APP_PROXY_DEVELOPMENT : REACT_APP_PROXY_PRODUCTION}${getPostUrl()}`);
+    setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
     setInitialPostType(3);
     navigate('/submit');
   };
