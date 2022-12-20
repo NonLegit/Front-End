@@ -156,8 +156,6 @@ module.exports = () => ({
 
   exploreCommunities,
   TopCommunities,
-
-
   messageSent,
   MessagePostReplay,
   messageRemove,
