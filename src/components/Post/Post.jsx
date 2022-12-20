@@ -246,7 +246,7 @@ function Post(props) {
           comments={commentCount}
           postVoteStatus={postVoteStatus}
           isSaved={isSaved}
-          postId={postId}
+          postId={sharedFrom?._id || postId}
           redirectToPost={redirectToPost}
           authorName={authorName}
           subredit={subredit}

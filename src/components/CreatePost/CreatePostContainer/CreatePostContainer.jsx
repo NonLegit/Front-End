@@ -41,7 +41,8 @@ function CreatePostContainer() {
 
   // variables
   const username = cookies.redditUser?.userName;
-  const [data] = getSubredditAllData(communityName);
+  console.log('el comm elly fel', communityName?.substring(2), 'Nonlegit');
+  const [data] = getSubredditAllData(communityName?.substring(2));
 
   useEffect(() => () => {
     setCommunityToPostIn(null);
@@ -49,6 +50,7 @@ function CreatePostContainer() {
     setCommunityName(null);
   }, []);
   console.log(source);
+  console.log('data from hosny', data);
   return (
     <OuterContainer>
       <MainContainer>

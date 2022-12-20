@@ -17,7 +17,8 @@ function JoinButton(props) {
   /**
    * this function toggles the join state of the user
    */
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
     setJoined(!joined);
   };
 

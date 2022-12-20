@@ -31,7 +31,7 @@ function SideBar(props) {
     }
   }, [moderatoesName, username, mode]);
   return (
-    <SideBarContainer>
+    <SideBarContainer createPost>
       {!moderate
       && (
       <CommunityContainer>
