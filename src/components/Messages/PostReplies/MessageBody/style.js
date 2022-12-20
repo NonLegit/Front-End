@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { Link } from '@mui/material';
 
 export const Body = styled('div')(({ theme, index }) => ({
+
   padding: ' 10px 15px',
-  width: '100%',
   backgroundColor: (index % 2) ? '#f6f7f8' : theme.palette.common.white,
 }));
 export const MessageBoddy = styled('div')(() => ({
@@ -58,8 +58,8 @@ export const SubmitButton = styled('button')(({ theme }) => ({
   borderRadius: '4px',
   marginTop: '12px',
 }));
-export const Error = styled('p')(() => ({
-  color: 'red',
+export const Error = styled('span')(({ unread }) => ({
+  color: (unread) ? 'red' : 'black',
   fontSize: 'small',
   margin: '3px',
 }));

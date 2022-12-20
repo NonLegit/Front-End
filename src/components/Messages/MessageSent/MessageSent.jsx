@@ -10,7 +10,7 @@ function MessageSent() {
   const [valuse, setValues] = useState();
   const [message] = messageSentFetch();
 
-  useEffect(() => { setValues(message); }, [message]);
+  useEffect(() => { setValues(message?.data); }, [message]);
 
   return (
     <SentContiner>

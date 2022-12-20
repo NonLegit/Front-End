@@ -64,7 +64,10 @@
     "/posts/:postId/images":"/addImagesToPost",
     "subreddits/:Name/flairs/:id":"/UpdateFlair",
     "/notifications/token":"/notificationToken",
-    "/messages/sent":"/messageSent"
-
-
+    "/messages/sent":"/messageSent",
+    "/messages/post_replies":"/MessagePostReplay",
+    "/messages":"/MessageDrive",
+    "/messages/:parentMessageId/reply":"/MessageReplay",
+    "/messages/all":"/messagesAll",
+    "/messages/:messageId":"/messageRemove"
 }

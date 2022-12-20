@@ -57,6 +57,11 @@ const UpdateFlair = require('./UpdateFlair.json');
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
 const messageSent = require('./messageSent.json');
+const MessagePostReplay = require('./MessagePostReplay.json');
+const messageRemove = require('./messageRemove.json');
+const MessageDrive = require('./MessageDrive.json');
+const MessageReplay = require('./messageReplay.json');
+const messagesAll = require('./messagesAll.json');
 // Something more
 
 module.exports = () => ({
@@ -121,5 +126,10 @@ module.exports = () => ({
   notificationToken,
   moderatorAction,
   messageSent,
+  MessagePostReplay,
+  messageRemove,
+  MessageDrive,
+  MessageReplay,
+  messagesAll,
   // Something more
 });

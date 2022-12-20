@@ -1,28 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
+import { useRef, useState, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useCookies } from 'react-cookie';
+import { postData } from './messageFormServer';
+import { redditCookie } from '../../Authentication/authenticationServer';
 // import styles
 import {
   From, FromHeader, InputContiner, SelectFrom, OptionFrom, InputLabel, Input, SubLabel,
   TextArea, SubmitButton, SubmitAnimation, Warning,
 } from './styles';
 
+const { REACT_APP_SITEKEY } = process.env;
 function MessageForm() {
-  const api = 'http://myjson.dit.upm.es/api/bins/8ybo';
+  const [cookies, setCookies] = useCookies(['redditUser']);
   const [checkForm, setCheckForm] = useState([false, false, false, false]);
   const [showAnimation, setShowAnimation] = useState(false);
   const [robotCheck, setRobotCheck] = useState(false);
   const fromRef = useRef();
-  const [value, setValue] = useState({});
-  useEffect(() => {
-    axios.get(api) // fetch api
-      .then((actualData) => {
-        setValue({ props: actualData.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [api]);
+  const [value, setValue] = useState({
+    to: '',
+    subject: '',
+    message: '',
+  });
+  useEffect(() => { redditCookie(setCookies); }, []);
   const changeHandler = (e) => { // set input data
     setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -38,15 +37,9 @@ function MessageForm() {
     if (value.subject === '') { setCheckForm([false, true, false, false]); return; }
     if (value.message === '') { setCheckForm([false, false, true, false]); return; }
     if (!robotCheck) { setCheckForm([false, false, false, true]); return; }
+    console.log(value.subject);
     setCheckForm([false, false, false, false]);
-    axios // post
-      .post('https://jsonplaceholder.typicode.com/posts', { ...value, from: fromRef.current.value })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    postData({ to: value.to, text: value.message, subject: value.subject });
   };
   return (
     <From onSubmit={handleSubmit}>
@@ -57,7 +50,7 @@ function MessageForm() {
         <InputLabel>from</InputLabel>
         <SelectFrom aria-label="from" ref={fromRef}>
           {
-              value.props?.from.map((ele) => (<OptionFrom value={ele} key={ele}>{ele}</OptionFrom>))
+              [cookies.redditUser?.userName].map((ele) => (<OptionFrom value={ele} key={ele}>{ele}</OptionFrom>))
             }
         </SelectFrom>
       </InputContiner>
@@ -66,7 +59,7 @@ function MessageForm() {
           to
           {' ' }
           <SubLabel>
-            (username, or /r/name for that subreddit`s moderators)
+            (username)
           </SubLabel>
         </InputLabel>
         <Input
@@ -92,7 +85,7 @@ function MessageForm() {
         { checkForm[2] && <Warning>we need something here</Warning> }
       </InputContiner>
       <ReCAPTCHA
-        sitekey="6LeJW6YiAAAAAIu7_sj8HC2N1CJomktisn-NVgVH"
+        sitekey={REACT_APP_SITEKEY}
         onChange={() => setRobotCheck(true)}
       />
       { checkForm[3]

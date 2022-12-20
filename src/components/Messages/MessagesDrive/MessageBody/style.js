@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { Link } from '@mui/material';
 
 export const Body = styled('div')(({ theme, index }) => ({
+  fontFamily: 'verdana, arial, helvetica, sans-serif',
   padding: ' 10px 15px',
-  width: '100%',
   backgroundColor: (index % 2) ? '#f6f7f8' : theme.palette.common.white,
 }));
 export const MessageBoddy = styled('div')(() => ({
@@ -15,6 +15,7 @@ export const MessageHeader = styled('h3')(() => ({
 export const LinkProfile = styled(Link)(({ type }) => ({
   color: (type === 'profile') ? '#4f79d3' : '#2f8822',
   textDecoration: 'none',
+  fontSize: '12px',
   cursor: 'pointer',
   '&:hover': {
     textDecoration: 'underline',
@@ -58,9 +59,9 @@ export const SubmitButton = styled('button')(({ theme }) => ({
   borderRadius: '4px',
   marginTop: '12px',
 }));
-export const Error = styled('p')(() => ({
-  color: 'red',
-  fontSize: 'small',
+export const Error = styled('span')(({ unread }) => ({
+  color: (unread) ? 'red' : 'black',
+  fontSize: '12px',
   margin: '3px',
 }));
 export const Footer = styled('div')(() => ({

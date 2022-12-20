@@ -1,16 +1,20 @@
 import moment from 'moment/moment';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { deleteMessage, replayMessage } from '../../PostRepliesServer';
 import
 {
-  Body, MessageBoddy, TeaxArea, ButtonsContanier, Error,
+  Body, MessageBoddy, TeaxArea, ButtonsContanier, Error, Footer,
   MessageHeader, LinkProfile, MessageContent, ReplayButton, SubmitButton,
 } from './style';
 
-function MessageBody({ Message, index }) {
+function MessageBody({
+  Message, index, setReplies, replies,
+}) {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const [text, setText] = useState('');
+  const [unread, setUnread] = useState(false);
   const navigate = useNavigate();
   const LinkToProfile = (user) => {
     navigate(`/user/${user}`);
@@ -23,10 +27,21 @@ function MessageBody({ Message, index }) {
   const handleOpen = () => {
     setOpen(true);
   };
+  const handleDelete = () => {
+    deleteMessage(Message._id);
+    const arr = replies;
+    setReplies(arr.filter((e) => e?._id !== Message?._id));
+  };
+  const handleUnread = () => {
+    setUnread(true);
+  };
   const handleSave = () => {
     if (text.length !== 0) {
       setError(false);
       console.log(text);
+      setOpen(false);
+      replayMessage(Message?._id, text);
+      setText('');
     } else {
       setError(true);
     }
@@ -38,6 +53,12 @@ function MessageBody({ Message, index }) {
         :
       </MessageHeader>
       <MessageBoddy>
+        from
+        { ' ' }
+        <LinkProfile onClick={() => { LinkToProfile(Message?.from.userName); }} type="profile">
+          { Message?.from.userName }
+          { ' ' }
+        </LinkProfile>
         to
         { ' ' }
         <LinkProfile onClick={() => { LinkToProfile(Message?.to.userName); }} type="profile">
@@ -48,7 +69,12 @@ function MessageBody({ Message, index }) {
         {' '}
         { moment.utc(Message?.createdAt).local().startOf('seconds').fromNow() }
         <MessageContent>{ Message?.text }</MessageContent>
-        <ReplayButton onClick={() => { handleOpen(); }}>Replay</ReplayButton>
+        <Footer>
+          <ReplayButton onClick={() => { handleDelete(); }}>Remove</ReplayButton>
+          {!unread && <ReplayButton onClick={() => { handleUnread(); }}>Mark Unread</ReplayButton>}
+          <ReplayButton onClick={() => { handleOpen(); }}>Replay</ReplayButton>
+        </Footer>
+
       </MessageBoddy>
       { open
               && (

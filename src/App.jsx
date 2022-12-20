@@ -39,6 +39,10 @@ import EditPostContextProvider from './contexts/EditPostContext';
 import { notificationToken } from './services/notificationToken';
 import MessageForm from './components/Messages/MessageForm/MessageForm';
 import MessageSent from './components/Messages/MessageSent/MessageSent';
+import MessagesAll from './components/Messages/MessagesAll/MessagesAll';
+import MessagesUnread from './components/Messages/MessagesUnread/MessagesUnread';
+import MessagesDrive from './components/Messages/MessagesDrive/MessagesDrive';
+import PostReplies from './components/Messages/PostReplies/PostReplies';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -161,13 +165,31 @@ function App() {
                   <Route
                     path="inbox"
                     element={
-                      <HomePage />
+                      <MessagesAll />
+          }
+                  />
+                  <Route
+                    path="unread"
+                    element={
+                      <MessagesUnread />
           }
                   />
                   <Route
                     path="compose"
                     element={
                       <MessageForm />
+          }
+                  />
+                  <Route
+                    path="selfreply"
+                    element={
+                      <PostReplies />
+          }
+                  />
+                  <Route
+                    path="messages"
+                    element={
+                      <MessagesDrive />
           }
                   />
                   <Route
