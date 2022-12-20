@@ -38,7 +38,7 @@ function PostHeader(props) {
 
   const handleClickOnTitle = (e) => {
     e.preventDefault();
-    redirectToPost(true);
+    redirectToPost(true, false);
   };
 
   return (

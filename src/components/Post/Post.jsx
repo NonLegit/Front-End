@@ -79,17 +79,17 @@ function Post(props) {
     setIndex(index + dir);
   };
 
-  const redirectToPost = (redirect) => {
+  const redirectToPost = (redirect, shared) => {
     if (redirect) {
       const username = ownerName;
       if (ownerType === 'User') {
         if (username) {
-          navigate(`/user/${username}/comments/${postId}`);
+          navigate(`/user/${username}/comments/${shared ? sharedFrom?._id : postId}`);
         } else {
           navigate('/');
         }
       } else {
-        navigate(`/r/${ownerName}/comments/${postId}`);
+        navigate(`/r/${ownerName}/comments/${shared ? sharedFrom?._id : postId}`);
       }
     }
   };
@@ -159,7 +159,7 @@ function Post(props) {
           kind={kind}
           ref={postMediaRef}
           spoiler={spoiler}
-          onClick={() => redirectToPost(kind !== 'link')}
+          onClick={() => redirectToPost(kind !== 'link', sharedFrom)}
         >
           {!sharedFrom ? (kind === 'video' ? (
             <video controls style={{ width: '100%', maxHeight: '512px' }}>

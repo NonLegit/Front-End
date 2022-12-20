@@ -39,6 +39,37 @@ const PostsData = (Name, postClass) => {
     setPage(0);
     console.log('etghayar');
   }, [postClass]);
-  return [data, error];
+  console.log('hosny', data);
+  const dbPosts = data?.data;
+  console.log('hosn2', dbPosts);
+  // console.log('from home', statusCode);
+  console.log('posts', dbPosts?.length);
+  const posts = dbPosts?.map((post) => {
+    // for backend bugs
+    const temp = {
+      _id: 1,
+      text: '',
+      backgroundColor: '',
+      textColor: '',
+    };
+    const {
+      text: flairText,
+      backgroundColor: flairBackgroundColor,
+      textColor: flairColor,
+    } = (post.flairId) || temp;
+    const { name: ownerName, icon: ownerIcon } = post.owner;
+    const { name: authorName } = post.author;
+    return ({
+      ...post,
+      flairText,
+      flairBackgroundColor,
+      flairColor,
+      ownerName,
+      ownerIcon,
+      authorName,
+    });
+  });
+  console.log('hosny3', posts);
+  return [{ ...data, data: posts }, error];
 };
 export default PostsData;

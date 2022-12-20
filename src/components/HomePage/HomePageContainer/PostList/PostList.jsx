@@ -19,7 +19,7 @@ function PostList(props) {
     // console.log('bazwed', page);
     setPage((page) => page + 1);
   };
-
+  console.log('el posts mn el subreddit', posts);
   return (
     <InfiniteScroll
       next={fetchMoreData}

@@ -36,7 +36,7 @@ const homePageServer = (postClass) => {
   });
   // console.log('posts final', posts, posts?.length);
 
-  const [communitiesData, communitiesError, communitiesStatusCode] = useFetch('/subreddits/random/leaderboard');
+  const [communitiesData, communitiesError, communitiesStatusCode] = useFetch('/subreddits/random/leaderboard?limit=4&page=0');
   if (communitiesStatusCode === 401) {
     redirectLogin();
   }
