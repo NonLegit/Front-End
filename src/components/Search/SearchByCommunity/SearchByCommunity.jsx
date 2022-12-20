@@ -2,6 +2,8 @@
 // import InfiniteScroll from 'react-infinite-scroll-component';
 // import { useSearchParams } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
+// import { useEffect, useState } from 'react';
+
 // import cleanPage from '../../../utils/cleanPage';
 // import { useListingContext } from '../../../contexts/ListingContext';
 
@@ -22,7 +24,7 @@ import {
  * @return {React.Component} -  Search by communities container
  */
 function SearchByCommunity(props) {
-  const { exist, communities } = props;
+  const { communities } = props;
   // const [searchParams] = useSearchParams();
   // const sort = searchParams.get('sort') || 'new';
   // const t = searchParams.get('t') || 'day';
@@ -52,9 +54,13 @@ function SearchByCommunity(props) {
   //   setPage((page) => page + 1);
   // };
   // cleanPage();
+  // const [exist1, setExist] = useState(true);
 
+  // useEffect(() => {
+  //   if (communities?.length === 0 || communities == null) { setExist(true); }
+  // }, [communities]);
   return (
-    exist
+    (communities?.length > 0)
       ? (
     // <SearchByCommunitiesHeader>
     //   {communities && (

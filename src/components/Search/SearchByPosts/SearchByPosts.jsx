@@ -7,6 +7,7 @@ import { Box, Typography } from '@mui/material';
 // import GetSearchData from '../Server';
 // import GetSearchData from '../Server2';
 
+// import { useEffect, useState } from 'react';
 import {
   NotFoundBox, NotFountImage,
   // PostsContainer, PostsContainer2,
@@ -22,7 +23,7 @@ import PostsCom from '../Post/Post';
  * @return {React.Component} - Search by posts container
  */
 function SearchByPosts(props) {
-  const { exist, posts } = props;
+  const { posts } = props;
 
   // const [searchParams] = useSearchParams();
   // const sort = searchParams.get('sort') || 'new';
@@ -35,7 +36,6 @@ function SearchByPosts(props) {
   // const [data2] = GetSearchData('/search', q, 'communities', sort, t);
 
   // const [data3] = GetSearchData('/search', q, 'people', sort, t);
-  // const [exist, setExist] = useState(true);
 
   // useEffect(() => {
   //   setPosts(data);
@@ -61,9 +61,13 @@ function SearchByPosts(props) {
   //   setPage((page) => page + 1);
   // };
   // cleanPage();
+  // const [exist1, setExist] = useState(true);
 
+  // useEffect(() => {
+  //   if (posts?.length === 0) { setExist(true); }
+  // }, [posts]);
   return (
-    exist
+    (posts?.length > 0)
       ? (
     // <PostsContainer2>
     //   <PostsContainer>

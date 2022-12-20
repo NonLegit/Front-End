@@ -21,7 +21,7 @@ import {
  * @return {React.Component} -  Search by comments container
  */
 function SearchByComments(props) {
-  const { exist, communities } = props;
+  const { communities } = props;
   // const [searchParams] = useSearchParams();
   // const sort = searchParams.get('sort') || 'new';
   // const t = searchParams.get('t') || 'day';
@@ -45,7 +45,7 @@ function SearchByComments(props) {
   // cleanPage();
 
   return (
-    exist
+    (communities?.length > 0)
       ? (
     // <SearchByCommunitiesHeader>
     //   <InfiniteScroll

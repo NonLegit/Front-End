@@ -22,7 +22,7 @@ import {
  * @return {React.Component} -  Search by people container
  */
 function SearchByPeople(props) {
-  const { exist, people } = props;
+  const { people } = props;
   // const [searchParams] = useSearchParams();
   // const sort = searchParams.get('sort') || 'new';
   // const t = searchParams.get('t') || 'day';
@@ -44,7 +44,7 @@ function SearchByPeople(props) {
   //   setPeople(data);
   // }, [data]);
   return (
-    exist
+    (people?.length > 0)
       ? (
     // <SearchByCommunitiesHeader>
     //   <InfiniteScroll

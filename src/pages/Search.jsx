@@ -82,7 +82,7 @@ function Search() {
         </SearchHeadderContainer>
 
         { type === 'posts'
-       && existPosts && (
+       && (
        <PostsContainer2>
          <PostsContainer>
            <InfiniteScroll
@@ -93,11 +93,11 @@ function Search() {
              <SearchByPosts posts={posts} exist={existPosts} />
            </InfiniteScroll>
          </PostsContainer>
-         { existPosts
+         { (posts?.length)
         && <SideBar peoples={people} subreddits={communities} />}
        </PostsContainer2>
 
-        )}
+       )}
 
         { type === 'communities'
         && (
