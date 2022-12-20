@@ -74,9 +74,17 @@ const messageRemove = require('./messageRemove.json');
 const MessageDrive = require('./MessageDrive.json');
 const MessageReplay = require('./messageReplay.json');
 const messagesAll = require('./messagesAll.json');
-const baned = require('./banedList.json');
+const baned = require('./bannedList.json');
 const modQueue = require('./modQueue.json');
 const commentMod = require('./commentMod.json');
+const banned = require('./bannedList.json');
+const muted = require('./mutedList.json');
+const moderators = require('./moderatorsList.json');
+const approved = require('./approvedList.json');
+const muteUnmute = require('./muteUnmuteList.json');
+const approvedUnapproved = require('./approvedUnapprovedList.json');
+const banUnban = require('./banUnban.json');
+const invitedModerators = require('./invitedModerators.json');
 // Something more
 
 module.exports = () => ({
@@ -159,5 +167,13 @@ module.exports = () => ({
   commentMod,
   SearchByPeople,
   SearchByCommunity,
+  banned,
+  muted,
+  moderators,
+  approved,
+  muteUnmute,
+  approvedUnapproved,
+  banUnban,
+  invitedModerators,
   // Something more
 });

@@ -2,6 +2,7 @@
 /* eslint-disable import/no-cycle */
 import { Box, Typography } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   StyledAvatar, UserBar, UserContainer, UserMngButton, UsermngButtonContainer,
 } from '../../../styles';
@@ -10,7 +11,18 @@ import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
 
-function ApprovedUser() {
+function ApprovedUser(props) {
+  const {
+    userName, profilePicture, joiningDate,
+  } = props;
+
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClickUser = (userName) => {
+    navigate(`/user/${userName}`);
+  };
+
   const [openRemove, setOpenRemove] = React.useState(false);
 
   const handleClickOpenRemove = () => { setOpenRemove(true); };
@@ -22,17 +34,17 @@ function ApprovedUser() {
         openRemove, handleClickCloseRemove,
       }}
       >
-        <RemovePopUp />
+        <RemovePopUp userName={userName} />
       </RemoveContext.Provider>
-      <UserContainer>
-        <StyledAvatar variant="square" />
+      <UserContainer onClick={() => handleClickUser(userName)}>
+        <StyledAvatar variant="square" src={profilePicture} />
         <Box>
           <Typography
             padding="8px"
             fontSize="15px"
             fontWeight="bold"
           >
-            username
+            {userName}
           </Typography>
         </Box>
       </UserContainer>
@@ -42,7 +54,7 @@ function ApprovedUser() {
           fontSize="12px"
           color="#878A8C"
         >
-          2 hours ago
+          {joiningDate}
         </Typography>
       </Box>
       <UsermngButtonContainer>

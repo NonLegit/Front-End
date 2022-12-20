@@ -1,26 +1,30 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { mutedFetch } from './MutedServer';
-import MutedUser from '../MutedUser/MutedUser';
+import { ApprovedFetch } from '../../ApprovedServer';
+import ApprovedUser from '../ApprovedUser/ApprovedUser';
+import calculateTime from '../../../../../../utils/calculateTime';
 import SearchBar from '../../../SearchBar/SearchBar';
 import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
-import EmptyMuted from '../../EmptyMuted/EmptyMuted';
+import EmptyApproved from '../../EmptyApproved/EmptyApproved';
 
-function MutedUserList() {
+function ApprovedUserList() {
   const [data, setData] = React.useState('');
   const childToParent = (childData) => {
     setData(childData);
   };
+
   const { subReddit } = useParams();
-  const [MutedUsers] = mutedFetch(subReddit);
+  const [ApprovedUsers] = ApprovedFetch(subReddit);
+
   const [filteredData, setfilteredData] = React.useState([]);
+
   React.useEffect(() => {
-    setfilteredData(MutedUsers?.filter((users) => users.user.userName.toLowerCase().includes(data)));
-  }, [data, MutedUsers]);
+    setfilteredData(ApprovedUsers.filter((user) => user.user.userName.toLowerCase().includes(data)));
+  }, [data, ApprovedUsers]);
 
   return (
-    (MutedUsers.length === 0) ? (<EmptyMuted />) : (
+    (ApprovedUsers.length === 0) ? (<EmptyApproved />) : (
       <>
         <SearchBar childToParent={childToParent} />
         {
@@ -38,14 +42,14 @@ function MutedUserList() {
         {
         filteredData.map((users, index) => {
           const {
-            user, muteInfo,
+            user, approvedDate,
           } = users;
-          console.log(muteInfo);
           return (
-            <MutedUser
+            <ApprovedUser
               key={`${index + 0}`}
-              user={user}
-              muteInfo={muteInfo}
+              userName={user.userName}
+              profilePicture={user.profilePicture}
+              joiningDate={calculateTime(approvedDate)}
             />
           );
         })
@@ -55,4 +59,4 @@ function MutedUserList() {
   );
 }
 
-export default MutedUserList;
+export default ApprovedUserList;

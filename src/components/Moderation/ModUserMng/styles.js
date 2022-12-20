@@ -21,13 +21,16 @@ export const UsermngButtonContainer = styled(Box)(() => ({
   minWidth: 'fit-content',
 }));
 
-export const UserBar = styled(Box)(() => ({
+export const UserBar = styled(Box)(({ theme }) => ({
   display: 'flex',
+  [theme.breakpoints.between('0', '700')]: {
+    flexDirection: 'column',
+  },
   alignItems: 'center',
   backgroundColor: '#ffffff',
   borderRadius: '0 0 4px 4px',
-  height: '48px',
   margin: '0px 24px',
+  heigth: 'fit-content',
 }));
 
 export const UserContainer = styled(Box)(() => ({
@@ -35,6 +38,18 @@ export const UserContainer = styled(Box)(() => ({
   alignItems: 'center',
   padding: '8px 16px',
   minWidth: '220px',
+  cursor: 'pointer',
+  '&:hover': {
+    backgroundColor: '#dcd6d6',
+  },
+}));
+
+export const TextContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  width: '100%',
+  [theme.breakpoints.between('0', '700')]: {
+    justifyContent: 'center',
+  },
 }));
 
 export const QueueBox = styled(Box)(() => ({
@@ -59,7 +74,7 @@ export const ControlBar = styled(Box)(() => ({
   padding: '0 24px',
 }));
 
-export const InstanceContainer = styled(Box)(() => ({
+export const ModeratorsTypeContainer = styled(Box)(() => ({
   margin: '0px  0px 36px 0px',
 }));
 
@@ -82,7 +97,7 @@ export const EmptyBox = styled(Box)(() => ({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: 'white',
-  marginTop: 10,
+  margin: '10px 24px 0px 24px',
   padding: 85,
   flexDirection: 'column',
 }));

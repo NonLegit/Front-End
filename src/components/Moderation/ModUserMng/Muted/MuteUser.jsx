@@ -18,6 +18,9 @@ function Mute() {
 
   const handleClickOpenMute = () => { setOpenMute(true); };
   const handleClickCloseMute = () => { setOpenMute(false); };
+  React.useEffect(() => () => {
+
+  }, []);
   return (
     <ModMainPage>
       <MuteContext.Provider value={{

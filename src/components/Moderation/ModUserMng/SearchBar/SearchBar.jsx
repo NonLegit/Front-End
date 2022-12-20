@@ -6,7 +6,6 @@ import {
 
 function SearchBar({ childToParent }) {
   const [query, serQuery] = React.useState('');
-
   return (
     <StyledSearchBar>
       <StyledSearchContainer>

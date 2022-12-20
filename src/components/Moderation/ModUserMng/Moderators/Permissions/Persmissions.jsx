@@ -34,6 +34,7 @@ export default function IndeterminateCheckbox() {
         label="Manage Users"
         control={(
           <Checkbox
+            id="manage_users"
             disableTouchRipple
             disableRipple
             size="small"
@@ -49,6 +50,7 @@ export default function IndeterminateCheckbox() {
         label="Manage Settings"
         control={(
           <Checkbox
+            id="manage_settings"
             disableTouchRipple
             disableRipple
             size="small"
@@ -64,6 +66,7 @@ export default function IndeterminateCheckbox() {
         label="Manage Flair"
         control={(
           <Checkbox
+            id="manage_flair"
             disableTouchRipple
             disableRipple
             size="small"
@@ -79,6 +82,7 @@ export default function IndeterminateCheckbox() {
         label="Manage Posts & Comments"
         control={(
           <Checkbox
+            id="manage_post"
             disableTouchRipple
             disableRipple
             size="small"
@@ -99,6 +103,7 @@ export default function IndeterminateCheckbox() {
         label="Everything"
         control={(
           <Checkbox
+            id="everything"
             size="small"
             checked={checkedAccess && checkedConfig && checkedFlair && checkedPosts}
             onChange={handleChangeAll}

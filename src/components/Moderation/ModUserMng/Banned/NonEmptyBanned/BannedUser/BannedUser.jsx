@@ -3,9 +3,10 @@
 import { Box, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useNavigate } from 'react-router-dom';
 import * as React from 'react';
 import {
-  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer,
+  UserBar, UserContainer, UserMngButton, StyledAvatar, UsermngButtonContainer, TextContainer,
 } from '../../../styles';
 
 import MoreDetails from '../MoreDetails/MoreDetails';
@@ -17,6 +18,14 @@ function BannedUser(props) {
   const {
     userName, profilePicture, banDate, punishType, note, punishReason, duration,
   } = props;
+
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClickUser = (userName) => {
+    navigate(`/user/${userName}`);
+  };
+
   const [openEditBan, setOpenEditBan] = React.useState(false);
 
   const handleClickOpenEditBan = () => { setOpenEditBan(true); };
@@ -41,7 +50,7 @@ function BannedUser(props) {
             duration={duration}
           />
         </EditBanContext.Provider>
-        <UserContainer>
+        <UserContainer onClick={() => handleClickUser(userName)}>
           <StyledAvatar src={profilePicture} variant="square" />
           <Box>
             <Typography
@@ -53,7 +62,7 @@ function BannedUser(props) {
             </Typography>
           </Box>
         </UserContainer>
-        <Box sx={{ display: 'flex', width: '100%' }}>
+        <TextContainer>
           <Typography
             padding="8px"
             fontSize="12px"
@@ -79,7 +88,7 @@ function BannedUser(props) {
           >
             {punishType}
           </Typography>
-        </Box>
+        </TextContainer>
         <UsermngButtonContainer>
           <UserMngButton
             disableRipple
