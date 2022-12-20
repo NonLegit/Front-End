@@ -27,7 +27,7 @@ const submitPostServer = (post, navigate, postType, postMedia) => {
       console.log('post from response', post);
       const postId = post?._id;
       console.log('post from response', postId);
-      if (postType === 1) {
+      if (postType === 1 || postType === 2) {
         postMedia.forEach((media) => {
           const formData = new FormData();
           const { fileName, file } = media;
