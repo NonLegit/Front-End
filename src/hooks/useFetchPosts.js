@@ -11,6 +11,7 @@ const useFetchPosts = (url, sort) => {
 
   useEffect(() => {
     console.log('etghayar1');
+    console.log(url, limit, page, sort);
     axios.get(url, {
       params: {
         limit,
@@ -38,7 +39,7 @@ const useFetchPosts = (url, sort) => {
     }).catch((error) => {
       setError(error);
       setStatusCode(error.response.status);
-      console.log(error);
+      console.log('hi', error);
     });
   }, [page, limit, url, sort]);
 

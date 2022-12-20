@@ -24,7 +24,7 @@ function OtherProfilePostsTap() {
   const { subTitle, username } = useParams();
   const query = useQuery();
   const sort = query.get('sort');
-  const [posts] = postsCommentsServer(username, 'posts', sort);
+  const [posts] = postsCommentsServer(username, 'posts', sort || 'new');
   const [isContent, setIsContent] = useState(false);
 
   const { setPage } = useListingContext();

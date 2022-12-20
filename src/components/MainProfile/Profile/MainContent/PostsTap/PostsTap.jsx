@@ -29,7 +29,7 @@ function PostsTap() {
   const query = useQuery();
   const sort = query.get('sort');
   const { username } = useContext(UserContext);
-  const [posts] = postsCommentsServer(username, 'posts', sort);
+  const [posts] = postsCommentsServer(username, 'posts', sort || 'new');
   const [isContent, setIsContent] = useState(false);
 
   const { setPage } = useListingContext();
@@ -58,6 +58,7 @@ function PostsTap() {
                 <SignalCellularAltOutlinedIcon sx={{ color: '#b279ff' }} />
               </NewBox>
             </NEW>
+            {posts && (
             <InfiniteScroll
               next={fetchMoreData}
               hasMore
@@ -65,6 +66,7 @@ function PostsTap() {
             >
               { posts.map((entity, index) => (<Post key={`${index + 0}`} entity={entity} />))}
             </InfiniteScroll>
+            )}
           </>
           )}
 

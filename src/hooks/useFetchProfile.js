@@ -11,6 +11,7 @@ const useFetchProfile = (url, sort) => {
 
   useEffect(() => {
     console.log('etghayar1');
+    console.log(url, limit, page, sort);
     axios.get(url, {
       params: {
         limit,

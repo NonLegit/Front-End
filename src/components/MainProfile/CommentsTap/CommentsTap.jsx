@@ -23,7 +23,7 @@ function CommentsTap({ profile }) {
   const query = useQuery();
   const sort = query.get('sort');
   const { username } = useContext(UserContext);
-  const [posts] = postsCommentsServer(username, 'comments', sort);
+  const [posts] = postsCommentsServer(username, 'comments', sort || 'new');
   const [isContent, setIsContent] = useState(false);
 
   const { setPage } = useListingContext();
