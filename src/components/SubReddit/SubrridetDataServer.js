@@ -22,7 +22,7 @@ const getSubredditAllData = (Name) => {
     if (statusCode === 401 || statusCode === 401) {
       window.location.pathname = 'login';
     }
-  }, []);
+  }, [Name]);
   // console.log('hosny', data);
 
   return [data?.data, error, statusCode];

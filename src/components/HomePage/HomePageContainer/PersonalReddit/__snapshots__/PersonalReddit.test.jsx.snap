@@ -7,7 +7,6 @@ Array [
   >
     <img
       className="css-1fb17k2"
-      src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png"
     />
     <div
       className="MuiBox-root css-19sk4h4"
@@ -17,16 +16,12 @@ Array [
         src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png"
       />
       <p
-        className="MuiTypography-root MuiTypography-body1 css-gkoyxa-MuiTypography-root"
-      >
-        home
-      </p>
+        className="MuiTypography-root MuiTypography-body1 css-ihzfxu-MuiTypography-root"
+      />
     </div>
     <div
       className="MuiBox-root css-zlg1p4"
-    >
-      Your personal Reddit frontpage. Come here to check in with your favorite communities.
-    </div>
+    />
     <hr
       className="MuiDivider-root MuiDivider-fullWidth css-v9rab2-MuiDivider-root"
     />

@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useNavigate } from 'react-router-dom';
 import {
   CommunityName, CommunityImage, CommunityIndex, CommunityListItem,
 } from './styles';
@@ -23,8 +24,17 @@ function CommunityItem(props) {
   const {
     index, icon, subredditName, status, isJoined,
   } = props;
+  const navigate = useNavigate();
+  const handleClick = () => {
+    console.log(`/r/${subredditName}`);
+    navigate(`/r/${subredditName}`);
+  };
+
   return (
-    <CommunityListItem data-testid="Community Item">
+    <CommunityListItem
+      data-testid="Community Item"
+      onClick={handleClick}
+    >
       <CommunityIndex data-testid="index">
         {index}
       </CommunityIndex>
@@ -48,7 +58,7 @@ function CommunityItem(props) {
         {subredditName}
       </CommunityName>
       <Box flexGrow={1} display="flex" justifyContent="flex-end">
-        <JoinButton isJoined={isJoined} />
+        <JoinButton subreddit={subredditName} isJoined={isJoined} />
       </Box>
     </CommunityListItem>
   );

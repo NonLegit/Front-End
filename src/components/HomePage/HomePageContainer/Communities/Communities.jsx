@@ -16,7 +16,9 @@ import {
 function Communities(props) {
   // props
   const { communities } = props;
-  const { communitiesTitle, communitiesList } = communities;
+  const communitiesList = communities;
+
+  const communitiesTitle = 'communities near you';
 
   return (
     <CommunitiesContainer data-testid="Communities">

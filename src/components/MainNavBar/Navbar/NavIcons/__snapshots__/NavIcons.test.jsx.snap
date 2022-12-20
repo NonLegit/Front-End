@@ -42,12 +42,12 @@ exports[`test snapshot 1`] = `
     />
   </button>
   <button
-    aria-label="show 17 new notifications"
-    aria-labelledby={null}
-    className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-f0whgo-MuiButtonBase-root-MuiIconButton-root"
-    data-mui-internal-clone-element={true}
+    aria-haspopup="true"
+    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-cx2keo-MuiButtonBase-root-MuiButton-root"
     disabled={false}
+    id="basic-button"
     onBlur={[Function]}
+    onClick={[Function]}
     onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
@@ -55,7 +55,6 @@ exports[`test snapshot 1`] = `
     onKeyUp={[Function]}
     onMouseDown={[Function]}
     onMouseLeave={[Function]}
-    onMouseOver={[Function]}
     onMouseUp={[Function]}
     onTouchEnd={[Function]}
     onTouchMove={[Function]}
@@ -63,12 +62,27 @@ exports[`test snapshot 1`] = `
     tabIndex={0}
     type="button"
   >
-    <span
-      className="MuiBadge-root MuiBadge-root css-1c32n2y-MuiBadge-root"
+    <button
+      aria-label="show 1 new notifications"
+      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1hu5s67-MuiButtonBase-root-MuiIconButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <a
-        href="/notifications"
-        onClick={[Function]}
+      <span
+        className="MuiBadge-root MuiBadge-root css-1c32n2y-MuiBadge-root"
       >
         <svg
           aria-hidden={true}
@@ -81,16 +95,13 @@ exports[`test snapshot 1`] = `
             d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
           />
         </svg>
-      </a>
-      <span
-        className="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge css-to4x1n-MuiBadge-badge"
-      >
-        17
+        <span
+          className="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError MuiBadge-badge css-to4x1n-MuiBadge-badge"
+        >
+          1
+        </span>
       </span>
-    </span>
-    <span
-      className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-    />
+    </button>
   </button>
   <button
     aria-label="Add Post"

@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-promise-executor-return */
 /* eslint-disable no-return-await */
 /* eslint-disable no-restricted-globals */
 import { initializeApp } from 'firebase/app';
 
-import { getFirestore } from '@firebase/firestore';
+// import { getFirestore } from '@firebase/firestore';
 import { getMessaging, onMessage, getToken } from 'firebase/messaging';
 
 const firebaseConfig = {
@@ -15,11 +17,12 @@ const firebaseConfig = {
   appId: '1:82072335604:web:fd17be6c3765b21236daa1',
   measurementId: 'G-4FGQ5GZZFP',
 };
+
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const appNottification = initializeApp(firebaseConfig);
-export const firestore = getFirestore(app);
-export const messaging = getMessaging(app);
+// export const firestore = getFirestore(app);
+export let messaging;//= getMessaging(app);
 // export const messagingNottification = getMessaging(appNottification);
 
 // export const onForegroundMessage = () => new Promise((resolve) => onMessage(messaging, (payload) => resolve(payload)));

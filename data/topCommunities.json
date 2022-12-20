@@ -1,0 +1,86 @@
+{
+  "data": [
+    {
+      "icon": "https://styles.redditmedia.com/t5_2rfxx/styles/communityIcon_9yj66cjf8oq61.png",
+      "_id": 10,
+      "fixedName": "Btngan",
+      "membersCount": 60000,
+      "description": "welcome to subreddit",
+      "status": true,
+      "isJoined": false
+    },
+    {
+      "icon": "https://b.thumbs.redditmedia.com/xvwxkNXOkvdu9d6S67odp1gCPfhB1A3qKDs7kdwO5ts.png",
+      "_id": 10,
+      "fixedName": "Nasa",
+      "membersCount": 10000,
+      "description": "welcome to subreddit",
+      "status": true,
+      "isJoined": true
+    },
+    {
+      "icon": "https://styles.redditmedia.com/t5_2wb7y/styles/communityIcon_ugrq3c6jqfm81.png",
+      "_id": 10,
+      "fixedName": "Sabry",
+      "membersCount": 20,
+      "description": "welcome to subreddit",
+      "status": false,
+      "isJoined": false
+    },
+    {
+      "icon": "https://styles.redditmedia.com/t5_2rpe6/styles/communityIcon_m5zh119jd7a91.png",
+      "_id": 10,
+      "fixedName": "Hosny",
+      "membersCount": 1,
+      "description": "welcome to subreddit",
+      "status": true,
+      "isJoined": false
+    },
+    {
+      "icon": "https://styles.redditmedia.com/t5_2vbgl/styles/communityIcon_c329v6c343791.png",
+      "_id": 10,
+      "fixedName": "Ahmed",
+      "membersCount": 7000000,
+      "description": "welcome to subreddit",
+      "status": false,
+      "isJoined": true
+    },
+    {
+      "icon": "https://styles.redditmedia.com/t5_2xrd1/styles/communityIcon_yhs7pbs0qbx91.png",
+      "_id": 10,
+      "fixedName": "Nour",
+      "membersCount": 500000,
+      "description": "welcome to subreddit",
+      "status": false,
+      "isJoined": false
+    },
+    {
+      "icon": "http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQTBIkxproxJHBsj2ZOkeFr3CYyVJjrfW8qcovw9whTrkRjsqYnBRlprpmyAknfOsug43oiT9iqS9cJe6s",
+      "_id": 10,
+      "fixedName": "Eslam",
+      "membersCount": 6,
+      "description": "welcome to subreddit",
+      "status": true,
+      "isJoined": false
+    },
+
+    {
+      "icon": "https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt80878813813ba1ef/638bc2a7bcd8461c0bfea6cd/Lionel_Messi_react_Argentina_Australia_World_Cup.png?quality=80&format=pjpg&auto=webp&width=1000",
+      "_id": 10,
+      "fixedName": "messi",
+      "membersCount": 56,
+      "description": "welcome to subreddit",
+      "status": true,
+      "isJoined": false
+    },
+    {
+      "icon": "https://styles.redditmedia.com/t5_75eaom/styles/profileIcon_3f5f41637ms91.jpg?width=256&height=256&crop=256:256,smart&s=90b18e5fd7a10cd089f67d62b9b89ee2b3fbbb21",
+      "_id": 10,
+      "fixedName": "Subreddit",
+      "membersCount": 90,
+      "description": "welcome to subreddit",
+      "status": true,
+      "isJoined": false
+    }
+  ]
+}

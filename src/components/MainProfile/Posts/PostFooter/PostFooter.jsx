@@ -26,6 +26,7 @@ import {
   deletePostComment, postReactionsServer,
 } from '../../profileServer';
 import ModeratorList from '../../ModeratorList/ModeratorList';
+import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
 
 /**
  * footer for a post conatining all icons
@@ -84,7 +85,27 @@ function PostFooter(props) {
     setModeratorList((prev) => !prev);
   };
 
+  const getPostUrl = () => {
+    const username = owner;
+    if (subTitle === 'User') {
+      if (username) {
+        return `user/${username}/comments/${postid}`;
+      }
+      return '';
+    }
+    return `r/${owner}/comments/${postid}`;
+  };
+
+  const { setInitialPostUrl, setInitialPostType } = usePostTypeContext();
+  const { REACT_APP_ENV, REACT_APP_WEB_PRO, REACT_APP_WEB_DEV } = process.env;
   const navigate = useNavigate();
+
+  const handleShare = () => {
+    setInitialPostUrl((REACT_APP_ENV === 'development' ? REACT_APP_WEB_DEV : REACT_APP_WEB_PRO) + getPostUrl());
+    setInitialPostType(3);
+    navigate('/submit');
+  };
+
   const { setEditPost } = useEditPostContext();
 
   return (
@@ -97,7 +118,7 @@ function PostFooter(props) {
         </FooterText>
       </ElementBox>
 
-      <ElementBox>
+      <ElementBox onClick={handleShare}>
         <ShortcutOutlinedIcon />
         <FooterText variant="caption" responsiveshare={true.toString()}>Share</FooterText>
       </ElementBox>
@@ -156,9 +177,9 @@ function PostFooter(props) {
       <ClickAwayListener onClickAway={handleClickAway}>
         <ElementBox>
           <MoreHorizOutlinedIcon onClick={handleClick} data-testid="show-more" />
-          {showList && (
-          <SelectBox data-testid="more-menu">
-            {profile && !mod && (
+          {(showList && profile) && (
+          <SelectBox data-testid="more-menu" profile="false">
+            {!mod && (
             <SelectItem onClick={() => { setEditPost(true); navigate(`/${subTitle === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
               <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
               Edit Post
@@ -180,54 +201,64 @@ function PostFooter(props) {
                   )}
               </SelectItem>
             )}
-
             <Divider />
-            {/* <SelectItem>
-              <PushPinOutlinedIcon sx={{ marginRight: 1 }} />
-              Pin Post To Profile
-            </SelectItem>
-            <Divider /> */}
             <SelectItem onClick={() => { handleClickHide(); }}>
               <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
               Hide
             </SelectItem>
             <Divider />
-            {profile ? (
-              <>
-                <SelectItem onClick={() => { handleDelete(); }}>
-                  <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
-                  Delete
-                </SelectItem>
-                <Divider />
-              </>
-            ) : (
-              <>
-                <Divider />
-                <SelectItem>
-                  <FlagOutlinedIcon sx={{ marginRight: 1 }} />
-                  Report
-                </SelectItem>
-              </>
-            )}
-            {profile && (
-            <>
-              <SelectItem onClick={() => { handleSpoiler(); }}>
-                {!spoiler ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
-                Mark As Spoiler
-              </SelectItem>
-              <Divider />
-              <SelectItem onClick={() => { handleNsfw(); }}>
-                {!nsfw ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
-                Mark As NSFW
-              </SelectItem>
+            <SelectItem onClick={() => { handleDelete(); }}>
+              <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
+              Delete
+            </SelectItem>
+            <Divider />
+            <SelectItem onClick={() => { handleSpoiler(); }}>
+              {!spoiler ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
+              Mark As Spoiler
+            </SelectItem>
+            <Divider />
+            <SelectItem onClick={() => { handleNsfw(); }}>
+              {!nsfw ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
+              Mark As NSFW
+            </SelectItem>
 
-              <Divider />
-              <SelectItem onClick={() => { handleSendReplies(); }}>
-                {!isSendReplies ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
-                Send Me Reply Notifications
+            <Divider />
+            <SelectItem onClick={() => { handleSendReplies(); }}>
+              {!isSendReplies ? <CropSquareOutlinedIcon sx={{ marginRight: 1 }} /> : <CheckBoxIcon sx={{ marginRight: 1 }} />}
+              Send Me Reply Notifications
+            </SelectItem>
+
+          </SelectBox>
+          )}
+          {(showList && !profile) && (
+          <SelectBox data-testid="more-menu" profile="true">
+            {mod && (
+              <SelectItem condition={!saved && 'true'} onClick={() => { handleSave(); }}>
+                {!saved
+                  ? (
+                    <>
+                      <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
+                      Save
+                    </>
+                  ) : (
+                    <>
+                      <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
+                      Unsave
+                    </>
+                  )}
               </SelectItem>
-            </>
             )}
+            <Divider />
+            <SelectItem onClick={() => { handleClickHide(); }}>
+              <VisibilityOffOutlinedIcon sx={{ marginRight: 1 }} />
+              Hide
+            </SelectItem>
+            <Divider />
+            <Divider />
+            <SelectItem>
+              <FlagOutlinedIcon sx={{ marginRight: 1 }} />
+              Report
+            </SelectItem>
 
           </SelectBox>
           )}

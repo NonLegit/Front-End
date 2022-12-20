@@ -1,3 +1,5 @@
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useListingContext } from '../../../../contexts/ListingContext';
 import { useHiddenPostsContext } from '../../../../contexts/HiddenPostsContext';
 import Post from '../../../Post/Post';
 /**
@@ -9,20 +11,33 @@ import Post from '../../../Post/Post';
  */
 
 function PostList(props) {
-  const { posts } = props;
+  const { posts, subredit } = props;
   const { hiddenPosts } = useHiddenPostsContext();
+  console.log(subredit);
+  const { setPage } = useListingContext();
+  const fetchMoreData = () => {
+    // console.log('bazwed', page);
+    setPage((page) => page + 1);
+  };
+  console.log('el posts mn el subreddit', posts);
   return (
-    <>
+    <InfiniteScroll
+      next={fetchMoreData}
+      hasMore
+      dataLength={posts.length}
+    >
       {posts.filter((post) => {
-        const id = post._id;
-        return !hiddenPosts.includes(id);
-      }).map((post) => {
+        const id = post?._id;
+        return !hiddenPosts?.includes(id);
+      }).map((post, index) => {
         const {
-          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, videos, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
+          _id: id, createdAt, title, images, ownerName, ownerIcon, authorName, flairText, flairBackgroundColor, flairColor, kind, votes, commentCount, text, video, ownerType, postVoteStatus, isSaved, url, nsfw, spoiler,
+          sharedFrom,
         } = post;
         return (
+
           <Post
-            postVoteStatus={postVoteStatus}
+            postVoteStatus={postVoteStatus || 0}
             createdAt={createdAt}
             title={title}
             ownerIcon={ownerIcon}
@@ -32,22 +47,25 @@ function PostList(props) {
             flairBackgroundColor={flairBackgroundColor}
             flairColor={flairColor}
             images={images}
-            videos={videos}
+            video={video}
             kind={kind}
             votes={votes}
             commentCount={commentCount}
             text={text}
-            key={id}
+            // eslint-disable-next-line react/no-array-index-key
+            key={id + index}
             ownerType={ownerType}
             isSaved={isSaved}
             postId={id}
             url={url}
             nsfw={nsfw}
             spoiler={spoiler}
+            subredit={subredit}
+            sharedFrom={sharedFrom}
           />
         );
       })}
-    </>
+    </InfiniteScroll>
   );
 }
 

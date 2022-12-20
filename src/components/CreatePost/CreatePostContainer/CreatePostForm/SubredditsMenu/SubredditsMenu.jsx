@@ -75,6 +75,7 @@ function SubredditsMenu(props) {
   const chooseCommunity = (communityId, communityName, icon, ownerType) => {
     setCommunityToPostIn(communityId);
     setOwnerType(ownerType);
+    console.log('el comm elly', communityName);
     setCommunityName(communityName);
     setOpen(false);
     setChosenCommunityIcon(icon);
@@ -99,7 +100,7 @@ function SubredditsMenu(props) {
         <ClickAwayContainer>
           <MenuContainer>
             {searching ? <SearchIcon />
-              : (showIcon
+              : (showIcon && chosenCommunityIcon
                 ? (
                   <ChosenCommunityIcon
                     src={chosenCommunityIcon}

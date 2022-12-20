@@ -13,8 +13,8 @@ import PostsClassification from './PostsClassification/PostsClassification';
 import CreatePostInHome from './CreatePostInHome/CreatePostInHome';
 import BackToTop from '../../BackToTop/BackToTop';
 import PostList from './PostList/PostList';
-import communities from './CommunitiesStaticData';
 import homePageServer from './homePageServer';
+import cleanPage from '../../../utils/cleanPage';
 
 /**
  * This component works as a container for all home page components
@@ -30,10 +30,12 @@ function HomePageContainer() {
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
   // states
-  const [posts, postsError] = homePageServer(postClass);
+  const [posts, postsError, communities, communitiesError] = homePageServer(postClass);
 
   // Cookies
   const [cookies] = useCookies(['redditUser']);
+
+  cleanPage();
 
   return (
     <OuterContainer>
@@ -46,9 +48,13 @@ function HomePageContainer() {
         {match
         && (
         <SideBar>
-          <Communities communities={communities} />
+          {!communitiesError ? (communities && <Communities communities={communities} />) : 'error in fetching commmunities'}
           <RedditPremium />
-          <PersonalReddit />
+          <PersonalReddit
+            title="Home"
+            paragraph="Your personal Reddit frontpage. Come here to check in with your favorite communities."
+            image="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png"
+          />
           <HomePageFooter />
           <BackToTop />
         </SideBar>

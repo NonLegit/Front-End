@@ -116,14 +116,25 @@ function HomeList() {
                         </Link>
                       </ListItemButton>
                     )
-                    : (
-                      <ListItemButton key={`${index + 0}`}>
-                        <ListItemIcon>
-                          {items.icon}
-                        </ListItemIcon>
-                        <ListItemText primary={items.label} />
-                      </ListItemButton>
-                    )
+                    : (items.label === 'top communities')
+                      ? (
+                        <ListItemButton key={`${index + 0}`}>
+                          <Link to="/subreddits/leaderboard/" style={{ textDecoration: 'none', display: 'flex' }}>
+                            <ListItemIcon>
+                              {items.icon}
+                            </ListItemIcon>
+                            <ListItemText primary={items.label} />
+                          </Link>
+                        </ListItemButton>
+                      )
+                      : (
+                        <ListItemButton key={`${index + 0}`}>
+                          <ListItemIcon>
+                            {items.icon}
+                          </ListItemIcon>
+                          <ListItemText primary={items.label} />
+                        </ListItemButton>
+                      )
             ))
             }
           </List>

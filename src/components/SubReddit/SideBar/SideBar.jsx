@@ -15,8 +15,9 @@ import Rules from './Rules/Rules';
  */
 function SideBar(props) {
   const {
-    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members, rules,
+    disc, topics, Name, primaryTopic, createdAt, moderatoesName, username, members, rules, createPost,
   } = props;
+  console.log('create post flag', createPost);
   const [moderate, setModerate] = useState(false);
   const finalArray = moderatoesName?.map((obj) => obj.userName);
   const num = numFormatter(members);
@@ -30,16 +31,16 @@ function SideBar(props) {
     }
   }, [moderatoesName, username, mode]);
   return (
-    <SideBarContainer>
+    <SideBarContainer createPost>
       {!moderate
       && (
       <CommunityContainer>
-        <About disc={disc} createdAt={createdAt} num={num} />
+        <About disc={disc} createdAt={createdAt} num={num} Name={Name} createPost={createPost} />
       </CommunityContainer>
       )}
       {moderate && (
       <CommunityContainer>
-        <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} />
+        <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} createPost={createPost} />
       </CommunityContainer>
       )}
       <CommunityContainer>
@@ -51,7 +52,7 @@ function SideBar(props) {
       <CommunityContainer sx={{ padding: '0px 12px' }}>
         <Moderators moderatoesName={finalArray} />
       </CommunityContainer>
-      <BackHome sx={{ marginTop: -5 }} />
+      {!createPost && <BackHome sx={{ marginTop: -5 }} />}
     </SideBarContainer>
   );
 }

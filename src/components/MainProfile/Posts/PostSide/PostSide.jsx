@@ -14,41 +14,43 @@ import {
  * @returns {React.Component} PostSidebar
  */
 function PostSide(props) {
-  const { postid, points, postVoteStatus } = props;
+  const {
+    postid, points, postVoteStatus,
+  } = props;
   const [postPoints, setPostPoints] = useState(points);
   const [status, setStatus] = useState(postVoteStatus);
 
   const handleClickUp = () => {
     postReactionsServer(postid, 'vote', 1);
-    if (status === '-1') setPostPoints(postPoints + 2);
+    if (status === -1) setPostPoints(postPoints + 2);
     else setPostPoints(postPoints + 1);
-    setStatus('1');
+    setStatus(1);
   };
   const handleClickDown = () => {
     postReactionsServer(postid, 'vote', -1);
-    if (status === '1') setPostPoints(postPoints - 2);
+    if (status === 1) setPostPoints(postPoints - 2);
     else setPostPoints(postPoints - 1);
-    setStatus('-1');
+    setStatus(-1);
   };
   const handleNoUpvote = () => {
     postReactionsServer(postid, 'vote', 0);
     setPostPoints(postPoints - 1);
-    setStatus('0');
+    setStatus(0);
   };
   const handleNoDownvote = () => {
     postReactionsServer(postid, 'vote', 0);
     setPostPoints(postPoints + 1);
-    setStatus('0');
+    setStatus(0);
   };
 
   return (
     <SidebarQueueBox>
       {
-        (status === '1') ? <UpArrowFilled onClick={() => { handleNoUpvote(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
+        (status === 1) ? <UpArrowFilled onClick={() => { handleNoUpvote(); }} /> : <UpArrow onClick={() => { handleClickUp(); }} />
       }
       <Typography variant="caption" sx={{ fontWeight: 700 }}>{postPoints}</Typography>
       {
-        (status === '-1') ? <DownArrowFilled onClick={() => { handleNoDownvote(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
+        (status === -1) ? <DownArrowFilled onClick={() => { handleNoDownvote(); }} /> : <DownArrow onClick={() => { handleClickDown(); }} />
       }
     </SidebarQueueBox>
   );

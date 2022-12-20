@@ -9,6 +9,11 @@ import {
   GoToThread,
 } from './style';
 
+/**
+ * Search by Comments entity
+ * @component
+ * @return {React.Component} - Search by community entity
+ */
 function Comments() {
   return (
     <PostContainer sx={{ '&:hover': { border: 1 } }}>

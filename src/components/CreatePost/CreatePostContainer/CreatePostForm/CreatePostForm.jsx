@@ -4,9 +4,6 @@ import {
 import '../../../../styles/theme/textEditor.css';
 import { useState, useEffect } from 'react';
 
-import draftToHtml from 'draftjs-to-html';
-import { convertToRaw, EditorState } from 'draft-js';
-
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   FormContainer, Title, TitleContainer, DraftsButton, Badge, CustomDivider, PostFormContainer, FieldsContainer, PostTitle, PostUrl, WordCounter,
@@ -17,6 +14,7 @@ import PostTypes from './PostTypes/PostTypes';
 import SubredditsMenu from './SubredditsMenu/SubredditsMenu';
 
 import { usePostTypeContext } from '../../../../contexts/PostTypeContext';
+import { useCreatePostSidebarContext } from '../../../../contexts/CreatePostSidebarContext';
 import submitPostServer from './submitPostServer';
 import currentSubredditServer from './currentSubredditServer';
 import TextEditor from './TextEditor/TextEditor';
@@ -40,7 +38,10 @@ function CreatePostForm() {
   // console.log('component', subredditId, subredditIcon, subredditName);
 
   // contexts
-  const { initialPostType } = usePostTypeContext();
+  const { initialPostType, initialPostUrl } = usePostTypeContext();
+  const {
+    communityToPostIn, setCommunityToPostIn, ownerType, setOwnerType, communityName, setCommunityName,
+  } = useCreatePostSidebarContext();
 
   // variables
   const postTypes = ['self', 'image', 'video', 'link'];
@@ -49,19 +50,21 @@ function CreatePostForm() {
   const [postMedia, setPostMedia] = useState([]);
   const [activeMediaFile, setActiveMediaFile] = useState(postMedia.length - 1);
   const [title, setTitle] = useState('');
-  const [postText, setPostText] = useState(EditorState.createEmpty());
-  const [postUrl, setPostUrl] = useState('');
+  const [postText, setPostText] = useState('');
+  const [postUrl, setPostUrl] = useState(initialPostUrl);
   const [postType, setPostType] = useState(initialPostType);
-  const [communityToPostIn, setCommunityToPostIn] = useState(subredditId);
-  const [ownerType, setOwnerType] = useState(initialOwnerType);
   const [spoiler, setSpoiler] = useState(false);
   const [nswf, setNswf] = useState(false);
   const [sendReplies, setSendReplies] = useState(true);
   const [flair, setFlair] = useState(null);
-  const [communityName, setCommunityName] = useState(subredditName);
   // console.log('title', title);
   // console.log('community to post in', communityToPostIn);
 
+  useEffect(() => {
+    setCommunityToPostIn(subredditId);
+    setOwnerType(initialOwnerType);
+    setCommunityName(subredditName);
+  }, []);
   useEffect(() => {
     setCommunityToPostIn(subredditId);
   }, [subredditId]);
@@ -80,7 +83,7 @@ function CreatePostForm() {
     e.preventDefault();
     const post = {
       title,
-      text: draftToHtml(convertToRaw(postText.getCurrentContent())),
+      text: postText,
       kind: postTypes[postType],
       owner: communityToPostIn,
       ownerType,
@@ -106,6 +109,7 @@ function CreatePostForm() {
   // if (postText) { console.log(draftToHtml(convertToRaw(postText.getCurrentContent()))); }
 
   const handlePostTextChange = (editorState) => {
+    console.log('editor', editorState);
     setPostText(editorState);
   };
   const handleSaveDraft = (e) => {
@@ -157,6 +161,8 @@ function CreatePostForm() {
   const hanldeNsfw = () => {
     setNswf(!nswf);
   };
+
+  console.log('post text', postText);
   return (
     <FormContainer>
       <TitleContainer my={2}>
@@ -209,6 +215,7 @@ function CreatePostForm() {
             <TextEditor
               handlePostTextChange={handlePostTextChange}
               postText={postText}
+              id="create"
             />
           ) : null}
           {(postType === 1 || postType === 2) ? (

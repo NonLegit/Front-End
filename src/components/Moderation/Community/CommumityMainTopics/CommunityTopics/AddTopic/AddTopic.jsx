@@ -4,6 +4,18 @@ import {
   Add, Input, Text,
 } from './style';
 
+/**
+   * AddButton(community topics)
+   * @component
+   * @property  {function} removeItem remove ele from list of topics
+   * @property  {function} handleChange remove ele from list of topics
+   * @property  {function} trueShawList shoe list of topics
+   * @property  {function} handleKeyDown add ele to list of topics
+
+   * @param {string} tempString - list of topics
+   * @return {React.Component} - AddButton(community topics)
+   */
+
 function AddBtn(props) {
   const {
     tempString, removeItem, handleChange, handleKeyDown, trueShawList,

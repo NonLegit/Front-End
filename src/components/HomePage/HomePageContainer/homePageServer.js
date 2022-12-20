@@ -1,12 +1,14 @@
+import { redirectLogin } from '../../../utils/Redirect';
 import useFetch from '../../../hooks/useFetch';
+import useFetchParams from '../../../hooks/useFetchParams';
 
 const homePageServer = (postClass) => {
   const postsUrl = `/users/${postClass || 'best'}`;
-  const [data, postsError, statusCode] = useFetch(postsUrl);
+  // eslint-disable-next-line no-unused-vars
+  const [data, postsError, statusCode] = useFetchParams(postsUrl);
   const dbPosts = data?.data;
-  console.log('from home', statusCode);
-  console.log('posts', dbPosts);
-
+  // console.log('from home', statusCode);
+  console.log('posts', dbPosts?.length);
   const posts = dbPosts?.map((post) => {
     // for backend bugs
     const temp = {
@@ -32,8 +34,14 @@ const homePageServer = (postClass) => {
       authorName,
     });
   });
-  console.log('posts final', posts);
-  return [posts, postsError];
+  // console.log('posts final', posts, posts?.length);
+
+  const [communitiesData, communitiesError, communitiesStatusCode] = useFetch('/subreddits/random/leaderboard?limit=4&page=0');
+  if (communitiesStatusCode === 401) {
+    redirectLogin();
+  }
+  console.log('el communities', communitiesData);
+  return [posts, postsError, communitiesData?.data, communitiesError];
 };
 
 export default homePageServer;

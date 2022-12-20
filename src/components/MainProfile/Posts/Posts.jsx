@@ -1,9 +1,8 @@
 import { Box } from '@mui/material';
 import {
-  useState, useEffect, useContext, useRef,
+  useState, useEffect, useContext,
 } from 'react';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 import { useNavigate } from 'react-router-dom';
 import { useEditPostContext } from '../../../contexts/EditPostContext';
 import Comments from '../Comments/Comments';
@@ -14,20 +13,16 @@ import {
   actionOnPost, moderationAction,
 } from '../profileServer';
 import {
-  ControlsIcon,
-  CustomImage,
   Flair,
-  ParagraphBox,
-  ParagraphPost,
-  ParagraphWhite,
   PostContentBox,
-  PostMedia,
   PostsQueueBox,
   TagPost,
   TitlePost,
 } from './styles';
 import { CommunitiesContext } from '../../../contexts/CommunitiesModeratorContext';
 import { CommunitiesSubscriberContext } from '../../../contexts/CommunitiesSubscriberContext';
+import PostBody from './PostBody/PostBody';
+import CrossPost from './CrossPost.jsx/CrossPost';
 
 /**
  * Posts component represents an entity component
@@ -59,6 +54,7 @@ function Posts(props) {
   }, [post, communitiesSubscriber]);
 
   useEffect(() => {
+    console.log(post?.sharedFrom);
     if (post.ownerType === 'Subreddit' && communities?.filter((element) => element.fixedName === post.owner.name).length > 0) {
       setMod(true);
     }
@@ -89,43 +85,12 @@ function Posts(props) {
     setModState('spammed');
   };
 
-  const [maxImagesHeight, setMaxImagesHeight] = useState(450);
-
-  // refs
-  const postTextRef = useRef();
-  const postMediaRef = useRef();
-
-  const [index, setIndex] = useState(0);
-
-  const handleDirection = (dir) => {
-    setIndex(index + dir);
-  };
-
-  useEffect(() => {
-    post.images?.forEach((image) => {
-      const img = new Image();
-      img.src = image;
-      img.onload = () => {
-        setMaxImagesHeight((maxImagesHeight) => {
-          console.log('rakam', postMediaRef?.current?.offsetWidth);
-          const maxValue = Math.min(maxImagesHeight, img.height);
-          const postWidth = postMediaRef?.current?.offsetWidth;
-          if (maxImagesHeight > img.height && img.width > postWidth) {
-            return img.height * (postWidth / img.width);
-          }
-          return maxValue;
-        });
-        console.log('my img height', img.height);
-      };
-    });
-  }, []);
-
   const navigate = useNavigate();
   const { setEditPost } = useEditPostContext();
 
   return (
     <>
-      <PostsQueueBox condition={condition} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
+      <PostsQueueBox condition={condition}>
         <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
         <PostContentBox>
           <Box sx={{ marginLeft: 1 }}>
@@ -138,8 +103,10 @@ function Posts(props) {
               locked={isLocked}
               modState={modState}
               notJoined={notJoined}
+              sharedFrom={post?.sharedFrom}
+
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
               <TitlePost variant="h6">{post?.title}</TitlePost>
               {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
               {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
@@ -156,88 +123,12 @@ function Posts(props) {
 
             </Box>
 
-            {/* eslint-disable jsx-a11y/media-has-caption */}
-            {!isNsfw && (
-            <PostMedia
-              mt={1.5}
-              kind={post?.kind}
-              ref={postMediaRef}
-              spoiler={isSpoiler}
-              sx={{ marginLeft: 2, maxWidth: '90%' }}
-            >
-              {post?.kind === 'video' ? (
-                <video controls style={{ width: '1000%', maxHeight: '512px' }}>
-                  <source src={post?.videos} type="video/mp4" />
-                </video>
-              ) : (
-                (post?.kind === 'image')
-                  ? (
-                    <>
-                      {post?.images.map((image, imageIndex) => (
-                        imageIndex === index
-                    && (
-                    <CustomImage
-                      src={image}
-                      alt="post image"
-                      key={image}
-                      maxHeight={maxImagesHeight}
-                    />
-                    )
-                      ))}
-                      <>
-                        <ControlsIcon
-                          disableRipple
-                          left={10}
-                          display={index === 0 ? 'none' : 'flex'}
-                          sx={{
-                            boxShadow: 10,
-                          }}
-                          color="third"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDirection(-1);
-                          }}
-                        >
-                          <ArrowBackIosNewIcon />
-                        </ControlsIcon>
-                        <ControlsIcon
-                          disableRipple
-                          right={10}
-                          // eslint-disable-next-line no-unsafe-optional-chaining
-                          display={index === post?.images.length - 1 ? 'none' : 'flex'}
-                          sx={{
-                            boxShadow: 10,
-                          }}
-                          color="third"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDirection(1);
-                          }}
-                        >
-                          <ArrowForwardIosIcon />
-                        </ControlsIcon>
-                      </>
-                    </>
-                  ) : ((post.kind === 'self') && (
-                    <ParagraphBox
-                      ref={postTextRef}
-                    >
-                      <ParagraphWhite />
-                      <ParagraphPost
-                        data-testid="post-body"
-                        dangerouslySetInnerHTML={{ __html: post?.text }}
-                      />
-                    </ParagraphBox>
-                  // <PostText
-                  //   ref={postTextRef}
-                  //   maxHeight={displayShadow ? maxTextHeight : 'none'}
-                  // >
-                  //   {displayShadow && <PostTextContainer />}
-                  //   <div dangerouslySetInnerHTML={{ __html: text }} />
-                  // </PostText>
-                  ))
-              )}
-            </PostMedia>
+            {!isNsfw && !post?.sharedFrom ? (
+              <PostBody post={post} isSpoiler={isSpoiler} />
+            ) : !isNsfw && post?.sharedFrom && (
+            <CrossPost
+              post={post?.sharedFrom}
+            />
             )}
 
             <PostFooter

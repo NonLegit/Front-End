@@ -23,7 +23,7 @@ import { CommentText } from '../styles';
 import {
   CommentsBoxBlue, CommentsBoxContent, DashedLine, FooterText, ModList, MoreList, ResDivider, SelectItem,
 } from './styles';
-import { actionComment, deletePostComment } from '../../profileServer';
+import { actionComment, actionCommentModerate, deletePostComment } from '../../profileServer';
 
 /**
  * the Body of an comment
@@ -42,7 +42,7 @@ function CommentsContent(props) {
   const { username } = useContext(UserContext);
   const [saved, setSaved] = useState(comment.isSaved);
   const [locked, setLocked] = useState(comment.locked);
-  const [spam, setSpam] = useState(comment.modState === 'spam');
+  const [modState, setModState] = useState(comment.modState);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -64,8 +64,18 @@ function CommentsContent(props) {
   };
 
   const handleSpam = () => {
-    actionComment(comment._id, 'spam');
-    setSpam((prev) => !prev);
+    actionCommentModerate(comment._id, 'spam');
+    setModState('spammed');
+  };
+
+  const handleApprove = () => {
+    actionCommentModerate(comment._id, 'approve');
+    setModState('approved');
+  };
+
+  const handleRemove = () => {
+    actionCommentModerate(comment._id, 'remove');
+    setModState('removed');
   };
 
   const handleDelete = () => {
@@ -81,7 +91,7 @@ function CommentsContent(props) {
       <DashedLine />
       {comment.parentType !== 'Post' ? <DashedLine /> : null}
       <CommentsBoxBlue overview={overview}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }} onClick={() => { setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
           <CommentText variant="caption" coloring="black">
             {username}
             {' '}
@@ -101,14 +111,15 @@ function CommentsContent(props) {
               .fromNow())}
           </CommentText>
           {locked && <LockIcon sx={{ color: '#ffd635', marginLeft: '3px' }} fontSize="caption" />}
-          {spam && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="caption" />}
-          {comment.modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="caption" />}
-          {comment.modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="caption" />}
+          {modState === 'spammed' && <Inventory2Icon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="caption" />}
+          {modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="caption" />}
+          {modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="caption" />}
         </Box>
-        <Box><CommentText variant="body2" coloring="black">{comment.text}</CommentText></Box>
+        <Box onClick={() => { setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }} sx={{ width: '100%' }}>
+          <CommentText variant="body2" coloring="black">{comment.text}</CommentText>
+        </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', height: '24px' }}>
           <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Reply</CommentText>
-          <CommentText variant="caption" coloring="#787c7e" hover="true" sx={{ fontWeight: 700 }}>Share</CommentText>
 
           <MoreList onClick={handleClick}>
             <MoreHorizOutlinedIcon />
@@ -130,47 +141,26 @@ function CommentsContent(props) {
             sx={{ '& .MuiButtonBase-root': { padding: '0px 3px' } }}
           >
 
-            <MenuItem>
+            <MenuItem onClick={() => { handleSave(); handleClose(); }}>
               {!saved ? (
-                <SelectItem onClick={() => { handleSave(); }}>
+                <SelectItem>
                   <BookmarkBorderOutlinedIcon sx={{ marginRight: 1 }} />
                   Save
                 </SelectItem>
               )
                 : (
-                  <SelectItem condition={true.toString()} onClick={() => { handleSave(); }}>
+                  <SelectItem condition={true.toString()}>
                     <BookmarksOutlinedIcon sx={{ marginRight: 1 }} />
                     Unsave
                   </SelectItem>
                 )}
             </MenuItem>
-
-            {profile && (
+            {(modList && !profile) && (
             <>
               <Divider />
-
-              <MenuItem>
-                <SelectItem onClick={() => { setEditPost(true); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
-                  <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
-                  Edit Post
-                </SelectItem>
-
-              </MenuItem>
-              <Divider />
-
-              <MenuItem>
-
-                <SelectItem onClick={() => { handleDelete(); }}>
-                  <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
-                  Delete
-                </SelectItem>
-
-              </MenuItem>
-
-              {modList && (
               <ModList responsive3icons={true.toString()}>
-                <Divider />
-                <MenuItem>
+
+                <MenuItem onClick={() => { handleClose(); handleApprove(); }}>
 
                   <SelectItem>
                     <CheckCircleOutlineOutlinedIcon sx={{ marginRight: 1 }} />
@@ -180,7 +170,7 @@ function CommentsContent(props) {
                 </MenuItem>
                 <Divider />
 
-                <MenuItem>
+                <MenuItem onClick={() => { handleClose(); handleRemove(); }}>
 
                   <SelectItem>
                     <BlockOutlinedIcon sx={{ marginRight: 1 }} />
@@ -189,7 +179,7 @@ function CommentsContent(props) {
 
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleSpam}>
+                <MenuItem onClick={() => { handleClose(); handleSpam(); }}>
 
                   <SelectItem>
                     <CancelPresentationOutlinedIcon sx={{ marginRight: 1 }} />
@@ -198,7 +188,72 @@ function CommentsContent(props) {
 
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleLock}>
+                <MenuItem onClick={() => { handleClose(); handleLock(); }}>
+
+                  <SelectItem>
+                    <LockIcon sx={{ marginRight: 1 }} />
+                    {locked ? 'Unlock' : 'Lock'}
+                  </SelectItem>
+
+                </MenuItem>
+              </ModList>
+            </>
+            )}
+
+            {profile && (
+            <>
+              <Divider />
+
+              <MenuItem onClick={() => { handleClose(); setEditPost(true); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
+                <SelectItem>
+                  <ModeEditOutlinedIcon sx={{ marginRight: 1 }} />
+                  Edit Post
+                </SelectItem>
+
+              </MenuItem>
+              <Divider />
+
+              <MenuItem onClick={() => { handleDelete(); handleClose(); }}>
+
+                <SelectItem>
+                  <DeleteOutlineOutlinedIcon sx={{ marginRight: 1 }} />
+                  Delete
+                </SelectItem>
+
+              </MenuItem>
+
+              {modList && (
+              <ModList responsive3icons={true.toString()}>
+                <Divider />
+                <MenuItem onClick={() => { handleClose(); handleApprove(); }}>
+
+                  <SelectItem>
+                    <CheckCircleOutlineOutlinedIcon sx={{ marginRight: 1 }} />
+                    Approve
+                  </SelectItem>
+
+                </MenuItem>
+                <Divider />
+
+                <MenuItem onClick={() => { handleClose(); handleRemove(); }}>
+
+                  <SelectItem>
+                    <BlockOutlinedIcon sx={{ marginRight: 1 }} />
+                    Removed
+                  </SelectItem>
+
+                </MenuItem>
+                <Divider />
+                <MenuItem onClick={() => { handleClose(); handleSpam(); }}>
+
+                  <SelectItem>
+                    <CancelPresentationOutlinedIcon sx={{ marginRight: 1 }} />
+                    Spam
+                  </SelectItem>
+
+                </MenuItem>
+                <Divider />
+                <MenuItem onClick={() => { handleClose(); handleLock(); }}>
 
                   <SelectItem>
                     <LockIcon sx={{ marginRight: 1 }} />
@@ -216,11 +271,11 @@ function CommentsContent(props) {
           {modList && (
           <>
             <ResDivider responsive3icons={true.toString()} orientation="vertical" />
-            <MoreList responsive3icons={true.toString()}>
+            <MoreList responsive3icons={true.toString()} onClick={handleApprove}>
               <CheckCircleOutlineOutlinedIcon fontSize="small" />
               <FooterText variant="caption">Approve</FooterText>
             </MoreList>
-            <MoreList responsive3icons={true.toString()}>
+            <MoreList responsive3icons={true.toString()} onClick={handleRemove}>
               <BlockOutlinedIcon fontSize="small" />
               <FooterText variant="caption">Removed</FooterText>
             </MoreList>

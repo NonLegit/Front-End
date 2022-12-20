@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
-import StyledDialog from './styles';
+import { StyledDialog, FooterContainer } from '../../../styles';
 import { RemoveContext } from '../../NonEmptyApproved/ApprovedUser/ApprovedUser';
 import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
@@ -15,6 +15,8 @@ function RemovePopUp(props) {
     <StyledDialog
       fullScreen
       open={openRemove}
+      width="490px"
+      height="190px"
     >
       <Box>
         <Header buttonFunction={handleClickCloseRemove} headerText="Confirm" />
@@ -29,9 +31,9 @@ function RemovePopUp(props) {
           as an approved user?
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', backgroundColor: '#edeff1 ', height: '100%' }}>
+      <FooterContainer>
         <Footer buttonFunction={handleClickCloseRemove} firstButtonText="Cancel" secondButtonText="Remove" />
-      </Box>
+      </FooterContainer>
     </StyledDialog>
   );
 }

@@ -1,17 +1,16 @@
 import { styled } from '@mui/material/styles';
 
-export const SideBarContainer = styled('div')(({ theme }) => ({
+export const SideBarContainer = styled('div')(({ theme, createPost }) => ({
   [theme.breakpoints.between('0', '1000')]: {
     display: 'none',
   },
   width: 312,
-  height: 4000,
   display: 'flex',
   flexDirection: 'column',
   marginLeft: 24,
   backgroundColor: 'transparent',
   position: 'relative',
-  marginTop: 16,
+  marginTop: createPost ? 70 : 16,
 }));
 export const CommunityContainer = styled('div')({
   background: 'white',

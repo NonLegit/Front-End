@@ -6,36 +6,23 @@ import Paper from '@mui/material/Paper';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  AboutString,
-  Add,
-  AddFlair,
-  Body,
-  IconBtn,
-  LeftAlighne,
-  POSTFLAIRPREVIEW,
+  AboutString, Add, AddFlair, Body, IconBtn, LeftAlighne, POSTFLAIRPREVIEW,
   StyledTooltip, TableHeader, TableHeaderCell, TableHeaderCellContainer, TableHeaderCellRes, TotalContainer,
 } from './style';
 import Entity from './Entity/Entity';
 import NewFlair from './NewFlair/NewFlair';
 import useFetch from '../../SubReddit/SideBar/Flirt/flirtServer';
 
-// const rows = [
-//   {
-//     textColor: '#0079d3',
-//     backgroundColor: '#f6f7f8',
-//     text: 'flair1',
-//     cssClass: 'c1',
-//     id: '1',
-//   },
-//   {
-//     textColor: 'red',
-//     backgroundColor: 'green',
-//     text: 'flair1',
-//     cssClass: 'c2',
-//     id: '2',
-//   },
-// ];
-
+/**
+ * Post Flair
+ * @component
+ * @property  {function} handleClick disable all buttoms
+ * @property  {function} trueCan enable all buttoms
+ * @property  {function} save clase form and enable add
+ * @property  {function} cancel clase form and enable add
+ *
+ * @return {React.Component} - Post Flair
+ */
 export default function PostFlair() {
   const [can, setCan] = useState(true);
   const [add, setAdd] = useState(false);

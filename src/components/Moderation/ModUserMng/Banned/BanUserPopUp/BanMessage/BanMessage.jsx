@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Typography } from '@mui/material';
 import { StyledBox, StyledTextareaAutosize } from './styles';
 
-function BanMessage() {
+function BanMessage(props) {
+  const { punishReason } = props;
   const CHARACTER_LIMIT = 5000;
   const [values, setValues] = React.useState({
     name: '',
@@ -15,6 +16,7 @@ function BanMessage() {
       <Typography>Note to include in ban message •</Typography>
       <StyledTextareaAutosize
         placeholder="Reason they were banned"
+        defaultValue={punishReason}
         inputProps={{
           maxlength: CHARACTER_LIMIT,
         }}

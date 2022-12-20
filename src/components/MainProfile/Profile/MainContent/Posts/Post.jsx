@@ -52,6 +52,7 @@ function Post(props) {
     setExpand((prev) => !prev);
   };
   useEffect(() => {
+    console.log(entity?.postVoteStatus);
     setSubTitle(type);
     if (communitiesSubscriber?.filter((element) => element.fixedName === entity.owner.name).length === 0) {
       setNotJoined(true);
@@ -90,12 +91,12 @@ function Post(props) {
   const { setEditPost } = useEditPostContext();
 
   return (
-    <PostsQueueBox saved={subTitle} onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
+    <PostsQueueBox saved={subTitle}>
       <PostSide postid={entity?._id} points={entity?.votes} postVoteStatus={entity?.postVoteStatus} spam={entity?.modState === 'spam'} />
 
       <PostSidebaRes>
         <Box sx={{ display: 'flex' }}>
-          <EmptyImage>
+          <EmptyImage onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
             {entity?.images.length === 0 ? (
 
               <ArticleOutlinedIcon fontSize="small" color="disabled" />
@@ -107,20 +108,20 @@ function Post(props) {
           </EmptyImage>
           <PostContentBox>
             <Box sx={{ marginLeft: 1 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${entity?.ownerType === 'Subreddit' ? 'r' : 'user'}/${entity?.owner?.name}/comments/${entity?._id}`); }}>
                 <TitlePost variant="h6">{entity?.title}</TitlePost>
                 {
-            entity?.flairId?.text
-            && (
-            <Flair
-              disableRipple
-              backgroundcolor={entity?.flairId?.backgroundColor}
-              flaircolor={entity?.flairId?.textColor}
-            >
-              {entity?.flairId?.text}
-            </Flair>
-            )
-          }
+                  entity?.flairId?.text
+                  && (
+                  <Flair
+                    disableRipple
+                    backgroundcolor={entity?.flairId?.backgroundColor}
+                    flaircolor={entity?.flairId?.textColor}
+                  >
+                    {entity?.flairId?.text}
+                  </Flair>
+                  )
+                }
                 {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
                 {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}
               </Box>
@@ -132,6 +133,7 @@ function Post(props) {
                 locked={isLocked}
                 modState={modState}
                 notJoined={notJoined}
+                sharedFrom={entity?.sharedFrom}
               />
               <PostFooter
                 postid={entity?._id}

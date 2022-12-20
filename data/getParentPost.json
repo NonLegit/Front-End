@@ -1,0 +1,49 @@
+{
+    "_id": "string0yuwedgdgeyurf84848erfe3487100",
+    "author": {
+        "_id": "string0",
+        "name": "nour"
+    },
+    "ownerType": "Subreddit",
+    "owner": {
+        "_id": "string0",
+        "name": "toptalent_adham",
+        "icon": "https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+    },
+    "replies": [
+        "string"
+    ],
+    "flairId": {
+        "_id": 1,
+        "text": "اي كلام/r/all",
+        "backgroundColor": "#ea0027",
+        "textColor": "#fff"
+    },
+    "flairText": "string",
+    "sharedFrom": null,
+    "title": "In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.",
+    "kind": "link",
+    "text": "A paragraph (from Ancient Greek παράγραφος (parágraphos) 'to write beside') is a self-contained unit of discourse in writing dealing with a particular point or idea. Though not required by the orthographic conventions of any language with a writing system, paragraphs are a conventional means of organizing extended segments of prose.The oldest classical British and Latin writing had little or no space between words and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized. Word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphos, similar to an underscore at the beginning of the new group.[1] The Greek parágraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences.Ancient manuscripts also divided sentences into paragraphs with line breaks (newline) followed by an initial at the beginning of the next paragraph. An initial is an oversized capital letter, sometimes outdented beyond the margin of the text. This style can be seen, for example, in the original Old English manuscript of Beowulf. Outdenting is still used in English typography, though not commonly.[2] Modern English typography usually indicates a new paragraph by indenting the first line. This style can be seen in the (handwritten) United States Constitution from 1787. For additional ornamentation, a hedera leaf or other symbol can be added to the inter-paragraph white space, or put in the indentation space.A second common modern English style is to use no indenting, but add vertical white space to create block paragraphs. On a typewriter, a double carriage return produces a blank line for this purpose; professional typesetters (or word processing software) may put in an arbitrary vertical space by adjusting leading. This style is very common in electronic formats, such as on the World Wide Web and email. Wikipedia itself employs this format.",
+    "images": [
+        "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc"
+    ],
+    "video": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+    "createdAt": "2022-11-04T14:29:28Z",
+    "locked": true,
+    "isDeleted": true,
+    "sendReplies": true,
+    "nsfw": false,
+    "spoiler": false,
+    "votes": 245,
+    "views": 0,
+    "commentCount": 30,
+    "shareCount": 15,
+    "suggestedSort": "top",
+    "scheduled": true,
+    "sortOnHot": 0,
+    "sortOnBest": 0,
+    "isSpam": true,
+    "url": "https://preview.redd.it/yr356u91nzx91.jpg?width=640&crop=smart&auto=webp&s=65ecee9450783d636fb9cc5bf54413b6bf8b41fc",
+    "isSaved": true,
+    "postVoteStatus": 0
+}

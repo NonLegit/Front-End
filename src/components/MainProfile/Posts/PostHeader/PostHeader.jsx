@@ -4,11 +4,13 @@ import LockIcon from '@mui/icons-material/Lock';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { useState } from 'react';
+import CallSplitIcon from '@mui/icons-material/CallSplit';
+
+import { useState, useEffect } from 'react';
+import PostJoin from '../../../SubReddit/PostJoin';
 import {
-  HeaderAvatar, HeaderAvatarImage, HeaderPost, LinkTo, Joined,
+  HeaderAvatar, HeaderAvatarImage, HeaderPost, LinkTo, Joined, LinkCross,
 } from './styles';
-import joinCommunity from '../../joinCommunity';
 
 /**
  * Header for a post
@@ -22,14 +24,14 @@ import joinCommunity from '../../joinCommunity';
 
 function PostHeader(props) {
   const {
-    subReddit, nameUser, Time, type, icon, locked, modState, notJoined,
+    subReddit, nameUser, Time, type, icon, locked, modState, notJoined, sharedFrom,
   } = props;
 
   const [joined, setJoined] = useState(false);
-
-  joinCommunity(joined, subReddit);
+  const [joinedUI, setJoinedUI] = useState(false);
 
   const handleJoin = () => {
+    PostJoin(`/subreddits/${subReddit}/subscribe`, joined ? 'unsub' : 'sub');
     setJoined((prev) => !prev);
   };
 
@@ -42,6 +44,11 @@ function PostHeader(props) {
     setHover(false);
   };
 
+  useEffect(() => {
+    setJoinedUI(!notJoined);
+    setJoined(!notJoined);
+  }, [notJoined]);
+
   return (
     <HeaderPost>
       <Box sx={{
@@ -53,7 +60,7 @@ function PostHeader(props) {
           <HeaderAvatarImage src={icon} />
         </HeaderAvatar>
 
-        <LinkTo to={(type === 'Subreddit') ? `/Subreddit/${subReddit}` : `/user/${subReddit}`}>
+        <LinkTo to={(type === 'Subreddit') ? `/r/${subReddit}` : `/user/${subReddit}`}>
           <Typography variant="caption" sx={{ fontWeight: 700, '&:hover': { textDecoration: 'underline' } }}>
             {type === 'Subreddit' ? 'r/' : 'u/'}
             {subReddit}
@@ -72,6 +79,18 @@ function PostHeader(props) {
             {nameUser}
           </Typography>
         </LinkTo>
+        {sharedFrom && (
+        <>
+          <CallSplitIcon sx={{ color: '#0079D3', marginLeft: '3px', transform: 'rotate(90deg)' }} fontSize="string" />
+          <Typography variant="caption" sx={{ color: '#787c7e', marginLeft: 1 }}>
+            cross posted by
+            {' '}
+            <LinkCross to={`/user/${sharedFrom?.author?.name}`}>
+              {sharedFrom?.author?.name}
+            </LinkCross>
+          </Typography>
+        </>
+        )}
         <Box sx={{ flex: '1 1 auto', display: 'flex' }}>
           <Typography
             variant="caption"
@@ -89,7 +108,7 @@ function PostHeader(props) {
           {modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="string" />}
           {modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
         </Box>
-        {(type === 'Subreddit' && notJoined) && (
+        {(type === 'Subreddit' && !joinedUI) && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
           onClick={handleJoin}

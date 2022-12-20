@@ -7,6 +7,24 @@ exports[`check snap shot 1`] = `
 >
   <div
     className="css-1otkajc"
-  />
+  >
+    <div
+      className="css-who1bh"
+    >
+      Today
+    </div>
+    <div
+      data-testid="notification-categories-earlier"
+    />
+     
+    <div
+      className="css-who1bh"
+    >
+      Earlier
+    </div>
+    <div
+      data-testid="notification-categories-earlier"
+    />
+  </div>
 </section>
 `;

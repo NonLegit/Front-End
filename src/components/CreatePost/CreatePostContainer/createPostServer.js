@@ -15,12 +15,8 @@ const createPostServer = () => {
   }));
   // console.log('communities', communities);
   // console.log(statusCode);
-  if (statusCode === 200) {
-    if (statusCode === 401) {
-      redirectLogin();
-    } else {
-      // console.log('errorMessage');
-    }
+  if (statusCode === 401) {
+    redirectLogin();
   }
 
   console.log(statusCode);

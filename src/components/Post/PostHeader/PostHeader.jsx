@@ -3,7 +3,6 @@ import {
   Avatar, Box, Typography,
 } from '@mui/material';
 import calculateTime from '../../../utils/calculateTime';
-import JoinButton from '../../JoinButton/JoinButton';
 
 // styles
 import {
@@ -32,9 +31,15 @@ import {
 function PostHeader(props) {
   const {
     title, ownerIcon, ownerType, ownerName, authorName, flairText, flairBackgroundColor, flairColor, createdAt,
-    subredit, nsfw, spoiler,
+    subredit, nsfw, spoiler, redirectToPost,
 
   } = props;
+
+  const handleClickOnTitle = (e) => {
+    e.preventDefault();
+    redirectToPost(true, false);
+  };
+
   return (
     <>
       <PostInfo pb={1}>
@@ -49,7 +54,7 @@ function PostHeader(props) {
               }}
               alt="Profile ownerIcon"
             />
-            <PostInfoLink to={ownerType === 'Subreddit' ? `/Subreddit/${ownerName}` : `/user/${ownerName}`} color="#000" fontWeight="bolder">
+            <PostInfoLink to={ownerType === 'Subreddit' ? `/r/${ownerName}` : `/user/${ownerName}`} color="#000" fontWeight="bolder">
               {ownerType === 'Subreddit' ? 'r/' : 'u/'}
               {ownerName}
             </PostInfoLink>
@@ -75,13 +80,8 @@ function PostHeader(props) {
             {calculateTime(createdAt)}
           </CreatedAt>
         </Box>
-        {!subredit && (
-        <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
-          <JoinButton />
-        </Box>
-        )}
       </PostInfo>
-      <PostTitle to="/">
+      <PostTitle onClick={handleClickOnTitle}>
         <Typography
           variant="h6"
           component="h3"

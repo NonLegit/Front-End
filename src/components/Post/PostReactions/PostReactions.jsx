@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 // icons
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
@@ -8,6 +8,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 // mui components
 import {
@@ -16,7 +17,7 @@ import {
 
 // styles
 import { useTheme } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEditPostContext } from '../../../contexts/EditPostContext';
 import {
   PostActions, ActionButton, ShowMoreList, ShowMoreListItemText,
@@ -24,6 +25,7 @@ import {
 import Reactions from '../Reactions/Reactions';
 import postReactionsServer from '../postReactionsServer';
 import { useHiddenPostsContext } from '../../../contexts/HiddenPostsContext';
+import UserLogin from '../../../authentication';
 
 /**
  * This component is the container of post reactions
@@ -41,7 +43,7 @@ import { useHiddenPostsContext } from '../../../contexts/HiddenPostsContext';
 
 function PostReactions(props) {
   const {
-    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId,
+    matchSm, comments, matchMd, votes, postVoteStatus, isSaved, postId, redirectToPost, authorName, subredit,
   } = props;
 
   const [showMore, setShowMore] = useState(false);
@@ -50,6 +52,10 @@ function PostReactions(props) {
   const matchXs = useMediaQuery(theme.breakpoints.down('xs'));
   const matchXxs = useMediaQuery(theme.breakpoints.down('xxs'));
   const { setHiddenPosts } = useHiddenPostsContext();
+
+  // routes
+  const navigate = useNavigate();
+  const { Name } = useParams();
 
   // handlers
   const handleShowMore = () => {
@@ -62,14 +68,26 @@ function PostReactions(props) {
   const handleClickAway = () => setShowMore(false);
   const handleHide = () => {
     setHiddenPosts((hiddenPosts) => [...hiddenPosts, postId]);
-    postReactionsServer(postId, 'hide', 1);
+    postReactionsServer(postId, 'hide', 1, setHiddenPosts);
   };
 
-  // routes
-  const navigate = useNavigate();
+  const handleDelete = () => {
+    setHiddenPosts((hiddenPosts) => [...hiddenPosts, postId]);
+    postReactionsServer(postId, 'delete', 1, setHiddenPosts);
+  };
 
+  const handleShare = () => {
+    if (!subredit) {
+      navigate(`/submit/${postId}`);
+    } else {
+      navigate(`/submit/${postId}/r/${Name}`);
+    }
+  };
   // contexts
-  const { setEditPost } = useEditPostContext();
+  const { setEditPost, setCommentPost } = useEditPostContext();
+
+  // variables
+  const isMe = UserLogin([authorName]);
   return (
     <PostActions mt={0.5}>
       {!matchSm && (
@@ -83,6 +101,11 @@ function PostReactions(props) {
       <ActionButton
         color="third"
         startIcon={<ChatBubbleOutlineRoundedIcon />}
+        onClick={() => {
+          setCommentPost(true);
+          setEditPost(false);
+          redirectToPost(true);
+        }}
       >
         {comments}
         {' '}
@@ -93,6 +116,7 @@ function PostReactions(props) {
       <ActionButton
         color="third"
         startIcon={<ShareOutlinedIcon />}
+        onClick={handleShare}
       >
         Share
 
@@ -163,20 +187,24 @@ function PostReactions(props) {
               <Divider />
             </>
             )}
-            <ListItemButton onClick={() => {
-              setEditPost(true);
-              // navigate(`/user/BasmaElhoseny/comments/koko`);
-              navigate(`/user/BasmaElhoseny/comments/${postId}`);
-            }}
-            >
-              <ListItemIcon>
-                <ModeEditOutlineOutlinedIcon />
-              </ListItemIcon>
-              <ShowMoreListItemText>
-                edit post
-              </ShowMoreListItemText>
-            </ListItemButton>
-            <Divider />
+            {isMe && (
+            <>
+              <ListItemButton onClick={() => {
+                setEditPost(true);
+                setCommentPost(false);
+                redirectToPost(true);
+              }}
+              >
+                <ListItemIcon>
+                  <ModeEditOutlineOutlinedIcon />
+                </ListItemIcon>
+                <ShowMoreListItemText>
+                  edit post
+                </ShowMoreListItemText>
+              </ListItemButton>
+              <Divider />
+            </>
+            )}
             <ListItemButton onClick={handleHide}>
               <ListItemIcon>
                 <VisibilityOffOutlinedIcon />
@@ -186,6 +214,19 @@ function PostReactions(props) {
               </ShowMoreListItemText>
             </ListItemButton>
             <Divider />
+            {isMe && (
+            <>
+              <ListItemButton onClick={handleDelete}>
+                <ListItemIcon>
+                  <DeleteOutlineOutlinedIcon />
+                </ListItemIcon>
+                <ShowMoreListItemText>
+                  delete
+                </ShowMoreListItemText>
+              </ListItemButton>
+              <Divider />
+            </>
+            )}
             <ListItemButton>
               <ListItemIcon>
                 <FlagOutlinedIcon />

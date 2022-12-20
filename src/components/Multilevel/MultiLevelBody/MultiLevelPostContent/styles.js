@@ -28,7 +28,7 @@ export const PostHeader = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  flexWrap: 'nowrap',
+  flexWrap: 'wrap',
 
   // width: '100%',
   // display: 'flex',

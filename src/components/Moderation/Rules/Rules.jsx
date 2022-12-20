@@ -5,32 +5,15 @@ import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 import AddRule from './AddRule/AddRyle';
 import Entity from './Entity/Entity';
 import {
-  AboutDisc,
-  AboutString,
-  Add,
-  AddFlair,
-  Header,
-  IconBtn,
-  LeftAlighne,
-  StyledTooltip, TotalContainer,
+  AboutDisc, AboutString, Add, AddFlair, Header, IconBtn, LeftAlighne, StyledTooltip, TotalContainer,
 } from './style';
 
-// const rows = [
-//   {
-//     title: 'Rule 1',
-//     description: 'stringssssssssss',
-//     defaultName: 'string',
-//     appliesTo: 'Posts and comments',
-//     createdAt: 'Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00',
-//   },
-//   {
-//     title: 'Rule 2',
-//     description: 'stringsaaaaaaa',
-//     defaultName: 'string',
-//     appliesTo: 'Posts ',
-//     createdAt: 'Tue, Oct 16, 54908, 06:33:20 PM GMT+02:00',
-//   },
-// ];
+/**
+ * Rules
+ * @component
+ *
+ * @return {React.Component} - Rules
+ */
 
 export default function Rules() {
   const [rules, setRules] = useState([]);
