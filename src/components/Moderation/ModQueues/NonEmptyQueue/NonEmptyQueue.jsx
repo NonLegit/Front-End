@@ -44,34 +44,32 @@ function NonEmptyQueue(props) {
   const [notJoined, setNotJoined] = useState();
 
   useEffect(() => {
+    console.log(post?.locked);
     setIsSpoiler(post?.spoiler);
-    console.log(communitiesSubscriber?.filter((element) => element.fixedName === post.owner.fixedName));
-    console.log(post?.ownerType);
-    if (communitiesSubscriber?.filter((element) => element.fixedName === post.owner.fixedName).length === 0) {
+    if (communitiesSubscriber && communitiesSubscriber?.filter((element) => element.fixedName === post.owner.fixedName).length === 0) {
       setNotJoined(true);
-      console.log('must 3');
-    }
+    } else setNotJoined(false);
   }, [post, communitiesSubscriber]);
 
   const handleNsfw = () => {
-    actionOnPost(post?.postid, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
+    actionOnPost(post?._id, isNsfw ? 'unmark_nsfw' : 'mark_nsfw');
     setIsNsfw((prev) => !prev);
   };
 
   const handleLock = () => {
-    actionOnPost(post?.postid, isLocked ? 'unlock_comments' : 'lock_comments');
+    actionOnPost(post?._id, isLocked ? 'unlock_comments' : 'lock_comments');
     setIsLocked((prev) => !prev);
   };
   const handleApprove = () => {
-    moderationAction(post?.postid, 'approve');
+    moderationAction(post?._id, 'approve');
     setModState('approved');
   };
   const handleRemove = () => {
-    moderationAction(post?.postid, 'remove');
+    moderationAction(post?._id, 'remove');
     setModState('removed');
   };
   const handleSpam = () => {
-    moderationAction(post?.postid, 'spam');
+    moderationAction(post?._id, 'spam');
     setModState('spammed');
   };
 
@@ -88,6 +86,7 @@ function NonEmptyQueue(props) {
   };
 
   useEffect(() => {
+    console.log(post?.postVoteStatus);
     post.images?.forEach((image) => {
       const img = new Image();
       img.src = image;
@@ -230,7 +229,7 @@ function NonEmptyQueue(props) {
 
           <FooterQueue
             postid={post?._id}
-            numComments={post?.commentCount}
+            locked={isLocked}
             profile={profile}
             modState={modState}
             handleLock={handleLock}

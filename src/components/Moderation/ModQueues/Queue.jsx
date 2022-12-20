@@ -10,7 +10,7 @@ import Sort from './Sort/Sort';
 import { ModMainPage } from '../ModerationMainPage/styles';
 import NonEmptyQueue from './NonEmptyQueue/NonEmptyQueue';
 import Filter from './Filter/Filter';
-import SwitchPage from './NonEmptyQueue/SwitchPage/SwitchPage';
+// import SwitchPage from './NonEmptyQueue/SwitchPage/SwitchPage';
 import EmptyQueue from './EmptyQueue/EmptyQueue';
 import { modQueueServer } from './modQueueServer';
 
@@ -31,6 +31,7 @@ function Queue() {
   const [posts] = modQueueServer(subReddit, subTitle, sort);
   useEffect(() => {
     console.log(posts);
+    setIsContent(false);
     if (posts?.length > 0) {
       setNumItem(posts.length);
       setIsContent(true);
@@ -65,8 +66,6 @@ function Queue() {
 
               ))}
             </CommunitiesSubscriberProvider>
-
-            <SwitchPage />
 
           </>
           )}

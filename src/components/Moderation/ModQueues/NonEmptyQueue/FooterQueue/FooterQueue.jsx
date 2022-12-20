@@ -7,7 +7,7 @@ import {
 import { useState } from 'react';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import ShortcutOutlinedIcon from '@mui/icons-material/ShortcutOutlined';
+// import ShortcutOutlinedIcon from '@mui/icons-material/ShortcutOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import EighteenUpRatingOutlinedIcon from '@mui/icons-material/EighteenUpRatingOutlined';
 import LockIcon from '@mui/icons-material/Lock';
@@ -25,7 +25,7 @@ function FooterQueue(props) {
   const {
     modState,
     postid,
-    nsfw,
+    locked,
     handleLock, handleNsfw, handleApprove, handleRemove, handleSpam,
   } = props;
 
@@ -44,9 +44,9 @@ function FooterQueue(props) {
     postReactionsServer(postid, 'hide', 1);
   };
 
-  const handleShare = () => {
-    console.log('share');
-  };
+  // const handleShare = () => {
+  //   console.log('share');
+  // };
 
   return (
     <FooterBox>
@@ -96,7 +96,7 @@ function FooterQueue(props) {
         <MenuItem>
 
           <SelectItem onClick={handleLock}>
-            <LockOutlinedIcon sx={{ marginRight: 1 }} fontSize="small" />
+            {!locked ? <LockOutlinedIcon sx={{ marginRight: 1 }} fontSize="small" /> : <LockIcon sx={{ marginRight: 1 }} fontSize="small" />}
             Lock Comments
           </SelectItem>
 
@@ -105,8 +105,7 @@ function FooterQueue(props) {
         <MenuItem>
 
           <SelectItem onClick={handleNsfw}>
-            {nsfw ? <EighteenUpRatingOutlinedIcon sx={{ marginRight: 1 }} fontSize="small" />
-              : <LockIcon sx={{ marginRight: 1 }} fontSize="small" />}
+            <EighteenUpRatingOutlinedIcon sx={{ marginRight: 1 }} fontSize="small" />
             Mark As NSFW
           </SelectItem>
 
@@ -122,14 +121,14 @@ function FooterQueue(props) {
           OTHER
         </Typography>
 
-        <MenuItem>
+        {/* <MenuItem>
 
           <SelectItem onClick={handleShare}>
             <ShortcutOutlinedIcon sx={{ marginRight: 1 }} fontSize="small" />
             Share
           </SelectItem>
 
-        </MenuItem>
+        </MenuItem> */}
 
         <MenuItem>
 

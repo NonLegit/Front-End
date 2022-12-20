@@ -43,8 +43,8 @@ function PostHeader(props) {
   };
 
   useEffect(() => {
-    console.log(notJoined);
-    setJoinedUI(notJoined);
+    setJoinedUI(!notJoined);
+    setJoined(!notJoined);
   }, [notJoined]);
 
   return (
@@ -94,7 +94,7 @@ function PostHeader(props) {
           {modState === 'approved' && <CheckCircleIcon sx={{ color: '#75d377', marginLeft: '3px' }} fontSize="string" />}
           {modState === 'removed' && <DoDisturbAltIcon sx={{ color: '#ff585b', marginLeft: '3px' }} fontSize="string" />}
         </Box>
-        {(type === 'Subreddit' && joinedUI) && (
+        {(type === 'Subreddit' && !joinedUI) && (
         <Joined
           variant={(joined ? 'outlined' : 'contained')}
           onClick={handleJoin}
