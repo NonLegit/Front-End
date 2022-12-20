@@ -3,13 +3,13 @@ import MessageInboxBar from '../MessageInboxBar/MessageInboxBar';
 import { MessageContiner } from './style';
 import MessageBody from '../MessagesDrive/MessageBody/MessageBody';
 import MessageBodyMessage from '../MessageSent/MessageBody/MessageBody';
-import { messagesAllServer } from './messageUnreadServer';
+import { messagesAllServer, markAllRead } from './messageUnreadServer';
 import MessageBodyReplies from '../PostReplies/MessageBody/MessageBody';
 
 function MessagesUnread() {
   const [data] = messagesAllServer();
   const [All, setAll] = useState([]);
-  useEffect(() => { setAll(data); }, [data]);
+  useEffect(() => { setAll(data); markAllRead(); }, [data]);
   return (
     <>
       <MessageInboxBar />
