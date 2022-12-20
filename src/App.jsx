@@ -209,6 +209,12 @@ function App() {
                         <CreatePost />
                   }
                     />
+                    <Route
+                      path="/submit/:source"
+                      element={
+                        <CreatePost />
+                  }
+                    />
 
                     <Route
                       path="/notifications"

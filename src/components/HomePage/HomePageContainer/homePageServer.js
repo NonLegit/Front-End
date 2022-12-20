@@ -1,3 +1,5 @@
+import { redirectLogin } from '../../../utils/Redirect';
+import useFetch from '../../../hooks/useFetch';
 import useFetchParams from '../../../hooks/useFetchParams';
 
 const homePageServer = (postClass) => {
@@ -33,7 +35,12 @@ const homePageServer = (postClass) => {
     });
   });
   // console.log('posts final', posts, posts?.length);
-  return [posts, postsError];
+
+  const [communitiesData, communitiesError, communitiesStatusCode] = useFetch('/subreddits/random/leaderboard');
+  if (communitiesStatusCode === 401) {
+    redirectLogin();
+  }
+  return [posts, postsError, communitiesData?.data, communitiesError];
 };
 
 export default homePageServer;

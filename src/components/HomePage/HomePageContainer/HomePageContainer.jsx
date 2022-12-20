@@ -13,7 +13,6 @@ import PostsClassification from './PostsClassification/PostsClassification';
 import CreatePostInHome from './CreatePostInHome/CreatePostInHome';
 import BackToTop from '../../BackToTop/BackToTop';
 import PostList from './PostList/PostList';
-import communities from './CommunitiesStaticData';
 import homePageServer from './homePageServer';
 import cleanPage from '../../../utils/cleanPage';
 
@@ -31,7 +30,7 @@ function HomePageContainer() {
   const match = useMediaQuery(theme.breakpoints.up('md'));
 
   // states
-  const [posts, postsError] = homePageServer(postClass);
+  const [posts, postsError, communities, communitiesError] = homePageServer(postClass);
 
   // Cookies
   const [cookies] = useCookies(['redditUser']);
@@ -49,7 +48,7 @@ function HomePageContainer() {
         {match
         && (
         <SideBar>
-          <Communities communities={communities} />
+          {!communitiesError ? (communities && <Communities communities={communities} />) : 'error in fetching commmunities'}
           <RedditPremium />
           <PersonalReddit
             title="Home"

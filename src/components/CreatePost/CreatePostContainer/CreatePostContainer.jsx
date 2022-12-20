@@ -1,6 +1,7 @@
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { useCookies } from 'react-cookie';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 import UserInfo from '../../MainProfile/Profile/MainContent/Sidebar/UserInfo/UserInfo';
 import { useCommunitiesInCreatePostContext } from '../../../contexts/CommunitiesInCreatePostContext';
@@ -11,6 +12,7 @@ import { MainContainer, OuterContainer } from './styles';
 import { useCreatePostSidebarContext } from '../../../contexts/CreatePostSidebarContext';
 import SubredditSideBar from '../../SubReddit/SideBar/SideBar';
 import PostingToReddit from './PostingToReddit/PostingToReddit';
+import CrosspostingToReddit from './CrosspostingToReddit/CrosspostingToReddit';
 /**
  * This component works as a container for all create post page components
  * and a repository the data fetched in
@@ -22,6 +24,9 @@ import PostingToReddit from './PostingToReddit/PostingToReddit';
 function CreatePostContainer() {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.up('md'));
+
+  // params
+  const { source } = useParams();
 
   // contexts
   const { communities, communitiesError } = useCommunitiesInCreatePostContext();
@@ -42,32 +47,36 @@ function CreatePostContainer() {
     setOwnerType(null);
     setCommunityName(null);
   }, []);
+  console.log(source);
   return (
     <OuterContainer>
       <MainContainer>
         <MainContent width={740}>
-          {!communitiesError ? (communities && <CreatePostForm />) : 'error in communities fetching'}
+          {!communitiesError ? (communities && (source ? <div>adham</div> : <CreatePostForm />)) : 'error in communities fetching'}
         </MainContent>
         {match
         && (
           (communityToPostIn === null || ownerType !== 'Subreddit') ? (
             <SideBar>
-              {
-              (communityToPostIn === null || ownerType === null) ? (
-                <PostingToReddit />
-              ) : (
-                <>
-                  <Box
-                    margin={8}
-                  />
-                  <UserInfo
-                    username={username}
-                    createPost
-                  />
 
-                </>
-              )
-}
+              <>
+                <Box
+                  margin={8}
+                />
+                {
+                    !(communityToPostIn === null || ownerType === null)
+                    && (
+                    <UserInfo
+                      username={username}
+                      createPost
+                    />
+                    )
+                  }
+                {!source
+                  ? <PostingToReddit />
+                  : <CrosspostingToReddit />}
+              </>
+
             </SideBar>
           ) : (
             <SubredditSideBar

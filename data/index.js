@@ -4,6 +4,7 @@ const {
 const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { posts } = require('./submitPost.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
+const homePageCommunities = require('./homePageCommunities.json');
 const Subreddit = require('./Subreddit.json');
 const subredditFlairs = require('./subredditFlairs.json');
 const Flair = require('./Flair.json');
@@ -121,5 +122,6 @@ module.exports = () => ({
   notificationToken,
   moderatorAction,
   baned,
+  homePageCommunities,
   // Something more
 });
