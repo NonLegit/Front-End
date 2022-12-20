@@ -8,10 +8,11 @@ import { removeRedditCookie } from '../../../Authentication/authenticationServer
 export const logOut = (removeCookie) => {
   console.log('Logout clicked');
   axios.post('/users/logout').then((response) => {
+    console.log('logout Response', response);
     // jwt Cookie is sucessfully removed
     if (response.status === 200 || response.status === 201) {
       // remove Reddit Cookie
-
+      console.log('Removed');
       removeRedditCookie(removeCookie);
       if (localStorage.getItem('RedditHistory')) {
         localStorage.removeItem('RedditHistory');

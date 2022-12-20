@@ -41,7 +41,7 @@ const { REACT_APP_SITEKEY } = process.env;
  * @returns {React.Component} UserName and Password Form
  */
 function SignUpUsername({
-  setUserNamePage, email, userName, setUserName, password, setPassword, setCookies,
+  setUserNamePage, email, userName, setUserName, password, setPassword, setCookies, removeCookie,
 }) {
   // states
   const [defaultUserNameValue, setdefaultUserNameValue] = useState(userName?.input);
@@ -59,7 +59,7 @@ function SignUpUsername({
   const signUpFunction = () => {
     checkUserNameSignUp(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
-    signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies);
+    signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies, removeCookie);
   };
 
   return (

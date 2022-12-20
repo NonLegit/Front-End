@@ -4,7 +4,6 @@ import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import Cookies from 'js-cookie';
 import { ForgetPassContext } from '../SignNavbar';
 // import StyledDialog from '../styles';
 import {
@@ -18,8 +17,8 @@ import { redditCookie, checkEmail } from '../../../Authentication/authentication
 
 import theme, { fonts } from '../../../../styles/theme';
 import { StyledDialog } from '../styles';
-
-const { REACT_APP_ENV } = process.env;
+// ultis
+import { redirectLogin } from '../../../../utils/Redirect';
 
 /**
  * ForgetPassword popUp
@@ -40,7 +39,7 @@ function ForgetPassword() {
   });
 
   // cookies
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
   const {
     openForgotpass,
     handleClose,
@@ -51,15 +50,25 @@ function ForgetPassword() {
 
   // useEffect
   useEffect(() => {
-  // Check on Cookies
-  // developememt
-    if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
+    // Check on Cookies
+    // developememt
+    /// Ask if this user already loggied in the back
+    redditCookie(setCookies, removeCookie);
+    // if logged in in the back end
+    if (cookies.redditUser !== undefined) {
       // production
-      // Redirect to loading page
+      // Update Cookie
+      // redditCookie(setCookies);
       // check on Reddit cookie
-      if (cookies.redditUser === undefined) {
-        redditCookie(setCookies);
-      }
+      // if (cookies.redditUser === undefined) {
+      //   redditCookie(setCookies);
+      // }
+      // Redirect to loading page
+      console.log('Remember me is set to true');
+      redirectLogin(2);
+    } else {
+      // No Cookie by Back End
+      console.log('Remember me is set to false');
     }
   }, []);
 
