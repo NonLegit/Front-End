@@ -13,7 +13,7 @@ pipeline {
                 REACT_APP_SITEKEY = credentials('react-app-sitekey')
             }
             steps {
-								sh(returnStdout: true, script: "bash -e /var/jenkins_home/scripts/frontend/build.sh")
+		sh(returnStdout: true, script: "bash -e /var/jenkins_home/scripts/frontend/build.sh")
 						}
         }
         stage('Deploying frontend') {
@@ -21,7 +21,7 @@ pipeline {
                 branch "main"
             }
             steps {
-                sh(returnStdout: true, script: "bash -e /var/jenkins_home/scripts/backend/deploy.sh")
+                sh(returnStdout: true, script: "bash -e /var/jenkins_home/scripts/frontend/deploy.sh")
             }
         }
     }
