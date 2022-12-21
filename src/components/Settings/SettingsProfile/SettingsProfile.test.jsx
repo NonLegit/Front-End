@@ -12,6 +12,7 @@ jest.mock('react-alert', () => ({
   ...jest.requireActual('react-alert'),
   useAlert: () => mockAlert,
 }));
+
 // test snapshot
 test('test snapshot', async () => {
   const tree = renderer.create(

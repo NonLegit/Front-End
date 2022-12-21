@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="css-l1ctgm"
+  >
+    <h2
+      className="css-dgde1h"
+    >
+      About Community
+    </h2>
+    <button
+      className="css-t5krk3"
+    >
+      <div
+        className="MuiBox-root css-uwcr2l"
+      >
+        <div
+          className="MuiBox-root css-k008qs"
+          data-testid="sort"
+          onClick={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MoreHorizIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>,
+  <h2
+    className="css-2v81eu"
+  >
+    <h2
+      className="css-yevfdk"
+    />
+  </h2>,
+  <div
+    className="css-1maxkpg"
+  >
+    <div
+      className="css-knd9j4"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="EmailOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+        />
+      </svg>
+    </div>
+    <h2
+      className="css-1nrunep"
+    >
+      Created
+       
+      December 22, 2022
+    </h2>
+  </div>,
+  <hr
+    className="css-1m0ad5p"
+  />,
+  <div
+    className="MuiBox-root css-10ucsqm"
+  >
+    <span>
+      <div
+        className="css-p1puod"
+      />
+      <p
+        className="css-1cgnkz"
+      >
+        Members
+      </p>
+    </span>
+    <span>
+      <div
+        className="css-1o97w51"
+      >
+        1.0k
+      </div>
+      <p
+        className="css-1cgnkz"
+      >
+        Online
+      </p>
+    </span>
+    <span>
+      <div
+        className="css-p1puod"
+      >
+        Top 1%
+      </div>
+      <p
+        className="css-1cgnkz"
+      >
+        Ranked by Size
+      </p>
+    </span>
+    <div />
+  </div>,
+  <a
+    className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    to="/submit/r/undefined"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1anzha9-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      fontSize={15}
+      fontWeight="bold"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      padding="4px"
+      tabIndex={0}
+      type="button"
+    >
+      create Post
+    </button>
+  </a>,
+]
+`;

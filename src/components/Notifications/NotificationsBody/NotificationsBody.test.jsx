@@ -9,13 +9,6 @@ import App from '../../../App';
 import NotificationsBody from './NotificationsBody';
 import checkTimeNow from '../../../utils/checkTimeNow';
 
-window.matchMedia = window.matchMedia || function () {
-  return {
-    matches: false,
-    addListener() {},
-    removeListener() {},
-  };
-};
 // render notifications body
 it('should render notifications body', () => {
   window.history.pushState({}, '', '/notifications');
