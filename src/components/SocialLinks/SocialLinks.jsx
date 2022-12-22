@@ -25,9 +25,9 @@ import {
  * @property {Function} handleClose -  function to close window to edit data platedform
  * @property {Function} checkSubmission - function to check data before submit
  * @property {Function} handelchange - function to handle input from user
- *  @param {Function} onClose - function when close window
- *  @param {Boolean} settings - bool too know if we in settings page or not
- *  @param {Object} link - data of plateform we choose in settings
+ * @param {Function} onClose - function when close window
+ * @param {Boolean} settings - bool too know if we in settings page or not
+ * @param {Object} link - data of plateform we choose in settings
  */
 function SocialLinks({
   onClose, settings, link,

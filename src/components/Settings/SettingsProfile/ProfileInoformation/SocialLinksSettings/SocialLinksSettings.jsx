@@ -13,12 +13,14 @@ import {
   AddSocialLinks, BootstrapDialog, Social, PlatformIcon,
 } from './styles';
 /**
- * - ProfileInoformation
- * - Edit Display name  and About people in Seetings Page
+ * -  Socail links settings
+ * - Edit Socail links for user
  *  @param {Object} prefs - prefs of user
- *  @param {function} setPrefs set prefs of user
- *  @property {Boolean} open Boolean to open or close popup
- *  @property {function} handleDelete function to delete social link
+ *  @param {function} setPrefs - set prefs of user
+ *  @property {Boolean} open - Boolean to open or close popup
+ *  @property {function} handleDelete - function to delete social link
+ *  @property {Boolean} settings - signal to send to social links be true
+ *  @property {Object} link - platedrom data to send it to socila links component
  *  @component
  */
 function SocialLinksSettings() {
