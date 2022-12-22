@@ -5,7 +5,12 @@ import MessageBody from './MessageBody/MessageBody';
 import {
   SentContiner,
 } from './style';
-
+/**
+ * - sent page
+ *  @component
+ * @property {Array} valuse - Array of messages
+ *  @return {React.Component} - sent page
+ */
 function MessageSent() {
   const [valuse, setValues] = useState();
   const [message] = messageSentFetch();

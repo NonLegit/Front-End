@@ -8,12 +8,15 @@ import {
 } from '../styles';
 import { settingsPost, settingsFetch } from '../settingsServer';
 /**
- * - SettingsFeed
+ * - Settings Feed page
  * - Change Adult content and  Autoplay media in settings page
  *  @component
- *  @property {function} setPrefs set prefs of user
- *  @property {Object} prefs prefs of user
- *  @property {Object} data data from fetch
+ *  @property {function} setPrefs - set prefs of user
+ *  @property {Object} prefs - prefs of user
+ *  @property {Object} data - data from fetch
+ *  @property {Object} handleAdultContent - handle logic Adult Content when user switsh button
+ *  @property {Object} handleAutoplayMedia - handle logic Autoplay Media when user switsh button
+ *  @return {React.Component} - Settings Feed pageh
  */
 function SettingsFeed() {
   const alert = useAlert();

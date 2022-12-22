@@ -7,7 +7,15 @@ import
   Body, MessageBoddy, TeaxArea, ButtonsContanier, Error, Footer,
   MessageHeader, LinkProfile, MessageContent, ReplayButton, SubmitButton,
 } from './style';
-
+/**
+ * - Message Body in sent page
+ *  @component
+ * @param {Object} Message - Message Info
+ * @param {Number}index - index of message
+ * @param {Function} setReplies - function to update replies
+ * @param {Array} replies - Array of messages
+ *  @return {React.Component} - Message Body in sent page
+ */
 function MessageBody({
   Message, index, setReplies, replies,
 }) {

@@ -3,7 +3,12 @@ import MessageInboxBar from '../MessageInboxBar/MessageInboxBar';
 import { repliesServer } from '../PostRepliesServer';
 import MessageBody from './MessageBody/MessageBody';
 import { MessageContiner } from './style';
-
+/**
+ * - Post Replies page
+ *  @component
+ * @property {Array} data - Array of messages
+ *  @return {React.Component} - Post Replies page
+ */
 function PostReplies() {
   const [replies, setReplies] = useState([]);
   const [data] = repliesServer();

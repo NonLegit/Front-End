@@ -10,7 +10,9 @@ import theme from '../../../../../styles/theme';
 
 // scripts
 import { redirectLogin } from '../../../../../utils/Redirect';
-
+/**
+ * - function server to change password of user
+ */
 export const changePassword = (
   setLoading,
   oldPassword,

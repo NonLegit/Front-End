@@ -29,6 +29,9 @@ export const settingsPost = async (prefs) => {
     });
   return [message, flag];
 };
+/**
+ * - fetch data prefs of user
+ */
 export const settingsFetch = () => {
   const api = '/users/me/prefs';
   const [data, dataError, statusCode] = useFetch(api);
@@ -42,7 +45,9 @@ export const settingsFetch = () => {
   const prefs = data;
   return [prefs];
 };
-
+/**
+ * - post image and panner photo
+ */
 export const imagePost = async (data) => {
   const api = '/users/images';
   console.log('hh', data);

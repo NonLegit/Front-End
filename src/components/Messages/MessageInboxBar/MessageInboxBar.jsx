@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Header, HeaderTabs, HeaderContainer } from './style';
-
+/**
+ * - Message Inbox Bar
+ * - header of Inbox message page
+ *  @component
+ *  @return {React.Component} - Message Inbox Bar
+ */
 function MessageInboxBar() {
   const pathArray = window.location.pathname.split('/');
 

@@ -10,6 +10,14 @@ import {
 } from './styles';
 
 const { REACT_APP_SITEKEY } = process.env;
+/**
+ * - Message Form to send message
+ *  @property {Array} checkForm - Array of boolean to check valid input data
+ *  @property {boolean} showAnimation  - bool to show animation or not
+ *  @property {boolean} robotCheck - check if robot or not
+ *  @property {Object} value - value of input data from user
+ *  @return {React.Component} - Body of privacy settings page
+ */
 function MessageForm() {
   const [cookies, setCookies] = useCookies(['redditUser']);
   const [checkForm, setCheckForm] = useState([false, false, false, false]);

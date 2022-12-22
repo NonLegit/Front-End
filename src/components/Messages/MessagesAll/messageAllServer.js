@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from '../../../services/instance';
 import { redirectLogin } from '../../../utils/Redirect';
 /**
- * - Notifications Fetch
+ * - messages All Server
  */
 
 export const messagesAllServer = () => {

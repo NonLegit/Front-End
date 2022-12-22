@@ -1,7 +1,7 @@
 import axios from '../../../services/instance';
 import { redirectLogin } from '../../../utils/Redirect';
 /**
- * - Notifications Fetch
+ * - post message from
  */
 
 export const postData = async (data) => {
