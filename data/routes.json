@@ -1,6 +1,4 @@
 {
-
-
   "/users/:name/overview?limit=:limit&page=:page&sort=:sortType": "/overview",
   "/users/:name/posts?limit=:limit&page=:page&sort=:sortType": "/postsTap",
   "/users/:name/comments?limit=:limit&page=:page&sort=:sortType": "/commentsTap",
@@ -94,6 +92,8 @@
     "/messages":"/MessageDrive",
     "/messages/:parentMessageId/reply":"/MessageReplay",
     "/messages/all":"/messagesAll",
+    "/messages/unread":"/messageUnread",
+    "/messages/mark_as_read ":"/messageAsRead",
     "/messages/:messageId":"/messageRemove",
     "/subreddits/:subredditName/muted":"/muted",
     "/subreddits/:subredditName/moderators":"/moderators",
@@ -121,7 +121,11 @@
   "/posts/:postId/delete": "/delete",
   "/notifications/token": "/notificationToken",
   "/subreddits/:subredditName/banned": "/baned",
-  "subreddits/:subredditName/flairs": "/AddFlair",
-  "subreddits/:subredditName/flairs/:flairId": "/EditFlair",
-  "subreddits/:subredditName/rules/:title": "/AddRule"
+  "/subreddits/:subredditName/flairs": "/AddFlair",
+  "/subreddits/:subredditName/flairs/:flairId": "/EditFlair",
+  "/users/change_email": "/changePassword",
+  "/users/change_password": "/changeEmail",
+  "/users/delete_account/": "/deleteAccount",
+  "/users/verify_email/:token": "/verifyEmail",
+  "/subreddits/:subredditName/:action/invitation": "/SubreddtInvitation"
 }

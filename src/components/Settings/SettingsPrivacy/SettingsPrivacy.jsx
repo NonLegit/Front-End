@@ -17,7 +17,7 @@ import {
  *  @component
  *  @property {String} name - name of user will blocked
  *  @property {function} data  - handle NSFW when user click on the button
- *  @ {Array} blocked -  Array of blocked users
+ *  @property {Array} blocked -  Array of blocked users
  *  @return {React.Component} - Body of privacy settings page
  */
 function SettingsPrivacy() {
