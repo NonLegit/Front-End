@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from '../../../../../../services/instance';
 
+/**
+*
+* Function to perfom api request. fetch list of muted users
+* @param {string} subredditName - name of the subreddit
+* @returns {Array} array of muted users
+*/
 export const mutedFetch = (subredditName) => {
   const [data, setData] = useState([]);
 
