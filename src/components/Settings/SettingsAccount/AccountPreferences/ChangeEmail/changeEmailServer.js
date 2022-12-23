@@ -2,7 +2,9 @@
 import { redirectHome } from '../../../../../utils/Redirect';
 import axios from '../../../../../services/instance';
 // import { redirectLogin } from '../../../../../utils/Redirect';
-
+/**
+ * - pchange Email of user
+ */
 export const changeEmail = (newEmail, password) => {
   console.log('change EMAIL', newEmail, password);
   axios.post(

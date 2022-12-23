@@ -1,7 +1,9 @@
 import {
   Footer, HeaderLinks, ContainerLinks, Links, EndFooter, FooterLinks,
 } from './styles';
-
+/**
+ * - footer message in pages
+ */
 function MessageFooter() {
   return (
     <Footer>

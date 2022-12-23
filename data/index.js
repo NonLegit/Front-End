@@ -85,6 +85,13 @@ const muteUnmute = require('./muteUnmuteList.json');
 const approvedUnapproved = require('./approvedUnapprovedList.json');
 const banUnban = require('./banUnban.json');
 const invitedModerators = require('./invitedModerators.json');
+const messageUnread = require('./messageUnread.json');
+const messageAsRead = require('./messageAsRead.json');
+const changeEmail = require('./changeEmail.json');
+const changePassword = require('./changePassword.json');
+const deleteAccount = require('./deleteAccount.json');
+const verifyEmail = require('./verifyEmail.json');
+const SubreddtInvitation = require('./SubreddtInvitation.json');
 // Something more
 
 module.exports = () => ({
@@ -176,5 +183,12 @@ module.exports = () => ({
   banUnban,
   invitedModerators,
   posts,
+  messageUnread,
+  messageAsRead,
+  changeEmail,
+  changePassword,
+  deleteAccount,
+  verifyEmail,
+  SubreddtInvitation,
   // Something more
 });

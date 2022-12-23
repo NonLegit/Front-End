@@ -4,9 +4,10 @@ import {
   HeaderContiner, TabsContiner, Tab, TabText, Nav,
 } from './styles';
 /**
- * - SettingsHeader
- * - Head of Settings
+ * - Settings Header
+ * - Header of settings page
  *  @component
+ *  @return {React.Component} - Body of  Header of settings page
  */
 function SettingsHeader() {
   const [navigate, setNavigate] = useState('/settings');

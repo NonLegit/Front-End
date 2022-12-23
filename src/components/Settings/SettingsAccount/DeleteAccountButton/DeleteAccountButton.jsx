@@ -8,7 +8,14 @@ import {
   Input, CheckBox, CheckText, Footer, SaveBtn,
 } from './styles';
 import { deleteAccount } from './deleteAccountServer';
-
+/**
+ * - Delete Account
+ * - Delete Account popup
+ *  @component
+ *  @property {function} username - username of user
+ *  @property {Boolean} password - password of user
+ *  @return {React.Component} - popup of delete account
+ */
 function DeleteAccountButton({ setOpenPass }) {
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);

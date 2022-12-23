@@ -14,7 +14,14 @@ import {
 } from './styles';
 import { SettingsContext } from '../../../../../contexts/SettingsProvider';
 import { settingsPost } from '../../../settingsServer';
-
+/**
+ * - Change Gender
+ *  @component
+ *   @property {Object} prefs -  prefs of user
+ *  @property {Function} setPrefs -update prefs of usre
+ *  @property {Boolean} open  - open or close list
+ *  @return {React.Component} -list to change gender of user
+ */
 function ChangeGender() {
   const {
     prefs, setPrefs,

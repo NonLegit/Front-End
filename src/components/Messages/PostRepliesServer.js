@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from '../../services/instance';
 import { redirectLogin } from '../../utils/Redirect';
 /**
- * - Notifications Fetch
+ * - post replies Server Fetch
  */
 
 export const repliesServer = () => {
@@ -23,6 +23,11 @@ export const repliesServer = () => {
   }, [api]);
   return [data];
 };
+/**
+ * - delete Message Server
+ *  @param {Number} id - id of deleted message
+
+ */
 
 export const deleteMessage = (id) => {
   console.log('sa');
@@ -39,6 +44,12 @@ export const deleteMessage = (id) => {
       }
     });
 };
+/**
+ * - replay Message Server
+ *  @param {Number} id - id of message which replied
+ *  @param {String} id - text of replay
+ */
+
 export const replayMessage = (id, text) => {
   console.log('sa');
   const api = `/messages/${id}/reply`;

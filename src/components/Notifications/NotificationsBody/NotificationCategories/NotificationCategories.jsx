@@ -19,12 +19,16 @@ export const ReplayContext = createContext();
 /**
  *  Notification Categories
  *  @component
+ * @param {Boolean} NavBar - to know if the the parent component is navbar or not
  * @param {Array} earlier - Array of earlier notifications
  * @param {Array} today - type of today notifiactions
  * @param {Function} handleClose - function to set what notifiacation we select and it's type
  * @param {Function} handleClick - function to handel deleteing when click hide
  * @param {Boolean} open - bool to set open or close
  * @param {object} anchorEl - anchor element
+ * @property {function} body - retrun text of body based on type of notifications
+ * @property {function} follwed - retrun text of header based on type of notifications
+ * @property {function} handleLink - navigate to page based on type of notifications
  * @return {React.Component} - Retrun all notificaions dependent on type today or earlier
  */
 function NotificationCategories({ NavBar }) {

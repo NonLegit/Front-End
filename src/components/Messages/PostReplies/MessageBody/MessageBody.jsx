@@ -8,7 +8,15 @@ import
   Body, MessageBoddy, ReplayButton, Error,
   MessageHeader, LinkProfile, MessageContent, Footer,
 } from './style';
-
+/**
+ * - Message Body in post replies page
+ *  @component
+ * @param {Object} Message - Message Info
+ * @param {Number}index - index of message
+ * @param {Function} setReplies - function to update replies
+ * @param {Array} replies - Array of messages
+ *  @return {React.Component} - Message post replies page
+ */
 function MessageBody({
   Message, index, setReplies, replies,
 }) {
