@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DraggableMedia DraggableMedia renders correctly 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "dragDropManager": DragDropManagerImpl {
+        "backend": HTML5BackendImpl {
+          "actions": Object {
+            "beginDrag": [Function],
+            "drop": [Function],
+            "endDrag": [Function],
+            "hover": [Function],
+            "publishDragSource": [Function],
+          },
+          "altKeyPressed": false,
+          "asyncEndDragFrameId": null,
+          "cancelHover": [Function],
+          "currentDragSourceNode": null,
+          "currentNativeHandle": null,
+          "currentNativeSource": null,
+          "dragEnterTargetIds": Array [],
+          "dragOverTargetIds": null,
+          "dragStartSourceIds": null,
+          "dropTargetIds": Array [],
+          "endDragIfSourceWasRemovedFromDOM": [Function],
+          "endDragNativeItem": [Function],
+          "enterLeaveCounter": EnterLeaveCounter {
+            "entered": Array [],
+            "isNodeInDocument": [Function],
+          },
+          "getSourceClientOffset": [Function],
+          "handleSelectStart": [Function],
+          "handleTopDragEndCapture": [Function],
+          "handleTopDragEnter": [Function],
+          "handleTopDragEnterCapture": [Function],
+          "handleTopDragLeaveCapture": [Function],
+          "handleTopDragOver": [Function],
+          "handleTopDragOverCapture": [Function],
+          "handleTopDragStart": [Function],
+          "handleTopDragStartCapture": [Function],
+          "handleTopDrop": [Function],
+          "handleTopDropCapture": [Function],
+          "hoverRafId": null,
+          "isNodeInDocument": [Function],
+          "lastClientOffset": null,
+          "monitor": DragDropMonitorImpl {
+            "registry": HandlerRegistryImpl {
+              "dragSources": Map {},
+              "dropTargets": Map {},
+              "pinnedSource": null,
+              "pinnedSourceId": null,
+              "store": Object {
+                "@@observable": [Function],
+                "dispatch": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              },
+              "types": Map {},
+            },
+            "store": Object {
+              "@@observable": [Function],
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+          },
+          "mouseMoveTimeoutTimer": null,
+          "options": OptionsReader {
+            "globalContext": [Window],
+            "optionsArgs": Object {},
+            "ownerDocument": null,
+          },
+          "registry": HandlerRegistryImpl {
+            "dragSources": Map {},
+            "dropTargets": Map {},
+            "pinnedSource": null,
+            "pinnedSourceId": null,
+            "store": Object {
+              "@@observable": [Function],
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "types": Map {},
+          },
+          "scheduleHover": [Function],
+          "sourceNodeOptions": Map {},
+          "sourceNodes": Map {},
+          "sourcePreviewNodeOptions": Map {},
+          "sourcePreviewNodes": Map {},
+        },
+        "handleRefCountChange": [Function],
+        "isSetUp": false,
+        "monitor": DragDropMonitorImpl {
+          "registry": HandlerRegistryImpl {
+            "dragSources": Map {},
+            "dropTargets": Map {},
+            "pinnedSource": null,
+            "pinnedSourceId": null,
+            "store": Object {
+              "@@observable": [Function],
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "types": Map {},
+          },
+          "store": Object {
+            "@@observable": [Function],
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          },
+        },
+        "store": Object {
+          "@@observable": [Function],
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+      },
+    }
+  }
+>
+  <DraggableMedia
+    activeMediaFile={0}
+    id={1}
+    media={
+      Object {
+        "src": "src",
+      }
+    }
+    mediaDelete={[Function]}
+    mediaSwap={[Function]}
+    setActiveMediaFile={[Function]}
+  />
+</Context.Provider>
+`;

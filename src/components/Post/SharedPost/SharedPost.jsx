@@ -20,27 +20,8 @@ import PostHeader from './PostHeader/PostHeader';
  * This component is the view of the post in home page.
  *
  * @component Post
- * @property {string} title -Post title.
- * @property {string} ownerType -Post owner type user or subreddit.
- * @property {string} ownerIcon -Post owner icon.
- * @property {string} ownerName -Post subreddit(post owner).
- * @property {string} authorName -Post author.
- * @property {string} flairText -Post flair text.
- * @property {string} flairBackgroundColor -Post flair background color.
- * @property {string} flairColor -Post flair color.
- * @property {string} kind -Post kind (link, self, image, video).
- * @property {Array.<string>} images -Array of sources of images
- * @property {Array.<string>} videos -Array of sources of vidoes
- * @property {number} votes -Number of post votes.
- * @property {number} commentCount -Number of post comments.
- * @property {string} text -Post text in case of "self" kind.
+ * @property {Post} sharedFrom -The parent post of the current one.
  * @property {boolean} subreddit -to identify if post in home page or subreddit.
- * @property {number} postVoteStatus -The last vote of the current user in this post.
- * @property {boolean} isSaved -Is this post saved by the current user or not.
- * @property {number} postId -The Id of the current post.
- * @property {string} url -The post url.
- * @property {boolean} nsfw -Whether the post is not safe for work or not.
- * @property {boolean} spoiler -Whether the post is spoiler or not.
  * @returns {React.Component} Post
  */
 

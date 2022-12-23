@@ -1,16 +1,16 @@
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from '@mui/system';
 import { MemoryRouter as Router } from 'react-router-dom';
-import HomePageContainer from './HomePageContainer';
-import theme from '../../../styles/theme';
+import AllContainer from './AllContainer';
 import ListingContextProvider from '../../../contexts/ListingContext';
+import theme from '../../../styles/theme';
 import PostTypeContextProvider from '../../../contexts/PostTypeContext';
 import HiddenPostsContextProvider from '../../../contexts/HiddenPostsContext';
 import EditPostContextProvider from '../../../contexts/EditPostContext';
 import CreatePostSidebarContextProvider from '../../../contexts/CreatePostSidebarContext';
 
-describe(HomePageContainer, () => {
-  it('PopularContainer renders correctly', () => {
+describe(AllContainer, () => {
+  it('AllContainer renders correctly', () => {
     const tree = renderer
       .create(
         <Router>
@@ -20,14 +20,14 @@ describe(HomePageContainer, () => {
                 <HiddenPostsContextProvider>
                   <EditPostContextProvider>
                     <ThemeProvider theme={theme}>
-                      <HomePageContainer />
+                      <AllContainer />
                     </ThemeProvider>
                   </EditPostContextProvider>
                 </HiddenPostsContextProvider>
               </PostTypeContextProvider>
             </ListingContextProvider>
           </CreatePostSidebarContextProvider>
-          ,
+
         </Router>,
 
       )

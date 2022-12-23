@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from '@mui/system';
 import { MemoryRouter as Router } from 'react-router-dom';
-import HomePageContainer from './HomePageContainer';
+import PopularContainer from './PopularContainer';
 import theme from '../../../styles/theme';
 import ListingContextProvider from '../../../contexts/ListingContext';
 import PostTypeContextProvider from '../../../contexts/PostTypeContext';
@@ -9,7 +9,7 @@ import HiddenPostsContextProvider from '../../../contexts/HiddenPostsContext';
 import EditPostContextProvider from '../../../contexts/EditPostContext';
 import CreatePostSidebarContextProvider from '../../../contexts/CreatePostSidebarContext';
 
-describe(HomePageContainer, () => {
+describe(PopularContainer, () => {
   it('PopularContainer renders correctly', () => {
     const tree = renderer
       .create(
@@ -20,7 +20,7 @@ describe(HomePageContainer, () => {
                 <HiddenPostsContextProvider>
                   <EditPostContextProvider>
                     <ThemeProvider theme={theme}>
-                      <HomePageContainer />
+                      <PopularContainer />
                     </ThemeProvider>
                   </EditPostContextProvider>
                 </HiddenPostsContextProvider>

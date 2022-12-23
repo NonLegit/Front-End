@@ -9,6 +9,19 @@ import DraggableMedia from './DraggableMedia/DraggableMedia';
 import PostMediaDetails from './PostMediaDetails/PostMediaDetails';
 import PostVideo from './PostVideo/PostVideo';
 
+/**
+ * This component is post media
+ *
+ * @component PostMedia
+ * @property {function} handlePostMedia -Handle the change in post media.
+ * @property {function} setPostMedia -To set post media
+ * @property {function} setActiveMediaFile -To set active media file
+ * @property {Array<Media>} postMedia -Array of post media.
+ * @property {Number} activeMediaFile -The id of the active media file.
+ * @property {Number} availableType -The type of available suploads (images or vidoes).
+ * @returns {React.Component} PostMedia
+ */
+
 function PostMedia(props) {
   // props
   const {
