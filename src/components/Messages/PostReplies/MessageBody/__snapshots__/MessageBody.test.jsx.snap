@@ -1,86 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`test snapshot 1`] = `
-Array [
-  <div
-    className="css-1m4jhtx"
+<div
+  className="css-1m4jhtx"
+>
+  <h3
+    className="css-1rketks"
   >
-    <h3
-      className="css-1rketks"
+    post reply
+     
+  </h3>
+  <div
+    className="css-1gk4ta0"
+  >
+    <span
+      className="css-14h9z5o"
     >
-      post reply
+       from
+    </span>
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-16t18fq-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="profile"
+    >
+      Eslam
        
-    </h3>
+    </a>
+    <span
+      className="css-14h9z5o"
+    >
+        via
+    </span>
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-16t18fq-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="profile"
+    >
+      r/BNHA
+       
+    </a>
+     
+    <span
+      className="css-14h9z5o"
+    >
+      5 days ago
+    </span>
     <div
-      className="css-1gk4ta0"
+      className="css-1aajy1n"
     >
-      <span
-        className="css-14h9z5o"
-      >
-         from
-      </span>
-       
-      <a
-        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-16t18fq-MuiTypography-root-MuiLink-root"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        type="profile"
-      >
-        Eslam
-         
-      </a>
-      <span
-        className="css-14h9z5o"
-      >
-          via
-      </span>
-       
-      <a
-        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-16t18fq-MuiTypography-root-MuiLink-root"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        type="profile"
-      >
-        r/BNHA
-         
-      </a>
-       
-      <span
-        className="css-14h9z5o"
-      >
-        5 days ago
-      </span>
+      fady is going to school
+    </div>
+    <div
+      className="css-1mcghfl"
+    >
       <div
-        className="css-1aajy1n"
+        className="css-2l2kjs"
+        onClick={[Function]}
       >
-        fady is going to school
+        Remove
       </div>
       <div
-        className="css-1mcghfl"
+        className="css-2l2kjs"
+        onClick={[Function]}
       >
-        <div
-          className="css-2l2kjs"
-          onClick={[Function]}
-        >
-          Remove
-        </div>
-        <div
-          className="css-2l2kjs"
-          onClick={[Function]}
-        >
-          Block user
-        </div>
-        <div
-          className="css-2l2kjs"
-          onClick={[Function]}
-        >
-          Mark Unread
-        </div>
+        Block user
+      </div>
+      <div
+        className="css-2l2kjs"
+        onClick={[Function]}
+      >
+        Mark Unread
       </div>
     </div>
-  </div>,
-  ",",
-]
+  </div>
+</div>
 `;
