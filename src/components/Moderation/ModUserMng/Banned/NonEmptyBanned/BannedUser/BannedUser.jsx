@@ -14,6 +14,19 @@ import EditBanPopUp from '../../BanUserPopUp/EditBanPopUp/EditBanPopUp';
 
 export const EditBanContext = React.createContext();
 
+/**
+ * Banned user instace
+ * @component
+ * @property  {string} username username of banned user
+ * @property  {string} profilePicture link to banned user profile picture
+ * @property  {string} banDate the date that the user is banned at
+ * @property {enum} punishType explain why this user is banned (spam or threatining etc...)
+ * @property {string} note note from the moderator about the banned user
+ * @property {string} punishReason extra details about the banned user
+ * @property {unsigned int} duration the duration ban for the banned user it ranges from 0 to 999 and can be permenant
+ * @return {React.Component} - Banned user instace component
+ */
+
 function BannedUser(props) {
   const {
     userName, profilePicture, banDate, punishType, note, punishReason, duration,

@@ -6,6 +6,12 @@ import {
 
 const arr = ['link1', 'link2', 'Meta', 'link'];
 
+/**
+ * similar topics of the explore page
+ * @component
+ * @return {React.Component} - similar topics component
+ */
+
 function SimilarTopics() {
   return (
     <SimilarTopicsContainer>

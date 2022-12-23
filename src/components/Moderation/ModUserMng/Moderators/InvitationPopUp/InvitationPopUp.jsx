@@ -10,6 +10,12 @@ import Foooter from '../../Footer/Footer';
 import Permissions from '../Permissions/Persmissions';
 import { inviteMod } from './invitationServer';
 
+/**
+ * invitation popup for moderator page
+ * @component
+ * @return {React.Component} - invite moderator popup component
+ */
+
 function InvitationPopUp() {
   const { subReddit } = useParams();
 

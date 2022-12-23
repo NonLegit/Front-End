@@ -9,6 +9,13 @@ import Foooter from '../../Footer/Footer';
 import Permissions from '../Permissions/Persmissions';
 import { editMod } from './editServer';
 
+/**
+ * Edit popup for moderator page
+ * @component
+ * @property {string} username username of the moderator
+ * @return {React.Component} - edit moderator popup component
+ */
+
 function EditPopUp(props) {
   const { userName } = props;
   const { subReddit } = useParams();

@@ -2,6 +2,12 @@ import * as React from 'react';
 import { Checkbox, Divider } from '@mui/material';
 import { StyledFormHelperText, StyledFormControlLabel, StyledPermissionContainer } from './styled';
 
+/**
+ * permissions that tha moderator has
+ * @component
+ * @return {React.Component} - permissions that the moderator has
+ */
+
 export default function IndeterminateCheckbox() {
   const [checkedAccess, setChecked1] = React.useState(true);
   const [checkedConfig, setChecked2] = React.useState(true);

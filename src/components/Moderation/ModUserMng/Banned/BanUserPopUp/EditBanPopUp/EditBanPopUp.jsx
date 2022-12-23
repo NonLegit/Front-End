@@ -12,6 +12,17 @@ import EditBanFooter from '../EditBanFooter/EditBanFooter';
 import { EditBanContext } from '../../NonEmptyBanned/BannedUser/BannedUser';
 import { banUnbanUser, Editban } from '../banServer';
 
+/**
+ * EditBan popup
+ * @component
+ * @property  {string} userName username of banned user
+ * @property  {string} note the moderator note about the banned user
+ * @property  {string} punishReason more details from the moderator about the banned user
+ * @property  {enum} punishType enum explain why this user is banned ( spam of threatining ... etc)
+ * @property  {unsigned int} duration the period that the user is banned it ranges from 0 to 999 or may be permenant
+ * @return {React.Component} - EditBan popup
+ */
+
 function EditBanPopUp(props) {
   const {
     userName, note, punishReason, punishType, duration,

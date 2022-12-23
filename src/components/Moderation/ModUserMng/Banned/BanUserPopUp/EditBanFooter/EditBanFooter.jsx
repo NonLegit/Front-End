@@ -4,6 +4,15 @@ import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
 import { UserMngButton } from '../../../styles';
 
+/**
+ * EditBan popup footer
+ * @component
+ * @property  {function} handleClickCloseBan close the popup
+ * @property  {function} handleUnban unban user and send data to the backend
+ * @property  {function} handleEditBan edit banned user data from the duration of be panned to the reason and the ban message etc
+ * @return {React.Component} - EditBan popup foooter
+ */
+
 function EditBanFooter(props) {
   const { handleClickCloseBan, handleUnban, handleEditBan } = props;
   return (

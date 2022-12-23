@@ -4,6 +4,13 @@ import { HeaderContainer, StyledLink } from './styles';
 import NavButtons from '../NavButtons/NavButtons';
 import { useHeaderSubtitleContext } from '../../../contexts/HeaderSubtitleContext';
 
+/**
+ * explore page header
+ * @component
+ * @property {string} headerSubtitle the header title of the explore page
+ * @return {React.Component} - explore page header component
+ */
+
 function ExploreHeader(props) {
   const {
     headerSubtitle,

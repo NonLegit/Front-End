@@ -8,6 +8,12 @@ import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
 import EmptyBanned from '../../EmptyBanned/EmptyBanned';
 
+/**
+ * banned user list
+ * @component
+ * @return {React.Component} - banned user list
+ */
+
 function BannedUserList() {
   const [data, setData] = React.useState('');
   const childToParent = (childData) => {

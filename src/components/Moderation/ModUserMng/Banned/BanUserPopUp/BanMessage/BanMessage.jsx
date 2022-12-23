@@ -3,6 +3,13 @@ import { Typography } from '@mui/material';
 import { StyledBox } from './styles';
 import { FullDiscTextArea, Count } from '../../../../Rules/AddRule/style';
 
+/**
+ * BanMessage
+ * @component
+ * @property  {string} punishReason text to explain more details about why this user is banned if available
+ * @return {React.Component} - BanMessageComponent (text area)
+ */
+
 function BanMessage(props) {
   const { punishReason } = props;
   const [count, setCount] = React.useState(5000);

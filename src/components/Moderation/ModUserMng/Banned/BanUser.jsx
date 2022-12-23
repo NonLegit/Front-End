@@ -13,6 +13,12 @@ import BannedUserList from './NonEmptyBanned/BannedUserList/BannedUserList';
 
 export const BanContext = React.createContext();
 
+/**
+ * the whole page of banned
+ * @component
+ * @return {React.Component} - banned user page
+ */
+
 function Ban() {
   const [openBan, setOpenBan] = React.useState(false);
 

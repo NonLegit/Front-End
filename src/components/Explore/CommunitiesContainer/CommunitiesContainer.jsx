@@ -5,6 +5,13 @@ import Community from '../Community/Community';
 import { StyledCommunitiesContainer } from './styles';
 import { exploreCommunities } from './CommunitiesTabServer';
 
+/**
+ * communities and their header
+ * @component
+ * @property {string} title title of the communities
+ * @return {React.Component} - communities and their header
+ */
+
 function CommunitiesContainer(props) {
   const { title } = props;
   const [communities] = exploreCommunities(title);

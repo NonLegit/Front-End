@@ -11,6 +11,15 @@ import RemovePopUp from '../../ApproveUserPopUp/RemovePopUp/RemovePopUp';
 
 export const RemoveContext = React.createContext();
 
+/**
+ * approved user instance
+ * @component
+ * @property  {string} userName username of the approved user
+ * @property  {string} profilePicture link to the profile picture of the approved
+ * @property  {string} joiningDate the date of the approved user to be approved
+ * @return {React.Component} - approved user instance
+ */
+
 function ApprovedUser(props) {
   const {
     userName, profilePicture, joiningDate,
