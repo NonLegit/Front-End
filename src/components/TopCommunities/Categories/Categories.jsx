@@ -2,6 +2,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { CategoriesBox, Entity, HeaderText } from './styles';
 
+/**
+ * left side bar on top communities
+ *
+ * @component Categories
+ * @property {array} allCategories - conatins all categories in the left sidebar
+ * @returns {React.Component} Categories
+ */
 function Categories({ allCategories }) {
   const { category } = useParams();
   const navigate = useNavigate();
