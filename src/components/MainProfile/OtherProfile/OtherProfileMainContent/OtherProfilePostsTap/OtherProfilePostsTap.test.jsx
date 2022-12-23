@@ -1,16 +1,19 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import OtherProfileMainContent from '../OtherProfileMainContent';
 import OtherProfilePostsTap from './OtherProfilePostsTap';
+import ListingContextProvider from '../../../../../contexts/ListingContext';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(<Router><OtherProfileMainContent><OtherProfilePostsTap /></OtherProfileMainContent></Router>).toJSON();
+  const tree = renderer.create(
+    <Router>
+      <ListingContextProvider>
+        <OtherProfileMainContent>
+          <OtherProfilePostsTap />
+        </OtherProfileMainContent>
+      </ListingContextProvider>
+    </Router>,
+  ).toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-test('test snapshot', async () => {
-  render(<Router><OtherProfileMainContent><OtherProfilePostsTap /></OtherProfileMainContent></Router>);
-//   expect(tree).toMatchSnapshot();
 });

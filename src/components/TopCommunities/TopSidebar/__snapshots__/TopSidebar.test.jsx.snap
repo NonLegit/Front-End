@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="MuiBox-root css-vosjcs"
+  >
+    <h6
+      className="MuiTypography-root MuiTypography-h6 css-tjvwag-MuiTypography-root"
+    >
+      Today's Top Growing Communities
+    </h6>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-15tzfi-MuiTypography-root"
+    >
+      Browse Reddit's top growing communities. Find the top communities in your favorite category.
+    </span>
+  </div>,
+  <div
+    className="MuiBox-root css-1ebt5lb"
+  >
+    <div
+      className="MuiBox-root css-6087h4"
+    >
+      <div
+        className="MuiBox-root css-1k4tsp7"
+      >
+        Categories
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        onClick={[Function]}
+      >
+        Moderating
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-tp80fy-MuiSvgIcon-root"
+          data-testid="AdminPanelSettingsIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17 11c.34 0 .67.04 1 .09V6.27L10.5 3 3 6.27v4.91c0 4.54 3.2 8.79 7.5 9.82.55-.13 1.08-.32 1.6-.55-.69-.98-1.1-2.17-1.1-3.45 0-3.31 2.69-6 6-6z"
+          />
+          <path
+            d="M17 13c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 1.38c.62 0 1.12.51 1.12 1.12s-.51 1.12-1.12 1.12-1.12-.51-1.12-1.12.5-1.12 1.12-1.12zm0 5.37c-.93 0-1.74-.46-2.24-1.17.05-.72 1.51-1.08 2.24-1.08s2.19.36 2.24 1.08c-.5.71-1.31 1.17-2.24 1.17z"
+          />
+        </svg>
+      </div>
+      <div
+        className="MuiBox-root css-1usz7u5"
+        condition="true"
+        onClick={[Function]}
+      >
+        All Communities
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Sports
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Gaming
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        News
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        TV
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Aww
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Memes
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Travel
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Crypto
+      </div>
+      <div
+        className="MuiBox-root css-185wczh"
+        condition="false"
+        condition2="false"
+        onClick={[Function]}
+      >
+        Television
+      </div>
+      <div
+        className="MuiBox-root css-128741l"
+        condition="false"
+        condition2="true"
+        onClick={[Function]}
+      >
+        Celebrity
+      </div>
+    </div>
+    <div
+      className="MuiBox-root css-1abqck1"
+    >
+      <div
+        className="MuiBox-root css-x68q3x"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          Today's Top Growing in News
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body2 css-zpemjt-MuiTypography-root"
+        >
+          Rank Change
+        </p>
+      </div>
+    </div>
+    <div
+      className="MuiBox-root css-j7qwjs"
+    >
+      <div
+        className="MuiBox-root css-wnx85s"
+      >
+        <img
+          alt="Subreddit image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
+          height="80"
+          src="https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png"
+        />
+        <div
+          className="MuiBox-root css-py94jh"
+        />
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-558p7v-MuiTypography-root"
+        >
+          Top
+           
+          Sports
+           
+          Communities
+        </p>
+        <div
+          className="MuiBox-root css-dvxtzn"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ynzz6v-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            See All
+             
+            Sports
+          </button>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-wnx85s"
+      >
+        <img
+          alt="Subreddit image"
+          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
+          height="80"
+          src="https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png"
+        />
+        <div
+          className="MuiBox-root css-py94jh"
+        />
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-558p7v-MuiTypography-root"
+        >
+          Top
+           
+          Sports
+           
+          Communities
+        </p>
+        <div
+          className="MuiBox-root css-dvxtzn"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ynzz6v-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            See All
+             
+            Sports
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
