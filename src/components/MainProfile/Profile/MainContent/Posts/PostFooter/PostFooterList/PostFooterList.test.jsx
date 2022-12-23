@@ -1,12 +1,14 @@
 import '@testing-library/jest-dom';
-import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import MainProfile from '../../../../../MainProfile';
 import PostFooterList from './PostFooterList';
 import ListingContextProvider from '../../../../../../../contexts/ListingContext';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(
+  const renderer = new ShallowRenderer();
+
+  const tree = renderer.render(
     <Router>
       <ListingContextProvider>
         <MainProfile>
@@ -15,6 +17,6 @@ test('test snapshot', async () => {
       </ListingContextProvider>
 
     </Router>,
-  ).toJSON();
+  );
   expect(tree).toMatchSnapshot();
 });
