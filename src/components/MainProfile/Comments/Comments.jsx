@@ -7,10 +7,13 @@ import CommentsHeader from './CommentsHeader/CommentsHeader';
 import { CommunitiesContext } from '../../../contexts/CommunitiesModeratorContext';
 
 /**
- * Content component represents an entity of a comment
+ * Comments component shows all comments over a post
  *
  * @component Comments
- * @property {object} comment - conatin all info needed to be shown in the comment
+ * @property {object} entity - conatin all info about the post and the list of comments needed to be shown
+ * @property {boolean} profile - a signal indecates whether i was in the profile or not
+ * @property {boolean} noheader - a signal ensure to remove the header of the post if the post is already shown
+ * @property {boolean} overview - a signal indecates whether the comment was in overview page or not
  * @returns {React.Component} Comments
  */
 
@@ -21,6 +24,10 @@ function Comments(props) {
   const { username } = useParams();
   const { communities } = useContext(CommunitiesContext);
   const [modList, setModList] = useState(false);
+
+  /**
+   * the useState below used to ensure whether the comment was in a subreddit i moderator in or not
+   */
 
   useEffect(() => {
     console.log(entity);

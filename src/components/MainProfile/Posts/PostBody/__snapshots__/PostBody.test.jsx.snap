@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-4ebla4"
+  kind="self"
+>
+  <div
+    className="MuiBox-root css-1uzhzln"
+    onClick={[Function]}
+  >
+    <div
+      className="MuiBox-root css-cal6fg"
+    />
+    <div
+      className="MuiBox-root css-vioamn"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+      data-testid="post-body"
+    />
+  </div>
+</div>
+`;

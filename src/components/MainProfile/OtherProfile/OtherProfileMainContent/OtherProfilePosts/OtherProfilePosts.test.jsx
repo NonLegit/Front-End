@@ -3,8 +3,17 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import OtherProfileMainContent from '../OtherProfileMainContent';
 import OtherProfilePost from './OtherProfilePost';
+import ListingContextProvider from '../../../../../contexts/ListingContext';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(<Router><OtherProfileMainContent><OtherProfilePost /></OtherProfileMainContent></Router>).toJSON();
+  const tree = renderer.create(
+    <Router>
+      <ListingContextProvider>
+        <OtherProfileMainContent>
+          <OtherProfilePost />
+        </OtherProfileMainContent>
+      </ListingContextProvider>
+    </Router>,
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
