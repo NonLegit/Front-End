@@ -6,6 +6,13 @@ import TabPanel from '@mui/lab/TabPanel';
 import { StyledTabs } from './styles';
 import CommunitiesTab from '../CommunitiesTab/CommunitiesTab';
 
+/**
+ * navigation button for explore page between communities and posts
+ * @component
+ * @property {string} title the title of the communities
+ * @return {React.Component} - navigation buttons component
+ */
+
 export default function NavButtons(props) {
   const { title } = props;
   const [value, setValue] = React.useState('1');

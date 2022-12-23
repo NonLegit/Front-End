@@ -2,6 +2,12 @@ import * as React from 'react';
 import { StyledBox } from './styles';
 import { FullDiscTextArea, Count } from '../../../../Rules/AddRule/style';
 
+/**
+ * mute message
+ * @component
+ * @return {React.Component} - mute message component (text area)
+ */
+
 function MuteMessage() {
   const [count, setCount] = React.useState(300);
   const check = (e) => {

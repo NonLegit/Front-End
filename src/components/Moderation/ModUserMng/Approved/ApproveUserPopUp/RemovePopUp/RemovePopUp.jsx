@@ -8,6 +8,11 @@ import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
 import { ApprovedUnapprovedUser } from '../../ApprovedServer';
 
+/**
+ * @component remove popup
+ * @return {React.Component} - remove popup page
+ */
+
 function RemovePopUp(props) {
   const { userName } = props;
   const { subReddit } = useParams();

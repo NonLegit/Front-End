@@ -4,6 +4,13 @@ import {
   StyledBox, StyledFont, StyledMenuItem,
 } from './styles';
 
+/**
+ * Ban reason
+ * @component
+ * @property  {enum} punishType it is the bunish type if the user is spam or Threatening, Harassing, Or Inciting Violence or Personal And Confidential Information or other reason
+ * @return {React.Component} - approved user instance
+ */
+
 function BanReason(props) {
   const { punishType } = props;
   const [punishTypeState, setpunishType] = React.useState(punishType);

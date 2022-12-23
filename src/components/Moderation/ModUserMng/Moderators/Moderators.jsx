@@ -16,6 +16,12 @@ import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
 export const LeaveContext = React.createContext();
 export const InvitationContext = React.createContext();
 
+/**
+ * moderators whole page
+ * @component
+ * @return {React.Component} - mdoerators page component
+ */
+
 function Moderator() {
   const { subReddit } = useParams();
 

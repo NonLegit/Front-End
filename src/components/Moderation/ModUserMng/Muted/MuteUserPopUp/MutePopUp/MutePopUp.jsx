@@ -10,6 +10,12 @@ import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
 import { MuteUnmuteUser } from '../MuteServer';
 
+/**
+ * mute popup
+ * @component
+ * @return {React.Component} - mute popup component
+ */
+
 function MutePopUp() {
   const { subReddit } = useParams();
 

@@ -8,6 +8,13 @@ import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
 import { MuteUnmuteUser } from '../MuteServer';
 
+/**
+ * Unmute Popup
+ * @component
+ * @property  {string} username the username of the muted user
+ * @return {React.Component} - unmute popup component
+ */
+
 function UnmutePopUp(props) {
   const { subReddit } = useParams();
   const { userName } = props;

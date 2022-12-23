@@ -13,7 +13,13 @@ import ApprovedUserList from './NonEmptyApproved/ApprovedUserList/ApprovedUserLi
 
 export const ApproveContext = React.createContext();
 
-function Aprrove() {
+/**
+ * the whole page of approved
+ * @component
+ * @return {React.Component} - approved user page
+ */
+
+function Approve() {
   const [openApprove, setOpenApprove] = React.useState(false);
 
   const handleClickOpenApprove = () => { setOpenApprove(true); };
@@ -48,4 +54,4 @@ function Aprrove() {
   );
 }
 
-export default Aprrove;
+export default Approve;

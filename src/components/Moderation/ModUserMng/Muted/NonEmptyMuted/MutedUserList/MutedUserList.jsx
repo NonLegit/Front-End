@@ -7,6 +7,12 @@ import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
 import EmptyMuted from '../../EmptyMuted/EmptyMuted';
 
+/**
+ * muted user list
+ * @component
+ * @return {React.Component} - muted user list
+ */
+
 function MutedUserList() {
   const [data, setData] = React.useState('');
   const childToParent = (childData) => {

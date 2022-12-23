@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-j3bmuc"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+  >
+    Note to include in ban message •
+  </p>
+  <textarea
+    className="css-17ggqor"
+    id="banMessage"
+    onChange={[Function]}
+    onInput={[Function]}
+    placeholder="Reason they were banned"
+  />
+  <p
+    className="css-1jfe1hz"
+  >
+    5000
+     
+    Characters remaining
+  </p>
+</div>
+`;

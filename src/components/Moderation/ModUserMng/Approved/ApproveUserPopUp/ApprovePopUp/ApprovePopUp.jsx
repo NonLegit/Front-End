@@ -9,6 +9,11 @@ import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
 import { ApprovedUnapprovedUser } from '../../ApprovedServer';
 
+/**
+ * @component Approve popup
+ * @return {React.Component} - approve popup
+ */
+
 function ApprovePopUp() {
   const { subReddit } = useParams();
   const {
