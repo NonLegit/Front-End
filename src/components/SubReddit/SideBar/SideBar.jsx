@@ -11,6 +11,16 @@ import Rules from './Rules/Rules';
 /**
  * SideBar for subreddit
  * @component
+ * @property {string} disc - description data
+ * @property {object} topics -list of community topics
+ * @property {string} Name -name of the subreddit
+ * @property {string} primaryTopic -primary topic for subreddit
+ * @property {string} createdAt -date of creating the subreddit
+ * @property {object} moderatoesName -list of object of moderators
+ * @property {string} username -user name
+ * @property {object} rules -list of object of rules
+ * @property {Boolean} createPost -to detect the sidebar in subreddit or creat post page
+
  * @return {React.Component} - SideBar for subreddit
  */
 function SideBar(props) {

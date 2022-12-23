@@ -19,7 +19,11 @@ it('open input to add disc', async () => {
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<AddList />).toJSON();
+  const props = {
+    Name: 'aaaa',
+    topics: [],
+  };
+  const tree = renderer.create(<AddList {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

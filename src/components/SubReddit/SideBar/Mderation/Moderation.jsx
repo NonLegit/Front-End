@@ -26,6 +26,12 @@ import AddList from './AddList/AddList';
  * @property  {function} ListSelected handel on select item
  * @property  {function} handleClickAway close the list in  click away
  *
+ * @property {string} disc - description data
+ * @property {object} topics -list of community topics
+ * @property {string} Name -name of the subreddit
+ * @property {string} primaryTopic -primary topic for subreddit
+ * @property {string} num -numder of members
+ * @property {string} createdAt -date of creating the subreddit
  * @return {React.Component} - About section in sidebar for moderators only instead of about section for normal users
  */
 function Moderation(props) {

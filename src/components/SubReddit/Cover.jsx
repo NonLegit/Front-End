@@ -28,6 +28,7 @@ import cleanPage from '../../utils/cleanPage';
  * Subreddit page
  * @component
  * @property  {function} redirect redirect to homepage
+ * @property  {function} cleanPage set number of pages to zero when unmounting the component
  * @property  {function} createCommunity open create community form
  * @property  {function} sendData send data to backend
 

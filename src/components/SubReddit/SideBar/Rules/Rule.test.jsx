@@ -4,6 +4,13 @@ import Rules from './Rules';
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<Rules />).toJSON();
+  const props = {
+    Name: 'aaaa',
+    rules: [{
+      title: '123',
+      description: '',
+    }],
+  };
+  const tree = renderer.create(<Rules {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -16,6 +16,13 @@ it('open form', async () => {
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<About />).toJSON();
+  const props = {
+    Name: 'aaaa',
+    createdAt: '',
+    num: 500,
+    createPost: false,
+    disc: 'aaaaaa',
+  };
+  const tree = renderer.create(<About {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

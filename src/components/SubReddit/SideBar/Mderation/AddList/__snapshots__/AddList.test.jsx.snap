@@ -37,7 +37,24 @@ exports[`test snapshot 1`] = `
     </div>
     <div
       className="MuiBox-root css-p58oka"
-    />
+    >
+      <span
+        className="css-b8vmv"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
+          data-testid="AddOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+        </svg>
+        Add Subject
+      </span>
+    </div>
   </span>
 </h2>
 `;

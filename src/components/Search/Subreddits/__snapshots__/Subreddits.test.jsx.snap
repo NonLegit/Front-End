@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-eo5o9f"
+>
+  <div
+    className="MuiBox-root css-1v6lj4c"
+  >
+    <div
+      className="MuiBox-root css-pl37ux"
+    >
+      <div
+        className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-bzjj9t-MuiAvatar-root"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+          data-testid="PersonIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+      </div>
+      <div
+        className="MuiBox-root css-1db3q1"
+      >
+        <div
+          className="MuiBox-root css-k008qs"
+        >
+          <a
+            className="css-kqg5s"
+            color="#000"
+            fontWeight="bolder"
+            href="/r/undefined"
+            onClick={[Function]}
+          >
+            r/
+          </a>
+          <div
+            className="MuiBox-root css-1clzuz0"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-body1 css-vcah1l-MuiTypography-root"
+            >
+              •
+            </span>
+            <div>
+               
+              member
+            </div>
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ejscwf-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      joined
+    </button>
+  </div>
+</div>
+`;

@@ -1,22 +1,22 @@
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
-import {
-  fireEvent,
-  render, screen,
-} from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Moderation from './Moderation';
-
-it('open input to add disc', async () => {
-  // window.history.pushState({}, '', '/Login');
-  render(<Moderation />);
-  const select = screen.getByTestId('select');
-  fireEvent.click(select);
-  const list = screen.getByTestId('list');
-  expect(list).toBeInTheDocument();
-});
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<Moderation />).toJSON();
+  const props = {
+    Name: 'aaaa',
+    topics: [],
+    primaryTopic: 'aaaa',
+    createdAt: '',
+    num: 500,
+    disc: 'aaaaaa',
+  };
+  const tree = renderer.create(
+    <Router>
+      <Moderation {...props} />
+    </Router>,
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
