@@ -10,6 +10,14 @@ import {
 } from './styles';
 import CommunityEntity from '../CommunityEntity/CommunityEntity';
 
+/**
+ * right side bar on top communities
+ *
+ * @component TopSidebar
+ * @property {array} allCategories - conatins all categories in the left sidebar
+ * @returns {React.Component} TopSidebar
+ */
+
 function TopSidebar({ allCategories }) {
   const [entity, setEntity] = useState(allCategories[0]);
   const [data] = CommunitiesGetter(entity?.text.toLowerCase());

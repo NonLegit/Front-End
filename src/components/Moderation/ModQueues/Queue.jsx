@@ -23,6 +23,13 @@ function useQuery() {
   return useMemo(() => new URLSearchParams(search), [search]);
 }
 
+/**
+ * Queue section in moderation
+ *
+ * @component Queue
+ * @returns {React.Component} Queue
+ */
+
 function Queue() {
   const { subTitle, subReddit } = useParams();
 

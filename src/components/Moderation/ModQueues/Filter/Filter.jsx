@@ -4,6 +4,14 @@ import {
 
 import { FilterBox, FilterText } from './styles';
 
+/**
+ * left side bar on top communities
+ *
+ * @component Filter
+ * @property {number} numItems - number of posts in the page
+ * @property {number} selected - number of selected elements
+ * @returns {React.Component} Filter
+ */
 function Filter(props) {
   const { numItems, selected } = props;
 
