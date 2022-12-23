@@ -15,7 +15,9 @@ exports[`test snapshot 1`] = `
     >
       <div
         className="MuiBox-root css-10i7xi9"
-      />
+      >
+        none
+      </div>
     </div>
     <svg
       aria-hidden={true}
