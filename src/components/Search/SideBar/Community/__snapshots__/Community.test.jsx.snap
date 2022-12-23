@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-0"
+>
+  <h4
+    className="css-15t0qw2"
+  >
+    Communities
+  </h4>
+  <div
+    className="css-1apbjxm"
+  />
+  <div
+    className="MuiBox-root css-1w1vbxm"
+  >
+    <a
+      className="css-lmpkpu"
+      href="/"
+      onClick={[Function]}
+    >
+      See More Communities
+    </a>
+  </div>
+</div>
+`;
