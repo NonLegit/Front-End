@@ -7,6 +7,7 @@ import Post from '../../../Post/Post';
  *
  * @component PostList
  * @property {Array.<post>} posts -post objects fetched
+ * @property {boolean} subredit -Whether the call of post list from subreddit or not.
  * @returns {React.Component} List of all posts
  */
 

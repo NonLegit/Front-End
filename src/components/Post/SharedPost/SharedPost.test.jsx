@@ -1,60 +1,64 @@
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import { ThemeProvider } from '@mui/system';
-// import { screen, render, fireEvent } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import theme from '../../styles/theme';
-import Post from './SharedPost';
+import theme from '../../../styles/theme';
+import SharedPost from './SharedPost';
 
-describe(Post, () => {
-  it('Reactions renders correctly', () => {
-    const testCase = {
-      commentCount:
-        12,
-      author:
-        'righteous_boldness07',
-      flairBackgroundColor:
-        '#0079D3',
-      flairColor:
-        '#000',
-      flairText:
-        'sports/r/all',
-      id:
-        0,
-      image:
-        'https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png',
-      kind:
-        'image',
-      popularity:
-        'Popular videos',
-      sr:
-        'toptalent',
-      title:
-        'In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.',
-      url:
-        'https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e',
-      votes:
-        245,
-    };
+describe(SharedPost, () => {
+  it('SharedPost renders correctly', () => {
+    const testCase = JSON.parse(`{
+        "_id": "63a039107e9602e5da79ac42",
+        "ownerType": "User",
+        "replies": [
+            "63a03c427e9602e5da79ac8b",
+            "63a03c457e9602e5da79ac97",
+            "63a03c4a7e9602e5da79aca3",
+            "63a03c4c7e9602e5da79acaf"
+        ],
+        "title": "new Post @ 12:12",
+        "kind": "self",
+        "text": "<p>Edited Post</p>",
+        "url": "",
+        "images": [],
+        "createdAt": "2022-12-19T10:06:05.781Z",
+        "locked": false,
+        "isDeleted": false,
+        "sendReplies": true,
+        "nsfw": false,
+        "spoiler": false,
+        "votes": 0,
+        "views": 0,
+        "commentCount": 4,
+        "shareCount": 0,
+        "suggestedSort": "new",
+        "scheduled": false,
+        "modState": "unmoderated",
+        "spamCount": 0,
+        "spammedBy": [],
+        "sortOnHot": 835722182890.5,
+        "sortOnBest": 668577746312.4,
+        "__v": 0,
+        "owner": {
+            "_id": "639f824cd9f48a8d75a21aa4",
+            "name": "Basma",
+            "icon": "https://api.nonlegit.click/users/default.png"
+        },
+        "author": {
+            "_id": "639f824cd9f48a8d75a21aa4",
+            "name": "Basma"
+        },
+        "isSaved": false,
+        "postVoteStatus": 0,
+        "isSpam": false
+      }`);
     const tree = renderer
       .create(
         <Router>
           <ThemeProvider theme={theme}>
-            <Post
-              title={testCase.title}
-              image={testCase.image}
-              owner={testCase.owner}
-              author={testCase.author}
-              flairText={testCase.flairText}
-              flairBackgroundColor={testCase.flairBackgroundColor}
-              popularity={testCase.popularity}
-              flairColor={testCase.flairColor}
-              url={testCase.url}
-              kind={testCase.kind}
-              votes={testCase.votes}
-              commentCount={testCase.commentCount}
-              text={testCase.text}
-              key={testCase.id}
+            <SharedPost
+              sharedFrom={testCase}
+              subredit
             />
           </ThemeProvider>
         </Router>
