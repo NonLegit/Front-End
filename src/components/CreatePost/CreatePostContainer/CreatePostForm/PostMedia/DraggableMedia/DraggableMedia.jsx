@@ -4,7 +4,19 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import {
   DeleteButton, Droppable, MediaFileContainer, MediaScreenShot,
 } from './styles';
-
+/**
+ * This component is Draggable Media
+ *
+ * @component DraggableMedia
+ * @property {function} handlePostMedia -Handle the change in post media.
+ * @property {function} mediaSwap -To handle swapping between media.
+ * @property {function} mediaDelete -To handle delete media.
+ * @property {function} setActiveMediaFile -To set active media file.
+ * @property {Media} media -The object of media.
+ * @property {Number} activeMediaFile -The id of the active media file.
+ * @property {Number} id -The id of Draggable Media.
+ * @returns {React.Component} DraggableMedia
+ */
 function DraggableMedia(props) {
   const {
     media, id, mediaSwap, activeMediaFile, setActiveMediaFile, mediaDelete,
