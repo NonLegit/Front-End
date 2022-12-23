@@ -4,6 +4,9 @@ import RemovePopUp from './RemovePopUp';
 import NonEmptyModerator from '../NonEmptyModerator/NonEmptyModerator';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(<Router><NonEmptyModerator><RemovePopUp /></NonEmptyModerator></Router>).toJSON();
+  const props = {
+    posts: true,
+  };
+  const tree = renderer.create(<Router><NonEmptyModerator {...props}><RemovePopUp /></NonEmptyModerator></Router>).toJSON();
   expect(tree).toMatchSnapshot();
 });

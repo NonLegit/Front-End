@@ -5,14 +5,17 @@ import EditPostContextProvider from '../../../../contexts/EditPostContext';
 import ListingContextProvider from '../../../../contexts/ListingContext';
 import NonEmptyQueue from './NonEmptyQueue';
 import Queue from '../Queue';
+import ModerationDrawer from '../../ModerationDrawer/ModerationDrawer';
 
 test('NonEmptyQueue test snapshot', async () => {
-  // window.location.href('https://web.nonlegit.click/r/TryCommunity/about/Unmoderated');
-  // window.history.pushState({}, '', '/subreddits/name/about/posts/location');
+  const ele = document.getElementsByClassName('css-14qooqa-MuiButtonBase-root-MuiListItemButton-root');
+  ele.click();
+
   const tree = renderer.create(
     <Router>
       <ListingContextProvider>
         <EditPostContextProvider>
+          <ModerationDrawer />
           <Queue>
             <NonEmptyQueue />
           </Queue>
