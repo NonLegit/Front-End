@@ -8,6 +8,19 @@ jest.mock('react-router-dom', () => ({
 }));
 
 test('test snapshot', async () => {
-  const tree = renderer.create(<NonEmptyModerator />).toJSON();
+  const tree = renderer.create(
+    <NonEmptyModerator
+      userName="fady"
+      profilePicture="users/default.png"
+      modDate="2022-12-20T00:53:55.071Z"
+      all
+      access
+      config
+      flair
+      posts
+      type={1}
+    />,
+  )
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
