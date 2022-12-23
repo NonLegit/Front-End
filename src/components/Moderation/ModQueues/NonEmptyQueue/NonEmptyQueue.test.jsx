@@ -7,6 +7,8 @@ import NonEmptyQueue from './NonEmptyQueue';
 import Queue from '../Queue';
 
 test('NonEmptyQueue test snapshot', async () => {
+  // window.location.href('https://web.nonlegit.click/r/TryCommunity/about/Unmoderated');
+  // window.history.pushState({}, '', '/subreddits/name/about/posts/location');
   const tree = renderer.create(
     <Router>
       <ListingContextProvider>

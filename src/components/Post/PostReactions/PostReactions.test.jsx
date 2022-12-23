@@ -5,6 +5,8 @@ import { ThemeProvider } from '@mui/system';
 import { screen, render, fireEvent } from '@testing-library/react';
 import PostReactions from './PostReactions';
 import theme from '../../../styles/theme';
+import HiddenPostsContextProvider from '../../../contexts/HiddenPostsContext';
+import EditPostContextProvider from '../../../contexts/EditPostContext';
 
 describe(PostReactions, () => {
   it('PostReactions renders correctly', () => {
@@ -14,14 +16,18 @@ describe(PostReactions, () => {
     const tree = renderer
       .create(
         <Router>
-          <ThemeProvider theme={theme}>
-            <PostReactions
-              votes={testCase.votes}
-              matchSm={testCase.matchSm}
-              matchMd={testCase.matchMd}
-              comments={testCase.comments}
-            />
-          </ThemeProvider>
+          <EditPostContextProvider>
+            <HiddenPostsContextProvider>
+              <ThemeProvider theme={theme}>
+                <PostReactions
+                  votes={testCase.votes}
+                  matchSm={testCase.matchSm}
+                  matchMd={testCase.matchMd}
+                  comments={testCase.comments}
+                />
+              </ThemeProvider>
+            </HiddenPostsContextProvider>
+          </EditPostContextProvider>
         </Router>
         ,
       )
