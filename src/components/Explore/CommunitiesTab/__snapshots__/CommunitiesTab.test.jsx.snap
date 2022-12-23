@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-i9jc9h"
+>
+  <div
+    className="MuiBox-root css-1d1c013"
+  >
+    <div
+      className="MuiBox-root css-12205oe"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        Communities related to
+         
+        sports
+      </p>
+    </div>
+  </div>
+  <div
+    className="MuiBox-root css-0"
+  >
+    <div
+      className="MuiBox-root css-6afwws"
+    >
+      <div
+        className="MuiBox-root css-1orfd0c"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-1yea7sv-MuiTypography-root"
+        >
+          SIMILAR TOPICS
+        </p>
+        <div
+          className="MuiBox-root css-ty89qj"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            data-testid="SearchIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+          </svg>
+          <a
+            className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-xt4bmn-MuiTypography-root-MuiLink-root"
+            href="/"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            link1
+          </a>
+        </div>
+        <div
+          className="MuiBox-root css-ty89qj"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            data-testid="SearchIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+          </svg>
+          <a
+            className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-xt4bmn-MuiTypography-root-MuiLink-root"
+            href="/"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            link2
+          </a>
+        </div>
+        <div
+          className="MuiBox-root css-ty89qj"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            data-testid="SearchIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+          </svg>
+          <a
+            className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-xt4bmn-MuiTypography-root-MuiLink-root"
+            href="/"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            Meta
+          </a>
+        </div>
+        <div
+          className="MuiBox-root css-ty89qj"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+            data-testid="SearchIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+          </svg>
+          <a
+            className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-xt4bmn-MuiTypography-root-MuiLink-root"
+            href="/"
+            onBlur={[Function]}
+            onFocus={[Function]}
+          >
+            link
+          </a>
+        </div>
+      </div>
+    </div>
+    <button
+      adding="4px"
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ub553u-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      fontSize={15}
+      fontWeight="bold"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      p={true}
+      tabIndex={0}
+      type="button"
+    >
+      Back to Top
+    </button>
+  </div>
+</div>
+`;

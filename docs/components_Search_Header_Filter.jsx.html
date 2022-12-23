@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Search/Header/Filter.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Search/Header/Filter.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useNavigate, useSearchParams } from 'react-router-dom';
+
+import {
+  Header, HeaderContainer, MyCategory,
+} from './style';
+
+/**
+ * filter Search by its type
+ *
+ * @component FilterSearch
+ * @property  {function} handleClick navigate
+
+ * @returns {React.Component} filter Search by its type
+ */
+function FilterSearch() {
+  const [searchParams] = useSearchParams();
+
+  const type1 = searchParams.get('type') || 'posts';
+  const type = type1.toLowerCase();
+
+  const qery = searchParams.get('q');
+
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClick = (subPage) => {
+    navigate(`?q=${qery}&amp;type=${subPage}`);
+  };
+
+  return (
+    &lt;HeaderContainer>
+      &lt;Header>
+        &lt;MyCategory
+          condition={(type === 'posts').toString()}
+          onClick={() => { handleClick('posts'); console.log((type === 'posts').toString()); }}
+        >
+          Posts
+        &lt;/MyCategory>
+        &lt;MyCategory
+          condition={(type === 'comments').toString()}
+          onClick={() => { handleClick('comments'); }}
+        >
+          Comments
+        &lt;/MyCategory>
+        &lt;MyCategory
+          condition={(type === 'communities').toString()}
+          onClick={() => { handleClick('communities'); }}
+        >
+          Communities
+        &lt;/MyCategory>
+        &lt;MyCategory
+          condition={(type === 'people').toString()}
+          onClick={() => { handleClick('people'); }}
+        >
+          People
+        &lt;/MyCategory>
+      &lt;/Header>
+    &lt;/HeaderContainer>
+  );
+}
+
+export default FilterSearch;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AccountPreferences.html">AccountPreferences</a></li><li><a href="AddBtn.html">AddBtn</a></li><li><a href="AddList.html">AddList</a></li><li><a href="AddSector.html">AddSector</a></li><li><a href="AllContainer.html">AllContainer</a></li><li><a href="ApprovePopUp.html">ApprovePopUp</a></li><li><a href="ApprovedUser.html">ApprovedUser</a></li><li><a href="ApprovedUserList.html">ApprovedUserList</a></li><li><a href="Aprrove.html">Aprrove</a></li><li><a href="ArrowList.html">ArrowList</a></li><li><a href="BackHomeBottun.html">BackHomeBottun</a></li><li><a href="BackToTop.html">BackToTop</a></li><li><a href="Ban.html">Ban</a></li><li><a href="BanFooter.html">BanFooter</a></li><li><a href="BanMessage.html">BanMessage</a></li><li><a href="BanNote.html">BanNote</a></li><li><a href="BanPeriod.html">BanPeriod</a></li><li><a href="BanPopUp.html">BanPopUp</a></li><li><a href="BanReason.html">BanReason</a></li><li><a href="BannedUser.html">BannedUser</a></li><li><a href="BannedUserList.html">BannedUserList</a></li><li><a href="BootstrapDialog.html">BootstrapDialog</a></li><li><a href="ChangeCountry.html">ChangeCountry</a></li><li><a href="Comments.html">Comments</a></li><li><a href="CommentsContent.html">CommentsContent</a></li><li><a href="CommentsHeader.html">CommentsHeader</a></li><li><a href="Communities.html">Communities</a></li><li><a href="CommunitiesContainer.html">CommunitiesContainer</a></li><li><a href="CommunitiesHeader.html">CommunitiesHeader</a></li><li><a href="CommunitiesTab.html">CommunitiesTab</a></li><li><a href="Community.html">Community</a></li><li><a href="CommunityItem.html">CommunityItem</a></li><li><a href="CommunityList.html">CommunityList</a></li><li><a href="CommunityMianTopic.html">CommunityMianTopic</a></li><li><a href="Content.html">Content</a></li><li><a href="CreatePostContainer.html">CreatePostContainer</a></li><li><a href="CreatePostForm.html">CreatePostForm</a></li><li><a href="CreatePostInHome.html">CreatePostInHome</a></li><li><a href="DrawerBottom.html">DrawerBottom</a></li><li><a href="EditBanFooter.html">EditBanFooter</a></li><li><a href="EditBanHaeder.html">EditBanHaeder</a></li><li><a href="EditBanPopUp.html">EditBanPopUp</a></li><li><a href="EditPopUp.html">EditPopUp</a></li><li><a href="Email.html">Email</a></li><li><a href="EmptyApproved.html">EmptyApproved</a></li><li><a href="EmptyBanned.html">EmptyBanned</a></li><li><a href="EmptyContent.html">EmptyContent</a></li><li><a href="EmptyMuted.html">EmptyMuted</a></li><li><a href="Entity.html">Entity</a></li><li><a href="ExploreHeader.html">ExploreHeader</a></li><li><a href="ExploreMainPage.html">ExploreMainPage</a></li><li><a href="Filter.html">Filter</a></li><li><a href="FilterFull.html">FilterFull</a></li><li><a href="FilterSearch.html">FilterSearch</a></li><li><a href="FilterSmall.html">FilterSmall</a></li><li><a href="FirstParty.html">FirstParty</a></li><li><a href="Flirt.html">Flirt</a></li><li><a href="Footer.html">Footer</a></li><li><a href="ForgetPassword.html">ForgetPassword</a></li><li><a href="ForgetUsername.html">ForgetUsername</a></li><li><a href="FormDialog.html">FormDialog</a></li><li><a href="Header.html">Header</a></li><li><a href="HomeList.html">HomeList</a></li><li><a href="HomePageContainer.html">HomePageContainer</a></li><li><a href="HomePageFooter.html">HomePageFooter</a></li><li><a href="Input.html">Input</a></li><li><a href="InvitationPopUp.html">InvitationPopUp</a></li><li><a href="JoinButton.html">JoinButton</a></li><li><a href="LeavePopUp.html">LeavePopUp</a></li><li><a href="global.html#LogIn">LogIn</a></li><li><a href="LogInPage.html">LogInPage</a></li><li><a href="LogoIcon.html">LogoIcon</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="Moderation.html">Moderation</a></li><li><a href="Moderator.html">Moderator</a></li><li><a href="ModeratorList.html">ModeratorList</a></li><li><a href="Moderators.html">Moderators</a></li><li><a href="ModeratorsList.html">ModeratorsList</a></li><li><a href="MoreDetails.html">MoreDetails</a></li><li><a href="Mute.html">Mute</a></li><li><a href="MuteMessage.html">MuteMessage</a></li><li><a href="MutePopUp.html">MutePopUp</a></li><li><a href="MutedUser.html">MutedUser</a></li><li><a href="MutedUserList.html">MutedUserList</a></li><li><a href="NavIcons.html">NavIcons</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NoResult.html">NoResult</a></li><li><a href="NonEmptyModerator.html">NonEmptyModerator</a></li><li><a href="NotificationCategories.html">NotificationCategories</a></li><li><a href="NotificationImages.html">NotificationImages</a></li><li><a href="Notifications.html">Notifications</a></li><li><a href="NotificationsBody.html">NotificationsBody</a></li><li><a href="OtherProfileArrowList.html">OtherProfileArrowList</a></li><li><a href="OtherProfileCommunities.html">OtherProfileCommunities</a></li><li><a href="OtherProfileContent.html">OtherProfileContent</a></li><li><a href="OtherProfileEmptyContent.html">OtherProfileEmptyContent</a></li><li><a href="OtherProfileFilter.html">OtherProfileFilter</a></li><li><a href="OtherProfileFilterFull.html">OtherProfileFilterFull</a></li><li><a href="OtherProfileFilterSmall.html">OtherProfileFilterSmall</a></li><li><a href="OtherProfileHeader.html">OtherProfileHeader</a></li><li><a href="OtherProfileMainContent.html">OtherProfileMainContent</a></li><li><a href="OtherProfilePost.html">OtherProfilePost</a></li><li><a href="OtherProfilePostFooter.html">OtherProfilePostFooter</a></li><li><a href="OtherProfilePostFooterListResponsive.html">OtherProfilePostFooterListResponsive</a></li><li><a href="OtherProfilePostHeader.html">OtherProfilePostHeader</a></li><li><a href="OtherProfilePostSide.html">OtherProfilePostSide</a></li><li><a href="OtherProfilePostsTap.html">OtherProfilePostsTap</a></li><li><a href="OtherProfileSidebar.html">OtherProfileSidebar</a></li><li><a href="OtherProfileUserInfo.html">OtherProfileUserInfo</a></li><li><a href="People.html">People</a></li><li><a href="Peoples.html">Peoples</a></li><li><a href="PersonalReddit.html">PersonalReddit</a></li><li><a href="PopularContainer.html">PopularContainer</a></li><li><a href="Post.html">Post</a></li><li><a href="PostFooter.html">PostFooter</a></li><li><a href="PostFooterList.html">PostFooterList</a></li><li><a href="PostFooterListResponsive.html">PostFooterListResponsive</a></li><li><a href="PostHeader.html">PostHeader</a></li><li><a href="PostList.html">PostList</a></li><li><a href="PostReactions.html">PostReactions</a></li><li><a href="PostSide.html">PostSide</a></li><li><a href="PostSubmission.html">PostSubmission</a></li><li><a href="PostTags.html">PostTags</a></li><li><a href="PostTypes.html">PostTypes</a></li><li><a href="Posts.html">Posts</a></li><li><a href="PostsAndComments.html">PostsAndComments</a></li><li><a href="PostsClassification.html">PostsClassification</a></li><li><a href="PostsFilteredTap.html">PostsFilteredTap</a></li><li><a href="PostsTap.html">PostsTap</a></li><li><a href="ProfileHeader.html">ProfileHeader</a></li><li><a href="ProfileImage.html">ProfileImage</a></li><li><a href="ProfileInoformation.html">ProfileInoformation</a></li><li><a href="ProfileMainContent.html">ProfileMainContent</a></li><li><a href="RadioBtn.html">RadioBtn</a></li><li><a href="Reactions.html">Reactions</a></li><li><a href="RedditPremium.html">RedditPremium</a></li><li><a href="RemovePopUp.html">RemovePopUp</a></li><li><a href="ResetPassword.html">ResetPassword</a></li><li><a href="Rules.html">Rules</a></li><li><a href="SavedTap.html">SavedTap</a></li><li><a href="SearchBar.html">SearchBar</a></li><li><a href="SearchByComments.html">SearchByComments</a></li><li><a href="SearchByCommunity.html">SearchByCommunity</a></li><li><a href="SearchByPeople.html">SearchByPeople</a></li><li><a href="SearchByPosts.html">SearchByPosts</a></li><li><a href="SearchField.html">SearchField</a></li><li><a href="SearchHeader.html">SearchHeader</a></li><li><a href="SearchResultBar.html">SearchResultBar</a></li><li><a href="SettingsAccount.html">SettingsAccount</a></li><li><a href="SettingsFeed.html">SettingsFeed</a></li><li><a href="SettingsHeader.html">SettingsHeader</a></li><li><a href="SettingsPrivacy.html">SettingsPrivacy</a></li><li><a href="SettingsProfile.html">SettingsProfile</a></li><li><a href="SideBar.html">SideBar</a></li><li><a href="Sidebar_.html">Sidebar</a></li><li><a href="SignNavbar.html">SignNavbar</a></li><li><a href="SignUp.html">SignUp</a></li><li><a href="global.html#SignUpEmail">SignUpEmail</a></li><li><a href="SignUpPopUpUserName.html">SignUpPopUpUserName</a></li><li><a href="SignUpUsername.html">SignUpUsername</a></li><li><a href="SimilarTopics.html">SimilarTopics</a></li><li><a href="SocialLinks.html">SocialLinks</a></li><li><a href="SocialLinksSettings.html">SocialLinksSettings</a></li><li><a href="Subreddits.html">Subreddits</a></li><li><a href="SubredditsMenu.html">SubredditsMenu</a></li><li><a href="Suggestions.html">Suggestions</a></li><li><a href="ThirdParty.html">ThirdParty</a></li><li><a href="global.html#ThirdPartyButton">ThirdPartyButton</a></li><li><a href="UnmutePopUp.html">UnmutePopUp</a></li><li><a href="UserInfo.html">UserInfo</a></li><li><a href="UserList.html">UserList</a></li><li><a href="Username.html">Username</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DeleteFlair">DeleteFlair</a></li><li><a href="global.html#DeleteRule">DeleteRule</a></li><li><a href="global.html#EditFlair">EditFlair</a></li><li><a href="global.html#EditRule">EditRule</a></li><li><a href="global.html#LoadingPage">LoadingPage</a></li><li><a href="global.html#PostFlair">PostFlair</a></li><li><a href="global.html#PostJoin">PostJoin</a></li><li><a href="global.html#PostRule">PostRule</a></li><li><a href="global.html#PostsData">PostsData</a></li><li><a href="global.html#SettingsProvider">SettingsProvider</a></li><li><a href="global.html#ThirdPartyContainer">ThirdPartyContainer</a></li><li><a href="global.html#blockRequest">blockRequest</a></li><li><a href="global.html#blockuser">blockuser</a></li><li><a href="global.html#calculateTime">calculateTime</a></li><li><a href="global.html#checkEmail">checkEmail</a></li><li><a href="global.html#checkEmailToken">checkEmailToken</a></li><li><a href="global.html#checkPassword">checkPassword</a></li><li><a href="global.html#checkTimeNow">checkTimeNow</a></li><li><a href="global.html#checkToken">checkToken</a></li><li><a href="global.html#checkUserName">checkUserName</a></li><li><a href="global.html#checkUserNameSignUp">checkUserNameSignUp</a></li><li><a href="global.html#createPostServer">createPostServer</a></li><li><a href="global.html#createPostServerforSubreddit">createPostServerforSubreddit</a></li><li><a href="global.html#followRequest">followRequest</a></li><li><a href="global.html#generateRandomUsernamesServer">generateRandomUsernamesServer</a></li><li><a href="global.html#getFirebaseToken">getFirebaseToken</a></li><li><a href="global.html#getSubredditAllData">getSubredditAllData</a></li><li><a href="global.html#iMatcher">iMatcher</a></li><li><a href="global.html#logIn">logIn</a></li><li><a href="global.html#matchPassword">matchPassword</a></li><li><a href="global.html#messageSentFetch">messageSentFetch</a></li><li><a href="global.html#messagesAllServer">messagesAllServer</a></li><li><a href="global.html#messagesServer">messagesServer</a></li><li><a href="global.html#notificationsFetch">notificationsFetch</a></li><li><a href="global.html#numberWithCommas">numberWithCommas</a></li><li><a href="global.html#onForegroundNottification">onForegroundNottification</a></li><li><a href="global.html#patchData">patchData</a></li><li><a href="global.html#postData">postData</a></li><li><a href="global.html#recoverPassword">recoverPassword</a></li><li><a href="global.html#recoverUsername">recoverUsername</a></li><li><a href="global.html#redditCookie">redditCookie</a></li><li><a href="global.html#redirectHome">redirectHome</a></li><li><a href="global.html#redirectLogin">redirectLogin</a></li><li><a href="global.html#removeRedditCookie">removeRedditCookie</a></li><li><a href="global.html#renderText">renderText</a></li><li><a href="global.html#replaceDashWithUnderScore">replaceDashWithUnderScore</a></li><li><a href="global.html#repliesServer">repliesServer</a></li><li><a href="global.html#resetPassword">resetPassword</a></li><li><a href="global.html#responseFacebook">responseFacebook</a></li><li><a href="global.html#responseGoogleFail">responseGoogleFail</a></li><li><a href="global.html#responseGoogleSuccess">responseGoogleSuccess</a></li><li><a href="global.html#settingsPost">settingsPost</a></li><li><a href="global.html#signUp">signUp</a></li><li><a href="global.html#socialDelete">socialDelete</a></li><li><a href="global.html#submitPostServer">submitPostServer</a></li><li><a href="global.html#useFetch">useFetch</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 23 2022 12:50:54 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

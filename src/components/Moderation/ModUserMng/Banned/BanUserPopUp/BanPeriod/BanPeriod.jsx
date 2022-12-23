@@ -7,7 +7,7 @@ import { StyledBox, StyledFont } from './styles';
 /**
  * Ban period
  * @component
- * @property  {unsigned integer} duration the period of banning the user its range is from 1 to 999 or parmenant
+ * @property  {string} duration the period of banning the user its range is from 1 to 999 or parmenant
  * @return {React.Component} - Ban period component
  */
 

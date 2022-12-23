@@ -23,7 +23,7 @@ export const EditBanContext = React.createContext();
  * @property {enum} punishType explain why this user is banned (spam or threatining etc...)
  * @property {string} note note from the moderator about the banned user
  * @property {string} punishReason extra details about the banned user
- * @property {unsigned int} duration the duration ban for the banned user it ranges from 0 to 999 and can be permenant
+ * @property {string} duration the duration ban for the banned user it ranges from 0 to 999 and can be permenant
  * @return {React.Component} - Banned user instace component
  */
 

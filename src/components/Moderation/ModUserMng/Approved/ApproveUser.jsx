@@ -19,7 +19,7 @@ export const ApproveContext = React.createContext();
  * @return {React.Component} - approved user page
  */
 
-function Aprrove() {
+function Approve() {
   const [openApprove, setOpenApprove] = React.useState(false);
 
   const handleClickOpenApprove = () => { setOpenApprove(true); };
@@ -54,4 +54,4 @@ function Aprrove() {
   );
 }
 
-export default Aprrove;
+export default Approve;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-1d1c013"
+>
+  <div
+    className="MuiBox-root css-12205oe"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+    >
+      Communities related to
+       
+      sports
+    </p>
+  </div>
+</div>
+`;

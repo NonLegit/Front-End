@@ -9,7 +9,7 @@ import JoinButton from '../../JoinButton/JoinButton';
  * @component
  * @property {string} communityName the name of the community
  * @property {string} communityPicture the link of the community image
- * @property {unsigned integer} numOfMembers number of members of the community
+ * @property {string} numOfMembers number of members of the community
  * @property {string} description discription of the community
  * @return {React.Component} - community component of explore page
  */

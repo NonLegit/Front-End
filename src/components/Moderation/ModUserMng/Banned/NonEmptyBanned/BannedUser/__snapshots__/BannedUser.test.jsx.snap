@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="MuiBox-root css-13en8op"
+  >
+    <div
+      className="MuiBox-root css-1gwqxiu"
+      onClick={[Function]}
+    >
+      <div
+        className="MuiAvatar-root MuiAvatar-square css-1v1kfpo-MuiAvatar-root"
+      >
+        <img
+          className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+          src="users/default.png"
+        />
+      </div>
+      <div
+        className="MuiBox-root css-0"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-gu63a4-MuiTypography-root"
+        >
+          fady
+        </p>
+      </div>
+    </div>
+    <div
+      className="MuiBox-root css-1kazmbr"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-oa9s9h-MuiTypography-root"
+      >
+        2022-12-20T00:53:55.071Z
+         
+        (
+        20 days left
+        )
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-oa9s9h-MuiTypography-root"
+      >
+        •
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-oa9s9h-MuiTypography-root"
+      >
+        No Spoiler
+      </p>
+    </div>
+    <div
+      className="MuiBox-root css-pup5y"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-p5wwkm-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Edit
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-p5wwkm-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        More Details
+        <span
+          className="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    className="MuiBox-root css-21nkcj"
+  >
+    <div
+      className="MuiBox-root css-19midj6"
+    >
+      <div
+        className="MuiBox-root css-13i13kk"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-16acbxi-MuiTypography-root"
+        >
+          mod note:
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-1gaz5e1-MuiTypography-root"
+        >
+          he is bad person
+        </p>
+      </div>
+      <div
+        className="MuiBox-root css-70qvj9"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-1e41twx-MuiTypography-root"
+        >
+          banned for:
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-1gaz5e1-MuiTypography-root"
+        >
+          No reason
+        </p>
+      </div>
+    </div>
+  </div>,
+]
+`;

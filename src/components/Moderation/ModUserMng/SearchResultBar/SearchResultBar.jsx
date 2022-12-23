@@ -6,8 +6,8 @@ import { UserMngButton } from '../styles';
 /**
  * the whole page of no result that appears when try to seach on a user in user managment section in moderatio page
  * @component
- * @property {unsigned integer} resultNumber the number of results from the query after search
- * @property {array of objects} filteredData the result data after searching
+ * @property {string} resultNumber the number of results from the query after search
+ * @property {object} filteredData the result data after searching
  * @property {function} childToParent a function to pass result data from child to parent
  * @return {React.Component} - no result page
  */
