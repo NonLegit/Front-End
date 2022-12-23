@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentActions-test-snapshot 1`] = `
+<div>
+  <div
+    className="MuiBox-root css-15u28o7"
+  >
+    <div
+      className="MuiBox-root css-orlaaz"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ChatBubbleOutlineOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"
+        />
+      </svg>
+      <span
+        className="MuiTypography-root MuiTypography-caption css-g1q63z-MuiTypography-root"
+        responsiveshare="true"
+      >
+        Reply
+      </span>
+    </div>
+    <div
+      className="MuiBox-root css-orlaaz"
+      onClick={[Function]}
+    >
+      <span
+        className="MuiTypography-root MuiTypography-caption css-1l4yqms-MuiTypography-root"
+        responsiveshare="false"
+      >
+        Share
+      </span>
+    </div>
+    <div>
+      <button
+        aria-haspopup="true"
+        aria-label="more"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+        disabled={false}
+        id="long-button"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="MoreVertIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
