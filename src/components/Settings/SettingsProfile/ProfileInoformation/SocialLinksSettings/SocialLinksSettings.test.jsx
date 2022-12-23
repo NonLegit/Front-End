@@ -1,17 +1,17 @@
 import '@testing-library/jest-dom';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
 // import toJson from 'enzyme-to-json';
 // import { mount } from 'enzyme';
 // // import Adapter from 'enzyme-adapter-react-15';
 // import EnzymeToJson from 'enzyme-to-json';
 // import { mount, configure } from 'enzyme';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import SocialLinksSettings from './SocialLinksSettings';
 import SettingsProvider from '../../../../../contexts/SettingsProvider';
 // import SettingsProfile from '../../SettingsProfile';
-
 // jest.mock('rc-util/lib/Portal');
-
+const renderer = new ShallowRenderer();
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -25,13 +25,13 @@ jest.mock('react-alert', () => ({
 // test snapshot
 describe('Popover', () => {
   test('test snapshot', async () => {
-    const tree = renderer.create(
+    const tree = renderer.render(
       <Router>
         <SettingsProvider>
           <SocialLinksSettings />
         </SettingsProvider>
       </Router>,
-    ).toJSON();
+    );
     expect(tree).toMatchSnapshot();
   });
 });

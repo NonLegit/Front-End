@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test snapshot 1`] = `
+exports[`Popover test snapshot 1`] = `
 <Router
   location={
     Object {
@@ -31,8 +31,8 @@ exports[`test snapshot 1`] = `
     }
   }
 >
-  <SettingsProfile>
-    <ProfileInoformation />
-  </SettingsProfile>
+  <SettingsProvider>
+    <SocialLinksSettings />
+  </SettingsProvider>
 </Router>
 `;
