@@ -1,8 +1,10 @@
 {
-    "status": "OK",
+    "status": "success",
     "data": {
         "_id": "63a560de10ebdf1da11b581b",
+        "owner": "63a2174cbe566ac6458d2c1c",
         "ownerType": "User",
+        "author": "63a2174cbe566ac6458d2c1c",
         "replies": [
             "63a560ed10ebdf1da11b5884",
             "63a560f610ebdf1da11b5898",
@@ -14,7 +16,7 @@
         ],
         "title": "New Post",
         "kind": "self",
-        "text": "<p>Hello :D</p>",
+        "text": "<p>Hello :D Edited</p>",
         "url": "",
         "images": [],
         "createdAt": "2022-12-23T08:03:42.168Z",
@@ -32,18 +34,6 @@
         "spamCount": 0,
         "spammedBy": [],
         "sortOnHot": 835891311084,
-        "__v": 0,
-        "owner": {
-            "_id": "63a2174cbe566ac6458d2c1c",
-            "name": "Basma",
-            "icon": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg"
-        },
-        "author": {
-            "_id": "63a2174cbe566ac6458d2c1c",
-            "name": "Basma"
-        },
-        "isSaved": false,
-        "postVoteStatus": 0,
-        "isSpam": false
+        "__v": 0
     }
 }
