@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
 import {
   render, screen, fireEvent,
 } from '@testing-library/react';
@@ -26,8 +26,8 @@ it('routes to message page by click message button', async () => {
   fireEvent.click(screen.getByTestId('message-router'));
   expect(notifications).not.toBeInTheDocument();
 });
-// test snapshot
-test('test snapshot', async () => {
-  const tree = renderer.create(<MainNotifications />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+// // test snapshot
+// test('test snapshot', async () => {
+//   const tree = renderer.create(<MainNotifications />).toJSON();
+//   expect(tree).toMatchSnapshot();
+// });
