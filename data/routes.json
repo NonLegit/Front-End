@@ -121,7 +121,7 @@
   "/posts/:postId/:action": "/postAction",
   "/posts/:postId/delete": "/delete",
   "/notifications/token": "/notificationToken",
-  "/subreddits/:subredditName/banned": "/baned",
+  "/subreddits/:subredditName/banned": "/banned",
   "/subreddits/:subredditName/flairs": "/AddFlair",
   "/subreddits/:subredditName/flairs/:flairId": "/EditFlair",
   "/users/change_email": "/changePassword",
@@ -132,5 +132,6 @@
   "subreddits/:subredditName/flairs": "/AddFlair",
   "subreddits/:subredditName/flairs/:flairId": "/EditFlair",
   "subreddits/:subredditName/rules/:title": "/AddRule",
-  "comments/:commentID/save":"/savecomment"
+  "comments/:commentID/save":"/savecomment",
+  "/subreddits/:subReddit/moderators/:userName":"/invite"
 }

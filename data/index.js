@@ -94,6 +94,7 @@ const postComments = require('./postcomments.json');
 const moreComments = require('./moreComments.json');
 const editcomment = require('./editcomment.json');
 const morereplies = require('./morereplies.json');
+const invite = require('./invite.json');
 // Something more
 
 module.exports = () => ({
@@ -194,5 +195,6 @@ module.exports = () => ({
   moreComments,
   editcomment,
   morereplies,
+  invite,
   // Something more
 });
