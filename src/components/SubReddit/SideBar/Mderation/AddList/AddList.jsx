@@ -33,6 +33,8 @@ const primary = ['Activism', 'Art', 'Addiction Support', 'Anime', 'Beauty and Ma
  * @property  {function} handleClickAway1 return to default view of add list
  * @property  {function} decord descord all changes
 
+ * @property {object} topics -list of community topics
+ * @property {string} Name -name of the subreddit
  * @return {React.Component} - AddList(community topics)
  */
 function AddList(props) {

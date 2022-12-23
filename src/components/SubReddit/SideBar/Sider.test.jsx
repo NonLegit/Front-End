@@ -6,9 +6,21 @@ import SideBar from './SideBar';
 
 // test snapshot
 test('test snapshot', async () => {
+  const props = {
+    Name: 'aaaa',
+    topics: [],
+    primaryTopic: 'aaaa',
+    createdAt: '',
+    moderatoesName: [],
+    username: 'aaa',
+    members: 500,
+    rules: [],
+    createPost: false,
+    disc: 'aaaaaa',
+  };
   const tree = renderer.create(
     <Router>
-      <SideBar />
+      <SideBar {...props} />
     </Router>,
   ).toJSON();
   expect(tree).toMatchSnapshot();

@@ -13,7 +13,20 @@ const { ClickAwayListener, Box } = require('@mui/material');
  * Add item to list of topics
  * @component
  * @property  {function} SaveAction save new data and send to backend
- *
+ * @property  {function} handleClickAway1 return to default view of add list
+ * @property  {function} trueShaw open the input
+ * @property  {function} falseShaw clase the input
+ * @property  {function} handleKeyDown  handel on press enter to add the community topic
+ * @property  {function} removeItem to rempve element when press x
+ * @property  {function} trueShawList open the list ip topics
+ * @property  {function} setTemp set new list of topics
+ * @property  {function} setTag set new list of topics
+ * @property  {function} sendData send data to backend
+ * @property  {function} decord descord all changes
+ * @property  {Boolean} show show input or not
+ * @property  {object} tempString list of changing topics
+ * @property  {object} tags list of topics
+ * @property  {integer} count numder of topics
  * @return {React.Component} -  Add item to list of topics
  */
 function AddBtn(props) {

@@ -10,6 +10,12 @@ import {
 /**
  * About Section for normal user
  * @component
+ * @property {string} disc - description data
+ * @property {string} Name -name of the subreddit
+ * @property {string} createdAt -date of creating the subreddit
+ * @property {Boolean} createPost -to detect the sidebar in subreddit or creat post page
+ * @property {integer} num -members count
+
  * @return {React.Component} - About Section for normal user
  */
 function About(props) {

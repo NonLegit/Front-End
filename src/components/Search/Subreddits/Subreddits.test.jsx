@@ -5,6 +5,10 @@ import Subreddits from './Subreddits';
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<Router><Subreddits /></Router>).toJSON();
+  const tree = renderer.create(
+    <Router>
+      <Subreddits />
+    </Router>,
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });

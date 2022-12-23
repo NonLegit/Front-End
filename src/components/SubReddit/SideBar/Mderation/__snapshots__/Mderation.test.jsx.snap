@@ -13,8 +13,10 @@ Array [
     <button
       className="css-va39u0"
     >
-      <div
-        className="MuiBox-root css-1k6kpcd"
+      <a
+        className="css-182jsdf"
+        href="/r/aaaa/about"
+        onClick={[Function]}
       >
         <svg
           aria-hidden={true}
@@ -40,7 +42,7 @@ Array [
           </g>
         </svg>
         Mood Tools
-      </div>
+      </a>
       <div
         className="MuiBox-root css-uwcr2l"
       >
@@ -109,6 +111,7 @@ Array [
           className="MuiBox-root css-156oqa0"
         >
            
+          aaaaaa
         </div>
          
         <svg
@@ -148,7 +151,7 @@ Array [
     >
       Created
        
-      December 04, 2022
+      Invalid date
     </h2>
   </div>,
   <hr
@@ -160,7 +163,9 @@ Array [
     <span>
       <div
         className="css-p1puod"
-      />
+      >
+        500
+      </div>
       <p
         className="css-k7lqej"
       >
@@ -188,11 +193,6 @@ Array [
   <div
     className="MuiBox-root css-d4400k"
   >
-    <div
-      className="MuiBox-root css-8cs3r5"
-    >
-      New
-    </div>
     Community topics
     <button
       aria-label="Adding community topics allow people to find your community. Add a primary topic and sub topics to be discovered more easily."
@@ -239,7 +239,9 @@ Array [
     <p
       className="css-1udx7t0"
       data-testid="select"
-    />
+    >
+      aaaa
+    </p>
     <svg
       aria-hidden={true}
       className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-1y0tgmx-MuiSvgIcon-root"
@@ -252,13 +254,72 @@ Array [
       />
     </svg>
   </div>,
+  <h2
+    className="css-fo6dne"
+  >
+    <span
+      className="css-9t27zl"
+      data-testid="add"
+      id="add"
+      onClick={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1f5eo08-MuiButtonBase-root-MuiButton-root"
+          disabled={false}
+          id="ListAlert"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          openForm dialog
+          <span
+            className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        className="MuiBox-root css-p58oka"
+      >
+        <span
+          className="css-b8vmv"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
+            data-testid="AddOutlinedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+          Add Subject
+        </span>
+      </div>
+    </span>
+  </h2>,
   <hr
     className="css-jj8fc0"
   />,
   <a
-    className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
-    onBlur={[Function]}
-    onFocus={[Function]}
+    className="css-jta5yf"
+    href="/submit/r/aaaa"
+    onClick={[Function]}
   >
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1anzha9-MuiButtonBase-root-MuiButton-root"

@@ -4,6 +4,10 @@ import More from './More';
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<More />).toJSON();
+  const props = {
+    margin: '10px',
+    marginLeft: '50px',
+  };
+  const tree = renderer.create(<More {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

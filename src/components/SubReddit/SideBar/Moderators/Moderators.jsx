@@ -4,6 +4,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline'; import {
 /**
  * Moderators section in sidebar
  * @component
+ * @property {object} moderatoesName -list of object of moderators
+
  * @return {React.Component} - Moderators section in sidebar
  */
 function Moderators(props) {
