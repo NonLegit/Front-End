@@ -1,6 +1,10 @@
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from '@mui/system';
+import
+{
+  render, screen,
+} from '@testing-library/react';
 import MessageBody from './MessageBody';
 import theme from '../../../../styles/theme';
 
@@ -48,8 +52,19 @@ test('test snapshot', () => {
   const tree = renderer.create(
     <ThemeProvider theme={theme}>
       <MessageBody {...props} />
-      ,
+
     </ThemeProvider>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+// render messages page
+it('should render messages page', () => {
+  window.history.pushState({}, '', '/messages');
+  render(
+    <ThemeProvider theme={theme}>
+      <MessageBody />
+    </ThemeProvider>,
+  );
+  expect(screen.queryByText('post reply')).toBeInTheDocument();
 });
