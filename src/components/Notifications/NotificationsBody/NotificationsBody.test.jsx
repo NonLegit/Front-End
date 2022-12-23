@@ -1,18 +1,17 @@
-import {
-  render, screen,
-} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import moment from 'moment/moment';
-import App from '../../../App';
+import
+{
+  render, screen,
+} from '@testing-library/react';
 import NotificationsBody from './NotificationsBody';
 import checkTimeNow from '../../../utils/checkTimeNow';
-
 // render notifications body
 it('should render notifications body', () => {
   window.history.pushState({}, '', '/notifications');
-  render(<App />);
+  render(<NotificationsBody />);
   expect(screen.getByTestId('notifications-body')).toBeInTheDocument();
 });
 

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-cqqabr"
+>
+  <h3
+    className="css-1rketks"
+  >
+    :
+  </h3>
+  <div
+    className="css-1gk4ta0"
+  >
+    from
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-16t18fq-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="profile"
+    >
+       
+    </a>
+    to
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-16t18fq-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="profile"
+    >
+       
+    </a>
+    sent an
+     
+    a few seconds ago
+    <div
+      className="css-1aajy1n"
+    />
+    <div
+      className="css-1mcghfl"
+    >
+      <div
+        className="css-2l2kjs"
+        onClick={[Function]}
+      >
+        Remove
+      </div>
+      <div
+        className="css-2l2kjs"
+        onClick={[Function]}
+      >
+        Mark Unread
+      </div>
+      <div
+        className="css-2l2kjs"
+        onClick={[Function]}
+      >
+        Replay
+      </div>
+    </div>
+  </div>
+</div>
+`;

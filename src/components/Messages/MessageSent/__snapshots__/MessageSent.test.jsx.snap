@@ -2,8 +2,6 @@
 
 exports[`test snapshot 1`] = `
 <div
-  data-testid="settings-profile"
->
-   error in fecting
-</div>
+  className="css-1xrcs83"
+/>
 `;

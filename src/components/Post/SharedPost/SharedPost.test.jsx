@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { ThemeProvider } from '@mui/system';
 // import { screen, render, fireEvent } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import theme from '../../styles/theme';
+import theme from '../../../styles/theme';
 import Post from './SharedPost';
 
 describe(Post, () => {
