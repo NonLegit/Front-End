@@ -2,7 +2,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import {
   Container, Close, Image, Info,
 } from './styles';
-
+/**
+ * - Notifications Body
+ * - fech notifications data from api
+ *  @component
+ * @param {Object} info - data of alert like message and sucess or fail
+ * @return {React.Component} - Snack Alert
+ */
 function SnackAlert(info) {
   const message = info;
   console.log(message);

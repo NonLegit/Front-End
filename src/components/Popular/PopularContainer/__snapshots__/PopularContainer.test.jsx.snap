@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopularContainer PopularContainer renders correctly 1`] = `
+Array [
+  <div
+    className="MuiBox-root css-pwymh4"
+  >
+    <div
+      className="css-1yelhn"
+    >
+      <div
+        className="css-3ggxsn"
+        width={640}
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-9ef0pa-MuiTypography-root"
+        >
+          Popular posts
+        </p>
+        <div
+          className="css-1i4l6gc"
+        />
+      </div>
+    </div>
+  </div>,
+  ",",
+]
+`;

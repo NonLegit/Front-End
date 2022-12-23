@@ -3,20 +3,20 @@ import {
 } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
-import App from '../../../App';
+// import App from '../../../App';
 import ForgetPassword from './ForgetPassword';
 
 // render forget password page
 it('should render Forget password page', () => {
   window.history.pushState({}, '', '/password');
-  render(<App />);
+  render(<ForgetPassword />);
   expect(screen.queryByTestId('forgetpassword-test')).toBeInTheDocument();
 });
 
 // Empty Fields
 it('Empty Fields Keeps view on Forget password Page', () => {
   window.history.pushState({}, '', '/password');
-  render(<App />);
+  render(<ForgetPassword />);
   expect(screen.queryByTestId('forgetpassword-test')).toBeInTheDocument();
 
   const resetbtn = screen.getByTestId('reset-password-btn-test');
@@ -29,7 +29,7 @@ it('Empty Fields Keeps view on Forget password Page', () => {
 
 it('Invlaid UserName', () => {
   window.history.pushState({}, '', '/password');
-  render(<App />);
+  render(<ForgetPassword />);
   const field1 = screen.getByTestId('forgetpassword-username-input').querySelector('input');
   expect(field1).toBeInTheDocument();
   fireEvent.change(field1, { target: { value: 'a' } });
@@ -43,7 +43,7 @@ it('Invlaid UserName', () => {
 
 it('Invlaid Email', () => {
   window.history.pushState({}, '', '/password');
-  render(<App />);
+  render(<ForgetPassword />);
   const field1 = screen.getByTestId('forgetpassword-email-input').querySelector('input');
   expect(field1).toBeInTheDocument();
   fireEvent.change(field1, { target: { value: 'Bamsa_Elhoseny' } });
@@ -59,7 +59,7 @@ it('Invlaid Email', () => {
 
 it('Valid inpts', () => {
   window.history.pushState({}, '', '/password');
-  render(<App />);
+  render(<ForgetPassword />);
   const field1 = screen.getByTestId('forgetpassword-username-input').querySelector('input');
   expect(field1).toBeInTheDocument();
   fireEvent.change(field1, { target: { value: 'Basma_Elhoseny01' } });

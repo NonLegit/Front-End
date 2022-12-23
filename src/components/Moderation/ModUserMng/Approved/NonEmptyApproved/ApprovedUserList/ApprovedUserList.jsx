@@ -8,6 +8,12 @@ import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
 import EmptyApproved from '../../EmptyApproved/EmptyApproved';
 
+/**
+ * approved user list
+ * @component
+ * @return {React.Component} - approved user list
+ */
+
 function ApprovedUserList() {
   const [data, setData] = React.useState('');
   const childToParent = (childData) => {

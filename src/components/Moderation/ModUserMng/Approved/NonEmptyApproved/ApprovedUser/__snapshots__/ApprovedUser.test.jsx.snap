@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-13en8op"
+>
+  <div
+    className="MuiBox-root css-1gwqxiu"
+    onClick={[Function]}
+  >
+    <div
+      className="MuiAvatar-root MuiAvatar-square css-1v1kfpo-MuiAvatar-root"
+    >
+      <img
+        className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+        src="users/default.png"
+      />
+    </div>
+    <div
+      className="MuiBox-root css-0"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-gu63a4-MuiTypography-root"
+      />
+    </div>
+  </div>
+  <div
+    className="MuiBox-root css-hboir5"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-oa9s9h-MuiTypography-root"
+    >
+      2022-12-20T00:53:55.071Z
+    </p>
+  </div>
+  <div
+    className="MuiBox-root css-pup5y"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-p5wwkm-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      Send message
+    </button>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-p5wwkm-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      Remove
+    </button>
+  </div>
+</div>
+`;

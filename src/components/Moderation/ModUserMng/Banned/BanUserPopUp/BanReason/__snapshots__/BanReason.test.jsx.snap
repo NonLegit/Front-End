@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-9pcsoq"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-15uw5yh-MuiTypography-root"
+  >
+    REASON FOR BAN
+  </p>
+  <div
+    className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-sizeSmall  css-1ualgfl-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+    onClick={[Function]}
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="reason"
+      className="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+      id="reason"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="notranslate"
+      >
+        ​
+      </span>
+    </div>
+    <input
+      aria-hidden={true}
+      className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+      onAnimationStart={[Function]}
+      onChange={[Function]}
+      tabIndex={-1}
+    />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+      data-testid="ArrowDropDownIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7 10l5 5 5-5z"
+      />
+    </svg>
+    <fieldset
+      aria-hidden={true}
+      className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        className="css-ihdtdm"
+      >
+        <span
+          className="notranslate"
+        >
+          ​
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;

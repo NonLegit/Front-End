@@ -11,6 +11,10 @@ import { StaticticsContainer, StatisticsCaption, StatisticsIcon } from './styles
 // Context
 import { usePostContext } from '../../../../../contexts/PostContext';
 
+/**
+ * PostStatistics Bar showing No of Comments Views and Shares of Post
+ * @returns {React.Component} --PostStatistics Component
+ */
 function PostStatistics() {
   // Context
   const { post } = usePostContext();

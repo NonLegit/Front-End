@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, HeaderTabs, HeaderContainer } from './styles';
-
+/**
+ * -Messages Header
+ *  @component
+ * @property {Array} active - Array  bool to set active header
+ *  @return {React.Component} -Messages Header
+ */
 function MessagesHeader() {
   const [active, setActive] = useState([false, true, false]);
 

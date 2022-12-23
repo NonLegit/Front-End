@@ -1,8 +1,9 @@
-import replaceDashWithUnderScore from '../../../../utils/replaceDashWithUnderScore';
 import '@testing-library/jest-dom';
-// import renderer from 'react-test-renderer';
-// import SignUp from '../SignUp';
-// import SignUpUsername from './SignUpUsername';
+import renderer from 'react-test-renderer';
+import SignUp from '../SignUp';
+import SignUpUsername from './SignUpUsername';
+
+import replaceDashWithUnderScore from '../../../../utils/replaceDashWithUnderScore';
 
 // Testing Generate user Name
 describe(replaceDashWithUnderScore, () => {
@@ -58,8 +59,8 @@ describe(replaceDashWithUnderScore, () => {
   });
 });
 
-// // test snapshot
-// test('SigUp test snapshot', async () => {
-//   const tree = renderer.create(<SignUp><SignUpUsername /></SignUp>).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+// test snapshot
+test('SigUp test snapshot', async () => {
+  const tree = renderer.create(<SignUp><SignUpUsername /></SignUp>).toJSON();
+  expect(tree).toMatchSnapshot();
+});

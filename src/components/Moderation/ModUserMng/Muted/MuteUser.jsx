@@ -13,6 +13,12 @@ import MutedUserList from './NonEmptyMuted/MutedUserList/MutedUserList';
 
 export const MuteContext = React.createContext();
 
+/**
+ * the whole page of muted
+ * @component
+ * @return {React.Component} - muted user page
+ */
+
 function Mute() {
   const [openMute, setOpenMute] = React.useState(false);
 

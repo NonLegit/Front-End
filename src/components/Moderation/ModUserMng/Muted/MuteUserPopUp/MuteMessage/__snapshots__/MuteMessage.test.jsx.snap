@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-j3bmuc"
+>
+  <textarea
+    className="css-17ggqor"
+    id="mute_message"
+    onChange={[Function]}
+    onInput={[Function]}
+    placeholder="Reason they were muted"
+  />
+  <p
+    className="css-1jfe1hz"
+  >
+    300
+     
+    Characters remaining
+  </p>
+</div>
+`;

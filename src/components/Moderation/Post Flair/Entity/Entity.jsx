@@ -16,6 +16,8 @@ import DeleteFlair from './DeleteFlairServer';
  * @property  {function} Edited show enable form
  * @property  {function} save clase form and enable add
  * @property  {function} cancel clase form and enable add
+ * @property  {function} handleClick open form
+ * @property  {function} row entity
  *
  * @return {React.Component} - Entity of Flair
  */

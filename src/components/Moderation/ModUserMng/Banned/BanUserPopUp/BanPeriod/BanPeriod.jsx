@@ -4,6 +4,13 @@ import {
 } from '@mui/material';
 import { StyledBox, StyledFont } from './styles';
 
+/**
+ * Ban period
+ * @component
+ * @property  {string} duration the period of banning the user its range is from 1 to 999 or parmenant
+ * @return {React.Component} - Ban period component
+ */
+
 function BanPeriod(props) {
   const { duration } = props;
   const [checked, setChecked] = React.useState(duration === -1);

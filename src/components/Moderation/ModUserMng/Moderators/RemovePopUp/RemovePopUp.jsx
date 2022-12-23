@@ -8,6 +8,12 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 // import { delMod } from './Delserver';
 
+/**
+ * remove the invitation of the moderator
+ * @component
+ * @return {React.Component} - remove the invitation of the moderator component
+ */
+
 function RemovePopUp() {
   // const { subReddit } = useParams();
   const {

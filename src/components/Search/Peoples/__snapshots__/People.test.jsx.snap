@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<a
+  className="css-1hpvnyb"
+>
+  <div
+    className="MuiBox-root css-k008qs"
+  >
+    <div
+      className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-2s90m6-MuiAvatar-root"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+        data-testid="PersonIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+        />
+      </svg>
+    </div>
+    <div
+      className="MuiBox-root css-j7qwjs"
+    >
+      <div
+        className="css-8xgfae"
+      >
+        <a
+          className="css-6u59m5"
+          href="/user/undefined"
+          onClick={[Function]}
+        >
+          U/
+        </a>
+        <span
+          className="MuiTypography-root MuiTypography-body1 css-vcah1l-MuiTypography-root"
+        >
+          •
+        </span>
+        <p
+          className="css-4ipqv2"
+        >
+          NaN
+           
+          karma
+        </p>
+      </div>
+      <span
+        className="MuiTypography-root MuiTypography-body1 css-15euaf9-MuiTypography-root"
+      />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ejscwf-MuiButtonBase-root-MuiButton-root"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    Following
+  </button>
+</a>
+`;

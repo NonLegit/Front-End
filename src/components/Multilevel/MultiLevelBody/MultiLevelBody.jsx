@@ -14,6 +14,13 @@ import { usePostContext } from '../../../contexts/PostContext';
 // Styles
 import { MultiLevelBodyConatiner, PostContainer } from './styles';
 
+/**
+ * MultiLevelBody Main Body of the Post Page
+ * @property {boolean}Edit --Whether this post in Edit post text State or Not[is Text Editor Appearing or Not]
+ * @property {boolean}Comment --For Initial Scrolling of the Post whther to be @ top or to the Comments Section
+ *
+ * @returns {React.Component} --MultiLevelBody Component
+ */
 function MultiLevelBody({ Edit, Comment }) {
   // Context
   const { post } = usePostContext();

@@ -26,6 +26,15 @@ import { SaveButton } from '../../../MultiLevelPostContent/styles';
 import { saveCommenttoDB } from './commentActionsServer';
 import { saveComment } from '../../commentsListServer';
 
+/**
+ * Comment Actions Component
+ * @property {object}comment --Comment Assoicated with these Actions
+ * @property {setfunction}setComment --Setting the comment on change of its State (Renreder)
+ * @property {array}replies --Replies on this comment
+ * @property {setfunction}setReplies --set function for the replies
+ * @property {setfunction}setEditComment --set function for the Edit state of the comment
+ * @returns {React.Component} --CommentActions Component
+ */
 function CommentActions(props) {
   // cookies
   // eslint-disable-next-line no-unused-vars

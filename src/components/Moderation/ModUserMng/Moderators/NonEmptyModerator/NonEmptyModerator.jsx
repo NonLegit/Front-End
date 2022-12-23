@@ -13,6 +13,22 @@ import EditPopUp from '../EditPopUp/EditPopUp';
 
 export const RemoveContext = React.createContext();
 export const EditContext = React.createContext();
+
+/**
+ * non empty moderator page
+ * @component
+ * @property {string} username the username of the moderator
+ * @property {string} profilePicture it is the link to the profile picture of the moderator
+ * @property {string} modDate it is the date to be a moderator
+ * @property {boolean} all indicates that the moderator has all privileges
+ * @property {boolean} access indicates that tha moderator has the control on user
+ * @property {boolean} confing indicates that the moderator has the control on settings
+ * @property {boolean} flair indicates that the moderator has the control on post flairs
+ * @property {boolean} posts indicates that the moderator has the control on posts
+ * @property {integer} type determine the type of moderators if invited or arleady a moderator
+ * @return {React.Component} - non empty moderator page component
+ */
+
 function NonEmptyModerator(props) {
   // 0 stands for all moderators (marked as editable but handeled in database)
   // 1 stands for Invited moderators

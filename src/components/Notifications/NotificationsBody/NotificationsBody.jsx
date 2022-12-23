@@ -18,9 +18,12 @@ export const CategoriesContext = createContext();
  * - Notifications Body
  * - fech notifications data from api
  *  @component
- *
- * @property  {function} handleClick to set what notifiacation we select and it's type
- * @property {function} handel deleteing when click hide
+ * @param {function} setToday - to update today notifiactions
+ * @param {function} setEarlier - to update eariler notifiactions
+ * @param {Array} earlier - Array of eariler notifiactions
+ * @param {Array} today - Array of today notifiactions
+ * @property  {function} handleClick - to set what notifiacation we select and it's type
+ * @property {function} handel - deleteing when click hide
  * @return {React.Component} - Body of each Notification depandent it's type
  */
 

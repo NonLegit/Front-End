@@ -1,7 +1,7 @@
 import axios from '../../services/instance';
 import { redirectLogin } from '../../utils/Redirect';
 /**
- * - Notifications Fetch
+ * - block user server in message bage
  */
 
 export const blockuser = async (user) => {

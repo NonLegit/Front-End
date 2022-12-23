@@ -29,6 +29,13 @@ import {
   TitlePost,
 } from './styles';
 
+/**
+ * represent the post in the page
+ *
+ * @component NonEmptyQueue
+ * @property {object} post - an entity post
+ * @returns {React.Component} NonEmptyQueue
+ */
 function NonEmptyQueue(props) {
   const {
     post, profile,

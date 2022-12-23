@@ -18,6 +18,14 @@ import {
 } from './styles';
 import { changePassword } from './changePasswordServer';
 // eslint-disable-next-line no-unused-vars
+/**
+ * - Cahnge Password pop up
+ *  @component
+ *   @property {String} oldPassword -  old password of user value
+ *  @property {String} password - rewrite new passsword value
+ *  @property {String} repassword  - new password value
+ *  @return {React.Component} - Body of change password popup
+ */
 function CahngePassword({ setOpenPass }) {
   const [oldPassword, setOldPassword] = useState({
     input: '', color: theme.palette.neutral.main, icon: null, error: null,

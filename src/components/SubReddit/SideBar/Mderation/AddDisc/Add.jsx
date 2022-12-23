@@ -19,6 +19,8 @@ import CustomizedDialogs from './DiscAlerdt/DistAlert';
  * @property  {function} SaveAction save all data and send to backend
  * @property  {function} decord descord all changes in input
 
+ * @property {object} disc2 -description
+ * @property {string} Name -name of the subreddit
  * @return {React.Component} - Add discreption for the community
  */
 function AddSector(props) {

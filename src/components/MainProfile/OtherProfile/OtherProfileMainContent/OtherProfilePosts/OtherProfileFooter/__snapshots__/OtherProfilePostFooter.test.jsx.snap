@@ -56,6 +56,7 @@ exports[`test snapshot 1`] = `
   />
   <div
     className="MuiBox-root css-orlaaz"
+    onClick={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -78,6 +79,7 @@ exports[`test snapshot 1`] = `
   </div>
   <div
     className="MuiBox-root css-orlaaz"
+    onClick={[Function]}
   >
     <svg
       aria-hidden={true}
@@ -98,29 +100,9 @@ exports[`test snapshot 1`] = `
     </span>
   </div>
   <div
-    className="MuiBox-root css-196x17m"
-    condition="true"
-  >
-    <svg
-      aria-hidden={true}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-      data-testid="FlagOutlinedIcon"
-      focusable="false"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="m12.36 6 .4 2H18v6h-3.36l-.4-2H7V6h5.36M14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6L14 4z"
-      />
-    </svg>
-    <span
-      className="MuiTypography-root MuiTypography-caption css-1a0mhoe-MuiTypography-root"
-      condition="true"
-    >
-      Report
-    </span>
-  </div>
-  <div
     className="MuiBox-root css-1mnbp5s"
+    onClick={[Function]}
+    onTouchEnd={[Function]}
     show="true"
   >
     <svg

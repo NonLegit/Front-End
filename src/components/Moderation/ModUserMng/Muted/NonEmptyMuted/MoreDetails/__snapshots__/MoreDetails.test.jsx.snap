@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-21nkcj"
+>
+  <div
+    className="MuiBox-root css-1rzk8ps"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-16acbxi-MuiTypography-root"
+    >
+      mod note:
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-1gaz5e1-MuiTypography-root"
+    />
+  </div>
+</div>
+`;

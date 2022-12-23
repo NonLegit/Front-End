@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-y0sa90"
+>
+  <div
+    className="MuiBox-root css-8atqhb"
+  >
+    <div
+      className="MuiBox-root css-11kldd9"
+    >
+      <div
+        className="MuiAvatar-root MuiAvatar-circular css-2is7ki-MuiAvatar-root"
+      >
+        <img
+          alt="Profile Image"
+          className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+          src="https://scontent.fcai19-6.fna.fbcdn.net/v/t1.18169-9/14731344_1268156939902850_4843578088361110846_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEky4_3cTAH8AsHcH3UuXIKcLp-k-70xXVwun6T7vTFdcArTit-okcWlHaag26qfJeWLi2DDiYbw59pVU7sfWCM&_nc_ohc=A5SpL8aNUVEAX-YO51A&_nc_oc=AQniPbizNXpZ3SFnkYVS1CpwqCbtRPI2D8DeAHUhOG0t0JSuAtT4Bvl1Xbu4WrCWCn8&_nc_ht=scontent.fcai19-6.fna&oh=00_AfDhRAFvWuZtkXlwquZXICIDBSAhT2eF7HurP0EfQHnCEg&oe=63C6E9D2"
+        />
+      </div>
+      <a
+        className="css-kqg5s"
+        color="#000"
+        fontWeight="bolder"
+        href="/r/Nonlegit"
+        onClick={[Function]}
+      >
+        r/
+        asdwd
+      </a>
+      <div
+        className="MuiBox-root css-1clzuz0"
+      >
+        <span>
+          •
+        </span>
+        <div>
+          Posted By
+        </div>
+        <div
+          className="MuiAvatar-root MuiAvatar-circular css-2is7ki-MuiAvatar-root"
+        >
+          <img
+            alt="Profile Image"
+            className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+            src="https://scontent.fcai19-6.fna.fbcdn.net/v/t1.18169-9/14731344_1268156939902850_4843578088361110846_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEky4_3cTAH8AsHcH3UuXIKcLp-k-70xXVwun6T7vTFdcArTit-okcWlHaag26qfJeWLi2DDiYbw59pVU7sfWCM&_nc_ohc=A5SpL8aNUVEAX-YO51A&_nc_oc=AQniPbizNXpZ3SFnkYVS1CpwqCbtRPI2D8DeAHUhOG0t0JSuAtT4Bvl1Xbu4WrCWCn8&_nc_ht=scontent.fcai19-6.fna&oh=00_AfDhRAFvWuZtkXlwquZXICIDBSAhT2eF7HurP0EfQHnCEg&oe=63C6E9D2"
+          />
+        </div>
+        <a
+          className="css-1fa4cpj"
+          color="inherit"
+          fontWeight="normal"
+          href="/user/ahmed"
+          onClick={[Function]}
+        >
+          u/
+          hamada
+           
+          a month ago
+        </a>
+      </div>
+    </div>
+    <a
+      className="css-1h4lgge"
+      href="/subreddit/Nonlegit/comments/asd212"
+      onClick={[Function]}
+    >
+      <div
+        className="MuiTypography-root MuiTypography-div css-1tw0n1b-MuiTypography-root"
+      >
+        first post
+        <button
+          backgroundColor="blue"
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-eyumte-MuiButtonBase-root-MuiButton-root"
+          disabled={false}
+          flairColor="red"
+          onBlur={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          asd
+        </button>
+      </div>
+    </a>
+    <div
+      className="css-1i29db6"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-span css-1askrqg-MuiTypography-root"
+      >
+        1.2K
+         
+        upvotes
+         
+      </span>
+      <span
+        className="MuiTypography-root MuiTypography-span css-1askrqg-MuiTypography-root"
+      >
+        1.3K
+         
+        comments
+         
+      </span>
+    </div>
+  </div>
+</div>
+`;

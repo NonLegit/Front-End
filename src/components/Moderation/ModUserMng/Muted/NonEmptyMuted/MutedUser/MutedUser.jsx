@@ -14,6 +14,14 @@ import calculateTime from '../../../../../../utils/calculateTime';
 
 export const UnmuteContext = React.createContext();
 
+/**
+ * Banned user instace
+ * @component
+ * @property  {object} user an object containing all information about the user from its username until the link to the its profile picture and the date that user is muted
+ * @property {object} muteInfo contain the comment of the moderator on the muted user
+ * @return {React.Component} - Banned user instace component
+ */
+
 function MutedUser(props) {
   const navigate = useNavigate();
 

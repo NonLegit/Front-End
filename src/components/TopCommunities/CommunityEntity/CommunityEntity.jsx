@@ -8,6 +8,20 @@ import {
 import numFormatter from '../../../utils/MembersNum';
 import PostJoin from '../../SubReddit/PostJoin';
 
+/**
+ * represent a row in the community list
+ *
+ * @component CommunityEntity
+ * @property {number} index - rank of the community
+ * @property {string} icon - icon of the community
+ * @property {string} subredditName - name of the community
+ * @property {boolean} status - is the community is growing or not
+ * @property {boolean} isJoined - is the user joined in the community
+ * @property {boolean} sidebar - is the community inside the right sidebar
+ * @property {number} members - number of members in the community
+ * @returns {React.Component} CommunityEntity
+ */
+
 function CommunityEntity(props) {
   const {
     index, icon, subredditName, status, isJoined, sidebar, members,

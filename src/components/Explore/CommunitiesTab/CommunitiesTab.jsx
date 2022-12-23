@@ -4,9 +4,15 @@ import CommunitiesContainer from '../CommunitiesContainer/CommunitiesContainer';
 import SimilarTopics from '../SimilarTopics/SimilarTopics';
 import { CommunitiesTabContainer } from './styles';
 
+/**
+ * the whole page of communities
+ * @component
+ * @property {string} title the title of the communities section
+ * @return {React.Component} - communities page
+ */
+
 function CommunitiesTab(props) {
   const { title } = props;
-
   return (
     <CommunitiesTabContainer>
       <CommunitiesContainer

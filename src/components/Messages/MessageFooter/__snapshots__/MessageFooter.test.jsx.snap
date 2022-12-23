@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-1wbk5b3"
+>
+  <div
+    className="css-934ar3"
+  >
+    <div
+      className="css-ls3cu2"
+    >
+      <span
+        className="css-1llo93u"
+      >
+        about
+      </span>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/blog"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        blog
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        about
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditforbusiness.com/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        advertising
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/careers"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        careers
+      </a>
+    </div>
+    <div
+      className="css-1ljttpy"
+    >
+      <span
+        className="css-1llo93u"
+      >
+        help
+      </span>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/policies/content-policy"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        site rules
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.reddithelp.com/hc/en-us"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        Reddit help center
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.reddit.com/wiki/reddiquette/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        reddiquette
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/policies/moderator-code-of-conduct"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        mod guidelines
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.reddit.com/contact/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        contact us
+      </a>
+    </div>
+    <div
+      className="css-1ljttpy"
+    >
+      <span
+        className="css-1llo93u"
+      >
+        apps & tools
+      </span>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/blog"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        Reddit for iPhone
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditinc.com/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        Reddit for Android
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.redditforbusiness.com/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        mobile website
+      </a>
+    </div>
+    <div
+      className="css-1ljttpy"
+    >
+      <span
+        className="css-1llo93u"
+      >
+        &lt;3
+      </span>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.reddit.com/premium/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        Reddit premium
+      </a>
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rnvrtc-MuiTypography-root-MuiLink-root"
+        href="https://www.reddit.com/coins/"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        Reddit coins
+      </a>
+    </div>
+  </div>
+  <p
+    className="css-uzjcsv"
+  >
+    Use of this site constitutes acceptance of our
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-a8qzzg-MuiTypography-root-MuiLink-root"
+      href="https://www.reddit.com/help/useragreement"
+      location="End"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      User Agreement
+    </a>
+     
+    and
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-a8qzzg-MuiTypography-root-MuiLink-root"
+      href="https://www.reddit.com/help/privacypolicy"
+      location="End"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+      Privacy Policy
+    </a>
+     
+    . © 2022 reddit inc. All rights reserved.
+  </p>
+  <p
+    className="css-uzjcsv"
+  >
+    REDDIT and the ALIEN Logo are registered trademarks of reddit inc.
+  </p>
+</div>
+`;

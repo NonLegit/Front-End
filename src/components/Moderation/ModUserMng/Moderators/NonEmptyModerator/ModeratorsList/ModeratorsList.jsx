@@ -10,6 +10,12 @@ import NonEmptyModerator from '../NonEmptyModerator';
 import { ModeratorsTypeContainer } from '../../../styles';
 import calculateTime from '../../../../../../utils/calculateTime';
 
+/**
+ * moderators list
+ * @component
+ * @return {React.Component} - moderators list component
+ */
+
 function ModeratorsList() {
   const { subReddit } = useParams();
   const [data, setData] = React.useState('');

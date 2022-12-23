@@ -3,7 +3,13 @@ import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { checkEmailToken } from './verifyEmailServer';
-
+/**
+ * - Verify Email
+ * - page to take token from url and verify email
+ *  @component
+ *  @property {String} verified - put value verified or unVerfied
+ *  @return {React.Component} - Body of Account Settings page
+ */
 function VerifyEmail() {
   // useParams
   const { token } = useParams();

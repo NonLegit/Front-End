@@ -12,6 +12,13 @@ import {
   ShowMoreList, ShowMoreListItemText, ListItemButton, Fab,
 } from './styles';
 
+/**
+ * SortComments DropDownList to Sort Comments on a post Component
+ * @property {string}sortName --Type of sort required
+ * @property {setFunction}setSortName --Function ot set the state of the sort
+ *
+ * @returns {React.Component} --SortComments Component
+ */
 function SortComments(props) {
   const { sortName, setSortName } = props;
   const [Sort, setSort] = React.useState(false);

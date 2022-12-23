@@ -13,6 +13,12 @@ import BanMessage from '../BanMessage/BanMessage';
 import BanFooter from '../BanFooter/BanFooter';
 import { banUnbanUser } from '../banServer';
 
+/**
+ * Ban popup
+ * @component
+ * @return {React.Component} - Ban popup component
+ */
+
 function BanPopUp() {
   const { subReddit } = useParams();
   const {

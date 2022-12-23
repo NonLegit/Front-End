@@ -10,7 +10,16 @@ import {
   Pragraph, Input, Footer, SaveBtn, Error,
 } from './styles';
 import { changeEmail } from './changeEmailServer';
-
+/**
+ * -Change Email
+ *  @component
+ *   @property {Boolean} checkEamil - bool to check email is true or not
+ *  @property {Boolean} condition -bool to check if input is valid or not
+ *  @property {Boolean} error  - bool if there are error or not
+ *  @property {String} email  - input email from user
+ *  @property {String} pass  - input passworf from user
+ *  @return {React.Component} -Change Email popup
+ */
 function ChangeEmail({ setOpenEmail }) {
   const [condition, setCondition] = useState(false);
   const [checkEamil, setCheckEamil] = useState(false);

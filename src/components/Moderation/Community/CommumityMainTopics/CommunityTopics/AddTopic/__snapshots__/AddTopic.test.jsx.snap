@@ -13,7 +13,10 @@ exports[`test snapshot 1`] = `
     className="css-h1mzer"
     data-testid="input"
     id="input"
+    onChange={[Function]}
+    onFocus={[Function]}
     onInput={[Function]}
+    onKeyDown={[Function]}
     type="text"
   />
 </span>

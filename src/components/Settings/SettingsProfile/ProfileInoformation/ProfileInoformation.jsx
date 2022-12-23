@@ -12,7 +12,7 @@ import { SettingsContext } from '../../../../contexts/SettingsProvider';
 import { settingsPost } from '../../settingsServer';
 import SocialLinksSettings from './SocialLinksSettings/SocialLinksSettings';
 /**
- * - ProfileInoformation
+ * - Profile Inoformation
  * - Edit Display name  and About people in Seetings Page
  *  @param {Object} prefs - prefs of user
  *  @property {function} setPrefs set prefs of user

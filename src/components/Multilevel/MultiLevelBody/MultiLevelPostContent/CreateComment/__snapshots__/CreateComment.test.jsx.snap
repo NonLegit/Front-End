@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateComment-test-snapshot 1`] = `
+<div
+  className="MuiBox-root css-1su4niv"
+>
+  <div
+    className="MuiBox-root css-yd9c3t"
+  />
+</div>
+`;

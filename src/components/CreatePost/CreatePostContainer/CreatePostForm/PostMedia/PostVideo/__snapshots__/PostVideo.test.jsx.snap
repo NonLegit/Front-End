@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostVideo PostVideo renders correctly 1`] = `
+<div
+  className="MuiBox-root css-m1xdaq"
+>
+  <video
+    controls={true}
+    style={
+      Object {
+        "maxHeight": "512px",
+        "width": "100%",
+      }
+    }
+  >
+    <source
+      src=""
+      type="video/mp4"
+    />
+  </video>
+  <button
+    className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorThird MuiIconButton-sizeMedium css-jct5ou-MuiButtonBase-root-MuiIconButton-root"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="DeleteIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+      />
+    </svg>
+  </button>
+</div>
+`;

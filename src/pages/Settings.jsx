@@ -4,7 +4,10 @@ import { positions, Provider } from 'react-alert';
 import SettingsHeader from '../components/Settings/SettingsHeader/SettingsHeader';
 import { SettingsContiner } from '../components/Settings/styles';
 import SnackAlert from '../components/SnackAlert/SnackAlert';
-
+/**
+ * Alert function
+ * @param {Object} info info of alert
+ */
 function AlertTemplate(info) {
   console.log('sa');
   return (
@@ -15,6 +18,12 @@ function AlertTemplate(info) {
     </div>
   );
 }
+/**
+ * Settings page
+ *  @component
+ *
+ * @return {React.Component} - All Settings page sections
+ */
 function Settings() {
   const options = {
     timeout: 5000,

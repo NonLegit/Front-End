@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-64d4mz"
+>
+  <ul
+    className="css-6iy3zq"
+  >
+    <a
+      className="link"
+      href="/messages/inbox"
+      onClick={[Function]}
+    >
+      <li
+        className="css-k9w8fh"
+      >
+        All
+      </li>
+    </a>
+    <a
+      className="link"
+      href="/messages/unread"
+      onClick={[Function]}
+    >
+      <li
+        className="css-k9w8fh"
+      >
+         
+        Unread
+      </li>
+    </a>
+    <a
+      className="link"
+      href="/messages/messages"
+      onClick={[Function]}
+    >
+      <li
+        className="css-k9w8fh"
+      >
+        Messages
+      </li>
+    </a>
+    <a
+      className="link"
+      href="/messages/selfreply"
+      onClick={[Function]}
+    >
+      <li
+        className="css-k9w8fh"
+      >
+        Post Replies
+      </li>
+    </a>
+  </ul>
+</div>
+`;

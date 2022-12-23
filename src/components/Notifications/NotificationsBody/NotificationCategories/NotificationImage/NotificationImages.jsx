@@ -10,9 +10,10 @@ import {
 import { ReplayContext } from '../NotificationCategories';
 
 /**
- * NotificationImages
+ * Notification Images
  *  @component
  * @param {string} value - type of notifiaction
+ * @param {string} image - profile photo
  * @return {React.Component} - Retrun all image beside notification body
  */
 function NotificationImages({ image }) {

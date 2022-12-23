@@ -10,8 +10,11 @@ import { SettingsContext } from '../../../../contexts/SettingsProvider';
 import { imagePost } from '../../settingsServer';
 
 /**
- * - ProfileImage
+ * - Profile Image
  * - Edit Image and Banner in Seetings Page
+ * @param {Object} prefs - prefs of user
+ * @param {Function} setPrefs - set prefs of user
+ * @param {Function} onFileChange - change profile or banner iamge based on input type and update image
  *  @component
  */
 

@@ -224,6 +224,7 @@ Array [
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-4te1ww-MuiButtonBase-root-MuiButton-root"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onContextMenu={[Function]}
       onDragLeave={[Function]}
       onFocus={[Function]}

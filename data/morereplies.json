@@ -1,0 +1,77 @@
+{
+    "status": "success",
+    "comments": [
+        {
+            "_id": "63a560fa10ebdf1da11b58ac",
+            "author": {
+                "_id": "63a2174cbe566ac6458d2c1c",
+                "userName": "Basma",
+                "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                "displayName": "Basma Elhoseny"
+            },
+            "post": "63a560de10ebdf1da11b581b",
+            "mentions": [],
+            "replies": [],
+            "parent": "63a560de10ebdf1da11b581b",
+            "parentType": "Post",
+            "text": "<p>Comment 3</p>",
+            "createdAt": "2022-12-23T08:04:10.437Z",
+            "isDeleted": false,
+            "votes": 0,
+            "repliesCount": 0,
+            "locked": false,
+            "modState": "unmoderated",
+            "sortOnHot": 835891325218.5,
+            "__v": 0
+        },
+        {
+            "_id": "63a560f610ebdf1da11b5898",
+            "author": {
+                "_id": "63a2174cbe566ac6458d2c1c",
+                "userName": "Basma",
+                "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                "displayName": "Basma Elhoseny"
+            },
+            "post": "63a560de10ebdf1da11b581b",
+            "mentions": [],
+            "replies": [],
+            "parent": "63a560de10ebdf1da11b581b",
+            "parentType": "Post",
+            "text": "<p>Comment 2</p>",
+            "createdAt": "2022-12-23T08:04:06.694Z",
+            "isDeleted": false,
+            "votes": 0,
+            "repliesCount": 0,
+            "locked": false,
+            "modState": "unmoderated",
+            "sortOnHot": 835891323347,
+            "__v": 0
+        },
+        {
+            "_id": "63a560ed10ebdf1da11b5884",
+            "author": {
+                "_id": "63a2174cbe566ac6458d2c1c",
+                "userName": "Basma",
+                "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                "displayName": "Basma Elhoseny"
+            },
+            "post": "63a560de10ebdf1da11b581b",
+            "mentions": [],
+            "replies": [],
+            "parent": "63a560de10ebdf1da11b581b",
+            "parentType": "Post",
+            "text": "<p>Comment 1</p>",
+            "createdAt": "2022-12-23T08:03:57.303Z",
+            "isDeleted": false,
+            "votes": 0,
+            "repliesCount": 0,
+            "locked": false,
+            "modState": "unmoderated",
+            "sortOnHot": 835891318651.5,
+            "__v": 0
+        }
+    ]
+}

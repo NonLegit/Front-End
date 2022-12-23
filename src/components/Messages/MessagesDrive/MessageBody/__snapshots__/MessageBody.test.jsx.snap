@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-kw21wc"
+>
+  <h3
+    className="css-1rketks"
+  >
+    : 
+  </h3>
+  <div
+    className="css-1gk4ta0"
+  >
+    <span
+      className="css-b45trr"
+    >
+       from
+    </span>
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-h7k2ci-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="profile"
+    >
+       
+    </a>
+    <span
+      className="css-b45trr"
+    >
+        via
+    </span>
+     
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-5uwbe6-MuiTypography-root-MuiLink-root"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      type="subreddit"
+    >
+       
+    </a>
+     
+    <span
+      className="css-b45trr"
+    >
+      a few seconds ago
+    </span>
+    <div
+      className="css-1aajy1n"
+    />
+    <div
+      className="css-1mcghfl"
+    >
+      <div
+        className="css-2l2kjs"
+        onClick={[Function]}
+      >
+        Remove
+      </div>
+      <div
+        className="css-2l2kjs"
+        onClick={[Function]}
+      >
+        Mark Unread
+      </div>
+    </div>
+  </div>
+</div>
+`;

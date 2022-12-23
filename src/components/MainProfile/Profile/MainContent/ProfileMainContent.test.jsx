@@ -7,10 +7,19 @@ import {
 import { BrowserRouter as Router } from 'react-router-dom';
 import MainContent from './ProfileMainContent';
 import MainProfile from '../../MainProfile';
+import ListingContextProvider from '../../../../contexts/ListingContext';
 
 it('open posts tap', async () => {
   // window.history.pushState({}, '', '/Login');
-  render(<Router><MainProfile><MainContent /></MainProfile></Router>);
+  render(
+    <Router>
+      <ListingContextProvider>
+        <MainProfile>
+          <MainContent />
+        </MainProfile>
+      </ListingContextProvider>
+    </Router>,
+  );
   //   const btn = screen.getByTestId('postsTap');
   //   fireEvent.click(btn);
   const photo = screen.getByTestId('cover-photo');

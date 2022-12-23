@@ -35,8 +35,8 @@ exports[`test snapshot 1`] = `
         Copy ID
       </button>
       <button
-        className="css-1tsxjb8"
-        disabled={true}
+        className="css-u6sf2k"
+        onClick={[Function]}
       >
         edit
       </button>

@@ -3,6 +3,12 @@ import { useParams } from 'react-router-dom';
 import VolumeOffOutlinedIcon from '@mui/icons-material/VolumeOffOutlined';
 import { EmptyBox } from '../../styles';
 
+/**
+ * empty muted page
+ * @component
+ * @return {React.Component} - empty muted page component
+ */
+
 function EmptyMuted() {
   const { subReddit } = useParams();
   return (

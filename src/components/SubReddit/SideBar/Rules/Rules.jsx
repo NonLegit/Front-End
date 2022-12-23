@@ -6,6 +6,8 @@ import Entity from './Entity/Entity';
 /**
  * About Rule
  * @component
+ * @property {string} Name - subreddit name
+ * @property {object} rules -list of community rules
  * @return {React.Component} - Add Rule
  */
 function Rules(props) {

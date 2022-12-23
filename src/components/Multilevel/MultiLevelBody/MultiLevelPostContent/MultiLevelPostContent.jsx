@@ -23,6 +23,14 @@ import { AuthorLink, ImgAvatar } from '../CommentsList/Comment/styles';
 import calculateTime from '../../../../utils/calculateTime';
 
 /* The Main Content of the post including Actions */
+
+/**
+ * MultiLevelPostContent Upper Part of the Post Body Including Post Actions
+ * @property {boolean}Edit --Whether this post in Edit post text State or Not[is Text Editor Appearing or Not]
+ * @property {boolean}Comment --For Initial Scrolling of the Post whther to be @ top or to the Comments Section
+ *
+ * @returns {React.Component} --MultiLevelBody Component
+ */
 function MultiLevelPostContent(props) {
   const { Edit, Comment } = props;
 

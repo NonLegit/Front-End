@@ -1,0 +1,172 @@
+{
+    "status": "success",
+    "data":
+    [
+        {
+            "_id": "639d0de38957d750a8eee91a66",
+            "type": "postReply",
+            "from": {
+                "_id": "638bed0c01f496d7284c281a",
+                "userName": "Eslam"
+            },
+            "to": {
+                "_id": "638bed0901f496d7284c2810",
+                "userName": "Fathi"
+            },
+             "subreddit": {
+                "_id": "63a16a2f5ded3e931da85214",
+                "fixedName": "BNHA",
+                "name": "BNHA",
+                "rules": [],
+                "icon": "http://localhost:8000/undefined",
+                "backgroundImage": "http://localhost:8000/undefined"
+            },
+            "createdAt": "2022-12-17T00:26:05.666Z",
+            "isRead": false,
+            "isDeletedInSource": false,
+            "isDeletedInDestination": false,
+            "comment": {
+                "_id": "639d0de38957d750a8eee914",
+                "parent": "6397350b02c3e344ea207064",
+                "text": "testing is done bro!!"
+            }
+        },
+        {
+            "_id": "639d0de38957d750a8eee91a88",
+            "type": "postReply",
+            "from": {
+                "_id": "638bed0c01f496d7284c281a",
+                "userName": "Eslam"
+            },
+            "to": {
+                "_id": "638bed0901f496d7284c2810",
+                "userName": "Doaa"
+            },
+             "subreddit": {
+                "_id": "63a16a2f5ded3e931da85214",
+                "fixedName": "BNHA",
+                "name": "BNHA",
+                "rules": [],
+                "icon": "http://localhost:8000/undefined",
+                "backgroundImage": "http://localhost:8000/undefined"
+            },
+            "createdAt": "2022-12-17T00:26:05.666Z",
+            "isRead": false,
+            "isDeletedInSource": false,
+            "isDeletedInDestination": false,
+            "comment": {
+                "_id": "639d0de38957d750a8eee914",
+                "parent": "6397350b02c3e344ea207064",
+                "text": "I stuied French"
+            }
+        },
+        {
+            "_id": "639d0de38957d750a8eee91a77",
+            "type": "postReply",
+            "from": {
+                "_id": "638bed0c01f496d7284c281a",
+                "userName": "Eslam"
+            },
+            "to": {
+                "_id": "638bed0901f496d7284c2810",
+                "userName": "Messi"
+            },
+            "createdAt": "2022-12-17T00:26:05.666Z",
+            "isRead": false,
+            "isDeletedInSource": false,
+            "isDeletedInDestination": false,
+            "comment": {
+                "_id": "639d0de38957d750a8eee914",
+                "parent": "6397350b02c3e344ea207064",
+                "text": "fady is sending 2"
+            }
+        },  {
+            "_id": "639d0de38957d750a8eee91a",
+            "type": "postReply",
+            "from": {
+                "_id": "638bed0c01f496d7284c281a",
+                "userName": "Eslam"
+            },
+            "to": {
+                "_id": "638bed0901f496d7284c2810",
+                "userName": "Fady"
+            },
+            "createdAt": "2022-12-19T00:26:05.666Z",
+            "isRead": false,
+            "isDeletedInSource": false,
+            "isDeletedInDestination": false,
+              "subreddit": {
+                "_id": "63a16a2f5ded3e931da85214",
+                "fixedName": "BNHA",
+                "name": "BNHA",
+                "rules": [],
+                "icon": "http://localhost:8000/undefined",
+                "backgroundImage": "http://localhost:8000/undefined"
+            },
+            "comment": {
+                "_id": "639d0de38957d750a8eee914",
+                "parent": "6397350b02c3e344ea207064",
+                "text": "fady is going to school"
+            }
+        },
+        {
+            "_id": "639d0de38957d750a8eee91a55",
+            "type": "postReply",
+            "from": {
+                "_id": "638bed0c01f496d7284c281a",
+                "userName": "Eslam"
+            },
+            "to": {
+                "_id": "638bed0901f496d7284c2810",
+                "userName": "Mohab"
+            },
+             "subreddit": {
+                "_id": "63a16a2f5ded3e931da85214",
+                "fixedName": "BNHA",
+                "name": "BNHA",
+                "rules": [],
+                "icon": "http://localhost:8000/undefined",
+                "backgroundImage": "http://localhost:8000/undefined"
+            },
+            "createdAt": "2022-12-17T00:26:05.666Z",
+            "isRead": false,
+            "isDeletedInSource": false,
+            "isDeletedInDestination": false,
+            "comment": {
+                "_id": "639d0de38957d750a8eee914",
+                "parent": "6397350b02c3e344ea207064",
+                "text": "I tired man!!"
+            }
+        },
+        {
+            "_id": "639d0de38957d750a8eee91a66",
+            "type": "postReply",
+            "from": {
+                "_id": "638bed0c01f496d7284c281a",
+                "userName": "Eslam"
+            },
+            "to": {
+                "_id": "638bed0901f496d7284c2810",
+                "userName": "Fathi"
+            },
+             "subreddit": {
+                "_id": "63a16a2f5ded3e931da85214",
+                "fixedName": "BNHA",
+                "name": "BNHA",
+                "rules": [],
+                "icon": "http://localhost:8000/undefined",
+                "backgroundImage": "http://localhost:8000/undefined"
+            },
+            "createdAt": "2022-12-17T00:26:05.666Z",
+            "isRead": false,
+            "isDeletedInSource": false,
+            "isDeletedInDestination": false,
+            "comment": {
+                "_id": "639d0de38957d750a8eee914",
+                "parent": "6397350b02c3e344ea207064",
+                "text": "testing is done bro!!"
+            }
+        }
+    ]
+
+}

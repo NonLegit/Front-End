@@ -11,74 +11,37 @@ exports[`Post Reactions renders correctly 1`] = `
       className="MuiBox-root css-1eogohz"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circular css-2is7ki-MuiAvatar-root"
+        className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-x9hid5-MuiAvatar-root"
       >
-        <img
-          alt="Profile Image"
-          className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
-          src="https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
-        />
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+          data-testid="PersonIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
       </div>
       <a
         className="css-kqg5s"
         color="#000"
         fontWeight="bolder"
-        href="/Subreddit/undefined"
+        href="/user/undefined"
         onClick={[Function]}
       >
-        r/
+        u/
       </a>
       <div
         className="MuiBox-root css-1clzuz0"
       >
-        <span>
-          •
-        </span>
-        <div>
-          Posted By
-        </div>
-        <a
-          className="css-1fa4cpj"
-          color="inherit"
-          fontWeight="normal"
-          href="/user/righteous_boldness07"
-          onClick={[Function]}
-        >
-          u/
-          righteous_boldness07
-        </a>
         <div
           className="MuiBox-root css-5ah3mn"
         >
-          a few seconds ago
+          4 days ago
         </div>
-      </div>
-      <div
-        className="MuiBox-root css-m647gw"
-      >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ifyb85-MuiButtonBase-root-MuiButton-root"
-          data-testid="join button"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          join
-        </button>
       </div>
     </div>
     <a
@@ -89,41 +52,28 @@ exports[`Post Reactions renders correctly 1`] = `
       <h3
         className="MuiTypography-root MuiTypography-h6 css-6aghek-MuiTypography-root"
       >
-        In 1991 Michael Jordan shot a free throw with his eyes closed while playing the Denver Nuggets.
+        new Post @ 12:12
          
-        <button
-          backgroundColor="#0079D3"
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1vku93v-MuiButtonBase-root-MuiButton-root"
-          disabled={false}
-          flairColor="#000"
-          onBlur={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          sports/r/all
-        </button>
+         
       </h3>
     </a>
     <div
-      className="MuiBox-root css-16ynq3o"
-      kind="image"
+      className="MuiBox-root css-vp8937"
+      kind="self"
+      onClick={[Function]}
+      spoiler={false}
     >
-      <img
-        alt="post image"
-        className="css-ofh2u3"
-        src="https://external-preview.redd.it/IRAK4IuafQCZdIC_OnB0X2ASJrSSRjqL7Vtnx3jt6mc.jpg?width=640&crop=smart&auto=webp&s=1db6de95af4fecf325ed1f06771b9a6eb947ac8e"
-      />
+      <p
+        className="css-w0u38i"
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<p>Edited Post</p>",
+            }
+          }
+        />
+      </p>
     </div>
     <div
       className="MuiBox-root css-1iio7w4"
@@ -187,7 +137,7 @@ exports[`Post Reactions renders correctly 1`] = `
         <div
           className="MuiBox-root css-1py4uq7"
         >
-          245
+          0
         </div>
         <button
           className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-xv33dv-MuiButtonBase-root-MuiIconButton-root"
@@ -247,6 +197,7 @@ exports[`Post Reactions renders correctly 1`] = `
         className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textThird MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textThird MuiButton-sizeMedium MuiButton-textSizeMedium css-4lmdq8-MuiButtonBase-root-MuiButton-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
         onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -276,7 +227,7 @@ exports[`Post Reactions renders correctly 1`] = `
             />
           </svg>
         </span>
-        12
+        4
          
         comments
       </button>
@@ -284,6 +235,7 @@ exports[`Post Reactions renders correctly 1`] = `
         className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textThird MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textThird MuiButton-sizeMedium MuiButton-textSizeMedium css-4lmdq8-MuiButtonBase-root-MuiButton-root"
         disabled={false}
         onBlur={[Function]}
+        onClick={[Function]}
         onContextMenu={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -390,7 +342,7 @@ exports[`Post Reactions renders correctly 1`] = `
               </svg>
             </div>
             <div
-              className="MuiListItemText-root css-1thmw9r-MuiListItemText-root"
+              className="MuiListItemText-root css-iw86h9-MuiListItemText-root"
             >
               <span
                 className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
@@ -405,6 +357,53 @@ exports[`Post Reactions renders correctly 1`] = `
           <div
             className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-18fvm0w-MuiButtonBase-root-MuiListItemButton-root"
             onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ModeEditOutlineOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 21h3.75L17.81 9.94l-3.75-3.75L3 17.25V21zm2-2.92 9.06-9.06.92.92L5.92 19H5v-.92zM18.37 3.29a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34z"
+                />
+              </svg>
+            </div>
+            <div
+              className="MuiListItemText-root css-iw86h9-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+              >
+                edit post
+              </span>
+            </div>
+          </div>
+          <hr
+            className="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+          />
+          <div
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-18fvm0w-MuiButtonBase-root-MuiListItemButton-root"
+            onBlur={[Function]}
+            onClick={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -435,12 +434,58 @@ exports[`Post Reactions renders correctly 1`] = `
               </svg>
             </div>
             <div
-              className="MuiListItemText-root css-1thmw9r-MuiListItemText-root"
+              className="MuiListItemText-root css-iw86h9-MuiListItemText-root"
             >
               <span
                 className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
               >
                 hide
+              </span>
+            </div>
+          </div>
+          <hr
+            className="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+          />
+          <div
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-18fvm0w-MuiButtonBase-root-MuiListItemButton-root"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="DeleteOutlineOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5-1-1h-5l-1 1H5v2h14V4h-3.5z"
+                />
+              </svg>
+            </div>
+            <div
+              className="MuiListItemText-root css-iw86h9-MuiListItemText-root"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+              >
+                delete
               </span>
             </div>
           </div>
@@ -480,7 +525,7 @@ exports[`Post Reactions renders correctly 1`] = `
               </svg>
             </div>
             <div
-              className="MuiListItemText-root css-1thmw9r-MuiListItemText-root"
+              className="MuiListItemText-root css-iw86h9-MuiListItemText-root"
             >
               <span
                 className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"

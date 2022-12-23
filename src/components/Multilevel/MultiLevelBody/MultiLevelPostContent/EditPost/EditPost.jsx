@@ -16,6 +16,12 @@ import { SaveButton } from '../styles';
 // Server
 import { editPost } from './editPostServer';
 
+/**
+ * EditPost Text Editor to Edit Content of a post
+ * @property {setFunction}setEdit --To set(Toggle State of Editing Post on clickling save or cancel)
+ * @returns {React.Component} --EditPost Component
+ *
+ */
 function EditPost({ setEdit }) {
   // Context
   const { post, setPost } = usePostContext();
