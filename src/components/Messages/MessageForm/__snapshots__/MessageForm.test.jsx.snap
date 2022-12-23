@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<form
+  className="css-o3ljl"
+  onSubmit={[Function]}
+>
+  <h2
+    className="css-scuyxs"
+  >
+    Send A Private Message
+  </h2>
+  <div
+    className="css-1upilqn"
+  >
+    <p
+      className="css-1kmp97r"
+    >
+      from
+    </p>
+    <select
+      aria-label="from"
+      className="css-katljm"
+    >
+      <option
+        className="css-19sqjpg"
+      />
+    </select>
+  </div>
+  <div
+    className="css-1upilqn"
+  >
+    <p
+      className="css-1kmp97r"
+    >
+      to
+       
+      <span
+        className="css-g8wqpv"
+      >
+        (username)
+      </span>
+    </p>
+    <input
+      className="css-1blen8r"
+      name="to"
+      onChange={[Function]}
+    />
+  </div>
+  <div
+    className="css-1upilqn"
+  >
+    <p
+      className="css-1kmp97r"
+    >
+      subject
+    </p>
+    <input
+      className="css-1blen8r"
+      name="subject"
+      onChange={[Function]}
+    />
+  </div>
+  <div
+    className="css-1upilqn"
+  >
+    <p
+      className="css-1kmp97r"
+    >
+      message
+    </p>
+    <textarea
+      className="css-lk7dwy"
+      name="message"
+      onChange={[Function]}
+    />
+  </div>
+  <div />
+  <button
+    className="css-ub6dwr"
+  >
+    SEND
+  </button>
+</form>
+`;

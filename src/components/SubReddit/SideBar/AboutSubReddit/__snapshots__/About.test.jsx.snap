@@ -42,9 +42,7 @@ Array [
   >
     <h2
       className="css-yevfdk"
-    >
-      aaaaaa
-    </h2>
+    />
   </h2>,
   <div
     className="css-1maxkpg"
@@ -69,7 +67,7 @@ Array [
     >
       Created
        
-      Invalid date
+      December 24, 2022
     </h2>
   </div>,
   <hr
@@ -81,9 +79,7 @@ Array [
     <span>
       <div
         className="css-p1puod"
-      >
-        500
-      </div>
+      />
       <p
         className="css-1cgnkz"
       >
@@ -120,7 +116,7 @@ Array [
     className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
     onBlur={[Function]}
     onFocus={[Function]}
-    to="/submit/r/aaaa"
+    to="/submit/r/undefined"
   >
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1anzha9-MuiButtonBase-root-MuiButton-root"

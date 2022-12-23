@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-1oz7yk1"
+>
+  <ul
+    className="css-925t0j"
+  >
+    <a
+      className="link"
+      href="/compose"
+      onClick={[Function]}
+    >
+      <li
+        className="css-1rdysd0"
+      >
+        Send A Private Message
+      </li>
+    </a>
+    <a
+      className="link"
+      href="/messages/inbox"
+      onClick={[Function]}
+    >
+      <li
+        className="css-14lo165"
+      >
+         
+        Inbox
+      </li>
+    </a>
+    <a
+      className="link"
+      href="/sent"
+      onClick={[Function]}
+    >
+      <li
+        className="css-1rdysd0"
+      >
+        Sent
+      </li>
+    </a>
+  </ul>
+</div>
+`;
