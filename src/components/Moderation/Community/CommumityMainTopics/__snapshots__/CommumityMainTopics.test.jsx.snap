@@ -8,7 +8,9 @@ exports[`test snapshot 1`] = `
   <p
     className="css-1udx7t0"
     data-testid="select"
-  />
+  >
+    aa
+  </p>
   <svg
     aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-1y0tgmx-MuiSvgIcon-root"

@@ -3,7 +3,12 @@ import renderer from 'react-test-renderer';
 import CommunityType from './CommunityType';
 
 // test snapshot
+const myType = () => {};
 test('test snapshot', async () => {
-  const tree = renderer.create(<CommunityType />).toJSON();
+  const props = {
+    type: 'public',
+    myType,
+  };
+  const tree = renderer.create(<CommunityType {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

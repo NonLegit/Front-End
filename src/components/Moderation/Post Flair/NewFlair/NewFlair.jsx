@@ -12,6 +12,8 @@ import {
  * @component
  * @property  {function} notEmpty check if the input feild is empty or not
  * @property  {function} SendData send data to backend
+ * @property  {function} save close popup form
+ * @property  {function} cancel popup form
  *
  * @return {React.Component} - New Flair
  */

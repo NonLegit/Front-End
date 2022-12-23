@@ -3,7 +3,12 @@ import renderer from 'react-test-renderer';
 import CommunityTopics from './CommunityTopics';
 
 // test snapshot
+const setTopics = () => {};
 test('test snapshot', async () => {
-  const tree = renderer.create(<CommunityTopics />).toJSON();
+  const props = {
+    topics: [],
+    setTopics,
+  };
+  const tree = renderer.create(<CommunityTopics {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -29,6 +29,7 @@ Array [
           <input
             aria-invalid={false}
             className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+            defaultValue="aaa"
             disabled={false}
             id="text"
             onAnimationStart={[Function]}
@@ -57,7 +58,7 @@ Array [
       <p
         className="css-1jfe1hz"
       >
-        64
+        61
          
         Characters remaining
       </p>
@@ -113,86 +114,78 @@ Array [
       </p>
     </div>
     <div
-      className="MuiBox-root css-15u5lxo"
+      className="css-bg8uia"
     >
       <div
-        className="css-bg8uia"
+        className="css-1lg26qb"
       >
-        <div
-          className="css-1lg26qb"
+        Flair background color
+      </div>
+      <div
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-dnud4j-MuiInputBase-root-MuiOutlinedInput-root"
+        onClick={[Function]}
+      >
+        <input
+          className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+          id="bgColor"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          type="color"
+        />
+        <fieldset
+          aria-hidden={true}
+          className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
         >
-          Flair background color
-        </div>
-        <div
-          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-dnud4j-MuiInputBase-root-MuiOutlinedInput-root"
-          onClick={[Function]}
-        >
-          <input
-            className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-            id="bgColor"
-            onAnimationStart={[Function]}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            type="color"
-          />
-          <fieldset
-            aria-hidden={true}
-            className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          <legend
+            className="css-ihdtdm"
           >
-            <legend
-              className="css-ihdtdm"
+            <span
+              className="notranslate"
             >
-              <span
-                className="notranslate"
-              >
-                ​
-              </span>
-            </legend>
-          </fieldset>
-        </div>
+              ​
+            </span>
+          </legend>
+        </fieldset>
       </div>
     </div>
     <div
-      className="MuiBox-root css-15u5lxo"
+      className="css-bg8uia"
     >
       <div
-        className="css-bg8uia"
+        className="css-1lg26qb"
       >
-        <div
-          className="css-1lg26qb"
+        Flair text color
+      </div>
+      <div
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-dnud4j-MuiInputBase-root-MuiOutlinedInput-root"
+        onClick={[Function]}
+      >
+        <input
+          className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+          id="textColor"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Aa"
+          type="color"
+        />
+        <fieldset
+          aria-hidden={true}
+          className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
         >
-          Flair text color
-        </div>
-        <div
-          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-dnud4j-MuiInputBase-root-MuiOutlinedInput-root"
-          onClick={[Function]}
-        >
-          <input
-            className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-            id="textColor"
-            onAnimationStart={[Function]}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Aa"
-            type="color"
-          />
-          <fieldset
-            aria-hidden={true}
-            className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          <legend
+            className="css-ihdtdm"
           >
-            <legend
-              className="css-ihdtdm"
+            <span
+              className="notranslate"
             >
-              <span
-                className="notranslate"
-              >
-                ​
-              </span>
-            </legend>
-          </fieldset>
-        </div>
+              ​
+            </span>
+          </legend>
+        </fieldset>
       </div>
     </div>
   </div>,
