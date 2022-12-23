@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageContainer PopularContainer renders correctly 1`] = `
+Array [
+  <div
+    className="MuiBox-root css-pwymh4"
+  >
+    <div
+      className="css-1yelhn"
+    >
+      <div
+        className="css-3ggxsn"
+        width={640}
+      >
+        <div
+          className="css-1i4l6gc"
+        />
+      </div>
+    </div>
+  </div>,
+  ",",
+]
+`;
