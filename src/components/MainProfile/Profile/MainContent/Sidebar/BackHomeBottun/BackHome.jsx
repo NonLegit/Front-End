@@ -2,6 +2,13 @@ import { Box } from '@mui/material';
 // eslint-disable-next-line import/no-named-as-default
 import BackHome from './style';
 
+/**
+ * BackHomeBottun
+ *
+ * @component BackHomeBottun
+ * @property {function} goToTop - return to the top of the page
+ * @returns {React.Component} BackHomeBottun
+ */
 function BackHomeBottun() {
   function goToTop() {
     document.documentElement.scrollTop = 0;

@@ -13,6 +13,14 @@ import UserLogin from '../../authentication';
 import ProfileBlocked from './ProfileBlocked/ProfileBlocked';
 import cleanPage from '../../utils/cleanPage';
 
+/**
+ * MainProfile
+ *
+ * @component MainProfile
+ * @property {function} cleanPage - return number of page to 0 when unmount component
+
+ * @returns {React.Component} MainProfile
+ */
 function MainProfile() {
   const [cookies] = useCookies(['redditUser']);
   const [isExist, setIsExist] = useState(true);

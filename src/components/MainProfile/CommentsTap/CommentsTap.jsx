@@ -18,6 +18,13 @@ function useQuery() {
   return useMemo(() => new URLSearchParams(search), [search]);
 }
 
+/**
+ * CommentsTap
+ *
+ * @component Comments
+ * @returns {React.Component} CommentsTap
+ */
+
 function CommentsTap({ profile }) {
   const { subTitle } = useParams();
   const query = useQuery();

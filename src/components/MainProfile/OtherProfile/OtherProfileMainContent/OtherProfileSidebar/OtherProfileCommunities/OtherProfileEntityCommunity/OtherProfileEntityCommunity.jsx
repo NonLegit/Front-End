@@ -6,7 +6,16 @@ import { CommunitiesSubscriberContext } from '../../../../../../../contexts/Comm
 import {
   ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
 } from './styles';
-
+/**
+ * OtherProfileEntityComment component shows all comments over a post
+ *
+ * @component OtherProfileEntityComment
+ * @property {object} community - entity
+ * @property {boolean} handleJoin - sharing their state currently
+ * @property {boolean} handleMouseIn - show text when hover
+ * @property {boolean} handleMouseOut - retyrn the text to its default state
+ * @returns {React.Component} OtherProfileEntityComment
+ */
 function OtherProfileEntityComment(props) {
   const { community } = props;
   const { communitiesSubscriber } = useContext(CommunitiesSubscriberContext);

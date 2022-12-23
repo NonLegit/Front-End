@@ -6,6 +6,17 @@ import {
   ComminityBox, HeaderAvatar, HeaderAvatarImage, Joined, SubReddit,
 } from './styles';
 
+/**
+ * EntityComment
+ *
+ * @component Filter
+ * @property {function} handleJoin - sharing their state currently
+ * @property {function} handleMouseIn - set text when hover
+ * @property {function} handleMouseOut - return text to its default state
+ * @property {ibjest} community - entity
+ * @returns {React.Component} EntityComment
+ */
+
 function EntityComment(props) {
   const { community } = props;
   // check if current logged in user is joined or not

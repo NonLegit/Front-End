@@ -6,6 +6,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Typography } from '@mui/material';
 import { DialogButtons } from './styles';
 
+/**
+ * Block
+ *
+ * @component Block
+ * @returns {React.Component} Block
+ */
 function Block({ onClose, username, handleBlock }) {
   return (
     <>

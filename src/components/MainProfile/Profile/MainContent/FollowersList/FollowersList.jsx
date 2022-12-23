@@ -12,6 +12,15 @@ import {
 import Follower from './Follower/Follower';
 import { useListingContext } from '../../../../../contexts/ListingContext';
 
+/**
+ *FollowersList
+ *
+ * @component FollowersList
+ * @property {function} handleSubmit - submit action
+ * @property {function} fetchMoreData - get more data
+
+ * @returns {React.Component} FollowersList
+ */
 function FollowersList() {
   const [data] = followersServer();
   const [filter, setFilter] = useState(data);

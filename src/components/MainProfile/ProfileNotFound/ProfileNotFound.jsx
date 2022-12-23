@@ -1,6 +1,15 @@
 import { Typography } from '@mui/material';
 import { NotFoundBox, Image, BackHomeButton } from './styles';
 
+/**
+ * ProfileNotFound
+ *
+ * @component ProfileNotFound
+ * @property {function} redirect - redirect to home page
+
+ * @returns {React.Component} ProfileNotFound
+ */
+
 function ProfileNotFound() {
   const redirect = () => {
     window.location.pathname = '/';

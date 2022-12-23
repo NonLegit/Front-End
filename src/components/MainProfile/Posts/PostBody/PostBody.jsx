@@ -12,7 +12,13 @@ import {
   PostMedia,
 } from '../styles';
 import { useEditPostContext } from '../../../../contexts/EditPostContext';
-
+/**
+ * PostBody
+ *
+ * @component PostBody
+ * @property  {function} handleDirection switch between images
+ * @returns {React.Component} PostBody
+ */
 function PostBody({ post, isSpoiler }) {
   const [maxImagesHeight, setMaxImagesHeight] = useState(450);
 
