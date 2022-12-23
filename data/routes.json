@@ -1,4 +1,11 @@
 {
+  "/comments": "/createcomment",
+  "/comments/comment_tree/:postID?limit=:limit&depth=:depth&sort=:sort&commentId:commentId": "/morecomments",
+  "/comments/comment_tree/:postID?limit=:limit&depth=:depth&sort=:sort": "/postcomments",
+  "/comments/more_children/:postID?children=:children&depth=:depth": "/morereplies",
+  "/comments/:commentId": "/editcomment",
+  "/posts/:postID": "/getpost",
+
   "/users/:name/overview?limit=:limit&page=:page&sort=:sortType": "/overview",
   "/users/:name/posts?limit=:limit&page=:page&sort=:sortType": "/postsTap",
   "/users/:name/comments?limit=:limit&page=:page&sort=:sortType": "/commentsTap",
@@ -48,9 +55,7 @@
   "/comments/:id/moderate/:action": "/commentMod",
   "/subreddits/leaderboard/:category?limit=:limit&page=:page": "/TopCommunities",
   "/posts/:postId/moderate/:action": "/moderatorAction",
-
-  "/t/:name/":"/exploreCommunities",
-
+  "/t/:name/": "/exploreCommunities",
   "/search?limit=6&page=0&type=people&sort=:new&time=:day&q=:ahmed": "/SearchByPeople",
   "/search?limit=6&page=0&type=communities&sort=:new&time=:day&q=:ahmed": "/SearchByCommunity",
   "/search?limit=6&page=0&type=posts&sort=:new&time=:day&q=:ahmed": "/SearchByPost",
@@ -71,14 +76,11 @@
     "/users/forgot_password": "/forgetpassword",
     "/users/forgot_username": "/forgetusername",
     "/users/reset_password/:token": "/resetpassword",
-    "/comments/:commentId": "/editcomment",
     "/messages/sent":"/messageSent",
     "/posts/:postId":"/deleteAction",
     "/posts/:postId/actions/:action":"/actionOnPost",
     "/subreddits/:subreddit/flair":"/subredditFlairs",
     "/getpost/:postID":"/getpost",
-    "/posts/:postID":"/editpost",
-    "/comments":"/createcomment",
     "/comments/comment_tree/:postID":"/postcomments",
     "/comments/more_children":"/morecomments",
     "/posts/:postId/save":"/save",
@@ -106,7 +108,6 @@
 
     "/subreddits/:subredditName/approve_settings/:action/:userName":"/approvedUnapproved",
     "/subreddits/:subredditName/Ban_settings/:action/:userName":"/banUnban",
-
   "/subreddits/:subredditName/:name/hot?limit=:limit&page=:page": "/hot",
   "/subreddits/:Name/top?limit=:limit&page=:page": "/top",
   "/subreddits/:Name/new?limit=:limit&page=:page": "/new",
@@ -127,5 +128,9 @@
   "/users/change_password": "/changeEmail",
   "/users/delete_account/": "/deleteAccount",
   "/users/verify_email/:token": "/verifyEmail",
-  "/subreddits/:subredditName/:action/invitation": "/SubreddtInvitation"
+  "/subreddits/:subredditName/:action/invitation": "/SubreddtInvitation",
+  "subreddits/:subredditName/flairs": "/AddFlair",
+  "subreddits/:subredditName/flairs/:flairId": "/EditFlair",
+  "subreddits/:subredditName/rules/:title": "/AddRule",
+  "comments/:commentID/save":"/savecomment"
 }

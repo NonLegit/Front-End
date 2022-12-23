@@ -14,6 +14,11 @@ import { usePostContext } from '../../../contexts/PostContext';
 // Server
 import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 
+/**
+ * MultiLevelSideBar Side Bar @ Right of the Post with Info About Owner of the Post [User or Subreddit]
+ *
+ * @returns {React.Component} --MultiLevelSideBar Component
+ */
 function MultiLevelSideBar() {
   // Context
   const { post } = usePostContext();

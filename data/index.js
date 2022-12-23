@@ -42,11 +42,6 @@ const block = require('./block.json');
 const followers = require('./followers.json');
 const actionOnPost = require('./actionOnPost.json');
 const commentsTap = require('./commentsTap.json');
-const getPost = require('./getpost.json');
-const createcomment = require('./createcomment.json');
-const postComments = require('./postcomments.json');
-const moreComments = require('./moreComments.json');
-const editcomment = require('./editcomment.json');
 const save = require('./save.json');
 const unsave = require('./unsave.json');
 const hide = require('./hide.json');
@@ -92,6 +87,13 @@ const changePassword = require('./changePassword.json');
 const deleteAccount = require('./deleteAccount.json');
 const verifyEmail = require('./verifyEmail.json');
 const SubreddtInvitation = require('./SubreddtInvitation.json');
+
+const getPost = require('./getpost.json');
+const createcomment = require('./createcomment.json');
+const postComments = require('./postcomments.json');
+const moreComments = require('./moreComments.json');
+const editcomment = require('./editcomment.json');
+const morereplies = require('./morereplies.json');
 // Something more
 
 module.exports = () => ({
@@ -144,11 +146,6 @@ module.exports = () => ({
   followers,
   actionOnPost,
   commentsTap,
-  getPost,
-  createcomment,
-  postComments,
-  moreComments,
-  editcomment,
   subredditFlairs,
   save,
   unsave,
@@ -190,5 +187,12 @@ module.exports = () => ({
   deleteAccount,
   verifyEmail,
   SubreddtInvitation,
+
+  getPost,
+  createcomment,
+  postComments,
+  moreComments,
+  editcomment,
+  morereplies,
   // Something more
 });

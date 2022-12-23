@@ -27,6 +27,10 @@ import {
 import theme from '../../../styles/theme';
 import { addPostToHistory } from './scripts';
 
+/**
+ * MultiLevelHeader of the Post Page with Title oof Post and Vote and Down Vote Buttons
+ * @returns {React.Component} --MultiLevelHeader Component
+ */
 function MultiLevelHeader() {
   // Context
   const { post } = usePostContext();

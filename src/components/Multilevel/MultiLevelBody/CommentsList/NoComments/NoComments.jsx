@@ -5,6 +5,11 @@ import ForumIcon from '@mui/icons-material/Forum';
 // styles
 import { NoCommentsConatiner } from './styles';
 
+/**
+ * Compoent for Empty Comments Post Comments Area
+ * @component
+ * @returns {React.Component} --NoComments Component
+ */
 function NoComments() {
   return (
     <NoCommentsConatiner>

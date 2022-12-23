@@ -28,7 +28,7 @@ import { redditCookie, checkEmail } from '../authenticationServer';
  * Component for Forget Password Page
  *
  * @component
- * @returns {React.Component} --ForgetPassword Page Component
+ * @returns {React.Component} --ForgetPassword Component
  */
 function ForgetPassword() {
   // states

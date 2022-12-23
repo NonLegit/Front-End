@@ -16,6 +16,13 @@ import { SaveButton } from '../../../MultiLevelPostContent/styles';
 // Server
 import { editComment } from './editCommentServer';
 
+/**
+ * Edit Comment (Text Editor) Component
+ * @property {object}comment --Comment Assoicated with these Actions
+ * @property {setfunction}setComment --Setting the comment on change of its State (Renreder)
+ * @property {setfunction}setEditComment --set function for the Edit state of the comment (for UI)
+ * @returns {React.Component} --EditComment Component
+ */
 function EditComment(props) {
   // Props
   const { comment, setComment, setEditComment } = props;

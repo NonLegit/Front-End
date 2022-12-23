@@ -19,6 +19,10 @@ import { getComments, getMoreChildren } from './commentsListServer';
 import { MultilevelPostCommentsConatiner } from './styles';
 import NoComments from './NoComments/NoComments';
 
+/**
+ * Comments on Post List Component
+ * @returns {React.Component} --CommentsList Component
+ */
 function CommentsList() {
   const { postID } = useParams();
 

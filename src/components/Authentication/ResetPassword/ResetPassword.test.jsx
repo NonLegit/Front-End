@@ -3,20 +3,20 @@ import {
 } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
-import App from '../../../App';
+
 import ResetPassword from './ResetPassword';
 
 // render forget password page
 it('should render Reset password page', () => {
   window.history.pushState({}, '', '/resetpassword/123466Fadsfgkvbnm');
-  render(<App />);
+  render(<ResetPassword />);
   expect(screen.queryByTestId('resetpassword-test')).toBeInTheDocument();
 });
 
 // Empty Fields
 it('Empty Fields Keeps view on Reset password Page', () => {
   window.history.pushState({}, '', '/resetpassword/123466Fadsfgkvbnm');
-  render(<App />);
+  render(<ResetPassword />);
   expect(screen.queryByTestId('resetpassword-test')).toBeInTheDocument();
 
   const resetbtn = screen.getByTestId('set-newpassword-btn-test');
@@ -29,7 +29,7 @@ it('Empty Fields Keeps view on Reset password Page', () => {
 
 it('Short Password', () => {
   window.history.pushState({}, '', '/resetpassword/123466Fadsfgkvbnm');
-  render(<App />);
+  render(<ResetPassword />);
   const field1 = screen.getByTestId('resetpassword-password-input').querySelector('input');
   expect(field1).toBeInTheDocument();
   fireEvent.change(field1, { target: { value: 'Basma@1' } });
@@ -43,7 +43,7 @@ it('Short Password', () => {
 
 it('Mismatched Passwords', () => {
   window.history.pushState({}, '', '/resetpassword/123466Fadsfgkvbnm');
-  render(<App />);
+  render(<ResetPassword />);
   // Password
   const field1 = screen.getByTestId('resetpassword-password-input').querySelector('input');
   expect(field1).toBeInTheDocument();
@@ -63,7 +63,7 @@ it('Mismatched Passwords', () => {
 
 it('Invalid Token', () => {
   window.history.pushState({}, '', '/resetpassword/123466Fadsfgkvbnm');
-  render(<App />);
+  render(<ResetPassword />);
   // Password
   const field1 = screen.getByTestId('resetpassword-password-input').querySelector('input');
   expect(field1).toBeInTheDocument();
@@ -85,7 +85,7 @@ it('Invalid Token', () => {
 
 it('Weak Password', () => {
   window.history.pushState({}, '', '/resetpassword/123466Fadsfgkvbnm');
-  render(<App />);
+  render(<ResetPassword />);
   // Password
   const field1 = screen.getByTestId('resetpassword-password-input').querySelector('input');
   expect(field1).toBeInTheDocument();
