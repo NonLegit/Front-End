@@ -1,13 +1,15 @@
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import MainProfile from '../../../MainProfile';
 import ListingContextProvider from '../../../../../contexts/ListingContext';
 import SavedTap from './SavedTap';
 import mergeSort from '../../../../../utils/mergeSort';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(
+  const renderer = new ShallowRenderer();
+
+  const tree = renderer.render(
     <Router>
       <ListingContextProvider>
         <MainProfile>
@@ -15,7 +17,7 @@ test('test snapshot', async () => {
         </MainProfile>
       </ListingContextProvider>
     </Router>,
-  ).toJSON();
+  );
   expect(tree).toMatchSnapshot();
 });
 

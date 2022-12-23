@@ -1,13 +1,15 @@
 import '@testing-library/jest-dom';
-import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import ProfileMainContent from '../../Profile/MainContent/ProfileMainContent';
 import EditPostContextProvider from '../../../../contexts/EditPostContext';
 import ListingContextProvider from '../../../../contexts/ListingContext';
 import CrossPost from './CrossPost';
 
 test('test snapshot', async () => {
-  const tree = renderer.create(
+  const renderer = new ShallowRenderer();
+
+  const tree = renderer.render(
     <Router>
       <ListingContextProvider>
         <EditPostContextProvider>
@@ -17,6 +19,6 @@ test('test snapshot', async () => {
         </EditPostContextProvider>
       </ListingContextProvider>
     </Router>,
-  ).toJSON();
+  );
   expect(tree).toMatchSnapshot();
 });
