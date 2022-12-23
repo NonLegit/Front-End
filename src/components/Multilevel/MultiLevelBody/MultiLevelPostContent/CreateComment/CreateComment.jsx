@@ -18,6 +18,10 @@ import { SaveButton } from '../styles';
 import { saveComment } from '../../CommentsList/commentsListServer';
 import { AuthorLink } from '../../CommentsList/Comment/styles';
 
+/**
+ * CreateComment Text Editor to Add comment on a post
+ * @returns {React.Component} --CreateComment Component
+ */
 function CreateComment() {
   // Context
   const {

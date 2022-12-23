@@ -1,20 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MultiLevelHeader-test-snapshot 1`] = `
-Object {
-  "instance": null,
-  "nodeType": "component",
-  "props": Object {
-    "children": <MultiLevelHeader />,
-    "postID": "123556",
-  },
-  "rendered": Object {
-    "instance": null,
-    "nodeType": "component",
-    "props": Object {},
-    "rendered": null,
-    "type": [Function],
-  },
-  "type": [Function],
-}
+<div
+  className="MuiBox-root css-1su4niv"
+>
+  <div
+    className="MuiBox-root css-yd9c3t"
+  />
+</div>
 `;

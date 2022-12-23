@@ -24,6 +24,17 @@ import { MoreCommentsLink } from '../styles';
 // Server
 import { getMoreChildren } from '../commentsListServer';
 
+/**
+ * Comment (MultiLeveled Replies) Component
+ * @property {object}commentprop --Comment Object Data
+ * @property {boolean}isLastChild --is this comment last children(reply) of the parent comment
+ * @property {integer}remainingSiblings --Count for Remaining Siblings of this comment
+ * @property {function}loadMoreRepliesParentFun --Function to load more replies
+ * @property {function}continueThreadParentFun --Function to continue thread from this comment
+ * @property {boolean}moreRepliesFormatPar --Boolean for Format of comment Fetched from Back end
+ *
+ * @returns {React.Component} --Comment Component
+ */
 function Comment(props) {
   // props
   const {

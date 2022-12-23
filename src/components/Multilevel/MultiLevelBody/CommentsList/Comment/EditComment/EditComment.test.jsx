@@ -1,16 +1,19 @@
-// 63a47f3710ebdf1da11a5b96
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 
-import PostContextProvider from '../../../../../../contexts/PostContext';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import EditComment from './EditComment';
+import MultiLevel from '../../../../MultiLevel';
 
 // test snapshot
 test('EditComment-test-snapshot', async () => {
   const tree = renderer.create(
-    <PostContextProvider>
-      <EditComment />
-    </PostContextProvider>,
+    <Router>
+      <MultiLevel>
+        <EditComment />
+      </MultiLevel>
+    </Router>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

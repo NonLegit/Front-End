@@ -3,15 +3,15 @@ import '@testing-library/jest-dom';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import MultiLevelSideBar from './MultiLevelSideBar';
-import MultiLevel from '../MultiLevel';
+import MultiLevel from '../../../MultiLevel';
+import CreateComment from './CreateComment';
 
 // test snapshot
-test('MultiLevelSideBar-test-snapshot', async () => {
+test('CreateComment-test-snapshot', async () => {
   const tree = renderer.create(
     <Router>
       <MultiLevel>
-        <MultiLevelSideBar />
+        <CreateComment />
       </MultiLevel>
     </Router>,
   ).toJSON();
