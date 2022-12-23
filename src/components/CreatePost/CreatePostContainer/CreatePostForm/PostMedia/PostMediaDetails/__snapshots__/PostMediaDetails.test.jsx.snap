@@ -323,7 +323,9 @@ exports[`PostMediaDetails PostMediaDetails renders correctly 1`] = `
   }
 >
   <InnerThemeProvider>
-    <Memo(DndProvider)>
+    <Memo(DndProvider)
+      backend={[Function]}
+    >
       <PostMediaDetails
         handleCaptionChange={[Function]}
         handlePostLinkChange={[Function]}
