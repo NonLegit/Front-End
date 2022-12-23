@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-1sbynk4"
+>
+  <img
+    alt="Page Not Found"
+    src="https://www.redditstatic.com/reddit404b.png"
+    width="300px"
+  />
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-obn6vu-MuiTypography-root"
+  >
+    404 page not found
+  </p>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+  >
+    the page you requested does not exist
+  </p>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+  >
+    Redirect to
+     
+    <a
+      className="css-5ewi9r"
+      href="/"
+    >
+      Home
+    </a>
+     
+    🏠
+  </p>
+</div>
+`;
