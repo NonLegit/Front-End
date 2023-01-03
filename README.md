@@ -6,7 +6,7 @@
 
 </div>
 <div align="center">
-   <img align="center"  src="https://cdn.dribbble.com/users/1894420/screenshots/14081942/media/35cff73d1a62612f537be3f432900b8c.gif" alt="logo">
+   <img align="center"  width="600px" src="https://cdn.dribbble.com/users/1894420/screenshots/14081942/media/35cff73d1a62612f537be3f432900b8c.gif" alt="logo">
 
 
 ### ”Lets Go, Start new adventure.🪐“
@@ -21,7 +21,6 @@
 
 - <a href ="#about"> 📙 overview</a>
 - <a href ="#Started"> 💻 Get Started</a>
-- <a href ="#Path"> 📷 Path of the program</a>
 - <a href ="#Video">  📽 GIF Demo</a>
 - <a href ="#Contributors"> ✨ Contributors</a> 
 - <a href ="#License"> 🔒 License</a> 
@@ -30,7 +29,7 @@
 ## <img align="center"  width =60px  height =70px src="https://media3.giphy.com/media/h46Wk2BSHGch87Mk7w/giphy.gif?cid=ecf05e47uzbe4n6uzosogred6c2meppawdd9nb2avjp6ltdl&rid=giphy.gif&ct=s"> Overview <a id = "about"></a>
 
 <ul>
-<li> We are Front end team</li>
+<li> We are Front-end team web development</li>
 <li>
 The Project mimic some functionalities of <a href="https://www.reddit.com/">Reddit</a>
 </li>
@@ -49,7 +48,7 @@ The Project mimic some functionalities of <a href="https://www.reddit.com/">Redd
 </ol>
 </li>
 <li>
-<a href="https://github.com/AdhamAliAbdelAal/MP-Processor-Game/blob/master/Project_Description.pdf">Project Description</a>
+<a href="https://github.com/NonLegit/Reddit-Front/blob/development/%5BSoftware%20Engineering%5D%20Project%20F2022.pdf">Project Description</a>
 </li>
 </ul>
 <hr style="background-color: #4b4c60"></hr>
@@ -110,4 +109,4 @@ npm run start
 
 ## License <a id ="License"></a>
 
-> This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/tree/development/LICENSE) for more information ©NonLegit.
+> This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/blob/development/LICENSE) for more information ©NonLegit.
