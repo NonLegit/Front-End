@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+<div align= >
+   
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# <img align=center width=75px height=75px src="https://media1.giphy.com/media/mDN904TRuZwJhmc4mf/giphy.gif?cid=ecf05e47i8t7ozdn1ted9aqqf1z56vqkt9kwei9b5d46c4hy&rid=giphy.gif&ct=s"> NonLegit
 
-## Available Scripts
 
-In the project directory, you can run:
+</div>
+<div align="center">
+   <img align="center"  src="https://cdn.dribbble.com/users/1894420/screenshots/14081942/media/35cff73d1a62612f537be3f432900b8c.gif" alt="logo">
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ”Lets Go, Start new adventure.🪐“
+   
+</div>
+ 
+<p align="center"> 
+    <br> 
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
 
-### `npm test`
+- <a href ="#about"> 📙 overview</a>
+- <a href ="#Started"> 💻 Get Started</a>
+- <a href ="#Path"> 📷 Path of the program</a>
+- <a href ="#Video">  📽 GIF Demo</a>
+- <a href ="#Contributors"> ✨ Contributors</a> 
+- <a href ="#License"> 🔒 License</a> 
+<hr style="background-color: #4b4c60"></hr>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## <img align="center"  width =60px  height =70px src="https://media3.giphy.com/media/h46Wk2BSHGch87Mk7w/giphy.gif?cid=ecf05e47uzbe4n6uzosogred6c2meppawdd9nb2avjp6ltdl&rid=giphy.gif&ct=s"> Overview <a id = "about"></a>
 
-### `npm run build`
+<ul>
+<li> We are Front end team</li>
+<li>
+The Project mimic some functionalities of <a href="https://www.reddit.com/">Reddit</a>
+</li>
+<li>The project is built by
+<ol>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<li>
+<a href="https://reactjs.org/docs/getting-started.html">React</a> 
+</li>
+<li>
+<a href="https://mui.com/material-ui/getting-started/overview/">MUI</a>
+</li>
+<li>
+<a href="https://firebase.google.com/">Firebase</a> 
+</li>
+</ol>
+</li>
+<li>
+<a href="https://github.com/AdhamAliAbdelAal/MP-Processor-Game/blob/master/Project_Description.pdf">Project Description</a>
+</li>
+</ul>
+<hr style="background-color: #4b4c60"></hr>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## <img  align= center width=50px height=50px src="https://c.tenor.com/HgX89Yku5V4AAAAi/to-the-moon.gif"> Get Started <a id = "Started"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<ol>
+<li>Clone the repository
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+git clone 
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</li>
+<li>To run the program
+<ol>
+<br>
+<li>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm run server-json 
+```
+</li>
+<li>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+npm run start
+```
+</li>
+</ol>
+</ol>
+<hr style="background-color: #4b4c60"></hr>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063">  GIF Demo <a id ="Video"></a>
 
-### Code Splitting
+<img src="https://ser-images.githubusercontent.com/71986226/177061002-d93b2d8b-831f-4eac-8538-5f9719a30fb3.gif" width="500px;"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+<hr style="background-color: #4b4c60"></hr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## <img  align="center" width= 70px height =55px src="https://media0.giphy.com/media/Xy702eMOiGGPzk4Zkd/giphy.gif?cid=ecf05e475vmf48k83bvzye3w2m2xl03iyem3tkuw2krpkb7k&rid=giphy.gif&ct=s"> Contributors <a id ="Contributors"></a>
 
-### Making a Progressive Web App
+<table align="center" >
+  <tr>
+     <td align="center"><a href="https://github.com/nouralmulhem"><img src="https://avatars.githubusercontent.com/u/76218033?v=4" width="150px;" alt=""/><br /><sub><b>Nour Ziad Almulhem</b></sub></a><br /></td>
+     <td align="center"><a href="https://github.com/fady2001"><img src="https://avatars.githubusercontent.com/u/75928317?v=4" width="150px;" alt=""/><br /><sub><b>Fady</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/AdhamAliAbdelAal" ><img src="https://avatars.githubusercontent.com/u/83884426?v=4" width="150px;" alt=""/><br /><sub><b>Adham Ali</b></sub></a><br />
+    </td>
+    <td align="center"><a href="https://github.com/AhmedHosny2024"><img src="https://avatars.githubusercontent.com/u/76389601?v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Hosny</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/BasmaElhoseny01"><img src="https://avatars.githubusercontent.com/u/72309546?v=4" width="150px;" alt=""/><br /><sub><b>Basma Elhoseny</b></sub></a><br /></td>
+     <td align="center"><a href="https://github.com/EslamAsHhraf"><img src="https://avatars.githubusercontent.com/u/71986226?v=4" width="150px;" alt=""/><br /><sub><b>Eslam Ashraf</b></sub></a><br /></td>
+  </tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License <a id ="License"></a>
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/tree/development/LICENSE) for more information ©NonLegit.
