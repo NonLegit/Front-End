@@ -6,7 +6,7 @@
 
 </div>
 <div align="center">
-   <img align="center"  width="700px" src="https://user-images.githubusercontent.com/71986226/210291217-ebbf139b-a191-4300-b135-97b24414f7b4.gif" alt="logo">
+   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/210291217-ebbf139b-a191-4300-b135-97b24414f7b4.gif" alt="logo">
 
 
 ### ”Lets Go, Start new adventure.⚡“
@@ -96,7 +96,7 @@ There are a few additional environment variables that are used when building and
 1. `REACT_APP_FACEBOOKCLIENTID`:A environment string used in connecting with facebook client.
 1. `REACT_APP_SITEKEY`: A environment string used in google captcha..
 1. `REACT_APP_ENV`:  An environment string. Currently it is only used to differentiate different deploys (development or production).
-1. `REACT_APP_PROXY_DEVELOPMENT`: The base URL of the deveopment server. default value is `http://localhost:800`.
+1. `REACT_APP_PROXY_DEVELOPMENT`: The base URL of the deveopment server. default value is `http://localhost:8000`.
 1. `REACT_APP_PROXY_PRODUCTION`: The base URL of the backend
 
 
