@@ -6,7 +6,7 @@
 
 </div>
 <div align="center">
-   <img align="center"  width="600px" src="https://user-images.githubusercontent.com/71986226/210291217-ebbf139b-a191-4300-b135-97b24414f7b4.gif" alt="logo">
+   <img align="center"  width="700px" src="https://user-images.githubusercontent.com/71986226/210291217-ebbf139b-a191-4300-b135-97b24414f7b4.gif" alt="logo">
 
 
 ### ”Lets Go, Start new adventure.⚡“
@@ -21,9 +21,11 @@
 
 - <a href ="#about"> 📙 overview</a>
 - <a href ="#Started"> 💻 Get Started</a>
+- <a href ="#deployment"> 👷🏼‍♂️ Build & deployment</a>
+- <a href ="#Features"> 🔍 Features</a>
 - <a href ="#Video">  📽 GIF Demo</a>
-- <a href ="#Contributors"> ✨ Contributors</a> 
-- <a href ="#License"> 🔒 License</a> 
+- <a href ="#Contributors"> ✨ Contributors</a>
+- <a href ="#License"> 🔒 License</a>
 <hr style="background-color: #4b4c60"></hr>
 
 ## <img align="center"  width =60px  height =70px src="https://media3.giphy.com/media/h46Wk2BSHGch87Mk7w/giphy.gif?cid=ecf05e47uzbe4n6uzosogred6c2meppawdd9nb2avjp6ltdl&rid=giphy.gif&ct=s"> Overview <a id = "about"></a>
@@ -84,6 +86,52 @@ npm run start
 </ol>
 <hr style="background-color: #4b4c60"></hr>
 
+
+
+## <img  align= center width= 80px height =80px src="https://media2.giphy.com/media/r0xXyasMMP3MA493e2/giphy.gif?cid=ecf05e47zzldel3l1zcdf08jibtto03qcwidkegx0itev1fd&rid=giphy.gif&ct=s">  Build & Deployment <a id ="deployment"></a>
+
+There are a few additional environment variables that are used when building and deploying for production.
+
+1. `REACT_APP_GOOGLECLIENTID`: A environment string used in connecting with google client.
+1. `REACT_APP_FACEBOOKCLIENTID`:A environment string used in connecting with facebook client.
+1. `REACT_APP_SITEKEY`: A environment string used in google captcha..
+1. `REACT_APP_ENV`:  An environment string. Currently it is only used to differentiate different deploys (development or production).
+1. `REACT_APP_PROXY_DEVELOPMENT`: The base URL of the deveopment server. default value is `http://localhost:800`.
+1. `REACT_APP_PROXY_PRODUCTION`: The base URL of the backend
+
+
+<hr style="background-color: #4b4c60"></hr>
+
+
+
+## <img  align= center width= 70px height =70px src="https://media1.giphy.com/media/NnSFnC428LRHaxUNzj/giphy.gif?cid=ecf05e47r1hlw9wrf1swakc9gxgn508lyzvbyzgp9i1iyvwl&rid=giphy.gif&ct=s"> Features  <a id ="Features"></a>
+
+<table align="left;">
+<tr>
+<td>🔶 Create Post</td>
+<td>
+<p>You con create 3 types of post</p>
+<ul>
+<li>Text: you can add text and styling it with fancy text editor</li>
+<li>Image: you can upload photo or video to add to your post</li>
+<li>Link: you can add link to your post</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>🔷 Search</td>
+<td><p>The search results have 4 types</p> 
+<ul>
+<li>Posts</li>
+<li>Comments</li>
+<li>Communities</li>
+<li>People</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr style="background-color: #4b4c60"></hr>
 
 
 ## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063">  GIF Demo <a id ="Video"></a>
