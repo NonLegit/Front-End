@@ -6,10 +6,10 @@
 
 </div>
 <div align="center">
-   <img align="center"  width="600px" src="https://cdn.dribbble.com/users/1894420/screenshots/14081942/media/35cff73d1a62612f537be3f432900b8c.gif" alt="logo">
+   <img align="center"  width="600px" src="https://strapicms.s3.ap-south-1.amazonaws.com/image_processing20210102_7424_10uusgr_40d937428e.gif" alt="logo">
 
 
-### ”Lets Go, Start new adventure.🪐“
+### ”Lets Go, Start new adventure.⚡“
    
 </div>
  
@@ -61,7 +61,7 @@ The Project mimic some functionalities of <a href="https://www.reddit.com/">Redd
 <br>
 
 ```
-git clone 
+git clone https://github.com/NonLegit/Reddit-Front/tree/main
 ```
 
 </li>
@@ -93,7 +93,7 @@ npm run start
 
 <hr style="background-color: #4b4c60"></hr>
 
-## <img  align="center" width= 70px height =55px src="https://media0.giphy.com/media/Xy702eMOiGGPzk4Zkd/giphy.gif?cid=ecf05e475vmf48k83bvzye3w2m2xl03iyem3tkuw2krpkb7k&rid=giphy.gif&ct=s"> Contributors <a id ="Contributors"></a>
+## <img  align="center" width= 70px height =70px src="https://media1.giphy.com/media/yeje6nkg0Nn5zmeKUE/giphy.gif?cid=ecf05e47jb4s2rebqc3mjve38bsmikqxjbf3pnnla6uqoob0&rid=giphy.gif&ct=s"> Contributors <a id ="Contributors"></a>
 
 <table align="center" >
   <tr>
