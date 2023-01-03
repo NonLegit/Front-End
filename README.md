@@ -20,12 +20,12 @@
 ## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
 
 - <a href ="#about"> 📙 overview</a>
-- <a href ="#Started"> 💻 Get Started</a>
+- <a href ="#started"> 💻 Get Started</a>
 - <a href ="#deployment"> 👷🏼‍♂️ Build & deployment</a>
-- <a href ="#Features"> 🔍 Features</a>
-- <a href ="#Video">  📽 GIF Demo</a>
-- <a href ="#Contributors"> ✨ Contributors</a>
-- <a href ="#License"> 🔒 License</a>
+- <a href ="#features"> 🔍 Features</a>
+- <a href ="#video">  📽 GIF Demo</a>
+- <a href ="#contributors"> ✨ Contributors</a>
+- <a href ="#license"> 🔒 License</a>
 <hr style="background-color: #4b4c60"></hr>
 
 ## <img align="center"  width =60px  height =70px src="https://media3.giphy.com/media/h46Wk2BSHGch87Mk7w/giphy.gif?cid=ecf05e47uzbe4n6uzosogred6c2meppawdd9nb2avjp6ltdl&rid=giphy.gif&ct=s"> Overview <a id = "about"></a>
@@ -55,7 +55,7 @@ The Project mimic some functionalities of <a href="https://www.reddit.com/">Redd
 </ul>
 <hr style="background-color: #4b4c60"></hr>
 
-## <img  align= center width=50px height=50px src="https://c.tenor.com/HgX89Yku5V4AAAAi/to-the-moon.gif"> Get Started <a id = "Started"></a>
+## <img  align= center width=50px height=50px src="https://c.tenor.com/HgX89Yku5V4AAAAi/to-the-moon.gif"> Get Started <a id = "started"></a>
 
 <ol>
 <li>Clone the repository
@@ -104,7 +104,7 @@ There are a few additional environment variables that are used when building and
 
 
 
-## <img  align= center width= 70px height =70px src="https://media1.giphy.com/media/NnSFnC428LRHaxUNzj/giphy.gif?cid=ecf05e47r1hlw9wrf1swakc9gxgn508lyzvbyzgp9i1iyvwl&rid=giphy.gif&ct=s"> Features  <a id ="Features"></a>
+## <img  align= center width= 70px height =70px src="https://media1.giphy.com/media/NnSFnC428LRHaxUNzj/giphy.gif?cid=ecf05e47r1hlw9wrf1swakc9gxgn508lyzvbyzgp9i1iyvwl&rid=giphy.gif&ct=s"> Features  <a id ="features"></a>
 
 <table align="left;">
 <tr>
@@ -134,14 +134,14 @@ There are a few additional environment variables that are used when building and
 <hr style="background-color: #4b4c60"></hr>
 
 
-## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063">  GIF Demo <a id ="Video"></a>
+## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063">  GIF Demo <a id ="video"></a>
 
 <img src="https://ser-images.githubusercontent.com/71986226/177061002-d93b2d8b-831f-4eac-8538-5f9719a30fb3.gif" width="500px;"/>
 
 
 <hr style="background-color: #4b4c60"></hr>
 
-## <img  align="center" width= 70px height =55px src="https://media0.giphy.com/media/Xy702eMOiGGPzk4Zkd/giphy.gif?cid=ecf05e475vmf48k83bvzye3w2m2xl03iyem3tkuw2krpkb7k&rid=giphy.gif&ct=s"> Contributors <a id ="Contributors"></a>
+## <img  align="center" width= 70px height =55px src="https://media0.giphy.com/media/Xy702eMOiGGPzk4Zkd/giphy.gif?cid=ecf05e475vmf48k83bvzye3w2m2xl03iyem3tkuw2krpkb7k&rid=giphy.gif&ct=s"> Contributors <a id ="contributors"></a>
 
 <table align="center" >
   <tr>
@@ -155,6 +155,6 @@ There are a few additional environment variables that are used when building and
   </tr>
 </table>
 
-## License <a id ="License"></a>
+## License <a id ="license"></a>
 
 > This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/blob/development/LICENSE) for more information ©NonLegit.
