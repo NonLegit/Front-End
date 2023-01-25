@@ -240,9 +240,9 @@ There are a few additional environment variables that are used when building and
 <p>join or leave Subreddit</p>
 <p>Subreddit types:</p>
 <ul>
-<li>Public: Anyone can view, post, and comment to this community</li>
-<li>Restricted: Anyone can view this community, but only approved users can post</li>
-<li>Private: Only approved users can view and submit to this community</li>
+<li>👷🏼‍♂️ Public: Anyone can view, post, and comment to this community</li>
+<li>👁‍🗨 Restricted: Anyone can view this community, but only approved users can post</li>
+<li>🔒 Private: Only approved users can view and submit to this community</li>
 </ul>
 </td>
 </tr>
@@ -284,9 +284,9 @@ There are a few additional environment variables that are used when building and
      <td align="center"><a href="https://github.com/nouralmulhem"><img src="https://avatars.githubusercontent.com/u/76218033?v=4" width="150px;" alt=""/><br /><sub><b>Nour Ziad Almulhem</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/BasmaElhoseny01"><img src="https://avatars.githubusercontent.com/u/72309546?v=4" width="150px;" alt=""/><br /><sub><b>Basma Elhoseny</b></sub></a><br /></td>
      <td align="center"><a href="https://github.com/fady2001"><img src="https://avatars.githubusercontent.com/u/75928317?v=4" width="150px;" alt=""/><br /><sub><b>Fady</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/AhmedHosny2024"><img src="https://avatars.githubusercontent.com/u/76389601?v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Hosny</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/AdhamAliAbdelAal" ><img src="https://avatars.githubusercontent.com/u/83884426?v=4" width="150px;" alt=""/><br /><sub><b>Adham Ali</b></sub></a><br />
     </td>
-    <td align="center"><a href="https://github.com/AhmedHosny2024"><img src="https://avatars.githubusercontent.com/u/76389601?v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Hosny</b></sub></a><br /></td>
      <td align="center"><a href="https://github.com/EslamAsHhraf"><img src="https://avatars.githubusercontent.com/u/71986226?v=4" width="150px;" alt=""/><br /><sub><b>Eslam Ashraf</b></sub></a><br /></td>
   </tr>
 </table>
