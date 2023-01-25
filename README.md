@@ -108,6 +108,10 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
+<th width=30%>Feature</th>
+<th>Description</th>
+</tr>
+<tr>
 <td>🔷 Authentication</td>
 <td>
 <ul>
@@ -167,9 +171,9 @@ There are a few additional environment variables that are used when building and
 <tr>
 <td>🔷 Comments</td>
 <td>
-<p>Multilevel Comments</p>
-<p>You con make comment on posts if you like </p>
-<p>Actions on posts:</p>
+<p>1) Multilevel Comments</p>
+<p>2) You con make comment on posts if you like </p>
+<p>3) Actions on posts:</p>
 <ul>
 <li>Upvote & Downvote</li>
 <li>Approve (if you are moderator)</li>
@@ -233,7 +237,24 @@ There are a few additional environment variables that are used when building and
 </ul>
 </td>
 </tr>
-<td>🔶 Subreddit</td>
+</tr>
+<tr>
+<td>🔶 Profile</td>
+<td>
+<p>You con view </p>
+<ul>
+<li>Overview: you can see activity of user</li>
+<li>Posts: you can see posts of user</li>
+<li>Comments: you can see comments of user</li>
+<li>History: posts just yo see it</li>
+<li>Saved: posts and comments you seved it</li>
+<li>Hidden: posts you hide it </li>
+<li>Upvote: posts you upvote it </li>
+<li>Downvote:  posts you downvote it</li>
+</ul>
+</td>
+</tr>
+<td>🔷 Subreddit</td>
 <td>
 <p>You con create Subreddit</p>
 <p>View posts of Subreddit</p>
@@ -247,7 +268,7 @@ There are a few additional environment variables that are used when building and
 </td>
 </tr>
 <tr>
-<td>🔷 Moderations</td>
+<td>🔶 Moderations</td>
 <td>
 <p>In moderations  page, you can control:</p>
 <ul>
@@ -262,6 +283,82 @@ There are a few additional environment variables that are used when building and
 <li>RULES: you can add new rules to subreddit</li>
 <li>COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
 <li>POSTS AND COMMENTS: you can control type of posts</li>
+</ul>
+</td>
+</tr>
+</tr>
+<tr>
+<td>🔷 Messages</td>
+<td>
+<p>1) Message Form (Send a private message)</p>
+<p>2) Sent Messages: message which you sent</p>
+<p>3) Inbox :</p>
+<ul>
+<li>All: All messages</li>
+<li>Unread: message which you didn't read it</li>
+<li>Messages : message which you receive</li>
+<li>Post replies: replies to your posts</li>
+</ul>
+</td>
+</tr>
+</tr>
+<tr>
+<tr>
+<td>🔶 Moderation</td>
+<td>
+<p>In moderations  page, you can control:</p>
+<ul>
+<li>Spam: you can control spam posts</li>
+<li>Edited: you can control edited posts</li>
+<li>Unmoderator: you can control unmoderator posts</li>
+<li>BANNED: you can ban users</li>
+<li>MUTED:  you can mute users</li>
+<li>APPROVED: you can add new moderators </li>
+<li>MODERATORS: you can edit access to modeeators</li>
+<li>POST FLAIR: you can edit flair and make new flairs</li>
+<li>RULES: you can add new rules to subreddit</li>
+<li>COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
+<li>POSTS AND COMMENTS: you can control type of posts</li>
+</ul>
+</td>
+</tr>
+<td>🔷 Push Notifiactions</td>
+<td>
+<p>1)  Notifications and messages </p>
+<p>2) You must give permission to push notifications</p>
+<p>3) Push Notifiactions types:</p>
+<ul>
+<li>Foreground</li>
+<li>Background</li>
+</ul>
+</td>
+</tr>
+</tr>
+<tr>
+<td>🔶 Pages</td>
+<td>
+<ul>
+<li>
+<p>Home page </p>
+</li>
+<li>
+<p>Popular</p></li>
+<li>
+<p>ALL</p></li>
+<li>
+<p>Exploer</p></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>🔷 Listing</td>
+<td>
+<p>You can sort posts </p>
+<ul>
+<li>Hot</li>
+<li>Top</li>
+<li>New</li>
+<li>Hot</li>
 </ul>
 </td>
 </tr>
