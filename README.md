@@ -19,7 +19,7 @@
 
 ## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
 
-- <a href ="#about"> 📙 overview</a>
+- <a href ="#about"> 📙 Overview</a>
 - <a href ="#started"> 💻 Get Started</a>
 - <a href ="#deployment"> 🌎 Build & deployment</a>
 - <a href ="#features"> 🔍 Features</a>
@@ -67,22 +67,38 @@ git clone https://github.com/NonLegit/Reddit-Front/tree/main
 ```
 
 </li>
-<li>To run the program
-<ol>
+<li>Run json server
+
 <br>
-<li>
 
 ```
 npm run server-json 
 ```
 </li>
-<li>
+<li>Run the program
+
+<br>
 
 ```
 npm run start
 ```
 </li>
-</ol>
+<li>Build functional document
+
+<br>
+
+```
+npm run docs
+```
+</li>
+<li>Build test document
+
+<br>
+
+```
+npm run test
+```
+</li>
 </ol>
 <hr style="background-color: #4b4c60"></hr>
 
@@ -96,7 +112,7 @@ There are a few additional environment variables that are used when building and
 1. `REACT_APP_FACEBOOKCLIENTID`:A environment string used in connecting with facebook client.
 1. `REACT_APP_SITEKEY`: A environment string used in google captcha..
 1. `REACT_APP_ENV`:  An environment string. Currently it is only used to differentiate different deploys (development or production).
-1. `REACT_APP_PROXY_DEVELOPMENT`: The base URL of the deveopment server. default value is `http://localhost:8000`.
+1. `REACT_APP_PROXY_DEVELOPMENT`: The base URL of the development server. default value is `http://localhost:8000`.
 1. `REACT_APP_PROXY_PRODUCTION`: The base URL of the backend
 
 
@@ -117,7 +133,7 @@ There are a few additional environment variables that are used when building and
 <ul>
 <li>Login</li>
 <li>Sign-up</li>
-<li>Sign-up with Goole and Facebook</li>
+<li>Sign-up with Google and Facebook</li>
 <li>Reset Password</li>
 <li>Forget User Name</li>
 </ul>
@@ -132,7 +148,7 @@ There are a few additional environment variables that are used when building and
 <li>Image: you can upload photo or video to add to your post</li>
 <li>Link: you can add link to your post</li>
 </ul>
-<p>You con add 2 tag to yout post</p>
+<p>You con add 2 tag to your post</p>
 <ul>
 <li>NSFW</li>
 <li>spoiler</li>
@@ -179,7 +195,7 @@ There are a few additional environment variables that are used when building and
 <li>Approve (if you are moderator)</li>
 <li>Spam</li>
 <li>Save</li>
-<li>Replly</li>
+<li>Replay</li>
 </ul>
 </td>
 </tr>
@@ -247,7 +263,7 @@ There are a few additional environment variables that are used when building and
 <li>Posts: you can see posts of user</li>
 <li>Comments: you can see comments of user</li>
 <li>History: posts just yo see it</li>
-<li>Saved: posts and comments you seved it</li>
+<li>Saved: posts and comments you saved it</li>
 <li>Hidden: posts you hide it </li>
 <li>Upvote: posts you upvote it </li>
 <li>Downvote:  posts you downvote it</li>
@@ -268,9 +284,9 @@ There are a few additional environment variables that are used when building and
 </td>
 </tr>
 <tr>
-<td>🔶 Moderations</td>
+<td>🔶 Moderation</td>
 <td>
-<p>In moderations  page, you can control:</p>
+<p>In Moderation  page, you can control:</p>
 <ul>
 <li>Spam: you can control spam posts</li>
 <li>Edited: you can control edited posts</li>
@@ -278,14 +294,13 @@ There are a few additional environment variables that are used when building and
 <li>BANNED: you can ban users</li>
 <li>MUTED:  you can mute users</li>
 <li>APPROVED: you can add new moderators </li>
-<li>MODERATORS: you can edit access to modeeators</li>
+<li>MODERATORS: you can edit access to moderators</li>
 <li>POST FLAIR: you can edit flair and make new flairs</li>
 <li>RULES: you can add new rules to subreddit</li>
 <li>COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
 <li>POSTS AND COMMENTS: you can control type of posts</li>
 </ul>
 </td>
-</tr>
 </tr>
 <tr>
 <td>🔷 Messages</td>
@@ -301,32 +316,11 @@ There are a few additional environment variables that are used when building and
 </ul>
 </td>
 </tr>
-</tr>
-<tr>
-<tr>
-<td>🔶 Moderation</td>
-<td>
-<p>In moderations  page, you can control:</p>
-<ul>
-<li>Spam: you can control spam posts</li>
-<li>Edited: you can control edited posts</li>
-<li>Unmoderator: you can control unmoderator posts</li>
-<li>BANNED: you can ban users</li>
-<li>MUTED:  you can mute users</li>
-<li>APPROVED: you can add new moderators </li>
-<li>MODERATORS: you can edit access to modeeators</li>
-<li>POST FLAIR: you can edit flair and make new flairs</li>
-<li>RULES: you can add new rules to subreddit</li>
-<li>COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
-<li>POSTS AND COMMENTS: you can control type of posts</li>
-</ul>
-</td>
-</tr>
-<td>🔷 Push Notifiactions</td>
+<td>🔶 Push Notifications</td>
 <td>
 <p>1)  Notifications and messages </p>
 <p>2) You must give permission to push notifications</p>
-<p>3) Push Notifiactions types:</p>
+<p>3) Push Notifications types:</p>
 <ul>
 <li>Foreground</li>
 <li>Background</li>
@@ -335,7 +329,7 @@ There are a few additional environment variables that are used when building and
 </tr>
 </tr>
 <tr>
-<td>🔶 Pages</td>
+<td>🔷 Pages</td>
 <td>
 <ul>
 <li>
@@ -346,12 +340,12 @@ There are a few additional environment variables that are used when building and
 <li>
 <p>ALL</p></li>
 <li>
-<p>Exploer</p></li>
+<p>Explorer</p></li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>🔷 Listing</td>
+<td>🔶 Listing</td>
 <td>
 <p>You can sort posts </p>
 <ul>
