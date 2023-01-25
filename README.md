@@ -233,15 +233,35 @@ There are a few additional environment variables that are used when building and
 </ul>
 </td>
 </tr>
+<td>🔶 Subreddit</td>
+<td>
+<p>You con create Subreddit</p>
+<p>View posts of Subreddit</p>
+<p>join or leave Subreddit</p>
+<p>Subreddit types:</p>
+<ul>
+<li>Public: Anyone can view, post, and comment to this community</li>
+<li>Restricted: Anyone can view this community, but only approved users can post</li>
+<li>Private: Only approved users can view and submit to this community</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td>🔶 Moderations</td>
+<td>🔷 Moderations</td>
 <td>
-<p>You con hide notification </p>
-<p>Moderations ACtions:</p>
+<p>In moderations  page, you can control:</p>
 <ul>
-<li>New Followers</li>
-<li>Replies</li>
+<li>Spam: you can control spam posts</li>
+<li>Edited: you can control edited posts</li>
+<li>Unmoderator: you can control unmoderator posts</li>
+<li>BANNED: you can ban users</li>
+<li>MUTED:  you can mute users</li>
+<li>APPROVED: you can add new moderators </li>
+<li>MODERATORS: you can edit access to modeeators</li>
+<li>POST FLAIR: you can edit flair and make new flairs</li>
+<li>RULES: you can add new rules to subreddit</li>
+<li>COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
+<li>POSTS AND COMMENTS: you can control type of posts</li>
 </ul>
 </td>
 </tr>
