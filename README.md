@@ -21,7 +21,7 @@
 
 - <a href ="#about"> 📙 overview</a>
 - <a href ="#started"> 💻 Get Started</a>
-- <a href ="#deployment"> 👷🏼‍♂️ Build & deployment</a>
+- <a href ="#deployment"> 🌎 Build & deployment</a>
 - <a href ="#features"> 🔍 Features</a>
 - <a href ="#video">  📽 GIF Demo</a>
 - <a href ="#contributors"> ✨ Contributors</a>
@@ -108,6 +108,18 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
+<td>🔷 Authentication</td>
+<td>
+<ul>
+<li>Login</li>
+<li>Sign-up</li>
+<li>Sign-up with Goole and Facebook</li>
+<li>Reset Password</li>
+<li>Forget User Name</li>
+</ul>
+</td>
+</tr>
+<tr>
 <td>🔶 Create Post</td>
 <td>
 <p>You con create 3 types of post</p>
@@ -115,6 +127,11 @@ There are a few additional environment variables that are used when building and
 <li>Text: you can add text and styling it with fancy text editor</li>
 <li>Image: you can upload photo or video to add to your post</li>
 <li>Link: you can add link to your post</li>
+</ul>
+<p>You con add 2 tag to yout post</p>
+<ul>
+<li>NSFW</li>
+<li>spoiler</li>
 </ul>
 </td>
 </tr>
@@ -126,6 +143,105 @@ There are a few additional environment variables that are used when building and
 <li>Comments</li>
 <li>Communities</li>
 <li>People</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>🔶 User Actions</td>
+<td>
+<p>You con do actions on posts like</p>
+<ul>
+<li>Upvote & Downvote</li>
+<li>Share</li>
+<li>Edit post</li>
+<li>Approve (if you are moderator)</li>
+<li>Spam</li>
+<li>Hidden</li>
+<li>Save</li>
+<li>Delete (if you are moderator or creator post)</li>
+<li>Lock (if you are moderator or creator post)</li>
+</ul>
+</td>
+</tr>
+</tr>
+<tr>
+<td>🔷 Comments</td>
+<td>
+<p>Multilevel Comments</p>
+<p>You con make comment on posts if you like </p>
+<p>Actions on posts:</p>
+<ul>
+<li>Upvote & Downvote</li>
+<li>Approve (if you are moderator)</li>
+<li>Spam</li>
+<li>Save</li>
+<li>Replly</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>🔶 Settings</td>
+<td>
+<ul>
+<li>
+<p>Account</p>
+<ul>
+<li><p>You can change (Email, Password, Gender, Country)</li>
+<li>
+<p>Delete Account</p></li>
+<li>
+<p>Connect with google </p></li>
+</ul>
+</li>
+<li>
+<p>Profile</p>
+<ul>
+<li><p>You can Edit (name , about, Profile picture, Background Picture) </p></li>
+<li>
+<p>You can on/off (NSFW, allow people to follow you)</p></li>
+<li>
+<p>You can add  social links to other website </p></li>
+</ul>
+</li>
+</li>
+<li>
+<p>Safety and privacy</p>
+<ul>
+<li><p>You can block and unblock user  </p></li>
+<li>
+<p>You can see block list</p></li>
+</ul>
+</li>
+</li>
+<li>
+<p>Feed Settings</p>
+<ul>
+<li><p>You can on/off (Adult content, autoplay media)</p></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>🔷 Notifications</td>
+<td>
+<p>You con hide notification </p>
+<p>Types Notification:</p>
+<ul>
+<li>New Followers</li>
+<li>Replies</li>
+</ul>
+</td>
+</tr>
+</tr>
+<tr>
+<td>🔶 Moderations</td>
+<td>
+<p>You con hide notification </p>
+<p>Moderations ACtions:</p>
+<ul>
+<li>New Followers</li>
+<li>Replies</li>
 </ul>
 </td>
 </tr>
@@ -146,15 +262,15 @@ There are a few additional environment variables that are used when building and
 <table align="center" >
   <tr>
      <td align="center"><a href="https://github.com/nouralmulhem"><img src="https://avatars.githubusercontent.com/u/76218033?v=4" width="150px;" alt=""/><br /><sub><b>Nour Ziad Almulhem</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/BasmaElhoseny01"><img src="https://avatars.githubusercontent.com/u/72309546?v=4" width="150px;" alt=""/><br /><sub><b>Basma Elhoseny</b></sub></a><br /></td>
      <td align="center"><a href="https://github.com/fady2001"><img src="https://avatars.githubusercontent.com/u/75928317?v=4" width="150px;" alt=""/><br /><sub><b>Fady</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/AdhamAliAbdelAal" ><img src="https://avatars.githubusercontent.com/u/83884426?v=4" width="150px;" alt=""/><br /><sub><b>Adham Ali</b></sub></a><br />
     </td>
     <td align="center"><a href="https://github.com/AhmedHosny2024"><img src="https://avatars.githubusercontent.com/u/76389601?v=4" width="150px;" alt=""/><br /><sub><b>Ahmed Hosny</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/BasmaElhoseny01"><img src="https://avatars.githubusercontent.com/u/72309546?v=4" width="150px;" alt=""/><br /><sub><b>Basma Elhoseny</b></sub></a><br /></td>
      <td align="center"><a href="https://github.com/EslamAsHhraf"><img src="https://avatars.githubusercontent.com/u/71986226?v=4" width="150px;" alt=""/><br /><sub><b>Eslam Ashraf</b></sub></a><br /></td>
   </tr>
 </table>
 
-## License <a id ="license"></a>
+## 🔒 License <a id ="license"></a>
 
-> This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/blob/development/LICENSE) for more information ©NonLegit.
+> **Note**: This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/blob/development/LICENSE) for more information ©NonLegit.
