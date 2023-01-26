@@ -142,7 +142,7 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
-<th width=65%>Video</th>
+<th width=80%>Video</th>
 <th>Content</th>
 </tr>
 <tr>
