@@ -169,14 +169,14 @@ There are a few additional environment variables that are used when building and
 
 <p>1) You con create 3 types of post</p>
 <ul>
-<li>Text: you can add text and styling it with fancy text editor</li>
-<li>Image: you can upload photo or video to add to your post</li>
-<li>Link: you can add link to your post</li>
+<li>📝 Text: you can add text and styling it with fancy text editor</li>
+<li>📷 mage: you can upload photo or video to add to your post</li>
+<li>📎 Link: you can add link to your post</li>
 </ul>
 <p>2) You con add 2 tag to your post</p>
 <ul>
-<li>NSFW</li>
-<li>spoiler</li>
+<li>🔞 NSFW</li>
+<li>💥 spoiler</li>
 </ul>
 </td>
 </tr>
@@ -188,10 +188,10 @@ There are a few additional environment variables that are used when building and
 </td>
 <td><p>The search results have 4 types</p> 
 <ul>
-<li>Posts</li>
-<li>Comments</li>
-<li>Communities</li>
-<li>People</li>
+<li>📫 Posts</li>
+<li>💭 Comments</li>
+<li>👨‍👧 Communities</li>
+<li>👨‍👨‍👦‍👦 People</li>
 </ul>
 </td>
 </tr>
@@ -204,15 +204,15 @@ There are a few additional environment variables that are used when building and
 <td>
 <p>You con do actions on posts like</p>
 <ul>
-<li>Upvote & Downvote</li>
-<li>Share</li>
-<li>Edit post</li>
-<li>Approve (if you are moderator)</li>
-<li>Spam</li>
-<li>Hidden</li>
-<li>Save</li>
-<li>Delete (if you are moderator or creator post)</li>
-<li>Lock (if you are moderator or creator post)</li>
+<li>⏏ Upvote & Downvote</li>
+<li>⤴ Share</li>
+<li>✒ Edit post</li>
+<li>✅ Approve (if you are moderator)</li>
+<li>🕳 Spam</li>
+<li>🙈 Hidden</li>
+<li>🔱 Save</li>
+<li>🚫 Delete (if you are moderator or creator post)</li>
+<li>🔒 Lock (if you are moderator or creator post)</li>
 </ul>
 </td>
 </tr>
@@ -224,15 +224,14 @@ There are a few additional environment variables that are used when building and
 <img align="center" src="https://user-images.githubusercontent.com/71986226/214938584-6b44cb0c-6476-49db-adb2-60915d16a611.png" alt="logo">
 </td>
 <td>
-<p>1) Multilevel Comments</p>
-<p>2) You con make comment on posts if you like </p>
+<p>1) 🖇 Multilevel Comments</p>
 <p>3) Actions on posts:</p>
 <ul>
-<li>Upvote & Downvote</li>
-<li>Approve (if you are moderator)</li>
-<li>Spam</li>
-<li>Save</li>
-<li>Replay</li>
+<li>⏏ Upvote & Downvote</li>
+<li>✅ Approve (if you are moderator)</li>
+<li>🕳 Spam</li>
+<li>🔱 Save</li>
+<li>🗯 Replay</li>
 </ul>
 </td>
 </tr>
