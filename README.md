@@ -146,7 +146,7 @@ There are a few additional environment variables that are used when building and
 <th>Content</th>
 </tr>
 <tr>
-<td >
+<td  width="83.5%">
 <video src="https://user-images.githubusercontent.com/71986226/214705509-cb1f10bb-aab2-4252-843b-57249bc10ed3.mp4"   >
 </video> 
 </td>
@@ -181,11 +181,11 @@ There are a few additional environment variables that are used when building and
 <hr style="background-color: #4b4c60"></hr>
 <table align="left;">
 <tr>
-<td>
+<td width="83.5%">
 <video src="https://user-images.githubusercontent.com/71986226/214707390-e21e2c04-08b2-4319-bb1e-7a3cd6316bc4.mp4"   >
 </video> 
 </td>
-<td >
+<td   >
 <ul>
 <li>My profile</li>
 <li>Other Profile</li>
@@ -199,7 +199,7 @@ There are a few additional environment variables that are used when building and
 <hr style="background-color: #4b4c60"></hr>
 <table align="left;">
 <tr >
-<td>
+<td  width="83.5%">
 <video src="https://user-images.githubusercontent.com/71986226/214714497-83c68943-4ced-4116-a06d-7830b0e0607d.mp4"   >
 </video> 
 </td>
