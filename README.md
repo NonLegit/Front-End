@@ -131,7 +131,7 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
-<th >Feature</th>
+<th width=20%>Feature</th>
 <th width=40%>ScreenShot</th>
 <th>Description</th>
 </tr>
