@@ -122,6 +122,19 @@ There are a few additional environment variables that are used when building and
 
 ## <img  align= center width= 70px height =70px src="https://media1.giphy.com/media/NnSFnC428LRHaxUNzj/giphy.gif?cid=ecf05e47r1hlw9wrf1swakc9gxgn508lyzvbyzgp9i1iyvwl&rid=giphy.gif&ct=s"> Features  <a id ="features"></a>
 
+
+
+<div align="center">
+   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/214808210-ecd763c4-4826-42ba-a552-9b8a3438b20e.png" alt="Features">
+   
+</div>
+<hr style="background-color: #4b4c60"></hr>
+<div align="center">
+   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/214808658-bf3af293-148a-4548-bd9a-2089d31c12de.png" alt="Features">
+   
+</div>
+
+<hr style="background-color: #4b4c60"></hr>
 <table align="left;">
 <tr>
 <th width=30%>Feature</th>
@@ -246,6 +259,7 @@ There are a few additional environment variables that are used when building and
 <td>🔷 Notifications</td>
 <td>
 <p>You con hide notification </p>
+<p>You con Seen / Unseen notification </p>
 <p>Types Notification:</p>
 <ul>
 <li>New Followers</li>
@@ -329,7 +343,7 @@ There are a few additional environment variables that are used when building and
 </tr>
 </tr>
 <tr>
-<td>🔷 Pages</td>
+<td>🔷 Pages for view posts </td>
 <td>
 <ul>
 <li>
