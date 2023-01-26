@@ -137,12 +137,16 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
-<th width=30%>Feature</th>
+<th width=50%>Feature</th>
 <th>Description</th>
 </tr>
 <tr>
-<td>🔷 Authentication</td>
 <td>
+
+   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/214926073-f15e5b52-9752-4b19-b5e8-c174c0c37e9f.png" alt="logo">
+</td>
+<td>
+🔷 Authentication
 <ul>
 <li>Login</li>
 <li>Sign-up</li>
