@@ -307,14 +307,14 @@ There are a few additional environment variables that are used when building and
 <td>
 <p>You con view </p>
 <ul>
-<li>Overview: you can see activity of user</li>
-<li>Posts: you can see posts of user</li>
-<li>Comments: you can see comments of user</li>
-<li>History: posts just yo see it</li>
-<li>Saved: posts and comments you saved it</li>
-<li>Hidden: posts you hide it </li>
-<li>Upvote: posts you upvote it </li>
-<li>Downvote:  posts you downvote it</li>
+<li>🏔 Overview: you can see activity of user</li>
+<li>📫 Posts: you can see posts of user</li>
+<li>🗯 Comments: you can see comments of user</li>
+<li>🗃 History: posts just yo see it</li>
+<li>📋 Saved: posts and comments you saved it</li>
+<li>🙈 Hidden: posts you hide it </li>
+<li>👍 Upvote: posts you upvote it </li>
+<li>👎 Downvote:  posts you downvote it</li>
 </ul>
 </td>
 </tr>
@@ -344,17 +344,17 @@ There are a few additional environment variables that are used when building and
 <td>
 <p>In Moderation  page, you can control:</p>
 <ul>
-<li>Spam: you can control spam posts</li>
-<li>Edited: you can control edited posts</li>
-<li>Unmoderator: you can control unmoderator posts</li>
-<li>BANNED: you can ban users</li>
-<li>MUTED:  you can mute users</li>
-<li>APPROVED: you can add new moderators </li>
-<li>MODERATORS: you can edit access to moderators</li>
-<li>POST FLAIR: you can edit flair and make new flairs</li>
-<li>RULES: you can add new rules to subreddit</li>
-<li>COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
-<li>POSTS AND COMMENTS: you can control type of posts</li>
+<li>🕳 Spam: you can control spam posts</li>
+<li>✒ Edited: you can control edited posts</li>
+<li>💈 Unmoderator: you can control unmoderator posts</li>
+<li>🚫 BANNED: you can ban users</li>
+<li>🔈 MUTED:  you can mute users</li>
+<li>✅ APPROVED: you can add new moderators </li>
+<li>👨🏽‍🤝‍👨🏻 MODERATORS: you can edit access to moderators</li>
+<li>🎨 POST FLAIR: you can edit flair and make new flairs</li>
+<li>🚧 RULES: you can add new rules to subreddit</li>
+<li>👨‍👨‍👦‍👦 COMMUNITY: you can edit (name of subreddit, community topics, community description, region, type of community)</li>
+<li>💭 POSTS AND COMMENTS: you can control type of posts</li>
 </ul>
 </td>
 </tr>
