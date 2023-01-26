@@ -124,7 +124,7 @@ There are a few additional environment variables that are used when building and
 
 
 <div align="center">
-   <img align="center" width="600px" src="https://user-images.githubusercontent.com/71986226/214972307-a249dba0-8fe3-4b5b-a3ed-8c731b080c29.png" alt="Features">
+   <img align="center" width="600px" src="https://user-images.githubusercontent.com/71986226/214973107-694909ea-3fbc-471c-8a2f-adbd7bbe5656.png" alt="Features">
    
 </div>
 <hr style="background-color: #4b4c60"></hr>
