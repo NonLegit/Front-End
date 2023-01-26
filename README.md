@@ -244,17 +244,17 @@ There are a few additional environment variables that are used when building and
 <td>
 <ul>
 <li>
-<p>Account</p>
+<p>🚹 Account</p>
 <ul>
 <li><p>You can change (Email, Password, Gender, Country)</li>
 <li>
-<p>🚫 Delete Account</p></li>
+<p> Delete Account</p></li>
 <li>
 <p>Connect with google </p></li>
 </ul>
 </li>
 <li>
-<p>Profile</p>
+<p>👤 Profile</p>
 <ul>
 <li><p>You can Edit (name , about, Profile picture, Background Picture) </p></li>
 <li>
@@ -265,7 +265,7 @@ There are a few additional environment variables that are used when building and
 </li>
 </li>
 <li>
-<p>Safety and privacy</p>
+<p>🚨 Safety and privacy</p>
 <ul>
 <li><p>🔈 You can block and unblock user  </p></li>
 <li>
@@ -274,7 +274,7 @@ There are a few additional environment variables that are used when building and
 </li>
 </li>
 <li>
-<p>Feed Settings</p>
+<p>⚡ Feed Settings</p>
 <ul>
 <li><p>You can on/off (Adult content, autoplay media)</p></li>
 </ul>
@@ -289,8 +289,8 @@ There are a few additional environment variables that are used when building and
 <img align="center" src="https://user-images.githubusercontent.com/71986226/214939180-a2379ced-8a3e-4009-ba31-7711c6a0104f.png" alt="logo">
 </td>
 <td>
-<p>🙈 You con hide notification </p>
-<p>Types Notification:</p>
+<p>1) 🙈 You con hide notification </p>
+<p>2) Types Notification:</p>
 <ul>
 <li>New Followers</li>
 <li>Replies</li>
@@ -324,10 +324,10 @@ There are a few additional environment variables that are used when building and
 <img align="center" src="https://user-images.githubusercontent.com/71986226/214939616-d6d37452-5cd0-4171-897a-1dbbaa821580.png" alt="logo">
 </td>
 <td>
-<p>You con create Subreddit</p>
-<p>View posts of Subreddit</p>
-<p>join or leave Subreddit</p>
-<p>Subreddit types:</p>
+<p>1) 🔰 You con create Subreddit</p>
+<p>2) 👀 View posts of Subreddit</p>
+<p>3) 🤜🏼 join or leave Subreddit</p>
+<p>4) Subreddit types:</p>
 <ul>
 <li>👷🏼‍♂️ Public: Anyone can view, post, and comment to this community</li>
 <li>👁‍🗨 Restricted: Anyone can view this community, but only approved users can post</li>
@@ -378,9 +378,13 @@ There are a few additional environment variables that are used when building and
 </tr>
 <tr>
 <td>🔶 Push Notifications</td>
+<td align="center">
+
+<img align="center" width="50%" src="https://user-images.githubusercontent.com/71986226/214954696-9ec0850c-a802-4a71-b186-1c642ec1df79.png" alt="logo">
+</td>
 <td>
-<p>1)  Notifications and messages </p>
-<p>2) You must give permission to push notifications</p>
+<p>1) 💌 Notifications and messages </p>
+<p>2) 🔓 You must give permission to push notifications</p>
 <p>3) Push Notifications types:</p>
 <ul>
 <li>Foreground</li>
