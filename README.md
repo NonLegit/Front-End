@@ -198,6 +198,10 @@ There are a few additional environment variables that are used when building and
 <tr>
 <td>🔶 User Actions</td>
 <td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214938211-46ed9004-afc9-4739-988a-946e0a78cc99.png" alt="logo">
+</td>
+<td>
 <p>You con do actions on posts like</p>
 <ul>
 <li>Upvote & Downvote</li>
@@ -216,6 +220,10 @@ There are a few additional environment variables that are used when building and
 <tr>
 <td>🔷 Comments</td>
 <td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214938584-6b44cb0c-6476-49db-adb2-60915d16a611.png" alt="logo">
+</td>
+<td>
 <p>1) Multilevel Comments</p>
 <p>2) You con make comment on posts if you like </p>
 <p>3) Actions on posts:</p>
@@ -230,6 +238,10 @@ There are a few additional environment variables that are used when building and
 </tr>
 <tr>
 <td>🔶 Settings</td>
+<td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214939016-54daf788-41aa-463e-8c9d-0109e76183bb.png" alt="logo">
+</td>
 <td>
 <ul>
 <li>
@@ -274,6 +286,10 @@ There are a few additional environment variables that are used when building and
 <tr>
 <td>🔷 Notifications</td>
 <td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214939180-a2379ced-8a3e-4009-ba31-7711c6a0104f.png" alt="logo">
+</td>
+<td>
 <p>You con hide notification </p>
 <p>Types Notification:</p>
 <ul>
@@ -285,6 +301,10 @@ There are a few additional environment variables that are used when building and
 </tr>
 <tr>
 <td>🔶 Profile</td>
+<td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214939374-1d31bfd4-6385-437c-9b11-dde2cdc44c48.png" alt="logo">
+</td>
 <td>
 <p>You con view </p>
 <ul>
@@ -301,6 +321,10 @@ There are a few additional environment variables that are used when building and
 </tr>
 <td>🔷 Subreddit</td>
 <td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214939616-d6d37452-5cd0-4171-897a-1dbbaa821580.png" alt="logo">
+</td>
+<td>
 <p>You con create Subreddit</p>
 <p>View posts of Subreddit</p>
 <p>join or leave Subreddit</p>
@@ -314,6 +338,10 @@ There are a few additional environment variables that are used when building and
 </tr>
 <tr>
 <td>🔶 Moderation</td>
+<td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214939838-fa3a4dcc-df2e-495f-8e3d-04057205e492.png" alt="logo">
+</td>
 <td>
 <p>In Moderation  page, you can control:</p>
 <ul>
@@ -334,6 +362,10 @@ There are a few additional environment variables that are used when building and
 <tr>
 <td>🔷 Messages</td>
 <td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214940032-6eae117f-b5cb-4f67-84f1-da6920706e79.png" alt="logo">
+</td>
+<td>
 <p>1) Message Form (Send a private message)</p>
 <p>2) Sent Messages: message which you sent</p>
 <p>3) Inbox :</p>
@@ -345,6 +377,7 @@ There are a few additional environment variables that are used when building and
 </ul>
 </td>
 </tr>
+<tr>
 <td>🔶 Push Notifications</td>
 <td>
 <p>1)  Notifications and messages </p>
@@ -358,7 +391,21 @@ There are a few additional environment variables that are used when building and
 </tr>
 </tr>
 <tr>
-<td>🔷 Pages</td>
+<td>🔷 Top Communities</td>
+<td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214940837-d0a539da-e609-45f4-a010-aaf1949d82a6.png" alt="logo">
+</td>
+<td>
+<p>View top  communities by categories</p>
+</td>
+</tr>
+<tr>
+<td>🔶 Pages</td>
+<td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214940238-c127ed56-3b07-4e3e-a8b7-6cc3a49595e3.png" alt="logo">
+</td>
 <td>
 <ul>
 <li>
@@ -374,7 +421,11 @@ There are a few additional environment variables that are used when building and
 </td>
 </tr>
 <tr>
-<td>🔶 Listing</td>
+<td>🔷 Listing</td>
+<td>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214940399-25af19f6-6d91-4fcf-9422-d1d3159910a2.png" alt="logo">
+</td>
 <td>
 <p>You can sort posts </p>
 <ul>
