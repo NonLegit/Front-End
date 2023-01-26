@@ -125,12 +125,12 @@ There are a few additional environment variables that are used when building and
 
 
 <div align="center">
-   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/214808210-ecd763c4-4826-42ba-a552-9b8a3438b20e.png" alt="Features">
+   <img align="center"  src="https://user-images.githubusercontent.com/71986226/214808210-ecd763c4-4826-42ba-a552-9b8a3438b20e.png" alt="Features">
    
 </div>
 <hr style="background-color: #4b4c60"></hr>
 <div align="center">
-   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/214808658-bf3af293-148a-4548-bd9a-2089d31c12de.png" alt="Features">
+   <img align="center" src="https://user-images.githubusercontent.com/71986226/214808658-bf3af293-148a-4548-bd9a-2089d31c12de.png" alt="Features">
    
 </div>
 
