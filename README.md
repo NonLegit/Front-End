@@ -142,11 +142,11 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
-<th width=80%>Video</th>
+<th>Video</th>
 <th>Content</th>
 </tr>
 <tr>
-<td>
+<td >
 <video src="https://user-images.githubusercontent.com/71986226/214705509-cb1f10bb-aab2-4252-843b-57249bc10ed3.mp4"   >
 </video> 
 </td>
@@ -160,8 +160,11 @@ There are a few additional environment variables that are used when building and
 </ul>
 </td>
 </tr>
+</table>
+<hr style="background-color: #4b4c60"></hr>
+<table align="left;">
 <tr>
-<td>
+<td width="85%">
 <video src="https://user-images.githubusercontent.com/71986226/214708909-fccfd917-f8bb-4166-a76d-de1248faa2bd.mp4"   >
 </video> 
 </td>
@@ -174,6 +177,9 @@ There are a few additional environment variables that are used when building and
 </td>
 </td>
 </tr>
+</table>
+<hr style="background-color: #4b4c60"></hr>
+<table align="left;">
 <tr>
 <td>
 <video src="https://user-images.githubusercontent.com/71986226/214707390-e21e2c04-08b2-4319-bb1e-7a3cd6316bc4.mp4"   >
@@ -189,7 +195,10 @@ There are a few additional environment variables that are used when building and
 </td>
 </tr>
 </tr>
-<tr>
+</table>
+<hr style="background-color: #4b4c60"></hr>
+<table align="left;">
+<tr >
 <td>
 <video src="https://user-images.githubusercontent.com/71986226/214714497-83c68943-4ced-4116-a06d-7830b0e0607d.mp4"   >
 </video> 
