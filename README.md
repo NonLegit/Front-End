@@ -123,14 +123,8 @@ There are a few additional environment variables that are used when building and
 ## <img  align= center width= 70px height =70px src="https://media1.giphy.com/media/NnSFnC428LRHaxUNzj/giphy.gif?cid=ecf05e47r1hlw9wrf1swakc9gxgn508lyzvbyzgp9i1iyvwl&rid=giphy.gif&ct=s"> Features  <a id ="features"></a>
 
 
-
 <div align="center">
-   <img align="center"  width="800px" src="https://user-images.githubusercontent.com/71986226/214808210-ecd763c4-4826-42ba-a552-9b8a3438b20e.png" alt="Features">
-   
-</div>
-<hr style="background-color: #4b4c60"></hr>
-<div align="center">
-   <img align="center"  width="800px" src="https://user-images.githubusercontent.com/71986226/214808658-bf3af293-148a-4548-bd9a-2089d31c12de.png" alt="Features">
+   <img align="center"  src="https://user-images.githubusercontent.com/71986226/214972307-a249dba0-8fe3-4b5b-a3ed-8c731b080c29.png" alt="Features">
    
 </div>
 <hr style="background-color: #4b4c60"></hr>
