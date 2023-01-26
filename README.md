@@ -248,7 +248,7 @@ There are a few additional environment variables that are used when building and
 <ul>
 <li><p>You can change (Email, Password, Gender, Country)</li>
 <li>
-<p>Delete Account</p></li>
+<p>🚫 Delete Account</p></li>
 <li>
 <p>Connect with google </p></li>
 </ul>
@@ -267,7 +267,7 @@ There are a few additional environment variables that are used when building and
 <li>
 <p>Safety and privacy</p>
 <ul>
-<li><p>You can block and unblock user  </p></li>
+<li><p>🔈 You can block and unblock user  </p></li>
 <li>
 <p>You can see block list</p></li>
 </ul>
@@ -289,7 +289,7 @@ There are a few additional environment variables that are used when building and
 <img align="center" src="https://user-images.githubusercontent.com/71986226/214939180-a2379ced-8a3e-4009-ba31-7711c6a0104f.png" alt="logo">
 </td>
 <td>
-<p>You con hide notification </p>
+<p>🙈 You con hide notification </p>
 <p>Types Notification:</p>
 <ul>
 <li>New Followers</li>
@@ -365,9 +365,9 @@ There are a few additional environment variables that are used when building and
 <img align="center" src="https://user-images.githubusercontent.com/71986226/214940032-6eae117f-b5cb-4f67-84f1-da6920706e79.png" alt="logo">
 </td>
 <td>
-<p>1) Message Form (Send a private message)</p>
-<p>2) Sent Messages: message which you sent</p>
-<p>3) Inbox :</p>
+<p>1) 📩 Message Form (Send a private message)</p>
+<p>2) 📮 Sent Messages: message which you sent</p>
+<p>3) 📦 Inbox :</p>
 <ul>
 <li>All: All messages</li>
 <li>Unread: message which you didn't read it</li>
@@ -396,7 +396,7 @@ There are a few additional environment variables that are used when building and
 <img align="center" src="https://user-images.githubusercontent.com/71986226/214940837-d0a539da-e609-45f4-a010-aaf1949d82a6.png" alt="logo">
 </td>
 <td>
-<p>View top  communities by categories</p>
+<p>👨‍👨‍👧‍👧 View top  communities by categories</p>
 </td>
 </tr>
 <tr>
