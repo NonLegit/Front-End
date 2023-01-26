@@ -140,10 +140,30 @@ There are a few additional environment variables that are used when building and
 
 ## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063">  GIF Demo <a id ="video"></a>
 
+<table align="left;">
+<tr>
+<th width=65%>Video</th>
+<th>Content</th>
+</tr>
+<tr>
+<td>
+<video src="https://user-images.githubusercontent.com/71986226/214705509-cb1f10bb-aab2-4252-843b-57249bc10ed3.mp4"   >
+</td>
+<td >
+<ul>
+<li>Authentication</li>
+<li>Comments</li>
+<li>Notification</li>
+<li>Messages</li>
+<li>Settings</li>
+</ul>
+</td>
+</tr>
+</table>
+
 <div  align="center">
 
 
-<video src="https://user-images.githubusercontent.com/71986226/214705509-cb1f10bb-aab2-4252-843b-57249bc10ed3.mp4"   >
 </video> 
 <hr style="background-color: #4b4c60"></hr>
 <video src="https://user-images.githubusercontent.com/71986226/214708909-fccfd917-f8bb-4166-a76d-de1248faa2bd.mp4"   >
@@ -176,3 +196,6 @@ There are a few additional environment variables that are used when building and
 ## 🔒 License <a id ="license"></a>
 
 > **Note**: This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/blob/development/LICENSE) for more information ©NonLegit.
+
+
+<img alt="Star the repo on GitHub to support the project" src="https://user-images.githubusercontent.com/9664363/185428788-d762fd5d-97b3-4f59-8db7-f72405be9677.gif" width="50%">
