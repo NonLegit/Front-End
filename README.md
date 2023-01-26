@@ -164,7 +164,7 @@ There are a few additional environment variables that are used when building and
 <hr style="background-color: #4b4c60"></hr>
 <table align="left;">
 <tr>
-<td width="85%">
+<td width="83.5%">
 <video src="https://user-images.githubusercontent.com/71986226/214708909-fccfd917-f8bb-4166-a76d-de1248faa2bd.mp4"   >
 </video> 
 </td>
