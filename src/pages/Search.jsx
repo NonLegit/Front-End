@@ -63,7 +63,7 @@ function Search() {
     setPosts(data1);
     setCommunities(data3);
     setPeople(data4);
-    setComments(data1);
+    setComments(data2);
   }, [data1, data2, data3, data4]);
   const { setPage } = useListingContext();
 
@@ -134,7 +134,7 @@ function Search() {
               hasMore
               dataLength={comments?.length}
             >
-              <SearchByComments comments={comments} exist={existComments} />
+              <SearchByComments communities={comments} exist={existComments} />
             </InfiniteScroll>
           </SearchByCommunitiesHeader>
         )}

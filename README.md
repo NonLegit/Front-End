@@ -137,16 +137,19 @@ There are a few additional environment variables that are used when building and
 
 <table align="left;">
 <tr>
-<th width=40%>Feature</th>
+<th >Feature</th>
+<th width=40%>ScreenShot</th>
 <th>Description</th>
 </tr>
 <tr>
 <td>
-
-   <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/214926073-f15e5b52-9752-4b19-b5e8-c174c0c37e9f.png" alt="logo">
+🔷 Authentication
 </td>
 <td>
-🔷 Authentication
+
+   <img align="center"  src="https://user-images.githubusercontent.com/71986226/214926073-f15e5b52-9752-4b19-b5e8-c174c0c37e9f.png" alt="logo">
+</td>
+<td>
 <ul>
 <li>Login</li>
 <li>Sign-up</li>
@@ -159,13 +162,18 @@ There are a few additional environment variables that are used when building and
 <tr>
 <td>🔶 Create Post</td>
 <td>
-<p>You con create 3 types of post</p>
+
+<img align="center" src="https://user-images.githubusercontent.com/71986226/214927486-0d758927-af11-444d-811b-50b1a95953ec.png" alt="logo">
+</td>
+<td>
+
+<p>1) You con create 3 types of post</p>
 <ul>
 <li>Text: you can add text and styling it with fancy text editor</li>
 <li>Image: you can upload photo or video to add to your post</li>
 <li>Link: you can add link to your post</li>
 </ul>
-<p>You con add 2 tag to your post</p>
+<p>2) You con add 2 tag to your post</p>
 <ul>
 <li>NSFW</li>
 <li>spoiler</li>
@@ -174,6 +182,10 @@ There are a few additional environment variables that are used when building and
 </tr>
 <tr>
 <td>🔷 Search</td>
+<td>
+
+   <img align="center"   src="https://user-images.githubusercontent.com/71986226/214928486-b004a587-072b-4e4d-99c1-82c9b232f248.png" alt="logo">
+</td>
 <td><p>The search results have 4 types</p> 
 <ul>
 <li>Posts</li>
