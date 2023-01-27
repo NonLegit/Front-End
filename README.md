@@ -9,7 +9,7 @@
    <img align="center"  width="675px" src="https://user-images.githubusercontent.com/71986226/210291217-ebbf139b-a191-4300-b135-97b24414f7b4.gif" alt="logo">
 
 
-### ”Lets Go, Start new adventure.⚡“
+### ”Lets Go, Start New Adventure.⚡“
    
 </div>
  
@@ -31,10 +31,10 @@
 ## <img align="center"  width =60px  height =70px src="https://media3.giphy.com/media/h46Wk2BSHGch87Mk7w/giphy.gif?cid=ecf05e47uzbe4n6uzosogred6c2meppawdd9nb2avjp6ltdl&rid=giphy.gif&ct=s"> Overview <a id = "about"></a>
 
 <ul>
-<li> We are Front-end team web development</li>
 <li>
-The Project mimic some functionalities of <a href="https://www.reddit.com/">Reddit</a>
+Nonlight  mimic some functionalities of <a href="https://www.reddit.com/">Reddit</a>
 </li>
+<li> We are responsible for Front-End part</li>
 <li>The project is built by
 <ol>
 
@@ -50,7 +50,7 @@ The Project mimic some functionalities of <a href="https://www.reddit.com/">Redd
 </ol>
 </li>
 <li>
-<a href="https://github.com/NonLegit/Reddit-Front/blob/development/%5BSoftware%20Engineering%5D%20Project%20F2022.pdf">Project Description</a>
+<a href="https://github.com/NonLegit/Front-End/blob/development/%5BSoftware%20Engineering%5D%20Project%20F2022.pdf">Project Description</a>
 </li>
 </ul>
 <hr style="background-color: #4b4c60"></hr>
@@ -63,7 +63,7 @@ The Project mimic some functionalities of <a href="https://www.reddit.com/">Redd
 <br>
 
 ```
-git clone https://github.com/NonLegit/Reddit-Front/tree/main
+git clone https://github.com/NonLegit/Front-End/tree/main
 ```
 
 </li>
@@ -535,4 +535,4 @@ There are a few additional environment variables that are used when building and
 
 ## 🔒 License <a id ="license"></a>
 
-> **Note**: This software is licensed under MIT License, See [License](https://github.com/NonLegit/Reddit-Front/blob/development/LICENSE) for more information ©NonLegit.
+> **Note**: This software is licensed under MIT License, See [License](https://github.com/NonLegit/Front-End/blob/development/LICENSE) for more information ©NonLegit.
