@@ -65,7 +65,7 @@ function PostBody({ post, isSpoiler }) {
       {post?.kind === 'video' ? (
         // eslint-disable-next-line jsx-a11y/media-has-caption
         <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
-          <source src={post?.videos} type="video/mp4" />
+          <source src={post?.video} type="video/mp4" />
         </video>
       ) : (
         (post?.kind === 'image')
