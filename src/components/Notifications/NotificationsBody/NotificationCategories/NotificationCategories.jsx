@@ -105,7 +105,7 @@ function NotificationCategories({ NavBar }) {
     return '';
   };
   const handleLink = (ele) => {
-    const follow = (ele?.followedSubreddit) ? `/r/${ele?.followedSubreddit.fixedName}` : `/user/${cookies?.redditUser.userName}`;
+    const follow = (ele?.followedSubreddit) ? `/subreddit/${ele?.followedSubreddit.fixedName}` : `/user/${cookies?.redditUser.userName}`;
     if (!ele.seen) { notificationMarkRead(ele._id); }
     if (ele?.type === 'follow') {
       navigate(`/user/${ele.followerUser.userName}`);
