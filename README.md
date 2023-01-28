@@ -47,10 +47,22 @@ Nonlight  mimic some functionalities of <a href="https://www.reddit.com/">Reddit
 <li>
 <a href="https://firebase.google.com/">Firebase</a> 
 </li>
+<li>
+<a href="https://eslint.org/">eslint</a>
+</li>
+<li>
+<a href="https://jestjs.io/">jest</a>
+</li>
 </ol>
 </li>
 <li>
 <a href="https://github.com/NonLegit/Front-End/blob/development/%5BSoftware%20Engineering%5D%20Project%20F2022.pdf">Project Description</a>
+</li>
+<li>
+You can view
+<a href="https://nonlegit.github.io/Front-End/">Nonleghit</a>
+
+> **Note**: This deployment is built using json server
 </li>
 </ul>
 <hr style="background-color: #4b4c60"></hr>
