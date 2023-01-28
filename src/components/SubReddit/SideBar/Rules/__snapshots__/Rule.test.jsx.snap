@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-vmruv8"
+>
+  <h2
+    className="css-1radmrr"
+  >
+    r/
+    aaaa
+  </h2>
+  <div
+    className="css-1duqk9w"
+  >
+    <h2
+      className="css-tipfz5"
+      onClick={[Function]}
+    >
+      1
+      .
+      123
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ExpandMoreIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        />
+      </svg>
+    </h2>
+  </div>
+  <hr
+    className="css-u5yu4w"
+  />
+</div>
+`;

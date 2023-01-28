@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post SharedPost renders correctly 1`] = `
+<div
+  className="MuiBox-root css-1va79tx"
+>
+  <div
+    className="MuiBox-root css-1roq6yo"
+  >
+    <div
+      className="MuiBox-root css-1eogohz"
+    >
+      <div
+        className="MuiBox-root css-1clzuz0"
+      >
+        <div
+          className="MuiBox-root css-5ah3mn"
+        >
+          4 days ago
+        </div>
+      </div>
+    </div>
+    <a
+      className="css-10m9jmh"
+      href="/"
+      onClick={[Function]}
+    >
+      <h3
+        className="MuiTypography-root MuiTypography-h6 css-6aghek-MuiTypography-root"
+      >
+        new Post @ 12:12
+         
+         
+      </h3>
+    </a>
+    <div
+      className="MuiBox-root css-vp8937"
+      kind="self"
+      onClick={[Function]}
+      spoiler={false}
+    >
+      <p
+        className="css-w0u38i"
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<p>Edited Post</p>",
+            }
+          }
+        />
+      </p>
+    </div>
+  </div>
+</div>
+`;

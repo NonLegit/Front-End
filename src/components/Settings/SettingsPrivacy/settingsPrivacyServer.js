@@ -1,7 +1,9 @@
 import useFetch from '../../../hooks/useFetch';
 import { redirectLogin } from '../../../utils/Redirect';
 import axios from '../../../services/instance';
-
+/**
+ * - fetch list of people are blocked
+ */
 export const privacyFetch = () => {
   const api = '/users/blocked';
   const [data, dataError, statusCode] = useFetch(api);
@@ -15,7 +17,9 @@ export const privacyFetch = () => {
 
   return [data?.blocked];
 };
-
+/**
+ * - post data to block or unblock user
+ */
 export const blockuser = async (user, type) => {
   const api = `/users/${user}/${type}`;
   let message = '';

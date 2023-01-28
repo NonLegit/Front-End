@@ -4,6 +4,16 @@ import {
 } from './styles';
 import JoinButton from '../../JoinButton/JoinButton';
 
+/**
+ * community instance
+ * @component
+ * @property {string} communityName the name of the community
+ * @property {string} communityPicture the link of the community image
+ * @property {string} numOfMembers number of members of the community
+ * @property {string} description discription of the community
+ * @return {React.Component} - community component of explore page
+ */
+
 function Community(props) {
   const {
     communityName, communityPicture, numOfMembers, description,
@@ -45,7 +55,7 @@ function Community(props) {
           </VisitButton>
         </StyledDiscription>
         <Box display="flex" justifyContent="flex-end" flexGrow={1} alignItems="flex-start">
-          <JoinButton />
+          <JoinButton subreddit={communityName} />
         </Box>
       </StyledCommunity>
     </StyledCommunityContainer>

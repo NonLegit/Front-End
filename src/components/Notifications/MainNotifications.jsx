@@ -14,6 +14,20 @@ import
 import NotificationsBody from './NotificationsBody/NotificationsBody';
 import { notificationMarkAll } from './notificationsServer';
 import FormDialog from '../HomePage/HomePageContainer/PersonalReddit/PopUpSubReddit/PopUp';
+/**
+ * - Main Notifications
+ * - fech notifications data from api
+ *  @component
+ * @param {function} setToday - to update today notifiactions
+ * @param {function} setEarlier - to update eariler notifiactions
+ * @param {Array} earlier - Array of eariler notifiactions
+ * @param {Array} today - Array of today notifiactions
+ * @property  {Array} active - Array of boolean to know which header is active
+ * @property {function} setActive - function to set active Array
+ * @property {function} clickTab - function to know which header is clicked
+ * @property {function} handleClick - function to make all notifications mark as read
+ * @return {React.Component} - Notifications Page
+ */
 
 function MainNotifications() {
   // earlier data

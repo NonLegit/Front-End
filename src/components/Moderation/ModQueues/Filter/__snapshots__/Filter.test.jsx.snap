@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter test snapshot 1`] = `
+<div
+  className="MuiBox-root css-n276e7"
+>
+  <div
+    className="MuiBox-root css-k008qs"
+  >
+    <span
+      className="MuiTypography-root MuiTypography-caption css-13fqsu0-MuiTypography-root"
+    >
+      Items 1-
+      0
+    </span>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-13fqsu0-MuiTypography-root"
+    >
+      .
+    </span>
+    <span
+      className="MuiTypography-root MuiTypography-caption css-13fqsu0-MuiTypography-root"
+    >
+      0
+       
+      selected
+    </span>
+  </div>
+</div>
+`;

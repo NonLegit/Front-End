@@ -6,8 +6,11 @@ import { ReactionIconButton, Votes, Voting } from './styles';
 import VoteIcon from '../../../../../../VoteIcons/VoteIcon/VoteIcon';
 import VotedIcon from '../../../../../../VoteIcons/VotedIcon/VotedIcon';
 
-// Server
-
+/**
+ * Votes Reaction on Comment
+ * @property {boolean}votes --No of Votes on the Comment
+ * @returns {React.Component} Email Form
+ */
 function CommentReactions(props) {
   const {
     votes, commentVoteStatus,

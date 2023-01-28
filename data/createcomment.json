@@ -1,29 +1,26 @@
 {
-    "status": "success",
-    "data": {
-      "comment": {
-        "_id": "12520",
-        "author": "string",
-        "post": "string",
-        "mentions": [
-          "string"
-        ],
-        "replies": [
-        ],
-        "moreReplies": {
-          "count": 0,
-          "children": [
-            "string"
-          ],
-          "parentID": "string",
-          "depth": 0
-        },
-        "parent": "string",
-        "parentType": "string",
-        "text": "string",
-        "createdAt": "2022-07-21T17:32:28Z",
-        "votes": 0,
-        "repliesCount": 0
-      }
-    }
+  "status": "success",
+  "data": {
+      "author": {
+          "_id": "63a2174cbe566ac6458d2c1c",
+          "userName": "Basma",
+          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png"
+      },
+      "post": "63a54e2410ebdf1da11b4b81",
+      "mentions": [],
+      "replies": [],
+      "parent": "63a54e2410ebdf1da11b4b81",
+      "parentType": "Post",
+      "text": "<p>New Comment Added</p>",
+      "createdAt": "2022-12-23T08:13:27.079Z",
+      "isDeleted": false,
+      "votes": 0,
+      "repliesCount": 0,
+      "locked": false,
+      "modState": "unmoderated",
+      "_id": "63a5632710ebdf1da11b5e7a",
+      "sortOnHot": 835891603539.5,
+      "__v": 0
   }
+}

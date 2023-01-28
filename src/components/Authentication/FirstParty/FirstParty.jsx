@@ -34,10 +34,10 @@ function FirstParty() {
 
   // useCookies
   // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
   return (
 
-    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, setUserName); }} data-testid="FirstParty-test">
+    <FirstPartyContainer width="290px" onSubmit={(e) => { logIn(e, setLoading, userName, password, setPassword, setButtonText, setDisabled, setRedirectCaption, setCookies, removeCookie, setUserName); }} data-testid="FirstParty-test">
 
       <RedditTextField
         label="Username"

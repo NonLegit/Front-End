@@ -25,15 +25,16 @@ export default function TimeType() {
   const [Time, setTime] = React.useState(false);
 
   const [searchParams] = useSearchParams();
-  const sort = searchParams.get('sort') || 'Relevance';
-  const type = searchParams.get('type') || 'Posts';
+  const sort = searchParams.get('sort') || 'new';
+  const type = searchParams.get('type') || 'posts';
 
-  const t = searchParams.get('t') || 'All Time';
+  const t = searchParams.get('t') || 'day';
   const navigate = useNavigate();
+  const qery = searchParams.get('q');
 
   // navigate
   const handleClick = (subPage) => {
-    navigate(`?type=${type}&sort=${sort}&t=${subPage}`);
+    navigate(`?q=${qery}&type=${type}&sort=${sort}&t=${subPage}`);
   };
 
   // show and hide the time list
@@ -77,33 +78,33 @@ export default function TimeType() {
       </ClickAwayListener>
 
       <ShowMoreList display={(Time === false ? 'none' : 'block')}>
-        <ListItemButton onClick={() => { setTime(!Time); handleClick('All Time'); }}>
-          <ShowMoreListItemText Condition={(t === 'All Time' || t === 'Time').toString()}>
+        <ListItemButton onClick={() => { setTime(!Time); handleClick('all'); }}>
+          <ShowMoreListItemText Condition={(t === 'all').toString()}>
             All Time
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setTime(!Time); handleClick('Past Year'); }}>
-          <ShowMoreListItemText Condition={(t === 'Past Year').toString()}>
+        <ListItemButton onClick={() => { setTime(!Time); handleClick('year'); }}>
+          <ShowMoreListItemText Condition={(t === 'year').toString()}>
             Past Year
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setTime(!Time); handleClick('Past Month'); }}>
-          <ShowMoreListItemText Condition={(t === 'Past Month').toString()}>
+        <ListItemButton onClick={() => { setTime(!Time); handleClick('month'); }}>
+          <ShowMoreListItemText Condition={(t === 'month').toString()}>
             Past Month
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setTime(!Time); handleClick('Past Week'); }}>
-          <ShowMoreListItemText Condition={(t === 'Past Week').toString()}>
+        <ListItemButton onClick={() => { setTime(!Time); handleClick('week'); }}>
+          <ShowMoreListItemText Condition={(t === 'week').toString()}>
             Past Week
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setTime(!Time); handleClick('Past 24 Hours'); }}>
-          <ShowMoreListItemText Condition={(t === 'Past 24 Hours').toString()}>
+        <ListItemButton onClick={() => { setTime(!Time); handleClick('day'); }}>
+          <ShowMoreListItemText Condition={(t === 'day' || t === 'Time').toString()}>
             Past 24 Hours
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setTime(!Time); handleClick('Past Hour'); }}>
-          <ShowMoreListItemText Condition={(t === 'Past Hour').toString()}>
+        <ListItemButton onClick={() => { setTime(!Time); handleClick('hour'); }}>
+          <ShowMoreListItemText Condition={(t === 'hour').toString()}>
             Past Hour
           </ShowMoreListItemText>
         </ListItemButton>

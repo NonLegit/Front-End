@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="MuiBox-root css-21nkcj"
+>
+  <div
+    className="MuiBox-root css-19midj6"
+  >
+    <div
+      className="MuiBox-root css-13i13kk"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-16acbxi-MuiTypography-root"
+      >
+        mod note:
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1gaz5e1-MuiTypography-root"
+      />
+    </div>
+    <div
+      className="MuiBox-root css-70qvj9"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1e41twx-MuiTypography-root"
+      >
+        banned for:
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1gaz5e1-MuiTypography-root"
+      />
+    </div>
+  </div>
+</div>
+`;

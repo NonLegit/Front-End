@@ -2,6 +2,13 @@ import * as React from 'react';
 import { TextField } from '@mui/material';
 import { StyledBox, StyledFont } from './styles';
 
+/**
+ * BanNote
+ * @component
+ * @property  {string} note a note from the moderator about the banned user
+ * @return {React.Component} - Bannote (text field)
+ */
+
 function BanNote(props) {
   const { note } = props;
   const CHARACTER_LIMIT = 300;
@@ -15,11 +22,12 @@ function BanNote(props) {
     <StyledBox>
       <StyledFont>MOD NOTE</StyledFont>
       <TextField
+        id="banNote"
         placeholder="Mod Note"
         size="small"
         fullWidth
         inputProps={{
-          maxlength: CHARACTER_LIMIT,
+          maxLength: CHARACTER_LIMIT,
         }}
         value={values.name}
         helperText={`${CHARACTER_LIMIT - values.name.length} Characters remaining`}

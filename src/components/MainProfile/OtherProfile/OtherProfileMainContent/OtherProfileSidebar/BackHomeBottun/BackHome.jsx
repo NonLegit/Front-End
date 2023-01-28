@@ -2,6 +2,13 @@ import { Box } from '@mui/system';
 // eslint-disable-next-line import/no-named-as-default
 import BackHome from './style';
 
+/**
+ * BackHomeBottun component shows all comments over a post
+ *
+ * @component BackHomeBottun
+ * @property {fundtion} goToTop - return to the top of the page
+ * @returns {React.Component} BackHomeBottun
+ */
 function BackHomeBottun() {
   function goToTop() {
     document.documentElement.scrollTop = 0;

@@ -34,9 +34,10 @@ export const recoverUsername = (
     return;
   }
 
+  console.log('Calling');
   // Accepted Call API
   axios.post('/users/forgot_username', { email: email.input }).then((response) => {
-    // console.log(response);
+    console.log(response);
     if (response.status === 204 || response.status === 201 || response.status === 200) {
       setTimeout(() => {
         setLoading(false);

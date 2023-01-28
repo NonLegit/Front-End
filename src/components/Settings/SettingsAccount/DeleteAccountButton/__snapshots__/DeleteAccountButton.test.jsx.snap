@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-1a5yq0i"
+>
+   
+  <button
+    aria-label="close"
+    className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1uyi1ct-MuiButtonBase-root-MuiIconButton-root"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="CloseIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+      />
+    </svg>
+  </button>
+  <div
+    className="css-1j3d7yo"
+  >
+    Delete account
+  </div>
+  <div
+    className="css-1s8lhcf"
+  >
+    We are sorry to see you go
+  </div>
+  <div
+    className="css-1s8lhcf"
+  >
+    Once you delete your account, your profile and username are permanently removed from Reddit and your posts, comments, and messages are disassociated (not deleted) from your account unless you delete them beforehand
+  </div>
+  <div
+    className="css-1nbw2nu"
+  >
+    HELP IMPROVE REDDIT (OPTIONAL)
+  </div>
+  <div>
+    <textarea
+      className="css-d64g3m"
+      placeholder="let us know why you are leaving"
+    />
+  </div>
+  <div
+    className="css-1nbw2nu"
+  >
+    VERIFY YOUR IDENTITY
+  </div>
+  <input
+    className="css-oay2nz"
+    onChange={[Function]}
+    placeholder="UserName"
+  />
+  <input
+    className="css-oay2nz"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+  />
+  <div
+    className="css-70qvj9"
+  >
+    <span
+      className="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-355xbt-MuiButtonBase-root-MuiCheckbox-root"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={null}
+    >
+      <input
+        aria-label="controlled"
+        checked={false}
+        className="PrivateSwitchBase-input css-1m9pwf3"
+        data-indeterminate={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="CheckBoxOutlineBlankIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+        />
+      </svg>
+    </span>
+    <div
+      className="css-1qxtz39"
+    >
+      I understand that deleted accounts arenot recoverable
+    </div>
+  </div>
+  <div
+    className="css-o5znrq"
+  >
+    <div
+      className="css-1ry625w"
+    >
+      Cancel
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1j2c57i-MuiButtonBase-root-MuiButton-root"
+      condition={false}
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      Delete Account
+    </button>
+  </div>
+</div>
+`;

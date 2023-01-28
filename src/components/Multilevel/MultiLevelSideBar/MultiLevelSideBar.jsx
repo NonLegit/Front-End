@@ -10,11 +10,15 @@ import BackToTop from '../../BackToTop/BackToTop';
 
 // Contexts
 import { usePostContext } from '../../../contexts/PostContext';
-import UserProvider from '../../../contexts/UserProvider';
 
 // Server
 import getSubredditAllData from '../../SubReddit/SubrridetDataServer';
 
+/**
+ * MultiLevelSideBar Side Bar @ Right of the Post with Info About Owner of the Post [User or Subreddit]
+ *
+ * @returns {React.Component} --MultiLevelSideBar Component
+ */
 function MultiLevelSideBar() {
   // Context
   const { post } = usePostContext();
@@ -49,18 +53,14 @@ function MultiLevelSideBar() {
         />
       )
         : (
-          <SideBar>
+          <SideBar responsive>
             {(post?.ownerType === 'User'
               ? ((cookies?.redditUser?.id === post?.owner?._id)
                 ? (
-                  <UserProvider name={post?.owner?.name}>
-                    <UserInfo />
-                  </UserProvider>
+                  <UserInfo username={post?.owner?.name} />
                 )
                 : (
-                  <UserProvider name={post?.owner?.name}>
-                    <OtherProfileUserInfo />
-                  </UserProvider>
+                  <OtherProfileUserInfo username={post?.owner?.name} />
                 )
               ) : null)}
             <BackToTop />

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,6 +27,10 @@ import {
 import theme from '../../../styles/theme';
 import { addPostToHistory } from './scripts';
 
+/**
+ * MultiLevelHeader of the Post Page with Title oof Post and Vote and Down Vote Buttons
+ * @returns {React.Component} --MultiLevelHeader Component
+ */
 function MultiLevelHeader() {
   // Context
   const { post } = usePostContext();
@@ -36,7 +41,7 @@ function MultiLevelHeader() {
   useEffect(() => {
     console.log('MultiLevelHeader.jsx', post);
     // Add This post to the History
-    if (post !== null) {
+    if (post) {
       addPostToHistory(post);
     }
   }, [post]);
@@ -59,7 +64,6 @@ function MultiLevelHeader() {
     <MultiLevelHeaderBox>
       <MultiLevelHeaderVotes>
         <TopPostVotesConatiner>
-          {/* <Divider orientation="vertical" flexItem /> */}
           <HeaderVerticalDivider orientation="vertical" flexItem />
           <IconButton onClick={upVote}>
             <VoteIcon

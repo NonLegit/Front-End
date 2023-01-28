@@ -1,8 +1,20 @@
 import { StyledBox } from './styles';
 import { RedditButton } from '../../styles';
 
+/**
+ * Footer of popups for user management section
+ * @component
+ * @property {function} firstButtonFunction the first button functionality
+ * @property {string} firstButtonText the first button label
+ * @property {function} secondButtonFuncion the second button functionality
+ * @property {string} secondButtonText the second button label
+ * @return {React.Component} - Footer component
+ */
+
 function Footer(props) {
-  const { buttonFunction, firstButtonText, secondButtonText } = props;
+  const {
+    firstButtonFunction, firstButtonText, secondButtonFunction, secondButtonText,
+  } = props;
   return (
     <StyledBox>
       <RedditButton
@@ -10,7 +22,7 @@ function Footer(props) {
         padding="0px 24px 0px 24px"
         fontWeight="bold"
         variant="outlined"
-        onClick={buttonFunction}
+        onClick={firstButtonFunction}
         disableRipple
         disableFocusRipple
       >
@@ -24,6 +36,7 @@ function Footer(props) {
         variant="contained"
         disableRipple
         disableFocusRipple
+        onClick={secondButtonFunction}
       >
         {secondButtonText}
       </RedditButton>

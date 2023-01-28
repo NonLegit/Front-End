@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // services
 import axios from '../../../../services/instance';
 
@@ -43,7 +42,9 @@ export const getComments = (props, setComments) => {
 };
 
 export const getMoreChildren = (props, comments, setComments) => {
-  const { children, limit } = props;
+  const {
+    children, depth, limit, sort,
+  } = props;
   console.log('children sent to DB ', children);
   console.log('Comments Array to be Refilled ', comments);
   axios.get(
@@ -51,28 +52,36 @@ export const getMoreChildren = (props, comments, setComments) => {
     {
       params: {
         children: children?.toString(), // An array of comment IDs that need to be fetched
-        // depth, // The maximum depth of the comment subtrees
+        depth, // The maximum depth of the comment subtrees
         limit, // The maximum number of replies in each level
-        // sort: // Available values : top, new, best, old
+        sort, // Available values : top, new, best, old
       },
     },
   ).then((response) => {
     console.log('/comments/more_children', response);
     // remove last elememt of the array
-    // console.log('Old Comments Array:');
-    // console.log(comments);
+    console.log('Old Comments Array:');
+    console.log(comments);
 
+    // Remove More Repleis Object
     comments.pop();
 
-    // console.log('After  Comments Array Pop:');
-    // console.log(comments);
-    // console.log(response.data.comments);
+    const newComments = comments.concat(response?.data?.comments);
+    console.log('Adding new Comment');
+    console.log(response.data.comments);
 
-    const newComments = comments.concat(response.data.comments);
-    // BEEEEEEEEEEEEEEEEECKKKKKKKKKKKKKK
+    // // eslint-disable-next-line no-unsafe-optional-chaining
+    // MoreRepliesObject.count -= response?.data?.comments?.length;
     // console.log('Comments Array:');
     // console.log(newComments);
+    // if (MoreRepliesObject.count > 0) {
+    //   // add back to the end
+    //   newComments = newComments.concat(MoreRepliesObject);
+    // }
 
+    // Update Array
+    console.log('Final Array:');
+    console.log(newComments);
     setComments(newComments);
   }).catch((error) => {
     // 404 Post Not found
@@ -82,7 +91,7 @@ export const getMoreChildren = (props, comments, setComments) => {
   });
 };
 
-export const saveComment = async (parentID, parentType, comment) => {
+export const saveComment = async (parentID, parentType, comment, post, setPost, comments, setComments) => {
   await axios.post(
     '/comments',
     {
@@ -95,6 +104,22 @@ export const saveComment = async (parentID, parentType, comment) => {
     // 201
     if (response.status === 201 || response.status === 200 || response.status === 304) {
       console.log('Comment Saved Sucessfully :)', comment, 'on Post', parentID);
+      console.log('old comments', comments);// New Added Comment
+
+      // concatinate this comment to beginning comment
+      let newComment = [response?.data?.data];
+      newComment = newComment.concat(comments);
+      console.log('new comments', newComment);// New Added Comment
+
+      setComments(newComment);
+      if (parentType === 'Post') {
+        console.log(post);
+        // increase Post Comments
+        const newPost = post;
+        newPost.commentCount += 1;
+        setPost(newPost);
+        console.log('Incremeted');
+      }
       return true;
     }
     return false;

@@ -1,26 +1,37 @@
 import * as React from 'react';
-import { StyledBox, StyledTextareaAutosize } from './styles';
+import { StyledBox } from './styles';
+import { FullDiscTextArea, Count } from '../../../../Rules/AddRule/style';
+
+/**
+ * mute message
+ * @component
+ * @return {React.Component} - mute message component (text area)
+ */
 
 function MuteMessage() {
-  const CHARACTER_LIMIT = 300;
-  const [values, setValues] = React.useState({
-    name: '',
-  });
-  const handleChangeCharNum = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.value });
+  const [count, setCount] = React.useState(300);
+  const check = (e) => {
+    const ele = e?.target?.value;
+    if (500 - ele.length >= 0) { setCount(500 - ele.length); }
   };
   return (
     <StyledBox>
-      <StyledTextareaAutosize
+      <FullDiscTextArea
         placeholder="Reason they were muted"
-        inputProps={{
-          maxlength: CHARACTER_LIMIT,
+        id="mute_message"
+        onChange={check}
+        onInput={(e) => {
+          // eslint-disable-next-line radix
+          e.target.value = e.target.value.slice(0, 500);
         }}
-        value={values.name}
-        helperText={`${CHARACTER_LIMIT - values.name.length} Characters remaining`}
-        onChange={handleChangeCharNum('name')}
-        margin="normal"
       />
+      <Count
+        condition={(count === 0).toString()}
+      >
+        {count}
+        {' '}
+        Characters remaining
+      </Count>
     </StyledBox>
   );
 }

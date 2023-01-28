@@ -11,12 +11,14 @@ import { StaticticsContainer, StatisticsCaption, StatisticsIcon } from './styles
 // Context
 import { usePostContext } from '../../../../../contexts/PostContext';
 
-function PostStatistics(props) {
-  // eslint-disable-next-line no-unused-vars
-  const { views, shareCount } = props;
-
+/**
+ * PostStatistics Bar showing No of Comments Views and Shares of Post
+ * @returns {React.Component} --PostStatistics Component
+ */
+function PostStatistics() {
   // Context
   const { post } = usePostContext();
+
   return (
     <StaticticsContainer>
       <StatisticsIcon>

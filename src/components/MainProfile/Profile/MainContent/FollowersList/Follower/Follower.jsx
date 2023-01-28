@@ -5,13 +5,22 @@ import {
   FollowerBox, FollowerPhoto, FollowingButton, LinkToProfile,
 } from './styles';
 
+/**
+ * Follower
+ *
+ * @component Follower
+ * @property {object} follower - entity
+ * @property {object} handleClickFollow - toggle state
+
+ * @returns {React.Component} Follower
+ */
 function Follower({ follower }) {
   const [following, setFollowing] = useState(undefined);
   const [isFollowedUi, setIsFollowedUi] = useState(undefined);
 
   useEffect(() => {
-    setFollowing(follower.isFollowed === 'true');
-    setIsFollowedUi(follower.isFollowed === 'true');
+    setFollowing(follower.isFollowed);
+    setIsFollowedUi(follower.isFollowed);
   }, [follower]);
 
   followRequest(follower.userName, following, () => { setIsFollowedUi((prev) => !prev); });

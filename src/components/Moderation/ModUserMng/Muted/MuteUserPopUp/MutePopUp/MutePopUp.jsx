@@ -1,14 +1,30 @@
 /* eslint-disable import/no-cycle */
 import * as React from 'react';
 import { Divider, Box, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import { StyledDialog, FooterContainer } from '../../../styles';
 import { MuteContext } from '../../MuteUser';
 import Username from '../../../Username/Username';
 import MuteMessage from '../MuteMessage/MuteMessage';
 import Header from '../../../Header/Header';
 import Footer from '../../../Footer/Footer';
+import { MuteUnmuteUser } from '../MuteServer';
+
+/**
+ * mute popup
+ * @component
+ * @return {React.Component} - mute popup component
+ */
 
 function MutePopUp() {
+  const { subReddit } = useParams();
+
+  const handleClickMute = async () => {
+    const userName = document.getElementById('username').value;
+    const muteNote = document.getElementById('mute_message').value;
+    MuteUnmuteUser(userName, muteNote, subReddit, 'mute');
+  };
+
   const {
     openMute, handleClickCloseMute,
   } = React.useContext(MuteContext);
@@ -17,7 +33,7 @@ function MutePopUp() {
       fullScreen
       open={openMute}
       width="410px"
-      height="355px"
+      height="370px"
     >
       <Box>
         <Header buttonFunction={handleClickCloseMute} headerText="Mute user" />
@@ -28,7 +44,12 @@ function MutePopUp() {
       </Box>
       <MuteMessage />
       <FooterContainer>
-        <Footer buttonFunction={handleClickCloseMute} firstButtonText="Cancel" secondButtonText="Mute user" />
+        <Footer
+          firstButtonFunction={handleClickCloseMute}
+          firstButtonText="Cancel"
+          secondButtonFunction={handleClickMute}
+          secondButtonText="Mute user"
+        />
       </FooterContainer>
     </StyledDialog>
   );

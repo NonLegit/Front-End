@@ -18,7 +18,11 @@ it('open input to add disc', async () => {
 
 // test snapshot
 test('test snapshot', async () => {
-  const tree = renderer.create(<AddSector />).toJSON();
+  const props = {
+    Name: 'aaaa',
+    disc2: 'aaaaaa',
+  };
+  const tree = renderer.create(<AddSector {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

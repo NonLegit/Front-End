@@ -5,7 +5,7 @@
 /* eslint-disable no-restricted-globals */
 import { initializeApp } from 'firebase/app';
 
-// import { getFirestore } from '@firebase/firestore';
+import { getFirestore } from '@firebase/firestore';
 import { getMessaging, onMessage, getToken } from 'firebase/messaging';
 
 const firebaseConfig = {
@@ -21,11 +21,15 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const appNottification = initializeApp(firebaseConfig);
-// export const firestore = getFirestore(app);
-export let messaging;//= getMessaging(app);
+export const firestore = getFirestore(app);
+export const messaging = getMessaging(app);
 // export const messagingNottification = getMessaging(appNottification);
 
 // export const onForegroundMessage = () => new Promise((resolve) => onMessage(messaging, (payload) => resolve(payload)));
+/**
+ * - on Foreground Nottification
+ * @return {Promise} - promise wait massage foreground
+ */
 export const onForegroundNottification = () => new Promise((resolve) => onMessage(messaging, (payload) => resolve(payload)));
 export const getOrRegisterServiceWorker = async () => {
   if ('serviceWorker' in navigator) {
@@ -40,5 +44,9 @@ export const getOrRegisterServiceWorker = async () => {
   }
   throw new Error('The browser doesn`t support service worker.');
 };
+/**
+ * - Get Firebase Token
+ * @return {Promise} - get token from firebase when asked
+ */
 export const getFirebaseToken = () => getOrRegisterServiceWorker()
   .then((serviceWorkerRegistration) => getToken(messaging, { vapidKey: 'BLsmD9ZEQyLyHpNKCK0zUjWWkt4LHZLlTP1pkVC_w2QiS_ixyutdofxanfdeoaASHn3j71M0QZUS74s8fikX94M', serviceWorkerRegistration }));

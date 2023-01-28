@@ -11,6 +11,13 @@ import { CommunitiesSubscriberContext } from '../../../../contexts/CommunitiesSu
 import PostBody from '../PostBody/PostBody';
 import { LinkCross } from '../PostHeader/styles';
 
+/**
+ * CrossPost
+ *
+ * @component CrossPost
+ * @returns {React.Component} CrossPost
+ */
+
 function CrossPost({ post }) {
 //   const [isSpoiler, setIsSpoiler] = useState();
 //   const [isLocked, setIsLocked] = useState();

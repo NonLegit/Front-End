@@ -91,7 +91,7 @@ function CommentsContent(props) {
       <DashedLine />
       {comment.parentType !== 'Post' ? <DashedLine /> : null}
       <CommentsBoxBlue overview={overview}>
-        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }} onClick={() => { setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'r' : 'user'}/${owner}/comments/${postid}`); }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }} onClick={() => { setEditPost(false); navigate(`/${ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${owner}/comments/${postid}`); }}>
           <CommentText variant="caption" coloring="black">
             {username}
             {' '}

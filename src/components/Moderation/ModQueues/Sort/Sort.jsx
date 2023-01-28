@@ -15,6 +15,13 @@ function useQuery() {
   return useMemo(() => new URLSearchParams(search), [search]);
 }
 
+/**
+ * (new-old) filter
+ *
+ * @component Sort
+ * @returns {React.Component} Sort
+ */
+
 function Sort() {
   const [showList1, setShowList1] = useState(false);
   const query = useQuery();

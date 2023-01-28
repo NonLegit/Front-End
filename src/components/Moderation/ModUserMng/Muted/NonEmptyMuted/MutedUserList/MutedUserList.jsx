@@ -1,27 +1,35 @@
 import React from 'react';
-import { MutedUsers } from '../../List';
+import { useParams } from 'react-router-dom';
+import { mutedFetch } from './MutedServer';
 import MutedUser from '../MutedUser/MutedUser';
-import calculateTime from '../../../utils/calculateTime';
 import SearchBar from '../../../SearchBar/SearchBar';
 import SearchResultBar from '../../../SearchResultBar/SearchResultBar';
 import NoResult from '../../../NoResult/NoResult';
+import EmptyMuted from '../../EmptyMuted/EmptyMuted';
+
+/**
+ * muted user list
+ * @component
+ * @return {React.Component} - muted user list
+ */
 
 function MutedUserList() {
   const [data, setData] = React.useState('');
   const childToParent = (childData) => {
     setData(childData);
   };
-
+  const { subReddit } = useParams();
+  const [MutedUsers] = mutedFetch(subReddit);
   const [filteredData, setfilteredData] = React.useState([]);
-
   React.useEffect(() => {
-    setfilteredData(MutedUsers.filter((user) => user.userName.toLowerCase().includes(data)));
-  }, [data]);
+    setfilteredData(MutedUsers?.filter((users) => users.user.userName.toLowerCase().includes(data)));
+  }, [data, MutedUsers]);
 
   return (
-    <>
-      <SearchBar childToParent={childToParent} />
-      {
+    (MutedUsers.length === 0) ? (<EmptyMuted />) : (
+      <>
+        <SearchBar childToParent={childToParent} />
+        {
         (filteredData.length !== 0 && data !== '') && (
         <SearchResultBar
           resultNumber={filteredData.length}
@@ -30,27 +38,26 @@ function MutedUserList() {
         />
         )
       }
-      {
+        {
        (filteredData.length === 0 && data !== '') && <NoResult query={data} childToParent={childToParent} />
       }
-      {
-        filteredData.map((user) => {
+        {
+        filteredData.map((users, index) => {
           const {
-            id, userName, profilePicture, joiningDate, muteInfo,
-          } = user;
-          console.log(id);
+            user, muteInfo,
+          } = users;
           console.log(muteInfo);
           return (
             <MutedUser
-              userName={userName}
-              profilePicture={profilePicture}
-              joiningDate={calculateTime(joiningDate)}
-              modNote={muteInfo.muteMessage}
+              key={`${index + 0}`}
+              user={user}
+              muteInfo={muteInfo}
             />
           );
         })
       }
-    </>
+      </>
+    )
   );
 }
 

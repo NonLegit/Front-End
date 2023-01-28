@@ -6,7 +6,7 @@ export const StyledInputBase = styled(InputBase)(() => ({
     borderRadius: '4px 0 0 4px',
     border: '1px solid #878a8c',
     padding: '8px',
-    width: '248px',
+    width: '100%',
     height: '13px',
     color: '#616364',
     '&:focus': {

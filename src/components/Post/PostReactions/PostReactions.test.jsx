@@ -5,6 +5,8 @@ import { ThemeProvider } from '@mui/system';
 import { screen, render, fireEvent } from '@testing-library/react';
 import PostReactions from './PostReactions';
 import theme from '../../../styles/theme';
+import EditPostContextProvider from '../../../contexts/EditPostContext';
+import HiddenPostsContextProvider from '../../../contexts/HiddenPostsContext';
 
 describe(PostReactions, () => {
   it('PostReactions renders correctly', () => {
@@ -15,12 +17,17 @@ describe(PostReactions, () => {
       .create(
         <Router>
           <ThemeProvider theme={theme}>
-            <PostReactions
-              votes={testCase.votes}
-              matchSm={testCase.matchSm}
-              matchMd={testCase.matchMd}
-              comments={testCase.comments}
-            />
+            <HiddenPostsContextProvider>
+              <EditPostContextProvider>
+                <PostReactions
+                  votes={testCase.votes}
+                  matchSm={testCase.matchSm}
+                  matchMd={testCase.matchMd}
+                  comments={testCase.comments}
+                />
+              </EditPostContextProvider>
+            </HiddenPostsContextProvider>
+
           </ThemeProvider>
         </Router>
         ,
@@ -35,12 +42,17 @@ describe(PostReactions, () => {
     render(
       <Router>
         <ThemeProvider theme={theme}>
-          <PostReactions
-            votes={testCase.votes}
-            matchSm={testCase.matchSm}
-            matchMd={testCase.matchMd}
-            comments={testCase.comments}
-          />
+          <HiddenPostsContextProvider>
+            <EditPostContextProvider>
+              <PostReactions
+                votes={testCase.votes}
+                matchSm={testCase.matchSm}
+                matchMd={testCase.matchMd}
+                comments={testCase.comments}
+              />
+            </EditPostContextProvider>
+          </HiddenPostsContextProvider>
+
         </ThemeProvider>
       </Router>,
     );

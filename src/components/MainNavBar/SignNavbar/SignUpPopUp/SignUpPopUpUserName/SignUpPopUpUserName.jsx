@@ -39,7 +39,7 @@ const { REACT_APP_SITEKEY } = process.env;
  * @returns {React.Component} - Main Body of SignUp UseerName PopUp
  */
 function SignUpPopUpUserName({
-  setUserNamePage, email, userName, setUserName, password, setPassword, setCookies,
+  setUserNamePage, email, userName, setUserName, password, setPassword, setCookies, removeCookie,
 }) {
   // states
   const [defaultUserNameValue, setdefaultUserNameValue] = useState(userName?.input);
@@ -106,7 +106,7 @@ function SignUpPopUpUserName({
     // console.log(userName);
     checkUserNameSignUp(userName?.input, setUserName);
     checkPassword(password?.input, setPassword, password);
-    signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies, true, handleClose);
+    signUp(email, userName, setUserName, password, setPassword, verified, setLoading, setButtonText, setDisabled, setRedirectCaption, setCookies, removeCookie, true, handleClose);
   };
   return (
 

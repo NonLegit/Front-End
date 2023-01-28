@@ -11,6 +11,16 @@ import Rules from './Rules/Rules';
 /**
  * SideBar for subreddit
  * @component
+ * @property {string} disc - description data
+ * @property {object} topics -list of community topics
+ * @property {string} Name -name of the subreddit
+ * @property {string} primaryTopic -primary topic for subreddit
+ * @property {string} createdAt -date of creating the subreddit
+ * @property {object} moderatoesName -list of object of moderators
+ * @property {string} username -user name
+ * @property {object} rules -list of object of rules
+ * @property {Boolean} createPost -to detect the sidebar in subreddit or creat post page
+
  * @return {React.Component} - SideBar for subreddit
  */
 function SideBar(props) {
@@ -19,7 +29,9 @@ function SideBar(props) {
   } = props;
   console.log('create post flag', createPost);
   const [moderate, setModerate] = useState(false);
-  const finalArray = moderatoesName?.map((obj) => obj.userName);
+  const finalArray = moderatoesName?.map((obj) => obj.user.userName);
+  // const finalArray = moderatoesName?.map((obj) => obj.userName);
+
   const num = numFormatter(members);
   const mode = UserLogin(finalArray);
   console.log(mode);
@@ -43,9 +55,12 @@ function SideBar(props) {
         <Moderation topics={topics} disc={disc} Name={Name} primaryTopic={primaryTopic} createdAt={createdAt} num={num} createPost={createPost} />
       </CommunityContainer>
       )}
-      <CommunityContainer>
-        <Rules Name={Name} rules={rules} />
-      </CommunityContainer>
+      { (rules?.length > 0)
+     && (
+     <CommunityContainer>
+       <Rules Name={Name} rules={rules} />
+     </CommunityContainer>
+     )}
       <CommunityContainer>
         <Flirt />
       </CommunityContainer>

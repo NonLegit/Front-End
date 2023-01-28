@@ -16,6 +16,12 @@ import AddList from './CommunityTopics/CommunityTopics';
  * @property  {function} ListSelected to set the primary topic
  * @property  {function} handleClickAway handel on select item
  *
+ * @param {Function} topics - list of topics
+ * @param {Function} Name - name of subreddit
+ * @param {Function} primaryTopic - primary topic in subreddit
+ * @param {Function} setTopics - set topics in subreddit
+ * @param {Function} setPrimaryTopic -  set primaryTopic in subreddit
+
  * @return {React.Component} - Moderators section in sidebar
  */
 function CommunityMianTopic(props) {

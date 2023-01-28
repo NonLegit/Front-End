@@ -1,6 +1,7 @@
 const {
   top, best, hot, newPosts,
 } = require('./homePagePosts.json');
+const { posts } = require('./submitPost.json');
 const { subredditsHomePage } = require('./createPostSubreddits.json');
 const { usernameAvailable } = require('./usernameAvailability.json');
 const homePageCommunities = require('./homePageCommunities.json');
@@ -39,13 +40,8 @@ const markAsRead = require('./markAsRead.json');
 const follow = require('./follow.json');
 const block = require('./block.json');
 const followers = require('./followers.json');
-const deleteAction = require('./deleteAction.json');
 const actionOnPost = require('./actionOnPost.json');
 const commentsTap = require('./commentsTap.json');
-const getPost = require('./getpost.json');
-const createcomment = require('./createcomment.json');
-const postComments = require('./postcomments.json');
-const moreComments = require('./moreComments.json');
 const save = require('./save.json');
 const unsave = require('./unsave.json');
 const hide = require('./hide.json');
@@ -56,15 +52,58 @@ const moderatorAction = require('./moderatorAction.json');
 const UpdateFlair = require('./UpdateFlair.json');
 const exploreCommunities = require('./exploreCommunities.json');
 const TopCommunities = require('./topCommunities.json');
+const SearchByPeople = require('./SearchByPeople.json');
+const SearchByPost = require('./SearchByPost.json');
+const SearchByComments = require('./SearchByComments.json');
+
+const SearchByCommunity = require('./SearchByCommunty.json');
+const AddFlair = require('./AddFlair.json');
+const EditFlair = require('./EditFliar.json');
+const AddRule = require('./AddRule.json');
+const EditRule = require('./AddRule.json');
+
 const listBlock = require('./listBlock.json');
 const notificationToken = require('./notificationToken.json');
-const baned = require('./banedList.json');
+const messageSent = require('./messageSent.json');
+const MessagePostReplay = require('./MessagePostReplay.json');
+const messageRemove = require('./messageRemove.json');
+const MessageDrive = require('./MessageDrive.json');
+const MessageReplay = require('./messageReplay.json');
+const messagesAll = require('./messagesAll.json');
 const modQueue = require('./modQueue.json');
 const commentMod = require('./commentMod.json');
+const banned = require('./bannedList.json');
+const muted = require('./mutedList.json');
+const moderators = require('./moderatorsList.json');
+const approved = require('./approvedList.json');
+const muteUnmute = require('./muteUnmuteList.json');
+const approvedUnapproved = require('./approvedUnapprovedList.json');
+const banUnban = require('./banUnban.json');
+const invitedModerators = require('./invitedModerators.json');
+const messageUnread = require('./messageUnread.json');
+const messageAsRead = require('./messageAsRead.json');
+const changeEmail = require('./changeEmail.json');
+const changePassword = require('./changePassword.json');
+const deleteAccount = require('./deleteAccount.json');
+const verifyEmail = require('./verifyEmail.json');
+const SubreddtInvitation = require('./SubreddtInvitation.json');
+
+const getPost = require('./getpost.json');
+const createcomment = require('./createcomment.json');
+const postComments = require('./postcomments.json');
+const moreComments = require('./moreComments.json');
+const editcomment = require('./editcomment.json');
+const morereplies = require('./morereplies.json');
+const invite = require('./invite.json');
 // Something more
 
 module.exports = () => ({
-
+  SearchByComments,
+  SearchByPost,
+  EditRule,
+  AddRule,
+  EditFlair,
+  AddFlair,
   UpdateFlair,
   userInfo,
   Subreddit,
@@ -106,13 +145,8 @@ module.exports = () => ({
   follow,
   block,
   followers,
-  deleteAction,
   actionOnPost,
   commentsTap,
-  getPost,
-  createcomment,
-  postComments,
-  moreComments,
   subredditFlairs,
   save,
   unsave,
@@ -123,11 +157,44 @@ module.exports = () => ({
   listBlock,
   notificationToken,
   moderatorAction,
+
   exploreCommunities,
   TopCommunities,
-  baned,
+  messageSent,
+  MessagePostReplay,
+  messageRemove,
+  MessageDrive,
+  MessageReplay,
+  messagesAll,
+
   homePageCommunities,
   modQueue,
   commentMod,
+  SearchByPeople,
+  SearchByCommunity,
+  banned,
+  muted,
+  moderators,
+  approved,
+  muteUnmute,
+  approvedUnapproved,
+  banUnban,
+  invitedModerators,
+  posts,
+  messageUnread,
+  messageAsRead,
+  changeEmail,
+  changePassword,
+  deleteAccount,
+  verifyEmail,
+  SubreddtInvitation,
+
+  getPost,
+  createcomment,
+  postComments,
+  moreComments,
+  editcomment,
+  morereplies,
+  invite,
   // Something more
 });

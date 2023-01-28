@@ -4,6 +4,13 @@ import {
 } from './styles';
 import Filter from '../Filter/Filter';
 
+/**
+ * if no posts are exist
+ *
+ * @component EmptyQueue
+ * @returns {React.Component} EmptyQueue
+ */
+
 function EmptyQueue() {
   return (
     <>

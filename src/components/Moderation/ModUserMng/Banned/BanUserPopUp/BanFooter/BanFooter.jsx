@@ -2,8 +2,17 @@ import { Typography, Box } from '@mui/material';
 import { StyledBox } from './styles';
 import { RedditButton } from '../../../../styles';
 
+/**
+ * Ban Footer
+ * @component
+ * @property  {function} handleClickCloseBan close the popup when a button is clicked
+ * @property  {function} handleBan operate the function of banning user and send data to backend when a button is clicked
+ * @return {React.Component} - Ban Footer component
+ */
+
 function BanFooter(props) {
-  const { handleClickCloseBan } = props;
+  const { handleClickCloseBan, handleBan } = props;
+
   return (
     <StyledBox>
       <Typography>
@@ -29,6 +38,7 @@ function BanFooter(props) {
           variant="contained"
           disableRipple
           disableFocusRipple
+          onClick={handleBan}
         >
           Ban user
         </RedditButton>

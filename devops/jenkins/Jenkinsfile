@@ -11,53 +11,19 @@ pipeline {
                 FACEBOOK_APP_ID = credentials('facebook-app-id')
                 GOOGLE_APP_ID = credentials('google-app-id')
                 REACT_APP_SITEKEY = credentials('react-app-sitekey')
-
+		AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+		AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
             }
             steps {
-                sh '''
-                    # Set up git credentials.
-                    if [ ! -f "/var/jenkins_home/git-askpass-helper.sh" ]; then
-                        echo "#!/bin/bash" >> /var/jenkins_home/git-askpass-helper.sh
-                        echo 'exec echo $GIT_PASSWORD' >> /var/jenkins_home/git-askpass-helper.sh
-                        chmod +x /var/jenkins_home/git-askpass-helper.sh
-                    fi
-                    export GIT_ASKPASS=/var/jenkins_home/git-askpass-helper.sh
-                    # Getting the backend docker files
-                    mkdir temp; cd temp
-                    git clone https://cynico@github.com/NonLegit/devops.git
-                    cp devops/dockerfiles/frontend/Dockerfile ..
-                    cd .. ; rm -rf temp
-                    # Cleaning unnecessary files.
-                    rm -f README* .gitignore
-                    # Creating the necessary files.
-                    echo 'HTTP=false
-PORT=443
-HOST=0.0.0.0
-REACT_APP_GOOGLECLIENTID=\'"$GOOGLE_APP_ID"\'
-REACT_APP_FACEBOOKCLIENTID=\'"$FACEBOOK_APP_ID"\'
-REACT_APP_SITEKEY="6LdjH-kiAAAAANFbV6SUnCjXNK3Z0h7q7j4IFf7i"
-REACT_APP_ENV='production'
-REACT_APP_PROXY_DEVELOPMENT="http://localhost:8000"
-REACT_APP_PROXY_PRODUCTION="https://api.nonlegit.click/api/v1"' > .env
-                    # Build the docker image
-                    docker build -t cynic0/reddit-frontend:latest . 
-                    # Push the docker image.
-                    # docker login --username $DOCKER_CREDS_USR --password $DOCKER_CREDS_PSW
-                    # docker push cynic0/reddit-frontend:latest
-                    # Deleting credentials file from filesystem.
-                    rm -f /var/jenkins_home/.docker/config.json                  
-                '''
-            }
+		sh(returnStdout: true, script: "bash -e /var/jenkins_home/scripts/frontend/build.sh")
+						}
         }
         stage('Deploying frontend') {
             when {
                 branch "main"
             }
             steps {
-                sh '''
-                    docker rm -f frontend
-                    docker run --name=frontend --network backend_backend --ip 10.0.1.4 --restart always -d cynic0/reddit-frontend:latest
-                '''
+                sh(returnStdout: true, script: "bash -e /var/jenkins_home/scripts/frontend/deploy.sh")
             }
         }
     }

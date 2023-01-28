@@ -4,7 +4,7 @@ import * as React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import Cookies from 'js-cookie';
+
 import { ForgetUserContext } from '../SignNavbar';
 import { StyledDialog } from '../styles';
 import { StyledLink } from '../ِAuthentication/styles';
@@ -15,8 +15,9 @@ import { recoverUsername } from './server';
 import { redditCookie } from '../../../Authentication/authenticationServer';
 
 import theme, { fonts } from '../../../../styles/theme';
-// environment variables
-const { REACT_APP_ENV } = process.env;
+
+// // environment variables
+// const { REACT_APP_ENV } = process.env;
 /**
  *  ForgetUsername popUp
  * @component
@@ -34,7 +35,8 @@ function ForgetUsername() {
   const [disabled, setDisabled] = useState(false);
   const [redirectCaption, setRedirectCaption] = useState(false);
   // cookies
-  const [cookies, setCookies] = useCookies(['redditUser']);
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
 
   const {
     openForgotUser,
@@ -47,14 +49,26 @@ function ForgetUsername() {
   useEffect(() => {
     // Check on Cookies
     // developememt
-    if (REACT_APP_ENV !== 'development' && Cookies.get('jwt')) {
-      // production
-      // Redirect to loading page
-      // check on Reddit cookie
-      if (cookies.redditUser === undefined) {
-        redditCookie(setCookies);
-      }
-    }
+    /// Ask if this user already loggied in the back
+    // Remove Old Cookie :)==>Of course he is signed out
+    redditCookie(setCookies, removeCookie);
+    // if logged in in the back end
+    // if (cookies.redditUser !== undefined) {
+    //   // production
+    //   // Update Cookie
+    //   // redditCookie(setCookies);
+    //   // check on Reddit cookie
+    //   // if (cookies.redditUser === undefined) {
+    //   //   redditCookie(setCookies);
+    //   // }
+    //   // Redirect to loading page
+    //   console.log('Remember me is set to true');
+    //   handleClose();
+    //   redirectHome(100);
+    // } else {
+    //   // No Cookie by Back End
+    //   console.log('Remember me is set to false');
+    // }
   }, []);
 
   const caption = (

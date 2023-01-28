@@ -89,7 +89,7 @@ function Post(props) {
           navigate('/');
         }
       } else {
-        navigate(`/r/${ownerName}/comments/${shared ? sharedFrom?._id : postId}`);
+        navigate(`/subreddit/${ownerName}/comments/${shared ? sharedFrom?._id : postId}`);
       }
     }
   };
@@ -150,6 +150,7 @@ function Post(props) {
           nsfw={nsfw}
           spoiler={spoiler}
           redirectToPost={redirectToPost}
+          sharedFrom={!!sharedFrom}
         />
         {/* eslint-disable jsx-a11y/media-has-caption */}
         {/* */}

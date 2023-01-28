@@ -1,15 +1,8 @@
-import { useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import {
   Header, HeaderContainer, MyCategory,
 } from './style';
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return useMemo(() => new URLSearchParams(search), [search]);
-}
 
 /**
  * filter Search by its type
@@ -20,39 +13,44 @@ function useQuery() {
  * @returns {React.Component} filter Search by its type
  */
 function FilterSearch() {
-  const query = useQuery();
-  const type = query.get('type') || 'Posts';
+  const [searchParams] = useSearchParams();
+
+  const type1 = searchParams.get('type') || 'posts';
+  const type = type1.toLowerCase();
+
+  const qery = searchParams.get('q');
+
   const navigate = useNavigate();
 
   // navigate
   const handleClick = (subPage) => {
-    navigate(`?type=${subPage}`);
+    navigate(`?q=${qery}&type=${subPage}`);
   };
 
   return (
     <HeaderContainer>
       <Header>
         <MyCategory
-          condition={(type === 'Posts').toString()}
-          onClick={() => { handleClick('Posts'); console.log((type === 'Posts').toString()); }}
+          condition={(type === 'posts').toString()}
+          onClick={() => { handleClick('posts'); console.log((type === 'posts').toString()); }}
         >
           Posts
         </MyCategory>
         <MyCategory
-          condition={(type === 'Comments').toString()}
-          onClick={() => { handleClick('Comments'); }}
+          condition={(type === 'comments').toString()}
+          onClick={() => { handleClick('comments'); }}
         >
           Comments
         </MyCategory>
         <MyCategory
-          condition={(type === 'Communities').toString()}
-          onClick={() => { handleClick('Communities'); }}
+          condition={(type === 'communities').toString()}
+          onClick={() => { handleClick('communities'); }}
         >
           Communities
         </MyCategory>
         <MyCategory
-          condition={(type === 'People').toString()}
-          onClick={() => { handleClick('People'); }}
+          condition={(type === 'people').toString()}
+          onClick={() => { handleClick('people'); }}
         >
           People
         </MyCategory>

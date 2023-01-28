@@ -23,6 +23,13 @@ function useQuery() {
   return useMemo(() => new URLSearchParams(search), [search]);
 }
 
+/**
+ * Queue section in moderation
+ *
+ * @component Queue
+ * @returns {React.Component} Queue
+ */
+
 function Queue() {
   const { subTitle, subReddit } = useParams();
 
@@ -38,7 +45,8 @@ function Queue() {
     setPage((page) => page + 1);
   };
 
-  const [posts] = modQueueServer(subReddit, subTitle, sort || 'all');
+  const [posts] = modQueueServer(subReddit, subTitle, sort || 'All');
+
   useEffect(() => {
     console.log(posts);
     setIsContent(false);

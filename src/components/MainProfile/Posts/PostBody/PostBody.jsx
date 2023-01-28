@@ -12,7 +12,13 @@ import {
   PostMedia,
 } from '../styles';
 import { useEditPostContext } from '../../../../contexts/EditPostContext';
-
+/**
+ * PostBody
+ *
+ * @component PostBody
+ * @property  {function} handleDirection switch between images
+ * @returns {React.Component} PostBody
+ */
 function PostBody({ post, isSpoiler }) {
   const [maxImagesHeight, setMaxImagesHeight] = useState(450);
 
@@ -24,6 +30,7 @@ function PostBody({ post, isSpoiler }) {
   const { setEditPost } = useEditPostContext();
 
   useEffect(() => {
+    console.log(post.images);
     post.images?.forEach((image) => {
       const img = new Image();
       img.src = image;
@@ -57,7 +64,7 @@ function PostBody({ post, isSpoiler }) {
     >
       {post?.kind === 'video' ? (
         // eslint-disable-next-line jsx-a11y/media-has-caption
-        <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
+        <video controls style={{ width: '1000%', maxHeight: '512px' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
           <source src={post?.videos} type="video/mp4" />
         </video>
       ) : (
@@ -68,11 +75,11 @@ function PostBody({ post, isSpoiler }) {
                 imageIndex === index
                     && (
                     <CustomImage
-                      src={image.path}
+                      src={image}
                       alt="post image"
                       key={image}
                       maxHeight={maxImagesHeight}
-                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
+                      onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
                     />
                     )
               ))}
@@ -113,7 +120,7 @@ function PostBody({ post, isSpoiler }) {
           ) : ((post.kind === 'self') && (
           <ParagraphBox
             ref={postTextRef}
-            onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
+            onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}
           >
             <ParagraphWhite />
             <ParagraphPost

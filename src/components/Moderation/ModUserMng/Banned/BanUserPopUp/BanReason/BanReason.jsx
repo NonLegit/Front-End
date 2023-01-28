@@ -4,9 +4,16 @@ import {
   StyledBox, StyledFont, StyledMenuItem,
 } from './styles';
 
+/**
+ * Ban reason
+ * @component
+ * @property  {enum} punishType it is the bunish type if the user is spam or Threatening, Harassing, Or Inciting Violence or Personal And Confidential Information or other reason
+ * @return {React.Component} - approved user instance
+ */
+
 function BanReason(props) {
   const { punishType } = props;
-  const [punishTypeState, setpunishType] = React.useState('');
+  const [punishTypeState, setpunishType] = React.useState(punishType);
 
   const handleChangeComboBox = (event) => {
     setpunishType(event.target.value);
@@ -15,7 +22,7 @@ function BanReason(props) {
     <StyledBox>
       <StyledFont>REASON FOR BAN</StyledFont>
       <Select
-        defaultValue={punishType}
+        id="reason"
         fullWidth
         value={punishTypeState}
         onChange={handleChangeComboBox}

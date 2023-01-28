@@ -6,21 +6,51 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import * as React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom';
 import { StyledAvatar, UserBar, UserContainer } from '../../styles';
 import RemovePopUp from '../RemovePopUp/RemovePopUp';
+import EditPopUp from '../EditPopUp/EditPopUp';
 
 export const RemoveContext = React.createContext();
+export const EditContext = React.createContext();
+
+/**
+ * non empty moderator page
+ * @component
+ * @property {string} username the username of the moderator
+ * @property {string} profilePicture it is the link to the profile picture of the moderator
+ * @property {string} modDate it is the date to be a moderator
+ * @property {boolean} all indicates that the moderator has all privileges
+ * @property {boolean} access indicates that tha moderator has the control on user
+ * @property {boolean} confing indicates that the moderator has the control on settings
+ * @property {boolean} flair indicates that the moderator has the control on post flairs
+ * @property {boolean} posts indicates that the moderator has the control on posts
+ * @property {integer} type determine the type of moderators if invited or arleady a moderator
+ * @return {React.Component} - non empty moderator page component
+ */
+
 function NonEmptyModerator(props) {
-  // 0 stands for all moderators
-  // 1 stands for Editable moderators
-  // 2 stands for Invited moderators
+  // 0 stands for all moderators (marked as editable but handeled in database)
+  // 1 stands for Invited moderators
   const {
     userName, profilePicture, modDate, all, access, config, flair, posts, type,
   } = props;
-  const [openRemove, setOpenRemove] = React.useState(false);
 
+  const navigate = useNavigate();
+
+  // navigate
+  const handleClickUser = (userName) => {
+    navigate(`/user/${userName}`);
+  };
+
+  const [openRemove, setOpenRemove] = React.useState(false);
   const handleClickOpenRemove = () => { setOpenRemove(true); };
   const handleClickCloseRemove = () => { setOpenRemove(false); };
+
+  const [openEdit, setOpenEdit] = React.useState(false);
+  const handleClickOpenEdit = () => { setOpenEdit(true); };
+  const handleClickCloseEdit = () => { setOpenEdit(false); };
+
   const handlePermissions = () => {
     const permissions = [];
     if (all === true) permissions.push('Everything');
@@ -43,17 +73,21 @@ function NonEmptyModerator(props) {
       >
         <RemovePopUp />
       </RemoveContext.Provider>
-      <UserContainer>
+      <EditContext.Provider value={{
+        openEdit, handleClickCloseEdit,
+      }}
+      >
+        <EditPopUp userName={userName} />
+      </EditContext.Provider>
+      <UserContainer onClick={() => handleClickUser(userName)}>
         <StyledAvatar src={profilePicture} variant="square" />
-        <Box>
-          <Typography
-            padding="8px"
-            fontSize="15px"
-            fontWeight="bold"
-          >
-            {userName}
-          </Typography>
-        </Box>
+        <Typography
+          padding="8px"
+          fontSize="15px"
+          fontWeight="bold"
+        >
+          {userName}
+        </Typography>
       </UserContainer>
       <Box display="flex">
         <Typography
@@ -80,12 +114,12 @@ function NonEmptyModerator(props) {
                 >
                   {handlePermissions()}
                 </Typography>
-                <IconButton disableRipple disableTouchRipple>
-                  <EditIcon fontSize="small" />
+                <IconButton disableRipple disableTouchRipple onClick={handleClickOpenRemove}>
+                  <DeleteIcon fontSize="small" />
                 </IconButton>
               </>
             );
-            case '2': return (
+            default: return (
               <>
                 <Typography
                   padding="4px"
@@ -94,19 +128,10 @@ function NonEmptyModerator(props) {
                 >
                   {handlePermissions()}
                 </Typography>
-                <IconButton disableRipple disableTouchRipple>
-                  <DeleteIcon fontSize="small" onClick={handleClickOpenRemove} />
+                <IconButton disableRipple disableTouchRipple onClick={handleClickOpenEdit}>
+                  <EditIcon fontSize="small" />
                 </IconButton>
               </>
-            );
-            default: return (
-              <Typography
-                padding="4px"
-                fontSize="12px"
-                color="#878A8C"
-              >
-                {handlePermissions()}
-              </Typography>
             );
           }
         })()}

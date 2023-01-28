@@ -1,3 +1,4 @@
+import { useCookies } from 'react-cookie';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
@@ -6,14 +7,36 @@ import {
   PargraphSmall, TeaxArea, CancelButton,
   Input, CheckBox, CheckText, Footer, SaveBtn,
 } from './styles';
-
+import { deleteAccount } from './deleteAccountServer';
+/**
+ * - Delete Account
+ * - Delete Account popup
+ *  @component
+ *  @property {function} username - username of user
+ *  @property {Boolean} password - password of user
+ *  @return {React.Component} - popup of delete account
+ */
 function DeleteAccountButton({ setOpenPass }) {
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies, removeCookie] = useCookies(['redditUser']);
+
   const [checked, setChecked] = useState(false);
-  const [condition, setCondition] = useState(false);
+  // const [condition, setCondition] = useState(false);
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const checkSubmission = () => {
-    if (condition) {
-      setCondition(true);
-    }
+    deleteAccount(username, password, removeCookie);
+    // console.log(condition);
+    // if (condition && username?.length > 0 && password?.length > 0) {
+    //   setCondition(true);
+    // }
+    console.log('checkSubmission');
+    console.log(username);
+    console.log(password);
+    console.log(checked);
+    // Call End Point
   };
 
   return (
@@ -38,8 +61,20 @@ function DeleteAccountButton({ setOpenPass }) {
       <PargraphSmall>
         VERIFY YOUR IDENTITY
       </PargraphSmall>
-      <Input placeholder="UserName" />
-      <Input placeholder="Password" />
+      <Input
+        placeholder="UserName"
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      />
+      <Input
+        placeholder="Password"
+        type="password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+
       <CheckBox>
         <Checkbox
           disableRipple
@@ -53,7 +88,17 @@ function DeleteAccountButton({ setOpenPass }) {
       </CheckBox>
       <Footer>
         <CancelButton>Cancel</CancelButton>
-        <SaveBtn variant="contained" condition={condition} onClick={() => { checkSubmission(); }}>Save email</SaveBtn>
+        <SaveBtn
+          variant="contained"
+          condition={checked && username?.length > 0 && password?.length > 0}
+          onClick={() => {
+            console.log(username);
+            console.log(password);
+            checkSubmission();
+          }}
+        >
+          Delete Account
+        </SaveBtn>
       </Footer>
     </Contanier>
   );

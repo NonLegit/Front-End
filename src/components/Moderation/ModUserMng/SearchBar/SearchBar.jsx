@@ -4,9 +4,15 @@ import {
   StyledInputBase, StyledIconWrapper, StyledSearchBar, StyledSearchContainer,
 } from './styles';
 
+/**
+ * the search bar
+ * @component
+ * @property {function} childToParent it is a function state to pass the query from the child (search bar) to its parent (user management list)
+ * @return {React.Component} - the search bar component
+ */
+
 function SearchBar({ childToParent }) {
   const [query, serQuery] = React.useState('');
-
   return (
     <StyledSearchBar>
       <StyledSearchContainer>

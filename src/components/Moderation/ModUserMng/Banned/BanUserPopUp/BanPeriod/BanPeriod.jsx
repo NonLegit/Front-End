@@ -4,13 +4,17 @@ import {
 } from '@mui/material';
 import { StyledBox, StyledFont } from './styles';
 
+/**
+ * Ban period
+ * @component
+ * @property  {string} duration the period of banning the user its range is from 1 to 999 or parmenant
+ * @return {React.Component} - Ban period component
+ */
+
 function BanPeriod(props) {
   const { duration } = props;
-  const [checked, setChecked] = React.useState(true);
-
-  // const handleChange = (event) => {
-  //   setChecked(event.target.checked);
-  // };
+  const [checked, setChecked] = React.useState(duration === -1);
+  const [banPeriod, setbanPeriod] = React.useState((duration === -1) ? 1 : duration);
 
   return (
     <>
@@ -18,13 +22,15 @@ function BanPeriod(props) {
       <StyledBox>
         <Box>
           <TextField
+            id="duration"
             type="number"
-            inputProps={{ min: 0, max: 999 }}
+            inputProps={{ min: 1, max: 999 }}
             disabled={checked}
-            defaultValue={(duration === -1) ? '' : duration}
+            value={(checked) ? '' : banPeriod}
             size="small"
             sx={{ width: '75px' }}
             focused
+            onChange={(event) => setbanPeriod(event.target.value)}
           />
           <TextField
             defaultValue="Days"
@@ -37,7 +43,7 @@ function BanPeriod(props) {
           <FormControlLabel
             control={(
               <Checkbox
-                defaultChecked={checked || duration === -1}
+                checked={checked}
                 onClick={() => { setChecked(!checked); }}
                 disableRipple
                 disableFocusRipple

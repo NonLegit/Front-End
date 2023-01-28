@@ -6,9 +6,18 @@ import {
 import { BrowserRouter as Router } from 'react-router-dom';
 import UserInfo from './UserInfo';
 import MainProfile from '../../../../MainProfile';
+import ListingContextProvider from '../../../../../../contexts/ListingContext';
 
 it('open posts tap', async () => {
-  render(<Router><MainProfile><UserInfo /></MainProfile></Router>);
+  render(
+    <Router>
+      <ListingContextProvider>
+        <MainProfile>
+          <UserInfo />
+        </MainProfile>
+      </ListingContextProvider>
+    </Router>,
+  );
   const btn = screen.getByTestId('show-more');
   fireEvent.click(btn);
   const cancelHidden = screen.getByTestId('option');

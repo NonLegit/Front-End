@@ -3,7 +3,12 @@ import { useParams } from 'react-router-dom';
 import { WideBox } from '../styles';
 import EmptyContent from '../../../EmptyContent/EmptyContent';
 import Post from '../Posts/Post';
-
+/**
+ * HistoryTap
+ *
+ * @component HistoryTap
+ * @returns {React.Component} HistoryTap
+ */
 function HistoryTap() {
   const { subTitle } = useParams();
   const [isContent, setIsContent] = useState(false);

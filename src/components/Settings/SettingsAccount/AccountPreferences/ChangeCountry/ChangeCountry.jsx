@@ -15,13 +15,14 @@ import {
 import { SettingsContext } from '../../../../../contexts/SettingsProvider';
 import { settingsPost } from '../../../settingsServer';
 /**
- * - ChangeCountry
+ * - Change Country
  * - Change Country of user in settings page
  *  @component
- *  @property {setPrefs} setValue set perfs it will be Coutry of user
- *  @property {prefs} value perfs of user
- *  @property {Boolean} open bool to open list or close
+ *  @property {function} setPrefs set perfs it will be Coutry of user
+ *  @property {Object} prefs perfs of user
+ *  @property {list} options list of countrys to choose
  *  @property {function} handleChangeCoutry handel when
+ *  @return {React.Component} - Body of privacy settings page
  */
 
 function ChangeCountry() {

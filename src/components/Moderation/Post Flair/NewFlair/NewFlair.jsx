@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Done from '../../../AlertMessage';
 import PostFlair from './PostFlair';
 import {
   AddFlair, Cancel, Color, ColorData,
@@ -11,6 +12,8 @@ import {
  * @component
  * @property  {function} notEmpty check if the input feild is empty or not
  * @property  {function} SendData send data to backend
+ * @property  {function} save close popup form
+ * @property  {function} cancel popup form
  *
  * @return {React.Component} - New Flair
  */
@@ -42,6 +45,7 @@ export default function NewFlair(props) {
     console.log(text, backgroundColor, textColor);
     PostFlair(`subreddits/${subReddit}/flair`, text, backgroundColor, textColor);
     save();
+    Done('Flair Added');
   };
   return (
     <>

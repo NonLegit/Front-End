@@ -1,0 +1,119 @@
+{
+    "status": "success",
+    "data": [
+      {
+        "banInfo": {
+          "punishReason": "No reason",
+          "punish_type": "No Spoiler",
+          "Note": "he is bad person",
+          "duration": 20
+        },
+        "muteInfo": {
+          "muteMessage": "Spammer"
+        },
+        "user": {
+          "_id": "63a107a3e72289e28e6b760d",
+          "userName": "fady",
+          "joinDate": "2022-12-20T00:53:55.071Z",
+          "profilePicture": "users/default.png"
+        },
+        "type": "banned",
+        "_id": "63a16ea36cdd7a6f4e7ace09"
+      },
+      {
+        "banInfo": {
+          "punishReason": "No reason",
+          "punish_type": "No Spoiler",
+          "Note": "he is bad person",
+          "duration": 20
+        },
+        "muteInfo": {
+          "muteMessage": "Spammer"
+        },
+        "user": {
+          "_id": "63a107a3e72289e28e6b760d",
+          "userName": "fady",
+          "joinDate": "2022-12-20T00:53:55.071Z",
+          "profilePicture": "users/default.png"
+        },
+        "type": "banned",
+        "_id": "63a16ea36cdd7a6f4e7ace09"
+      },
+      {
+        "banInfo": {
+          "punishReason": "No reason",
+          "punish_type": "No Spoiler",
+          "Note": "he is bad person",
+          "duration": 20
+        },
+        "muteInfo": {
+          "muteMessage": "Spammer"
+        },
+        "user": {
+          "_id": "63a107a3e72289e28e6b760d",
+          "userName": "lol",
+          "joinDate": "2022-12-20T00:53:55.071Z",
+          "profilePicture": "users/default.png"
+        },
+        "type": "banned",
+        "_id": "63a16ea36cdd7a6f4e7ace09"
+      },
+      {
+        "banInfo": {
+          "punishReason": "No reason",
+          "punish_type": "No Spoiler",
+          "Note": "he is bad person",
+          "duration": 20
+        },
+        "muteInfo": {
+          "muteMessage": "Spammer"
+        },
+        "user": {
+          "_id": "63a107a3e72289e28e6b760d",
+          "userName": "Nour",
+          "joinDate": "2022-12-20T00:53:55.071Z",
+          "profilePicture": "users/default.png"
+        },
+        "type": "muted",
+        "_id": "63a16ea36cdd7a6f4e7ace09"
+      },
+      {
+        "banInfo": {
+          "punishReason": "No reason",
+          "punish_type": "No Spoiler",
+          "Note": "he is bad person",
+          "duration": 20
+        },
+        "muteInfo": {
+          "muteMessage": "Spammer"
+        },
+        "user": {
+          "_id": "63a107a3e72289e28e6b760d",
+          "userName": "Nour",
+          "joinDate": "2022-12-20T00:53:55.071Z",
+          "profilePicture": "users/default.png"
+        },
+        "type": "muted",
+        "_id": "63a16ea36cdd7a6f4e7ace09"
+      },
+      {
+        "banInfo": {
+          "punishReason": "No reason",
+          "punish_type": "No Spoiler",
+          "Note": "he is bad person",
+          "duration": 20
+        },
+        "muteInfo": {
+          "muteMessage": "Spammer"
+        },
+        "user": {
+          "_id": "63a107a3e72289e28e6b760d",
+          "userName": "Nour",
+          "joinDate": "2022-12-20T00:53:55.071Z",
+          "profilePicture": "users/default.png"
+        },
+        "type": "muted",
+        "_id": "63a16ea36cdd7a6f4e7ace09"
+      }
+    ]
+  }

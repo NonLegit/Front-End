@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+<div
+  className="css-1mwd3fn"
+>
+  <div
+    className="css-1868w9n"
+  >
+    <div
+      className="MuiBox-root css-0"
+    >
+      <h4
+        className="css-15t0qw2"
+      >
+        Communities
+      </h4>
+      <div
+        className="css-1apbjxm"
+      />
+      <div
+        className="MuiBox-root css-1w1vbxm"
+      >
+        <a
+          className="css-lmpkpu"
+          href="/"
+          onClick={[Function]}
+        >
+          See More Communities
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-1868w9n"
+  >
+    <div
+      className="MuiBox-root css-15o7b25"
+    >
+      <h4
+        className="css-15t0qw2"
+      >
+        People
+      </h4>
+      <div
+        className="css-1e7j8ur"
+      />
+      <div
+        className="MuiBox-root css-fikvv"
+      >
+        <a
+          className="css-1m7wn3z"
+          href="/"
+          onClick={[Function]}
+        >
+          See More Communities
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-170bi6"
+  >
+    <img
+      className="css-1fb17k2"
+      src="https://www.redditstatic.com/desktop2x/img/search-results-community-banner.png"
+    />
+    <div
+      className="MuiBox-root css-19sk4h4"
+    >
+      <img
+        className="css-qxweb5"
+        src="https://www.redditstatic.com/desktop2x/img/snoo-thinking.png"
+      />
+    </div>
+    <div
+      className="MuiBox-root css-fj2hrf"
+    >
+      Have an idea for a new community?
+       
+    </div>
+    <a
+      className="css-jta5yf"
+      href="/"
+      onClick={[Function]}
+    >
+      <a
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-jf1sgt-MuiTypography-root-MuiLink-root"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1gr231h-MuiButtonBase-root-MuiButton-root"
+          data-testid="btn"
+          disabled={false}
+          fontSize={15}
+          fontWeight="bold"
+          id="popup-form-button"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          padding="4px"
+          tabIndex={0}
+          type="button"
+        >
+          create community
+        </button>
+      </a>
+      <div
+        className="MuiBox-root css-cxf04i"
+      />
+    </a>
+  </div>
+  <button
+    adding="4px"
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ub553u-MuiButtonBase-root-MuiButton-root"
+    disabled={false}
+    fontSize={15}
+    fontWeight="bold"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    p={true}
+    tabIndex={0}
+    type="button"
+  >
+    Back to Top
+  </button>
+</div>
+`;

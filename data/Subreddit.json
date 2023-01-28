@@ -44,10 +44,10 @@
       "topics": [],
       "primaryTopic": "Add a Primary Topic",
       "owner": "638b8c62c20658257a3c450a",
-      "moderators": [
-          {
+      "moderators":
+        [{"user": {
               "id": "638b8c62c20658257a3c450a",
-              "userName": "nourr",
+              "userName": "nour",
               "joiningDate": 1670104113541,
               "profilePicture": "https://api.nonlegit.click/api/v1/users/images/https://api.nonlegit.click/api/v1/users/images/default.png",
               "moderatorPermissions": {
@@ -57,8 +57,8 @@
                   "flair": true,
                   "posts": true
               }
-          }
-      ],
+          }}
+        ],
       "flairIds": []
   }
 }

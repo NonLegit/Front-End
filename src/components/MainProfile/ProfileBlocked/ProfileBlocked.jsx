@@ -5,6 +5,16 @@ import {
   BlockedBox, BlockedButton, BlockedIcon, Icon, Image,
 } from './styles';
 
+/**
+ * ProfileBlocked
+ *
+ * @component ProfileBlocked
+ * @property {function} handleCont - continue to profile page
+ * @property {string} username, - username
+
+ * @returns {React.Component} ProfileBlocked
+ */
+
 function ProfileBlocked({ username, handleCont }) {
   const navigate = useNavigate();
 

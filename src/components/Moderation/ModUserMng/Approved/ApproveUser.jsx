@@ -9,11 +9,17 @@ import {
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import ApprovePopUp from './ApproveUserPopUp/ApprovePopUp/ApprovePopUp';
 import { RedditButton } from '../../styles';
-import NonEmptyApproved from './NonEmptyApproved/NonEmptyApproved';
+import ApprovedUserList from './NonEmptyApproved/ApprovedUserList/ApprovedUserList';
 
 export const ApproveContext = React.createContext();
 
-function Aprrove() {
+/**
+ * the whole page of approved
+ * @component
+ * @return {React.Component} - approved user page
+ */
+
+function Approve() {
   const [openApprove, setOpenApprove] = React.useState(false);
 
   const handleClickOpenApprove = () => { setOpenApprove(true); };
@@ -43,9 +49,9 @@ function Aprrove() {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <NonEmptyApproved />
+      <ApprovedUserList />
     </ModMainPage>
   );
 }
 
-export default Aprrove;
+export default Approve;

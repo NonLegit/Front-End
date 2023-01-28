@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // services
 import axios from '../../../../../services/instance';
 

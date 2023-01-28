@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Done from '../../../../AlertMessage';
 import EditFlair from './EditFlair';
 import {
   AddFlair,
@@ -16,7 +17,10 @@ import {
  * @property  {function} notEmpty check if input feild is empty or not
  * @property  {function} SendData send data to backend
  * @property  {function} EditFlair send edited data to backend
- *
+ * @property  {function} save close popup form
+ * @property  {function} cancel popup form
+ * @property  {function} flair flaie entity
+
  * @return {React.Component} - Edit Entity of Flair
  */
 
@@ -51,6 +55,7 @@ export default function Edit(props) {
       textColor,
     });
     save();
+    Done('Chndes Save');
   };
   return (
     <>

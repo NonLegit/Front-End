@@ -8,6 +8,13 @@ import CommunityEntity from '../CommunityEntity/CommunityEntity';
 import { CommunitiesGetter } from '../topComunitiesServer';
 import { HeaderText, TopContentBox } from './styles';
 
+/**
+ * list of communities
+ *
+ * @component TopContent
+ * @returns {React.Component} TopContent
+ */
+
 function TopContent() {
   const { category } = useParams();
   const [data] = CommunitiesGetter(category);

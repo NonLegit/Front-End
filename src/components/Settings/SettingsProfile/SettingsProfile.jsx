@@ -12,11 +12,15 @@ import SettingsProvider from '../../../contexts/SettingsProvider';
 import { settingsPost, settingsFetch } from '../settingsServer';
 
 /**
- * - SettingsProfile
+ * - Profile Settings
  * - Edit NSFW and Allow people to follow you in Seetings Page
- *  @property {String} data data from fetch
- *  @property {Object} prefs prefs of user
  *  @component
+ *  @property {Object} data - data from fetch
+ *  @property {Object} prefs - prefs of user
+ *  @property {function} handleNSFW  - handle NSFW when user click on the button
+ *  @property {function} handleCanbeFollowed -  handle Can be Followe when user click on button
+ *  * @return {React.Component} - Body of Profile Settings
+ *
  */
 function SettingsProfile() {
   const alert = useAlert();

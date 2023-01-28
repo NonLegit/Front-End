@@ -1,12 +1,15 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
+import calculateTime from '../../../utils/calculateTime';
+import numFormatter from '../../../utils/MembersNum';
 import {
   PostContainer, PostInfo, PostInfoLink, PostTitle,
   PostRich,
   CommentContainer,
   CommentReach,
   GoToThread,
+  PostLink,
 } from './style';
 
 /**
@@ -14,49 +17,63 @@ import {
  * @component
  * @return {React.Component} - Search by community entity
  */
-function Comments() {
+function Comments(props) {
+  const { Comment } = props;
   return (
     <PostContainer sx={{ '&:hover': { border: 1 } }}>
       <Box width="100%">
         <Box sx={{ padding: '16px 16px 4px' }}>
           <PostInfo>
             <Avatar
-              src="https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+              src={Comment.post.owner.icon}
               sx={{
                 width: 20,
                 height: 20,
               }}
               alt="Profile Image"
             />
-            <PostInfoLink to="/r/toptalent" color="#000" fontWeight="bolder">
-              r/toptalent
+            <PostInfoLink to={`/r/${Comment.post.owner.fixedName}`} color="#000" fontWeight="bolder">
+              r/
+              {Comment.post.owner.name}
             </PostInfoLink>
             <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
               <span>
                 •
               </span>
               <div>Posted By</div>
-              <PostInfoLink to="/user/righteous_boldness07" color="inherit" fontWeight="normal">
-                u/righteous_boldness07 2 years ago
+              <Avatar
+                src={Comment.post.author.profilePicture}
+                sx={{
+                  width: 20,
+                  height: 20,
+                }}
+                alt="Profile Image"
+              />
+              <PostInfoLink to={`/user/${Comment.post.author.userName}`} color="inherit" fontWeight="normal">
+                u/
+                {Comment.post.author.displayName}
+                {' '}
+                {calculateTime(Comment.post.createdAt)}
               </PostInfoLink>
             </Box>
           </PostInfo>
         </Box>
 
-        <PostTitle to="/">
-          <Typography
-            variant="h6"
-            component="h3"
-            sx={{
-              fontSize: 12, marginBottom: '12px', fontWeight: '400',
-            }}
-          >
-            Update: My (32F) husband (36M) became a robot and I don’t know how to help him.
-
-          </Typography>
-          <CommentContainer>
+        <PostTitle>
+          <PostLink to={`../subreddit/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}`}>
+            <Typography
+              variant="h6"
+              component="h3"
+              sx={{
+                fontSize: 12, marginBottom: '12px', fontWeight: '400',
+              }}
+            >
+              {Comment.post.title.replace(/<[^>]+>/g, '')}
+            </Typography>
+          </PostLink>
+          <CommentContainer to={`../subreddit/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
             <Avatar
-              src="https://styles.redditmedia.com/t5_3ptyd/styles/communityIcon_p18jqwszxcv51.png"
+              src={Comment.author.profilePicture}
               sx={{
                 width: 20,
                 height: 20,
@@ -67,43 +84,55 @@ function Comments() {
             <Box>
               <PostInfo py={1}>
 
-                <PostInfoLink to="/user/AhmehHosny" color="#000" fontWeight="bolder">
-                  Ahmed Hosny
+                <PostInfoLink to={`/user/${Comment.author.userName}`} color="#000" fontWeight="bolder">
+                  {Comment.author.displayName}
                 </PostInfoLink>
                 <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
                   <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
                     •
                   </Typography>
                   <PostInfoLink to="/" color="inherit" fontWeight="normal">
-                    2 years ago
+                    {calculateTime(Comment.createdAt)}
                   </PostInfoLink>
                 </Box>
               </PostInfo>
               {/* question */}
               <Typography variant="h6" component="h3" sx={{ fontSize: 14, marginBottom: '12px', fontWeight: '400' }}>
-                I &apos;m German, nobody cared to translate so here we go:
-              </Typography>
-              {/* Answer */}
-              <Typography variant="h6" component="h3" sx={{ fontSize: 14, marginBottom: '12px', fontWeight: '400' }}>
-                AA - AAA - OOOO - OOOO - AA - AA - AAAAAA - AAA - AAAOOOO - AAOO - AAOO - AAOO - AAAA - AAAA - AAAAOOOOO - AAAAAAO - AAAOO - AAO - AAAAAAAAUUAAA - AAAAAHHA - AUUUA - AAAA - AAA - AAU
-              </Typography>
-              <Typography variant="h6" component="h3" sx={{ fontSize: 14, marginBottom: '12px', fontWeight: '400' }}>
-                Hope I could help you understand the concerns of that young person.
+                {Comment.text.replace(/<[^>]+>/g, '')}
               </Typography>
               <CommentReach>
-                <Typography variant="span" sx={{ marginRight: 3, padding: 0 }}>10k upvotes </Typography>
-                <Typography variant="span" sx={{ marginRight: 3, padding: 0 }}>12k awards </Typography>
+                <Typography variant="span" sx={{ marginRight: 3, padding: 0 }}>
+                  {numFormatter(Comment.votes)}
+                  {' '}
+                  upvotes
+                  {' '}
+                </Typography>
+                <Typography variant="span" sx={{ marginRight: 3, padding: 0 }}>
+                  {numFormatter(Comment.Comment)}
+                  {' '}
+                  awards
+                  {' '}
+                </Typography>
               </CommentReach>
             </Box>
           </CommentContainer>
         </PostTitle>
-        <GoToThread>
+        <GoToThread to={`../subreddit/${Comment.post?.owner?.fixedName}/comments/${Comment.post?._id}/${Comment?._id}`}>
           Go to thread
         </GoToThread>
         <PostRich mt={5}>
-          <Typography variant="span" sx={{ marginRight: 3 }}>120k upvotes </Typography>
-          <Typography variant="span" sx={{ marginRight: 3 }}>120k comments </Typography>
-          <Typography variant="span" sx={{ marginRight: 3 }}>120k awards </Typography>
+          <Typography variant="span" sx={{ marginRight: 3 }}>
+            {numFormatter(Comment.post.votes)}
+            {' '}
+            upvotes
+            {' '}
+          </Typography>
+          <Typography variant="span" sx={{ marginRight: 3 }}>
+            {numFormatter(Comment.post.commentCount)}
+            {' '}
+            comments
+            {' '}
+          </Typography>
         </PostRich>
       </Box>
     </PostContainer>

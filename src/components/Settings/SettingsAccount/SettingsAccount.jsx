@@ -12,12 +12,13 @@ import AccountPreferences from './AccountPreferences/AccountPreferences';
 import { DeleteAccount, BootstrapDialog } from './styles';
 import { settingsFetch } from '../settingsServer';
 /**
- * - SettingsAccount
+ * - Account Settings
  * - Change Email and password in settings page
  *  @component
  *  @property {function} setPrefs set prefs of user
- *  @property {Object} prefs prefs of user
- *  @property {Object} data data from fetch
+ *  @property {Boolean} openPass open or close pop up window
+ *  @property {Object} prefs data from fetch
+ *  @return {React.Component} - Body of Account Settings page
  */
 const SettingsAccount = () => {
   const [openPass, setOpenPass] = useState(false);

@@ -3,20 +3,27 @@ import {
   useContext, useEffect, useState, useMemo,
 } from 'react';
 import { Box } from '@mui/material';
-import InfiniteScroll from 'react-infinite-scroll-component';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 import Comments from '../Comments/Comments';
 import { postsCommentsServer } from '../profileServer';
 import EmptyContent from '../EmptyContent/EmptyContent';
 import { UserContext } from '../../../contexts/UserProvider';
 import OtherProfileFilter from '../OtherProfile/OtherProfileMainContent/OtherProfileFilter/OtherProfileFilter';
 import Filter from '../Profile/MainContent/Filter/Filter';
-import { useListingContext } from '../../../contexts/ListingContext';
+// import { useListingContext } from '../../../contexts/ListingContext';
 
 function useQuery() {
   const { search } = useLocation();
 
   return useMemo(() => new URLSearchParams(search), [search]);
 }
+
+/**
+ * CommentsTap
+ *
+ * @component Comments
+ * @returns {React.Component} CommentsTap
+ */
 
 function CommentsTap({ profile }) {
   const { subTitle } = useParams();
@@ -26,10 +33,10 @@ function CommentsTap({ profile }) {
   const [posts] = postsCommentsServer(username, 'comments', sort || 'new');
   const [isContent, setIsContent] = useState(false);
 
-  const { setPage } = useListingContext();
-  const fetchMoreData = () => {
-    setPage((page) => page + 1);
-  };
+  // const { setPage } = useListingContext();
+  // const fetchMoreData = () => {
+  //   setPage((page) => page + 1);
+  // };
   // check if the page have any content posts to show
   useEffect(() => {
     setIsContent(false);
@@ -44,14 +51,7 @@ function CommentsTap({ profile }) {
       {!isContent && <EmptyContent emptyContent={emptyContent} />}
       {isContent
           && (
-          <InfiniteScroll
-            next={fetchMoreData}
-            hasMore
-            dataLength={posts.length}
-          >
-            {' '}
-            {posts.map((entity, index) => (<Comments key={`${index + 0}`} entity={entity} profile={profile} />))}
-          </InfiniteScroll>
+            posts.map((entity, index) => (<Comments key={`${index + 0}`} entity={entity} profile={profile} />))
           )}
 
     </Box>

@@ -6,6 +6,12 @@ import TopSidebar from './TopSidebar/TopSidebar';
 import cleanPage from '../../utils/cleanPage';
 import CommunitiesProvider from '../../contexts/CommunitiesModeratorContext';
 
+/**
+ * top communities page
+ *
+ * @component TopCommunities
+ * @returns {React.Component} TopCommunities
+ */
 function TopCommunities() {
   const allCategories = [
     { id: 1, text: 'Sports', pic: 'https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png' },

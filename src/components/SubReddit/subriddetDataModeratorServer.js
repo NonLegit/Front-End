@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from '../../services/instance';
+/**
+ * get subreddits which i moderator in
 
+ */
 const useFetch = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);

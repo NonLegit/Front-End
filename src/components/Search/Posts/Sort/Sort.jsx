@@ -26,14 +26,14 @@ export default function SortType() {
   const [Openort, setOpenSort] = React.useState(false);
 
   const [searchParams] = useSearchParams();
-  const type = searchParams.get('type') || 'Posts';
+  const type = searchParams.get('type') || 'posts';
 
-  const Sort = searchParams.get('sort') || 'Relevance';
+  const Sort = searchParams.get('sort') || 'new';
   const navigate = useNavigate();
-
+  const qery = searchParams.get('q');
   // navigate
   const handleClick = (subPage) => {
-    navigate(`?type=${type}&sort=${subPage}`);
+    navigate(`?q=${qery}&type=${type}&sort=${subPage}`);
   };
 
   // show and hide the sort list
@@ -79,28 +79,28 @@ export default function SortType() {
         </Fab>
       </ClickAwayListener>
       <ShowMoreList display={(Openort === false ? 'none' : 'block')}>
-        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Relevance'); }}>
+        {/* <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Relevance'); }}>
           <ShowMoreListItemText Condition={(Sort.toString() === 'Relevance' || Sort === 'Sort').toString()}>
             Relevance
           </ShowMoreListItemText>
-        </ListItemButton>
-        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Hot'); }}>
-          <ShowMoreListItemText Condition={(Sort.toString() === 'Hot').toString()}>
+        </ListItemButton> */}
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('hot'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'hot' || Sort === 'Sort').toString()}>
             Hot
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Top'); }}>
-          <ShowMoreListItemText Condition={(Sort.toString() === 'Top').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('top'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'top').toString()}>
             Top
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('New'); }}>
-          <ShowMoreListItemText Condition={(Sort.toString() === 'New').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('new'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'new').toString()}>
             New
           </ShowMoreListItemText>
         </ListItemButton>
-        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('Most Comments'); }}>
-          <ShowMoreListItemText Condition={(Sort.toString() === 'Most Comments').toString()}>
+        <ListItemButton onClick={() => { setOpenSort(!Openort); handleClick('comments'); }}>
+          <ShowMoreListItemText Condition={(Sort.toString() === 'comments').toString()}>
             Most Comments
           </ShowMoreListItemText>
         </ListItemButton>

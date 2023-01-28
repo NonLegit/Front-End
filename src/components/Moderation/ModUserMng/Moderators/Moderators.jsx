@@ -3,22 +3,27 @@
 import { Typography } from '@mui/material';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import * as React from 'react';
+import { useParams } from 'react-router-dom';
 import {
-  QueueBox, QueueText, ControlBar, InstanceContainer,
+  QueueBox, QueueText, ControlBar,
 } from '../styles';
 import { ModMainPage } from '../../ModerationMainPage/styles';
 import LeavePopUp from './LeavePopUp/LeavePopUp';
 import { RedditButton } from '../../styles';
-// import NonEmptyModerator from './NonEmptyModerator/NonEmptyModerator';
 import Invitation from './InvitationPopUp/InvitationPopUp';
-import SearchBar from '../SearchBar/SearchBar';
 import ModeratorsList from './NonEmptyModerator/ModeratorsList/ModeratorsList';
 
 export const LeaveContext = React.createContext();
 export const InvitationContext = React.createContext();
 
-function Moderator(props) {
-  const { subReddit } = props;
+/**
+ * moderators whole page
+ * @component
+ * @return {React.Component} - mdoerators page component
+ */
+
+function Moderator() {
+  const { subReddit } = useParams();
 
   const [openLeave, setOpenLeave] = React.useState(false);
   const handleClickOpenLeave = () => { setOpenLeave(true); };
@@ -72,10 +77,7 @@ function Moderator(props) {
           <ErrorOutlineOutlinedIcon color="primary" />
         </QueueText>
       </QueueBox>
-      <SearchBar />
-      <InstanceContainer>
-        <ModeratorsList />
-      </InstanceContainer>
+      <ModeratorsList />
     </ModMainPage>
   );
 }

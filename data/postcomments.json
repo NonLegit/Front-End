@@ -1,109 +1,334 @@
 {
-  "status": "string",
-  "comments": [
-    {
-      "_id": "1",
-      "author": {
-        "_id": "10",
-        "userName": "Basma Elhoseny",
-        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
-        "profileBackground": "users/defaultcover.png"
+    "status": "success",
+    "comments": [
+      {
+        "_id": "63a5613e10ebdf1da11b592e",
+        "author": {
+          "_id": "63a2174cbe566ac6458d2c1c",
+          "userName": "Basma",
+          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+          "displayName": "Basma Elhoseny"
+        },
+        "post": "63a560de10ebdf1da11b581b",
+        "mentions": [],
+        "replies": [],
+        "parent": "63a560de10ebdf1da11b581b",
+        "parentType": "Post",
+        "text": "<p>Comment 7</p>",
+        "createdAt": "2022-12-23T08:05:18.865Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 0,
+        "locked": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835891359432.5,
+        "__v": 0
       },
-      "post": "string",
-      "mentions": [
-        "string"
-      ],
-      "replies": [
-        {
-          "_id": "101",
-          "author": {
-            "_id": "639a5f0e995a7314c8c746c8",
-            "userName": "Eslam",
-            "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",            
-            "profileBackground": "users/defaultcover.png"
-          },
-          "post": "string",
-          "mentions": [
-            "string"
-          ],
-          "replies": [
-            {
-              "_id": "10101",
-              "author": {
-                "_id": "639a5f0e995a7314c8c746c5",
-                "userName": "Eslam",
-                "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
-                "profileBackground": "users/defaultcover.png"
+      {
+        "_id": "63a5613b10ebdf1da11b591a",
+        "author": {
+          "_id": "63a2174cbe566ac6458d2c1c",
+          "userName": "Basma",
+          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+          "displayName": "Basma Elhoseny"
+        },
+        "post": "63a560de10ebdf1da11b581b",
+        "mentions": [],
+        "replies": [
+          {
+            "_id": "63a5615810ebdf1da11b5973",
+            "author": {
+              "_id": "63a2174cbe566ac6458d2c1c",
+              "userName": "Basma",
+              "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+              "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+              "displayName": "Basma Elhoseny"
             },
-            "post": "string",
-              "mentions": [
-                "string"
-              ],
-              "replies": [
-                "150",
-                "160",
-                "180"
-              ],
-              "parent": "string",
-              "parentType": "string",
-              "text": "Level 3 Eslam's Comment",
-              "createdAt": "2017-07-21T17:32:28Z",
-              "votes": 0,
-              "repliesCount": 0
-            },
-            {
-              "Type": "moreReplies",
-              "count": 0,
-              "children": [
-                "10",
-                "11",
-                "12"
-              ]
-            }
-          ],
-          "parent": "string",
-          "parentType": "string",
-          "text": "Reply on Comment 1",
-          "createdAt": "2017-07-21T17:32:28Z",
-          "votes": 0,
-          "repliesCount": 0
-        }
-      ],
-      "parent": "string",
-      "parentType": "string",
-      "text": "Basma's Comment",
-      "createdAt": "2017-07-21T17:32:28Z",
-      "votes": 0,
-      "repliesCount": 0
-    },
-    {
-      "_id": "2",
-      "author": {
-        "_id": "639a5f0e995a7314c8c746a5",
-        "userName": "Eslam",
-        "profilePicture": "https://styles.redditmedia.com/t5_74w4tr/styles/profileIcon_9or0sb8dtc5a1.jpeg?width=256&height=256&crop=256:256,smart&s=2a8b7dc794b00e51a6b9f423da2204a999136ecb",
-        "profileBackground": "users/defaultcover.png"
-    },
-      "post": "string",
-      "mentions": [
-        "string"
-      ],
-      "replies": [],
-      "parent": "string",
-      "parentType": "string",
-      "text": "Eslam's Comment",
-      "createdAt": "2017-07-21T17:32:28Z",
-      "votes": 0,
-      "repliesCount": 0
-    },
-    {
-      "Type": "moreReplies",
-      "count": 100,
-      "children": [
-        "10",
-        "11",
-        "12"
-      ]
-    }
-  ]
-}
+            "post": "63a560de10ebdf1da11b581b",
+            "mentions": [],
+            "replies": [
+              {
+                "_id": "63a5615e10ebdf1da11b5989",
+                "author": {
+                  "_id": "63a2174cbe566ac6458d2c1c",
+                  "userName": "Basma",
+                  "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                  "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                  "displayName": "Basma Elhoseny"
+                },
+                "post": "63a560de10ebdf1da11b581b",
+                "mentions": [],
+                "replies": [
+                  {
+                    "_id": "63a5616510ebdf1da11b599f",
+                    "author": {
+                      "_id": "63a2174cbe566ac6458d2c1c",
+                      "userName": "Basma",
+                      "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                      "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                      "displayName": "Basma Elhoseny"
+                    },
+                    "post": "63a560de10ebdf1da11b581b",
+                    "mentions": [],
+                    "replies": [
+                      {
+                        "_id": "63a5616b10ebdf1da11b59b5",
+                        "author": {
+                          "_id": "63a2174cbe566ac6458d2c1c",
+                          "userName": "Basma",
+                          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                          "displayName": "Basma Elhoseny"
+                        },
+                        "post": "63a560de10ebdf1da11b581b",
+                        "mentions": [],
+                        "replies": [
+                          {
+                            "_id": "63a5617210ebdf1da11b59cb",
+                            "author": {
+                              "_id": "63a2174cbe566ac6458d2c1c",
+                              "userName": "Basma",
+                              "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                              "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                              "displayName": "Basma Elhoseny"
+                            },
+                            "post": "63a560de10ebdf1da11b581b",
+                            "mentions": [],
+                            "replies": [
+                              {
+                                "_id": "63a5617a10ebdf1da11b59e1",
+                                "author": {
+                                  "_id": "63a2174cbe566ac6458d2c1c",
+                                  "userName": "Basma",
+                                  "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                                  "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                                  "displayName": "Basma Elhoseny"
+                                },
+                                "post": "63a560de10ebdf1da11b581b",
+                                "mentions": [],
+                                "replies": [
+                                  {
+                                    "_id": "63a5618110ebdf1da11b59f7",
+                                    "author": {
+                                      "_id": "63a2174cbe566ac6458d2c1c",
+                                      "userName": "Basma",
+                                      "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                                      "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                                      "displayName": "Basma Elhoseny"
+                                    },
+                                    "post": "63a560de10ebdf1da11b581b",
+                                    "mentions": [],
+                                    "replies": [
+                                      {
+                                        "_id": "63a5618810ebdf1da11b5a0d",
+                                        "author": {
+                                          "_id": "63a2174cbe566ac6458d2c1c",
+                                          "userName": "Basma",
+                                          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+                                          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+                                          "displayName": "Basma Elhoseny"
+                                        },
+                                        "post": "63a560de10ebdf1da11b581b",
+                                        "mentions": [],
+                                        "replies": [
+                                          "63a5618f10ebdf1da11b5a23"
+                                        ],
+                                        "parent": "63a5618110ebdf1da11b59f7",
+                                        "parentType": "Comment",
+                                        "text": "<p>Reply 8</p>",
+                                        "createdAt": "2022-12-23T08:06:32.102Z",
+                                        "isDeleted": false,
+                                        "votes": 0,
+                                        "repliesCount": 1,
+                                        "locked": false,
+                                        "modState": "unmoderated",
+                                        "sortOnHot": 835891396051,
+                                        "__v": 0
+                                      }
+                                    ],
+                                    "parent": "63a5617a10ebdf1da11b59e1",
+                                    "parentType": "Comment",
+                                    "text": "<p>Reply 7</p>",
+                                    "createdAt": "2022-12-23T08:06:25.400Z",
+                                    "isDeleted": false,
+                                    "votes": 0,
+                                    "repliesCount": 1,
+                                    "locked": false,
+                                    "modState": "unmoderated",
+                                    "sortOnHot": 835891392700,
+                                    "__v": 0
+                                  }
+                                ],
+                                "parent": "63a5617210ebdf1da11b59cb",
+                                "parentType": "Comment",
+                                "text": "<p>Reply 6</p>",
+                                "createdAt": "2022-12-23T08:06:18.659Z",
+                                "isDeleted": false,
+                                "votes": 0,
+                                "repliesCount": 1,
+                                "locked": false,
+                                "modState": "unmoderated",
+                                "sortOnHot": 835891389329.5,
+                                "__v": 0
+                              }
+                            ],
+                            "parent": "63a5616b10ebdf1da11b59b5",
+                            "parentType": "Comment",
+                            "text": "<p>Reply 5</p>",
+                            "createdAt": "2022-12-23T08:06:10.949Z",
+                            "isDeleted": false,
+                            "votes": 0,
+                            "repliesCount": 1,
+                            "locked": false,
+                            "modState": "unmoderated",
+                            "sortOnHot": 835891385474.5,
+                            "__v": 0
+                          }
+                        ],
+                        "parent": "63a5616510ebdf1da11b599f",
+                        "parentType": "Comment",
+                        "text": "<p>Reply 4</p>",
+                        "createdAt": "2022-12-23T08:06:03.391Z",
+                        "isDeleted": false,
+                        "votes": 0,
+                        "repliesCount": 1,
+                        "locked": false,
+                        "modState": "unmoderated",
+                        "sortOnHot": 835891381695.5,
+                        "__v": 0
+                      }
+                    ],
+                    "parent": "63a5615e10ebdf1da11b5989",
+                    "parentType": "Comment",
+                    "text": "<p>Reply 3</p>",
+                    "createdAt": "2022-12-23T08:05:57.133Z",
+                    "isDeleted": false,
+                    "votes": 0,
+                    "repliesCount": 1,
+                    "locked": false,
+                    "modState": "unmoderated",
+                    "sortOnHot": 835891378566.5,
+                    "__v": 0
+                  }
+                ],
+                "parent": "63a5615810ebdf1da11b5973",
+                "parentType": "Comment",
+                "text": "<p>Reply 2</p>",
+                "createdAt": "2022-12-23T08:05:50.118Z",
+                "isDeleted": false,
+                "votes": 0,
+                "repliesCount": 1,
+                "locked": false,
+                "modState": "unmoderated",
+                "sortOnHot": 835891375059,
+                "__v": 0
+              }
+            ],
+            "parent": "63a5613b10ebdf1da11b591a",
+            "parentType": "Comment",
+            "text": "<p>Reply 1</p>",
+            "createdAt": "2022-12-23T08:05:44.550Z",
+            "isDeleted": false,
+            "votes": 0,
+            "repliesCount": 1,
+            "locked": false,
+            "modState": "unmoderated",
+            "sortOnHot": 835891372275,
+            "__v": 0
+          }
+        ],
+        "parent": "63a560de10ebdf1da11b581b",
+        "parentType": "Post",
+        "text": "<p>Comment 6</p>",
+        "createdAt": "2022-12-23T08:05:15.576Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 1,
+        "locked": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835891357788,
+        "__v": 0
+      },
+      {
+        "_id": "63a5613510ebdf1da11b5906",
+        "author": {
+          "_id": "63a2174cbe566ac6458d2c1c",
+          "userName": "Basma",
+          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+          "displayName": "Basma Elhoseny"
+        },
+        "post": "63a560de10ebdf1da11b581b",
+        "mentions": [],
+        "replies": [],
+        "parent": "63a560de10ebdf1da11b581b",
+        "parentType": "Post",
+        "text": "<p>Comment 5</p>",
+        "createdAt": "2022-12-23T08:05:09.581Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 0,
+        "locked": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835891354790.5,
+        "__v": 0
+      },
+      {
+        "_id": "63a5613110ebdf1da11b58f2",
+        "author": {
+          "_id": "63a2174cbe566ac6458d2c1c",
+          "userName": "Basma",
+          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+          "displayName": "Basma Elhoseny"
+        },
+        "post": "63a560de10ebdf1da11b581b",
+        "mentions": [],
+        "replies": [],
+        "parent": "63a560de10ebdf1da11b581b",
+        "parentType": "Post",
+        "text": "<p>Comment 4</p>",
+        "createdAt": "2022-12-23T08:05:05.132Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 0,
+        "locked": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835891352566,
+        "__v": 0
+      },
+      {
+        "_id": "63a560fa10ebdf1da11b58ac",
+        "author": {
+          "_id": "63a2174cbe566ac6458d2c1c",
+          "userName": "Basma",
+          "profilePicture": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg",
+          "profileBackground": "https://api.nonlegit.click/users/defaultcover.png",
+          "displayName": "Basma Elhoseny"
+        },
+        "post": "63a560de10ebdf1da11b581b",
+        "mentions": [],
+        "replies": [],
+        "parent": "63a560de10ebdf1da11b581b",
+        "parentType": "Post",
+        "text": "<p>Comment 3</p>",
+        "createdAt": "2022-12-23T08:04:10.437Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 0,
+        "locked": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835891325218.5,
+        "__v": 0
+      },
+      {
+        "Type": "moreReplies",
+        "count": 2,
+        "children": [
+          "string"
+        ]
+      }
+    ]
+  }

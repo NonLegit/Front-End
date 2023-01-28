@@ -32,7 +32,9 @@ import CrossPost from './CrossPost.jsx/CrossPost';
  * @returns {React.Component} Posts
  */
 function Posts(props) {
-  const { post, condition, profile } = props;
+  const {
+    post, condition, profile, nohover,
+  } = props;
 
   const [isNsfw, setIsNsfw] = useState(post?.nsfw);
   const [isSpoiler, setIsSpoiler] = useState(post?.spoiler);
@@ -48,7 +50,7 @@ function Posts(props) {
 
   useEffect(() => {
     console.log(post?.kind);
-    if (communitiesSubscriber?.filter((element) => element.fixedName === post.owner.name).length === 0) {
+    if (communitiesSubscriber?.filter((element) => element.fixedName === post?.owner.name).length === 0) {
       setNotJoined(true);
     }
   }, [post, communitiesSubscriber]);
@@ -90,7 +92,7 @@ function Posts(props) {
 
   return (
     <>
-      <PostsQueueBox condition={condition}>
+      <PostsQueueBox condition={condition} nohover={nohover}>
         <PostSide postid={post?._id} points={post?.votes} postVoteStatus={post?.postVoteStatus} />
         <PostContentBox>
           <Box sx={{ marginLeft: 1 }}>
@@ -106,7 +108,7 @@ function Posts(props) {
               sharedFrom={post?.sharedFrom}
 
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'r' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} onClick={() => { setEditPost(false); navigate(`/${post?.ownerType === 'Subreddit' ? 'subreddit' : 'user'}/${post?.owner?.name}/comments/${post?._id}`); }}>
               <TitlePost variant="h6">{post?.title}</TitlePost>
               {isSpoiler && <TagPost color="#A4A7A8" variant="caption">spoiler</TagPost>}
               {isNsfw && <TagPost color="#FF585B" variant="caption">nsfw</TagPost>}

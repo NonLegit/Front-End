@@ -9,7 +9,6 @@ export const From = styled('form')(({ theme }) => ({
   padding: '10px 20px',
   margin: '20px auto',
   width: ' 70%',
-  minWidth: '700px',
   font: 'normal x-small verdana,arial,helvetica,sans-serif',
   background: theme.palette.common.white,
   color: '#373c3f',
@@ -25,17 +24,18 @@ export const InputContiner = styled('div')(() => ({
 export const InputLabel = styled('p')(() => ({
   marginBottom: '4px',
   fontSize: 'large',
+  width: '70%',
 }));
 export const SubLabel = styled('span')(() => ({
   color: '#878a8c',
   fontSize: 'smaller',
 }));
 export const SelectFrom = styled('select')(() => ({
-  width: '492px',
   padding: '3px',
   margin: '4px 0px 0px',
   border: '1px solid gray',
   fontSize: 'large',
+  width: '70%',
 }));
 export const OptionFrom = styled('option')(({ theme }) => ({
   fontSize: 'large',
@@ -47,12 +47,13 @@ export const OptionFrom = styled('option')(({ theme }) => ({
 }));
 export const Input = styled('input')(() => ({
   fontSize: 'large',
-  width: '492px',
+  width: '70%',
+
 }));
 export const TextArea = styled('textarea')(() => ({
   fontSize: 'large',
-  width: '492px',
   height: '100px',
+  width: '70%',
 }));
 export const SubmitButton = styled('button')(({ theme }) => ({
   padding: '6px 16px 4px',

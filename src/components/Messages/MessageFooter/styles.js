@@ -10,6 +10,7 @@ export const FooterLinks = styled('div')(() => ({
   display: 'flex',
   margin: '15px auto',
   maxWidth: '600px',
+  flexWrap: 'wrap',
 }));
 export const Links = styled(Link)(({ location, theme }) => ({
   textDecoration: 'none',

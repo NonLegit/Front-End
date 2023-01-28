@@ -2,6 +2,7 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
+import CallSplitIcon from '@mui/icons-material/CallSplit';
 import calculateTime from '../../../utils/calculateTime';
 
 // styles
@@ -31,8 +32,7 @@ import {
 function PostHeader(props) {
   const {
     title, ownerIcon, ownerType, ownerName, authorName, flairText, flairBackgroundColor, flairColor, createdAt,
-    subredit, nsfw, spoiler, redirectToPost,
-
+    subredit, nsfw, spoiler, redirectToPost, sharedFrom,
   } = props;
 
   const handleClickOnTitle = (e) => {
@@ -68,7 +68,21 @@ function PostHeader(props) {
               •
             </span>
             )}
-            <div>Posted By</div>
+            {sharedFrom
+              ? (
+                <>
+                  <CallSplitIcon
+                    sx={{
+                      color: '#0079D3',
+                      transform: 'rotate(90deg)',
+                      width: 15,
+                      height: 15,
+                    }}
+                  />
+                  <div>Crossed By</div>
+                </>
+              )
+              : <div>Posted By</div>}
             <PostInfoLink to={`/user/${authorName}`} color="inherit" fontWeight="normal">
               u/
               {authorName}

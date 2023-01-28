@@ -11,8 +11,11 @@ import { redditCookie } from '../../../Authentication/authenticationServer';
 import CahngePassword from './ChangePassword/CahngePassword';
 import CahngeEmail from './ChangeEmail/ChangeEmail';
 /**
- * - AccountPreferences
+ * - Account Preferences
  * - Change Email and password in settings page
+ *  @property {Boolean} openEmail  - open change email popup or not
+ *  @property {Boolean} openPass -  open change password popup or not
+ *  @return {React.Component} - Bosy of Account Preferences section
  *  @component
  *
  */

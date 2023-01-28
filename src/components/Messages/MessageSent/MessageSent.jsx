@@ -1,60 +1,26 @@
-import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import {
-  Message, SentContiner, MessageBody, MessageHeader, LinkProfile, MessageContent, ReplayButton,
-} from './style';
 
+import { messageSentFetch } from './messageSentServer';
+import MessageBody from './MessageBody/MessageBody';
+import {
+  SentContiner,
+} from './style';
+/**
+ * - sent page
+ *  @component
+ * @property {Array} valuse - Array of messages
+ *  @return {React.Component} - sent page
+ */
 function MessageSent() {
-  const api = 'http://myjson.dit.upm.es/api/bins/di24';
-  const [value, setValue] = useState({});
-  useEffect(() => {
-    axios.get(api) // fetch api
-      .then((actualData) => {
-        setValue({ props: actualData.data });
-        // console.log(actualData.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [api]);
+  const [valuse, setValues] = useState();
+  const [message] = messageSentFetch();
+
+  useEffect(() => { setValues(message?.data); }, [message]);
+
   return (
     <SentContiner>
-      { value.props?.sent.map((ele, indx) => (
-        <Message key={`${ele.replay}${indx + 0}`} indx={indx}>
-          <MessageHeader>
-            {ele.replay !== '0' && 're: ' }
-            {ele.subject}
-            :
-          </MessageHeader>
-          <MessageBody>
-            to
-            { ' ' }
-            <LinkProfile type="profile">
-              {ele.to}
-            </LinkProfile>
-
-            {' '}
-            { ele.via !== '' && (
-              <>
-                <span>via</span>
-                <LinkProfile type="subreddit">
-                  {ele.via}
-                </LinkProfile>
-                {' '}
-                [
-                <LinkProfile type="profile">M</LinkProfile>
-                ]
-              </>
-            ) }
-            {' '}
-            sent an
-            {' '}
-            { moment.utc(ele.time).local().startOf('seconds').fromNow() }
-            <MessageContent>{ ele.body }</MessageContent>
-            <ReplayButton>Replay</ReplayButton>
-          </MessageBody>
-        </Message>
+      { valuse?.map((ele, index) => (
+        <MessageBody key={`${index + 0}`} index={index} Message={ele} />
       ))}
     </SentContiner>
   );

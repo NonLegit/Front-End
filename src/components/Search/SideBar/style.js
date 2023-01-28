@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 
 export const SideBarContainer = styled('div')(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.between('0', '992')]: {
     display: 'none',
   },
   width: 312,

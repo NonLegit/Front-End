@@ -1,7 +1,7 @@
 import {
   Avatar, Box, Typography,
 } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import numFormatter from '../../../utils/MembersNum';
 import PostJoin from '../../SubReddit/PostJoin';
 import {
@@ -22,8 +22,15 @@ import {
 function Subreddits(props) {
   const { subreddit } = props;
   const [joined, setJoined] = useState(true);
+  const [action, setaction] = useState('');
+  console.log(action);
   const handleJoin = () => {
-    PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, !joined);
+    if (!joined) {
+      setaction('unsub');
+    } else {
+      setaction('sub');
+    }
+    PostJoin(`/subreddits/${subreddit?.fixedName}/subscribe`, action);
 
     setJoined((prev) => !prev);
   };
@@ -36,7 +43,9 @@ function Subreddits(props) {
   const handleMouseOut = () => {
     setHover(false);
   };
-
+  useEffect(() => {
+    setJoined(subreddit?.isJoined);
+  }, []);
   return (
     <PostContainer my={2} sx={{ padding: '16px' }}>
       <Box width="100%" sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -53,16 +62,16 @@ function Subreddits(props) {
             <Box sx={{ display: 'flex' }}>
               <PostInfoLink to={`/r/${subreddit?.fixedName}`} color="#000" fontWeight="bolder">
                 r/
-                {subreddit?.fixedName}
+                {subreddit?.name}
               </PostInfoLink>
               <Box color="#787C7E" fontWeight={300} display="flex" gap="4px" flexWrap="wrap">
                 <Typography component="span" mx="4px" sx={{ fontSize: '6px', display: 'flex', alignItems: 'center' }}>
                   •
                 </Typography>
                 <div>
-                  2.3m
-                  {' '}
                   {numFormatter(subreddit?.membersCount)}
+                  {' '}
+                  member
                 </div>
               </Box>
             </Box>
@@ -77,7 +86,7 @@ function Subreddits(props) {
           onMouseEnter={handleMouseIn}
           onMouseLeave={handleMouseOut}
         >
-          {(joined ? (hover ? 'leave' : 'joined') : 'join')}
+          {((joined) ? (hover ? 'leave' : 'joined') : 'join')}
         </Joined>
       </Box>
     </PostContainer>

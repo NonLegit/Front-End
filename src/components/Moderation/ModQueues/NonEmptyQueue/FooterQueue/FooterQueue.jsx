@@ -20,6 +20,21 @@ import {
   FooterBox, FooterButton, MoreList, SelectItem,
 } from './styles';
 
+/**
+ * left side bar on top communities
+ *
+ * @component Categories
+ * @property {string} modState - the state of the post (approved-removed-spam)
+ * @property {boolean} locked - is the post locked
+ * @property {boolean} hidden - is the post hidden
+ * @property {function} handleHide - function to handle hide event
+ * @property {function} handleLock - function to handle lock comments event
+ * @property {function} handleNsfw - function to handle mark as nsfw event
+ * @property {function} handleApprove - function to handle approve event
+ * @property {function} handleRemove - function to handle remove event
+ * @property {function} handleSpam - function to handle spam event
+ * @returns {React.Component} Categories
+ */
 function FooterQueue(props) {
   const {
     modState,

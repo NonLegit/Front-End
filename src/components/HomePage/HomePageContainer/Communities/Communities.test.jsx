@@ -7,10 +7,7 @@ import Communities from './Communities';
 
 describe(Communities, () => {
   test('Communities is in the document', () => {
-    const communities = {
-      communitiesTitle: 'communities near you',
-      communitiesList: [],
-    };
+    const communities = [];
     render(
       <Router>
         <Communities communities={communities} />
@@ -21,16 +18,13 @@ describe(Communities, () => {
   });
 
   test('Communities props works correctly', () => {
-    const communities = {
-      communitiesTitle: 'communities near you',
-      communitiesList: [],
-    };
+    const communities = [];
     render(
       <Router>
         <Communities communities={communities} />
       </Router>,
     );
     const communitiesTitle = screen.getByTestId('communities title');
-    expect(communitiesTitle.textContent).toEqual(communities.communitiesTitle);
+    expect(communitiesTitle.textContent).toEqual('communities near you');
   });
 });

@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test snapshot 1`] = `
+Array [
+  <div
+    className="css-65t9c5"
+  >
+    <div
+      className="css-1lxwves"
+    >
+      <div
+        className="css-ondxns"
+      >
+        Image posts
+      </div>
+      <div
+        className="MuiBox-root css-11rgmnm"
+      >
+        Allow images to be uploaded in posts in your subreddit
+      </div>
+    </div>
+    <span
+      className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+    >
+      <span
+        className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={null}
+      >
+        <input
+          className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+          defaultChecked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+        />
+      </span>
+      <span
+        className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      />
+    </span>
+  </div>,
+  <div
+    className="css-65t9c5"
+  >
+    <div
+      className="css-1lxwves"
+    >
+      <div
+        className="css-ondxns"
+      >
+        Videos posts
+      </div>
+      <div
+        className="MuiBox-root css-11rgmnm"
+      >
+        Allow videos to be uploaded in posts in your subreddit
+      </div>
+    </div>
+    <span
+      className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+    >
+      <span
+        className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={null}
+      >
+        <input
+          className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+          defaultChecked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+        />
+      </span>
+      <span
+        className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      />
+    </span>
+  </div>,
+  <div
+    className="css-65t9c5"
+  >
+    <div
+      className="css-1lxwves"
+    >
+      <div
+        className="css-ondxns"
+      >
+        Links posts
+      </div>
+      <div
+        className="MuiBox-root css-11rgmnm"
+      >
+        Allow links to be uploaded in posts in your subreddit
+      </div>
+    </div>
+    <span
+      className="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+    >
+      <span
+        className="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={null}
+      >
+        <input
+          className="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+          defaultChecked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+        />
+      </span>
+      <span
+        className="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      />
+    </span>
+  </div>,
+]
+`;

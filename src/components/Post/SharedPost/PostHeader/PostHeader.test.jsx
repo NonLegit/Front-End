@@ -2,7 +2,7 @@ import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import { MemoryRouter as Router } from 'react-router-dom';
 import PostHeader from './PostHeader';
-import calculateTime from '../../../utils/calculateTime';
+import calculateTime from '../../../../utils/calculateTime';
 
 describe(PostHeader, () => {
   it('PostHeader renders correctly', () => {

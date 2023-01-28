@@ -4,10 +4,11 @@ import { Link } from '@mui/material';
 export const SentContiner = styled('div')(() => ({
   margin: '20px auto',
   width: '70%',
-  minWidth: ' 700px',
+  minWidth: ' 300px',
 }));
 export const Message = styled('div')(({ theme, indx }) => ({
   padding: ' 10px 15px',
+  width: '100%',
   backgroundColor: (indx % 2) ? '#f6f7f8' : theme.palette.common.white,
 }));
 export const MessageBody = styled('div')(() => ({
@@ -39,4 +40,24 @@ export const ReplayButton = styled('div')(() => ({
   '&:hover': {
     textDecoration: 'underline',
   },
+}));
+export const TeaxArea = styled('textarea')(() => ({
+  width: '60%',
+  height: '100px',
+}));
+export const ButtonsContanier = styled('div')(() => ({
+  display: 'flex',
+  gap: '8px',
+}));
+export const SubmitButton = styled('button')(({ theme }) => ({
+  padding: '6px 16px 4px',
+  color: theme.palette.common.white,
+  backgroundColor: theme.palette.primary.main,
+  fontWeight: 'bold',
+  borderColor: '#00497f',
+  borderStyle: 'solid',
+  borderWidth: '0px 2px 2px 0px',
+  cursor: 'pointer',
+  borderRadius: '4px',
+  marginTop: '12px',
 }));

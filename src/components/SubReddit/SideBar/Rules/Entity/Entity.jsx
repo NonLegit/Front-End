@@ -8,6 +8,8 @@ import {
 /**
  * Rule Entity
  * @component
+ * @property {object} rule - rule entity
+ * @property {integer} index -number of the rule
  * @property  {function} handleClick toggle show rule or not
 
  * @return {React.Component} - Rule Entity

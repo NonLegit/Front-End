@@ -6,6 +6,14 @@ import { LeaveContext } from '../Moderators';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 
+/**
+ * Leave moderator popup for moderator page
+ * @component
+ * @property {boolean} openLeave determine the state of the popup (opened or closed)
+ * @property {function} handleClickCloseLeave close the popup
+ * @return {React.Component} - invite moderator popup component
+ */
+
 function LeavePopUp() {
   const {
     openLeave, handleClickCloseLeave,

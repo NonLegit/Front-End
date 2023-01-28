@@ -1,0 +1,21 @@
+{
+    "status": "success",
+    "data": {
+        "_id": "63a5613e10ebdf1da11b592e",
+        "author": "63a2174cbe566ac6458d2c1c",
+        "post": "63a560de10ebdf1da11b581b",
+        "mentions": [],
+        "replies": [],
+        "parent": "63a560de10ebdf1da11b581b",
+        "parentType": "Post",
+        "text": "<p>Comment 7 Edited :D</p>",
+        "createdAt": "2022-12-23T08:05:18.865Z",
+        "isDeleted": false,
+        "votes": 0,
+        "repliesCount": 0,
+        "locked": false,
+        "modState": "unmoderated",
+        "sortOnHot": 835891359432.5,
+        "__v": 0
+    }
+}

@@ -1,14 +1,23 @@
 {
     "status": "OK",
     "data": {
-        "_id": "639b5661106f0cd6ca989fdd",
+        "_id": "63a560de10ebdf1da11b581b",
         "ownerType": "User",
-        "replies": [],
-        "title": "My First Post",
+        "replies": [
+            "63a560ed10ebdf1da11b5884",
+            "63a560f610ebdf1da11b5898",
+            "63a560fa10ebdf1da11b58ac",
+            "63a5613110ebdf1da11b58f2",
+            "63a5613510ebdf1da11b5906",
+            "63a5613b10ebdf1da11b591a",
+            "63a5613e10ebdf1da11b592e"
+        ],
+        "title": "New Post",
         "kind": "self",
-        "text": "<p>Helooooooooooooooooo<strong>Basmaa :)</strong></p>\n",
+        "text": "<p>Hello :D</p>",
         "url": "",
-        "createdAt": "2022-12-15T06:09:24.932Z",
+        "images": [],
+        "createdAt": "2022-12-23T08:03:42.168Z",
         "locked": false,
         "isDeleted": false,
         "sendReplies": true,
@@ -16,29 +25,25 @@
         "spoiler": false,
         "votes": 0,
         "views": 0,
-        "commentCount": 10,
-        "shareCount": 0,
+        "commentCount": 17,
         "suggestedSort": "new",
         "scheduled": false,
         "modState": "unmoderated",
         "spamCount": 0,
         "spammedBy": [],
-        "images": [],
-        "videos": [],
-        "sortOnHot": 835542282466,
-        "sortOnBest": 668433825972.8,
+        "sortOnHot": 835891311084,
         "__v": 0,
         "owner": {
-            "_id": "639a5cbc1c0d09e8648693d7",
+            "_id": "63a2174cbe566ac6458d2c1c",
             "name": "Basma",
-            "icon": "https://api.nonlegit.click/users/default.png"
+            "icon": "https://api.nonlegit.click/users/Basma/user-Basma-1671568902238.jpeg"
         },
         "author": {
-            "_id": "639a5cbc1c0d09e8648693d7",
+            "_id": "63a2174cbe566ac6458d2c1c",
             "name": "Basma"
         },
         "isSaved": false,
-        "postVoteStatus": "0",
+        "postVoteStatus": 0,
         "isSpam": false
     }
 }

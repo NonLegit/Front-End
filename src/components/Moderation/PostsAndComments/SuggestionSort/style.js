@@ -15,7 +15,7 @@ export const SelectBox = styled(Box)(({ theme }) => ({
   boxShadow: '0 2px 4px 0 #eee',
   backgroundColor: 'white',
   position: 'absolute',
-  margin: '990px 560px 680px 725px',
+  margin: '840px 560px 680px 725px',
   zIndex: 10,
   [theme.breakpoints.between('0', '930')]: {
     margin: 0,

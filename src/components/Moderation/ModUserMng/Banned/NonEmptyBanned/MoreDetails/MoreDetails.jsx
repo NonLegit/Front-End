@@ -1,6 +1,15 @@
 import { Box, Typography } from '@mui/material';
 import { StyledDetails } from '../../../styles';
 
+/**
+ * more datails tab
+ * @component
+ * @property  {boolean} isOpened determine the state of more details tab to be showed or hidden
+ * @property {enum} bannedFor explain why this user is banned (spam or threatining etc...)
+ * @property {string} modNote note from the moderator about the banned user
+ * @return {React.Component} - more details tab
+ */
+
 function MoreDetails(props) {
   const { modNote, bannedFor, isOpened } = props;
   return (
