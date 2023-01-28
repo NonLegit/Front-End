@@ -58,6 +58,7 @@ Nonlight  mimic some functionalities of <a href="https://www.reddit.com/">Reddit
 <li>
 <a href="https://github.com/NonLegit/Front-End/blob/development/%5BSoftware%20Engineering%5D%20Project%20F2022.pdf">Project Description</a>
 </li>
+<br>
 <li>
 You can view
 <a href="https://nonlegit.github.io/Front-End/">Nonleghit</a>
