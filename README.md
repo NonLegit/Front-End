@@ -32,7 +32,7 @@
 
 <ul>
 <li>
-Nonlight  mimic some functionalities of <a href="https://www.reddit.com/">Reddit</a>
+NonLegit  mimic some functionalities of <a href="https://www.reddit.com/">Reddit</a>
 </li>
 <li> We are responsible for Front-End part</li>
 <li>The project is built by
@@ -177,7 +177,7 @@ There are a few additional environment variables that are used when building and
 <p>1) You con create 3 types of post</p>
 <ul>
 <li>📝 Text: you can add text and styling it with fancy text editor</li>
-<li>📷 mage: you can upload photo or video to add to your post</li>
+<li>📷 Image: you can upload photo or video to add to your post</li>
 <li>📎 Link: you can add link to your post</li>
 </ul>
 <p>2) You con add 2 tag to your post</p>
