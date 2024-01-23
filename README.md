@@ -1,6 +1,8 @@
 <div align= >
+   
 
-# 🌐 NonLegit 
+# <img align=center width=75px height=75px src="https://media1.giphy.com/media/mDN904TRuZwJhmc4mf/giphy.gif?cid=ecf05e47i8t7ozdn1ted9aqqf1z56vqkt9kwei9b5d46c4hy&rid=giphy.gif&ct=s"> NonLegit
+
 
 </div>
 <div align="center">
@@ -15,7 +17,8 @@
     <br> 
 </p>
 
-## 📝 Table of Contents
+## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
+
 - <a href ="#about"> 📙 Overview</a>
 - <a href ="#started"> 💻 Get Started</a>
 - <a href ="#deployment"> 🌎 Build & deployment</a>
@@ -24,10 +27,8 @@
 - <a href ="#contributors"> ✨ Contributors</a>
 - <a href ="#license"> 🔒 License</a>
 <hr style="background-color: #4b4c60"></hr>
-<a id = "about"></a>
 
-## 📙 Overview 
-
+## <img align="center"  width =60px  height =70px src="https://media3.giphy.com/media/h46Wk2BSHGch87Mk7w/giphy.gif?cid=ecf05e47uzbe4n6uzosogred6c2meppawdd9nb2avjp6ltdl&rid=giphy.gif&ct=s"> Overview <a id = "about"></a>
 
 <ul>
 <li>
@@ -67,7 +68,7 @@ You can view
 </ul>
 <hr style="background-color: #4b4c60"></hr>
 
-## 🚀 Get Started <a name = "started"></a>
+## <img  align= center width=50px height=50px src="https://c.tenor.com/HgX89Yku5V4AAAAi/to-the-moon.gif"> Get Started <a id = "started"></a>
 
 <ol>
 <li>Clone the repository
@@ -116,7 +117,7 @@ npm run test
 
 
 
-## 🌍 Build & Deployment <a id ="deployment"></a>
+## <img  align= center width= 80px height =80px src="https://media2.giphy.com/media/r0xXyasMMP3MA493e2/giphy.gif?cid=ecf05e47zzldel3l1zcdf08jibtto03qcwidkegx0itev1fd&rid=giphy.gif&ct=s">  Build & Deployment <a id ="deployment"></a>
 
 There are a few additional environment variables that are used when building and deploying for production.
 
@@ -132,7 +133,7 @@ There are a few additional environment variables that are used when building and
 
 
 
-## 🔍 Features  <a id ="features"></a>
+## <img  align= center width= 70px height =70px src="https://media1.giphy.com/media/NnSFnC428LRHaxUNzj/giphy.gif?cid=ecf05e47r1hlw9wrf1swakc9gxgn508lyzvbyzgp9i1iyvwl&rid=giphy.gif&ct=s"> Features  <a id ="features"></a>
 
 
 <div align="center">
@@ -450,7 +451,7 @@ There are a few additional environment variables that are used when building and
 <hr style="background-color: #4b4c60"></hr>
 
 
-## 🎥 GIF Demo <a id ="video"></a>
+## <img  align= center width= 70px height =70px src="https://img.genial.ly/5f91608064ad990c6ee12237/bd7195a3-a8bb-494b-8a6d-af48dd4deb4b.gif?genial&1643587200063">  GIF Demo <a id ="video"></a>
 
 <table align="left;">
 <tr>
@@ -531,8 +532,7 @@ There are a few additional environment variables that are used when building and
 
 <hr style="background-color: #4b4c60"></hr>
 
-## 👑 Contributors
-<a id ="contributors"></a>
+## <img  align="center" width= 70px height =55px src="https://media0.giphy.com/media/Xy702eMOiGGPzk4Zkd/giphy.gif?cid=ecf05e475vmf48k83bvzye3w2m2xl03iyem3tkuw2krpkb7k&rid=giphy.gif&ct=s"> Contributors <a id ="contributors"></a>
 
 <table align="center" >
   <tr>
